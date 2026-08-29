@@ -18,12 +18,53 @@ In particular:
 
 Negative results and baseline wins are part of the scientific record and should be preserved.
 
+## Canonical execution
+
+Install the repository and test it before research runs:
+
+```bash
+python -m pip install -e . pytest
+python -m compileall -q fim fim_experiments scripts tests
+MPLBACKEND=Agg pytest -q
+```
+
+Run one maintained training/evaluation experiment:
+
+```bash
+DEVICE=auto \
+BENCHMARK=lorenz96 \
+MODEL=fim_plus \
+EXP_NAME=lorenz_fim_seed42 \
+SEED=42 \
+bash scripts/run_train.sh
+```
+
+The experiment runner preserves resolved configuration, logs, metrics, figures and checkpoints under the selected results root. It does not rely on an ad-hoc root-level `model.pt`.
+
+Evaluate an existing checkpoint without retraining:
+
+```bash
+CHECKPOINT=results/lorenz_fim_seed42/lorenz96_fim_plus/checkpoints/final_state.pt \
+DEVICE=auto \
+bash scripts/run_eval.sh
+```
+
+Run the supported model-comparison suite:
+
+```bash
+python scripts/run_full_suite.py --device auto
+```
+
+### Component-ablation warning
+
+The historical `scripts/run_ablation.sh` used flags that were not connected to the maintained experiment CLI. It is intentionally disabled rather than producing misleading paper evidence. Component ablations must be implemented as explicit tested configuration switches with frozen semantics before they are run or quoted.
+
 ## Repository map
 
 - `fim/` — core dynamics, geometry, memory, operators, stochastic modules, training, and utilities.
 - `fim_experiments/` — benchmark systems, training/evaluation runners, and experiment orchestration.
 - `tests/` and `fim/epistemic_tests_full/tests/` — implementation and scientific sanity checks.
-- `scripts/` — train, evaluation, ablation, paper-Lorenz, and suite runners.
+- `scripts/` — maintained train/evaluation/suite entrypoints plus paper/research utilities.
 - `results/` — stored run artifacts and processed summaries.
 - `docs/` — architecture, mathematics, and evidence-bounded experiment documentation.
 - `paper/` — existing manuscript artifact.

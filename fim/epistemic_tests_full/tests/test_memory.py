@@ -52,6 +52,10 @@ def test_trace_bank_and_retrieval(import_helpers, trace_bank_candidates, retriev
     assert torch.isfinite(out.context).all()
 
     consolidator = MemoryConsolidator(salience_threshold=0.5, min_store_probability=0.0, decay=0.0)
+    # Training mode intentionally permits stochastic sub-threshold writes. This
+    # assertion is about the hard salience threshold, so evaluate it using the
+    # deterministic inference policy rather than relying on a random draw.
+    consolidator.eval()
     bank2 = TraceBank(key_dim=4, value_dim=3, max_traces=8)
     stored = consolidator(
         bank=bank2,
