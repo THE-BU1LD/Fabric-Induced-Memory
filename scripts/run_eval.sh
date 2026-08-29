@@ -1,40 +1,41 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-# ----------------------------
-# CONFIG
-# ----------------------------
-DEVICE=${DEVICE:-cuda}
-MODEL_PATH=${MODEL_PATH:-runs/latest/model.pt}
-STEPS=${STEPS:-100}
+DEVICE=${DEVICE:-auto}
+CHECKPOINT=${CHECKPOINT:-${MODEL_PATH:-}}
+CONFIG=${CONFIG:-}
+ROLLOUT_STEPS=${ROLLOUT_STEPS:-${STEPS:-50}}
 BATCH_SIZE=${BATCH_SIZE:-32}
+OUTPUT_DIR=${OUTPUT_DIR:-}
 
-EXP_NAME=${EXP_NAME:-eval_$(date +%s)}
-SAVE_DIR=${SAVE_DIR:-eval_runs/$EXP_NAME}
-LOG_FILE=$SAVE_DIR/eval.log
+if [[ -z "$CHECKPOINT" ]]; then
+    cat >&2 <<'EOF'
+ERROR: set CHECKPOINT to an existing experiment checkpoint.
 
-mkdir -p $SAVE_DIR
+Example:
+  CHECKPOINT=results/my_run/lorenz96_fim_plus/checkpoints/final_state.pt \
+  bash scripts/run_eval.sh
 
-echo "=============================="
-echo "Running Evaluation: $EXP_NAME"
-echo "=============================="
-
-python run_eval.py \
-    --device $DEVICE \
-    --model_path $MODEL_PATH \
-    --steps $STEPS \
-    --batch_size $BATCH_SIZE \
-    --save_dir $SAVE_DIR \
-    2>&1 | tee $LOG_FILE
-
-# ----------------------------
-# OPTIONAL PLOTS
-# ----------------------------
-if [ -f plot_rollouts.py ]; then
-    echo "Generating rollout plots..."
-    python plot_rollouts.py --input $SAVE_DIR/eval_outputs.pt --out $SAVE_DIR
+The old default `runs/latest/model.pt` was removed because the maintained
+experiment runner does not create that path.
+EOF
+    exit 2
 fi
 
-echo "Evaluation complete."
-echo "Saved to $SAVE_DIR"
+args=(
+    python scripts/evaluate_checkpoint.py
+    --checkpoint "$CHECKPOINT"
+    --device "$DEVICE"
+    --rollout_steps "$ROLLOUT_STEPS"
+    --batch_size "$BATCH_SIZE"
+)
+
+if [[ -n "$CONFIG" ]]; then
+    args+=(--config "$CONFIG")
+fi
+if [[ -n "$OUTPUT_DIR" ]]; then
+    args+=(--output_dir "$OUTPUT_DIR")
+fi
+
+"${args[@]}"
