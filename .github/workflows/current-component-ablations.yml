@@ -1,3 +1,4 @@
+# Triggered 2026-08-29 after the current-code ablation implementation passed CI.
 name: Current FIM component ablations
 
 on:
