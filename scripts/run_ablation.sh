@@ -1,59 +1,37 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-# ----------------------------
-# CONFIG
-# ----------------------------
-DEVICE=${DEVICE:-cuda}
+DEVICE=${DEVICE:-auto}
 EPOCHS=${EPOCHS:-10}
-LR=${LR:-3e-4}
-STEPS=${STEPS:-100}
-SEED=${SEED:-42}
+BATCH_SIZE=${BATCH_SIZE:-128}
+DATASET_SIZE=${DATASET_SIZE:-4096}
+ROLLOUT_STEPS=${ROLLOUT_STEPS:-50}
+BENCHMARK=${BENCHMARK:-lorenz96}
+RESULTS_ROOT=${RESULTS_ROOT:-ablation_results}
+SEEDS=${SEEDS:-"41 42 43"}
+VARIANTS=${VARIANTS:-"full no_memory no_retrieval"}
 
-BASE_DIR=${BASE_DIR:-ablations_$(date +%s)}
-mkdir -p $BASE_DIR
+read -r -a SEED_ARGS <<< "$SEEDS"
+read -r -a VARIANT_ARGS <<< "$VARIANTS"
 
-echo "=============================="
-echo "Running Ablation Suite"
-echo "=============================="
+printf '%s\n' "==============================" "FIM mechanism ablation suite" "=============================="
+printf 'benchmark: %s\n' "$BENCHMARK"
+printf 'variants:  %s\n' "$VARIANTS"
+printf 'seeds:     %s\n' "$SEEDS"
+printf 'outputs:   %s\n' "$RESULTS_ROOT"
 
-run_exp () {
-    NAME=$1
-    EXTRA_ARGS=$2
+python -m fim_experiments.ablation \
+  --benchmark "$BENCHMARK" \
+  --device "$DEVICE" \
+  --epochs "$EPOCHS" \
+  --batch-size "$BATCH_SIZE" \
+  --dataset-size "$DATASET_SIZE" \
+  --rollout-steps "$ROLLOUT_STEPS" \
+  --results-root "$RESULTS_ROOT" \
+  --variants "${VARIANT_ARGS[@]}" \
+  --seeds "${SEED_ARGS[@]}"
 
-    EXP_DIR=$BASE_DIR/$NAME
-    mkdir -p $EXP_DIR
+python -m fim_experiments.ablation_report "$RESULTS_ROOT/ablation_manifest.json"
 
-    echo "---- Running: $NAME ----"
-
-    python run_train.py \
-        --epochs $EPOCHS \
-        --lr $LR \
-        --steps $STEPS \
-        --device $DEVICE \
-        --seed $SEED \
-        --log_csv $EXP_DIR/metrics.csv \
-        $EXTRA_ARGS \
-        2>&1 | tee $EXP_DIR/train.log
-
-    mv model.pt $EXP_DIR/model.pt
-
-    if [ -f plot_metrics.py ]; then
-        python plot_metrics.py \
-            --csv $EXP_DIR/metrics.csv \
-            --out $EXP_DIR
-    fi
-}
-
-# ----------------------------
-# RUNS
-# ----------------------------
-run_exp "baseline" ""
-run_exp "no_memory" "--no_memory"
-run_exp "no_retrieval" "--no_retrieval"
-run_exp "low_capacity" "--hidden_dim 32"
-run_exp "high_noise" "--noise 0.5"
-
-echo "All ablations complete."
-echo "Saved in $BASE_DIR"
+printf '\nDone. Inspect the manifest, per-run summary/provenance files, and ablation_summary.md before making paper claims.\n'

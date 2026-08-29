@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install -e . pytest
+
+      - name: Compile Python sources
+        run: python -m compileall -q fim fim_experiments
+
+      - name: Check experiment CLI
+        run: python main.py --help
+
+      - name: Check ablation CLI
+        run: python -m fim_experiments.ablation --help
+
+      - name: Check ablation report CLI
+        run: python -m fim_experiments.ablation_report --help
+
+      - name: Test ablation control semantics
+        run: pytest -q tests/test_ablation_controls.py
