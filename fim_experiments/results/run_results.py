@@ -115,9 +115,16 @@ def run(
             f"truth={tuple(truth.shape)}"
         )
 
-    error = predicted - truth
-    mse_by_step = error.reshape(error.shape[0], error.shape[1], -1).pow(2).mean(dim=-1)
-    mae_by_step = error.reshape(error.shape[0], error.shape[1], -1).abs().mean(dim=-1)
+    # Exclude the seeded initial condition from forecast error. Including t=0
+    # would add an artificial zero-error point and bias the reported rollout
+    # metric downward, especially for short horizons.
+    forecast_error = predicted[:, 1:] - truth[:, 1:]
+    mse_by_step = forecast_error.reshape(
+        forecast_error.shape[0], forecast_error.shape[1], -1
+    ).pow(2).mean(dim=-1)
+    mae_by_step = forecast_error.reshape(
+        forecast_error.shape[0], forecast_error.shape[1], -1
+    ).abs().mean(dim=-1)
 
     metrics = {
         "rollout_mse": float(mse_by_step.mean().item()),
