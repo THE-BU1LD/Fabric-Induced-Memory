@@ -5,10 +5,18 @@ import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 EXP = ROOT / 'fim_experiments'
-if str(EXP) not in sys.path:
-    sys.path.insert(0, str(EXP))
-
-from ablation_systems import AblatedFIMSystem, variant_switches
+_exp_path = str(EXP)
+_added_path = _exp_path not in sys.path
+if _added_path:
+    sys.path.insert(0, _exp_path)
+try:
+    from ablation_systems import AblatedFIMSystem, variant_switches
+finally:
+    # Do not leak the legacy experiment directory into pytest's global import
+    # search path. Some epistemic tests intentionally probe top-level `train`
+    # availability; leaving this path installed changes which module they test.
+    if _added_path:
+        sys.path.remove(_exp_path)
 
 
 def _model(**switches):
