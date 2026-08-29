@@ -43,3 +43,46 @@ jobs:
 
       - name: Test ablation control semantics
         run: pytest -q tests/test_ablation_controls.py
+
+      - name: End-to-end mechanism ablation smoke
+        run: |
+          rm -rf /tmp/fim-ablation-smoke
+          python -m fim_experiments.ablation \
+            --variants full no_memory no_retrieval \
+            --seeds 7 \
+            --benchmark lorenz96 \
+            --device cpu \
+            --epochs 1 \
+            --batch-size 4 \
+            --dataset-size 16 \
+            --rollout-steps 2 \
+            --results-root /tmp/fim-ablation-smoke
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path('/tmp/fim-ablation-smoke')
+          manifest = json.loads((root / 'ablation_manifest.json').read_text())
+          assert manifest['variants'] == ['full', 'no_memory', 'no_retrieval']
+          assert manifest['seeds'] == [7]
+          assert len(manifest['runs']) == 3
+
+          expected = {
+              'full': {'store_traces': True, 'retrieve': True},
+              'no_memory': {'store_traces': False, 'retrieve': False},
+              'no_retrieval': {'store_traces': True, 'retrieve': False},
+          }
+          seen = set()
+          for run in manifest['runs']:
+              summary = Path(run['summary'])
+              provenance = Path(run['provenance'])
+              assert summary.is_file() and summary.stat().st_size > 0
+              assert provenance.is_file() and provenance.stat().st_size > 0
+              prov = json.loads(provenance.read_text())
+              variant = prov['variant']
+              assert prov['controls'] == expected[variant]
+              assert prov['seed'] == 7
+              seen.add(variant)
+          assert seen == set(expected)
+          print('FIM_ABLATION_SMOKE_PASS')
+          PY
