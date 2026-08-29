@@ -40,6 +40,11 @@ class TupleIncrementModel(torch.nn.Module):
         return x + 1.0, torch.ones(x.shape[0], 1, device=x.device)
 
 
+class HoldStateModel(torch.nn.Module):
+    def forward(self, x: torch.Tensor):
+        return x
+
+
 def test_run_results_supports_structured_output_and_requested_artifacts(tmp_path):
     model = StructuredIncrementModel()
     benchmark = IncrementBenchmark()
@@ -81,3 +86,20 @@ def test_run_results_supports_legacy_tuple_output(tmp_path):
     assert metrics["rollout_mse"] == 0.0
     assert metrics["final_step_mse"] == 0.0
     assert metrics["salience_available"] is True
+
+
+def test_rollout_metrics_exclude_seeded_initial_condition():
+    metrics = run(
+        HoldStateModel(),
+        IncrementBenchmark(),
+        device="cpu",
+        rollout_steps=2,
+        batch_size=1,
+    )
+
+    # Forecast errors are 1 at step 1 and 2 at step 2. The seeded t=0
+    # condition is intentionally excluded, so MSE=(1^2 + 2^2)/2=2.5.
+    assert metrics["rollout_mse"] == 2.5
+    assert metrics["final_step_mse"] == 4.0
+    assert metrics["rollout_mae"] == 1.5
+    assert metrics["final_step_mae"] == 2.0
