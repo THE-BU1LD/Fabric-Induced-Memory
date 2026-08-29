@@ -34,5 +34,11 @@ python scripts/run_component_ablations.py \
   --seeds $SEEDS \
   --variants $VARIANTS
 
-echo "Fresh current-code FIM ablation matrix completed."
+# A training process exiting zero is not sufficient evidence. Refuse to mark the
+# matrix complete if cells are missing/duplicated, commit provenance is mixed,
+# variant switches disagree with their declared semantics, or protocol settings
+# drift across cells.
+python scripts/validate_component_ablation_manifest.py "$MANIFEST"
+
+echo "Fresh current-code FIM ablation matrix completed and validated."
 echo "Manifest: $MANIFEST"
