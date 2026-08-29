@@ -1,59 +1,25 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-# ----------------------------
-# CONFIG
-# ----------------------------
-DEVICE=${DEVICE:-cuda}
-EPOCHS=${EPOCHS:-10}
-LR=${LR:-3e-4}
-STEPS=${STEPS:-100}
-SEED=${SEED:-42}
+cat >&2 <<'EOF'
+ERROR: the legacy component-ablation wrapper has been disabled.
 
-BASE_DIR=${BASE_DIR:-ablations_$(date +%s)}
-mkdir -p $BASE_DIR
+The previous version called a nonexistent root `run_train.py` and passed
+`--no_memory`, `--no_retrieval`, `--hidden_dim`, and `--noise` flags that are
+not implemented by the maintained `fim_experiments/main.py` CLI. Running that
+script could therefore not constitute auditable ablation evidence.
 
-echo "=============================="
-echo "Running Ablation Suite"
-echo "=============================="
+Supported model-comparison smoke/suite execution is available through:
 
-run_exp () {
-    NAME=$1
-    EXTRA_ARGS=$2
+  python scripts/run_full_suite.py --device auto
 
-    EXP_DIR=$BASE_DIR/$NAME
-    mkdir -p $EXP_DIR
+Do not relabel model comparisons as component ablations.
 
-    echo "---- Running: $NAME ----"
+Before paper-facing component ablations are run, implement explicit tested
+configuration switches for each mechanism, freeze their semantics/protocol,
+and preserve current-commit per-run provenance. See RESEARCH_TRUTH.md and the
+open reproduction issue.
+EOF
 
-    python run_train.py \
-        --epochs $EPOCHS \
-        --lr $LR \
-        --steps $STEPS \
-        --device $DEVICE \
-        --seed $SEED \
-        --log_csv $EXP_DIR/metrics.csv \
-        $EXTRA_ARGS \
-        2>&1 | tee $EXP_DIR/train.log
-
-    mv model.pt $EXP_DIR/model.pt
-
-    if [ -f plot_metrics.py ]; then
-        python plot_metrics.py \
-            --csv $EXP_DIR/metrics.csv \
-            --out $EXP_DIR
-    fi
-}
-
-# ----------------------------
-# RUNS
-# ----------------------------
-run_exp "baseline" ""
-run_exp "no_memory" "--no_memory"
-run_exp "no_retrieval" "--no_retrieval"
-run_exp "low_capacity" "--hidden_dim 32"
-run_exp "high_noise" "--noise 0.5"
-
-echo "All ablations complete."
-echo "Saved in $BASE_DIR"
+exit 2
