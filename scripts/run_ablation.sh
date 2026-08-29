@@ -2,24 +2,37 @@
 
 set -euo pipefail
 
-cat >&2 <<'EOF'
-ERROR: the legacy component-ablation wrapper has been disabled.
+# Fresh current-code component ablations. These switches map only to mechanisms
+# that exist in the maintained FIMSystem implementation. Historical labels such
+# as `no_spectral_mixing` intentionally fail closed and are not silently reused.
 
-The previous version called a nonexistent root `run_train.py` and passed
-`--no_memory`, `--no_retrieval`, `--hidden_dim`, and `--noise` flags that are
-not implemented by the maintained `fim_experiments/main.py` CLI. Running that
-script could therefore not constitute auditable ablation evidence.
+DEVICE=${DEVICE:-auto}
+EPOCHS=${EPOCHS:-12}
+BATCH_SIZE=${BATCH_SIZE:-64}
+DATASET_SIZE=${DATASET_SIZE:-2048}
+ROLLOUT_STEPS=${ROLLOUT_STEPS:-4}
+EVAL_STEPS=${EVAL_STEPS:-30}
+BENCHMARKS=${BENCHMARKS:-"lorenz96 delayed_recall"}
+SEEDS=${SEEDS:-"11 23 37"}
+VARIANTS=${VARIANTS:-"full no_memory no_retrieval no_salience_gating"}
+RESULTS_ROOT=${RESULTS_ROOT:-results/current_component_ablations}
+MANIFEST=${MANIFEST:-$RESULTS_ROOT/manifest.json}
 
-Supported model-comparison smoke/suite execution is available through:
+# Intentional word splitting turns the documented space-separated environment
+# variables into argparse lists.
+# shellcheck disable=SC2086
+python scripts/run_component_ablations.py \
+  --device "$DEVICE" \
+  --epochs "$EPOCHS" \
+  --batch-size "$BATCH_SIZE" \
+  --dataset-size "$DATASET_SIZE" \
+  --rollout-steps "$ROLLOUT_STEPS" \
+  --eval-steps "$EVAL_STEPS" \
+  --results-root "$RESULTS_ROOT" \
+  --manifest "$MANIFEST" \
+  --benchmarks $BENCHMARKS \
+  --seeds $SEEDS \
+  --variants $VARIANTS
 
-  python scripts/run_full_suite.py --device auto
-
-Do not relabel model comparisons as component ablations.
-
-Before paper-facing component ablations are run, implement explicit tested
-configuration switches for each mechanism, freeze their semantics/protocol,
-and preserve current-commit per-run provenance. See RESEARCH_TRUTH.md and the
-open reproduction issue.
-EOF
-
-exit 2
+echo "Fresh current-code FIM ablation matrix completed."
+echo "Manifest: $MANIFEST"
