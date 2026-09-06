@@ -1,5 +1,9 @@
 # Fabric-Induced Memory (FIM)
 
+> **Legacy snapshot:** this repository is retained for provenance.  
+> **Canonical current repository:** `THE-BU1LD/Fabric-Induced-Memory`  
+> Do not use this repository as the default target for new FIM research, CI, paper, or release work unless a task explicitly refers to this historical snapshot.
+
 FIM is a research framework for studying whether a structured latent memory can help neural sequence models retain and retrieve information over long horizons.
 
 The implementation includes an adaptive memory bank, salience-based trace storage, retrieval-conditioned latent updates, scientific/sequence benchmarks, training and evaluation code, experiment utilities, tests, and paper assets.
