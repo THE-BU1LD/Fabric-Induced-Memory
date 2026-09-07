@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
+import importlib.metadata as importlib_metadata
 import json
 import platform
 import subprocess
@@ -126,8 +128,44 @@ def _git_sha() -> str | None:
         return None
 
 
-def _provenance(variant: str, seed: int, cfg: Dict[str, Any]) -> Dict[str, Any]:
+def _sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _package_manifest() -> List[Dict[str, str]]:
+    """Return a stable snapshot of installed Python distribution identities."""
+    packages: Dict[str, str] = {}
+    for distribution in importlib_metadata.distributions():
+        name = distribution.metadata.get("Name")
+        if not name:
+            continue
+        packages[str(name)] = str(distribution.version)
+    return [
+        {"name": name, "version": packages[name]}
+        for name in sorted(packages, key=str.casefold)
+    ]
+
+
+def _provenance(
+    variant: str,
+    seed: int,
+    cfg: Dict[str, Any],
+    metrics: Dict[str, Any],
+    checkpoint_path: Path,
+) -> Dict[str, Any]:
     store_traces, retrieve = variant_controls(variant)
+    checkpoint: Dict[str, Any] = {
+        "path": str(checkpoint_path),
+        "exists": checkpoint_path.is_file(),
+    }
+    if checkpoint["exists"]:
+        checkpoint["sha256"] = _sha256_file(checkpoint_path)
+        checkpoint["bytes"] = checkpoint_path.stat().st_size
+
     return {
         "variant": variant,
         "controls": {
@@ -137,9 +175,13 @@ def _provenance(variant: str, seed: int, cfg: Dict[str, Any]) -> Dict[str, Any]:
         "seed": seed,
         "git_sha": _git_sha(),
         "python": sys.version,
+        "python_executable": sys.executable,
         "platform": platform.platform(),
         "torch": torch.__version__,
         "cuda_available": torch.cuda.is_available(),
+        "parameters": metrics.get("parameters"),
+        "checkpoint": checkpoint,
+        "packages": _package_manifest(),
         "config": experiment_main._to_jsonable(cfg),
     }
 
@@ -187,15 +229,18 @@ def run_variant(
         experiment_main.build_system = original_builder
 
     dirs = experiment_main.build_experiment_dirs(cfg)
+    checkpoint_path = dirs["checkpoints"] / "final_state.pt"
     provenance_path = dirs["metrics"] / "provenance.json"
+    provenance = _provenance(variant, seed, cfg, metrics, checkpoint_path)
     with provenance_path.open("w", encoding="utf-8") as handle:
-        json.dump(_provenance(variant, seed, cfg), handle, indent=2)
+        json.dump(provenance, handle, indent=2)
 
     return {
         "variant": variant,
         "seed": int(seed),
         "summary": str(dirs["metrics"] / "summary.json"),
         "provenance": str(provenance_path),
+        "checkpoint": provenance["checkpoint"],
         "metrics": experiment_main._to_jsonable(metrics),
     }
 
@@ -254,6 +299,7 @@ def main() -> None:
                 "seed": run["seed"],
                 "summary": run["summary"],
                 "provenance": run["provenance"],
+                "checkpoint": run["checkpoint"],
             }
             for run in runs
         ],

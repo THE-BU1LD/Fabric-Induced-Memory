@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+import hashlib
+
 import pytest
 import torch
 
+from fim_experiments import ablation
 from fim_experiments.ablation import ControlledFIMSystem, normalize_variants, variant_controls
 from fim_experiments.systems import FIMSystem
 
@@ -86,3 +89,54 @@ def test_forward_uses_fixed_variant_controls(monkeypatch) -> None:
     model(torch.zeros(1, 1, 1, 4))
 
     assert calls == [(False, False)]
+
+
+def test_provenance_records_parameter_count_checkpoint_hash_and_packages(tmp_path, monkeypatch) -> None:
+    checkpoint = tmp_path / "final_state.pt"
+    checkpoint_bytes = b"deterministic-checkpoint-fixture"
+    checkpoint.write_bytes(checkpoint_bytes)
+
+    monkeypatch.setattr(ablation, "_git_sha", lambda: "abc123")
+    monkeypatch.setattr(
+        ablation,
+        "_package_manifest",
+        lambda: [{"name": "example-package", "version": "1.2.3"}],
+    )
+
+    provenance = ablation._provenance(
+        "full",
+        41,
+        {"experiment": {"name": "fixture"}},
+        {"parameters": 12345},
+        checkpoint,
+    )
+
+    assert provenance["git_sha"] == "abc123"
+    assert provenance["parameters"] == 12345
+    assert provenance["packages"] == [{"name": "example-package", "version": "1.2.3"}]
+    assert provenance["checkpoint"] == {
+        "path": str(checkpoint),
+        "exists": True,
+        "sha256": hashlib.sha256(checkpoint_bytes).hexdigest(),
+        "bytes": len(checkpoint_bytes),
+    }
+
+
+def test_provenance_fails_closed_to_missing_checkpoint_without_fake_hash(monkeypatch, tmp_path) -> None:
+    checkpoint = tmp_path / "missing.pt"
+    monkeypatch.setattr(ablation, "_git_sha", lambda: None)
+    monkeypatch.setattr(ablation, "_package_manifest", lambda: [])
+
+    provenance = ablation._provenance(
+        "no_memory",
+        42,
+        {},
+        {"parameters": 99},
+        checkpoint,
+    )
+
+    assert provenance["checkpoint"] == {
+        "path": str(checkpoint),
+        "exists": False,
+    }
+    assert "sha256" not in provenance["checkpoint"]
