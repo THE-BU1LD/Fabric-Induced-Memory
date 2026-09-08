@@ -73,10 +73,10 @@ jobs:
             --seeds 101 211 307 401 503 \
             --variants full no_memory no_retrieval no_salience_gating \
             --device cpu \
-            --epochs 6 \
+            --epochs 4 \
             --batch-size 1 \
             --dataset-size 32 \
-            --rollout-steps 4 \
+            --rollout-steps 16 \
             --eval-steps 20
       - name: Fail-closed analysis and manuscript evidence generation
         run: python scripts/analyze_trajectory_isolated_ablations.py
@@ -91,6 +91,9 @@ jobs:
           assert data['benchmarks'] == ['delayed_recall', 'lorenz96']
           assert data['seeds'] == [101, 211, 307, 401, 503]
           assert data['variants'] == ['full', 'no_memory', 'no_retrieval', 'no_salience_gating']
+          assert data['budget']['epochs'] == 4
+          assert data['budget']['train_rollout_steps'] == 16
+          assert data['budget']['eval_rollout_steps'] == 20
           assert data['expected_cells'] == 40
           assert len(data['runs']) == 40
           assert all(r['status'] == 'success' for r in data['runs'])
