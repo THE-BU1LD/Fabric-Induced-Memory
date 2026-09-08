@@ -7,16 +7,18 @@ on:
       - 'fim_experiments/ablation_systems.py'
       - 'scripts/run_component_ablations.py'
       - 'scripts/run_ablation.sh'
+      - 'scripts/run_paired_fresh_multiseed_v2.py'
       - 'research/CURRENT_COMPONENT_ABLATION_PROTOCOL_20260829.md'
+      - 'research/FRESH_MULTI_SEED_REPLICATION_PROTOCOL_V2_20260908.md'
       - '.github/workflows/current-component-ablations.yml'
 
 permissions:
   contents: read
 
 jobs:
-  frozen-current-matrix:
+  paired-fresh-multiseed-v2:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 300
     env:
       PYTHONUNBUFFERED: '1'
       MPLBACKEND: Agg
@@ -34,35 +36,41 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -e . pytest
 
-      - name: Verify ablation semantics and repository tests
-        run: pytest -q
-
-      - name: Run frozen current-code component matrix
-        run: bash scripts/run_ablation.sh
-
-      - name: Verify manifest coverage
+      - name: Preflight implementation and ablation semantics
         run: |
+          python -m compileall -q fim fim_experiments scripts tests
+          pytest -q
+
+      - name: Execute frozen paired v2 matrix
+        run: python scripts/run_paired_fresh_multiseed_v2.py
+
+      - name: Require complete generated evidence
+        run: |
+          test -s results/fresh_paired_multiseed_v2_20260908/manifest.json
+          test -s results/fresh_paired_multiseed_v2_20260908/summary.json
+          test -s results/fresh_paired_multiseed_v2_20260908/paper_evidence.md
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path('results/current_component_ablations/manifest.json')
-          data = json.loads(p.read_text())
-          assert data['benchmarks'] == ['lorenz96', 'delayed_recall']
-          assert data['seeds'] == [11, 23, 37]
-          assert data['variants'] == ['full', 'no_memory', 'no_retrieval', 'no_salience_gating']
-          assert len(data['runs']) == 24, len(data['runs'])
-          cells={(r['benchmark'], r['seed'], r['variant']) for r in data['runs']}
-          assert len(cells) == 24
-          print('validated 24 frozen current-code ablation cells')
+          p=Path('results/fresh_paired_multiseed_v2_20260908/manifest.json')
+          data=json.loads(p.read_text())
+          assert data['expected_cells'] == {'mechanism': 40, 'baseline': 50}
+          assert len(data['runs']) == 90, len(data['runs'])
+          assert data['complete'] is True
+          assert not data['failures']
+          assert all(data['self_check'][k] for k in [
+              'data_tensor_identity','split_identity','shuffle_identity','evaluation_identity'
+          ])
+          print('validated paired FIM v2: 90/90 cells, finite complete matrix, RNG pairing self-check passed')
           PY
 
-      - name: Retain all fresh ablation evidence
+      - name: Retain paired v2 evidence even on failure
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: fim-current-component-ablations-${{ github.sha }}
+          name: fim-paired-v2-${{ github.sha }}
           retention-days: 30
           if-no-files-found: warn
           path: |
-            results/current_component_ablations/**
-            research/CURRENT_COMPONENT_ABLATION_PROTOCOL_20260829.md
+            results/fresh_paired_multiseed_v2_20260908/**
+            research/FRESH_MULTI_SEED_REPLICATION_PROTOCOL_V2_20260908.md
