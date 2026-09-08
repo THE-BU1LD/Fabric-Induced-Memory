@@ -7,7 +7,6 @@ import itertools
 import json
 import math
 import random
-from collections import defaultdict
 from pathlib import Path
 from statistics import mean, median
 from typing import Iterable
@@ -16,6 +15,13 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_BENCHMARKS = ["delayed_recall", "lorenz96"]
 EXPECTED_SEEDS = [101, 211, 307, 401, 503]
 EXPECTED_VARIANTS = ["full", "no_memory", "no_retrieval", "no_salience_gating"]
+EXPECTED_BUDGET = {
+    "epochs": 4,
+    "dataset_size": 32,
+    "batch_size": 1,
+    "train_rollout_steps": 16,
+    "eval_rollout_steps": 20,
+}
 
 
 def exact_sign_flip_p(deltas: list[float]) -> float:
@@ -62,8 +68,12 @@ def validate_manifest(data: dict) -> list[dict]:
         raise ValueError(f"Seed set differs from frozen protocol: {data.get('seeds')}")
     if data.get("variants") != EXPECTED_VARIANTS:
         raise ValueError(f"Variant set differs from frozen protocol: {data.get('variants')}")
+    if data.get("budget") != EXPECTED_BUDGET:
+        raise ValueError(f"Execution budget differs from frozen protocol: {data.get('budget')}")
     if data.get("trajectory_isolation", {}).get("batch_size") != 1:
         raise ValueError("Manifest is not trajectory-isolated")
+    if data.get("git_dirty") is not False:
+        raise ValueError(f"Paper-facing analysis requires a clean executed tree; git_dirty={data.get('git_dirty')}")
 
     rows = data.get("runs", [])
     expected = len(EXPECTED_BENCHMARKS) * len(EXPECTED_SEEDS) * len(EXPECTED_VARIANTS)
@@ -81,6 +91,8 @@ def validate_manifest(data: dict) -> list[dict]:
     protocols = {r.get("protocol_sha256") for r in rows}
     if len(commits) != 1 or None in commits:
         raise ValueError(f"Expected one exact git commit, saw {commits}")
+    if commits != {data.get("git_commit")}:
+        raise ValueError("Run commit does not match manifest commit")
     if len(protocols) != 1 or None in protocols:
         raise ValueError("Expected one exact protocol hash across all cells")
     if protocols != {data.get("protocol_sha256")}:
@@ -89,11 +101,19 @@ def validate_manifest(data: dict) -> list[dict]:
     for row in rows:
         if int(row.get("batch_size", 0)) != 1:
             raise ValueError("A run was not executed with batch_size=1")
+        if int(row.get("epochs", -1)) != EXPECTED_BUDGET["epochs"]:
+            raise ValueError("A run used the wrong epoch budget")
+        if int(row.get("dataset_size", -1)) != EXPECTED_BUDGET["dataset_size"]:
+            raise ValueError("A run used the wrong dataset-size budget")
+        if int(row.get("train_rollout_steps", -1)) != EXPECTED_BUDGET["train_rollout_steps"]:
+            raise ValueError("A run used the wrong train rollout horizon")
+        if int(row.get("eval_rollout_steps", -1)) != EXPECTED_BUDGET["eval_rollout_steps"]:
+            raise ValueError("A run used the wrong evaluation horizon")
         if not row.get("validation_memory_enabled") or not row.get("evaluation_memory_enabled"):
             raise ValueError("Validation/test memory semantics are not aligned")
         for metric in ("rollout_mse", "final_step_mse", "rollout_mae", "final_step_mae"):
             if metric not in row or not math.isfinite(float(row[metric])):
-                raise ValueError(f"Missing/non-finite {metric} in {cells[rows.index(row)]}")
+                raise ValueError(f"Missing/non-finite {metric} in {(row['benchmark'], row['seed'], row['variant'])}")
     return rows
 
 
@@ -174,7 +194,7 @@ def main() -> None:
 
     evidence = [
         "# Trajectory-isolated FIM evidence\n",
-        "Status: generated only after the frozen 40-cell manifest passes completeness and provenance checks.\n",
+        "Status: generated only after the frozen 40-cell manifest passes completeness, clean-tree, budget, and provenance checks.\n",
         f"Exact run commit: `{rows[0]['git_commit']}`\n",
         f"Protocol SHA-256: `{data['protocol_sha256']}`\n",
         "## Claim boundary\n",
