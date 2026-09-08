@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 import torch
@@ -32,6 +33,21 @@ class RecordingModel(torch.nn.Module):
         return x
 
 
+def frozen_args(**overrides):
+    values = dict(
+        benchmarks=list(runner.FROZEN_BENCHMARKS),
+        seeds=list(runner.FROZEN_SEEDS),
+        variants=list(runner.FROZEN_VARIANTS),
+        epochs=runner.FROZEN_EPOCHS,
+        batch_size=runner.FROZEN_BATCH_SIZE,
+        dataset_size=runner.FROZEN_DATASET_SIZE,
+        rollout_steps=runner.FROZEN_ROLLOUT_STEPS,
+        eval_steps=runner.FROZEN_EVAL_STEPS,
+    )
+    values.update(overrides)
+    return SimpleNamespace(**values)
+
+
 def test_protocol_rejects_multi_episode_batch():
     with pytest.raises(ValueError, match="batch_size=1"):
         runner.require_trajectory_isolation(2)
@@ -39,6 +55,19 @@ def test_protocol_rejects_multi_episode_batch():
 
 def test_protocol_accepts_exactly_one_episode():
     runner.require_trajectory_isolation(1)
+
+
+def test_frozen_protocol_exact_budget_is_accepted():
+    runner.validate_frozen_args(frozen_args())
+
+
+def test_frozen_protocol_rejects_post_freeze_horizon_change():
+    with pytest.raises(ValueError, match="protocol drift"):
+        runner.validate_frozen_args(frozen_args(rollout_steps=4))
+
+
+def test_delayed_recall_training_horizon_crosses_frozen_delay():
+    assert runner.FROZEN_ROLLOUT_STEPS >= 8
 
 
 def test_validation_uses_memory_within_single_trajectory():
