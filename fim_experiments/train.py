@@ -163,13 +163,18 @@ def _reset_model_state(model: torch.nn.Module) -> None:
 
 
 def _is_sequence_batch(x: torch.Tensor, y: torch.Tensor, rollout_steps: int) -> bool:
-    return (
-        x.ndim >= 3
-        and y.ndim >= 3
-        and x.shape[0] == y.shape[0]
-        and x.shape[1] >= 1
-        and y.shape[1] >= 1
-    )
+    """Recognize the temporal tensor layouts used by the maintained benchmarks.
+
+    Current generated sequence batches are either `[B,T,D]` for vector/1-D
+    states or `[B,T,C,H,W]` for 2-D fields. A plain field batch `[B,C,H,W]`
+    is *not* a sequence; treating its channel axis as time previously corrupted
+    shapes and invalidated the generic 4-D training path.
+    """
+    if x.shape[0] != y.shape[0] or x.ndim != y.ndim:
+        return False
+    if x.ndim not in (3, 5):
+        return False
+    return x.shape[1] >= 1 and y.shape[1] >= 1 and rollout_steps >= 1
 
 
 def _sequence_targets(x: torch.Tensor, y: torch.Tensor, rollout_steps: int) -> Tuple[torch.Tensor, torch.Tensor]:
@@ -426,7 +431,7 @@ def _validate_from_loader(
             rollout_steps=rollout_steps,
             teacher_forcing_ratio=0.0,
             horizon_decay=horizon_decay,
-            update_memory=False,
+            update_memory=True,
         )
         losses.append(float(loss.item()))
         rollout_losses.append(stats["rollout_loss"])
@@ -461,7 +466,7 @@ def _validate_from_benchmark(
             rollout_steps=rollout_steps,
             teacher_forcing_ratio=0.0,
             horizon_decay=horizon_decay,
-            update_memory=False,
+            update_memory=True,
         )
         losses.append(float(loss.item()))
         rollout_losses.append(stats["rollout_loss"])
