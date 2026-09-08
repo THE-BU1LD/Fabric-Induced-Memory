@@ -7,62 +7,108 @@ on:
       - 'fim_experiments/ablation_systems.py'
       - 'scripts/run_component_ablations.py'
       - 'scripts/run_ablation.sh'
+      - 'scripts/run_trajectory_isolated_ablations.py'
+      - 'scripts/analyze_trajectory_isolated_ablations.py'
+      - 'tests/test_trajectory_isolated_protocol.py'
       - 'research/CURRENT_COMPONENT_ABLATION_PROTOCOL_20260829.md'
+      - 'research/protocols/FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md'
       - '.github/workflows/current-component-ablations.yml'
 
 permissions:
   contents: read
 
 jobs:
-  frozen-current-matrix:
+  repository-tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 60
+    env:
+      PYTHONUNBUFFERED: '1'
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . pytest
+      - name: Verify repository and trajectory-isolation gates
+        run: pytest -q
+
+  trajectory-isolated-v1:
+    needs: repository-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
     env:
       PYTHONUNBUFFERED: '1'
       MPLBACKEND: Agg
       DEVICE: cpu
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: pip
-
       - name: Install
         run: |
           python -m pip install --upgrade pip
           python -m pip install -e . pytest
-
-      - name: Verify ablation semantics and repository tests
-        run: pytest -q
-
-      - name: Run frozen current-code component matrix
-        run: bash scripts/run_ablation.sh
-
-      - name: Verify manifest coverage
+      - name: Recheck exact protocol tests before compute
+        run: pytest -q tests/test_trajectory_isolated_protocol.py tests/test_current_component_ablations.py
+      - name: Execute frozen 40-cell trajectory-isolated matrix
+        run: |
+          python scripts/run_trajectory_isolated_ablations.py \
+            --benchmarks delayed_recall lorenz96 \
+            --seeds 101 211 307 401 503 \
+            --variants full no_memory no_retrieval no_salience_gating \
+            --device cpu \
+            --epochs 6 \
+            --batch-size 1 \
+            --dataset-size 32 \
+            --rollout-steps 4 \
+            --eval-steps 20
+      - name: Fail-closed analysis and manuscript evidence generation
+        run: python scripts/analyze_trajectory_isolated_ablations.py
+      - name: Verify frozen coverage and generated evidence
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path('results/current_component_ablations/manifest.json')
+          p = Path('results/trajectory_isolated_v1/manifest.json')
           data = json.loads(p.read_text())
-          assert data['benchmarks'] == ['lorenz96', 'delayed_recall']
-          assert data['seeds'] == [11, 23, 37]
+          assert data['protocol_name'] == 'FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1'
+          assert data['benchmarks'] == ['delayed_recall', 'lorenz96']
+          assert data['seeds'] == [101, 211, 307, 401, 503]
           assert data['variants'] == ['full', 'no_memory', 'no_retrieval', 'no_salience_gating']
-          assert len(data['runs']) == 24, len(data['runs'])
-          cells={(r['benchmark'], r['seed'], r['variant']) for r in data['runs']}
-          assert len(cells) == 24
-          print('validated 24 frozen current-code ablation cells')
+          assert data['expected_cells'] == 40
+          assert len(data['runs']) == 40
+          assert all(r['status'] == 'success' for r in data['runs'])
+          assert all(r['batch_size'] == 1 for r in data['runs'])
+          assert len({(r['benchmark'], r['seed'], r['variant']) for r in data['runs']}) == 40
+          for required in [
+              Path('results/trajectory_isolated_v1/paired_comparisons.csv'),
+              Path('paper/generated/trajectory_isolated_ablation_table.md'),
+              Path('research/TRAJECTORY_ISOLATED_EVIDENCE.md'),
+          ]:
+              assert required.is_file() and required.stat().st_size > 0, required
+          print('validated 40 trajectory-isolated FIM cells and generated evidence')
           PY
-
-      - name: Retain all fresh ablation evidence
+      - name: Retain corrected FIM evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: fim-current-component-ablations-${{ github.sha }}
+          name: fim-trajectory-isolated-v1-${{ github.sha }}
           retention-days: 30
           if-no-files-found: warn
           path: |
-            results/current_component_ablations/**
-            research/CURRENT_COMPONENT_ABLATION_PROTOCOL_20260829.md
+            results/trajectory_isolated_v1/**
+            paper/generated/trajectory_isolated_ablation_table.md
+            research/TRAJECTORY_ISOLATED_EVIDENCE.md
+            research/protocols/FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md
+
+  # The old shared-minibatch 24-cell runner is intentionally not executed here.
+  # Its retained artifacts remain historical evidence, but issue #10 identified
+  # cross-trajectory memory contamination in that execution semantics. Re-running
+  # it would create more scientifically inadmissible paper-facing evidence.
