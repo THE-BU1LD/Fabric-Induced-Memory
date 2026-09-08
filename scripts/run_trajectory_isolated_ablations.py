@@ -24,9 +24,14 @@ import train as train_module
 from ablation_systems import AblatedFIMSystem, variant_switches
 
 PROTOCOL = ROOT / "research" / "protocols" / "FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md"
-DEFAULT_BENCHMARKS = ["delayed_recall", "lorenz96"]
-DEFAULT_SEEDS = [101, 211, 307, 401, 503]
-DEFAULT_VARIANTS = ["full", "no_memory", "no_retrieval", "no_salience_gating"]
+FROZEN_BENCHMARKS = ["delayed_recall", "lorenz96"]
+FROZEN_SEEDS = [101, 211, 307, 401, 503]
+FROZEN_VARIANTS = ["full", "no_memory", "no_retrieval", "no_salience_gating"]
+FROZEN_EPOCHS = 4
+FROZEN_BATCH_SIZE = 1
+FROZEN_DATASET_SIZE = 32
+FROZEN_ROLLOUT_STEPS = 16
+FROZEN_EVAL_STEPS = 20
 CANONICAL_EVAL_RUN = experiment_main.run
 
 
@@ -64,6 +69,29 @@ def require_trajectory_isolation(batch_size: int) -> None:
             "Trajectory-isolated FIM protocol requires batch_size=1 for every arm; "
             f"received batch_size={batch_size}. Refusing cross-trajectory memory exposure."
         )
+
+
+def validate_frozen_args(args: argparse.Namespace) -> None:
+    mismatches: list[str] = []
+    checks = [
+        (list(args.benchmarks), FROZEN_BENCHMARKS, "benchmarks"),
+        (list(args.seeds), FROZEN_SEEDS, "seeds"),
+        (list(args.variants), FROZEN_VARIANTS, "variants"),
+        (int(args.epochs), FROZEN_EPOCHS, "epochs"),
+        (int(args.batch_size), FROZEN_BATCH_SIZE, "batch_size"),
+        (int(args.dataset_size), FROZEN_DATASET_SIZE, "dataset_size"),
+        (int(args.rollout_steps), FROZEN_ROLLOUT_STEPS, "rollout_steps"),
+        (int(args.eval_steps), FROZEN_EVAL_STEPS, "eval_steps"),
+    ]
+    for observed, expected, name in checks:
+        if observed != expected:
+            mismatches.append(f"{name}: observed={observed!r} expected={expected!r}")
+    if mismatches:
+        raise ValueError(
+            "Refusing protocol drift after freeze. Create a separately versioned protocol for changes:\n- "
+            + "\n- ".join(mismatches)
+        )
+    require_trajectory_isolation(args.batch_size)
 
 
 def _assert_single_episode_batch(x: torch.Tensor) -> None:
@@ -161,9 +189,6 @@ def _isolated_eval_run(*args, **kwargs):
 
 
 def install_trajectory_isolation_hooks() -> None:
-    # The historical training functions remain unchanged on disk. This frozen
-    # lane overrides validation and final evaluation semantics explicitly so
-    # memory is usable within one trajectory but never shared across episodes.
     train_module._validate_from_loader = _isolated_validate_from_loader
     train_module._validate_from_benchmark = _isolated_validate_from_benchmark
     experiment_main.run = _isolated_eval_run
@@ -285,15 +310,15 @@ def run_one(args: argparse.Namespace, benchmark: str, seed: int, variant: str) -
 
 def parse_args() -> argparse.Namespace:
     ap = argparse.ArgumentParser(description="Run the frozen trajectory-isolated FIM ablation matrix.")
-    ap.add_argument("--benchmarks", nargs="+", default=DEFAULT_BENCHMARKS)
-    ap.add_argument("--seeds", nargs="+", type=int, default=DEFAULT_SEEDS)
-    ap.add_argument("--variants", nargs="+", default=DEFAULT_VARIANTS)
+    ap.add_argument("--benchmarks", nargs="+", default=FROZEN_BENCHMARKS)
+    ap.add_argument("--seeds", nargs="+", type=int, default=FROZEN_SEEDS)
+    ap.add_argument("--variants", nargs="+", default=FROZEN_VARIANTS)
     ap.add_argument("--device", default="cpu")
-    ap.add_argument("--epochs", type=int, default=6)
-    ap.add_argument("--batch-size", type=int, default=1)
-    ap.add_argument("--dataset-size", type=int, default=32)
-    ap.add_argument("--rollout-steps", type=int, default=4)
-    ap.add_argument("--eval-steps", type=int, default=20)
+    ap.add_argument("--epochs", type=int, default=FROZEN_EPOCHS)
+    ap.add_argument("--batch-size", type=int, default=FROZEN_BATCH_SIZE)
+    ap.add_argument("--dataset-size", type=int, default=FROZEN_DATASET_SIZE)
+    ap.add_argument("--rollout-steps", type=int, default=FROZEN_ROLLOUT_STEPS)
+    ap.add_argument("--eval-steps", type=int, default=FROZEN_EVAL_STEPS)
     ap.add_argument(
         "--results-root",
         type=Path,
@@ -309,12 +334,10 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    require_trajectory_isolation(args.batch_size)
+    validate_frozen_args(args)
     if not PROTOCOL.is_file():
         raise FileNotFoundError(PROTOCOL)
 
-    # Resolve every label before any compute. Unsupported historical labels fail
-    # closed instead of silently mapping onto a current mechanism.
     for variant in args.variants:
         variant_switches(variant)
 
