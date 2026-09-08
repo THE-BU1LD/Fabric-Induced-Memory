@@ -10,6 +10,8 @@ The maintained `fim_experiments.systems.FIMSystem` uses one `AdaptiveMemoryBank`
 
 For this bounded protocol, the correction is deliberately minimal and predeclared: **all training, validation, and evaluation arms use `batch_size=1`**, memory is reset between independent episodes, and memory write/retrieval remains enabled during within-trajectory validation and test rollouts. This is the protocol-level correction explicitly allowed by the P0 audit; it avoids changing the memory algorithm itself after prior outcomes were observed.
 
+A second pre-outcome audit finding is also frozen here: the default delayed-recall task uses `delay=8` and `steps=16`. A training rollout of only four steps never reaches the recall event and therefore cannot directly train the claimed long-delay mechanism. This protocol uses a **16-step training rollout** for both benchmarks so the delayed-recall arm actually crosses its memory delay. This change was made before any trajectory-isolated matrix outcome was observed.
+
 No best-checkpoint selection is used. Training budget is fixed in advance and the final epoch is evaluated. EMA model selection is disabled.
 
 ## Research questions
@@ -53,9 +55,10 @@ Total expected cells: **40**.
 - device: CPU for canonical CI execution
 - deterministic mode: enabled
 - batch size: **1 for every arm**
-- epochs: **6**
+- epochs: **4**
 - static generated dataset size: **32 independent trajectories per cell**
-- train rollout steps: **4**
+- train rollout steps: **16**
+- delayed-recall default delay: **8**, so the training horizon crosses the recall event
 - teacher forcing ratio: **0.5**
 - horizon decay: **1.0**
 - evaluation rollout steps: **20**
