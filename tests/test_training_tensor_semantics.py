@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import sys
 from pathlib import Path
 
 import torch
@@ -10,6 +11,7 @@ TRAIN_PATH = ROOT / "fim_experiments" / "train.py"
 SPEC = importlib.util.spec_from_file_location("fim_train_semantics", TRAIN_PATH)
 assert SPEC is not None and SPEC.loader is not None
 train_module = importlib.util.module_from_spec(SPEC)
+sys.modules[SPEC.name] = train_module
 SPEC.loader.exec_module(train_module)
 
 
