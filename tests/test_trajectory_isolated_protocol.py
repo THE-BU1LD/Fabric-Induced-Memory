@@ -102,6 +102,42 @@ def test_validation_rejects_accidental_batch_two():
         )
 
 
+def _run_actual_episode(model, first: torch.Tensor, second: torch.Tensor) -> torch.Tensor:
+    model.reset_state()
+    assert len(model.bank) == 0
+    model.step(first, store_traces=True, retrieve=True)
+    out = model.step(second, store_traces=True, retrieve=True)
+    assert first.shape[0] == second.shape[0] == 1
+    return out.prediction.detach().clone()
+
+
+def test_actual_fim_episode_result_is_invariant_to_unrelated_episode_order():
+    torch.manual_seed(991)
+    model = runner.AblatedFIMSystem(
+        in_channels=1,
+        hidden=8,
+        trace_dim=4,
+        memory_capacity=8,
+        retrieval_topk=2,
+        memory_decay=0.0,
+        salience_threshold=-1.0,
+        memory_enabled=True,
+        retrieval_enabled=True,
+        salience_gating_enabled=True,
+    ).eval()
+
+    a0 = torch.tensor([[0.2, -0.4, 0.6, 0.1]], dtype=torch.float32)
+    a1 = torch.tensor([[0.3, -0.1, 0.5, 0.0]], dtype=torch.float32)
+    b0 = torch.tensor([[-0.7, 0.9, -0.2, 0.4]], dtype=torch.float32)
+    b1 = torch.tensor([[-0.5, 0.8, -0.3, 0.6]], dtype=torch.float32)
+
+    a_when_first = _run_actual_episode(model, a0, a1)
+    _run_actual_episode(model, b0, b1)
+    a_when_second = _run_actual_episode(model, a0, a1)
+
+    torch.testing.assert_close(a_when_first, a_when_second, rtol=0.0, atol=0.0)
+
+
 def test_final_evaluator_is_forced_to_batch_one(monkeypatch):
     seen = {}
 
