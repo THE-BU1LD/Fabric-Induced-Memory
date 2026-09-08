@@ -29,3 +29,8 @@ dist/
 # Large/local run scratch that should not become accidental evidence
 runs_local/
 results_local/
+
+# Generated trajectory-isolated evidence is retained as CI artifacts, not source.
+results/trajectory_isolated_v1/
+paper/generated/trajectory_isolated_ablation_table.md
+research/TRAJECTORY_ISOLATED_EVIDENCE.md
