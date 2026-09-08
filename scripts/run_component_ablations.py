@@ -5,6 +5,7 @@ import argparse
 import json
 import subprocess
 import sys
+import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -43,6 +44,24 @@ def metric_scalar(metrics: dict[str, Any], key: str):
     return None
 
 
+def common_row(args, benchmark: str, seed: int, variant: str) -> dict[str, Any]:
+    switches = variant_switches(variant)
+    return {
+        'benchmark': benchmark,
+        'seed': seed,
+        'variant': variant,
+        **switches,
+        'git_commit': git_commit(),
+        'experiment_name': f'current_ablation_{benchmark}_{variant}_s{seed}',
+        'results_root': str(args.results_root),
+        'epochs': args.epochs,
+        'batch_size': args.batch_size,
+        'dataset_size': args.dataset_size,
+        'train_rollout_steps': args.rollout_steps,
+        'eval_rollout_steps': args.eval_steps,
+    }
+
+
 def run_one(args, benchmark: str, seed: int, variant: str) -> dict[str, Any]:
     switches = variant_switches(variant)
     experiment_main.FIMSystem = model_factory(switches)
@@ -66,26 +85,28 @@ def run_one(args, benchmark: str, seed: int, variant: str) -> dict[str, Any]:
     ended = datetime.now(timezone.utc).isoformat()
 
     row = {
-        'benchmark': benchmark,
-        'seed': seed,
-        'variant': variant,
-        **switches,
+        **common_row(args, benchmark, seed, variant),
+        'status': 'success',
         'started_utc': started,
         'ended_utc': ended,
-        'git_commit': git_commit(),
-        'experiment_name': cfg['experiment']['name'],
-        'results_root': str(args.results_root),
-        'epochs': args.epochs,
-        'batch_size': args.batch_size,
-        'dataset_size': args.dataset_size,
-        'train_rollout_steps': args.rollout_steps,
-        'eval_rollout_steps': args.eval_steps,
     }
     for key in ['rollout_mse', 'rollout_mae', 'mse', 'mae']:
         value = metric_scalar(metrics, key)
         if value is not None:
             row[key] = value
     return row
+
+
+def failed_row(args, benchmark: str, seed: int, variant: str, exc: BaseException, started: str) -> dict[str, Any]:
+    return {
+        **common_row(args, benchmark, seed, variant),
+        'status': 'failed',
+        'started_utc': started,
+        'ended_utc': datetime.now(timezone.utc).isoformat(),
+        'error_type': type(exc).__name__,
+        'error_message': str(exc),
+        'traceback': traceback.format_exc(),
+    }
 
 
 def main() -> None:
@@ -103,6 +124,10 @@ def main() -> None:
     ap.add_argument('--eval-steps', type=int, default=30)
     ap.add_argument('--results-root', type=Path, default=ROOT / 'results' / 'current_component_ablations')
     ap.add_argument('--manifest', type=Path, default=ROOT / 'results' / 'current_component_ablations' / 'manifest.json')
+    ap.add_argument(
+        '--continue-on-error', action='store_true',
+        help='Record failed cells in the manifest and continue so failure evidence is retained. The caller must still fail closed on any failed cell.'
+    )
     args = ap.parse_args()
 
     # Resolve every label before any training so unsupported historical labels
@@ -116,24 +141,48 @@ def main() -> None:
         for seed in args.seeds:
             for variant in args.variants:
                 print(f'RUN benchmark={benchmark} seed={seed} variant={variant}', flush=True)
-                rows.append(run_one(args, benchmark, seed, variant))
+                started = datetime.now(timezone.utc).isoformat()
+                try:
+                    rows.append(run_one(args, benchmark, seed, variant))
+                except Exception as exc:
+                    failure = failed_row(args, benchmark, seed, variant, exc, started)
+                    rows.append(failure)
+                    print(
+                        f'FAILED benchmark={benchmark} seed={seed} variant={variant}: '
+                        f'{failure["error_type"]}: {failure["error_message"]}',
+                        file=sys.stderr,
+                        flush=True,
+                    )
+                    if not args.continue_on_error:
+                        # Write the partial manifest before propagating so completed and
+                        # failed evidence is not lost when a canonical fail-fast run stops.
+                        payload = build_payload(args, rows)
+                        args.manifest.parent.mkdir(parents=True, exist_ok=True)
+                        args.manifest.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
+                        raise
 
-    payload = {
-        'schema_version': 1,
+    payload = build_payload(args, rows)
+    args.manifest.parent.mkdir(parents=True, exist_ok=True)
+    args.manifest.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
+    failures = sum(r.get('status') == 'failed' for r in rows)
+    print(f'WROTE {args.manifest} runs={len(rows)} failures={failures}', flush=True)
+
+
+def build_payload(args, rows: list[dict[str, Any]]) -> dict[str, Any]:
+    return {
+        'schema_version': 2,
         'created_utc': datetime.now(timezone.utc).isoformat(),
         'git_commit': git_commit(),
         'scientific_boundary': (
             'Fresh current-code component ablations only. These results do not reproduce or replace historical '
-            'paper-reference labels unless a separate equivalence audit establishes matching semantics.'
+            'paper-reference labels unless a separate equivalence audit establishes matching semantics. Failed '
+            'cells are retained and must not be silently excluded from paper-facing aggregation.'
         ),
         'benchmarks': args.benchmarks,
         'seeds': args.seeds,
         'variants': args.variants,
         'runs': rows,
     }
-    args.manifest.parent.mkdir(parents=True, exist_ok=True)
-    args.manifest.write_text(json.dumps(payload, indent=2) + '\n', encoding='utf-8')
-    print(f'WROTE {args.manifest} runs={len(rows)}', flush=True)
 
 
 if __name__ == '__main__':
