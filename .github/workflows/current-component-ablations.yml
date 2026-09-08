@@ -7,7 +7,10 @@ on:
       - 'fim_experiments/ablation_systems.py'
       - 'scripts/run_component_ablations.py'
       - 'scripts/run_ablation.sh'
+      - 'scripts/run_fresh_multiseed_20260908.sh'
+      - 'scripts/summarize_fresh_multiseed_20260908.py'
       - 'research/CURRENT_COMPONENT_ABLATION_PROTOCOL_20260829.md'
+      - 'research/FRESH_MULTI_SEED_REPLICATION_PROTOCOL_20260908.md'
       - '.github/workflows/current-component-ablations.yml'
 
 permissions:
@@ -56,7 +59,7 @@ jobs:
           print('validated 24 frozen current-code ablation cells')
           PY
 
-      - name: Retain all fresh ablation evidence
+      - name: Retain all current ablation evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -66,3 +69,50 @@ jobs:
           path: |
             results/current_component_ablations/**
             research/CURRENT_COMPONENT_ABLATION_PROTOCOL_20260829.md
+
+  fresh-multiseed-replication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      PYTHONUNBUFFERED: '1'
+      MPLBACKEND: Agg
+      DEVICE: cpu
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e . pytest
+
+      - name: Execute prospectively frozen fresh-seed replication
+        run: bash scripts/run_fresh_multiseed_20260908.sh
+
+      - name: Require complete generated evidence
+        run: |
+          test -s results/fresh_multiseed_20260908/ablations/manifest.json
+          test -s results/fresh_multiseed_20260908/summary.json
+          test -s results/fresh_multiseed_20260908/summary.md
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('results/fresh_multiseed_20260908/summary.json').read_text())
+          assert data['expected_cells'] == {'mechanism': 40, 'baseline': 50}
+          print('fresh FIM matrix passed fail-closed 40 + 50 cell gate')
+          PY
+
+      - name: Retain fresh replication evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fim-fresh-multiseed-20260908-${{ github.sha }}
+          retention-days: 30
+          if-no-files-found: warn
+          path: |
+            results/fresh_multiseed_20260908/**
+            research/FRESH_MULTI_SEED_REPLICATION_PROTOCOL_20260908.md
