@@ -156,3 +156,55 @@ def test_final_evaluator_rejects_batch_two(monkeypatch):
     monkeypatch.setattr(runner, "CANONICAL_EVAL_RUN", lambda *a, **k: {})
     with pytest.raises(ValueError, match="batch_size=1"):
         runner._isolated_eval_run(RecordingModel(), object(), batch_size=2)
+
+
+def test_no_memory_and_no_retrieval_have_distinct_state_but_identical_prediction_path():
+    """Storage-only memory cannot affect predictions when retrieval is disabled."""
+
+    torch.manual_seed(20260927)
+    common = dict(
+        in_channels=1,
+        hidden=8,
+        trace_dim=4,
+        memory_capacity=8,
+        retrieval_topk=2,
+        memory_decay=0.0,
+        salience_threshold=-1.0,
+    )
+    no_memory = runner.AblatedFIMSystem(
+        **common,
+        memory_enabled=False,
+        retrieval_enabled=False,
+        salience_gating_enabled=False,
+    ).eval()
+    no_retrieval = runner.AblatedFIMSystem(
+        **common,
+        memory_enabled=True,
+        retrieval_enabled=False,
+        salience_gating_enabled=True,
+    ).eval()
+    no_retrieval.load_state_dict(no_memory.state_dict())
+
+    first = torch.tensor([[0.2, -0.4, 0.6, 0.1]], dtype=torch.float32)
+    second = torch.tensor([[0.3, -0.1, 0.5, 0.0]], dtype=torch.float32)
+
+    no_memory.reset_state()
+    no_retrieval.reset_state()
+
+    out_nm_1 = no_memory.step(first, store_traces=True, retrieve=True)
+    out_nr_1 = no_retrieval.step(first, store_traces=True, retrieve=True)
+
+    torch.testing.assert_close(out_nm_1.prediction, out_nr_1.prediction, rtol=0.0, atol=0.0)
+    assert len(no_memory.bank) == 0
+    assert len(no_retrieval.bank) > 0
+    assert out_nm_1.retrieved is None
+    assert out_nr_1.retrieved is None
+
+    out_nm_2 = no_memory.step(second, store_traces=True, retrieve=True)
+    out_nr_2 = no_retrieval.step(second, store_traces=True, retrieve=True)
+
+    torch.testing.assert_close(out_nm_2.prediction, out_nr_2.prediction, rtol=0.0, atol=0.0)
+    assert len(no_memory.bank) == 0
+    assert len(no_retrieval.bank) > 0
+    assert out_nm_2.retrieved is None
+    assert out_nr_2.retrieved is None
