@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0.0",
+  "protocol_name": "FIM_DELAYED_RECALL_WINDOW_SUCCESSOR_V2",
+  "status": "frozen_before_outcome_access",
+  "base_source_commit": "b6167d481df69fb0b783a06368060a0e15a75d21",
+  "benchmark": {
+    "name": "delayed_recall",
+    "dimension": 33,
+    "memory_dim": 32,
+    "delay": 8,
+    "steps": 16,
+    "cue_noise": 0.02,
+    "distractor_scale": 0.3,
+    "reveal_sharpness": 0.35
+  },
+  "seeds": [
+    607,
+    719,
+    823,
+    929,
+    1031
+  ],
+  "variants": [
+    "full",
+    "no_memory"
+  ],
+  "training": {
+    "device": "cpu",
+    "deterministic": true,
+    "batch_size": 1,
+    "epochs": 4,
+    "dataset_size": 32,
+    "rollout_steps": 16,
+    "teacher_forcing_ratio": 0.5,
+    "horizon_decay": 1,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "grad_clip": 1,
+    "use_ema": false,
+    "best_checkpoint_selection": false,
+    "workers": 0,
+    "final_state": "fixed_final_epoch"
+  },
+  "pairing": {
+    "persist_train_val_once_per_seed": true,
+    "identical_train_val_across_variants": true,
+    "identical_split_indices": true,
+    "identical_batch_order": true,
+    "identical_initial_weights": true,
+    "assert_equal_trainable_parameter_count": true
+  },
+  "evaluation": {
+    "episodes_per_seed": 64,
+    "rollout_steps": 20,
+    "reset_memory_between_episodes": true,
+    "paired_truth_and_noise_across_variants": true,
+    "initial_model_input": "truth[:,0] observed noisy cue",
+    "latent_x0_for_model_forbidden": true
+  },
+  "primary_metric": {
+    "name": "recall_window_memory_mse",
+    "lower_is_better": true,
+    "observation_times": [
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "channels": "memory channels 0:32; exclude clock",
+    "tensor_expression": "MSE(pred[:,8:13,:32], truth[:,8:13,:32])"
+  },
+  "secondary_metrics": [
+    "memory_channel_rollout_mse_t1_t20",
+    "memory_channel_final_step_mse_t20",
+    "all_channel_rollout_mse_t1_t20",
+    "per_timestep_memory_channel_mse"
+  ],
+  "diagnostic_reference": {
+    "name": "latent_conditional_mean_oracle",
+    "feasible_model_baseline": false,
+    "purpose": "realized observation-noise floor on paired evaluation trajectories"
+  },
+  "decision_rule": {
+    "primary_delta": "full - no_memory",
+    "demonstrated_if": [
+      "mean paired delta < 0",
+      "all 5 seed deltas < 0",
+      "paired bootstrap 95% upper bound < 0"
+    ],
+    "otherwise": "no demonstrated recall-window advantage",
+    "adverse_if": "mean paired delta > 0 and at least 4/5 seeds favor no_memory",
+    "exact_sign_flip_p": "descriptive only"
+  },
+  "failures": {
+    "replacement_seeds_forbidden": true,
+    "missing_or_failed_cell_closes_claim_gate": true,
+    "outcome_selected_reruns_forbidden": true
+  },
+  "expected_artifact_root": "results/delayed_recall_window_v2"
+}
