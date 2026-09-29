@@ -13,17 +13,15 @@
     "distractor_scale": 0.3,
     "reveal_sharpness": 0.35
   },
-  "seeds": [
-    607,
-    719,
-    823,
-    929,
-    1031
-  ],
-  "variants": [
-    "full",
-    "no_memory"
-  ],
+  "seeds": [607, 719, 823, 929, 1031],
+  "rng_streams": {
+    "initial_weights": "seed + 100000",
+    "train_data_and_observation_noise": "seed + 200000",
+    "train_split": "seed + 300000",
+    "train_batch_order": "seed + 400000",
+    "evaluation_data_and_observation_noise": "seed + 500000"
+  },
+  "variants": ["full", "no_memory"],
   "training": {
     "device": "cpu",
     "deterministic": true,
@@ -32,11 +30,12 @@
     "dataset_size": 32,
     "rollout_steps": 16,
     "teacher_forcing_ratio": 0.5,
-    "horizon_decay": 1,
+    "horizon_decay": 1.0,
     "lr": 0.0003,
     "weight_decay": 0.01,
-    "grad_clip": 1,
+    "grad_clip": 1.0,
     "use_ema": false,
+    "evaluate_ema": false,
     "best_checkpoint_selection": false,
     "workers": 0,
     "final_state": "fixed_final_epoch"
@@ -60,13 +59,7 @@
   "primary_metric": {
     "name": "recall_window_memory_mse",
     "lower_is_better": true,
-    "observation_times": [
-      8,
-      9,
-      10,
-      11,
-      12
-    ],
+    "observation_times": [8, 9, 10, 11, 12],
     "channels": "memory channels 0:32; exclude clock",
     "tensor_expression": "MSE(pred[:,8:13,:32], truth[:,8:13,:32])"
   },
@@ -81,6 +74,12 @@
     "feasible_model_baseline": false,
     "purpose": "realized observation-noise floor on paired evaluation trajectories"
   },
+  "inference": {
+    "paired_bootstrap_replicates": 10000,
+    "paired_bootstrap_seed": 20260929,
+    "interval": "percentile 95%",
+    "exact_sign_flip_p": "two-sided descriptive only"
+  },
   "decision_rule": {
     "primary_delta": "full - no_memory",
     "demonstrated_if": [
@@ -89,13 +88,13 @@
       "paired bootstrap 95% upper bound < 0"
     ],
     "otherwise": "no demonstrated recall-window advantage",
-    "adverse_if": "mean paired delta > 0 and at least 4/5 seeds favor no_memory",
-    "exact_sign_flip_p": "descriptive only"
+    "adverse_if": "mean paired delta > 0 and at least 4/5 seeds favor no_memory"
   },
   "failures": {
     "replacement_seeds_forbidden": true,
     "missing_or_failed_cell_closes_claim_gate": true,
-    "outcome_selected_reruns_forbidden": true
+    "outcome_selected_reruns_forbidden": true,
+    "infrastructure_rerun_requires_identical_scientific_hashes": true
   },
   "expected_artifact_root": "results/delayed_recall_window_v2"
 }
