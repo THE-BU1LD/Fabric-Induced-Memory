@@ -694,7 +694,14 @@ class DelayedRecallBenchmark(UnifiedBenchmark):
         self.dt = 1.0
         self.default_steps = config.steps
         self.state_shape = (config.dimension,)
-        self.stochastic = False
+        # Hidden-state evolution is deterministic, but every generated observation
+        # includes fresh Gaussian cue/distractor noise.  The aggregate stochastic
+        # flag describes the observable benchmark trajectory.
+        self.latent_transition_stochastic = False
+        self.observation_stochastic = bool(
+            config.cue_noise > 0.0 or config.distractor_scale > 0.0
+        )
+        self.stochastic = self.observation_stochastic
         self.is_non_markovian = True
 
     def _split(self, state: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
@@ -744,7 +751,16 @@ class DelayedRecallBenchmark(UnifiedBenchmark):
                 "state_shape": self.state_shape,
                 "horizon": self.default_steps,
                 "is_non_markovian": True,
-                "stochastic": False,
+                "stochastic": self.stochastic,
+                "latent_transition_stochastic": self.latent_transition_stochastic,
+                "observation_stochastic": self.observation_stochastic,
+                "observation_noise_semantics": (
+                    "Gaussian cue noise at t=0 and fresh Gaussian distractor noise "
+                    "for each observation at t>0"
+                ),
+                "cue_noise": self.config.cue_noise,
+                "distractor_scale": self.config.distractor_scale,
+                "reveal_sharpness": self.config.reveal_sharpness,
                 "dt": 1.0,
                 "dimension": self.dimension,
                 "memory_dim": self.config.memory_dim,
