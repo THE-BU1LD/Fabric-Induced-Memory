@@ -1,0 +1,22 @@
+{
+  "claim_lock": {
+    "benchmark": "DelayedRecallBenchmark",
+    "best_rollout_mse_model": "DeepONetFieldSystem",
+    "fim_better_than": ["TransformerFieldSystem", "SelectiveSSMSystem"],
+    "fim_model": "FIMSystem",
+    "fim_rollout_mse_rank": 3,
+    "shape_aware_mlp_better_than_fim": true
+  },
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "source_artifacts": {
+    "results/mini_processed/mini_suite_summary.json": {
+      "git_blob": "3356862e015d2e97339e9c0a55c163e947284b28",
+      "sha256": "80749da5d2f8773324038e912e256e23d887036e31be44af18d0d13caf9b1c08"
+    },
+    "results/mini_processed/mini_suite_summary.md": {
+      "git_blob": "9f07a71c53abd29ed665f07aaa72c96aaa413574",
+      "sha256": "4d62e1f3715f546a7021d74f76a95f52cb88f60f3e7b2545e4cdfd93c469be89"
+    }
+  },
+  "source_commit": "b6167d481df69fb0b783a06368060a0e15a75d21"
+}
