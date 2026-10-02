@@ -10,6 +10,7 @@ if _added:
     sys.path.insert(0, EXP)
 try:
     from systems import AdaptiveMemoryBank, FIMSystem
+    from ablation_systems import AblatedFIMSystem
 finally:
     if _added:
         sys.path.remove(EXP)
@@ -46,9 +47,10 @@ def test_float_and_tensor_temperature_agree(temperature):
     torch.testing.assert_close(actual, reference)
 
 
-def test_model_prediction_loss_reaches_temperature():
+@pytest.mark.parametrize('model_class', [FIMSystem, AblatedFIMSystem])
+def test_model_prediction_loss_reaches_temperature(model_class):
     torch.manual_seed(17)
-    model = FIMSystem(1, 8, 4, memory_capacity=16, retrieval_topk=4, salience_threshold=-1.)
+    model = model_class(1, 8, 4, memory_capacity=16, retrieval_topk=4, salience_threshold=-1.)
     with torch.no_grad():
         for _ in range(4):
             model.step(torch.randn(1, 1, 1, 8))
