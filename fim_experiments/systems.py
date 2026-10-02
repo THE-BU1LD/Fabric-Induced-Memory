@@ -138,7 +138,7 @@ class AdaptiveMemoryBank(nn.Module):
                 idx = int(torch.argmin(priority).item())
             self._write(idx, k[i], v[i], score[i])
 
-    def retrieve(self, q: torch.Tensor, topk: int = 32, temperature: float = 0.2) -> Optional[torch.Tensor]:
+    def retrieve(self, q: torch.Tensor, topk: int = 32, temperature: float | torch.Tensor = 0.2) -> Optional[torch.Tensor]:
         if self.size == 0:
             return None
         if q.ndim == 1:
@@ -151,7 +151,7 @@ class AdaptiveMemoryBank(nn.Module):
         k = max(1, min(int(topk), self.size))
         vals, idx = torch.topk(score, k=k, dim=-1)
         gathered = self.values[: self.size][idx]
-        temp = float(max(0.05, min(1.0, temperature)))
+        temp = torch.as_tensor(temperature, device=q.device, dtype=q.dtype).clamp(0.05, 1.0)
         weights = torch.softmax(vals / temp, dim=-1).unsqueeze(-1)
         return (weights * gathered).sum(dim=1)
 
@@ -222,7 +222,7 @@ class FIMSystem(nn.Module, _StepOutputMixin):
 
         retrieved = None
         if retrieve and len(self.bank) > 0:
-            retrieved = self.bank.retrieve(key, topk=self.retrieval_topk, temperature=float(torch.clamp(self.retrieval_temperature, 0.05, 1.0).item()))
+            retrieved = self.bank.retrieve(key, topk=self.retrieval_topk, temperature=self.retrieval_temperature)
             if retrieved is not None:
                 proj = self.retrieval_proj(retrieved)
                 gate = torch.sigmoid(self.retrieval_gate(retrieved))

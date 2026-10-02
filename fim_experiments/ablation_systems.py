@@ -41,7 +41,7 @@ class AblatedFIMSystem(FIMSystem):
             retrieved = self.bank.retrieve(
                 key,
                 topk=self.retrieval_topk,
-                temperature=float(torch.clamp(self.retrieval_temperature, 0.05, 1.0).item()),
+                temperature=self.retrieval_temperature,
             )
             if retrieved is not None:
                 proj = self.retrieval_proj(retrieved)
