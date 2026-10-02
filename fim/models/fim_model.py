@@ -1212,7 +1212,7 @@ class FIMModel(nn.Module):
             if (
                 self._state is None
                 or self._state.shape[0] != x.shape[0]
-                or self._state.shape[2:] != x.shape[2:]
+                or self._state.shape[-2:] != x.shape[-2:]
             ):
                 self._state = self._init_state(x)
             state = self._state
