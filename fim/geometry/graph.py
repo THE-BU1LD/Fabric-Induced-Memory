@@ -69,7 +69,7 @@ class GraphPropagation(nn.Module):
         F: [B, C, H, W]
         edge_index: optional [2, E] long tensor. If omitted, derive a grid
         topology from F for the single-argument FIMModel propagation hook.
-        Incoming messages are summed, including repeated edges.
+        Incoming messages are summed in F's dtype, including repeated edges.
         """
 
         if F.ndim != 4:
@@ -83,8 +83,15 @@ class GraphPropagation(nn.Module):
 
         if edge_index is None:
             grid_shape = (H, W, self.connectivity)
-            if self._grid_shape != grid_shape or self._grid_edges.device != F.device:
-                self._grid_edges = GridGraph(H, W, self.connectivity).edge_index.to(F.device)
+            if (
+                self._grid_shape != grid_shape
+                or self._grid_edges.device != F.device
+                or torch.is_inference(self._grid_edges)
+            ):
+                # Cached indices outlive this call and may be saved by a later
+                # autograd pass, even when their first use is inference-only.
+                with torch.inference_mode(False):
+                    self._grid_edges = GridGraph(H, W, self.connectivity).edge_index.to(F.device)
                 self._grid_shape = grid_shape
             edge_index = self._grid_edges
         if edge_index.ndim != 2 or edge_index.shape[0] != 2:
@@ -102,6 +109,8 @@ class GraphPropagation(nn.Module):
 
         out = torch.zeros_like(x)
         # Advanced-index assignment loses contributions for repeated dst ids.
-        out.index_add_(1, dst, messages)
+        # Autocast may change the linear output's dtype; index_add_ requires
+        # equal dtypes, so retain the field dtype for accumulation and output.
+        out.index_add_(1, dst, messages.to(dtype=out.dtype))
 
         return out.permute(0, 2, 1).reshape(B, C, H, W)
