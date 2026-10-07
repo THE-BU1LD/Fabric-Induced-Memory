@@ -44,11 +44,12 @@ These are protocol settings, not completed results. The protected scientific exe
 
 ### Engineering drafts and scientific execution are separate
 
-At the 7 October 2026 source review, three draft PRs were open against `main` `08d2c3df4262612bffe38488f97e263769ff7ef6`:
+At the 7 October 2026 source review, the following engineering drafts were inspected against `main` `08d2c3df4262612bffe38488f97e263769ff7ef6`:
 
 - [PR #20](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/20), head `c6c1188ded48f4cd83ade3553ca10914be7217cd`: graph accumulation and full-model integration repair.
 - [PR #21](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/21), head `3ff0fe1de64795e6241bf0ee54c5c5ad06a3850f`: opt-in native benchmark runtime contracts. The existing `fim_experiments/benchmark.py` and its frozen source identity remain preserved.
 - [PR #22](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/22), head `605ca23a3961fcbf95fabfd211ab69e8a77c2ca3`: staged evidence publication and recovery after write failures.
+- [PR #23](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/23), head `28f8da75642204f7a9447aaef73532ab65d7a5c8`: explicit raw/EMA predictor selection and checkpoint provenance that preserve historical raw-weight evaluation when no validation source is declared.
 
 Each draft carries a dispatch-only condition for the scientific job. That condition is not integrated on the reviewed `main`: the current workflow there can start the scientific job on a matching pull request. A future engineering change touching that workflow's path filters must include the guard before opening its PR. The existing draft validation does not establish merged behavior, release a scientific hold, or prove memory benefit.
 
