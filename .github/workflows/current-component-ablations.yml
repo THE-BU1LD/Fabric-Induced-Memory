@@ -38,6 +38,9 @@ jobs:
         run: pytest -q
 
   trajectory-isolated-v1:
+    # Engineering pull requests must not start new scientific outcome runs.
+    # Keep the frozen matrix available only through an explicit dispatch.
+    if: github.event_name == 'workflow_dispatch'
     needs: repository-tests
     runs-on: ubuntu-latest
     timeout-minutes: 360
