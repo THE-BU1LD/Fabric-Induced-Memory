@@ -42,16 +42,23 @@ The current frozen protocol is [`FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1`](resea
 
 These are protocol settings, not completed results. The protected scientific execution hold remains in force. This document does not authorize a workflow dispatch, release that hold, or assert that any of the 40 cells has completed. A future authorized execution must retain a manifest binding every cell to its exact commit, protocol hash, switches, configuration, environment, outputs and failure state.
 
-### Engineering drafts and scientific execution are separate
+### Engineering integration and scientific execution status
 
-At the 7 October 2026 source review, the following engineering drafts were inspected against `main` `08d2c3df4262612bffe38488f97e263769ff7ef6`:
+**Verified on 8 October 2026:** [PR #25](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/25) merged the reviewed engineering integration into `main` at commit [`84160703cc733c6deb150cf7b6ee5bb3a84d699b`](https://github.com/THE-BU1LD/Fabric-Induced-Memory/commit/84160703cc733c6deb150cf7b6ee5bb3a84d699b). GitHub records PRs #20–#24 as merged through that integration. The earlier 7 October review of `main` `08d2c3df4262612bffe38488f97e263769ff7ef6` is historical; the engineering changes and dispatch-only condition are now integrated.
 
-- [PR #20](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/20), head `c6c1188ded48f4cd83ade3553ca10914be7217cd`: graph accumulation and full-model integration repair.
-- [PR #21](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/21), head `3ff0fe1de64795e6241bf0ee54c5c5ad06a3850f`: opt-in native benchmark runtime contracts. The existing `fim_experiments/benchmark.py` and its frozen source identity remain preserved.
-- [PR #22](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/22), head `605ca23a3961fcbf95fabfd211ab69e8a77c2ca3`: staged evidence publication and recovery after write failures.
-- [PR #23](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/23), head `28f8da75642204f7a9447aaef73532ab65d7a5c8`: explicit raw/EMA predictor selection and checkpoint provenance that preserve historical raw-weight evaluation when no validation source is declared.
+| Source PR | Reviewed head | Integrated behavior |
+| --- | --- | --- |
+| [#20](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/20) | `c6c1188ded48f4cd83ade3553ca10914be7217cd` | Graph accumulation and full-model integration repair |
+| [#21](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/21) | `3ff0fe1de64795e6241bf0ee54c5c5ad06a3850f` | Opt-in native benchmark runtime contracts |
+| [#22](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/22) | `605ca23a3961fcbf95fabfd211ab69e8a77c2ca3` | Staged evidence publication and recovery after write failures |
+| [#23](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/23) | `28f8da75642204f7a9447aaef73532ab65d7a5c8` | Explicit raw/EMA evaluation weights and preserved training-resume state |
+| [#24](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/24) | `758bf83430d30cfb3f29b204650dafe3d13da803` | Current 40-cell protocol and historical-result boundaries |
 
-Each draft carries a dispatch-only condition for the scientific job. That condition is not integrated on the reviewed `main`: the current workflow there can start the scientific job on a matching pull request. A future engineering change touching that workflow's path filters must include the guard before opening its PR. The existing draft validation does not establish merged behavior, release a scientific hold, or prove memory benefit.
+The retained [integration report](docs/integration/20261008/README.md), [verification receipt](docs/integration/20261008/verification.json) and [test receipt](docs/integration/20261008/pytest.xml) document the qualification performed before that merge: **176 passed, 7 skipped and 10 subtests passed**, plus compilation, the frozen-v2 source verifier, wheel build and installed-package implementation fixtures. The seven skips remain skips. These are recorded integration checks; this status reconciliation did not rerun them. The [hosted `test` check](https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/37771892154/job/113293236434) also completed successfully on merged commit `84160703cc733c6deb150cf7b6ee5bb3a84d699b`. The dated integration report retains its original candidate-review wording as historical provenance; this section supplies the later merged status.
+
+The integrated [component workflow](https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/84160703cc733c6deb150cf7b6ee5bb3a84d699b/.github/workflows/current-component-ablations.yml) requires `github.event_name == 'workflow_dispatch'` for the `trajectory-isolated-v1` scientific job. Pull requests retain ordinary repository testing and cannot start that scientific job. Future engineering changes must preserve this condition.
+
+The native runtime successor remains opt-in, and `fim_experiments/benchmark.py` retains frozen Git blob `c91a6afe9d86830c6bcfaa2d9187547d9688050d`. The retained verifier result is `VERIFIED_PREOUTCOME_METHOD_FREEZE`, with `execution_authorized: false` and `outcome_access_allowed: false`. Engineering integration is complete; the protected scientific execution and outcome holds remain in force. Neither the merge nor its successful checks establish a memory benefit, completed 40-cell matrix, closure of [reproduction issue #1](https://github.com/THE-BU1LD/Fabric-Induced-Memory/issues/1), or publication readiness.
 
 ## Historical paper-reference boundary
 
