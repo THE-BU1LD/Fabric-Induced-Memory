@@ -487,13 +487,25 @@ def save_checkpoint(
     history: Dict[str, List[float]],
     scaler: Optional[Any] = None,
     ema: Optional[EMA] = None,
+    validation_weight_source: Optional[str] = None,
 ) -> None:
+    if validation_weight_source is not None and (
+        not isinstance(validation_weight_source, str)
+        or validation_weight_source not in ("raw", "ema")
+    ):
+        raise ValueError("validation_weight_source must be 'raw', 'ema', or None")
+    if validation_weight_source == "ema" and ema is None:
+        raise ValueError("EMA validation weights require an EMA checkpoint state")
+
     payload: Dict[str, Any] = {
         "epoch": int(epoch),
         "best_val_loss": float(best_val_loss),
         "history": history,
         "model": model.state_dict(),
         "optimizer": optimizer.state_dict(),
+        # Keep raw model/optimizer state for resuming training. Evaluation must
+        # separately select the predictor used to measure the validation loss.
+        "validation_weight_source": validation_weight_source,
     }
 
     if scheduler is not None and hasattr(scheduler, "state_dict"):
@@ -677,6 +689,10 @@ def train(
         if scheduler is not None and not scheduler_per_batch and hasattr(scheduler, "step"):
             scheduler.step()
 
+        validation_weight_source = None
+        if val_loader is not None or benchmark is not None:
+            validation_weight_source = "ema" if evaluate_ema and ema is not None else "raw"
+
         if val_loader is not None:
             if evaluate_ema and ema is not None:
                 ema.apply(model)
@@ -749,6 +765,7 @@ def train(
                 history=history,
                 scaler=scaler,
                 ema=ema,
+                validation_weight_source=validation_weight_source,
             )
 
         if checkpoint_dir is not None and save_best:
@@ -764,6 +781,7 @@ def train(
                     history=history,
                     scaler=scaler,
                     ema=ema,
+                    validation_weight_source=validation_weight_source,
                 )
 
         if hasattr(model, "detach_state"):

@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
+import io
 import itertools
 import json
 import math
@@ -10,6 +12,11 @@ import random
 from pathlib import Path
 from statistics import mean, median
 from typing import Iterable
+
+try:
+    from scripts.evidence_publication import publish_evidence
+except ModuleNotFoundError:
+    from evidence_publication import publish_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_BENCHMARKS = ["delayed_recall", "lorenz96"]
@@ -155,6 +162,15 @@ def write_csv(path: Path, rows: Iterable[dict]) -> None:
         writer.writerows(rows)
 
 
+def render_csv(rows: Iterable[dict]) -> str:
+    rows = list(rows)
+    handle = io.StringIO(newline="")
+    writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()))
+    writer.writeheader()
+    writer.writerows(rows)
+    return handle.getvalue()
+
+
 def render_table(comparisons: list[dict]) -> str:
     lines = [
         "| Benchmark | Comparison | n | Full MSE | Control MSE | Delta (full-control) | 95% paired bootstrap CI | Exact sign-flip p | Full-better seeds |",
@@ -179,22 +195,26 @@ def main() -> None:
     ap.add_argument("--evidence", type=Path, default=ROOT / "research" / "TRAJECTORY_ISOLATED_EVIDENCE.md")
     args = ap.parse_args()
 
-    data = json.loads(args.manifest.read_text(encoding="utf-8"))
+    manifest_bytes = args.manifest.read_bytes()
+    manifest_sha256 = hashlib.sha256(manifest_bytes).hexdigest()
+    data = json.loads(manifest_bytes.decode("utf-8"))
     rows = validate_manifest(data)
     comparisons = build_comparisons(rows)
-    write_csv(args.csv, comparisons)
 
     table = render_table(comparisons)
-    args.table.parent.mkdir(parents=True, exist_ok=True)
-    args.table.write_text(
-        "<!-- GENERATED from results/trajectory_isolated_v1/manifest.json; do not hand-edit numerical values. -->\n\n"
-        + table,
-        encoding="utf-8",
+    source_note = (
+        f"Source manifest: `{args.manifest.resolve()}`\n\n"
+        f"Source manifest SHA-256: `{manifest_sha256}`\n\n"
+    )
+    table_content = (
+        "<!-- GENERATED; do not hand-edit numerical values. -->\n\n"
+        + source_note + table
     )
 
     evidence = [
         "# Trajectory-isolated FIM evidence\n",
         "Status: generated only after the frozen 40-cell manifest passes completeness, clean-tree, budget, and provenance checks.\n",
+        source_note,
         f"Exact run commit: `{rows[0]['git_commit']}`\n",
         f"Protocol SHA-256: `{data['protocol_sha256']}`\n",
         "## Claim boundary\n",
@@ -206,8 +226,12 @@ def main() -> None:
         "A negative `full-control` delta means lower rollout MSE for full FIM. With five seeds, exact sign-flip inference has limited resolution; "
         "effect direction, interval width, and per-seed consistency should be emphasized over thresholded significance. Any architecture or tuning change after these outcomes requires a separately frozen protocol.\n",
     ]
-    args.evidence.parent.mkdir(parents=True, exist_ok=True)
-    args.evidence.write_text("\n".join(evidence), encoding="utf-8")
+    publish_evidence(
+        [(args.csv, render_csv(comparisons)),
+         (args.table, table_content),
+         (args.evidence, "\n".join(evidence))],
+        protected_inputs=[args.manifest],
+    )
     print(f"validated {len(rows)} cells; wrote {args.csv}, {args.table}, {args.evidence}")
 
 
