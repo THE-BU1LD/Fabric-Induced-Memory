@@ -30,6 +30,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--rollout_steps", type=int, default=None)
     parser.add_argument("--batch_size", type=int, default=32)
     parser.add_argument("--output_dir", type=Path, default=None)
+    parser.add_argument(
+        "--weights", choices=("auto", "raw", "ema"), default="auto",
+        help=(
+            "auto uses the checkpoint's declared validation weights and keeps "
+            "raw-weight behavior for legacy checkpoints without that metadata. "
+            "Use raw or ema to select explicitly; the choice is recorded."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -68,6 +76,76 @@ def _state_dict(payload: Dict[str, Any]) -> Dict[str, torch.Tensor]:
     raise KeyError("Checkpoint contains neither 'model_state_dict' nor trainer 'model' state.")
 
 
+def _load_evaluation_weights(
+    model: torch.nn.Module, payload: Dict[str, Any], requested: str = "auto",
+) -> Dict[str, Any]:
+    """Select raw/EMA inference weights without changing resume checkpoint state.
+
+    Historical checkpoints do not identify which weights measured validation.
+    Their automatic behavior stays raw, even if a config or EMA payload exists.
+    EMA is a mapping of trainable named parameters, not a complete state dict;
+    persistent buffers and frozen parameters still come from the raw state.
+    """
+    if requested not in ("auto", "raw", "ema"):
+        raise ValueError("requested weights must be 'auto', 'raw', or 'ema'")
+    declared = payload.get("validation_weight_source")
+    if declared is not None and (
+        not isinstance(declared, str) or declared not in ("raw", "ema")
+    ):
+        raise ValueError("Invalid checkpoint validation_weight_source metadata")
+
+    if requested != "auto":
+        selected, reason = requested, "explicit --weights selection"
+    elif declared is not None:
+        selected, reason = declared, "checkpoint validation-weight metadata"
+    else:
+        selected = "raw"
+        reason = (
+            "checkpoint does not declare validation weights"
+            if "validation_weight_source" in payload
+            else "legacy checkpoint without validation-weight metadata"
+        )
+
+    raw_state = _state_dict(payload)
+    ema_state = payload.get("ema")
+    parameters = {name: param for name, param in model.named_parameters() if param.requires_grad}
+    if selected == "ema":
+        if not isinstance(ema_state, dict):
+            raise ValueError("EMA weights were selected but the checkpoint has no EMA mapping")
+        if any(not isinstance(name, str) for name in ema_state):
+            raise ValueError("EMA parameter names must be strings")
+        missing = set(parameters) - set(ema_state)
+        unexpected = set(ema_state) - set(parameters)
+        if missing or unexpected:
+            raise ValueError(
+                f"EMA parameter mismatch: missing={sorted(missing)} unexpected={sorted(unexpected)}"
+            )
+        for name, parameter in parameters.items():
+            value = ema_state[name]
+            raw_value = raw_state.get(name)
+            if not torch.is_tensor(value) or not torch.is_tensor(raw_value):
+                raise ValueError(f"EMA/raw parameter {name!r} must be a tensor")
+            if value.shape != parameter.shape or value.shape != raw_value.shape:
+                raise ValueError(f"EMA parameter {name!r} has an incompatible shape")
+            if value.dtype != raw_value.dtype:
+                raise ValueError(f"EMA parameter {name!r} has a different dtype from raw weights")
+
+    model.load_state_dict(raw_state, strict=True)
+    if selected == "ema":
+        # Copy through named parameters after loading buffers. Overlaying a
+        # state_dict would let a later tied-parameter alias overwrite the EMA.
+        with torch.no_grad():
+            for name, parameter in parameters.items():
+                parameter.copy_(ema_state[name])
+
+    return {
+        "requested_weight_source": requested,
+        "weight_source": selected,
+        "weight_source_reason": reason,
+        "validation_weight_source": declared,
+    }
+
+
 def main() -> None:
     args = parse_args()
     device = get_device(args.device)
@@ -80,12 +158,7 @@ def main() -> None:
 
     benchmark = select_benchmark(config.get("benchmark", {}) or {})
     model = build_system(config, benchmark, device)
-    missing, unexpected = model.load_state_dict(_state_dict(payload), strict=False)
-    if missing or unexpected:
-        raise RuntimeError(
-            "Checkpoint/model mismatch: "
-            f"missing={list(missing)} unexpected={list(unexpected)}"
-        )
+    weight_provenance = _load_evaluation_weights(model, payload, args.weights)
 
     if args.output_dir is None:
         output_dir = args.checkpoint.parent.parent / "evaluation"
@@ -118,6 +191,7 @@ def main() -> None:
         "seed": seed,
         "rollout_steps": rollout_steps,
         "batch_size": int(args.batch_size),
+        **weight_provenance,
     }
     with (output_dir / "evaluation_provenance.json").open("w", encoding="utf-8") as handle:
         json.dump(provenance, handle, indent=2)
