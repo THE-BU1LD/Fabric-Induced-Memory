@@ -42,6 +42,21 @@ The current frozen protocol is [`FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1`](resea
 
 These are protocol settings, not completed results. The protected scientific execution hold remains in force. This document does not authorize a workflow dispatch, release that hold, or assert that any of the 40 cells has completed. A future authorized execution must retain a manifest binding every cell to its exact commit, protocol hash, switches, configuration, environment, outputs and failure state.
 
+### Trajectory-isolated analysis admission
+
+The analyzer checks the exact 40 benchmark × seed × variant cells, rather than
+accepting any 40 unique labels. Each arm must carry its frozen Boolean component
+switches, integer budget, and within-episode memory settings. Manifest isolation,
+final-epoch selection, and disabled EMA must match the protocol; the recorded
+protocol hash must match the protocol file's actual bytes. Placeholder commit
+identifiers, coerced budget values, and negative or nonnumeric error metrics are
+rejected before tables or evidence files are published.
+
+The regression fixtures use artificial metadata and zero-valued metrics only.
+They do not read retained outcomes or execute the scientific matrix. These checks
+establish metadata consistency; they do not authenticate that a run occurred,
+release the execution hold, or establish a scientific benefit.
+
 ### Engineering drafts and scientific execution are separate
 
 At the 7 October 2026 source review, the following engineering drafts were inspected against `main` `08d2c3df4262612bffe38488f97e263769ff7ef6`:
