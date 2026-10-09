@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import sys
+import tempfile
 from pathlib import Path
 from typing import Any, Dict
 
@@ -20,6 +22,9 @@ from fim_experiments.main import (  # noqa: E402
     set_seed,
 )
 from fim_experiments.results.run_results import run  # noqa: E402
+
+
+_CHECKPOINT_SPOOL_MAX_BYTES = 8 * 1024 * 1024
 
 
 def parse_args() -> argparse.Namespace:
@@ -47,31 +52,85 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def _load_checkpoint(path: Path, device: torch.device) -> Dict[str, Any]:
+def _load_checkpoint(
+    path: Path, device: torch.device, provenance: Dict[str, Any] | None = None,
+) -> Dict[str, Any]:
     if not path.exists():
         raise FileNotFoundError(f"Checkpoint not found: {path}")
-    payload = torch.load(path, map_location=device)
+    if provenance is None:
+        payload = torch.load(path, map_location=device)
+    else:
+        # Hash the same retained bytes that torch.load consumes, even if the
+        # source path is replaced or rewritten before deserialization. Larger
+        # snapshots spill to a temporary file instead of retaining an unbounded
+        # checkpoint byte buffer in memory.
+        digest = hashlib.sha256()
+        size = 0
+        with path.open("rb") as source, tempfile.SpooledTemporaryFile(
+            max_size=_CHECKPOINT_SPOOL_MAX_BYTES, mode="w+b",
+        ) as snapshot:
+            for block in iter(lambda: source.read(1024 * 1024), b""):
+                digest.update(block)
+                size += len(block)
+                snapshot.write(block)
+            snapshot.seek(0)
+            payload = torch.load(snapshot, map_location=device)
     if not isinstance(payload, dict):
         raise TypeError(f"Expected checkpoint mapping, got {type(payload)!r}")
+    if provenance is not None:
+        provenance.update({
+            "checkpoint_sha256": digest.hexdigest(),
+            "checkpoint_size_bytes": size,
+        })
     return payload
 
 
-def _resolve_config(args: argparse.Namespace, payload: Dict[str, Any]) -> Dict[str, Any]:
+def _canonical_config_bytes(config: Dict[str, Any]) -> bytes:
+    def check_keys(value: Any) -> None:
+        if isinstance(value, dict):
+            if any(not isinstance(key, str) for key in value):
+                raise TypeError("Resolved config keys must be strings for content identity")
+            for item in value.values():
+                check_keys(item)
+        elif isinstance(value, (list, tuple)):
+            for item in value:
+                check_keys(item)
+
+    check_keys(config)
+    return json.dumps(
+        config, sort_keys=True, separators=(",", ":"), ensure_ascii=True,
+        allow_nan=False,
+    ).encode("utf-8")
+
+
+def _resolve_config(
+    args: argparse.Namespace, payload: Dict[str, Any],
+    provenance: Dict[str, Any] | None = None,
+) -> Dict[str, Any]:
+    source_path = None
     if args.config is not None:
-        return load_yaml_config(args.config)
+        config = load_yaml_config(args.config)
+        source, source_path = "explicit_yaml", str(args.config)
+    elif isinstance(payload.get("config"), dict):
+        config = payload["config"]
+        source = "checkpoint_embedded"
+    else:
+        candidate = args.checkpoint.parent.parent / "configs" / "resolved_config.yaml"
+        if not candidate.exists():
+            raise FileNotFoundError(
+                "No experiment config was supplied or embedded. Pass --config explicitly, "
+                f"or place resolved_config.yaml at {candidate}."
+            )
+        config = load_yaml_config(candidate)
+        source, source_path = "sibling_yaml", str(candidate)
 
-    embedded = payload.get("config")
-    if isinstance(embedded, dict):
-        return embedded
-
-    candidate = args.checkpoint.parent.parent / "configs" / "resolved_config.yaml"
-    if candidate.exists():
-        return load_yaml_config(candidate)
-
-    raise FileNotFoundError(
-        "No experiment config was supplied or embedded. Pass --config explicitly, "
-        f"or place resolved_config.yaml at {candidate}."
-    )
+    if provenance is not None:
+        provenance.update({
+            "config_source": source,
+            "config_source_path": source_path,
+            "resolved_config_sha256": hashlib.sha256(_canonical_config_bytes(config)).hexdigest(),
+        })
+    return config
 
 
 def _state_dict(payload: Dict[str, Any]) -> Dict[str, torch.Tensor]:
@@ -167,8 +226,10 @@ def main() -> None:
         )
 
     device = get_device(args.device)
-    payload = _load_checkpoint(args.checkpoint, device)
-    config = _resolve_config(args, payload)
+    checkpoint_provenance: Dict[str, Any] = {}
+    config_provenance: Dict[str, Any] = {}
+    payload = _load_checkpoint(args.checkpoint, device, checkpoint_provenance)
+    config = _resolve_config(args, payload, config_provenance)
 
     runtime = config.get("runtime", {}) or {}
     seed = int(runtime.get("seed", config.get("seed", 42)))
@@ -206,6 +267,8 @@ def main() -> None:
         "seed": seed,
         "rollout_steps": rollout_steps,
         "batch_size": int(args.batch_size),
+        **checkpoint_provenance,
+        **config_provenance,
         **weight_provenance,
     }
     with (output_dir / "evaluation_provenance.json").open("w", encoding="utf-8") as handle:
