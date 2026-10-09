@@ -29,7 +29,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--device", type=str, default="auto")
     parser.add_argument("--rollout_steps", type=int, default=None)
     parser.add_argument("--batch_size", type=int, default=32)
-    parser.add_argument("--output_dir", type=Path, default=None)
+    parser.add_argument(
+        "--output_dir", type=Path, default=None,
+        help=(
+            "New directory for this evaluation; existing paths are refused to "
+            "preserve earlier results. Defaults to the run's evaluation directory."
+        ),
+    )
     parser.add_argument(
         "--weights", choices=("auto", "raw", "ema"), default="auto",
         help=(
@@ -148,6 +154,18 @@ def _load_evaluation_weights(
 
 def main() -> None:
     args = parse_args()
+    output_dir = (
+        args.checkpoint.parent.parent / "evaluation"
+        if args.output_dir is None else args.output_dir
+    )
+    # Refuse reuse before loading a checkpoint or constructing a benchmark.
+    # is_symlink also catches dangling links, for which exists() is false.
+    if output_dir.exists() or output_dir.is_symlink():
+        raise FileExistsError(
+            f"Evaluation output already exists: {output_dir}. "
+            "Choose a new --output_dir to preserve earlier results."
+        )
+
     device = get_device(args.device)
     payload = _load_checkpoint(args.checkpoint, device)
     config = _resolve_config(args, payload)
@@ -160,11 +178,8 @@ def main() -> None:
     model = build_system(config, benchmark, device)
     weight_provenance = _load_evaluation_weights(model, payload, args.weights)
 
-    if args.output_dir is None:
-        output_dir = args.checkpoint.parent.parent / "evaluation"
-    else:
-        output_dir = args.output_dir
-    output_dir.mkdir(parents=True, exist_ok=True)
+    # Exclusive creation also refuses a destination created after preflight.
+    output_dir.mkdir(parents=True, exist_ok=False)
 
     eval_cfg = config.get("eval", {}) or {}
     benchmark_cfg = config.get("benchmark", {}) or {}
