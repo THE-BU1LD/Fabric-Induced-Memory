@@ -1,8 +1,9 @@
 from __future__ import annotations
 
+import math
+from contextlib import contextmanager
 from typing import Iterable, Tuple
 
-import math
 import torch
 
 
@@ -82,16 +83,50 @@ def clip_gradients(
 
 
 class EMA:
+    """Average trainable parameters; episode-memory buffers are not weights."""
+
     def __init__(self, model: torch.nn.Module, decay: float = 0.999):
-        self.decay = decay
+        self.decay = float(decay)
+        if not math.isfinite(self.decay) or not 0.0 <= self.decay <= 1.0:
+            raise ValueError("EMA decay must be finite and in [0, 1]")
         self.shadow = {
-            k: v.detach().clone()
-            for k, v in model.state_dict().items()
+            name: value.detach().clone()
+            for name, value in model.named_parameters()
+            if value.requires_grad
         }
 
-    def update(self, model: torch.nn.Module):
-        for k, v in model.state_dict().items():
-            self.shadow[k].mul_(self.decay).add_(v.detach(), alpha=1 - self.decay)
+    def _parameters(self, model: torch.nn.Module):
+        parameters = {
+            name: value for name, value in model.named_parameters()
+            if value.requires_grad
+        }
+        if parameters.keys() != self.shadow.keys():
+            raise ValueError("EMA trainable parameter names changed after initialization")
+        for name, value in parameters.items():
+            shadow = self.shadow[name]
+            if value.shape != shadow.shape or value.device != shadow.device or value.dtype != shadow.dtype:
+                raise ValueError(f"EMA parameter contract changed: {name}")
+        return parameters
 
+    @torch.no_grad()
+    def update(self, model: torch.nn.Module):
+        for name, value in self._parameters(model).items():
+            self.shadow[name].mul_(self.decay).add_(value.detach(), alpha=1.0 - self.decay)
+
+    @torch.no_grad()
     def apply_to(self, model: torch.nn.Module):
-        model.load_state_dict(self.shadow, strict=False)
+        for name, value in self._parameters(model).items():
+            value.copy_(self.shadow[name])
+
+    @contextmanager
+    def average_parameters(self, model: torch.nn.Module):
+        """Temporarily apply EMA weights and restore raw weights on every exit."""
+        parameters = self._parameters(model)
+        original = {name: value.detach().clone() for name, value in parameters.items()}
+        try:
+            self.apply_to(model)
+            yield
+        finally:
+            with torch.no_grad():
+                for name, value in parameters.items():
+                    value.copy_(original[name])
