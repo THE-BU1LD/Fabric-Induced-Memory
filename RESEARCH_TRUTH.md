@@ -90,3 +90,25 @@ Required before stronger paper-facing claims:
 7. Update scientific outcome claims only after retained artifacts exist and completeness checks pass. Keep source, protocol and integration status current without promoting those updates into scientific results.
 
 Negative, mixed, baseline-winning, and mechanism-falsifying outcomes are all valid scientific endpoints. Missing execution is not a null result, and historical paper-reference values are not fresh reproduction evidence.
+
+## Development repair: bounded fractional history (10 October 2026)
+
+The exported `fim.core.FractionalMemory` helper truncated a hard-coded fifth
+axis when its history capacity was exceeded. Vector states raised `IndexError`;
+four-dimensional fields lost width while the time history continued growing.
+The corrected helper retains the newest samples on its declared time axis
+(`-2`) for any supported state rank, owns detached input storage, and validates
+configuration, numeric values and trajectory shape/dtype/device before committing
+an update. A rejected update leaves the preceding history intact.
+
+This retains the existing finite-history Grunwald–Letnikov definition with
+zero extension before the stored window; it does not introduce a Caputo
+initial-condition correction. Closed-form binomial weights, first-order finite
+differences and gradients, vector/field windows, input mutation and failure
+preservation are tested. Local CPU validation of the complete repository on
+PyTorch 2.14.1 recorded **250 passed, 7 skipped, 10 subtests passed**.
+
+This is an engineering correction to the exported helper. The maintained
+40-cell runner, its model, benchmark source, recall metrics, protocol files and
+workflow are unchanged. No new scientific matrix or protected outcome was run,
+and no memory-benefit or paper-reproduction claim is added.
