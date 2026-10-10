@@ -2,113 +2,50 @@
   "schema_version": "research-session-successor-index-v1",
   "repository": "THE-BU1LD/Fabric-Induced-Memory",
   "updated_utc_date": "2026-10-10",
-  "index_role": "Additive prospective research-session index for this draft branch.",
-  "purpose": "Make the published engineering change discoverable from AGENTS.md while preserving the prior canonical state and both source histories. This is index reconciliation, not executable branch integration.",
+  "index_role": "Prospective numerical-maintenance successor index; complete predecessor preserved as an exact blob.",
   "canonical_read_order": [
     "research/RESEARCH_STATE.json",
+    "research/state_snapshots/PR34_b417f3c4b048_RESEARCH_STATE.json",
     "research/state_snapshots/PR35_0ad7dc976677_RESEARCH_STATE.json",
     "RESEARCH_TRUTH.md",
-    "research/DEVELOPMENT_TRACE_ADMISSION_20261010.md"
+    "research/maintenance/stability_v2_20261010/PUBLICATION.md"
   ],
-  "session_rule": "Read this index, the exact predecessor snapshot and applicable truth/protocol records before work. Append actual changes, verification and failures before finishing. Preserve negative, mixed, invalid and frozen evidence and its source identities.",
+  "session_rule": "Read the canonical index and every predecessor authority before work; append actual implementation, verification, failures and unresolved gates before finishing. Source-specific results remain attached to their source. Never remove negative, invalid or frozen history.",
   "predecessor_canonical_record": {
-    "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/35",
-    "commit": "0ad7dc9766771cb3d9cb18bab649cfa2da3e4dc5",
-    "branch": "codex/fim-development-episode-bank-20261010",
+    "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/34",
+    "commit": "b417f3c4b0487b09f948eea70c5d8b94a21cf3d5",
     "original_path": "research/RESEARCH_STATE.json",
-    "immutable_url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/0ad7dc9766771cb3d9cb18bab649cfa2da3e4dc5/research/RESEARCH_STATE.json",
-    "snapshot_path": "research/state_snapshots/PR35_0ad7dc976677_RESEARCH_STATE.json",
-    "git_blob": "f7be49a8ab0c0c2f65109bb51dfcd59f5fc75cc7",
-    "sha256": "82456c96be9bc8eab60d51a2a84b1a2c76e564325319cfd92dabbfab7eab931c",
-    "preservation": "Entire original file retained byte for byte, including history, failures, test/source bindings, linked receipts and incomplete-import qualifications.",
-    "path_resolution": "Relative paths and source/test claims inside the snapshot refer to its immutable source commit, not to this draft branch.",
-    "code_imported_by_this_reconciliation": false
+    "snapshot_path": "research/state_snapshots/PR34_b417f3c4b048_RESEARCH_STATE.json",
+    "git_blob": "18f71cda3ae9447bec5649a1cb0d5df1d8adc57f",
+    "preservation": "Entire preceding index retained byte for byte, with its history, source bindings, candidate distinctions, execution holds and incomplete-import qualification. All previously present snapshots remain unchanged.",
+    "path_resolution": "Interpret source/verification assertions in the predecessor at its pinned commit; do not upgrade inherited receipts to combined validation."
   },
-  "separate_development_candidates": [
-    {
-      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/35",
-      "source_commit": "0ad7dc9766771cb3d9cb18bab649cfa2da3e4dc5",
-      "record": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/0ad7dc9766771cb3d9cb18bab649cfa2da3e4dc5/research/RESEARCH_STATE.json",
-      "status": "DRAFT_UNMERGED",
-      "implementation_present_in_this_branch": false,
-      "qualification": "The source-bound record is indexed, but its separate implementation is not imported or claimed to have passed combined tests."
-    },
-    {
-      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/34",
-      "source_commit": "e851be34a513c5e9e97c95f31472c0aa920d6efd",
-      "record": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/e851be34a513c5e9e97c95f31472c0aa920d6efd/research/DEVELOPMENT_TRACE_ADMISSION_20261010.md",
-      "status": "DRAFT_UNMERGED",
-      "implementation_present_in_this_branch": true,
-      "source_blobs": [
-        {
-          "path": "fim/memory/trace_bank.py",
-          "git_blob": "7a3d7e386ef27fdb4601e1d3227f7cf0499bf406",
-          "mode": "100644"
-        },
-        {
-          "path": "tests/test_trace_bank_admission.py",
-          "git_blob": "555d4a0c582f352b31aaaf3a0dcc5d5cf1de86da",
-          "mode": "100644"
-        }
-      ],
-      "scope": "Standalone exported trace-bank admission owns caller storage and stages batch updates; maintained model/core trace banks are separate.",
-      "qualification": "The retained verification applies only to the immutable implementation commit and the documented focused scope. No new test run is implied by this index update."
-    }
-  ],
-  "linked_development_receipts": [
-    {
-      "recorded_on": "2026-10-10",
-      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/33",
-      "implementation_commit": "19fe5c0b4f3b8de0aa85153012595cd7d15359cd",
-      "artifact_path": "research/development/SDE_QUADRATIC_VARIATION_V2.json",
-      "immutable_receipt": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/19fe5c0b4f3b8de0aa85153012595cd7d15359cd/research/development/SDE_QUADRATIC_VARIATION_V2.json",
-      "scope": "Opt-in SDEIntegratorV2 uses the actual noise-scaled conditional quadratic variation; 28 bounded analytic/integrator tests passed.",
-      "status": "Development implementation verified; separate unmerged proposal.",
-      "scientific_disposition_change": "None. Do not reclassify retained findings or use this receipt to advance a scientific checkpoint.",
-      "execution_boundary": "Artificial bounded checks only; protected and frozen campaigns remain unrun and existing holds remain binding.",
-      "integration_rule": "Keep this receipt and its source identity when integrating the separate code branch; the original canonical state fields continue to describe their own source-bound development work."
-    },
-    {
-      "recorded_on": "2026-10-10",
-      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/34",
-      "implementation_commit": "e851be34a513c5e9e97c95f31472c0aa920d6efd",
-      "artifact_path": "research/DEVELOPMENT_TRACE_ADMISSION_20261010.md",
-      "immutable_receipt": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/e851be34a513c5e9e97c95f31472c0aa920d6efd/research/DEVELOPMENT_TRACE_ADMISSION_20261010.md",
-      "artifact_git_blob": "17ec3f971fa3d8e3dde948200732b81e01393a7f",
-      "artifact_sha256": "d61f2a5a46787554acb93886f40e288e238c429770ad8ca0a3fdf1ad3fa73a62",
-      "scope": "Standalone exported trace-bank admission owns caller storage and stages batch updates; maintained model/core trace banks are separate.",
-      "verification": {
-        "passed": 35,
-        "scope": "32 new admission cases and three retained tiny memory tests; no protected trajectory matrix."
-      },
-      "status": "Published engineering candidate; draft and unmerged.",
-      "scientific_disposition_change": "None. The engineering result does not advance a scientific checkpoint, replace retained findings, or authorize a protected run.",
-      "integration_state": "The implementation is present in this draft branch. The separately indexed predecessor candidate has not been combined with it."
-    }
-  ],
+  "current_development": {
+    "id": "STABILITY_DIAGNOSTICS_V2_20261010",
+    "question": "Can the intended finite-field norm/clipping/log-growth calculations avoid unnecessary intermediate overflow and underflow?",
+    "phase": "IMPLEMENTED_LOCAL_COMPONENT_TESTS_PASSED",
+    "opt_in": true,
+    "implementation": "fim/core/stability_v2.py",
+    "tests": "tests/test_stability_v2.py",
+    "record": "research/maintenance/stability_v2_20261010/PUBLICATION.md",
+    "source_sha256": "ba6f579d0dca65fac7b4799cda391d5caa42e0d166842d44a5431aae8f74aeb6",
+    "test_sha256": "f9708f5c9c14b92507ecb7a6e7ff8d2753b6ea4a443861690c7e151fdab476df",
+    "preserved_legacy_blob": "1f28c9494319c17cc8e0038eddfda55b804565da",
+    "verification": {"component_cases_passed": 45, "component_cases_failed": 0, "fresh_delivery_recheck_cases": 140, "counts_overlap": true, "full_repository_tested": false, "hosted_ci_claimed": false},
+    "earlier_baseline": {"passed": 12, "failed": 33, "qualification": "Includes new contract/API expectations; not 33 distinct bugs."},
+    "budget": {"numerical_threads": 1, "max_seconds_per_test_process": 120, "paid_compute_cents": 0, "training_campaigns": 0, "protected_dispatches": 0},
+    "next_gate": "Independent source review and authorized full integration tests; scientific adoption requires a prospectively versioned study."
+  },
   "scientific_status": {
     "disposition_change": "NONE",
     "phase_or_checkpoint_advanced": false,
     "research_completion_claimed": false,
-    "authority": "Retained truth/protocol records and the source-bound predecessor snapshot remain authoritative. Separate candidates and their development checks do not establish empirical efficacy.",
-    "protected_execution": "All existing evaluation holds, budget requirements and prospective protocol requirements remain binding."
+    "new_protected_outcomes_read": false,
+    "authority": "Retained truth/protocol records and exact predecessor states remain authoritative. Existing holds and budgets are not lifted by this maintenance index."
   },
-  "index_reconciliation": {
-    "date": "2026-10-10",
-    "status": "COMPLETE",
-    "implementation_commit_preserved": "e851be34a513c5e9e97c95f31472c0aa920d6efd",
-    "action": "Add AGENTS.md, this successor index, and the exact predecessor-state snapshot; preserve every pre-existing branch file.",
-    "copied_instruction_blob": "3ddea37683f39d18f503ca6cc437f20843145d8b",
-    "new_code_or_model_changes": false,
-    "new_training_or_scientific_runs": 0,
-    "paid_compute": 0,
-    "provider_calls": 0,
-    "new_hosted_ci_claim": false,
-    "verification": "JSON parsing, predecessor and note Git-blob/SHA-256 bindings, copied instruction identity, explicit separate-candidate states, and complete remote-tree preservation."
-  },
-  "history_index_coverage": {
-    "status": "INCOMPLETE_IMPORT",
-    "scope": "Exact predecessor record, its already-linked receipts, and the newly linked engineering candidate only.",
-    "limits": "No complete repository-history audit or combination of separate implementations is claimed. Keep source identities when future authorized integration adds evidence."
-  }
+  "history": [
+    {"date": "2026-10-10", "event": "Earlier local-only delivery implemented and tested prospective diagnostics; its source/test bytes and baseline failure history are retained."},
+    {"date": "2026-10-10", "event": "Fresh GitHub overlap review found no stability counterpart. Reran the original 140-case package successfully, confirmed legacy stability identity, and prepared this additive publication atop PR #34 without modifying its implementation."}
+  ],
+  "history_index_coverage": {"status": "INCOMPLETE_IMPORT", "scope": "Exact predecessor index and inherited snapshots plus this component maintenance; no whole-history audit or combined scientific completion is asserted."}
 }
