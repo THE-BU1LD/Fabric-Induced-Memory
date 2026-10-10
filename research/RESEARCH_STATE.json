@@ -98,5 +98,24 @@
     "reviewer": "Independent parent-agent source and test review",
     "scope": "Implementation correctness, test meaning, scientific boundary and retained source preservation",
     "date": "2026-10-10"
+  },
+  "linked_development_receipts": [
+    {
+      "recorded_on": "2026-10-10",
+      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/33",
+      "implementation_commit": "19fe5c0b4f3b8de0aa85153012595cd7d15359cd",
+      "artifact_path": "research/development/SDE_QUADRATIC_VARIATION_V2.json",
+      "immutable_receipt": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/19fe5c0b4f3b8de0aa85153012595cd7d15359cd/research/development/SDE_QUADRATIC_VARIATION_V2.json",
+      "scope": "Opt-in SDEIntegratorV2 uses the actual noise-scaled conditional quadratic variation; 28 bounded analytic/integrator tests passed.",
+      "status": "Development implementation verified; separate unmerged proposal.",
+      "scientific_disposition_change": "None. Do not reclassify retained findings or use this receipt to advance a scientific checkpoint.",
+      "execution_boundary": "Artificial bounded checks only; protected and frozen campaigns remain unrun and existing holds remain binding.",
+      "integration_rule": "Keep this receipt and its source identity when integrating the separate code branch; the original canonical state fields continue to describe their own source-bound development work."
+    }
+  ],
+  "history_index_coverage": {
+    "status": "INCOMPLETE_IMPORT",
+    "scope": "Existing indexed records and this explicit development receipt only.",
+    "limits": "No complete project-history audit is claimed. Historical Git, truth records, failed runs, prior decisions, protocols and separate open proposals remain authoritative; append missing history when it is inspected."
   }
 }
