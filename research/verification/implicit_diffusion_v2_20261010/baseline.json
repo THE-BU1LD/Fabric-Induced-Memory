@@ -1,0 +1,81 @@
+{
+  "parent_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+  "source_sha256": "a01256878a0bdee30278c0f3f6000ccfa8d5fc83c5ca4de46a62863f066402e2",
+  "python": "3.12.14",
+  "torch": "2.14.1+cpu",
+  "constant_input": [
+    [
+      [
+        [
+          2.0,
+          2.0
+        ],
+        [
+          2.0,
+          2.0
+        ]
+      ]
+    ]
+  ],
+  "constant_output": [
+    [
+      [
+        [
+          1.3333333333333333,
+          1.3333333333333333
+        ],
+        [
+          1.3333333333333333,
+          1.3333333333333333
+        ]
+      ]
+    ]
+  ],
+  "constant_expected": 2.0,
+  "mode_input": [
+    [
+      [
+        [
+          1.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          1.0
+        ]
+      ]
+    ]
+  ],
+  "mode_output": [
+    [
+      [
+        [
+          -2.0,
+          2.0
+        ],
+        [
+          2.0,
+          -2.0
+        ]
+      ]
+    ]
+  ],
+  "mode_backward_euler_expected": [
+    [
+      [
+        [
+          0.2,
+          -0.2
+        ],
+        [
+          -0.2,
+          0.2
+        ]
+      ]
+    ]
+  ],
+  "mode_input_norm": 2.0,
+  "mode_output_norm": 4.0,
+  "seconds": 0.03618000000278698,
+  "kind": "artificial implementation diagnostic; not scientific evidence"
+}

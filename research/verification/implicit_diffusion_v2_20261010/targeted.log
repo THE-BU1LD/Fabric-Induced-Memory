@@ -1,0 +1,18 @@
+......F.......................                                           [100%]
+=================================== FAILURES ===================================
+__________ test_constant_mode_is_preserved_and_checkerboard_is_damped __________
+
+    def test_constant_mode_is_preserved_and_checkerboard_is_damped():
+        x = torch.full((1, 1, 2, 2), 2., dtype=torch.float64)
+>       torch.testing.assert_close(periodic_backward_euler(x, .5, 1.), x, atol=0, rtol=0)
+E       AssertionError: Tensor-likes are not equal!
+E       
+E       Mismatched elements: 4 / 4 (100.0%)
+E       Greatest absolute difference: 4.440892098500626e-16 at index (0, 0, 0, 0)
+E       Greatest relative difference: 2.220446049250313e-16 at index (0, 0, 0, 0)
+
+tests/test_implicit_diffusion_v2.py:56: AssertionError
+- generated xml file: /workspace/scratch/17075f30bc81/work/fim/fabric/research/verification/implicit_diffusion_v2_20261010/targeted.xml -
+=========================== short test summary info ============================
+FAILED tests/test_implicit_diffusion_v2.py::test_constant_mode_is_preserved_and_checkerboard_is_damped
+1 failed, 29 passed in 32.93s

@@ -1,0 +1,8 @@
+{
+  "observation": "new constant-field fixture used an unjustified bitwise FFT expectation",
+  "retained_error": 4.440892098500626e-16,
+  "change": "float64 absolute/relative tolerance 1e-15 for two FFT mode expectations",
+  "implementation_changed": false,
+  "original_test_source": "initial_test_source.py",
+  "prior_log": "targeted.log"
+}
