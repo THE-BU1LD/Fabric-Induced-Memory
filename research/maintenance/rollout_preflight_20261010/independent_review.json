@@ -1,0 +1,11 @@
+{
+  "status": "NO_BLOCKING_ISSUE_FOUND",
+  "reviewer": "Independent parent-agent source and test review",
+  "reviewed_sources": {
+    "fim/training/rollout.py": "50fe8b1236358e24ecbee8d624a99539c6faf1debee2a273804eb36b7896fee1",
+    "tests/test_public_rollout_preflight.py": "540435c27c7038172d3b3e3bf6647958b21fbc59d1f94db59143a7a71a07dbfa"
+  },
+  "scope": "Input admission before allocation/model.step, integer handling, dimensions/device, teacher feature/dtype, finite consumed prefixes, and exact real-FIM manual recurrence.",
+  "tests_rerun_by_reviewer": false,
+  "limits": "Finite scans cover the used input prefixes and synchronize accelerators. No accelerator or performance claim. Model-side failures after admission are not rolled back."
+}
