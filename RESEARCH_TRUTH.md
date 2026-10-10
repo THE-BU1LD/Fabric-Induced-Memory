@@ -90,3 +90,18 @@ Required before stronger paper-facing claims:
 7. Update scientific outcome claims only after retained artifacts exist and completeness checks pass. Keep source, protocol and integration status current without promoting those updates into scientific results.
 
 Negative, mixed, baseline-winning, and mechanism-falsifying outcomes are all valid scientific endpoints. Missing execution is not a null result, and historical paper-reference values are not fresh reproduction evidence.
+
+### Trajectory-isolated analysis admission
+
+The analyzer checks the exact 40 benchmark × seed × variant cells, rather than
+accepting any 40 unique labels. Each arm must carry its frozen Boolean component
+switches, integer budget, and within-episode memory settings. Manifest isolation,
+final-epoch selection, and disabled EMA must match the protocol; the recorded
+protocol hash must match the protocol file's actual bytes. Placeholder commit
+identifiers, coerced budget values, and negative or nonnumeric error metrics are
+rejected before tables or evidence files are published.
+
+The regression fixtures use artificial metadata and zero-valued metrics only.
+They do not read retained outcomes or execute the scientific matrix. These checks
+establish metadata consistency; they do not authenticate that a run occurred,
+release the execution hold, or establish a scientific benefit.
