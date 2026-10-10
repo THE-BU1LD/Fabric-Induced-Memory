@@ -250,54 +250,5 @@
     "Maintainer review of draft PR38 and source proposals before integration into main.",
     "A separately qualified prospective execution decision is still required for each held scientific protocol. Existing engineering acceptance does not resolve the memory-benefit hypothesis."
   ],
-  "release_status": "Draft integration published; main merge and scientific release remain pending their separate decisions.",
-  "continuation_sessions": [
-    {
-      "id": "fim.retention-analysis.v2.20261010",
-      "parent_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
-      "parent_pull_request": 38,
-      "status": "TARGETED_ENGINEERING_VERIFIED_AFTER_SOURCE_REVIEW",
-      "contract": "research/development/RETENTION_ANALYSIS_V2_20261010.md",
-      "predecessor_state_snapshot": "research/state_snapshots/PR38_92bcc3eb5322_before_retention_v2_20261010_RESEARCH_STATE.json",
-      "predecessor_state_sha256": "0208c266d1dc7a4a0ea79cc6c914de345da3350ce3f16d1a525ab2703c7ebe11",
-      "implementation": "fim/analysis/retention_v2.py",
-      "tests": "tests/test_retention_v2.py",
-      "source_sha256": {
-        "fim/analysis/retention.py": "ff80d06b3d9c5d61411e5eb968825d8dee48f6778598a4554e2ca561c0c2f5aa",
-        "fim/analysis/retention_v2.py": "5ad40858d754dfd93cd60e8b65efe9e731738f668be6164b72d963ce66b7b8b8",
-        "tests/test_retention_v2.py": "3d30e147849cb4e4ba11900a8e241daa0bb4b2e1c955568edc121f549649c23d"
-      },
-      "verification": {
-        "tests": 58,
-        "failures": 0,
-        "errors": 0,
-        "skipped": 0,
-        "passed": 58
-      },
-      "receipt": "research/verification/retention_v2_20261010/receipt.json",
-      "raw_log": "research/verification/retention_v2_20261010/targeted.log",
-      "junit": "research/verification/retention_v2_20261010/targeted.xml",
-      "test_commands": 2,
-      "test_command_seconds": 31.639204726998287,
-      "failures_observed": [
-        "Independent source review found a subnormal-midpoint underflow not covered by the first 54 passing cases; revised scaling passes four additional Decimal-oracle fixtures."
-      ],
-      "retained_source_defect_reproduced": true,
-      "scope": "Explicitly imported version; existing defaults, frozen callers and retained outcomes unchanged",
-      "scientific_claim_change": false,
-      "protected_runs": 0,
-      "protected_outcome_access": false,
-      "paid_compute": 0,
-      "next_action": "Review the draft; prospectively adopt the version in a separately frozen study before any scientific use. Existing held evaluations remain held.",
-      "review_finding": "research/verification/retention_v2_20261010/review_finding.json",
-      "counts_overlap": "The 58 final cases include all 54 initial cases; counts are not added.",
-      "test_budget_status": "CLOSED",
-      "independent_source_review": "Root reviewed original source and identified the retained precision issue. Correction verified by the affected final analytical collection; no independent reviewer test rerun claimed."
-    }
-  ],
-  "latest_engineering_continuation": {
-    "id": "fim.retention-analysis.v2.20261010",
-    "receipt": "research/verification/retention_v2_20261010/receipt.json",
-    "note": "Previous state fields and closed budgets remain source-specific; this appended entry describes only this new engineering change."
-  }
+  "release_status": "Draft integration published; main merge and scientific release remain pending their separate decisions."
 }
