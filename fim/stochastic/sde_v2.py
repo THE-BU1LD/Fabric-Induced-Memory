@@ -129,7 +129,11 @@ class SDEIntegratorV2:
             if method == 'milstein':
                 gp = self._field(diffusion_grad(x, t), x, 'diffusion derivative')
                 # d[X] = variance(dw); dt alone is correct only for unit noise.
-                next_x = next_x + 0.5 * g * gp * (dw.square() - self._variance(x, dt))
+                # With default zero noise this term is exactly zero. Avoid
+                # overflowing finite g * gp before multiplying by that zero.
+                # Custom increments are already scaled and must still execute.
+                if self.noise_fn is not None or self.config.noise_scale != 0:
+                    next_x = next_x + 0.5 * g * gp * (dw.square() - self._variance(x, dt))
             if not torch.isfinite(next_x).all():
                 raise ValueError(f'nonfinite state at integration step {index + 1}')
             if self.config.stability_clip is not None:

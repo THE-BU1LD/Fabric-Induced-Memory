@@ -62,3 +62,22 @@ model efficacy finding. Historical values are not recomputed or relabeled.
 Any scientific execution selecting v2 needs its own pinned protocol/source
 identity. Protected studies remain held. No paid compute, full scientific
 matrix, historical benchmark replay, paper update or submission was performed.
+
+## Zero-noise follow-up, 10 October 2026
+
+Parent `1db6312f80b4776f45e2529f3514d0ec081933e2` still rejected an exactly deterministic Milstein step when
+finite diffusion factors overflowed in their intermediate product. The new
+correction validates the requested diffusion and derivative fields, then omits
+the identically zero correction only for the default Brownian sampler with
+`noise_scale == 0`. Custom increments remain active even when that configuration
+field is zero. Nonzero-noise arithmetic is unchanged.
+
+Seven new constructed CPU cases cover float32/float64 overflowing coefficients,
+bitwise deterministic trajectory and drift/input gradients, zero diffusion
+parameter gradients, RNG preservation, field validation and custom increments.
+The affected local suite passed **35 tests in 6.65 seconds**. The baseline
+run on the byte-identical FIM/QFIM solver source had two failures and five passes.
+The detailed receipt and raw logs are retained under `research/development/` and
+`research/verification/20261010_dynamics/`. Independent source/test review found
+no scoped blocker. This result does not establish general extreme-noise
+numerical stability, scientific efficacy or completion of a protected study.

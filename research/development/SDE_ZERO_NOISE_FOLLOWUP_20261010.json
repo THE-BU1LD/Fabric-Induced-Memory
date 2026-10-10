@@ -1,0 +1,49 @@
+{
+  "phase": "DEVELOPMENT_ENGINEERING_VERIFIED",
+  "question": "Does default zero-noise Milstein retain deterministic Euler values and derivatives when finite diffusion factors overflow when multiplied?",
+  "hypothesis": "Skip the identically zero default-noise correction after validating its requested fields; retain the existing arithmetic for nonzero/default and every custom increment.",
+  "budget": {
+    "focused_test_commands": 3,
+    "training_runs": 0,
+    "protected_runs": 0,
+    "paid_compute": 0,
+    "threads": 1
+  },
+  "falsifier": "Value/gradient or RNG disagreement with the explicit deterministic Euler recurrence, lost field validation, or suppressed custom-noise correction.",
+  "boundary": "Opt-in sde_v2 only; legacy solver, maintained callers, frozen protocols, outcomes and scientific holds unchanged.",
+  "verification": [
+    {
+      "command": "PYTHONPATH=/workspace/scratch/2a0c1e6ddd92/torch-deps:. PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_sde_zero_noise_overflow.py tests/test_sde_quadratic_variation_v2.py tests/test_dynamics.py",
+      "passed": 35,
+      "failed": 0,
+      "seconds": 6.65,
+      "scope": "Seven new constructed cases, 23 existing opt-in solver cases and five existing dynamics tests. Separate repository execution of shared numerical fixtures."
+    }
+  ],
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "parent_commit": "1db6312f80b4776f45e2529f3514d0ec081933e2",
+  "pull_request": 33,
+  "implementation_version": "diagonal-ito-v2-zero-noise-correction",
+  "failure_preserved": {
+    "parent_source_sha256": "69a94c0e87d16d5c3d99ed9a844bea7a3a8e11bcc154f78b2979978907bc93ef",
+    "passed": 5,
+    "failed": 2,
+    "seconds": 4.53,
+    "scope": "Executed on FIM parent source, which is byte-identical to the QFIM parent integrator; not a second QFIM baseline execution.",
+    "cause": "Finite float32 1e20 and float64 1e200 diffusion factors overflow in g*g_prime before multiplication by a zero quadratic-variation correction."
+  },
+  "independent_review": {
+    "reviewer": "Parent agent",
+    "status": "PASSED_NO_SCOPED_BLOCKER",
+    "scope": "Source and tests only; no independent rerun."
+  },
+  "remaining_limits": [
+    "No empirical efficacy, protected-run or scientific completion conclusion.",
+    "Nonzero-noise extreme products retain existing behavior and may still overflow.",
+    "Existing original record and tests remain unchanged; this correction requires its own source identity."
+  ],
+  "source_sha256": {
+    "fim/stochastic/sde_v2.py": "a045244e653e3306749caa67c8fe4875f58287567fb8466d1de2833468512804",
+    "tests/test_sde_zero_noise_overflow.py": "2a440f060c70247d91d2cfc0308f3250faca1a613b8ca069d25f1476ca8d9795"
+  }
+}
