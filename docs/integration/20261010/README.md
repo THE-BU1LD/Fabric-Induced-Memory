@@ -92,6 +92,25 @@ review also checked the canonical pointer/index, preserved closed budgets,
 unfavorable claims, exact truth-file union, unchanged workflows, and whitespace.
 It found no integration blocker. The review did not rerun the test collection.
 
+### Hosted acceptance and publication
+
+[Draft PR38](https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/38) publishes
+implementation commit `974f2e15288db369d0427802aea50a7a8386b52c`, complete tree
+`37453e2d3ac86bfb3fd8b9e77198457c5e2dae9b`. Both existing workflows succeeded:
+
+- [CI](https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38060038069/job/114236254664):
+  685 passed, 7 skipped, 164 subtests passed in 8.25 seconds.
+- [Component repository tests](https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38060038099/job/114236254647):
+  the same 685/7/164 collection in 12.38 seconds. Scientific job
+  `114236552086` was explicitly **skipped**.
+
+Both job logs identify GitHub's merge checkout
+`706b1c434b4b2f95a9777bfd161e8693e5bf5e82`; its complete tree was independently
+retrieved and matches the published implementation exactly. The
+[hosted receipt](hosted_verification.json) retains the job links and confirming
+log excerpts. This publication-status follow-up changes only documentation/state;
+the already tested runtime and test-source bytes remain unchanged.
+
 To reproduce in an environment with the project requirements and pytest:
 
 ```bash

@@ -3,7 +3,7 @@
   "repository": "THE-BU1LD/Fabric-Induced-Memory",
   "canonical_entry_point": "research/RESEARCH_STATE.json",
   "updated_on": "2026-10-10",
-  "phase": "ENGINEERING_INTEGRATION_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
+  "phase": "ENGINEERING_INTEGRATION_PUBLISHED_AND_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
   "research_question": "Does the implemented fabric-memory mechanism improve prediction and recall against mechanism-off controls when memory is isolated between independent trajectories?",
   "scientific_objective": "Identify reproducible mechanism benefit within prospectively declared benchmarks, budgets and independent units.",
   "current_hypothesis": "Unconfirmed. Existing mixed, negative and baseline-winning records remain authoritative.",
@@ -197,7 +197,17 @@
         "all_staged_files": "Reports inherited whitespace in five retained history files; source bytes preserved",
         "receipt": "docs/integration/20261010/whitespace_receipt.json"
       },
-      "hosted_ci": "Pending draft publication",
+      "hosted_ci": {
+        "status": "BOTH_IMPLEMENTATION_WORKFLOWS_PASSED",
+        "receipt": "docs/integration/20261010/hosted_verification.json",
+        "implementation_commit": "974f2e15288db369d0427802aea50a7a8386b52c",
+        "merge_checkout_tree_equals_implementation_tree": true,
+        "passed_each": 685,
+        "skipped_each": 7,
+        "subtests_each": 164,
+        "scientific_job": "SKIPPED",
+        "counts_overlap": true
+      },
       "counts_overlap": "The local total includes prior component cases; source-PR or subsequent hosted counts are not added.",
       "tested_source_identity": "docs/integration/20261010/tested_source.json",
       "source_set_sha256": "3eb37647846894254ba0a1601a5bc0e7aac7006b2a807d6e69fcaa129a2fcfeb"
@@ -214,7 +224,7 @@
       "protected_runs": 0,
       "paid_compute": 0
     },
-    "status": "INDEPENDENTLY_REVIEWED_READY_FOR_DRAFT_PUBLICATION",
+    "status": "CLOSED_PUBLISHED_DRAFT",
     "independent_source_review": {
       "status": "PASSED",
       "reviewer": "Independent parent-agent source review",
@@ -225,10 +235,20 @@
     "decisions": [
       "Preserve original whitespace in retained history logs/probe; do not rewrite source-bound evidence to satisfy formatting.",
       "Correct a one-character typo in the compatibility pointer to the preserved PR28 state; source verifier now checks exact canonical predecessor membership and that backward pointer. No runtime source or test changed."
-    ]
+    ],
+    "publication": {
+      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/38",
+      "branch": "integration/fim-reviewed-engineering-20261010",
+      "implementation_commit": "974f2e15288db369d0427802aea50a7a8386b52c",
+      "implementation_tree": "37453e2d3ac86bfb3fd8b9e77198457c5e2dae9b",
+      "all_selected_runtime_test_and_artifact_blobs_preserved": true,
+      "newly_published_blob_count": 14,
+      "state_followup": "This follow-up records publication and hosted receipts only; the verified implementation bytes are unchanged."
+    }
   },
   "next_required_work": [
-    "Publish the isolated draft integration with exact source identity and hosted acceptance receipts.",
-    "Maintainer review/integration decision; all scientific protocol and outcome holds remain unchanged."
-  ]
+    "Maintainer review of draft PR38 and source proposals before integration into main.",
+    "A separately qualified prospective execution decision is still required for each held scientific protocol. Existing engineering acceptance does not resolve the memory-benefit hypothesis."
+  ],
+  "release_status": "Draft integration published; main merge and scientific release remain pending their separate decisions."
 }
