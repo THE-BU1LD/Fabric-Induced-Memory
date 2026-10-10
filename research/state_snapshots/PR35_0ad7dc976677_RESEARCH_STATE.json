@@ -1,0 +1,496 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-10-10",
+  "purpose": "Canonical entry state for future research sessions; referenced historical records remain authoritative and must not be overwritten.",
+  "session_rule": "Read this file, RESEARCH_TRUTH.md and the applicable protocol before work. Append decisions and evidence before finishing. Never erase historical failures or silently reclassify evidence.",
+  "phase": "DEVELOPMENT_ENGINEERING_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
+  "scientific_checkpoint_change": "None. Passing targeted engineering tests does not complete a scientific checkpoint or establish model efficacy.",
+  "development_budget": {
+    "workstreams": 1,
+    "retained_end_to_end_demos": 1,
+    "max_focused_test_commands": 4,
+    "max_reported_test_seconds": 180,
+    "max_review_repair_cycles": 2,
+    "new_model_training_runs": 0,
+    "protected_outcome_runs": 0,
+    "scientific_matrix_dispatches": 0,
+    "paid_compute": 0,
+    "numeric_threads": 1
+  },
+  "terminal_research_disposition": null,
+  "release_status": "Engineering continuation reviewed and verified; integration remains pending through the named development branch.",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "base_commit": "84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+  "research_question": "Does the implemented fabric-memory mechanism improve prediction and recall against mechanism-off controls when memory is isolated between independent trajectories?",
+  "scientific_objective": "Identify whether retrieval and salience provide a reproducible benefit within declared benchmarks, budgets and independent units.",
+  "current_hypothesis": "The current-code memory hypothesis remains unconfirmed. Retained miniature comparisons and historical ablations do not establish consistent superiority.",
+  "intended_contribution": "A fully specified, falsifiable evaluation of structured memory and its component mechanisms, with all adverse outcomes retained.",
+  "scope": {
+    "current_change": "Opt-in development-only byte-bound delayed-recall episode materialization and isolated paired loading",
+    "excluded_from_this_change": [
+      "existing benchmark and native runtime sources",
+      "trainer and evaluator behavior",
+      "frozen protocols and held scientific seeds",
+      "historical evidence and conclusions",
+      "open PR implementations"
+    ]
+  },
+  "protected_evaluation": {
+    "status": "HELD",
+    "protocol": "research/protocols/FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md",
+    "matrix": "2 benchmarks x 5 seeds x 4 variants = 40 cells",
+    "required_boundary": "No protected outcome access or manual workflow dispatch in this engineering change. A future run requires its qualified execution decision and exact frozen revision.",
+    "successor_protocol": "research/protocols/FIM_DELAYED_RECALL_SUCCESSOR_V2.json"
+  },
+  "data_and_artifacts": {
+    "dataset_and_split_authority": "The applicable frozen protocol and the future per-cell manifest; this repair does not establish dataset identities.",
+    "history": [
+      "RESEARCH_TRUTH.md",
+      "paper_reference_results.json",
+      "docs/integration/20261008/README.md"
+    ],
+    "repair_record": "research/DEVELOPMENT_FRACTIONAL_HISTORY_REPAIR_20261010.md",
+    "development_episode_bank": {
+      "bank_sha256": "ae8e143064f27be469e69dc19fe1fac41d30737ecdcd4acff7a6de4a91afc938",
+      "batch_size": 1,
+      "clone_isolation": true,
+      "global_rng_independent": true,
+      "model_training_runs": 0,
+      "observations_sha256": "6c274a11fd0cb8f1a0e46f82a391243e8b14e47c7cfdc17040e51e4ed29e94c5",
+      "paired_rows": 3,
+      "phase": "DEVELOPMENT",
+      "scientific_outcome_runs": 0,
+      "seconds": 0.059227387988357805,
+      "shape": [
+        5,
+        13,
+        5
+      ],
+      "splits": {
+        "development_eval": 1,
+        "train": 3,
+        "validation": 1
+      },
+      "status": "VERIFIED_DEVELOPMENT_DEMO",
+      "artifact_directory": "research/artifacts/development_episode_bank_v1_demo_20261010",
+      "manifest": "research/artifacts/development_episode_bank_v1_demo_20261010/bank/manifest.json",
+      "raw_observations": "research/artifacts/development_episode_bank_v1_demo_20261010/bank/observations.f32",
+      "receipt": "research/artifacts/development_episode_bank_v1_demo_20261010/demo_receipt.json",
+      "command_receipt": "research/artifacts/development_episode_bank_v1_tests_20261010/retained_demo_command_receipt.json",
+      "total_command_seconds": 6.125824353992357,
+      "raw_bytes": 1300
+    },
+    "episode_bank_record": "research/DEVELOPMENT_EPISODE_BANK_V1_RESULT_20261010.md"
+  },
+  "claims_preserved": [
+    "Stored delayed-recall FIM rollout MSE 0.1975817829 is above DeepONet 0.1579457372 and MLP 0.1965747178.",
+    "Historical no_spectral_mixing Lorenz value 0.869918 is below full 1.317169; it is not a current variant result.",
+    "The retired shared-minibatch 24-cell matrix cannot establish trajectory-isolated memory behavior."
+  ],
+  "integration_state": {
+    "main_has_pr25": true,
+    "main_has_dispatch_only_scientific_guard": true,
+    "legacy_truth_status_note": "RESEARCH_TRUTH.md contains a dated pre-merge status section. PR #26 reconciles that section; this separate change preserves its path.",
+    "open_work_preserved": [
+      "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/26",
+      "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/27",
+      "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/28"
+    ]
+  },
+  "development_verification": {
+    "phase": "DEVELOPMENT",
+    "command": [
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_episode_bank_v1.py",
+      "tests/test_benchmark_runtime_contracts.py",
+      "tests/test_delayed_recall_successor_v2.py"
+    ],
+    "exit_code": 0,
+    "total_command_seconds": 9.855664917005925,
+    "source_sha256": {
+      "fim_experiments/episode_bank_v1.py": "2ef2ebd92cf805009b8f868386ac60c53009806b1addc51cdff5110fad28e4f6",
+      "tests/test_episode_bank_v1.py": "007b4bc643f3b6d067e2b4f4b1561f7ad54f98d062c94e2563afc8804002e137"
+    },
+    "threads": 1,
+    "new_model_training_runs": 0,
+    "scientific_outcome_runs": 0,
+    "passed": 108,
+    "subtests_passed": 7,
+    "failed": 0,
+    "pytest_seconds": 8.17,
+    "raw_log": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04.log",
+    "receipt": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04_receipt.json",
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "pytest": "9.1.1",
+    "scope": "Bounded real-generator, artifact, source-freshness and trainer-adapter regressions; no model or protected outcome run."
+  },
+  "decisions": [
+    {
+      "date": "2026-10-10",
+      "observation": "Past capacity, the old helper crashes for vector batches and retains too many time states for spatial fields; the first detached state aliases caller storage.",
+      "change": "Trim only axis -2 before concatenation, retain snapshots, and commit state only after a finite result.",
+      "predicted_consequence": "Bounded rolling GL differences match explicit finite-history calculations for every tested rank.",
+      "result": "33 targeted checks pass. Scientific efficacy remains untested."
+    },
+    {
+      "date": "2026-10-10",
+      "observation": "Successor-v2 requires prematerialized paired trajectory bytes; current static loaders generate stochastic trajectories and splits inside each run.",
+      "change": "Implement a new development-only episode artifact and verified consumer without modifying frozen execution.",
+      "predicted_consequence": "Independent consumers receive the same pinned trajectory bytes despite unrelated RNG or caller tensor mutation.",
+      "result": "108 tests and 7 subtests pass after two preserved review defects; one real five-episode artifact verifies paired identity. Scientific efficacy and protected execution remain unchanged."
+    }
+  ],
+  "next_required_work": [
+    "Review and integrate the separate stacked episode-bank PR together with its parent fractional-history PR; preserve concurrent work.",
+    "Use the pinned development artifact path only under its documented fresh-interpreter, immutable-checkout and CPU-loader conditions.",
+    "Any scientific adoption requires a separately qualified prospective runner/protocol integration and exact frozen execution decision; the existing held matrix and historical conclusions remain unchanged."
+  ],
+  "development_branch": "codex/fim-development-episode-bank-20261010",
+  "independent_review": {
+    "status": "COMPLETED",
+    "reviewer": "Parent-assigned independent finance_space agent",
+    "date": "2026-10-10",
+    "scope": "New artifact producer/consumer, meaningful tests, source freshness, failure preservation, CPU precondition and scientific boundary",
+    "result": "Two concrete review defects repaired; no remaining source blocker before final 108-test suite and one retained demo."
+  },
+  "engineering_sessions": [
+    {
+      "session_id": "fractional-history-repair-20261010",
+      "status": "CLOSED_PUBLISHED",
+      "published_head": "fd5161947c127797e7b0c2cda9dbfb7d0d378d97",
+      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/30",
+      "base_commit": "84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+      "budget": {
+        "scope": "Only the documented artificial regression suite and bounded implementation checks",
+        "new_model_training_runs": 0,
+        "protected_outcome_runs": 0,
+        "paid_compute": 0,
+        "numeric_threads": 1
+      },
+      "scope": {
+        "current_change": "Repair the exported truncated Grunwald-Letnikov memory helper for finite, arbitrary-rank state histories.",
+        "excluded_from_this_change": [
+          "FIM model architecture",
+          "benchmark generation",
+          "frozen matrix",
+          "historical evidence",
+          "papers",
+          "existing PR implementations"
+        ]
+      },
+      "verification": {
+        "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_fractional_memory_history.py tests/test_fractional.py",
+        "passed": 33,
+        "failed": 0,
+        "seconds": 4.41,
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu",
+        "pytest": "9.1.1",
+        "new_tests": 31,
+        "existing_tests": 2,
+        "scope": "Artificial tensor histories and existing tiny fractional-PDE tests; no frozen trajectory matrix.",
+        "source_sha256": {
+          "fim/core/fractional.py": "4bdc64f623b0cef0ec421f6fd245b744ce9af0716e995decb997922f31ac213a",
+          "tests/test_fractional_memory_history.py": "1a2cdaea07bc136617d1814ad5074f1e83ebd57bed477d8afa5bafdb2cdefc18"
+        }
+      },
+      "independent_review": {
+        "status": "COMPLETED",
+        "reviewer": "Independent parent-agent source and test review",
+        "scope": "Implementation correctness, test meaning, scientific boundary and retained source preservation",
+        "date": "2026-10-10"
+      }
+    },
+    {
+      "session_id": "development-episode-bank-v1-20261010",
+      "event": "NEW_BOUNDED_ENGINEERING_PASS_AUTHORIZED",
+      "started_at_utc": "2026-10-10 04:40:11 UTC",
+      "authorization": "User repeated the full pipeline and explicitly requested another real-code continuation; prior engineering stopping budget remains closed.",
+      "status": "CLOSED_VERIFIED_FOR_PUBLICATION",
+      "source_base_commit": "fd5161947c127797e7b0c2cda9dbfb7d0d378d97",
+      "contract": "research/DEVELOPMENT_EPISODE_BANK_V1_CONTRACT_20261010.md",
+      "budget": {
+        "workstreams": 1,
+        "retained_end_to_end_demos": 1,
+        "max_focused_test_commands": 4,
+        "max_reported_test_seconds": 180,
+        "max_review_repair_cycles": 2,
+        "new_model_training_runs": 0,
+        "protected_outcome_runs": 0,
+        "scientific_matrix_dispatches": 0,
+        "paid_compute": 0,
+        "numeric_threads": 1
+      },
+      "changes": [
+        "fim_experiments/episode_bank_v1.py",
+        "tests/test_episode_bank_v1.py",
+        "docs/development-episode-bank-v1.md",
+        "research/DEVELOPMENT_EPISODE_BANK_V1_CONTRACT_20261010.md",
+        "research/DEVELOPMENT_EPISODE_BANK_V1_RESULT_20261010.md",
+        "research/RESEARCH_STATE.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01_sources.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02_test_source.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04_receipt.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/independent_review_observed_sources.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.py",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/retained_demo_command_receipt.json",
+        "research/artifacts/development_episode_bank_v1_demo_20261010/bank/manifest.json",
+        "research/artifacts/development_episode_bank_v1_demo_20261010/bank/observations.f32",
+        "research/artifacts/development_episode_bank_v1_demo_20261010/demo_receipt.json"
+      ],
+      "verification": {
+        "phase": "DEVELOPMENT",
+        "command": [
+          "-m",
+          "pytest",
+          "-q",
+          "tests/test_episode_bank_v1.py",
+          "tests/test_benchmark_runtime_contracts.py",
+          "tests/test_delayed_recall_successor_v2.py"
+        ],
+        "exit_code": 0,
+        "total_command_seconds": 9.855664917005925,
+        "source_sha256": {
+          "fim_experiments/episode_bank_v1.py": "2ef2ebd92cf805009b8f868386ac60c53009806b1addc51cdff5110fad28e4f6",
+          "tests/test_episode_bank_v1.py": "007b4bc643f3b6d067e2b4f4b1561f7ad54f98d062c94e2563afc8804002e137"
+        },
+        "threads": 1,
+        "new_model_training_runs": 0,
+        "scientific_outcome_runs": 0,
+        "passed": 108,
+        "subtests_passed": 7,
+        "failed": 0,
+        "pytest_seconds": 8.17,
+        "raw_log": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04.log",
+        "receipt": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04_receipt.json",
+        "python": "3.12.14",
+        "torch": "2.14.1+cpu",
+        "pytest": "9.1.1",
+        "scope": "Bounded real-generator, artifact, source-freshness and trainer-adapter regressions; no model or protected outcome run."
+      },
+      "initialization_attempts": [
+        {
+          "status": "FAILED_BEFORE_WRITE",
+          "cause": "The first state-writing Python command used null rather than None and raised NameError before writing.",
+          "resolution": "Corrected before implementation; prior state and source were unchanged."
+        }
+      ],
+      "test_attempts": [
+        {
+          "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_episode_bank_v1.py tests/test_benchmark_runtime_contracts.py tests/test_delayed_recall_successor_v2.py",
+          "passed": 104,
+          "subtests_passed": 7,
+          "failed": 0,
+          "pytest_seconds": 19.36,
+          "total_command_seconds": 24.85504287701042,
+          "python": "3.12.14",
+          "torch": "2.14.1+cpu",
+          "pytest": "9.1.1",
+          "raw_log": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01.log",
+          "scope": "Bounded development fixtures, real-generator equivalence and artifact/loader integrity; no model training or protected outcomes.",
+          "source_sha256": {
+            "fim_experiments/episode_bank_v1.py": "704d0801f3934e7703162c26dc017ff94c73611a0a2a977b681130f8aa19c9b4",
+            "tests/test_episode_bank_v1.py": "ddefb39d357779069e339c588de129cb7f10cbec4b5fa1931ac14d70df1952ea"
+          },
+          "source_archive": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01_sources.json"
+        },
+        {
+          "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_episode_bank_v1.py::test_cpu_generation_and_clear_loader_precondition_under_default_meta_device",
+          "passed": 0,
+          "failed": 1,
+          "pytest_seconds": 23.27,
+          "total_command_seconds": 28.63905382300436,
+          "raw_log": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02.log",
+          "source_archive": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01_sources.json",
+          "test_source_archive": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02_test_source.json",
+          "observation": "New producer omitted explicit CPU device on initial allocations; default meta device reached an unsupported torch.equal during native rollout.",
+          "hypothesized_cause": "torch.randn and zeros used the process default device despite a CPU generator and explicit dtype.",
+          "proposed_change": "Allocate both initial memory and clock on CPU; reject incompatible DataLoader default device at construction and document its stable CPU precondition.",
+          "predicted_consequence": "Producer retains CPU observations under a meta default, preserves caller device, and gives a clear loader precondition error.",
+          "scope": "Deliberately adversarial development regression; no model or scientific outcome."
+        },
+        {
+          "command": "Independent reviewer isolated-module source-freshness reproducer; retained runnable script",
+          "status": "BUG_REPRODUCED",
+          "total_command_seconds": 3.886,
+          "raw_log": "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.log",
+          "script": "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.py",
+          "observed_source_archive": "research/artifacts/development_episode_bank_v1_tests_20261010/independent_review_observed_sources.json",
+          "source_archive_limitation": "Reviewer snapshotted sources immediately after the witness; original probe stdout did not print source hashes.",
+          "generated_development_probe_banks": 2,
+          "retained_end_to_end_demos": 0,
+          "observation": "Two banks admitted under equal declared source-hash maps had different observation bytes when native runtime source changed after Python import.",
+          "hypothesized_cause": "Fresh disk hashes described edited sources while Python executed cached generator definitions.",
+          "change": "Capture imported source snapshot; reject disk changes before/after generation and loading; require a fresh interpreter and immutable checkout for already-cached dependencies.",
+          "predicted_consequence": "Source-edited sessions fail before artifact admission and cannot mislabel cached generation with newly read source bytes.",
+          "scientific_outcome_runs": 0
+        },
+        {
+          "phase": "DEVELOPMENT",
+          "command": [
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_episode_bank_v1.py",
+            "tests/test_benchmark_runtime_contracts.py",
+            "tests/test_delayed_recall_successor_v2.py"
+          ],
+          "exit_code": 0,
+          "total_command_seconds": 9.855664917005925,
+          "source_sha256": {
+            "fim_experiments/episode_bank_v1.py": "2ef2ebd92cf805009b8f868386ac60c53009806b1addc51cdff5110fad28e4f6",
+            "tests/test_episode_bank_v1.py": "007b4bc643f3b6d067e2b4f4b1561f7ad54f98d062c94e2563afc8804002e137"
+          },
+          "threads": 1,
+          "new_model_training_runs": 0,
+          "scientific_outcome_runs": 0,
+          "passed": 108,
+          "subtests_passed": 7,
+          "failed": 0,
+          "pytest_seconds": 8.17,
+          "raw_log": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04.log",
+          "receipt": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04_receipt.json",
+          "python": "3.12.14",
+          "torch": "2.14.1+cpu",
+          "pytest": "9.1.1",
+          "scope": "Bounded real-generator, artifact, source-freshness and trainer-adapter regressions; no model or protected outcome run."
+        }
+      ],
+      "budget_consumed": {
+        "focused_test_commands": 4,
+        "total_test_command_seconds": 67.2357616170207,
+        "retained_end_to_end_demos": 1,
+        "review_repair_cycles": 2,
+        "new_model_training_runs": 0,
+        "protected_outcome_runs": 0,
+        "scientific_matrix_dispatches": 0,
+        "paid_compute": 0
+      },
+      "events": [
+        {
+          "event": "CONTRACT_RECORDED_BEFORE_IMPLEMENTATION",
+          "timestamp_utc": "2026-10-10 04:40:11 UTC",
+          "contract": "research/DEVELOPMENT_EPISODE_BANK_V1_CONTRACT_20261010.md"
+        },
+        {
+          "event": "BOUNDED_TEST_ATTEMPT_1_COMPLETED",
+          "result": "104 passed, 7 subtests passed; zero failures",
+          "raw_log": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01.log",
+          "next_action": "Independent source review before retained demonstration and stacked publication."
+        },
+        {
+          "event": "SOURCE_REVIEW_CPU_ALLOCATION_DEFECT_REPRODUCED",
+          "result": "1 failed as expected on pre-repair source; failure retained, repair pending verification.",
+          "raw_log": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02.log"
+        },
+        {
+          "event": "INDEPENDENT_SOURCE_FRESHNESS_DEFECT_REPRODUCED",
+          "result": "False provenance admission reproduced; imported snapshot repair awaits final bounded suite.",
+          "raw_log": "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.log",
+          "script": "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.py"
+        },
+        {
+          "event": "FINAL_BOUNDED_SUITE_PASSED",
+          "result": "108 passed, 7 subtests passed; no failures",
+          "receipt": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04_receipt.json"
+        },
+        {
+          "event": "RETAINED_DEVELOPMENT_DEMO_VERIFIED",
+          "bank_sha256": "ae8e143064f27be469e69dc19fe1fac41d30737ecdcd4acff7a6de4a91afc938",
+          "receipt": "research/artifacts/development_episode_bank_v1_demo_20261010/demo_receipt.json",
+          "scientific_outcome_runs": 0
+        },
+        {
+          "event": "BOUNDED_ENGINEERING_PASS_CLOSED",
+          "reason": "Specified executable path, independent review, retained failure history and one demonstration complete. No scientific checkpoint or hypothesis outcome changes.",
+          "budget_consumed": {
+            "focused_test_commands": 4,
+            "total_test_command_seconds": 67.2357616170207,
+            "retained_end_to_end_demos": 1,
+            "review_repair_cycles": 2,
+            "new_model_training_runs": 0,
+            "protected_outcome_runs": 0,
+            "scientific_matrix_dispatches": 0,
+            "paid_compute": 0
+          }
+        },
+        {
+          "event": "CONCURRENT_PARENT_METADATA_RETAINED",
+          "previous_parent_commit": "fd5161947c127797e7b0c2cda9dbfb7d0d378d97",
+          "publication_parent_commit": "1c2de9851b6d6858e25f6cdedb641ef9300343e2",
+          "inspected_delta": "One commit, exactly19 added lines in research/RESEARCH_STATE.json; no code, runtime, protocol or existing field changes.",
+          "preservation": "linked_development_receipts and history_index_coverage copied verbatim; tested source and generated bank bindings unchanged."
+        }
+      ],
+      "retained_demonstration": {
+        "bank_sha256": "ae8e143064f27be469e69dc19fe1fac41d30737ecdcd4acff7a6de4a91afc938",
+        "batch_size": 1,
+        "clone_isolation": true,
+        "global_rng_independent": true,
+        "model_training_runs": 0,
+        "observations_sha256": "6c274a11fd0cb8f1a0e46f82a391243e8b14e47c7cfdc17040e51e4ed29e94c5",
+        "paired_rows": 3,
+        "phase": "DEVELOPMENT",
+        "scientific_outcome_runs": 0,
+        "seconds": 0.059227387988357805,
+        "shape": [
+          5,
+          13,
+          5
+        ],
+        "splits": {
+          "development_eval": 1,
+          "train": 3,
+          "validation": 1
+        },
+        "status": "VERIFIED_DEVELOPMENT_DEMO",
+        "artifact_directory": "research/artifacts/development_episode_bank_v1_demo_20261010",
+        "manifest": "research/artifacts/development_episode_bank_v1_demo_20261010/bank/manifest.json",
+        "raw_observations": "research/artifacts/development_episode_bank_v1_demo_20261010/bank/observations.f32",
+        "receipt": "research/artifacts/development_episode_bank_v1_demo_20261010/demo_receipt.json",
+        "command_receipt": "research/artifacts/development_episode_bank_v1_tests_20261010/retained_demo_command_receipt.json",
+        "total_command_seconds": 6.125824353992357,
+        "raw_bytes": 1300
+      },
+      "independent_review": {
+        "status": "COMPLETED",
+        "reviewer": "Parent-assigned independent finance_space agent",
+        "date": "2026-10-10",
+        "scope": "New artifact producer/consumer, meaningful tests, source freshness, failure preservation, CPU precondition and scientific boundary",
+        "result": "Two concrete review defects repaired; no remaining source blocker before final 108-test suite and one retained demo."
+      },
+      "completed_at_utc": "2026-10-10 05:02:16 UTC",
+      "development_branch": "codex/fim-development-episode-bank-20261010",
+      "stacked_base_branch": "codex/fim-bounded-fractional-history-20261010",
+      "result_record": "research/DEVELOPMENT_EPISODE_BANK_V1_RESULT_20261010.md",
+      "publication_parent_commit": "1c2de9851b6d6858e25f6cdedb641ef9300343e2"
+    }
+  ],
+  "active_engineering_session": "development-episode-bank-v1-20261010",
+  "linked_development_receipts": [
+    {
+      "recorded_on": "2026-10-10",
+      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/33",
+      "implementation_commit": "19fe5c0b4f3b8de0aa85153012595cd7d15359cd",
+      "artifact_path": "research/development/SDE_QUADRATIC_VARIATION_V2.json",
+      "immutable_receipt": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/19fe5c0b4f3b8de0aa85153012595cd7d15359cd/research/development/SDE_QUADRATIC_VARIATION_V2.json",
+      "scope": "Opt-in SDEIntegratorV2 uses the actual noise-scaled conditional quadratic variation; 28 bounded analytic/integrator tests passed.",
+      "status": "Development implementation verified; separate unmerged proposal.",
+      "scientific_disposition_change": "None. Do not reclassify retained findings or use this receipt to advance a scientific checkpoint.",
+      "execution_boundary": "Artificial bounded checks only; protected and frozen campaigns remain unrun and existing holds remain binding.",
+      "integration_rule": "Keep this receipt and its source identity when integrating the separate code branch; the original canonical state fields continue to describe their own source-bound development work."
+    }
+  ],
+  "history_index_coverage": {
+    "status": "INCOMPLETE_IMPORT",
+    "scope": "Existing indexed records and this explicit development receipt only.",
+    "limits": "No complete project-history audit is claimed. Historical Git, truth records, failed runs, prior decisions, protocols and separate open proposals remain authoritative; append missing history when it is inspected."
+  }
+}
