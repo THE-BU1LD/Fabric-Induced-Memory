@@ -1,0 +1,487 @@
+FFFFFFFFFFFFFFFFF.                                                       [100%]
+=================================== FAILURES ===================================
+_____________ test_failed_save_preserves_previous_checkpoint_bytes _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_failed_save_preserves_pre0')
+
+    def test_failed_save_preserves_previous_checkpoint_bytes(tmp_path):
+        path = tmp_path / "checkpoint.pt"
+        before = b"previous evidence must survive a failed serialization"
+        path.write_bytes(before)
+        with pytest.raises(Exception):
+            save_checkpoint(path, _model(), extra={"bad": lambda: None})
+>       assert path.read_bytes() == before
+E       assert b"PK\x03\x04\...0\x00\x00\x00" == b'previous ev...serialization'
+E         
+E         At index 0 diff: b'P' != b'p'
+E         Use -v to get more diff
+
+tests/test_public_checkpoint_recovery.py:52: AssertionError
+_____________ test_failed_first_save_leaves_no_partial_checkpoint ______________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_failed_first_save_leaves_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f67731ec170>
+
+    def test_failed_first_save_leaves_no_partial_checkpoint(tmp_path, monkeypatch):
+        path = tmp_path / "checkpoint.pt"
+    
+        def fail_after_write(payload, destination):
+            if hasattr(destination, "write"):
+                destination.write(b"partial")
+            else:
+                path.write_bytes(b"partial")
+            raise OSError("injected storage failure")
+    
+        monkeypatch.setattr(torch, "save", fail_after_write)
+        with pytest.raises(OSError, match="injected"):
+            save_checkpoint(path, _model())
+>       assert not path.exists()
+E       AssertionError: assert not True
+E        +  where True = exists()
+E        +    where exists = PosixPath('/tmp/pytest-of-root/pytest-374/test_failed_first_save_leaves_0/checkpoint.pt').exists
+
+tests/test_public_checkpoint_recovery.py:69: AssertionError
+____________ test_rejected_model_state_cannot_partially_load[shape] ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_rejected_model_state_cann0')
+defect = 'shape'
+
+    @pytest.mark.parametrize("defect", ["shape", "dtype", "nonfinite", "unexpected_key"])
+    def test_rejected_model_state_cannot_partially_load(tmp_path, defect):
+        model = _model()
+        before = _snapshot(model)
+        state = copy.deepcopy(model.state_dict())
+        state["0.weight"].fill_(9)
+        if defect == "shape":
+            state["2.weight"] = torch.ones(7, 7)
+        elif defect == "dtype":
+            state["2.weight"] = state["2.weight"].double()
+        elif defect == "nonfinite":
+            state["2.weight"].fill_(float("nan"))
+        else:
+            state["unknown"] = torch.ones(1)
+        path = tmp_path / "bad.pt"
+        torch.save({"model": state, "epoch": 1}, path)
+        with pytest.raises((ValueError, TypeError, RuntimeError)):
+            load_checkpoint(path, model)
+>       _equal(_snapshot(model), before)
+
+tests/test_public_checkpoint_recovery.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_public_checkpoint_recovery.py:33: in _equal
+    _equal(a, b)
+tests/test_public_checkpoint_recovery.py:29: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor([[9., 9.],
+        [9., 9.],
+        [9., 9.]])
+right = tensor([[-0.2475, -0.1935],
+        [-0.4360,  0.0338],
+        [ 0.6370, -0.3985]])
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Tensor-likes are not equal!
+E           
+E           Mismatched elements: 6 / 6 (100.0%)
+E           Greatest absolute difference: 9.435981750488281 at index (1, 0)
+E           Greatest relative difference: 265.61859130859375 at index (1, 1)
+
+tests/test_public_checkpoint_recovery.py:25: AssertionError
+____________ test_rejected_model_state_cannot_partially_load[dtype] ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_rejected_model_state_cann1')
+defect = 'dtype'
+
+    @pytest.mark.parametrize("defect", ["shape", "dtype", "nonfinite", "unexpected_key"])
+    def test_rejected_model_state_cannot_partially_load(tmp_path, defect):
+        model = _model()
+        before = _snapshot(model)
+        state = copy.deepcopy(model.state_dict())
+        state["0.weight"].fill_(9)
+        if defect == "shape":
+            state["2.weight"] = torch.ones(7, 7)
+        elif defect == "dtype":
+            state["2.weight"] = state["2.weight"].double()
+        elif defect == "nonfinite":
+            state["2.weight"].fill_(float("nan"))
+        else:
+            state["unknown"] = torch.ones(1)
+        path = tmp_path / "bad.pt"
+        torch.save({"model": state, "epoch": 1}, path)
+>       with pytest.raises((ValueError, TypeError, RuntimeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValueError, TypeError, RuntimeError)
+
+tests/test_public_checkpoint_recovery.py:89: Failed
+__________ test_rejected_model_state_cannot_partially_load[nonfinite] __________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_rejected_model_state_cann2')
+defect = 'nonfinite'
+
+    @pytest.mark.parametrize("defect", ["shape", "dtype", "nonfinite", "unexpected_key"])
+    def test_rejected_model_state_cannot_partially_load(tmp_path, defect):
+        model = _model()
+        before = _snapshot(model)
+        state = copy.deepcopy(model.state_dict())
+        state["0.weight"].fill_(9)
+        if defect == "shape":
+            state["2.weight"] = torch.ones(7, 7)
+        elif defect == "dtype":
+            state["2.weight"] = state["2.weight"].double()
+        elif defect == "nonfinite":
+            state["2.weight"].fill_(float("nan"))
+        else:
+            state["unknown"] = torch.ones(1)
+        path = tmp_path / "bad.pt"
+        torch.save({"model": state, "epoch": 1}, path)
+>       with pytest.raises((ValueError, TypeError, RuntimeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValueError, TypeError, RuntimeError)
+
+tests/test_public_checkpoint_recovery.py:89: Failed
+_______ test_rejected_model_state_cannot_partially_load[unexpected_key] ________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_rejected_model_state_cann3')
+defect = 'unexpected_key'
+
+    @pytest.mark.parametrize("defect", ["shape", "dtype", "nonfinite", "unexpected_key"])
+    def test_rejected_model_state_cannot_partially_load(tmp_path, defect):
+        model = _model()
+        before = _snapshot(model)
+        state = copy.deepcopy(model.state_dict())
+        state["0.weight"].fill_(9)
+        if defect == "shape":
+            state["2.weight"] = torch.ones(7, 7)
+        elif defect == "dtype":
+            state["2.weight"] = state["2.weight"].double()
+        elif defect == "nonfinite":
+            state["2.weight"].fill_(float("nan"))
+        else:
+            state["unknown"] = torch.ones(1)
+        path = tmp_path / "bad.pt"
+        torch.save({"model": state, "epoch": 1}, path)
+        with pytest.raises((ValueError, TypeError, RuntimeError)):
+            load_checkpoint(path, model)
+>       _equal(_snapshot(model), before)
+
+tests/test_public_checkpoint_recovery.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_public_checkpoint_recovery.py:33: in _equal
+    _equal(a, b)
+tests/test_public_checkpoint_recovery.py:29: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor([[9., 9.],
+        [9., 9.],
+        [9., 9.]])
+right = tensor([[-0.2475, -0.1935],
+        [-0.4360,  0.0338],
+        [ 0.6370, -0.3985]])
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Tensor-likes are not equal!
+E           
+E           Mismatched elements: 6 / 6 (100.0%)
+E           Greatest absolute difference: 9.435981750488281 at index (1, 0)
+E           Greatest relative difference: 265.61859130859375 at index (1, 1)
+
+tests/test_public_checkpoint_recovery.py:25: AssertionError
+_____ test_rejected_optimizer_state_preserves_model_and_optimizer[groups] ______
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_rejected_optimizer_state_0')
+defect = 'groups'
+
+    @pytest.mark.parametrize("defect", ["groups", "moment_shape", "moment_nonfinite", "missing"])
+    def test_rejected_optimizer_state_preserves_model_and_optimizer(tmp_path, defect):
+        model = _model()
+        optimizer = torch.optim.AdamW(model.parameters(), lr=0.01)
+        scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.8)
+        _step(model, optimizer, scheduler)
+        before = _snapshot(model, optimizer, scheduler)
+        payload = {"model": copy.deepcopy(model.state_dict()), "epoch": 2,
+                   "optimizer": copy.deepcopy(optimizer.state_dict())}
+        payload["model"]["0.weight"].fill_(7)
+        if defect == "groups":
+            payload["optimizer"]["param_groups"][0]["params"] = []
+        elif defect.startswith("moment"):
+            key = next(iter(payload["optimizer"]["state"]))
+            if defect == "moment_shape":
+                payload["optimizer"]["state"][key]["exp_avg"] = torch.ones(7, 7)
+            else:
+                payload["optimizer"]["state"][key]["exp_avg"].fill_(float("inf"))
+        else:
+            del payload["optimizer"]
+        path = tmp_path / "bad.pt"
+        torch.save(payload, path)
+        with pytest.raises((ValueError, TypeError, RuntimeError)):
+            load_checkpoint(path, model, optimizer=optimizer)
+>       _equal(_snapshot(model, optimizer, scheduler), before)
+
+tests/test_public_checkpoint_recovery.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_public_checkpoint_recovery.py:33: in _equal
+    _equal(a, b)
+tests/test_public_checkpoint_recovery.py:29: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor([[7., 7.],
+        [7., 7.],
+        [7., 7.]])
+right = tensor([[-0.2575, -0.2035],
+        [-0.4459,  0.0238],
+        [ 0.6469, -0.3884]])
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Tensor-likes are not equal!
+E           
+E           Mismatched elements: 6 / 6 (100.0%)
+E           Greatest absolute difference: 7.4459381103515625 at index (1, 0)
+E           Greatest relative difference: 293.7025451660156 at index (1, 1)
+
+tests/test_public_checkpoint_recovery.py:25: AssertionError
+__ test_rejected_optimizer_state_preserves_model_and_optimizer[moment_shape] ___
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_rejected_optimizer_state_1')
+defect = 'moment_shape'
+
+    @pytest.mark.parametrize("defect", ["groups", "moment_shape", "moment_nonfinite", "missing"])
+    def test_rejected_optimizer_state_preserves_model_and_optimizer(tmp_path, defect):
+        model = _model()
+        optimizer = torch.optim.AdamW(model.parameters(), lr=0.01)
+        scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.8)
+        _step(model, optimizer, scheduler)
+        before = _snapshot(model, optimizer, scheduler)
+        payload = {"model": copy.deepcopy(model.state_dict()), "epoch": 2,
+                   "optimizer": copy.deepcopy(optimizer.state_dict())}
+        payload["model"]["0.weight"].fill_(7)
+        if defect == "groups":
+            payload["optimizer"]["param_groups"][0]["params"] = []
+        elif defect.startswith("moment"):
+            key = next(iter(payload["optimizer"]["state"]))
+            if defect == "moment_shape":
+                payload["optimizer"]["state"][key]["exp_avg"] = torch.ones(7, 7)
+            else:
+                payload["optimizer"]["state"][key]["exp_avg"].fill_(float("inf"))
+        else:
+            del payload["optimizer"]
+        path = tmp_path / "bad.pt"
+        torch.save(payload, path)
+>       with pytest.raises((ValueError, TypeError, RuntimeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValueError, TypeError, RuntimeError)
+
+tests/test_public_checkpoint_recovery.py:116: Failed
+_ test_rejected_optimizer_state_preserves_model_and_optimizer[moment_nonfinite] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_rejected_optimizer_state_2')
+defect = 'moment_nonfinite'
+
+    @pytest.mark.parametrize("defect", ["groups", "moment_shape", "moment_nonfinite", "missing"])
+    def test_rejected_optimizer_state_preserves_model_and_optimizer(tmp_path, defect):
+        model = _model()
+        optimizer = torch.optim.AdamW(model.parameters(), lr=0.01)
+        scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.8)
+        _step(model, optimizer, scheduler)
+        before = _snapshot(model, optimizer, scheduler)
+        payload = {"model": copy.deepcopy(model.state_dict()), "epoch": 2,
+                   "optimizer": copy.deepcopy(optimizer.state_dict())}
+        payload["model"]["0.weight"].fill_(7)
+        if defect == "groups":
+            payload["optimizer"]["param_groups"][0]["params"] = []
+        elif defect.startswith("moment"):
+            key = next(iter(payload["optimizer"]["state"]))
+            if defect == "moment_shape":
+                payload["optimizer"]["state"][key]["exp_avg"] = torch.ones(7, 7)
+            else:
+                payload["optimizer"]["state"][key]["exp_avg"].fill_(float("inf"))
+        else:
+            del payload["optimizer"]
+        path = tmp_path / "bad.pt"
+        torch.save(payload, path)
+>       with pytest.raises((ValueError, TypeError, RuntimeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValueError, TypeError, RuntimeError)
+
+tests/test_public_checkpoint_recovery.py:116: Failed
+_____ test_rejected_optimizer_state_preserves_model_and_optimizer[missing] _____
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_rejected_optimizer_state_3')
+defect = 'missing'
+
+    @pytest.mark.parametrize("defect", ["groups", "moment_shape", "moment_nonfinite", "missing"])
+    def test_rejected_optimizer_state_preserves_model_and_optimizer(tmp_path, defect):
+        model = _model()
+        optimizer = torch.optim.AdamW(model.parameters(), lr=0.01)
+        scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.8)
+        _step(model, optimizer, scheduler)
+        before = _snapshot(model, optimizer, scheduler)
+        payload = {"model": copy.deepcopy(model.state_dict()), "epoch": 2,
+                   "optimizer": copy.deepcopy(optimizer.state_dict())}
+        payload["model"]["0.weight"].fill_(7)
+        if defect == "groups":
+            payload["optimizer"]["param_groups"][0]["params"] = []
+        elif defect.startswith("moment"):
+            key = next(iter(payload["optimizer"]["state"]))
+            if defect == "moment_shape":
+                payload["optimizer"]["state"][key]["exp_avg"] = torch.ones(7, 7)
+            else:
+                payload["optimizer"]["state"][key]["exp_avg"].fill_(float("inf"))
+        else:
+            del payload["optimizer"]
+        path = tmp_path / "bad.pt"
+        torch.save(payload, path)
+>       with pytest.raises((ValueError, TypeError, RuntimeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValueError, TypeError, RuntimeError)
+
+tests/test_public_checkpoint_recovery.py:116: Failed
+____________ test_rejected_scheduler_state_preserves_all_components ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_rejected_scheduler_state_0')
+
+    def test_rejected_scheduler_state_preserves_all_components(tmp_path):
+        model = _model()
+        optimizer = torch.optim.AdamW(model.parameters(), lr=0.01)
+        scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.8)
+        _step(model, optimizer, scheduler)
+        before = _snapshot(model, optimizer, scheduler)
+        payload = {"model": copy.deepcopy(model.state_dict()), "epoch": 2,
+                   "optimizer": copy.deepcopy(optimizer.state_dict()),
+                   "scheduler": copy.deepcopy(scheduler.state_dict())}
+        payload["model"]["0.weight"].fill_(7)
+        payload["scheduler"]["gamma"] = float("nan")
+        path = tmp_path / "bad.pt"
+        torch.save(payload, path)
+>       with pytest.raises(ValueError, match="finite"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_public_checkpoint_recovery.py:134: Failed
+_________ test_invalid_epoch_is_rejected_before_creating_output[True] __________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_invalid_epoch_is_rejected0')
+epoch = True
+
+    @pytest.mark.parametrize("epoch", [True, -1, 1.5, float("nan")])
+    def test_invalid_epoch_is_rejected_before_creating_output(tmp_path, epoch):
+        path = tmp_path / "not_created" / "checkpoint.pt"
+>       with pytest.raises((ValueError, TypeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValueError, TypeError)
+
+tests/test_public_checkpoint_recovery.py:142: Failed
+__________ test_invalid_epoch_is_rejected_before_creating_output[-1] ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_invalid_epoch_is_rejected1')
+epoch = -1
+
+    @pytest.mark.parametrize("epoch", [True, -1, 1.5, float("nan")])
+    def test_invalid_epoch_is_rejected_before_creating_output(tmp_path, epoch):
+        path = tmp_path / "not_created" / "checkpoint.pt"
+>       with pytest.raises((ValueError, TypeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValueError, TypeError)
+
+tests/test_public_checkpoint_recovery.py:142: Failed
+__________ test_invalid_epoch_is_rejected_before_creating_output[1.5] __________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_invalid_epoch_is_rejected2')
+epoch = 1.5
+
+    @pytest.mark.parametrize("epoch", [True, -1, 1.5, float("nan")])
+    def test_invalid_epoch_is_rejected_before_creating_output(tmp_path, epoch):
+        path = tmp_path / "not_created" / "checkpoint.pt"
+>       with pytest.raises((ValueError, TypeError)):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (ValueError, TypeError)
+
+tests/test_public_checkpoint_recovery.py:142: Failed
+__________ test_invalid_epoch_is_rejected_before_creating_output[nan] __________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_invalid_epoch_is_rejected3')
+epoch = nan
+
+    @pytest.mark.parametrize("epoch", [True, -1, 1.5, float("nan")])
+    def test_invalid_epoch_is_rejected_before_creating_output(tmp_path, epoch):
+        path = tmp_path / "not_created" / "checkpoint.pt"
+        with pytest.raises((ValueError, TypeError)):
+            save_checkpoint(path, _model(), epoch=epoch)
+>       assert not path.parent.exists()
+E       AssertionError: assert not True
+E        +  where True = exists()
+E        +    where exists = PosixPath('/tmp/pytest-of-root/pytest-374/test_invalid_epoch_is_rejected3/not_created').exists
+E        +      where PosixPath('/tmp/pytest-of-root/pytest-374/test_invalid_epoch_is_rejected3/not_created') = PosixPath('/tmp/pytest-of-root/pytest-374/test_invalid_epoch_is_rejected3/not_created/checkpoint.pt').parent
+
+tests/test_public_checkpoint_recovery.py:144: AssertionError
+____________ test_conflicting_shared_parameter_entries_are_rejected ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_conflicting_shared_parame0')
+
+    def test_conflicting_shared_parameter_entries_are_rejected(tmp_path):
+        layer = torch.nn.Linear(2, 2)
+        model = torch.nn.ModuleDict({"left": layer, "right": layer})
+        before = _snapshot(model)
+        state = {key: value.detach().clone() for key, value in model.state_dict().items()}
+        state["left.weight"].fill_(3)
+        state["right.weight"].fill_(4)
+        path = tmp_path / "bad.pt"
+        torch.save({"model": state, "epoch": 0}, path)
+>       with pytest.raises(ValueError, match="alias"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_public_checkpoint_recovery.py:156: Failed
+___________ test_load_explicitly_requests_restricted_deserialization ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-374/test_load_explicitly_requests_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f676f9706b0>
+
+    def test_load_explicitly_requests_restricted_deserialization(tmp_path, monkeypatch):
+        path = tmp_path / "checkpoint.pt"
+        model = _model()
+        save_checkpoint(path, model)
+        actual = torch.load
+        observed = []
+    
+        def record(*args, **kwargs):
+            observed.append(kwargs.get("weights_only"))
+            return actual(*args, **kwargs)
+    
+        monkeypatch.setattr(torch, "load", record)
+        load_checkpoint(path, model)
+>       assert observed == [True]
+E       assert [None] == [True]
+E         
+E         At index 0 diff: None != True
+E         Use -v to get more diff
+
+tests/test_public_checkpoint_recovery.py:174: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_public_checkpoint_recovery.py::test_failed_save_preserves_previous_checkpoint_bytes
+FAILED tests/test_public_checkpoint_recovery.py::test_failed_first_save_leaves_no_partial_checkpoint
+FAILED tests/test_public_checkpoint_recovery.py::test_rejected_model_state_cannot_partially_load[shape]
+FAILED tests/test_public_checkpoint_recovery.py::test_rejected_model_state_cannot_partially_load[dtype]
+FAILED tests/test_public_checkpoint_recovery.py::test_rejected_model_state_cannot_partially_load[nonfinite]
+FAILED tests/test_public_checkpoint_recovery.py::test_rejected_model_state_cannot_partially_load[unexpected_key]
+FAILED tests/test_public_checkpoint_recovery.py::test_rejected_optimizer_state_preserves_model_and_optimizer[groups]
+FAILED tests/test_public_checkpoint_recovery.py::test_rejected_optimizer_state_preserves_model_and_optimizer[moment_shape]
+FAILED tests/test_public_checkpoint_recovery.py::test_rejected_optimizer_state_preserves_model_and_optimizer[moment_nonfinite]
+FAILED tests/test_public_checkpoint_recovery.py::test_rejected_optimizer_state_preserves_model_and_optimizer[missing]
+FAILED tests/test_public_checkpoint_recovery.py::test_rejected_scheduler_state_preserves_all_components
+FAILED tests/test_public_checkpoint_recovery.py::test_invalid_epoch_is_rejected_before_creating_output[True]
+FAILED tests/test_public_checkpoint_recovery.py::test_invalid_epoch_is_rejected_before_creating_output[-1]
+FAILED tests/test_public_checkpoint_recovery.py::test_invalid_epoch_is_rejected_before_creating_output[1.5]
+FAILED tests/test_public_checkpoint_recovery.py::test_invalid_epoch_is_rejected_before_creating_output[nan]
+FAILED tests/test_public_checkpoint_recovery.py::test_conflicting_shared_parameter_entries_are_rejected
+FAILED tests/test_public_checkpoint_recovery.py::test_load_explicitly_requests_restricted_deserialization
+17 failed, 1 passed in 5.63s

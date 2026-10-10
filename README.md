@@ -77,3 +77,12 @@ For new paper evidence, preserve the Git commit, dirty-tree state, resolved conf
 ## Current status
 
 **IMPLEMENTED / EVIDENCE_PARTIAL.** The repository is a substantive research implementation with stored experimental artifacts, but a fresh frozen multi-seed benchmark-and-ablation reproduction is still required before stronger submission claims are justified.
+
+## Public checkpoint recovery
+
+The separate `fim.utils.checkpoint` helper now stages saves before replacing an
+existing checkpoint and validates all requested resume components before applying
+them. See [the public checkpoint contract](research/PUBLIC_CHECKPOINT_RECOVERY_20261010.md)
+for supported optimizer state, failure recovery and its limits. It does not capture
+FIM episode memory or replace the frozen experiment runner. New sessions should
+start from [the canonical research index](RESEARCH_STATE.json).
