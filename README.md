@@ -59,6 +59,15 @@ python scripts/run_full_suite.py --device auto
 
 The historical `scripts/run_ablation.sh` used flags that were not connected to the maintained experiment CLI. It is intentionally disabled rather than producing misleading paper evidence. Component ablations must be implemented as explicit tested configuration switches with frozen semantics before they are run or quoted.
 
+## Public-model episode validation
+
+For a validation interlude around the public `FIMModel` and `Trainer`, the opt-in
+[`evaluate_isolated_episode_v1`](docs/isolated-episode-evaluation-v1.md) evaluates
+one independent observed-input episode on an owned model copy. Choose raw or
+EMA weights explicitly. The training model's recurrent state, memory, gradients
+and optimizer remain available for continuation. This CPU helper returns existing
+per-step loss diagnostics; it does not replace the frozen experiment evaluator.
+
 ## Repository map
 
 - `fim/` — core dynamics, geometry, memory, operators, stochastic modules, training, and utilities.
