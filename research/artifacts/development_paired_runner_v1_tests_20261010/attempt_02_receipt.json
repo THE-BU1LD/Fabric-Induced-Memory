@@ -1,0 +1,19 @@
+{
+  "attempt": 2,
+  "kind": "FINAL_AFFECTED_SUITE_AFTER_REVIEW_REPAIR_1",
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_paired_development_v1.py",
+    "tests/test_episode_bank_v1.py",
+    "tests/test_current_component_ablations.py",
+    "tests/test_retrieval_temperature_gradient.py",
+    "tests/test_training_tensor_semantics.py"
+  ],
+  "exit_code": 0,
+  "seconds": 9.62292953999713,
+  "timed_out": false,
+  "scope": "Bounded artificial DEVELOPMENT fixtures only; no retained demonstration or protected outcome."
+}

@@ -1,0 +1,20 @@
+{
+  "attempt": 3,
+  "kind": "SINGLE_RETAINED_INTEGRATION_DEMO",
+  "command": [
+    "python",
+    "-m",
+    "fim_experiments.paired_development_v1",
+    "demo",
+    "--output",
+    "research/artifacts/development_paired_runner_v1_demo_20261010"
+  ],
+  "exit_code": 0,
+  "seconds": 7.642118101008236,
+  "timed_out": false,
+  "planned_model_steps": 60,
+  "planned_optimizer_updates": 9,
+  "bank_sha256": "ae8e143064f27be469e69dc19fe1fac41d30737ecdcd4acff7a6de4a91afc938",
+  "runner_source_sha256": "735af27ffbbc484ed286cd880dc784a8e7efe107dd724dadae4508b37cc49d73",
+  "scope": "DEVELOPMENT / INTEGRATION_ONLY; consumes existing retained bank; not a frozen hypothesis test."
+}
