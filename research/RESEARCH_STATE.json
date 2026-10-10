@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-10-10",
+  "purpose": "Canonical entry state for future research sessions; referenced historical records remain authoritative and must not be overwritten.",
+  "session_rule": "Read this file, RESEARCH_TRUTH.md and the applicable protocol before work. Append decisions and evidence before finishing. Never erase historical failures or silently reclassify evidence.",
+  "phase": "DEVELOPMENT_ENGINEERING_VERIFIED",
+  "scientific_checkpoint_change": "None. Passing targeted engineering tests does not complete a scientific checkpoint or establish model efficacy.",
+  "development_budget": {
+    "scope": "Only the documented artificial regression suite and bounded implementation checks",
+    "new_model_training_runs": 0,
+    "protected_outcome_runs": 0,
+    "paid_compute": 0,
+    "numeric_threads": 1
+  },
+  "terminal_research_disposition": null,
+  "release_status": "Engineering branch published for review; scientific study unreleased.",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "base_commit": "84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+  "research_question": "Does the implemented fabric-memory mechanism improve prediction and recall against mechanism-off controls when memory is isolated between independent trajectories?",
+  "scientific_objective": "Identify whether retrieval and salience provide a reproducible benefit within declared benchmarks, budgets and independent units.",
+  "current_hypothesis": "The current-code memory hypothesis remains unconfirmed. Retained miniature comparisons and historical ablations do not establish consistent superiority.",
+  "intended_contribution": "A fully specified, falsifiable evaluation of structured memory and its component mechanisms, with all adverse outcomes retained.",
+  "scope": {
+    "current_change": "Repair the exported truncated Grunwald-Letnikov memory helper for finite, arbitrary-rank state histories.",
+    "excluded_from_this_change": [
+      "FIM model architecture",
+      "benchmark generation",
+      "frozen matrix",
+      "historical evidence",
+      "papers",
+      "existing PR implementations"
+    ]
+  },
+  "protected_evaluation": {
+    "status": "HELD",
+    "protocol": "research/protocols/FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md",
+    "matrix": "2 benchmarks x 5 seeds x 4 variants = 40 cells",
+    "required_boundary": "No protected outcome access or manual workflow dispatch in this engineering change. A future run requires its qualified execution decision and exact frozen revision.",
+    "successor_protocol": "research/protocols/FIM_DELAYED_RECALL_SUCCESSOR_V2.json"
+  },
+  "data_and_artifacts": {
+    "dataset_and_split_authority": "The applicable frozen protocol and the future per-cell manifest; this repair does not establish dataset identities.",
+    "history": [
+      "RESEARCH_TRUTH.md",
+      "paper_reference_results.json",
+      "docs/integration/20261008/README.md"
+    ],
+    "repair_record": "research/DEVELOPMENT_FRACTIONAL_HISTORY_REPAIR_20261010.md"
+  },
+  "claims_preserved": [
+    "Stored delayed-recall FIM rollout MSE 0.1975817829 is above DeepONet 0.1579457372 and MLP 0.1965747178.",
+    "Historical no_spectral_mixing Lorenz value 0.869918 is below full 1.317169; it is not a current variant result.",
+    "The retired shared-minibatch 24-cell matrix cannot establish trajectory-isolated memory behavior."
+  ],
+  "integration_state": {
+    "main_has_pr25": true,
+    "main_has_dispatch_only_scientific_guard": true,
+    "legacy_truth_status_note": "RESEARCH_TRUTH.md contains a dated pre-merge status section. PR #26 reconciles that section; this separate change preserves its path.",
+    "open_work_preserved": [
+      "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/26",
+      "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/27",
+      "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/28"
+    ]
+  },
+  "development_verification": {
+    "command": "OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests/test_fractional_memory_history.py tests/test_fractional.py",
+    "passed": 33,
+    "failed": 0,
+    "seconds": 4.41,
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "pytest": "9.1.1",
+    "new_tests": 31,
+    "existing_tests": 2,
+    "scope": "Artificial tensor histories and existing tiny fractional-PDE tests; no frozen trajectory matrix.",
+    "source_sha256": {
+      "fim/core/fractional.py": "4bdc64f623b0cef0ec421f6fd245b744ce9af0716e995decb997922f31ac213a",
+      "tests/test_fractional_memory_history.py": "1a2cdaea07bc136617d1814ad5074f1e83ebd57bed477d8afa5bafdb2cdefc18"
+    }
+  },
+  "decisions": [
+    {
+      "date": "2026-10-10",
+      "observation": "Past capacity, the old helper crashes for vector batches and retains too many time states for spatial fields; the first detached state aliases caller storage.",
+      "change": "Trim only axis -2 before concatenation, retain snapshots, and commit state only after a finite result.",
+      "predicted_consequence": "Bounded rolling GL differences match explicit finite-history calculations for every tested rank.",
+      "result": "33 targeted checks pass. Scientific efficacy remains untested."
+    }
+  ],
+  "next_required_work": [
+    "Review and integrate the published engineering proposal while preserving concurrent draft work.",
+    "Resolve separate open integration proposals without dropping their validated history.",
+    "Use the recorded scientific execution gate for any protected experiment; no outcome or readiness claim follows from this repair."
+  ],
+  "development_branch": "codex/fim-bounded-fractional-history-20261010",
+  "independent_review": {
+    "status": "COMPLETED",
+    "reviewer": "Independent parent-agent source and test review",
+    "scope": "Implementation correctness, test meaning, scientific boundary and retained source preservation",
+    "date": "2026-10-10"
+  }
+}
