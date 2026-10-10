@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+import math
+import operator
+from collections.abc import Mapping
+from copy import deepcopy
 from dataclasses import dataclass, field
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
@@ -28,11 +32,17 @@ class TraceBank:
         device: Optional[torch.device | str] = None,
         dtype: torch.dtype = torch.float32,
     ) -> None:
-        self.key_dim = int(key_dim)
-        self.value_dim = int(value_dim)
-        self.max_traces = int(max_traces)
+        self.key_dim = self._integer(key_dim, "key_dim", minimum=1)
+        self.value_dim = self._integer(value_dim, "value_dim", minimum=1)
+        self.max_traces = self._integer(max_traces, "max_traces", minimum=1)
         self.merge_threshold = float(merge_threshold)
         self.decay_rate = float(decay_rate)
+        if not math.isfinite(self.merge_threshold):
+            raise ValueError("merge_threshold must be finite")
+        if not math.isfinite(self.decay_rate) or self.decay_rate < 0:
+            raise ValueError("decay_rate must be finite and nonnegative")
+        if not isinstance(dtype, torch.dtype) or not dtype.is_floating_point:
+            raise ValueError("dtype must be a real floating-point dtype")
         self.device = torch.device(device) if device is not None else None
         self.dtype = dtype
         self._traces: List[MemoryTrace] = []
@@ -45,20 +55,48 @@ class TraceBank:
         self._traces.clear()
         self._clock = 0
 
-    def _ensure_device(self, x: torch.Tensor) -> torch.Tensor:
-        device = self.device or x.device
-        if self.device is None:
-            self.device = device
-        return x.detach().to(device=device, dtype=self.dtype).reshape(-1)
+    @staticmethod
+    def _integer(value: int, name: str, minimum: int = 0) -> int:
+        if isinstance(value, bool):
+            raise ValueError(f"{name} must be an integer >= {minimum}")
+        try:
+            result = operator.index(value)
+        except TypeError as exc:
+            raise ValueError(f"{name} must be an integer >= {minimum}") from exc
+        if result < minimum:
+            raise ValueError(f"{name} must be an integer >= {minimum}")
+        return result
 
-    def _validate_trace(self, key: torch.Tensor, value: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
-        key_1d = self._ensure_device(key)
-        value_1d = self._ensure_device(value)
-        if key_1d.numel() != self.key_dim:
-            raise ValueError(f"Expected key_dim={self.key_dim}, got {key_1d.numel()}")
-        if value_1d.numel() != self.value_dim:
-            raise ValueError(f"Expected value_dim={self.value_dim}, got {value_1d.numel()}")
-        return key_1d, value_1d
+    def _owned_vector(self, x: torch.Tensor, width: int, name: str, device: torch.device) -> torch.Tensor:
+        if not torch.is_tensor(x) or x.layout != torch.strided or x.is_complex():
+            raise ValueError(f"{name} must be a dense real tensor")
+        if x.numel() != width:
+            raise ValueError(f"Expected {name}_dim={width}, got {x.numel()}")
+        if not torch.isfinite(x).all():
+            raise ValueError(f"{name} must contain only finite values")
+        # detach()/to() can share storage with a caller, including a batch view.
+        result = x.detach().to(device=device, dtype=self.dtype).reshape(-1).clone()
+        if not torch.isfinite(result).all():
+            raise ValueError(f"{name} is not finite after conversion to {self.dtype}")
+        return result
+
+    def _prepare_trace(self, key, value, salience, timestamp, layer, metadata, device) -> MemoryTrace:
+        key_1d = self._owned_vector(key, self.key_dim, "key", device)
+        value_1d = self._owned_vector(value, self.value_dim, "value", device)
+        try:
+            sal = float(salience.item() if torch.is_tensor(salience) else salience)
+        except (TypeError, ValueError, RuntimeError) as exc:
+            raise ValueError("salience must be a finite scalar") from exc
+        if not math.isfinite(sal) or abs(sal) > torch.finfo(self.dtype).max:
+            raise ValueError(f"salience must be finite in {self.dtype}")
+        ts = self._integer(timestamp, "timestamp")
+        if ts > torch.finfo(self.dtype).max:
+            raise ValueError(f"timestamp must be finite in {self.dtype}")
+        layer = self._integer(layer, "layer")
+        if metadata is not None and not isinstance(metadata, Mapping):
+            raise ValueError("metadata must be a mapping or None")
+        meta = deepcopy(dict(metadata)) if metadata is not None else {}
+        return MemoryTrace(key_1d, value_1d, sal, ts, layer, meta)
 
     def _effective_score(self, trace: MemoryTrace, now: Optional[int] = None) -> float:
         current = self._clock if now is None else int(now)
@@ -72,6 +110,49 @@ class TraceBank:
         self._traces.sort(key=lambda t: (self._effective_score(t), t.timestamp), reverse=True)
         self._traces = self._traces[: self.max_traces]
 
+    def _admit(self, prepared: List[MemoryTrace], device: torch.device) -> None:
+        """Stage all merges/pruning before publishing any change to live memory."""
+        if not prepared:
+            return
+        staged = list(self._traces)
+        clock = self._clock
+        for trace in prepared:
+            clock = max(clock, trace.timestamp)
+            if staged:
+                keys = torch.stack([item.key for item in staged])
+                query = F.normalize(trace.key.unsqueeze(0), dim=-1, eps=1e-6)
+                bank_keys = F.normalize(keys, dim=-1, eps=1e-6)
+                sim = torch.matmul(query, bank_keys.t()).squeeze(0)
+                if not torch.isfinite(sim).all():
+                    raise ValueError("non-finite similarity during trace admission")
+                best_idx = int(torch.argmax(sim).item())
+                if float(sim[best_idx].item()) >= self.merge_threshold:
+                    existing = staged[best_idx]
+                    w_new = max(trace.salience, 1e-6)
+                    w_old = max(existing.salience, 1e-6)
+                    total = w_new + w_old
+                    alpha = w_new / total if math.isfinite(total) else 1.0 / (1.0 + w_old / w_new)
+                    merged_key = (1.0 - alpha) * existing.key + alpha * trace.key
+                    merged_value = (1.0 - alpha) * existing.value + alpha * trace.value
+                    if not torch.isfinite(merged_key).all() or not torch.isfinite(merged_value).all():
+                        raise ValueError("non-finite merged trace")
+                    staged[best_idx] = MemoryTrace(
+                        key=merged_key,
+                        value=merged_value,
+                        salience=max(existing.salience, trace.salience),
+                        timestamp=max(existing.timestamp, trace.timestamp),
+                        layer=trace.layer,
+                        metadata={**existing.metadata, **trace.metadata},
+                    )
+                    continue
+            staged.append(trace)
+            if len(staged) > self.max_traces:
+                staged.sort(key=lambda item: (self._effective_score(item, clock), item.timestamp), reverse=True)
+                staged = staged[: self.max_traces]
+        self._traces = staged
+        self._clock = clock
+        self.device = device
+
     def add(
         self,
         key: torch.Tensor,
@@ -81,46 +162,11 @@ class TraceBank:
         layer: int = 0,
         metadata: Optional[Dict[str, Any]] = None,
     ) -> None:
-        key_1d, value_1d = self._validate_trace(key, value)
-        sal = float(salience.item() if torch.is_tensor(salience) else salience)
-        meta = metadata or {}
-        ts = int(timestamp)
-        self._clock = max(self._clock, ts)
-
-        if self._traces:
-            keys, _, _, _ = self.as_tensors()
-            query = F.normalize(key_1d.unsqueeze(0), dim=-1, eps=1e-6)
-            bank_keys = F.normalize(keys, dim=-1, eps=1e-6)
-            sim = torch.matmul(query, bank_keys.t()).squeeze(0)
-            best_idx = int(torch.argmax(sim).item())
-            if float(sim[best_idx].item()) >= self.merge_threshold:
-                existing = self._traces[best_idx]
-                w_new = max(sal, 1e-6)
-                w_old = max(existing.salience, 1e-6)
-                alpha = w_new / (w_new + w_old)
-                merged_key = (1.0 - alpha) * existing.key + alpha * key_1d
-                merged_value = (1.0 - alpha) * existing.value + alpha * value_1d
-                self._traces[best_idx] = MemoryTrace(
-                    key=merged_key,
-                    value=merged_value,
-                    salience=max(existing.salience, sal),
-                    timestamp=max(existing.timestamp, ts),
-                    layer=layer,
-                    metadata={**existing.metadata, **meta},
-                )
-                return
-
-        self._traces.append(
-            MemoryTrace(
-                key=key_1d,
-                value=value_1d,
-                salience=sal,
-                timestamp=ts,
-                layer=layer,
-                metadata=meta,
-            )
-        )
-        self._prune_if_needed()
+        if not torch.is_tensor(key):
+            raise ValueError("key must be a dense real tensor")
+        device = self.device or key.device
+        trace = self._prepare_trace(key, value, salience, timestamp, layer, metadata, device)
+        self._admit([trace], device)
 
     def batch_add(
         self,
@@ -131,25 +177,30 @@ class TraceBank:
         layer: int = 0,
         metadata: Optional[List[Dict[str, Any]]] = None,
     ) -> None:
+        if not all(torch.is_tensor(x) for x in (keys, values, saliences)):
+            raise ValueError("keys, values and saliences must be tensors")
         if keys.ndim == 1:
             keys = keys.unsqueeze(0)
         if values.ndim == 1:
             values = values.unsqueeze(0)
+        if keys.ndim < 2 or values.ndim < 2 or saliences.ndim < 1:
+            raise ValueError("Batch add requires a leading batch dimension")
+        if not torch.isfinite(saliences).all() or saliences.is_complex():
+            raise ValueError("saliences must contain only finite real values")
         if saliences.ndim > 1:
             saliences = saliences.reshape(saliences.shape[0], -1).mean(dim=-1)
         if keys.shape[0] != values.shape[0] or keys.shape[0] != saliences.shape[0]:
             raise ValueError("Batch add requires matching batch sizes")
 
-        meta_list = metadata or [{} for _ in range(keys.shape[0])]
-        for i in range(keys.shape[0]):
-            self.add(
-                key=keys[i],
-                value=values[i],
-                salience=saliences[i],
-                timestamp=timestamp,
-                layer=layer,
-                metadata=meta_list[i],
-            )
+        if metadata is not None and len(metadata) != keys.shape[0]:
+            raise ValueError("metadata must have one mapping per batch row")
+        meta_list = metadata if metadata is not None else [None] * keys.shape[0]
+        device = self.device or keys.device
+        prepared = [
+            self._prepare_trace(keys[i], values[i], saliences[i], timestamp, layer, meta_list[i], device)
+            for i in range(keys.shape[0])
+        ]
+        self._admit(prepared, device)
 
     def as_tensors(self) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
         if len(self._traces) == 0:
