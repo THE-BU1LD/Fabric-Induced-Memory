@@ -1,0 +1,41 @@
+{
+  "schema": "research.development_change.v1",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "base_commit": "84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+  "date": "2026-10-10",
+  "version": "diagonal-ito-v2",
+  "phase": "IMPLEMENTED_AND_ANALYTICALLY_VERIFIED",
+  "research_result": "NOT_EVALUATED",
+  "question": "Does the componentwise Milstein update preserve the required zero-noise limit and subtract the actual increment quadratic variation?",
+  "hypothesis": "Replacing unit dt with the declared increment variance removes the deterministic drift error from non-unit noise scaling.",
+  "previous_finding": {
+    "legacy_zero_noise_one_step": 1.9,
+    "analytic_required": 2.0,
+    "x0": 2.0,
+    "dt": 0.1
+  },
+  "scope": "New opt-in integrator; legacy integrator and maintained experiment callers unchanged.",
+  "protected_boundary": "No protected or frozen experiments; existing negative/mixed results remain authoritative.",
+  "budget": {
+    "paid_compute": 0,
+    "scientific_runs": 0,
+    "local_tests": 28
+  },
+  "verification": {
+    "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest -q tests/test_sde_quadratic_variation_v2.py tests/test_dynamics.py",
+    "passed": 28,
+    "new_tests": 23,
+    "existing_tests": 5,
+    "torch_environment": "2.14.1+cpu CPU"
+  },
+  "source_sha256": {
+    "fim/stochastic/sde.py": "def1b657ec49776abc15327393d76729974b0ece9823c8bf186d41c4060f193f",
+    "fim/stochastic/sde_v2.py": "69a94c0e87d16d5c3d99ed9a844bea7a3a8e11bcc154f78b2979978907bc93ef",
+    "tests/test_sde_quadratic_variation_v2.py": "e8b1af5f3cbab7276c93dc1eee98c24f5c1178ae1a1b4c707e54190bc9ea00db"
+  },
+  "remaining_gates": [
+    "Independent source review and integration decision.",
+    "Any scientific comparison selecting v2 needs separately pinned protocol and outcome identities."
+  ],
+  "history_preserved": true
+}
