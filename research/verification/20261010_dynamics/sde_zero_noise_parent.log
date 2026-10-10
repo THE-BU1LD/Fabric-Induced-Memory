@@ -1,0 +1,146 @@
+.F.F...                                                                  [100%]
+=================================== FAILURES ===================================
+_ test_zero_noise_large_coefficients_match_deterministic_values_and_gradients[dtype0-1e+20-milstein] _
+
+method = 'milstein', dtype = torch.float32, magnitude = 1e+20
+
+    @pytest.mark.parametrize("method", ["euler", "milstein"])
+    @pytest.mark.parametrize("dtype,magnitude", [(torch.float32, 1e20), (torch.float64, 1e200)])
+    def test_zero_noise_large_coefficients_match_deterministic_values_and_gradients(method, dtype, magnitude):
+        x0 = torch.tensor([[1.0, 2.0]], dtype=dtype, requires_grad=True)
+        drift_rate = torch.tensor(0.125, dtype=dtype, requires_grad=True)
+        diffusion_rate = torch.tensor(magnitude, dtype=dtype, requires_grad=True)
+        generator = torch.Generator().manual_seed(529)
+        rng_before = generator.get_state().clone()
+        solver = SDEIntegratorV2(
+            SDEConfig(dt=0.1, steps=3, noise_scale=0.0, stability_clip=None),
+            generator=generator,
+        )
+>       trajectory = solver.integrate(
+            x0,
+            lambda x, t: drift_rate * x + t,
+            lambda x, t: diffusion_rate * x,
+            method,
+            lambda x, t: diffusion_rate.expand_as(x),
+        )
+
+tests/test_sde_zero_noise_overflow.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <fim.stochastic.sde_v2.SDEIntegratorV2 object at 0x7f86b45002f0>
+x0 = tensor([[1., 2.]], requires_grad=True)
+drift = <function test_zero_noise_large_coefficients_match_deterministic_values_and_gradients.<locals>.<lambda> at 0x7f86b5909080>
+diffusion = <function test_zero_noise_large_coefficients_match_deterministic_values_and_gradients.<locals>.<lambda> at 0x7f86b5908ae0>
+method = 'milstein'
+diffusion_grad = <function test_zero_noise_large_coefficients_match_deterministic_values_and_gradients.<locals>.<lambda> at 0x7f86b59091c0>
+steps = None, t0 = 0.0
+
+    def integrate(self, x0: torch.Tensor, drift: DriftFn, diffusion: DiffusionFn,
+                  method: str = 'euler', diffusion_grad: DiffusionGradFn | None = None,
+                  steps: int | None = None, t0: float = 0.0) -> torch.Tensor:
+        if method not in {'euler', 'milstein'}:
+            raise ValueError(f'Unknown method: {method}')
+        count = self.config.steps if steps is None else _step_count(steps)
+        if (not isinstance(x0, torch.Tensor) or x0.ndim < 1 or x0.numel() == 0
+                or not x0.is_floating_point() or not torch.isfinite(x0).all()):
+            raise ValueError('x0 must be a finite nonempty floating batch tensor')
+        if not math.isfinite(t0):
+            raise ValueError('t0 must be finite')
+        if method == 'milstein' and diffusion_grad is None:
+            raise ValueError('Milstein requires the componentwise diffusion derivative')
+        if method == 'milstein' and self.noise_fn is not None and self.noise_variance_fn is None:
+            raise ValueError('custom Milstein increments require noise_variance_fn')
+        dt = self.config.dt
+        states = [x0]
+        x = x0
+        for index in range(count):
+            t = float(t0) + index * dt
+            if not math.isfinite(t):
+                raise ValueError('integration time exceeds finite range')
+            f = self._field(drift(x, t), x, 'drift')
+            g = self._field(diffusion(x, t), x, 'diffusion')
+            dw = self._increment(x, dt)
+            next_x = x + f * dt + g * dw
+            if method == 'milstein':
+                gp = self._field(diffusion_grad(x, t), x, 'diffusion derivative')
+                # d[X] = variance(dw); dt alone is correct only for unit noise.
+                next_x = next_x + 0.5 * g * gp * (dw.square() - self._variance(x, dt))
+            if not torch.isfinite(next_x).all():
+>               raise ValueError(f'nonfinite state at integration step {index + 1}')
+E               ValueError: nonfinite state at integration step 1
+
+fim/stochastic/sde_v2.py:134: ValueError
+_ test_zero_noise_large_coefficients_match_deterministic_values_and_gradients[dtype1-1e+200-milstein] _
+
+method = 'milstein', dtype = torch.float64, magnitude = 1e+200
+
+    @pytest.mark.parametrize("method", ["euler", "milstein"])
+    @pytest.mark.parametrize("dtype,magnitude", [(torch.float32, 1e20), (torch.float64, 1e200)])
+    def test_zero_noise_large_coefficients_match_deterministic_values_and_gradients(method, dtype, magnitude):
+        x0 = torch.tensor([[1.0, 2.0]], dtype=dtype, requires_grad=True)
+        drift_rate = torch.tensor(0.125, dtype=dtype, requires_grad=True)
+        diffusion_rate = torch.tensor(magnitude, dtype=dtype, requires_grad=True)
+        generator = torch.Generator().manual_seed(529)
+        rng_before = generator.get_state().clone()
+        solver = SDEIntegratorV2(
+            SDEConfig(dt=0.1, steps=3, noise_scale=0.0, stability_clip=None),
+            generator=generator,
+        )
+>       trajectory = solver.integrate(
+            x0,
+            lambda x, t: drift_rate * x + t,
+            lambda x, t: diffusion_rate * x,
+            method,
+            lambda x, t: diffusion_rate.expand_as(x),
+        )
+
+tests/test_sde_zero_noise_overflow.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <fim.stochastic.sde_v2.SDEIntegratorV2 object at 0x7f86b3f604a0>
+x0 = tensor([[1., 2.]], dtype=torch.float64, requires_grad=True)
+drift = <function test_zero_noise_large_coefficients_match_deterministic_values_and_gradients.<locals>.<lambda> at 0x7f86b3f85f80>
+diffusion = <function test_zero_noise_large_coefficients_match_deterministic_values_and_gradients.<locals>.<lambda> at 0x7f86b3f86fc0>
+method = 'milstein'
+diffusion_grad = <function test_zero_noise_large_coefficients_match_deterministic_values_and_gradients.<locals>.<lambda> at 0x7f86b3f87240>
+steps = None, t0 = 0.0
+
+    def integrate(self, x0: torch.Tensor, drift: DriftFn, diffusion: DiffusionFn,
+                  method: str = 'euler', diffusion_grad: DiffusionGradFn | None = None,
+                  steps: int | None = None, t0: float = 0.0) -> torch.Tensor:
+        if method not in {'euler', 'milstein'}:
+            raise ValueError(f'Unknown method: {method}')
+        count = self.config.steps if steps is None else _step_count(steps)
+        if (not isinstance(x0, torch.Tensor) or x0.ndim < 1 or x0.numel() == 0
+                or not x0.is_floating_point() or not torch.isfinite(x0).all()):
+            raise ValueError('x0 must be a finite nonempty floating batch tensor')
+        if not math.isfinite(t0):
+            raise ValueError('t0 must be finite')
+        if method == 'milstein' and diffusion_grad is None:
+            raise ValueError('Milstein requires the componentwise diffusion derivative')
+        if method == 'milstein' and self.noise_fn is not None and self.noise_variance_fn is None:
+            raise ValueError('custom Milstein increments require noise_variance_fn')
+        dt = self.config.dt
+        states = [x0]
+        x = x0
+        for index in range(count):
+            t = float(t0) + index * dt
+            if not math.isfinite(t):
+                raise ValueError('integration time exceeds finite range')
+            f = self._field(drift(x, t), x, 'drift')
+            g = self._field(diffusion(x, t), x, 'diffusion')
+            dw = self._increment(x, dt)
+            next_x = x + f * dt + g * dw
+            if method == 'milstein':
+                gp = self._field(diffusion_grad(x, t), x, 'diffusion derivative')
+                # d[X] = variance(dw); dt alone is correct only for unit noise.
+                next_x = next_x + 0.5 * g * gp * (dw.square() - self._variance(x, dt))
+            if not torch.isfinite(next_x).all():
+>               raise ValueError(f'nonfinite state at integration step {index + 1}')
+E               ValueError: nonfinite state at integration step 1
+
+fim/stochastic/sde_v2.py:134: ValueError
+=========================== short test summary info ============================
+FAILED tests/test_sde_zero_noise_overflow.py::test_zero_noise_large_coefficients_match_deterministic_values_and_gradients[dtype0-1e+20-milstein]
+FAILED tests/test_sde_zero_noise_overflow.py::test_zero_noise_large_coefficients_match_deterministic_values_and_gradients[dtype1-1e+200-milstein]
+2 failed, 5 passed in 4.53s
