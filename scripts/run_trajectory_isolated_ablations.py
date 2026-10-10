@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import argparse
 import hashlib
-import json
 import platform
 import subprocess
 import sys
@@ -13,6 +12,11 @@ from pathlib import Path
 from typing import Any
 
 import torch
+
+try:
+    from scripts.run_output import prepare_run_outputs, write_run_manifest
+except ModuleNotFoundError:
+    from run_output import prepare_run_outputs, write_run_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 EXP = ROOT / "fim_experiments"
@@ -245,10 +249,7 @@ def manifest_payload(args: argparse.Namespace, rows: list[dict[str, Any]]) -> di
 
 
 def write_manifest(args: argparse.Namespace, rows: list[dict[str, Any]]) -> None:
-    args.manifest.parent.mkdir(parents=True, exist_ok=True)
-    tmp = args.manifest.with_suffix(args.manifest.suffix + ".tmp")
-    tmp.write_text(json.dumps(manifest_payload(args, rows), indent=2) + "\n", encoding="utf-8")
-    tmp.replace(args.manifest)
+    write_run_manifest(args.manifest, manifest_payload(args, rows))
 
 
 def run_one(args: argparse.Namespace, benchmark: str, seed: int, variant: str) -> dict[str, Any]:
@@ -341,10 +342,9 @@ def main() -> None:
     for variant in args.variants:
         variant_switches(variant)
 
-    install_trajectory_isolation_hooks()
-    args.results_root.mkdir(parents=True, exist_ok=True)
     rows: list[dict[str, Any]] = []
-    write_manifest(args, rows)
+    prepare_run_outputs(args.results_root, args.manifest, manifest_payload(args, rows))
+    install_trajectory_isolation_hooks()
 
     for benchmark in args.benchmarks:
         for seed in args.seeds:
