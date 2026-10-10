@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-10",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/33",
+  "implementation_commit": "1d4fbe65bf5bdb6fd5d635de815c330c99e406b3",
+  "implementation_receipt": "research/development/SDE_ZERO_NOISE_FOLLOWUP_20261010.json",
+  "correction": "The implementation commit inherited an over-broad [skip ci] convention. That suppressed ordinary repository test workflows unnecessarily: the current scientific trajectory-isolated job already requires workflow_dispatch. The skip was not needed to preserve the scientific execution hold.",
+  "prior_observation": "No hosted workflow runs were present for the implementation commit when its publication was checked. Its 35 passing targeted local tests do not establish a hosted full-suite pass.",
+  "changed_by_this_followup": "This append-only verification note only. Implementation, tests, workflow definitions, frozen protocols and retained results are unchanged.",
+  "ordinary_pr_validation": [
+    ".github/workflows/ci.yml: test; includes repository compile and pytest -q",
+    ".github/workflows/current-component-ablations.yml: repository-tests; includes repository compile and pytest -q"
+  ],
+  "scientific_guard": ".github/workflows/current-component-ablations.yml: trajectory-isolated-v1 has if: github.event_name == 'workflow_dispatch' and needs: repository-tests",
+  "publication_action": "Publish this note in a leased fast-forward commit without a skip marker so normal pull_request engineering workflows are eligible to run.",
+  "hosted_validation_at_note_creation": "PENDING. No passing result is claimed by this note; inspect the subsequent exact-commit workflow results and PR verification update.",
+  "scientific_runs_authorized_by_this_note": 0,
+  "scientific_disposition_change": "None. The frozen 40-cell trajectory-isolated matrix remains held, and earlier negative or invalid evidence remains binding."
+}

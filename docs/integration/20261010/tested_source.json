@@ -1,0 +1,644 @@
+{
+  "schema": "FIM_TESTED_SOURCE_IDENTITY_V1",
+  "python_file_count": 127,
+  "source_set_sha256": "3eb37647846894254ba0a1601a5bc0e7aac7006b2a807d6e69fcaa129a2fcfeb",
+  "encoding_rule": "UTF-8 concatenation of sorted path, NUL, Git mode, NUL, Git blob, LF for maintained Python files under fim, fim_experiments, scripts, tests.",
+  "files": [
+    {
+      "path": "fim/__init__.py",
+      "mode": "100644",
+      "git_blob": "3a15c9643911480b0c9b12847e0085ce46750f34"
+    },
+    {
+      "path": "fim/analysis/__init__.py",
+      "mode": "100644",
+      "git_blob": "7b825261fabbd182d4470fd743d70f46aa2c3503"
+    },
+    {
+      "path": "fim/analysis/lyapunov.py",
+      "mode": "100644",
+      "git_blob": "d9789cd3638ba6385202a5a33859568a705661b9"
+    },
+    {
+      "path": "fim/analysis/metrics.py",
+      "mode": "100644",
+      "git_blob": "bea500c9133755fa56d9017195339b301262808a"
+    },
+    {
+      "path": "fim/analysis/retention.py",
+      "mode": "100644",
+      "git_blob": "8cef47a305f3f5bd6c7f86b18d939350e62cccca"
+    },
+    {
+      "path": "fim/analysis/spectral.py",
+      "mode": "100644",
+      "git_blob": "a9fb2c3eb81a5e406d510ed3e67bc18ebae8cc02"
+    },
+    {
+      "path": "fim/core/__init__.py",
+      "mode": "100644",
+      "git_blob": "7f5321b61b0033fd9af10c507b56e86823a16197"
+    },
+    {
+      "path": "fim/core/dynamics.py",
+      "mode": "100644",
+      "git_blob": "cca6dc3ae0a418eebf99863e381d2265ce3183d8"
+    },
+    {
+      "path": "fim/core/fabric.py",
+      "mode": "100644",
+      "git_blob": "1095ef2d9e8b3e2ef0690940beca0d748811030f"
+    },
+    {
+      "path": "fim/core/fractional.py",
+      "mode": "100644",
+      "git_blob": "0851c418242ab235740497b00b10e29c1fa397d0"
+    },
+    {
+      "path": "fim/core/integrator.py",
+      "mode": "100644",
+      "git_blob": "cbbe9c32d002a66df49e17fc58e3564299367894"
+    },
+    {
+      "path": "fim/core/stability.py",
+      "mode": "100644",
+      "git_blob": "1f28c9494319c17cc8e0038eddfda55b804565da"
+    },
+    {
+      "path": "fim/core/stability_v2.py",
+      "mode": "100644",
+      "git_blob": "f21e20085a862c7179d003855a28f71fa1259159"
+    },
+    {
+      "path": "fim/core/state.py",
+      "mode": "100644",
+      "git_blob": "0cd91d079a23b6d8f49ec0a926bf4d0ba39ca353"
+    },
+    {
+      "path": "fim/epistemic_tests_full/tests/conftest.py",
+      "mode": "100644",
+      "git_blob": "6f1990b76a9ae654e580af4232582bdb858c3b8a"
+    },
+    {
+      "path": "fim/epistemic_tests_full/tests/test_benchmark_generation.py",
+      "mode": "100644",
+      "git_blob": "50567d8bf1157a20e498adf9fe875a1684cb0d73"
+    },
+    {
+      "path": "fim/epistemic_tests_full/tests/test_fractional_dynamics.py",
+      "mode": "100644",
+      "git_blob": "076d92c1cd83117c9e45b0a94e22d0fd01834291"
+    },
+    {
+      "path": "fim/epistemic_tests_full/tests/test_levy_sampling.py",
+      "mode": "100644",
+      "git_blob": "113b353fad754ae78a089b2efa726e8fcfec2f33"
+    },
+    {
+      "path": "fim/epistemic_tests_full/tests/test_memory.py",
+      "mode": "100644",
+      "git_blob": "a9dfa352fe72bffe0a4506482e28fb905987a28a"
+    },
+    {
+      "path": "fim/epistemic_tests_full/tests/test_rollout_stability.py",
+      "mode": "100644",
+      "git_blob": "4362dc4e4f282efa9cbbb1153b42948f04242d40"
+    },
+    {
+      "path": "fim/epistemic_tests_full/tests/test_training_execution.py",
+      "mode": "100644",
+      "git_blob": "0d64de6c7f795e9fe2f394732c0f50cbf5d0f948"
+    },
+    {
+      "path": "fim/geometry/graph.py",
+      "mode": "100644",
+      "git_blob": "a14a104aed9b00943fe1ab2dfb3856c6433ff759"
+    },
+    {
+      "path": "fim/geometry/grid.py",
+      "mode": "100644",
+      "git_blob": "14d8f138a63e781d4db6949a56af56fd66058f4d"
+    },
+    {
+      "path": "fim/geometry/manifold.py",
+      "mode": "100644",
+      "git_blob": "ac30d04b824f05eeb47d490d71abd578e2e598fd"
+    },
+    {
+      "path": "fim/geometry/topology.py",
+      "mode": "100644",
+      "git_blob": "8030499068c0aeedddfb31e527d35d62496e5efa"
+    },
+    {
+      "path": "fim/memory/compression.py",
+      "mode": "100644",
+      "git_blob": "a4c7fe3875b8da046bad1c30c21e18f97fc70900"
+    },
+    {
+      "path": "fim/memory/consolidation.py",
+      "mode": "100644",
+      "git_blob": "eaf5f5e3b1176743d79ad2be7cdedf06bb9f8285"
+    },
+    {
+      "path": "fim/memory/init.py",
+      "mode": "100644",
+      "git_blob": "8948bf4c121de5af15ba48698e651b96f9a3200c"
+    },
+    {
+      "path": "fim/memory/retrieval.py",
+      "mode": "100644",
+      "git_blob": "349be335368716979a1e763d0c89a155248950cc"
+    },
+    {
+      "path": "fim/memory/salience.py",
+      "mode": "100644",
+      "git_blob": "f96455f186e8ab1d5fd9f9d09a97bf9ba932fdd9"
+    },
+    {
+      "path": "fim/memory/trace_bank.py",
+      "mode": "100644",
+      "git_blob": "7a3d7e386ef27fdb4601e1d3227f7cf0499bf406"
+    },
+    {
+      "path": "fim/models/decoder.py",
+      "mode": "100644",
+      "git_blob": "3246fa47981ef8827c5061ecc7607815b9ea0f54"
+    },
+    {
+      "path": "fim/models/encoder.py",
+      "mode": "100644",
+      "git_blob": "9215f213a27da8af4286ccaaf36f375abda7e102"
+    },
+    {
+      "path": "fim/models/fim_model.py",
+      "mode": "100644",
+      "git_blob": "7e53500bb3b5de0e5c8bc1683d23f76460f938e6"
+    },
+    {
+      "path": "fim/models/init.py",
+      "mode": "100644",
+      "git_blob": "0172f5313c851ecfe6c438777961114495d6bbaa"
+    },
+    {
+      "path": "fim/models/latent_operator.py",
+      "mode": "100644",
+      "git_blob": "794801cf8a98605a3054a13faa8ad8e4a6f44e01"
+    },
+    {
+      "path": "fim/operators/advection.py",
+      "mode": "100644",
+      "git_blob": "49fffc1edd0b10904081ea20ef32b9ef18660ff1"
+    },
+    {
+      "path": "fim/operators/damping.py",
+      "mode": "100644",
+      "git_blob": "b80d3da0be005fe3f26ac65e2373aa735ddbbe60"
+    },
+    {
+      "path": "fim/operators/diffusion.py",
+      "mode": "100644",
+      "git_blob": "1bb6949697b3edcf9b8ea536f1fa16182f4cfa07"
+    },
+    {
+      "path": "fim/operators/init.py",
+      "mode": "100644",
+      "git_blob": "88e11079b8a27a65830ce564d498b3431dfb60f5"
+    },
+    {
+      "path": "fim/operators/propagation.py",
+      "mode": "100644",
+      "git_blob": "1d38ece5c7f9c4365e0099be350d7a5db24a45c1"
+    },
+    {
+      "path": "fim/operators/reaction.py",
+      "mode": "100644",
+      "git_blob": "4165f30b100545ef3fe4fe34f55d0f3a44882aa6"
+    },
+    {
+      "path": "fim/operators/spectral.py",
+      "mode": "100644",
+      "git_blob": "9cc6b231a4a473d0c80b520c4f76cfe443602f03"
+    },
+    {
+      "path": "fim/operators/write.py",
+      "mode": "100644",
+      "git_blob": "f4787260f098eb450ecb8d097977456488d14cb6"
+    },
+    {
+      "path": "fim/physics/base.py",
+      "mode": "100644",
+      "git_blob": "de98887aa860d02dd85ec3161f377708e2420af1"
+    },
+    {
+      "path": "fim/physics/diffusion_equation.py",
+      "mode": "100644",
+      "git_blob": "03ed018144fdae6c29be211320c5048336ca52a9"
+    },
+    {
+      "path": "fim/physics/fractional_pde.py",
+      "mode": "100644",
+      "git_blob": "06371aa9a12c492d1bd019f5df6a7d6bc0e85bb2"
+    },
+    {
+      "path": "fim/physics/init.py",
+      "mode": "100644",
+      "git_blob": "8182a0ebd3b7b5f4f69f941280e7318deba1486e"
+    },
+    {
+      "path": "fim/physics/navier_stokes.py",
+      "mode": "100644",
+      "git_blob": "161267e1e0397f293881e670ede9d3a6b0bda654"
+    },
+    {
+      "path": "fim/physics/wave_equation.py",
+      "mode": "100644",
+      "git_blob": "d15f6db525a247944b8bac3636875537e432243d"
+    },
+    {
+      "path": "fim/stochastic/brownian.py",
+      "mode": "100644",
+      "git_blob": "56c3b533a1587d8b011246cbb084476965d9f133"
+    },
+    {
+      "path": "fim/stochastic/init.py",
+      "mode": "100644",
+      "git_blob": "fef0f945f830cd9809f2c8e477680332d4acdd7b"
+    },
+    {
+      "path": "fim/stochastic/levy.py",
+      "mode": "100644",
+      "git_blob": "66345cc1f578411c80f2dee37d2dfaf45a8565e6"
+    },
+    {
+      "path": "fim/stochastic/noise.py",
+      "mode": "100644",
+      "git_blob": "18ca1ebfc3a987188974052f067e87b5429baba5"
+    },
+    {
+      "path": "fim/stochastic/sde.py",
+      "mode": "100644",
+      "git_blob": "6a1d587cb82c218251fb5325618ccdd64d7a7a3e"
+    },
+    {
+      "path": "fim/stochastic/sde_v2.py",
+      "mode": "100644",
+      "git_blob": "f72bbf8e62de8b841e60dc49164030d4ab3d6da4"
+    },
+    {
+      "path": "fim/training/losses.py",
+      "mode": "100644",
+      "git_blob": "3f617b076f6716c713bf98f2bd78f039db37cd1a"
+    },
+    {
+      "path": "fim/training/optimizer.py",
+      "mode": "100644",
+      "git_blob": "8b4330828e94a2ef47d6795f37fd7c758f3938ee"
+    },
+    {
+      "path": "fim/training/rollout.py",
+      "mode": "100644",
+      "git_blob": "f2706a60008954c21386680beda11b6c9dcbe930"
+    },
+    {
+      "path": "fim/training/scheduler.py",
+      "mode": "100644",
+      "git_blob": "d3ca0c8805070ef20a43075b651e61b780029e04"
+    },
+    {
+      "path": "fim/training/trainer.py",
+      "mode": "100644",
+      "git_blob": "1b71a4d7a60eb5cc8890f16e8fd6b987c0432380"
+    },
+    {
+      "path": "fim/utils/checkpoint.py",
+      "mode": "100644",
+      "git_blob": "2c3a319e42f09000fd0d6bed53b0429c5a26965d"
+    },
+    {
+      "path": "fim/utils/config.py",
+      "mode": "100644",
+      "git_blob": "f749df19180fe45589f1dbf5555483e7fea89ee8"
+    },
+    {
+      "path": "fim/utils/init.py",
+      "mode": "100644",
+      "git_blob": "599da7a0256d542dc151c6d5c9112a7b991ec3ff"
+    },
+    {
+      "path": "fim/utils/logging.py",
+      "mode": "100644",
+      "git_blob": "932e9a5d1425c9b2ba3f90ed5bf7691bf25c0b93"
+    },
+    {
+      "path": "fim/utils/seed.py",
+      "mode": "100644",
+      "git_blob": "357e102d504d26e110c56bf935d167e2384cd5be"
+    },
+    {
+      "path": "fim/utils/visualization.py",
+      "mode": "100644",
+      "git_blob": "ed4ae6282f83315c77a3ad74517d41f9d9f3707a"
+    },
+    {
+      "path": "fim_experiments/ablation_systems.py",
+      "mode": "100644",
+      "git_blob": "27d162fc2e61f3e63cab9fe1e2b2460824bbe514"
+    },
+    {
+      "path": "fim_experiments/benchmark.py",
+      "mode": "100644",
+      "git_blob": "c91a6afe9d86830c6bcfaa2d9187547d9688050d"
+    },
+    {
+      "path": "fim_experiments/config.py",
+      "mode": "100644",
+      "git_blob": "919209409eb13b634164e67f69221a9e4c643d15"
+    },
+    {
+      "path": "fim_experiments/episode_bank_v1.py",
+      "mode": "100644",
+      "git_blob": "ca67b4fdedf3ad9cf08e69d36ce8964527e7517b"
+    },
+    {
+      "path": "fim_experiments/evaluate.py",
+      "mode": "100644",
+      "git_blob": "2b7aac0a40748df4e027bc98ee066f3496f81989"
+    },
+    {
+      "path": "fim_experiments/experiment.py",
+      "mode": "100644",
+      "git_blob": "1a042857f66a354cdd5ef0790fd43a584fc8ca9c"
+    },
+    {
+      "path": "fim_experiments/main.py",
+      "mode": "100644",
+      "git_blob": "d7f1cf18f433cb0acf1cd527ef896f934eb2c3e5"
+    },
+    {
+      "path": "fim_experiments/models.py",
+      "mode": "100644",
+      "git_blob": "1beef3ab2a38251f2f3a04db21b754db672261bd"
+    },
+    {
+      "path": "fim_experiments/paired_development_v1.py",
+      "mode": "100644",
+      "git_blob": "f102a54f4bf5c0856ca747f40495842edfde751b"
+    },
+    {
+      "path": "fim_experiments/recall_metrics.py",
+      "mode": "100644",
+      "git_blob": "7d7e0d1c3daa4d5f7f4d2e02792fa363e1826c84"
+    },
+    {
+      "path": "fim_experiments/results/run_results.py",
+      "mode": "100644",
+      "git_blob": "5e537af7723ecffb2c0e25eb945c0eeb2290fc45"
+    },
+    {
+      "path": "fim_experiments/runtime_benchmarks.py",
+      "mode": "100644",
+      "git_blob": "9c000059809e7459b81ac59723a2f210a95ae8fe"
+    },
+    {
+      "path": "fim_experiments/systems.py",
+      "mode": "100644",
+      "git_blob": "d3a93f92c0f51bed1e695e2ed0095357932b8b5b"
+    },
+    {
+      "path": "fim_experiments/train.py",
+      "mode": "100644",
+      "git_blob": "a2021ceda4066d228627aa239b29aa192c99b29b"
+    },
+    {
+      "path": "fim_experiments/utils.py",
+      "mode": "100644",
+      "git_blob": "aa5e8fe019d74244488f66fbb543d0d49a4634db"
+    },
+    {
+      "path": "scripts/analyze_trajectory_isolated_ablations.py",
+      "mode": "100644",
+      "git_blob": "63e9268409dcd1d75dba813a960f3fd91ab05cbb"
+    },
+    {
+      "path": "scripts/evaluate_checkpoint.py",
+      "mode": "100644",
+      "git_blob": "7ac81c581e0dd1ab2f971e3df448daebff36738e"
+    },
+    {
+      "path": "scripts/evidence_publication.py",
+      "mode": "100644",
+      "git_blob": "c0d04cdc8097a6709d9633313d0b92df1958d416"
+    },
+    {
+      "path": "scripts/run_component_ablations.py",
+      "mode": "100644",
+      "git_blob": "1ec72287f91dd6c9a4ebb9e268a7eedbe1b72d6c"
+    },
+    {
+      "path": "scripts/run_full_suite.py",
+      "mode": "100644",
+      "git_blob": "4200a425527cdd9ef2efaa99341db93f3e44316a"
+    },
+    {
+      "path": "scripts/run_output.py",
+      "mode": "100644",
+      "git_blob": "dc4c95a8e53cd3b67ea7d2bf36f14df5c99a23f3"
+    },
+    {
+      "path": "scripts/run_trajectory_isolated_ablations.py",
+      "mode": "100644",
+      "git_blob": "888262d10303f2e52b4ca85ea9efdb23f1ea8831"
+    },
+    {
+      "path": "scripts/validate_component_ablation_manifest.py",
+      "mode": "100644",
+      "git_blob": "3384ce60251a1743a78107fc9fc4a5ab4c48a0d6"
+    },
+    {
+      "path": "scripts/verify_delayed_recall_successor_v2.py",
+      "mode": "100644",
+      "git_blob": "a4705f79448c0c242666a57efc82b3b6ea6933c5"
+    },
+    {
+      "path": "tests/init.py",
+      "mode": "100644",
+      "git_blob": "31ba9de9355ce1760b035c50fcc9e31801e74a44"
+    },
+    {
+      "path": "tests/test_analysis_metric_contracts.py",
+      "mode": "100644",
+      "git_blob": "ff6b5ff8c5fb3bf055ef7f5c44f435820809646f"
+    },
+    {
+      "path": "tests/test_benchmark_runtime_contracts.py",
+      "mode": "100644",
+      "git_blob": "eeeb634afd2ddac6afa84e2937143f053c1780a0"
+    },
+    {
+      "path": "tests/test_cached_state_continuity.py",
+      "mode": "100644",
+      "git_blob": "3ca1de53ec45d28c63ded6b62df6332e97af378a"
+    },
+    {
+      "path": "tests/test_checkpoint_evaluation_weights.py",
+      "mode": "100644",
+      "git_blob": "d9f63ac8bd042bfe99c1e4e741629352437a13da"
+    },
+    {
+      "path": "tests/test_checkpoint_save_preservation.py",
+      "mode": "100644",
+      "git_blob": "8a1f0765f82a49e412e222087d05e6ecd32b5201"
+    },
+    {
+      "path": "tests/test_component_ablation_manifest.py",
+      "mode": "100644",
+      "git_blob": "f36391752e382bfae4a148b8ecbe68c094092737"
+    },
+    {
+      "path": "tests/test_current_component_ablations.py",
+      "mode": "100644",
+      "git_blob": "dcfa4d2d23e1ed7ac704367303b416016237c5ef"
+    },
+    {
+      "path": "tests/test_delayed_recall_metadata.py",
+      "mode": "100644",
+      "git_blob": "b0bf83512141248335ec683f42bfdb2d852d1a63"
+    },
+    {
+      "path": "tests/test_delayed_recall_protocol_identity.py",
+      "mode": "100644",
+      "git_blob": "c1e9c8799f1301048809d302c0fb649175f4c951"
+    },
+    {
+      "path": "tests/test_delayed_recall_successor_v2.py",
+      "mode": "100644",
+      "git_blob": "462e4e2fde02a0314b9b0b912219c225f2add200"
+    },
+    {
+      "path": "tests/test_dynamics.py",
+      "mode": "100644",
+      "git_blob": "763069261cfc3bb2631397b4d741543ff4ae0bd8"
+    },
+    {
+      "path": "tests/test_episode_bank_v1.py",
+      "mode": "100644",
+      "git_blob": "04eaab3f71dbe24995f6ff3d440d0e78fbf9430c"
+    },
+    {
+      "path": "tests/test_evaluation_content_identity.py",
+      "mode": "100644",
+      "git_blob": "70466fed536e3570152cd37f5dea0e4172c99c94"
+    },
+    {
+      "path": "tests/test_evaluation_output_preservation.py",
+      "mode": "100644",
+      "git_blob": "71081dfe1c1506d232067d2951370360a8281a8e"
+    },
+    {
+      "path": "tests/test_evidence_publication.py",
+      "mode": "100644",
+      "git_blob": "378d73eec35cf8c65196baa633ae969d4c5c4700"
+    },
+    {
+      "path": "tests/test_fabric.py",
+      "mode": "100644",
+      "git_blob": "bebc29912b2bc17799b031ad4b923a56a6bdafe1"
+    },
+    {
+      "path": "tests/test_final_state_save_preservation.py",
+      "mode": "100644",
+      "git_blob": "0917073ccf1de987e34c4e4cf8df1a2b8317930d"
+    },
+    {
+      "path": "tests/test_fractional.py",
+      "mode": "100644",
+      "git_blob": "e695fb50da67b663308923f1976bac4afbf75da7"
+    },
+    {
+      "path": "tests/test_fractional_memory_history.py",
+      "mode": "100644",
+      "git_blob": "83da44cdd0f35e9fde68416271e324b253b66234"
+    },
+    {
+      "path": "tests/test_graph_execution_modes.py",
+      "mode": "100644",
+      "git_blob": "aff820a57231f3330589307a3fa47d85ad5c1239"
+    },
+    {
+      "path": "tests/test_graph_propagation.py",
+      "mode": "100644",
+      "git_blob": "1a062ed85e050996be442dd3403f7bb1f92a2919"
+    },
+    {
+      "path": "tests/test_memory.py",
+      "mode": "100644",
+      "git_blob": "093bc33c6275763ab996824b3a7e0a54df12b458"
+    },
+    {
+      "path": "tests/test_paired_development_v1.py",
+      "mode": "100644",
+      "git_blob": "f248915fb4006d9dcf1ff1648ac9205b388fa427"
+    },
+    {
+      "path": "tests/test_public_checkpoint_recovery.py",
+      "mode": "100644",
+      "git_blob": "b5fc9c223609748b3e3c14c485398a397fee1591"
+    },
+    {
+      "path": "tests/test_public_trainer.py",
+      "mode": "100644",
+      "git_blob": "864239b7039b3d89e2425ab5dff90d898c67af00"
+    },
+    {
+      "path": "tests/test_retrieval_temperature_gradient.py",
+      "mode": "100644",
+      "git_blob": "786d3250d2250ba5ff8ea1f0fa70e73af261d4ca"
+    },
+    {
+      "path": "tests/test_run_results.py",
+      "mode": "100644",
+      "git_blob": "57e684cc2f376bde7c140b0e3b9ba2af1f0feb6f"
+    },
+    {
+      "path": "tests/test_sde_quadratic_variation_v2.py",
+      "mode": "100644",
+      "git_blob": "e61a96dc13e732dc2135a1b82895c940be048d64"
+    },
+    {
+      "path": "tests/test_sde_zero_noise_overflow.py",
+      "mode": "100644",
+      "git_blob": "22cbeb974dd243eb6826fab1e0a2bb9c0133e32b"
+    },
+    {
+      "path": "tests/test_stability_v2.py",
+      "mode": "100644",
+      "git_blob": "d1e1c2228384ed95b74d21d36289fea7c4f66fd9"
+    },
+    {
+      "path": "tests/test_trace_bank_admission.py",
+      "mode": "100644",
+      "git_blob": "555d4a0c582f352b31aaaf3a0dcc5d5cf1de86da"
+    },
+    {
+      "path": "tests/test_training_tensor_semantics.py",
+      "mode": "100644",
+      "git_blob": "82688c0defd6313d0054a0ffe1a6a0bb2e7de078"
+    },
+    {
+      "path": "tests/test_trajectory_analysis_manifest.py",
+      "mode": "100644",
+      "git_blob": "5ace08dc88386503180cfd4efa1ede2eb41a0e40"
+    },
+    {
+      "path": "tests/test_trajectory_isolated_protocol.py",
+      "mode": "100644",
+      "git_blob": "9d225b1d0257bc581ef649a8805a7816acf2925c"
+    },
+    {
+      "path": "tests/test_trajectory_output_preservation.py",
+      "mode": "100644",
+      "git_blob": "a94bb06c345d8800d45088d3a4064d6356cc7487"
+    }
+  ],
+  "binding": "Same source/test bytes passed the source verifier before and after the single retained full-suite command. Final changes following tests are integration documentation and state only."
+}

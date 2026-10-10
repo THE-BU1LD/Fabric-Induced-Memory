@@ -1,0 +1,50 @@
+{
+  "fim_experiments/benchmark.py": {
+    "git_blob": "c91a6afe9d86830c6bcfaa2d9187547d9688050d",
+    "sha256": "d9c892386c26d0a8d66403459140fa1e5722e86883e263c7fdd1375a586bec71"
+  },
+  "fim_experiments/runtime_benchmarks.py": {
+    "git_blob": "9c000059809e7459b81ac59723a2f210a95ae8fe",
+    "sha256": "dcadcf54ecbbe93aa8666019e380169f34869e3b27a514c044e3cdfde2950d57"
+  },
+  "fim_experiments/recall_metrics.py": {
+    "git_blob": "7d7e0d1c3daa4d5f7f4d2e02792fa363e1826c84",
+    "sha256": "715bed9068c71566b41be4036e5bdeddc5585d14497e5e326a112200ef25da60"
+  },
+  "fim_experiments/models.py": {
+    "git_blob": "1beef3ab2a38251f2f3a04db21b754db672261bd",
+    "sha256": "16259452161edf0dc83568542f1705c5a4c82bb61db5ed63e8ba2f4865534520"
+  },
+  "fim_experiments/systems.py": {
+    "git_blob": "d3a93f92c0f51bed1e695e2ed0095357932b8b5b",
+    "sha256": "4199cb9498cfd255f267f442651d76ae374c269c9f4048ea70617f0a190e269b"
+  },
+  "fim_experiments/ablation_systems.py": {
+    "git_blob": "27d162fc2e61f3e63cab9fe1e2b2460824bbe514",
+    "sha256": "774400383ff260bc6c24cdfaaa6d27c9dd9cd881be53268f80a64fc989af4b50"
+  },
+  "research/protocols/FIM_DELAYED_RECALL_SUCCESSOR_V2.json": {
+    "git_blob": "61e954763626eea5d82c56ac38981215919dfc73",
+    "sha256": "8d6bdebbf147b403c88fc64b85fb7c92b5e1cb7ba2d44c9a7153135e0d838952"
+  },
+  "research/protocols/FIM_DELAYED_RECALL_SUCCESSOR_V2.md": {
+    "git_blob": "628364ae214e0d83a79d057775453f10dc9546be",
+    "sha256": "b87a835dc2025dea3d0c236e8c22340b5f7cdd263eca625b73e6d2514626b843"
+  },
+  "research/protocols/FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md": {
+    "git_blob": "57a83c49196bac7b4aa344c37ece0978d6df9014",
+    "sha256": "637e0e6b3ea895bcbc14fc80ced6b12f420d6355de2e6440cb7bbfb482b880c9"
+  },
+  ".github/workflows/ci.yml": {
+    "git_blob": "69cc4fc64391ecf12ba4c368d80be6da7c78842c",
+    "sha256": "8f35442b6862e9da8fded4ea1e910b3b67993f5702062cee835bd4908bbba452"
+  },
+  ".github/workflows/current-component-ablations.yml": {
+    "git_blob": "c3db0063a67b847f66f43db3d9e89b7886d97bbf",
+    "sha256": "162dba748806f37cf28c55f11cf5ab34c6dbb54ed6e7d4617bc7e97567147711"
+  },
+  "paper_reference_results.json": {
+    "git_blob": "5323042aec8a9372fa422a00ae9168966fb0efac",
+    "sha256": "1a2299f735da24e87831596c265b1e170da51e105f6d6fef16af200f03fe1bcf"
+  }
+}

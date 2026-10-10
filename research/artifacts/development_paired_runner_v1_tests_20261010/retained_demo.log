@@ -1,0 +1,34 @@
+{
+  "allocated_parameters_per_arm": 2372,
+  "bank_sha256": "ae8e143064f27be469e69dc19fe1fac41d30737ecdcd4acff7a6de4a91afc938",
+  "compute_matched": false,
+  "diagnostic_observation_mse_float64_by_arm_split": {
+    "full": {
+      "development_eval": 1.0289934449153166,
+      "train": 0.5497110425441943,
+      "validation": 0.3222115305374137
+    },
+    "no_memory": {
+      "development_eval": 1.0287509765248437,
+      "train": 0.5513993717035174,
+      "validation": 0.318345916528457
+    },
+    "no_retrieval": {
+      "development_eval": 1.0287509765248437,
+      "train": 0.5513993717035174,
+      "validation": 0.318345916528457
+    }
+  },
+  "initial_parameter_sha256": "d3f82d4dcb72d1240162486afde58004b7e1a509745d657e3fd6ec2750fb775e",
+  "model_steps": 60,
+  "optimizer_updates": 9,
+  "phase": "DEVELOPMENT",
+  "process_peak_rss_bytes": 331022336,
+  "purpose": "INTEGRATION_ONLY",
+  "rss_scope": "Cumulative Linux process high-water mark including imports and all prior arms; not per-arm memory",
+  "run_sha256": "382d2e7febf87af361de2fc3c1ab2645d4aa6b2ff447a11f723f7159560617d4",
+  "schema": "FIM_PAIRED_DEVELOPMENT_RUN_V1",
+  "scientific_support_inferred": false,
+  "seconds": 0.8077199190011015,
+  "status": "VERIFIED_INTEGRATION"
+}

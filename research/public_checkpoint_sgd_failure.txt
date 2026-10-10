@@ -1,0 +1,26 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___________ test_sgd_primitive_momentum_is_rejected_before_resuming ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-458/test_sgd_primitive_momentum_is0')
+
+    def test_sgd_primitive_momentum_is_rejected_before_resuming(tmp_path):
+        model = _model()
+        optimizer = torch.optim.SGD(model.parameters(), lr=0.01, momentum=0.9)
+        scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.8)
+        _step(model, optimizer, scheduler)
+        before = _snapshot(model, optimizer, scheduler)
+        path = tmp_path / "checkpoint.pt"
+        save_checkpoint(path, model, optimizer, scheduler)
+        payload = torch.load(path, weights_only=True)
+        key = next(iter(payload["optimizer"]["state"]))
+        payload["optimizer"]["state"][key]["momentum_buffer"] = 0.0
+        torch.save(payload, path)
+>       with pytest.raises(ValueError, match="momentum"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_public_checkpoint_recovery.py:173: Failed
+=========================== short test summary info ============================
+FAILED tests/test_public_checkpoint_recovery.py::test_sgd_primitive_momentum_is_rejected_before_resuming
+1 failed, 24 deselected in 14.11s

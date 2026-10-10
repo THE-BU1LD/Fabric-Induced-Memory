@@ -4,19 +4,96 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 from typing import Any
-
-from fim_experiments.benchmark import DelayedRecallBenchmark, DelayedRecallConfig
-from fim_experiments.recall_metrics import (
-    RecallWindowSpec,
-    delayed_recall_observation_noise_floor_mse,
-)
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PROTOCOL = (
     ROOT / "research" / "protocols" / "FIM_DELAYED_RECALL_SUCCESSOR_V2.json"
 )
+
+# Named values from the existing frozen contract, Git blob
+# 61e954763626eea5d82c56ac38981215919dfc73. Do not derive this expectation from
+# the candidate being verified: mutually consistent edits must still fail.
+# A changed scientific method requires a separately versioned protocol/review.
+FROZEN_CONTRACT: dict[str, Any] = {'schema_version': 1,
+ 'protocol_name': 'FIM_DELAYED_RECALL_SUCCESSOR_V2',
+ 'status': 'FROZEN_METHOD_PREOUTCOME_REVIEW_REQUIRED',
+ 'execution_authorized': False,
+ 'outcome_access_allowed': False,
+ 'source': {'base_main_commit': 'ae6d8a9622e8b28615715e8b68ca04b2a6188653',
+            'delayed_recall_benchmark_git_blob': 'c91a6afe9d86830c6bcfaa2d9187547d9688050d',
+            'recall_metrics_git_blob': '7d7e0d1c3daa4d5f7f4d2e02792fa363e1826c84'},
+ 'benchmark': {'name': 'delayed_recall',
+               'dimension': 33,
+               'memory_dim': 32,
+               'delay': 8,
+               'steps': 16,
+               'cue_noise': 0.02,
+               'distractor_scale': 0.3,
+               'reveal_sharpness': 0.35,
+               'latent_transition_stochastic': False,
+               'observation_stochastic': True},
+ 'endpoint': {'primary': 'recall_window_memory_mse',
+              'observation_times': [8, 9, 10, 11],
+              'target_indices': [7, 8, 9, 10],
+              'window_length': 4,
+              'channels': 'memory_payload_only_exclude_clock',
+              'aggregation': 'mean_over_batch_time_memory_features',
+              'secondary': ['rollout_mse', 'final_step_mse', 'rollout_mae', 'final_step_mae']},
+ 'observation_noise_reference': {'type': 'analytic_conditional_mean_floor',
+                                 'scope': 'post_cue_memory_features',
+                                 'expected_mse_per_memory_feature': 0.09,
+                                 'formula': 'distractor_scale_squared',
+                                 'is_trainable_baseline': False},
+ 'paired_design': {'seeds': [607, 701, 809, 907, 1009],
+                   'variants': ['full', 'no_memory', 'no_retrieval', 'no_salience_gating'],
+                   'identical_trajectory_bytes_per_seed_across_variants': True,
+                   'generate_and_hash_trajectory_artifact_before_variant_execution': True,
+                   'memory_reset_between_independent_episodes': True,
+                   'batch_size': 1,
+                   'no_best_checkpoint_selection': True},
+ 'budget': {'epochs': 4,
+            'dataset_size': 32,
+            'batch_size': 1,
+            'train_rollout_steps': 16,
+            'eval_rollout_steps': 20,
+            'teacher_forcing_ratio': 0.5,
+            'horizon_decay': 1,
+            'dynamic_data': False,
+            'use_ema': False,
+            'evaluate_ema': False},
+ 'analysis': {'primary_comparison': 'full_vs_no_memory',
+              'mechanism_comparison': 'full_vs_no_retrieval',
+              'report_raw_per_seed_values': True,
+              'paired_bootstrap_samples': 10000,
+              'paired_bootstrap_seed': 20261005,
+              'exact_sign_flip_descriptive': True,
+              'claim_rule': 'No memory-benefit claim unless the paired mean primary delta favors '
+                            'full and full wins at least 4 of 5 frozen seeds; retrieval-specific '
+                            'claims additionally require the same directional rule versus '
+                            'no_retrieval.',
+              'failure_rule': 'Retain every failed cell; do not replace seeds, extend budgets, '
+                              'move the recall window, or tune the mechanism after outcome '
+                              'access.'},
+ 'claim_boundary': {'rewrites_frozen_v1': False,
+                    'historical_v1_primary_remains_whole_rollout_mse': True,
+                    'successor_outcomes_may_rescue_v1': False,
+                    'negative_or_mixed_result_must_be_retained': True}}
+
+# This real-valued setting happens to be encoded as an integer in the JSON.
+REAL_FIELDS = {"budget.horizon_decay"}
+BOUNDARY_ERRORS = {
+    "execution_authorized": "execution must remain unauthorized",
+    "outcome_access_allowed": "outcome access must remain closed",
+    "paired_design.identical_trajectory_bytes_per_seed_across_variants": (
+        "paired trajectory identity must be required"
+    ),
+    "claim_boundary.successor_outcomes_may_rescue_v1": (
+        "successor outcomes may not rescue the frozen v1 result"
+    ),
+}
 
 
 class ProtocolError(ValueError):
@@ -34,7 +111,60 @@ def require(condition: bool, message: str) -> None:
         raise ProtocolError(message)
 
 
+def _verify_frozen_value(actual: Any, expected: Any, path: str) -> None:
+    label = path or "protocol"
+    message = BOUNDARY_ERRORS.get(path, f"{label} differs from the frozen method")
+
+    if isinstance(expected, dict):
+        require(type(actual) is dict, f"{label} must be an object")
+        require(
+            all(type(key) is str for key in actual),
+            f"{label} field names must be strings",
+        )
+        missing = sorted(expected.keys() - actual.keys())
+        extra = sorted(actual.keys() - expected.keys())
+        require(not missing, f"{label} is missing frozen fields: {missing}")
+        require(not extra, f"{label} has unknown fields: {extra}")
+        for key, value in expected.items():
+            child = f"{path}.{key}" if path else key
+            _verify_frozen_value(actual[key], value, child)
+        return
+
+    if isinstance(expected, list):
+        require(type(actual) is list, f"{label} must be a list")
+        require(len(actual) == len(expected), message)
+        for index, value in enumerate(expected):
+            _verify_frozen_value(actual[index], value, f"{label}[{index}]")
+        return
+
+    if type(expected) is float or path in REAL_FIELDS:
+        # Counts are strict integers elsewhere; real parameters admit 1 and 1.0
+        # equally, but never Boolean/string coercions or NaN/Infinity.
+        require(
+            type(actual) in (int, float)
+            and actual == expected
+            and math.isfinite(actual),
+            message,
+        )
+        return
+
+    require(type(actual) is type(expected) and actual == expected, message)
+
+
+def verify_frozen_contract(payload: dict[str, Any]) -> None:
+    """Check every declared method field before loading an execution backend."""
+    _verify_frozen_value(payload, FROZEN_CONTRACT, "")
+
+
 def verify_protocol(payload: dict[str, Any]) -> dict[str, Any]:
+    verify_frozen_contract(payload)
+
+    from fim_experiments.benchmark import DelayedRecallBenchmark, DelayedRecallConfig
+    from fim_experiments.recall_metrics import (
+        RecallWindowSpec,
+        delayed_recall_observation_noise_floor_mse,
+    )
+
     require(payload.get("schema_version") == 1, "unexpected schema_version")
     require(
         payload.get("protocol_name") == "FIM_DELAYED_RECALL_SUCCESSOR_V2",

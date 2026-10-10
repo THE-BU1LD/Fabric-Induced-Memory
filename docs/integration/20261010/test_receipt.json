@@ -1,0 +1,24 @@
+{
+  "started_at_utc": "2026-10-10T14:24:44.141324+00:00",
+  "command": [
+    "/workspace/scratch/fecebaaf32e4/validation_env/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "--junitxml=/workspace/scratch/fecebaaf32e4/research_execution/FIM/docs/integration/20261010/pytest.xml"
+  ],
+  "environment_overrides": {
+    "PYTHONPATH": "/workspace/scratch/fecebaaf32e4/research_execution/testdeps:/workspace/scratch/fecebaaf32e4/research_execution/FIM",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "MPLBACKEND": "Agg",
+    "PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1",
+    "CUDA_VISIBLE_DEVICES": ""
+  },
+  "exit_code": 0,
+  "timed_out": false,
+  "process_seconds": 31.121530874999735,
+  "log_sha256": "6c3fe731c9d5c13e0a1e397378ac1ed74152de812f28eeb72e8b20c24ec3c00b",
+  "scope": "Existing ordinary repository test collection; artificial engineering fixtures. No protected scientific dispatch or retained demo."
+}
