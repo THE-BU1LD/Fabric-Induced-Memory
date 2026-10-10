@@ -250,50 +250,5 @@
     "Maintainer review of draft PR38 and source proposals before integration into main.",
     "A separately qualified prospective execution decision is still required for each held scientific protocol. Existing engineering acceptance does not resolve the memory-benefit hypothesis."
   ],
-  "release_status": "Draft integration published; main merge and scientific release remain pending their separate decisions.",
-  "prospective_colored_noise_v2_session": {
-    "id": "fim-colored-noise-v2-20261010",
-    "phase": "IMPLEMENTED_PENDING_HOSTED_VERIFICATION",
-    "base_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
-    "parent_state_snapshot": "research/state_snapshots/noise_v2_20261010/PR38_92bcc3eb5322_RESEARCH_STATE.json",
-    "parent_state_git_blob": "c97d96219980996b1d9c4a5115fa0cd9a5b23151",
-    "contract": "docs/colored-noise-v2.md",
-    "receipt": "research/verification/colored_noise_v2_20261010/receipt.json",
-    "source_files": {
-      "fim/stochastic/colored_noise_v2.py": {
-        "sha256": "24d30a85624784b6ba7e485ef6a94894943dd9f4c4789541ac23d97b8d9daad6",
-        "git_blob": "1d647bfc6540765d4e0e42a9635966056b41130d",
-        "bytes": 5167
-      },
-      "tests/test_colored_noise_v2.py": {
-        "sha256": "f25d2aa4da602eebd701fb1b7a657e4c00a816f5f0fa0fae6882f1705aa85e67",
-        "git_blob": "9819b4d12b97f4f5d8a34680a7957063128cb9a1",
-        "bytes": 8120
-      },
-      "docs/colored-noise-v2.md": {
-        "sha256": "417445e7f80f5b48fce6df3738dfd297bd5c7a80dbe09923355e80ce848dfe87",
-        "git_blob": "151eb483cdda8ed544924eea2e1c64f3cc3a249c",
-        "bytes": 5919
-      }
-    },
-    "observed_source_defect": "Legacy rank>=2 ColoredNoise filters the input and draws no stochastic field; one-site sample std is undefined.",
-    "implemented_change": "Opt-in independent Gaussian spectral fields over explicit final spatial axes with deterministic unit ensemble variance normalization and caller generator support.",
-    "validation": {
-      "python": "3.12.14",
-      "compile_command": "python -m compileall -q fim/stochastic/colored_noise_v2.py tests/test_colored_noise_v2.py",
-      "compile_exit_code": 0,
-      "syntax_parse": "passed",
-      "tests_run": false,
-      "reason": "Local runtime has neither torch nor pytest. Actual PyTorch execution is pending ordinary hosted PR CI."
-    },
-    "preserved": {
-      "legacy_noise_unchanged": true,
-      "maintained_model_and_experiment_callers_unchanged": true,
-      "frozen_protocols_and_retained_outcomes_unchanged": true,
-      "inherited_scientific_job_dispatch_only": true
-    },
-    "protected_evaluation": "HELD",
-    "scientific_completion": false,
-    "next_action": "Run existing ordinary PR CI, inspect its checked-out revision and test outcomes, repair only concrete failures, and append actual logs."
-  }
+  "release_status": "Draft integration published; main merge and scientific release remain pending their separate decisions."
 }
