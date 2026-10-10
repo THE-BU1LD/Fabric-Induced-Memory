@@ -2,7 +2,10 @@ from __future__ import annotations
 
 from contextlib import nullcontext
 from dataclasses import dataclass
+import os
 from pathlib import Path
+import stat
+import tempfile
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 import torch
@@ -489,6 +492,13 @@ def save_checkpoint(
     ema: Optional[EMA] = None,
     validation_weight_source: Optional[str] = None,
 ) -> None:
+    """Publish a complete checkpoint without truncating its previous version.
+
+    Serialization, flush and ordinary replacement failures preserve an
+    existing checkpoint. Catchable interruptions clean the unique sibling
+    staging file. Requires a single writer; power-loss durability and
+    uncatchable process termination are not guaranteed.
+    """
     if validation_weight_source is not None and (
         not isinstance(validation_weight_source, str)
         or validation_weight_source not in ("raw", "ema")
@@ -515,9 +525,41 @@ def save_checkpoint(
     if ema is not None:
         payload["ema"] = ema.state_dict()
 
+    save_checkpoint_payload(path, payload)
+
+
+def save_checkpoint_payload(path: str | Path, payload: Dict[str, Any]) -> None:
+    """Publish an assembled payload unchanged using the shared save contract.
+
+    This preserves the distinct trainer-resume and final-state schemas. See
+    save_checkpoint for the single-writer and failure-recovery boundaries.
+    """
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    torch.save(payload, path)
+    mode = None
+    try:
+        info = path.lstat()
+    except FileNotFoundError:
+        pass
+    else:
+        if not stat.S_ISREG(info.st_mode):
+            raise ValueError(f"Checkpoint destination must be a regular file: {path}")
+        mode = stat.S_IMODE(info.st_mode)
+
+    descriptor, name = tempfile.mkstemp(
+        prefix=f".{path.name}.stage-", suffix=".tmp", dir=path.parent,
+    )
+    staged = Path(name)
+    try:
+        with os.fdopen(descriptor, "wb") as handle:
+            torch.save(payload, handle)
+            handle.flush()
+            os.fsync(handle.fileno())
+        if mode is not None:
+            os.chmod(staged, mode)
+        os.replace(staged, path)
+    finally:
+        staged.unlink(missing_ok=True)
 
 
 def load_checkpoint(

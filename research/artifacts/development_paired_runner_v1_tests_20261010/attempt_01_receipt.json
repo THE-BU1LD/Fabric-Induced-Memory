@@ -1,0 +1,14 @@
+{
+  "attempt": 1,
+  "kind": "FOCUSED_REAL_MODEL_AND_FAILURE_TESTS",
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_paired_development_v1.py"
+  ],
+  "exit_code": 0,
+  "seconds": 26.40526728599798,
+  "scope": "Small artificial development fixtures; no retained demonstration or protected outcome."
+}

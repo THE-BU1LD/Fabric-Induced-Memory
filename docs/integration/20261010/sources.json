@@ -1,0 +1,1746 @@
+{
+  "schema": "FIM_ENGINEERING_INTEGRATION_SOURCE_MAP_V1",
+  "base_commit": "84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+  "sources": [
+    {
+      "pr": 26,
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/26",
+      "head_commit": "c46d8f6078c05184c60e409acc9aa0acb7d51220",
+      "tree": "c8e5a0bb124a0a3200fbcce65d5b9701554d4a14",
+      "changed_paths_from_main": [
+        "RESEARCH_TRUTH.md"
+      ]
+    },
+    {
+      "pr": 27,
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/27",
+      "head_commit": "9503099f9952ef3af6bb92f7e75d006e37ff414f",
+      "tree": "8395effc21aefe5d4255f862ec4451413b862ae2",
+      "changed_paths_from_main": [
+        "RESEARCH_TRUTH.md",
+        "docs/checkpoint-evaluation-weights.md",
+        "docs/trajectory-run-output-preservation.md",
+        "fim_experiments/main.py",
+        "fim_experiments/train.py",
+        "scripts/analyze_trajectory_isolated_ablations.py",
+        "scripts/evaluate_checkpoint.py",
+        "scripts/run_output.py",
+        "scripts/run_trajectory_isolated_ablations.py",
+        "scripts/verify_delayed_recall_successor_v2.py",
+        "tests/test_checkpoint_save_preservation.py",
+        "tests/test_delayed_recall_protocol_identity.py",
+        "tests/test_evaluation_content_identity.py",
+        "tests/test_evaluation_output_preservation.py",
+        "tests/test_final_state_save_preservation.py",
+        "tests/test_trajectory_analysis_manifest.py",
+        "tests/test_trajectory_output_preservation.py"
+      ]
+    },
+    {
+      "pr": 28,
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/28",
+      "head_commit": "7b64ef98770e0cf3fdffbab7c8ef01f071e219fb",
+      "tree": "d03286d004c7e5143007a1351e4b999a3e8324db",
+      "changed_paths_from_main": [
+        "AGENTS.md",
+        "README.md",
+        "RESEARCH_STATE.json",
+        "fim/training/optimizer.py",
+        "fim/training/trainer.py",
+        "fim/utils/checkpoint.py",
+        "research/DEVELOPMENT_TRAINER_REPAIR_20261010.md",
+        "research/PUBLIC_CHECKPOINT_RECOVERY_20261010.md",
+        "research/public_checkpoint_baseline.txt",
+        "research/public_checkpoint_peer_failures.txt",
+        "research/public_checkpoint_sgd_failure.txt",
+        "tests/test_public_checkpoint_recovery.py",
+        "tests/test_public_trainer.py"
+      ]
+    },
+    {
+      "pr": 30,
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/30",
+      "head_commit": "79a3941d2ccf8f321e3589cf69edce0ba37022dd",
+      "tree": "9590d233f9f1ce195c1f091b494c3fddd0fa6814",
+      "changed_paths_from_main": [
+        "AGENTS.md",
+        "fim/core/fractional.py",
+        "research/DEVELOPMENT_FRACTIONAL_HISTORY_REPAIR_20261010.md",
+        "research/RESEARCH_STATE.json",
+        "tests/test_fractional_memory_history.py"
+      ]
+    },
+    {
+      "pr": 32,
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/32",
+      "head_commit": "3180112dd71534a6341edd1f9f8f12cceee85ad9",
+      "tree": "b72739bc81c3b281127fde4b84fbede9e9ff0968",
+      "changed_paths_from_main": [
+        "RESEARCH_TRUTH.md",
+        "VERIFICATION_20261010.md",
+        "docs/checkpoint-evaluation-weights.md",
+        "docs/trajectory-run-output-preservation.md",
+        "fim/analysis/metrics.py",
+        "fim_experiments/main.py",
+        "fim_experiments/train.py",
+        "scripts/analyze_trajectory_isolated_ablations.py",
+        "scripts/evaluate_checkpoint.py",
+        "scripts/run_output.py",
+        "scripts/run_trajectory_isolated_ablations.py",
+        "scripts/verify_delayed_recall_successor_v2.py",
+        "tests/test_analysis_metric_contracts.py",
+        "tests/test_checkpoint_save_preservation.py",
+        "tests/test_delayed_recall_protocol_identity.py",
+        "tests/test_evaluation_content_identity.py",
+        "tests/test_evaluation_output_preservation.py",
+        "tests/test_final_state_save_preservation.py",
+        "tests/test_trajectory_analysis_manifest.py",
+        "tests/test_trajectory_output_preservation.py"
+      ]
+    },
+    {
+      "pr": 33,
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/33",
+      "head_commit": "db791fb3f9d6a305f4b082f88b595e4767680a67",
+      "tree": "74f724c7178ce57980af210a7b6fcf94226e00ae",
+      "changed_paths_from_main": [
+        "AGENTS.md",
+        "docs/sde_quadratic_variation_v2.md",
+        "fim/stochastic/sde_v2.py",
+        "research/development/SDE_QUADRATIC_VARIATION_V2.json",
+        "research/development/SDE_ZERO_NOISE_FOLLOWUP_20261010.json",
+        "research/verification/20261010_dynamics/CI_SCOPE_CORRECTION.json",
+        "research/verification/20261010_dynamics/sde_zero_noise_parent.log",
+        "research/verification/20261010_dynamics/sde_zero_noise_verified.log",
+        "tests/test_sde_quadratic_variation_v2.py",
+        "tests/test_sde_zero_noise_overflow.py"
+      ]
+    },
+    {
+      "pr": 34,
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/34",
+      "head_commit": "b417f3c4b0487b09f948eea70c5d8b94a21cf3d5",
+      "tree": "da6a2c71b03f8c830624435bbfbc48f673ac104e",
+      "changed_paths_from_main": [
+        "AGENTS.md",
+        "fim/memory/trace_bank.py",
+        "research/DEVELOPMENT_TRACE_ADMISSION_20261010.md",
+        "research/RESEARCH_STATE.json",
+        "research/state_snapshots/PR35_0ad7dc976677_RESEARCH_STATE.json",
+        "tests/test_trace_bank_admission.py"
+      ]
+    },
+    {
+      "pr": 35,
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/35",
+      "head_commit": "0ad7dc9766771cb3d9cb18bab649cfa2da3e4dc5",
+      "tree": "2471d38a9db32210a93a9984246d4284b7668206",
+      "changed_paths_from_main": [
+        "AGENTS.md",
+        "docs/development-episode-bank-v1.md",
+        "fim/core/fractional.py",
+        "fim_experiments/episode_bank_v1.py",
+        "research/DEVELOPMENT_EPISODE_BANK_V1_CONTRACT_20261010.md",
+        "research/DEVELOPMENT_EPISODE_BANK_V1_RESULT_20261010.md",
+        "research/DEVELOPMENT_FRACTIONAL_HISTORY_REPAIR_20261010.md",
+        "research/RESEARCH_STATE.json",
+        "research/artifacts/development_episode_bank_v1_demo_20261010/bank/manifest.json",
+        "research/artifacts/development_episode_bank_v1_demo_20261010/bank/observations.f32",
+        "research/artifacts/development_episode_bank_v1_demo_20261010/demo_receipt.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01_sources.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02_test_source.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04_receipt.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/independent_review_observed_sources.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.py",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/retained_demo_command_receipt.json",
+        "tests/test_episode_bank_v1.py",
+        "tests/test_fractional_memory_history.py"
+      ]
+    },
+    {
+      "pr": 36,
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/36",
+      "head_commit": "df0a0fce5ef5b28982a55428ebf0573f74c0fd45",
+      "tree": "e10355e09cb77f3b2be5acff5da97be0c8b87d3a",
+      "changed_paths_from_main": [
+        "AGENTS.md",
+        "fim/core/stability_v2.py",
+        "fim/memory/trace_bank.py",
+        "research/DEVELOPMENT_TRACE_ADMISSION_20261010.md",
+        "research/RESEARCH_STATE.json",
+        "research/maintenance/stability_v2_20261010/PUBLICATION.md",
+        "research/state_snapshots/PR34_b417f3c4b048_RESEARCH_STATE.json",
+        "research/state_snapshots/PR35_0ad7dc976677_RESEARCH_STATE.json",
+        "tests/test_stability_v2.py",
+        "tests/test_trace_bank_admission.py"
+      ]
+    },
+    {
+      "pr": 37,
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/37",
+      "head_commit": "67e2ad75f7b2bd39ed9d3f243c9c03234f7e334e",
+      "tree": "ca0e801282d87885e2192567ebd198b3a6d4cca9",
+      "changed_paths_from_main": [
+        "AGENTS.md",
+        "docs/development-episode-bank-v1.md",
+        "docs/development-paired-runner-v1.md",
+        "fim/core/fractional.py",
+        "fim_experiments/episode_bank_v1.py",
+        "fim_experiments/paired_development_v1.py",
+        "research/DEVELOPMENT_EPISODE_BANK_V1_CONTRACT_20261010.md",
+        "research/DEVELOPMENT_EPISODE_BANK_V1_RESULT_20261010.md",
+        "research/DEVELOPMENT_FRACTIONAL_HISTORY_REPAIR_20261010.md",
+        "research/DEVELOPMENT_PAIRED_RUNNER_V1_CONTRACT_20261010.md",
+        "research/DEVELOPMENT_PAIRED_RUNNER_V1_RESULT_20261010.md",
+        "research/RESEARCH_STATE.json",
+        "research/artifacts/development_episode_bank_v1_demo_20261010/bank/manifest.json",
+        "research/artifacts/development_episode_bank_v1_demo_20261010/bank/observations.f32",
+        "research/artifacts/development_episode_bank_v1_demo_20261010/demo_receipt.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01_sources.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02_test_source.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04_receipt.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/independent_review_observed_sources.json",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.log",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.py",
+        "research/artifacts/development_episode_bank_v1_tests_20261010/retained_demo_command_receipt.json",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/full/events.jsonl",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/full/final.npz",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/full/status.json",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/initial.npz",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/initial_metadata.json",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/manifest.json",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/no_memory/events.jsonl",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/no_memory/final.npz",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/no_memory/status.json",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/no_retrieval/events.jsonl",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/no_retrieval/final.npz",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/no_retrieval/status.json",
+        "research/artifacts/development_paired_runner_v1_demo_20261010/plan.json",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01.log",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01_paired_development_v1.py.snapshot",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01_receipt.json",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01_source_snapshot.json",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01_test_paired_development_v1.py.snapshot",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02.log",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02_paired_development_v1.py.snapshot",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02_receipt.json",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02_source_snapshot.json",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02_test_paired_development_v1.py.snapshot",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/retained_demo.log",
+        "research/artifacts/development_paired_runner_v1_tests_20261010/retained_demo_command_receipt.json",
+        "tests/test_episode_bank_v1.py",
+        "tests/test_fractional_memory_history.py",
+        "tests/test_paired_development_v1.py"
+      ]
+    }
+  ],
+  "preserved_metadata_snapshots": [
+    {
+      "pr": 26,
+      "source_commit": "c46d8f6078c05184c60e409acc9aa0acb7d51220",
+      "original_path": "RESEARCH_TRUTH.md",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR26_c46d8f6078c0_RESEARCH_TRUTH.md",
+      "git_blob": "e7c0595e27b2fd5ce16923a68fc1dda06bb7a4a6",
+      "sha256": "0b9c37937c44bae0bc1c9d25286de3717da5b7b331e9e7197a7de005c58842fb"
+    },
+    {
+      "pr": 27,
+      "source_commit": "9503099f9952ef3af6bb92f7e75d006e37ff414f",
+      "original_path": "RESEARCH_TRUTH.md",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR27_9503099f9952_RESEARCH_TRUTH.md",
+      "git_blob": "ba2c67cbd41d61162b1ba1bd0aecf376a7c20eee",
+      "sha256": "b8e75514be35b317a7d0f9bc4d1cbf6610856f235b151871cb1c0406498c1408"
+    },
+    {
+      "pr": 28,
+      "source_commit": "7b64ef98770e0cf3fdffbab7c8ef01f071e219fb",
+      "original_path": "AGENTS.md",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR28_7b64ef98770e_AGENTS.md",
+      "git_blob": "6e6e7de2dd6cfa5590d9dc532e14a897024c619f",
+      "sha256": "390f1835fbc6be20277eb074ef7b14398e3713856e2745f3045153fe99369ac1"
+    },
+    {
+      "pr": 28,
+      "source_commit": "7b64ef98770e0cf3fdffbab7c8ef01f071e219fb",
+      "original_path": "RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR28_7b64ef98770e_RESEARCH_STATE.json",
+      "git_blob": "03d2e2c41e5fe43113c23032f041983a8c66ebb1",
+      "sha256": "5dee5e8e4d7cc2b4b2818287ccdf3e59af10f3c685c69e3dbacd4c0a9b44c348"
+    },
+    {
+      "pr": 30,
+      "source_commit": "79a3941d2ccf8f321e3589cf69edce0ba37022dd",
+      "original_path": "AGENTS.md",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR30_79a3941d2ccf_AGENTS.md",
+      "git_blob": "3ddea37683f39d18f503ca6cc437f20843145d8b",
+      "sha256": "5a858fd632fba5a73362569607ce3d6904f5780536daa9bca976173edf3b4b96"
+    },
+    {
+      "pr": 30,
+      "source_commit": "79a3941d2ccf8f321e3589cf69edce0ba37022dd",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR30_79a3941d2ccf_research_RESEARCH_STATE.json",
+      "git_blob": "b7490c3527393f5daa27a0d2f54e9dc5aba0c155",
+      "sha256": "29d65c220e5c09a30fc41bcf605071ae2863bda31429ca7674800064b72fe44d"
+    },
+    {
+      "pr": 32,
+      "source_commit": "3180112dd71534a6341edd1f9f8f12cceee85ad9",
+      "original_path": "RESEARCH_TRUTH.md",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR32_3180112dd715_RESEARCH_TRUTH.md",
+      "git_blob": "ba2c67cbd41d61162b1ba1bd0aecf376a7c20eee",
+      "sha256": "b8e75514be35b317a7d0f9bc4d1cbf6610856f235b151871cb1c0406498c1408"
+    },
+    {
+      "pr": 33,
+      "source_commit": "db791fb3f9d6a305f4b082f88b595e4767680a67",
+      "original_path": "AGENTS.md",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR33_db791fb3f9d6_AGENTS.md",
+      "git_blob": "38e8a51151edcf062dc309d9bdf898c25b00e64e",
+      "sha256": "76aed9aaff818d87bcd2899d5a3dc6a26fade242fca35576bd01528e122d1e53"
+    },
+    {
+      "pr": 34,
+      "source_commit": "b417f3c4b0487b09f948eea70c5d8b94a21cf3d5",
+      "original_path": "AGENTS.md",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR34_b417f3c4b048_AGENTS.md",
+      "git_blob": "3ddea37683f39d18f503ca6cc437f20843145d8b",
+      "sha256": "5a858fd632fba5a73362569607ce3d6904f5780536daa9bca976173edf3b4b96"
+    },
+    {
+      "pr": 34,
+      "source_commit": "b417f3c4b0487b09f948eea70c5d8b94a21cf3d5",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR34_b417f3c4b048_research_RESEARCH_STATE.json",
+      "git_blob": "18f71cda3ae9447bec5649a1cb0d5df1d8adc57f",
+      "sha256": "5221bc197117dd320ee0fb70ad87cda74ac65d71db45daae57655448098448f6"
+    },
+    {
+      "pr": 35,
+      "source_commit": "0ad7dc9766771cb3d9cb18bab649cfa2da3e4dc5",
+      "original_path": "AGENTS.md",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR35_0ad7dc976677_AGENTS.md",
+      "git_blob": "3ddea37683f39d18f503ca6cc437f20843145d8b",
+      "sha256": "5a858fd632fba5a73362569607ce3d6904f5780536daa9bca976173edf3b4b96"
+    },
+    {
+      "pr": 35,
+      "source_commit": "0ad7dc9766771cb3d9cb18bab649cfa2da3e4dc5",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR35_0ad7dc976677_research_RESEARCH_STATE.json",
+      "git_blob": "f7be49a8ab0c0c2f65109bb51dfcd59f5fc75cc7",
+      "sha256": "82456c96be9bc8eab60d51a2a84b1a2c76e564325319cfd92dabbfab7eab931c"
+    },
+    {
+      "pr": 36,
+      "source_commit": "df0a0fce5ef5b28982a55428ebf0573f74c0fd45",
+      "original_path": "AGENTS.md",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR36_df0a0fce5ef5_AGENTS.md",
+      "git_blob": "3ddea37683f39d18f503ca6cc437f20843145d8b",
+      "sha256": "5a858fd632fba5a73362569607ce3d6904f5780536daa9bca976173edf3b4b96"
+    },
+    {
+      "pr": 36,
+      "source_commit": "df0a0fce5ef5b28982a55428ebf0573f74c0fd45",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR36_df0a0fce5ef5_research_RESEARCH_STATE.json",
+      "git_blob": "415491bb87748fa208caa54aadf3741e2a98cc39",
+      "sha256": "b18c4d98dc9dc53ee29f0d2e73f56b69c0ba844c42af357005f1fac52469e83b"
+    },
+    {
+      "pr": 37,
+      "source_commit": "67e2ad75f7b2bd39ed9d3f243c9c03234f7e334e",
+      "original_path": "AGENTS.md",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR37_67e2ad75f7b2_AGENTS.md",
+      "git_blob": "3ddea37683f39d18f503ca6cc437f20843145d8b",
+      "sha256": "5a858fd632fba5a73362569607ce3d6904f5780536daa9bca976173edf3b4b96"
+    },
+    {
+      "pr": 37,
+      "source_commit": "67e2ad75f7b2bd39ed9d3f243c9c03234f7e334e",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261010/PR37_67e2ad75f7b2_research_RESEARCH_STATE.json",
+      "git_blob": "f5c7802c827da4734852ccba2d79f5867a5e26cf",
+      "sha256": "6868206a120b44c6c62b54bce73c23ce677f3c70cf7d0e03f318828d3d1cc156"
+    }
+  ],
+  "adopted_file_identities": {
+    "README.md": {
+      "mode": "100644",
+      "git_blob": "847d8fb35d01bc53923f85af4143f41043b45fd2",
+      "representative_pr": 28
+    },
+    "VERIFICATION_20261010.md": {
+      "mode": "100644",
+      "git_blob": "a5325c3a046760f6dbe24e5b6ba066af58ce19f9",
+      "representative_pr": 32
+    },
+    "docs/checkpoint-evaluation-weights.md": {
+      "mode": "100644",
+      "git_blob": "f8ed00117d960b44b98b17bcb8bd987402404fe0",
+      "representative_pr": 32
+    },
+    "docs/development-episode-bank-v1.md": {
+      "mode": "100644",
+      "git_blob": "a992b15351d96a1c63684f70b266a61357ab0bb6",
+      "representative_pr": 37
+    },
+    "docs/development-paired-runner-v1.md": {
+      "mode": "100644",
+      "git_blob": "5523b1d6bb2f5166f96e7240a44d85d2931731b2",
+      "representative_pr": 37
+    },
+    "docs/sde_quadratic_variation_v2.md": {
+      "mode": "100644",
+      "git_blob": "469df1f52299d1eb41974fc9638ab6af0b248203",
+      "representative_pr": 33
+    },
+    "docs/trajectory-run-output-preservation.md": {
+      "mode": "100644",
+      "git_blob": "4a325506eace72a1cea8a2103316b2240e77b698",
+      "representative_pr": 32
+    },
+    "fim/analysis/metrics.py": {
+      "mode": "100644",
+      "git_blob": "bea500c9133755fa56d9017195339b301262808a",
+      "representative_pr": 32
+    },
+    "fim/core/fractional.py": {
+      "mode": "100644",
+      "git_blob": "0851c418242ab235740497b00b10e29c1fa397d0",
+      "representative_pr": 37
+    },
+    "fim/core/stability_v2.py": {
+      "mode": "100644",
+      "git_blob": "f21e20085a862c7179d003855a28f71fa1259159",
+      "representative_pr": 36
+    },
+    "fim/memory/trace_bank.py": {
+      "mode": "100644",
+      "git_blob": "7a3d7e386ef27fdb4601e1d3227f7cf0499bf406",
+      "representative_pr": 36
+    },
+    "fim/stochastic/sde_v2.py": {
+      "mode": "100644",
+      "git_blob": "f72bbf8e62de8b841e60dc49164030d4ab3d6da4",
+      "representative_pr": 33
+    },
+    "fim/training/optimizer.py": {
+      "mode": "100644",
+      "git_blob": "8b4330828e94a2ef47d6795f37fd7c758f3938ee",
+      "representative_pr": 28
+    },
+    "fim/training/trainer.py": {
+      "mode": "100644",
+      "git_blob": "1b71a4d7a60eb5cc8890f16e8fd6b987c0432380",
+      "representative_pr": 28
+    },
+    "fim/utils/checkpoint.py": {
+      "mode": "100644",
+      "git_blob": "2c3a319e42f09000fd0d6bed53b0429c5a26965d",
+      "representative_pr": 28
+    },
+    "fim_experiments/episode_bank_v1.py": {
+      "mode": "100644",
+      "git_blob": "ca67b4fdedf3ad9cf08e69d36ce8964527e7517b",
+      "representative_pr": 37
+    },
+    "fim_experiments/main.py": {
+      "mode": "100644",
+      "git_blob": "d7f1cf18f433cb0acf1cd527ef896f934eb2c3e5",
+      "representative_pr": 32
+    },
+    "fim_experiments/paired_development_v1.py": {
+      "mode": "100644",
+      "git_blob": "f102a54f4bf5c0856ca747f40495842edfde751b",
+      "representative_pr": 37
+    },
+    "fim_experiments/train.py": {
+      "mode": "100644",
+      "git_blob": "a2021ceda4066d228627aa239b29aa192c99b29b",
+      "representative_pr": 32
+    },
+    "research/DEVELOPMENT_EPISODE_BANK_V1_CONTRACT_20261010.md": {
+      "mode": "100644",
+      "git_blob": "4989526901550de6b9a3d4c7c25cbe4ce87e7924",
+      "representative_pr": 37
+    },
+    "research/DEVELOPMENT_EPISODE_BANK_V1_RESULT_20261010.md": {
+      "mode": "100644",
+      "git_blob": "69294c5fedfc94feb7d89f23f88e87d94e04e21c",
+      "representative_pr": 37
+    },
+    "research/DEVELOPMENT_FRACTIONAL_HISTORY_REPAIR_20261010.md": {
+      "mode": "100644",
+      "git_blob": "c67ac796c7ff6153dc428c888031d17fb15a6a3c",
+      "representative_pr": 37
+    },
+    "research/DEVELOPMENT_PAIRED_RUNNER_V1_CONTRACT_20261010.md": {
+      "mode": "100644",
+      "git_blob": "4f3cbf9278db197fe013b36f2f3dd14ee8898cd6",
+      "representative_pr": 37
+    },
+    "research/DEVELOPMENT_PAIRED_RUNNER_V1_RESULT_20261010.md": {
+      "mode": "100644",
+      "git_blob": "4594e31e78263d5a0dbf42033d8f149856b26ebd",
+      "representative_pr": 37
+    },
+    "research/DEVELOPMENT_TRACE_ADMISSION_20261010.md": {
+      "mode": "100644",
+      "git_blob": "17ec3f971fa3d8e3dde948200732b81e01393a7f",
+      "representative_pr": 36
+    },
+    "research/DEVELOPMENT_TRAINER_REPAIR_20261010.md": {
+      "mode": "100644",
+      "git_blob": "2fcdfc78e1e1d1d9537b97db26b9c4caeb13e982",
+      "representative_pr": 28
+    },
+    "research/PUBLIC_CHECKPOINT_RECOVERY_20261010.md": {
+      "mode": "100644",
+      "git_blob": "44681a49f8631f4df8cb3bcf4a858dd11b0f80ac",
+      "representative_pr": 28
+    },
+    "research/artifacts/development_episode_bank_v1_demo_20261010/bank/manifest.json": {
+      "mode": "100644",
+      "git_blob": "3856fad45d67352aea14e25d421c223844c8b060",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_demo_20261010/bank/observations.f32": {
+      "mode": "100644",
+      "git_blob": "b089b9bdd2abda7e2f396bb4e8dc109615561b65",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_demo_20261010/demo_receipt.json": {
+      "mode": "100644",
+      "git_blob": "f9b33bbe92d3d6d6a7f719b616bf932d012eadfd",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01.log": {
+      "mode": "100644",
+      "git_blob": "3befcff7c103dcc3ca8a4b57886a21e614b8d938",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_01_sources.json": {
+      "mode": "100644",
+      "git_blob": "2eedbdf48cb24fcdc655a72e4a61550b3b7ec249",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02.log": {
+      "mode": "100644",
+      "git_blob": "6d539f1dc8e146c8f8a736d7bedecf1caf7771f1",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_02_test_source.json": {
+      "mode": "100644",
+      "git_blob": "c66c91384826794759dc4e5edeff47a588b3a08d",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04.log": {
+      "mode": "100644",
+      "git_blob": "ed674d2fb22f0fefdc35cf770deaa2351af59abd",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04_receipt.json": {
+      "mode": "100644",
+      "git_blob": "1e3130b460f09b3fc48ac460cc8da9918d50daa4",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_tests_20261010/independent_review_observed_sources.json": {
+      "mode": "100644",
+      "git_blob": "e6ad23b7f1635d1c039fb884be67ac9c1063d7e9",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.log": {
+      "mode": "100644",
+      "git_blob": "6594ffede6dc2cbb181056e9d8933a2ae9629b71",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_tests_20261010/independent_source_freshness_probe.py": {
+      "mode": "100644",
+      "git_blob": "a55b6a00ded60364fee00c200b955fa583c6fe37",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_episode_bank_v1_tests_20261010/retained_demo_command_receipt.json": {
+      "mode": "100644",
+      "git_blob": "0b3c5257816c6e85addd841c49941e74a806ecea",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/full/events.jsonl": {
+      "mode": "100644",
+      "git_blob": "adcfd8c92861e39a1f4614a3ef26c564e8b5c9d1",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/full/final.npz": {
+      "mode": "100644",
+      "git_blob": "990ef78437896115595967086f4bc7704c9554a0",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/full/status.json": {
+      "mode": "100644",
+      "git_blob": "a78559e28c6dbd4276ffcc08d7208a8604a06abb",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/initial.npz": {
+      "mode": "100644",
+      "git_blob": "78ee256e6a63204919e3aee46ca8e2f5aa9bbd48",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/initial_metadata.json": {
+      "mode": "100644",
+      "git_blob": "ff436f03dc9e9bfdeaa79896bc9f7590d99afe30",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/manifest.json": {
+      "mode": "100644",
+      "git_blob": "f8d9ff26596af73cf6200d72db6b11804fd6ba1d",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/no_memory/events.jsonl": {
+      "mode": "100644",
+      "git_blob": "4be00ee560578519aae20a756d74402b986e9ca4",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/no_memory/final.npz": {
+      "mode": "100644",
+      "git_blob": "259af91b2c42bcad2a0cee42642590089a3e60ab",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/no_memory/status.json": {
+      "mode": "100644",
+      "git_blob": "300cb4ac191a27ecca26660683bc65d3ccd6968f",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/no_retrieval/events.jsonl": {
+      "mode": "100644",
+      "git_blob": "345af3746853c3086554b61e982a45b0d479525c",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/no_retrieval/final.npz": {
+      "mode": "100644",
+      "git_blob": "259af91b2c42bcad2a0cee42642590089a3e60ab",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/no_retrieval/status.json": {
+      "mode": "100644",
+      "git_blob": "7982afb1532211143f6d69e4e62a03d307cb064f",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_demo_20261010/plan.json": {
+      "mode": "100644",
+      "git_blob": "4afbb08c6915c02d6b2b65fcb79e460d539b9c8b",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01.log": {
+      "mode": "100644",
+      "git_blob": "9636a29e99ae1db70be6cd3af18fcc9856cdb359",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01_paired_development_v1.py.snapshot": {
+      "mode": "100644",
+      "git_blob": "3736b6f86e223381417688386494df8bc8daf14b",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01_receipt.json": {
+      "mode": "100644",
+      "git_blob": "efc1f0b95c2d3a0055fa8c4dd3704564b95c4007",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01_source_snapshot.json": {
+      "mode": "100644",
+      "git_blob": "a7f9844f68ff14f995764258d3fe93d630690850",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01_test_paired_development_v1.py.snapshot": {
+      "mode": "100644",
+      "git_blob": "6e6b4d033dcfd596a4a85251a6c15a879da0e442",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02.log": {
+      "mode": "100644",
+      "git_blob": "ed33703565cb633d5b8c92f4127f7a675a319729",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02_paired_development_v1.py.snapshot": {
+      "mode": "100644",
+      "git_blob": "f102a54f4bf5c0856ca747f40495842edfde751b",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02_receipt.json": {
+      "mode": "100644",
+      "git_blob": "2edb3f642403476febc2d679ad9c285ad9d74463",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02_source_snapshot.json": {
+      "mode": "100644",
+      "git_blob": "b32dd9947fe44b3c5d00d50653364b63e617368a",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02_test_paired_development_v1.py.snapshot": {
+      "mode": "100644",
+      "git_blob": "f248915fb4006d9dcf1ff1648ac9205b388fa427",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/retained_demo.log": {
+      "mode": "100644",
+      "git_blob": "9a8195a09d12406c1a12c33e0b1d6bc118ac339d",
+      "representative_pr": 37
+    },
+    "research/artifacts/development_paired_runner_v1_tests_20261010/retained_demo_command_receipt.json": {
+      "mode": "100644",
+      "git_blob": "bd0f773aff05b12843cd476eaf70dcf17b58754e",
+      "representative_pr": 37
+    },
+    "research/development/SDE_QUADRATIC_VARIATION_V2.json": {
+      "mode": "100644",
+      "git_blob": "d6409f3e2f67b1ac19a676b88afb3a1ea23817f7",
+      "representative_pr": 33
+    },
+    "research/development/SDE_ZERO_NOISE_FOLLOWUP_20261010.json": {
+      "mode": "100644",
+      "git_blob": "8561ffb0a17398e7f5e7561d55d650b1d4c7f7d8",
+      "representative_pr": 33
+    },
+    "research/maintenance/stability_v2_20261010/PUBLICATION.md": {
+      "mode": "100644",
+      "git_blob": "391accfdc3391626b337c9024d8ffc384b8f7122",
+      "representative_pr": 36
+    },
+    "research/public_checkpoint_baseline.txt": {
+      "mode": "100644",
+      "git_blob": "42073ee392b087d12d74cce3029a3cf8de588261",
+      "representative_pr": 28
+    },
+    "research/public_checkpoint_peer_failures.txt": {
+      "mode": "100644",
+      "git_blob": "877759aeaabd4398860b800db7685952b9bd905f",
+      "representative_pr": 28
+    },
+    "research/public_checkpoint_sgd_failure.txt": {
+      "mode": "100644",
+      "git_blob": "159f2fec93e2d6c73fe60569d602baf201d17bbd",
+      "representative_pr": 28
+    },
+    "research/state_snapshots/PR34_b417f3c4b048_RESEARCH_STATE.json": {
+      "mode": "100644",
+      "git_blob": "18f71cda3ae9447bec5649a1cb0d5df1d8adc57f",
+      "representative_pr": 36
+    },
+    "research/state_snapshots/PR35_0ad7dc976677_RESEARCH_STATE.json": {
+      "mode": "100644",
+      "git_blob": "f7be49a8ab0c0c2f65109bb51dfcd59f5fc75cc7",
+      "representative_pr": 36
+    },
+    "research/verification/20261010_dynamics/CI_SCOPE_CORRECTION.json": {
+      "mode": "100644",
+      "git_blob": "07a1927fcb5b4b51a3b2bd6a09ff4cdc5c855266",
+      "representative_pr": 33
+    },
+    "research/verification/20261010_dynamics/sde_zero_noise_parent.log": {
+      "mode": "100644",
+      "git_blob": "1a9fc95fc66128445795db729953d831fc722112",
+      "representative_pr": 33
+    },
+    "research/verification/20261010_dynamics/sde_zero_noise_verified.log": {
+      "mode": "100644",
+      "git_blob": "eb3d9fdf8d5becb5293235c3c44f60ebafc909d1",
+      "representative_pr": 33
+    },
+    "scripts/analyze_trajectory_isolated_ablations.py": {
+      "mode": "100644",
+      "git_blob": "63e9268409dcd1d75dba813a960f3fd91ab05cbb",
+      "representative_pr": 32
+    },
+    "scripts/evaluate_checkpoint.py": {
+      "mode": "100644",
+      "git_blob": "7ac81c581e0dd1ab2f971e3df448daebff36738e",
+      "representative_pr": 32
+    },
+    "scripts/run_output.py": {
+      "mode": "100644",
+      "git_blob": "dc4c95a8e53cd3b67ea7d2bf36f14df5c99a23f3",
+      "representative_pr": 32
+    },
+    "scripts/run_trajectory_isolated_ablations.py": {
+      "mode": "100644",
+      "git_blob": "888262d10303f2e52b4ca85ea9efdb23f1ea8831",
+      "representative_pr": 32
+    },
+    "scripts/verify_delayed_recall_successor_v2.py": {
+      "mode": "100644",
+      "git_blob": "a4705f79448c0c242666a57efc82b3b6ea6933c5",
+      "representative_pr": 32
+    },
+    "tests/test_analysis_metric_contracts.py": {
+      "mode": "100644",
+      "git_blob": "ff6b5ff8c5fb3bf055ef7f5c44f435820809646f",
+      "representative_pr": 32
+    },
+    "tests/test_checkpoint_save_preservation.py": {
+      "mode": "100644",
+      "git_blob": "8a1f0765f82a49e412e222087d05e6ecd32b5201",
+      "representative_pr": 32
+    },
+    "tests/test_delayed_recall_protocol_identity.py": {
+      "mode": "100644",
+      "git_blob": "c1e9c8799f1301048809d302c0fb649175f4c951",
+      "representative_pr": 32
+    },
+    "tests/test_episode_bank_v1.py": {
+      "mode": "100644",
+      "git_blob": "04eaab3f71dbe24995f6ff3d440d0e78fbf9430c",
+      "representative_pr": 37
+    },
+    "tests/test_evaluation_content_identity.py": {
+      "mode": "100644",
+      "git_blob": "70466fed536e3570152cd37f5dea0e4172c99c94",
+      "representative_pr": 32
+    },
+    "tests/test_evaluation_output_preservation.py": {
+      "mode": "100644",
+      "git_blob": "71081dfe1c1506d232067d2951370360a8281a8e",
+      "representative_pr": 32
+    },
+    "tests/test_final_state_save_preservation.py": {
+      "mode": "100644",
+      "git_blob": "0917073ccf1de987e34c4e4cf8df1a2b8317930d",
+      "representative_pr": 32
+    },
+    "tests/test_fractional_memory_history.py": {
+      "mode": "100644",
+      "git_blob": "83da44cdd0f35e9fde68416271e324b253b66234",
+      "representative_pr": 37
+    },
+    "tests/test_paired_development_v1.py": {
+      "mode": "100644",
+      "git_blob": "f248915fb4006d9dcf1ff1648ac9205b388fa427",
+      "representative_pr": 37
+    },
+    "tests/test_public_checkpoint_recovery.py": {
+      "mode": "100644",
+      "git_blob": "b5fc9c223609748b3e3c14c485398a397fee1591",
+      "representative_pr": 28
+    },
+    "tests/test_public_trainer.py": {
+      "mode": "100644",
+      "git_blob": "864239b7039b3d89e2425ab5dff90d898c67af00",
+      "representative_pr": 28
+    },
+    "tests/test_sde_quadratic_variation_v2.py": {
+      "mode": "100644",
+      "git_blob": "e61a96dc13e732dc2135a1b82895c940be048d64",
+      "representative_pr": 33
+    },
+    "tests/test_sde_zero_noise_overflow.py": {
+      "mode": "100644",
+      "git_blob": "22cbeb974dd243eb6826fab1e0a2bb9c0133e32b",
+      "representative_pr": 33
+    },
+    "tests/test_stability_v2.py": {
+      "mode": "100644",
+      "git_blob": "d1e1c2228384ed95b74d21d36289fea7c4f66fd9",
+      "representative_pr": 36
+    },
+    "tests/test_trace_bank_admission.py": {
+      "mode": "100644",
+      "git_blob": "555d4a0c582f352b31aaaf3a0dcc5d5cf1de86da",
+      "representative_pr": 36
+    },
+    "tests/test_trajectory_analysis_manifest.py": {
+      "mode": "100644",
+      "git_blob": "5ace08dc88386503180cfd4efa1ede2eb41a0e40",
+      "representative_pr": 32
+    },
+    "tests/test_trajectory_output_preservation.py": {
+      "mode": "100644",
+      "git_blob": "a94bb06c345d8800d45088d3a4064d6356cc7487",
+      "representative_pr": 32
+    }
+  },
+  "resolutions": {
+    "RESEARCH_TRUTH.md": "Exact PR26 content followed by exact PR27 append; both source versions preserved.",
+    "AGENTS.md": "Combined entry rules retaining a single canonical research/RESEARCH_STATE.json.",
+    "RESEARCH_STATE.json": "Backward-compatible navigation pointer; entire original PR28 record preserved.",
+    "research/RESEARCH_STATE.json": "Integration successor index referencing every exact predecessor snapshot; no historical receipt promoted."
+  },
+  "excluded_pull_requests": [
+    {
+      "pr": 29,
+      "reason": "Alternative fractional-history implementation overlaps accepted PR30; preserved as a separate proposal, not silently combined."
+    }
+  ],
+  "scientific_execution": {
+    "protected_runs": 0,
+    "new_studies": 0,
+    "new_demos": 0,
+    "holds_released": false
+  },
+  "unchanged_main_file_identities": {
+    ".github/workflows/ci.yml": {
+      "mode": "100644",
+      "git_blob": "69cc4fc64391ecf12ba4c368d80be6da7c78842c"
+    },
+    ".github/workflows/current-component-ablations.yml": {
+      "mode": "100644",
+      "git_blob": "c3db0063a67b847f66f43db3d9e89b7886d97bbf"
+    },
+    ".gitignore": {
+      "mode": "100644",
+      "git_blob": "33939116ea842c5d44bc5d35bed9ca0dd06e557b"
+    },
+    "chaos.png": {
+      "mode": "100644",
+      "git_blob": "c03a148ba42c6e173764165ca147a37f21c4c528"
+    },
+    "chaos_divergence.png": {
+      "mode": "100644",
+      "git_blob": "5a0ba1dd259f4d63bff38d70274d8ccd3fd0ef63"
+    },
+    "configs/defualt.yaml": {
+      "mode": "100644",
+      "git_blob": "bbf15e34ab187dbd9c4efd3d5ef3dbf0f39751af"
+    },
+    "configs/experiment.yaml": {
+      "mode": "100644",
+      "git_blob": "152aaaa88e0b42e214078e20b079172c7ec7d2f8"
+    },
+    "configs/model.yaml": {
+      "mode": "100644",
+      "git_blob": "5a01e9936664262bba3941dcf5ab7195cae7a255"
+    },
+    "configs/training.yaml": {
+      "mode": "100644",
+      "git_blob": "352ed085029f01b22863b5a333880ee6c806c786"
+    },
+    "docs/CURRENT_COMPONENT_ABLATION_ADJUDICATION_2026-08-29.md": {
+      "mode": "100644",
+      "git_blob": "eeb2ce8ece385e3b01771bb5c4cf0990f4549c38"
+    },
+    "docs/architecture.md": {
+      "mode": "100644",
+      "git_blob": "725cb18ba69812812bcb8efe6ea79e2607e2af9c"
+    },
+    "docs/experiments.md": {
+      "mode": "100644",
+      "git_blob": "f341f8069aaf24c207e43ad90ad415c758d35d6a"
+    },
+    "docs/integration/20261008/README.md": {
+      "mode": "100644",
+      "git_blob": "c21bd4c45c11c10a680cc34adbbcfbba10d1ecd0"
+    },
+    "docs/integration/20261008/pytest.xml": {
+      "mode": "100644",
+      "git_blob": "e6f9815e3c305ffec191ff4bbbac86ac700120b0"
+    },
+    "docs/integration/20261008/verification.json": {
+      "mode": "100644",
+      "git_blob": "8a41e47de468211c0d2cb85b4673879b083ff501"
+    },
+    "docs/math.md": {
+      "mode": "100644",
+      "git_blob": "b8e8bacfcc3caf37dd6448646951c15048f32038"
+    },
+    "docs/runtime-benchmark-contracts.md": {
+      "mode": "100644",
+      "git_blob": "1e406bbfb27962b93ad083f0829362f8a7bf3c76"
+    },
+    "energy.png": {
+      "mode": "100644",
+      "git_blob": "892855b5b7a7c5e6f6419ed945e40c03033b2c6c"
+    },
+    "fim/__init__.py": {
+      "mode": "100644",
+      "git_blob": "3a15c9643911480b0c9b12847e0085ce46750f34"
+    },
+    "fim/analysis/__init__.py": {
+      "mode": "100644",
+      "git_blob": "7b825261fabbd182d4470fd743d70f46aa2c3503"
+    },
+    "fim/analysis/lyapunov.py": {
+      "mode": "100644",
+      "git_blob": "d9789cd3638ba6385202a5a33859568a705661b9"
+    },
+    "fim/analysis/retention.py": {
+      "mode": "100644",
+      "git_blob": "8cef47a305f3f5bd6c7f86b18d939350e62cccca"
+    },
+    "fim/analysis/spectral.py": {
+      "mode": "100644",
+      "git_blob": "a9fb2c3eb81a5e406d510ed3e67bc18ebae8cc02"
+    },
+    "fim/core/__init__.py": {
+      "mode": "100644",
+      "git_blob": "7f5321b61b0033fd9af10c507b56e86823a16197"
+    },
+    "fim/core/dynamics.py": {
+      "mode": "100644",
+      "git_blob": "cca6dc3ae0a418eebf99863e381d2265ce3183d8"
+    },
+    "fim/core/fabric.py": {
+      "mode": "100644",
+      "git_blob": "1095ef2d9e8b3e2ef0690940beca0d748811030f"
+    },
+    "fim/core/integrator.py": {
+      "mode": "100644",
+      "git_blob": "cbbe9c32d002a66df49e17fc58e3564299367894"
+    },
+    "fim/core/stability.py": {
+      "mode": "100644",
+      "git_blob": "1f28c9494319c17cc8e0038eddfda55b804565da"
+    },
+    "fim/core/state.py": {
+      "mode": "100644",
+      "git_blob": "0cd91d079a23b6d8f49ec0a926bf4d0ba39ca353"
+    },
+    "fim/epistemic_tests_full/README.md": {
+      "mode": "100644",
+      "git_blob": "e14d25ebff993e29d23ffd4dd1f8e849d8d3d51e"
+    },
+    "fim/epistemic_tests_full/tests/conftest.py": {
+      "mode": "100644",
+      "git_blob": "6f1990b76a9ae654e580af4232582bdb858c3b8a"
+    },
+    "fim/epistemic_tests_full/tests/test_benchmark_generation.py": {
+      "mode": "100644",
+      "git_blob": "50567d8bf1157a20e498adf9fe875a1684cb0d73"
+    },
+    "fim/epistemic_tests_full/tests/test_fractional_dynamics.py": {
+      "mode": "100644",
+      "git_blob": "076d92c1cd83117c9e45b0a94e22d0fd01834291"
+    },
+    "fim/epistemic_tests_full/tests/test_levy_sampling.py": {
+      "mode": "100644",
+      "git_blob": "113b353fad754ae78a089b2efa726e8fcfec2f33"
+    },
+    "fim/epistemic_tests_full/tests/test_memory.py": {
+      "mode": "100644",
+      "git_blob": "a9dfa352fe72bffe0a4506482e28fb905987a28a"
+    },
+    "fim/epistemic_tests_full/tests/test_rollout_stability.py": {
+      "mode": "100644",
+      "git_blob": "4362dc4e4f282efa9cbbb1153b42948f04242d40"
+    },
+    "fim/epistemic_tests_full/tests/test_training_execution.py": {
+      "mode": "100644",
+      "git_blob": "0d64de6c7f795e9fe2f394732c0f50cbf5d0f948"
+    },
+    "fim/geometry/graph.py": {
+      "mode": "100644",
+      "git_blob": "a14a104aed9b00943fe1ab2dfb3856c6433ff759"
+    },
+    "fim/geometry/grid.py": {
+      "mode": "100644",
+      "git_blob": "14d8f138a63e781d4db6949a56af56fd66058f4d"
+    },
+    "fim/geometry/manifold.py": {
+      "mode": "100644",
+      "git_blob": "ac30d04b824f05eeb47d490d71abd578e2e598fd"
+    },
+    "fim/geometry/topology.py": {
+      "mode": "100644",
+      "git_blob": "8030499068c0aeedddfb31e527d35d62496e5efa"
+    },
+    "fim/memory/compression.py": {
+      "mode": "100644",
+      "git_blob": "a4c7fe3875b8da046bad1c30c21e18f97fc70900"
+    },
+    "fim/memory/consolidation.py": {
+      "mode": "100644",
+      "git_blob": "eaf5f5e3b1176743d79ad2be7cdedf06bb9f8285"
+    },
+    "fim/memory/init.py": {
+      "mode": "100644",
+      "git_blob": "8948bf4c121de5af15ba48698e651b96f9a3200c"
+    },
+    "fim/memory/retrieval.py": {
+      "mode": "100644",
+      "git_blob": "349be335368716979a1e763d0c89a155248950cc"
+    },
+    "fim/memory/salience.py": {
+      "mode": "100644",
+      "git_blob": "f96455f186e8ab1d5fd9f9d09a97bf9ba932fdd9"
+    },
+    "fim/models/decoder.py": {
+      "mode": "100644",
+      "git_blob": "3246fa47981ef8827c5061ecc7607815b9ea0f54"
+    },
+    "fim/models/encoder.py": {
+      "mode": "100644",
+      "git_blob": "9215f213a27da8af4286ccaaf36f375abda7e102"
+    },
+    "fim/models/fim_model.py": {
+      "mode": "100644",
+      "git_blob": "7e53500bb3b5de0e5c8bc1683d23f76460f938e6"
+    },
+    "fim/models/init.py": {
+      "mode": "100644",
+      "git_blob": "0172f5313c851ecfe6c438777961114495d6bbaa"
+    },
+    "fim/models/latent_operator.py": {
+      "mode": "100644",
+      "git_blob": "794801cf8a98605a3054a13faa8ad8e4a6f44e01"
+    },
+    "fim/operators/advection.py": {
+      "mode": "100644",
+      "git_blob": "49fffc1edd0b10904081ea20ef32b9ef18660ff1"
+    },
+    "fim/operators/damping.py": {
+      "mode": "100644",
+      "git_blob": "b80d3da0be005fe3f26ac65e2373aa735ddbbe60"
+    },
+    "fim/operators/diffusion.py": {
+      "mode": "100644",
+      "git_blob": "1bb6949697b3edcf9b8ea536f1fa16182f4cfa07"
+    },
+    "fim/operators/init.py": {
+      "mode": "100644",
+      "git_blob": "88e11079b8a27a65830ce564d498b3431dfb60f5"
+    },
+    "fim/operators/propagation.py": {
+      "mode": "100644",
+      "git_blob": "1d38ece5c7f9c4365e0099be350d7a5db24a45c1"
+    },
+    "fim/operators/reaction.py": {
+      "mode": "100644",
+      "git_blob": "4165f30b100545ef3fe4fe34f55d0f3a44882aa6"
+    },
+    "fim/operators/spectral.py": {
+      "mode": "100644",
+      "git_blob": "9cc6b231a4a473d0c80b520c4f76cfe443602f03"
+    },
+    "fim/operators/write.py": {
+      "mode": "100644",
+      "git_blob": "f4787260f098eb450ecb8d097977456488d14cb6"
+    },
+    "fim/physics/base.py": {
+      "mode": "100644",
+      "git_blob": "de98887aa860d02dd85ec3161f377708e2420af1"
+    },
+    "fim/physics/diffusion_equation.py": {
+      "mode": "100644",
+      "git_blob": "03ed018144fdae6c29be211320c5048336ca52a9"
+    },
+    "fim/physics/fractional_pde.py": {
+      "mode": "100644",
+      "git_blob": "06371aa9a12c492d1bd019f5df6a7d6bc0e85bb2"
+    },
+    "fim/physics/init.py": {
+      "mode": "100644",
+      "git_blob": "8182a0ebd3b7b5f4f69f941280e7318deba1486e"
+    },
+    "fim/physics/navier_stokes.py": {
+      "mode": "100644",
+      "git_blob": "161267e1e0397f293881e670ede9d3a6b0bda654"
+    },
+    "fim/physics/wave_equation.py": {
+      "mode": "100644",
+      "git_blob": "d15f6db525a247944b8bac3636875537e432243d"
+    },
+    "fim/stochastic/brownian.py": {
+      "mode": "100644",
+      "git_blob": "56c3b533a1587d8b011246cbb084476965d9f133"
+    },
+    "fim/stochastic/init.py": {
+      "mode": "100644",
+      "git_blob": "fef0f945f830cd9809f2c8e477680332d4acdd7b"
+    },
+    "fim/stochastic/levy.py": {
+      "mode": "100644",
+      "git_blob": "66345cc1f578411c80f2dee37d2dfaf45a8565e6"
+    },
+    "fim/stochastic/noise.py": {
+      "mode": "100644",
+      "git_blob": "18ca1ebfc3a987188974052f067e87b5429baba5"
+    },
+    "fim/stochastic/sde.py": {
+      "mode": "100644",
+      "git_blob": "6a1d587cb82c218251fb5325618ccdd64d7a7a3e"
+    },
+    "fim/training/losses.py": {
+      "mode": "100644",
+      "git_blob": "3f617b076f6716c713bf98f2bd78f039db37cd1a"
+    },
+    "fim/training/rollout.py": {
+      "mode": "100644",
+      "git_blob": "f2706a60008954c21386680beda11b6c9dcbe930"
+    },
+    "fim/training/scheduler.py": {
+      "mode": "100644",
+      "git_blob": "d3ca0c8805070ef20a43075b651e61b780029e04"
+    },
+    "fim/utils/config.py": {
+      "mode": "100644",
+      "git_blob": "f749df19180fe45589f1dbf5555483e7fea89ee8"
+    },
+    "fim/utils/init.py": {
+      "mode": "100644",
+      "git_blob": "599da7a0256d542dc151c6d5c9112a7b991ec3ff"
+    },
+    "fim/utils/logging.py": {
+      "mode": "100644",
+      "git_blob": "932e9a5d1425c9b2ba3f90ed5bf7691bf25c0b93"
+    },
+    "fim/utils/seed.py": {
+      "mode": "100644",
+      "git_blob": "357e102d504d26e110c56bf935d167e2384cd5be"
+    },
+    "fim/utils/visualization.py": {
+      "mode": "100644",
+      "git_blob": "ed4ae6282f83315c77a3ad74517d41f9d9f3707a"
+    },
+    "fim_experiments/ablation_systems.py": {
+      "mode": "100644",
+      "git_blob": "27d162fc2e61f3e63cab9fe1e2b2460824bbe514"
+    },
+    "fim_experiments/benchmark.py": {
+      "mode": "100644",
+      "git_blob": "c91a6afe9d86830c6bcfaa2d9187547d9688050d"
+    },
+    "fim_experiments/config.py": {
+      "mode": "100644",
+      "git_blob": "919209409eb13b634164e67f69221a9e4c643d15"
+    },
+    "fim_experiments/evaluate.py": {
+      "mode": "100644",
+      "git_blob": "2b7aac0a40748df4e027bc98ee066f3496f81989"
+    },
+    "fim_experiments/experiment.py": {
+      "mode": "100644",
+      "git_blob": "1a042857f66a354cdd5ef0790fd43a584fc8ca9c"
+    },
+    "fim_experiments/models.py": {
+      "mode": "100644",
+      "git_blob": "1beef3ab2a38251f2f3a04db21b754db672261bd"
+    },
+    "fim_experiments/recall_metrics.py": {
+      "mode": "100644",
+      "git_blob": "7d7e0d1c3daa4d5f7f4d2e02792fa363e1826c84"
+    },
+    "fim_experiments/results/run_results.py": {
+      "mode": "100644",
+      "git_blob": "5e537af7723ecffb2c0e25eb945c0eeb2290fc45"
+    },
+    "fim_experiments/runtime_benchmarks.py": {
+      "mode": "100644",
+      "git_blob": "9c000059809e7459b81ac59723a2f210a95ae8fe"
+    },
+    "fim_experiments/systems.py": {
+      "mode": "100644",
+      "git_blob": "d3a93f92c0f51bed1e695e2ed0095357932b8b5b"
+    },
+    "fim_experiments/utils.py": {
+      "mode": "100644",
+      "git_blob": "aa5e8fe019d74244488f66fbb543d0d49a4634db"
+    },
+    "latent_heatmap.png": {
+      "mode": "100644",
+      "git_blob": "f8eb636b0b23576c412a026c17463e0f4b83820f"
+    },
+    "latent_manifold.png": {
+      "mode": "100644",
+      "git_blob": "cdc3982a55bebace1216948c56df74b267e72f18"
+    },
+    "latent_norm.png": {
+      "mode": "100644",
+      "git_blob": "7b409120399a2ddce57aeaad3c2a85dcc354d6cb"
+    },
+    "latent_surface.png": {
+      "mode": "100644",
+      "git_blob": "c802fa3f545278429e3cda970c9da00b6385edf5"
+    },
+    "main.py": {
+      "mode": "100644",
+      "git_blob": "7067aca52f6669193dd610921c9e62395858036b"
+    },
+    "multi_dim.png": {
+      "mode": "100644",
+      "git_blob": "b9fe9ea49001183811b69600c4a464b77020137b"
+    },
+    "notebooks/debug.ipynb": {
+      "mode": "100644",
+      "git_blob": "5df9c42cd18c2047a1de699b5197d128a75dfada"
+    },
+    "notebooks/visualization.ipynb": {
+      "mode": "100644",
+      "git_blob": "b9f6308e6b0a64f6975f6bbe93648ae8f0ab8d45"
+    },
+    "paper/Final FIM.pdf": {
+      "mode": "100644",
+      "git_blob": "90599ea853284b99ec6233a5f01fd7439c763339"
+    },
+    "paper_reference_results.json": {
+      "mode": "100644",
+      "git_blob": "5323042aec8a9372fa422a00ae9168966fb0efac"
+    },
+    "pyproject.toml": {
+      "mode": "100644",
+      "git_blob": "6ad0acd6fe7d191e62b52dc8800527ec47d60b83"
+    },
+    "pytest.ini": {
+      "mode": "100644",
+      "git_blob": "bd1e7620680be15704f7a1f7406a848844cfe295"
+    },
+    "requirements.txt": {
+      "mode": "100644",
+      "git_blob": "2ccc9c57d713d813dd7e234d933a77bff655d57b"
+    },
+    "research/CURRENT_COMPONENT_ABLATION_PROTOCOL_20260829.md": {
+      "mode": "100644",
+      "git_blob": "93021f41a2e6f8ba1f2990cce27b181545a0e237"
+    },
+    "research/FIM_NO_MEMORY_VS_NO_RETRIEVAL_SEMANTICS_20260927.md": {
+      "mode": "100644",
+      "git_blob": "5e4d42a3131525785f8d247718c7cf2a60c10323"
+    },
+    "research/protocols/FIM_DELAYED_RECALL_SUCCESSOR_V2.json": {
+      "mode": "100644",
+      "git_blob": "61e954763626eea5d82c56ac38981215919dfc73"
+    },
+    "research/protocols/FIM_DELAYED_RECALL_SUCCESSOR_V2.md": {
+      "mode": "100644",
+      "git_blob": "628364ae214e0d83a79d057775453f10dc9546be"
+    },
+    "research/protocols/FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md": {
+      "mode": "100644",
+      "git_blob": "57a83c49196bac7b4aa344c37ece0978d6df9014"
+    },
+    "results/evaluate.py": {
+      "mode": "100644",
+      "git_blob": "da7a4bd6f061158618a1c5fce6b00f807fd02409"
+    },
+    "results/metrics/metrics.json": {
+      "mode": "100644",
+      "git_blob": "6ab9ae0b6441f9acf8e11315a30f01380be0a143"
+    },
+    "results/mini_processed/mini_suite_summary.json": {
+      "mode": "100644",
+      "git_blob": "3356862e015d2e97339e9c0a55c163e947284b28"
+    },
+    "results/mini_processed/mini_suite_summary.md": {
+      "mode": "100644",
+      "git_blob": "9f07a71c53abd29ed665f07aaa72c96aaa413574"
+    },
+    "results/mini_processed/mini_suite_summary.png": {
+      "mode": "100644",
+      "git_blob": "f34bb1f874e353c1e3350831dea22a5c1dee0e12"
+    },
+    "results/mini_processed/mini_suite_summary_best.json": {
+      "mode": "100644",
+      "git_blob": "4c6c6e2d29cf1c2d16e8133f4f0d66e36024abf8"
+    },
+    "results/mini_processed/mini_suite_summary_best.png": {
+      "mode": "100644",
+      "git_blob": "712bdd3ae28279cd1b82712f751c35ceab847879"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_deeponet/checkpoints/best_fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "d225ca1dfee5b71c52234635edf50bc2365253f3"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_deeponet/checkpoints/fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "cab5c232d8a167c58f6186a0d7e3e469aeff2e22"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_deeponet/checkpoints/final_state.pt": {
+      "mode": "100644",
+      "git_blob": "16369b010b956f5aa766400d08a07b38867f1621"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_deeponet/configs/resolved_config.yaml": {
+      "mode": "100644",
+      "git_blob": "bb334f445d31b0ed288158c24f8a4b2022dec302"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_deeponet/figures/rollout_comparison.pdf": {
+      "mode": "100644",
+      "git_blob": "b2dd97671d76d79e4cafd6031c395a304dec465c"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_deeponet/logs/run.log": {
+      "mode": "100644",
+      "git_blob": "4c3b9ff399b36f4f9f1625373fff6e4572968a1a"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_deeponet/metrics/run_results.json": {
+      "mode": "100644",
+      "git_blob": "e022835b2928fffd2e04580584c9318f06cf2b85"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_deeponet/metrics/summary.json": {
+      "mode": "100644",
+      "git_blob": "ee1996b116c62d7cd500c2ec98fd843864e6267c"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_deeponet/summary.json": {
+      "mode": "100644",
+      "git_blob": "ee1996b116c62d7cd500c2ec98fd843864e6267c"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_fim_plus/checkpoints/best_fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "d4ff6bb3a4bbc62b025204621e5a9baa77ea1ffb"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_fim_plus/checkpoints/fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "62e9a1fa9c36f46d6f5dee05be5af3bc40a0c7cd"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_fim_plus/checkpoints/final_state.pt": {
+      "mode": "100644",
+      "git_blob": "8c07c704757ac37587e9837ec5128e1f97bd25d9"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_fim_plus/configs/resolved_config.yaml": {
+      "mode": "100644",
+      "git_blob": "9b8d18497f4a05e29ae73a0550cb41f1e61d7561"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_fim_plus/figures/rollout_comparison.pdf": {
+      "mode": "100644",
+      "git_blob": "fc2b1602827dfe868bf7e94d7e1402d5799c713d"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_fim_plus/logs/run.log": {
+      "mode": "100644",
+      "git_blob": "c69f5e501dc750cdc660180753c4a214b1433b51"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_fim_plus/metrics/run_results.json": {
+      "mode": "100644",
+      "git_blob": "27b846f873259b08ec82051c6d65952af75ca99f"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_fim_plus/metrics/summary.json": {
+      "mode": "100644",
+      "git_blob": "62e122ce245957d4762199d16d8b8225ebd298d6"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_fim_plus/summary.json": {
+      "mode": "100644",
+      "git_blob": "62e122ce245957d4762199d16d8b8225ebd298d6"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_mlp/checkpoints/best_fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "1678029c6f8063681f919fc31e10407742586fd1"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_mlp/checkpoints/fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "6632194b399ea1d500ad897ff4544eb713b2d13f"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_mlp/checkpoints/final_state.pt": {
+      "mode": "100644",
+      "git_blob": "4d35443cc0c021cf87a696be23aa070665abd488"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_mlp/configs/resolved_config.yaml": {
+      "mode": "100644",
+      "git_blob": "239041624a5a3428bd7441676e85aafda86dcb03"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_mlp/figures/rollout_comparison.pdf": {
+      "mode": "100644",
+      "git_blob": "c8e4d9c5cc8cfc71a8fc3a8ae0a0cae686184acb"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_mlp/logs/run.log": {
+      "mode": "100644",
+      "git_blob": "5055945f6c8b0ebf0615d734dfa854b8fa2f615a"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_mlp/metrics/run_results.json": {
+      "mode": "100644",
+      "git_blob": "4e945e90563d75e5b7eb6343932c5fdec08d81e0"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_mlp/metrics/summary.json": {
+      "mode": "100644",
+      "git_blob": "da1d3f4507efdf82b68c7b265bb6cf084aceb16a"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_mlp/summary.json": {
+      "mode": "100644",
+      "git_blob": "da1d3f4507efdf82b68c7b265bb6cf084aceb16a"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_ssm/checkpoints/best_fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "123bc3098fbf6c2c100d2496286225354ad1704c"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_ssm/checkpoints/fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "c9ce51c2bc8c40283933153dbd8dc101d580df57"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_ssm/checkpoints/final_state.pt": {
+      "mode": "100644",
+      "git_blob": "ffe677ede2b49236630008392848ea57b46e9b81"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_ssm/configs/resolved_config.yaml": {
+      "mode": "100644",
+      "git_blob": "018a43f498dd318c7753bb9859d5ce2b899c9797"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_ssm/figures/rollout_comparison.pdf": {
+      "mode": "100644",
+      "git_blob": "8f6904a79b48ffafab84913b6ae962e93e5a712c"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_ssm/logs/run.log": {
+      "mode": "100644",
+      "git_blob": "a4c9ae5a4af97cf303ea0bf76ce07c0d91c9cfe7"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_ssm/metrics/run_results.json": {
+      "mode": "100644",
+      "git_blob": "1ee5c4b4dd792375338537cdcf171be3e5726be4"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_ssm/metrics/summary.json": {
+      "mode": "100644",
+      "git_blob": "8ea45ceb3a402ef2248795d060347a7ac0798cfa"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_ssm/summary.json": {
+      "mode": "100644",
+      "git_blob": "8ea45ceb3a402ef2248795d060347a7ac0798cfa"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_transformer/checkpoints/best_fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "b3c32f8928b60a64d7f7d12d56d81804bae18f23"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_transformer/checkpoints/fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "0f773e882ba283b13aae8bcf0ccce63d12de1bc2"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_transformer/checkpoints/final_state.pt": {
+      "mode": "100644",
+      "git_blob": "20b3c74825f9a208fca33b8f088c73eabd95f54e"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_transformer/configs/resolved_config.yaml": {
+      "mode": "100644",
+      "git_blob": "6c2734b604cf402b7017d40c5ac3510d0ce58e8f"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_transformer/figures/rollout_comparison.pdf": {
+      "mode": "100644",
+      "git_blob": "0fcb53e2916918eeb87c5a11a69d029a33dd12a0"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_transformer/logs/run.log": {
+      "mode": "100644",
+      "git_blob": "223aac0367ce6e48b68ab9610feca919af5796d9"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_transformer/metrics/run_results.json": {
+      "mode": "100644",
+      "git_blob": "69354be8d19efa0476cd3d82ddd83acdb975092e"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_transformer/metrics/summary.json": {
+      "mode": "100644",
+      "git_blob": "77ea7145db1fa59c9ca6d27596c414811c9ef8c7"
+    },
+    "results/mini_suite/mini_suite/delayed_recall_transformer/summary.json": {
+      "mode": "100644",
+      "git_blob": "77ea7145db1fa59c9ca6d27596c414811c9ef8c7"
+    },
+    "results/mini_suite/mini_suite/suite_summary.json": {
+      "mode": "100644",
+      "git_blob": "f3f2dec58631e8e178fd8a20758a4222ee0ac3a2"
+    },
+    "results/process_suite.py": {
+      "mode": "100644",
+      "git_blob": "2efe1db8b3a178c6f9416136f559bd0898eb2786"
+    },
+    "results/run_results.py": {
+      "mode": "100644",
+      "git_blob": "a3cf8bc688b1f90fa936d826ceacf64e03c4ad23"
+    },
+    "results/smoke_delayed/delayed_recall_fim_plus/checkpoints/best_fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "0f11427e8a79094976c59a7de188eadd305535ca"
+    },
+    "results/smoke_delayed/delayed_recall_fim_plus/checkpoints/fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "f7daf218d3b46cae695cc0e4790884ebef8656fe"
+    },
+    "results/smoke_delayed/delayed_recall_fim_plus/checkpoints/final_state.pt": {
+      "mode": "100644",
+      "git_blob": "bd9a174e3de83f400c3819258f78c7ed037061ba"
+    },
+    "results/smoke_delayed/delayed_recall_fim_plus/configs/resolved_config.yaml": {
+      "mode": "100644",
+      "git_blob": "567066957445d2f0e32ef20c544192e19ad2c820"
+    },
+    "results/smoke_delayed/delayed_recall_fim_plus/figures/rollout_comparison.pdf": {
+      "mode": "100644",
+      "git_blob": "0d9e89df49e5553ea2d3e3446b504e57233c61d1"
+    },
+    "results/smoke_delayed/delayed_recall_fim_plus/logs/run.log": {
+      "mode": "100644",
+      "git_blob": "8ab5ccfd3bb458a63a64eeba893f0de58fb18ec1"
+    },
+    "results/smoke_delayed/delayed_recall_fim_plus/metrics/run_results.json": {
+      "mode": "100644",
+      "git_blob": "ce57533ed91c5f0d5bee607bea81048db67b79ad"
+    },
+    "results/smoke_delayed/delayed_recall_fim_plus/metrics/summary.json": {
+      "mode": "100644",
+      "git_blob": "be396f0cb5419618ace2af9644d4286d8d854939"
+    },
+    "results/trajectories/pred.pt": {
+      "mode": "100644",
+      "git_blob": "8252812f64a06ab7045ef15b9e1c4c2fb5ecff38"
+    },
+    "results/trajectories/true.pt": {
+      "mode": "100644",
+      "git_blob": "2eeedaf3f2ed59973b603c98b3e34fda7b7d4c35"
+    },
+    "results/visualize.py": {
+      "mode": "100644",
+      "git_blob": "df9bc83dfad9085b0f1390aea6ab001f76658eb6"
+    },
+    "results_smoke/core_upgrade_smoke/delayed_recall_fim/checkpoints/best_fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "e4a42b9903a81fe42d675ec062df26d5a49bac62"
+    },
+    "results_smoke/core_upgrade_smoke/delayed_recall_fim/checkpoints/fim_checkpoint.pt": {
+      "mode": "100644",
+      "git_blob": "f2d4f9e5ae5a24f15b209c3240b6b0527998d09d"
+    },
+    "results_smoke/core_upgrade_smoke/delayed_recall_fim/checkpoints/final_state.pt": {
+      "mode": "100644",
+      "git_blob": "88d163e28ba2b3b3618e36dab0dc99222030bd02"
+    },
+    "results_smoke/core_upgrade_smoke/delayed_recall_fim/configs/resolved_config.yaml": {
+      "mode": "100644",
+      "git_blob": "435e7fb69bd523bf4bcb888349d205c499181710"
+    },
+    "results_smoke/core_upgrade_smoke/delayed_recall_fim/figures/rollout_comparison.pdf": {
+      "mode": "100644",
+      "git_blob": "6658d632efc782a619344017e029678a7b80d3e5"
+    },
+    "results_smoke/core_upgrade_smoke/delayed_recall_fim/logs/run.log": {
+      "mode": "100644",
+      "git_blob": "7fbecfa2b82d1ba1adaa741cfb8a7d20ed86e63b"
+    },
+    "results_smoke/core_upgrade_smoke/delayed_recall_fim/metrics/run_results.json": {
+      "mode": "100644",
+      "git_blob": "98643c9927d5994e6f0802b677c5ff8f762df28a"
+    },
+    "results_smoke/core_upgrade_smoke/delayed_recall_fim/metrics/summary.json": {
+      "mode": "100644",
+      "git_blob": "dff26a63af91a37d4049699497a384a6e0327cde"
+    },
+    "results_smoke/smoke/lorenz_fim/logs/run.log": {
+      "mode": "100644",
+      "git_blob": "dd3c44a9c23fce1adc728be65803b00ebc14c6c4"
+    },
+    "salience_heatmap.png": {
+      "mode": "100644",
+      "git_blob": "0fdeccd94b0f33c7434d4d19795ed2dd555ab8b9"
+    },
+    "salience_hist.png": {
+      "mode": "100644",
+      "git_blob": "045fedc88343c2a7b2f895f6d626ff3f667463e3"
+    },
+    "salience_spatial.png": {
+      "mode": "100644",
+      "git_blob": "62ea9c52386630393b4d9675d01a945eda3c3644"
+    },
+    "salience_time.png": {
+      "mode": "100644",
+      "git_blob": "4888bb7a28669fb5d08f5cfcf5c4ec107d6f9571"
+    },
+    "scripts/evidence_publication.py": {
+      "mode": "100644",
+      "git_blob": "c0d04cdc8097a6709d9633313d0b92df1958d416"
+    },
+    "scripts/run_ablation.sh": {
+      "mode": "100644",
+      "git_blob": "f86abc42deb95fc4a7a04d173459a543d328340a"
+    },
+    "scripts/run_component_ablations.py": {
+      "mode": "100644",
+      "git_blob": "1ec72287f91dd6c9a4ebb9e268a7eedbe1b72d6c"
+    },
+    "scripts/run_eval.sh": {
+      "mode": "100644",
+      "git_blob": "88b192f0d993f955af13155e4ea960174759ab43"
+    },
+    "scripts/run_full_suite.py": {
+      "mode": "100644",
+      "git_blob": "4200a425527cdd9ef2efaa99341db93f3e44316a"
+    },
+    "scripts/run_paper_lorenz.sh": {
+      "mode": "100755",
+      "git_blob": "ed73bf62e69feeb8dcc617b5cb355955f61b638b"
+    },
+    "scripts/run_train.sh": {
+      "mode": "100644",
+      "git_blob": "e50ef92df9a4012640382f7c9e6de82ee99916a2"
+    },
+    "scripts/validate_component_ablation_manifest.py": {
+      "mode": "100644",
+      "git_blob": "3384ce60251a1743a78107fc9fc4a5ab4c48a0d6"
+    },
+    "tests/init.py": {
+      "mode": "100644",
+      "git_blob": "31ba9de9355ce1760b035c50fcc9e31801e74a44"
+    },
+    "tests/test_benchmark_runtime_contracts.py": {
+      "mode": "100644",
+      "git_blob": "eeeb634afd2ddac6afa84e2937143f053c1780a0"
+    },
+    "tests/test_cached_state_continuity.py": {
+      "mode": "100644",
+      "git_blob": "3ca1de53ec45d28c63ded6b62df6332e97af378a"
+    },
+    "tests/test_checkpoint_evaluation_weights.py": {
+      "mode": "100644",
+      "git_blob": "d9f63ac8bd042bfe99c1e4e741629352437a13da"
+    },
+    "tests/test_component_ablation_manifest.py": {
+      "mode": "100644",
+      "git_blob": "f36391752e382bfae4a148b8ecbe68c094092737"
+    },
+    "tests/test_current_component_ablations.py": {
+      "mode": "100644",
+      "git_blob": "dcfa4d2d23e1ed7ac704367303b416016237c5ef"
+    },
+    "tests/test_delayed_recall_metadata.py": {
+      "mode": "100644",
+      "git_blob": "b0bf83512141248335ec683f42bfdb2d852d1a63"
+    },
+    "tests/test_delayed_recall_successor_v2.py": {
+      "mode": "100644",
+      "git_blob": "462e4e2fde02a0314b9b0b912219c225f2add200"
+    },
+    "tests/test_dynamics.py": {
+      "mode": "100644",
+      "git_blob": "763069261cfc3bb2631397b4d741543ff4ae0bd8"
+    },
+    "tests/test_evidence_publication.py": {
+      "mode": "100644",
+      "git_blob": "378d73eec35cf8c65196baa633ae969d4c5c4700"
+    },
+    "tests/test_fabric.py": {
+      "mode": "100644",
+      "git_blob": "bebc29912b2bc17799b031ad4b923a56a6bdafe1"
+    },
+    "tests/test_fractional.py": {
+      "mode": "100644",
+      "git_blob": "e695fb50da67b663308923f1976bac4afbf75da7"
+    },
+    "tests/test_graph_execution_modes.py": {
+      "mode": "100644",
+      "git_blob": "aff820a57231f3330589307a3fa47d85ad5c1239"
+    },
+    "tests/test_graph_propagation.py": {
+      "mode": "100644",
+      "git_blob": "1a062ed85e050996be442dd3403f7bb1f92a2919"
+    },
+    "tests/test_memory.py": {
+      "mode": "100644",
+      "git_blob": "093bc33c6275763ab996824b3a7e0a54df12b458"
+    },
+    "tests/test_retrieval_temperature_gradient.py": {
+      "mode": "100644",
+      "git_blob": "786d3250d2250ba5ff8ea1f0fa70e73af261d4ca"
+    },
+    "tests/test_run_results.py": {
+      "mode": "100644",
+      "git_blob": "57e684cc2f376bde7c140b0e3b9ba2af1f0feb6f"
+    },
+    "tests/test_training_tensor_semantics.py": {
+      "mode": "100644",
+      "git_blob": "82688c0defd6313d0054a0ffe1a6a0bb2e7de078"
+    },
+    "tests/test_trajectory_isolated_protocol.py": {
+      "mode": "100644",
+      "git_blob": "9d225b1d0257bc581ef649a8805a7816acf2925c"
+    },
+    "time_evolution_3d.png": {
+      "mode": "100644",
+      "git_blob": "d35576b2ec0c03cfecf9fc170ac79e79ba18fb1a"
+    },
+    "trajectory.png": {
+      "mode": "100644",
+      "git_blob": "1b88876dbb2aba55eb3b8bac0e42b3c75834194d"
+    }
+  }
+}

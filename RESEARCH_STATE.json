@@ -1,0 +1,7 @@
+{
+  "schema_version": "canonical-state-pointer-v1",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "canonical_entry_point": "research/RESEARCH_STATE.json",
+  "previous_record_snapshot": "research/state_snapshots/integration_20261010/PR28_7b64ef98770e_RESEARCH_STATE.json",
+  "rule": "Follow the single canonical index. The previous root record is retained byte for byte at its source-bound snapshot; this file is not a second state ledger."
+}

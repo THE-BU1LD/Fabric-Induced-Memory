@@ -1,0 +1,52 @@
+{
+  "schema": "FIM_HOSTED_ENGINEERING_VERIFICATION_V1",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "pull_request": 38,
+  "implementation_commit": "974f2e15288db369d0427802aea50a7a8386b52c",
+  "implementation_tree": "37453e2d3ac86bfb3fd8b9e77198457c5e2dae9b",
+  "checked_out_merge": "706b1c434b4b2f95a9777bfd161e8693e5bf5e82",
+  "checked_out_tree": "37453e2d3ac86bfb3fd8b9e77198457c5e2dae9b",
+  "exact_source_tree_match": true,
+  "workflows": [
+    {
+      "name": "CI",
+      "run_id": 38060038069,
+      "job_id": 114236254664,
+      "status": "success",
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38060038069/job/114236254664",
+      "pytest_seconds": 8.25,
+      "passed": 685,
+      "skipped": 7,
+      "subtests_passed": 164,
+      "warnings": 16,
+      "log_evidence": [
+        "2026-10-10T14:32:59.6703161Z HEAD is now at 706b1c4 Merge 974f2e15288db369d0427802aea50a7a8386b52c into 84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+        "2026-10-10T14:34:29.5396599Z 685 passed, 7 skipped, 16 warnings, 164 subtests passed in 8.25s"
+      ]
+    },
+    {
+      "name": "Current FIM component ablations",
+      "run_id": 38060038099,
+      "job_id": 114236254647,
+      "status": "success",
+      "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38060038099/job/114236254647",
+      "pytest_seconds": 12.38,
+      "passed": 685,
+      "skipped": 7,
+      "subtests_passed": 164,
+      "warnings": 16,
+      "log_evidence": [
+        "2026-10-10T14:32:58.9299146Z HEAD is now at 706b1c4 Merge 974f2e15288db369d0427802aea50a7a8386b52c into 84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+        "2026-10-10T14:34:20.4703341Z 685 passed, 7 skipped, 16 warnings, 164 subtests passed in 12.38s"
+      ]
+    }
+  ],
+  "scientific_job": {
+    "name": "trajectory-isolated-v1",
+    "run_id": 38060038099,
+    "job_id": 114236552086,
+    "status": "skipped"
+  },
+  "count_rule": "Both hosted jobs and the retained local run execute overlapping repository cases. Counts are not summed.",
+  "inference": "Engineering acceptance of the identical implementation tree only. No scientific study, outcome or hold changed."
+}

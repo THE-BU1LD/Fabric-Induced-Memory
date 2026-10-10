@@ -1,0 +1,46 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_cpu_generation_and_clear_loader_precondition_under_default_meta_device __
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-230/test_cpu_generation_and_clear_0')
+
+    def test_cpu_generation_and_clear_loader_precondition_under_default_meta_device(tmp_path):
+        previous_device = torch.get_default_device()
+        try:
+            torch.set_default_device("meta")
+>           _, loaded = make_bank(tmp_path / "bank")
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_episode_bank_v1.py:102: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_episode_bank_v1.py:35: in make_bank
+    receipt = bank.create_development_bank(path, **defaults)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+fim_experiments/episode_bank_v1.py:216: in create_development_bank
+    observations = DelayedRecallBenchmark(config).rollout(
+fim_experiments/runtime_benchmarks.py:370: in rollout
+    traj, _ = self.rollout_segment(
+fim_experiments/runtime_benchmarks.py:334: in rollout_segment
+    if torch.equal(expected_clock, next_clock) or (
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <torch.utils._device.DeviceContext object at 0x7fbb6a6bf0b0>
+func = <built-in method equal of type object at 0x7fbb64f81300>, types = ()
+args = (tensor(..., device='meta', size=(5, 1)), tensor(..., device='meta', size=(5, 1)))
+kwargs = {}
+
+    def __torch_function__(self, func, types, args=(), kwargs=None):
+        kwargs = kwargs or {}
+        if func in _device_constructors() and kwargs.get("device") is None:
+            kwargs["device"] = self.device
+>       return func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+E       NotImplementedError: aten::equal: attempted to run this operator with Meta tensors, but there was no fake impl or Meta kernel registered. You may have run into this message while using an operator with PT2 compilation APIs (torch.compile/torch.export); in order to use this operator with those APIs you'll need to add a fake impl. Please see the following for next steps:  https://pytorch.org/tutorials/advanced/custom_ops_landing_page.html
+
+../../torch-deps/torch/utils/_device.py:122: NotImplementedError
+=========================== short test summary info ============================
+FAILED tests/test_episode_bank_v1.py::test_cpu_generation_and_clear_loader_precondition_under_default_meta_device
+1 failed in 23.27s
+
+Total command seconds: 28.63905382300436

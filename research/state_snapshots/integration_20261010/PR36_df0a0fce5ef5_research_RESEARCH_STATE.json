@@ -1,0 +1,51 @@
+{
+  "schema_version": "research-session-successor-index-v1",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "updated_utc_date": "2026-10-10",
+  "index_role": "Prospective numerical-maintenance successor index; complete predecessor preserved as an exact blob.",
+  "canonical_read_order": [
+    "research/RESEARCH_STATE.json",
+    "research/state_snapshots/PR34_b417f3c4b048_RESEARCH_STATE.json",
+    "research/state_snapshots/PR35_0ad7dc976677_RESEARCH_STATE.json",
+    "RESEARCH_TRUTH.md",
+    "research/maintenance/stability_v2_20261010/PUBLICATION.md"
+  ],
+  "session_rule": "Read the canonical index and every predecessor authority before work; append actual implementation, verification, failures and unresolved gates before finishing. Source-specific results remain attached to their source. Never remove negative, invalid or frozen history.",
+  "predecessor_canonical_record": {
+    "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/34",
+    "commit": "b417f3c4b0487b09f948eea70c5d8b94a21cf3d5",
+    "original_path": "research/RESEARCH_STATE.json",
+    "snapshot_path": "research/state_snapshots/PR34_b417f3c4b048_RESEARCH_STATE.json",
+    "git_blob": "18f71cda3ae9447bec5649a1cb0d5df1d8adc57f",
+    "preservation": "Entire preceding index retained byte for byte, with its history, source bindings, candidate distinctions, execution holds and incomplete-import qualification. All previously present snapshots remain unchanged.",
+    "path_resolution": "Interpret source/verification assertions in the predecessor at its pinned commit; do not upgrade inherited receipts to combined validation."
+  },
+  "current_development": {
+    "id": "STABILITY_DIAGNOSTICS_V2_20261010",
+    "question": "Can the intended finite-field norm/clipping/log-growth calculations avoid unnecessary intermediate overflow and underflow?",
+    "phase": "IMPLEMENTED_LOCAL_COMPONENT_TESTS_PASSED",
+    "opt_in": true,
+    "implementation": "fim/core/stability_v2.py",
+    "tests": "tests/test_stability_v2.py",
+    "record": "research/maintenance/stability_v2_20261010/PUBLICATION.md",
+    "source_sha256": "ba6f579d0dca65fac7b4799cda391d5caa42e0d166842d44a5431aae8f74aeb6",
+    "test_sha256": "f9708f5c9c14b92507ecb7a6e7ff8d2753b6ea4a443861690c7e151fdab476df",
+    "preserved_legacy_blob": "1f28c9494319c17cc8e0038eddfda55b804565da",
+    "verification": {"component_cases_passed": 45, "component_cases_failed": 0, "fresh_delivery_recheck_cases": 140, "counts_overlap": true, "full_repository_tested": false, "hosted_ci_claimed": false},
+    "earlier_baseline": {"passed": 12, "failed": 33, "qualification": "Includes new contract/API expectations; not 33 distinct bugs."},
+    "budget": {"numerical_threads": 1, "max_seconds_per_test_process": 120, "paid_compute_cents": 0, "training_campaigns": 0, "protected_dispatches": 0},
+    "next_gate": "Independent source review and authorized full integration tests; scientific adoption requires a prospectively versioned study."
+  },
+  "scientific_status": {
+    "disposition_change": "NONE",
+    "phase_or_checkpoint_advanced": false,
+    "research_completion_claimed": false,
+    "new_protected_outcomes_read": false,
+    "authority": "Retained truth/protocol records and exact predecessor states remain authoritative. Existing holds and budgets are not lifted by this maintenance index."
+  },
+  "history": [
+    {"date": "2026-10-10", "event": "Earlier local-only delivery implemented and tested prospective diagnostics; its source/test bytes and baseline failure history are retained."},
+    {"date": "2026-10-10", "event": "Fresh GitHub overlap review found no stability counterpart. Reran the original 140-case package successfully, confirmed legacy stability identity, and prepared this additive publication atop PR #34 without modifying its implementation."}
+  ],
+  "history_index_coverage": {"status": "INCOMPLETE_IMPORT", "scope": "Exact predecessor index and inherited snapshots plus this component maintenance; no whole-history audit or combined scientific completion is asserted."}
+}

@@ -52,7 +52,7 @@ from systems import (
     SpectralFieldSystem,
     TransformerFieldSystem,
 )
-from train import train
+from train import save_checkpoint_payload, train
 
 
 def get_device(device_str: str) -> torch.device:
@@ -544,14 +544,14 @@ def run_experiment(cfg: Dict[str, Any]) -> Dict[str, Any]:
         json.dump(_to_jsonable(metrics), f, indent=2)
 
     ckpt_path = dirs["checkpoints"] / "final_state.pt"
-    torch.save(
+    save_checkpoint_payload(
+        ckpt_path,
         {
             "model_state_dict": model.state_dict(),
             "config": _to_jsonable(cfg),
             "history": _to_jsonable(history),
             "metrics": _to_jsonable(metrics),
         },
-        ckpt_path,
     )
 
     logger.info("Saved checkpoint: %s", ckpt_path)

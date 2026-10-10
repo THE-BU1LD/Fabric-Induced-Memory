@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "project": "THE-BU1LD/Fabric-Induced-Memory",
+  "canonical_entry_point": "RESEARCH_STATE.json",
+  "initialized_at_utc": "2026-10-10T09:52:48.960079+00:00",
+  "initialization_note": "Retrospective navigation index initialized before this public checkpoint repair. Existing truth, frozen protocols, preserved artifacts and Git history remain authoritative; complete historical import is not claimed.",
+  "research_question": "Whether the declared FIM memory mechanism improves trajectory forecasting or delayed recall under the respective frozen protocols.",
+  "scientific_objective": "Validly test the existing memory mechanism while preserving prior mixed, negative, and baseline-winning outcomes.",
+  "current_phase": "IMPLEMENTED / EVIDENCE_PARTIAL; bounded public checkpoint repair verified locally",
+  "research_complete_verified": false,
+  "source_parent": "22329862aaeff7da61d30e6aba3041f445ad0e4d",
+  "truth_and_protocols": [
+    "RESEARCH_TRUTH.md",
+    "research/protocols/FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md",
+    "research/protocols/FIM_DELAYED_RECALL_SUCCESSOR_V2.md",
+    "research/protocols/FIM_DELAYED_RECALL_SUCCESSOR_V2.json"
+  ],
+  "engineering_scope": [
+    "fim/utils/checkpoint.py public helper only; the separate source-bound experiment trainer is unchanged"
+  ],
+  "development_budget": {
+    "scope": "One bounded public save/load correctness repair with synthetic CPU regression tests",
+    "new_scientific_runs": 0
+  },
+  "protected_evaluation_boundary": {
+    "released": false,
+    "outcome_accessed": false,
+    "rule": "The trajectory-isolated hold and successor authorization flags are unchanged."
+  },
+  "retained_findings": [
+    "The stored mini-suite has lower DeepONet rollout MSE than FIM.",
+    "Historical paper-reference values are not fresh reproduction evidence.",
+    "The original helper partially copied model weights before rejecting an invalid checkpoint.",
+    "The original helper could overwrite prior checkpoint bytes before serialization failed."
+  ],
+  "concurrent_work": {
+    "FIM_PR_27": "Separate experiment checkpoint/evidence changes, preserved and not duplicated.",
+    "FIM_PRs_29_to_37": "Observed separate development branches; their implementation and results are not claimed by this repair."
+  },
+  "sessions": [
+    {
+      "date": "2026-10-10",
+      "record": "research/PUBLIC_CHECKPOINT_RECOVERY_20261010.md",
+      "source_sha256": {
+        "fim/utils/checkpoint.py": "d3131981947a2a382dfa7c25fe936b50a7e8dabcf2513a2d6302d3fc971e8bc2",
+        "tests/test_public_checkpoint_recovery.py": "18a354ab4363ba6d99a276bcd793dceb0ad92ced68a19ccf8a9f2ce29a127f78"
+      },
+      "scientific_runs": 0,
+      "scope": "Public checkpoint recovery",
+      "tested_parent": "22329862aaeff7da61d30e6aba3041f445ad0e4d"
+    }
+  ],
+  "next_executable_action": "Review the checkpoint recovery changes and exact-source verification in PR28. The protected scientific hold and protocol gates remain unchanged.",
+  "verification": {
+    "new_checkpoint_cases": 25,
+    "full_suite": "222 passed,7 skipped,16 existing deprecation warnings,10 subtests passed in11.88s",
+    "independent_review": "PASS; 25 cases independently passed in6.70s plus separate malformed-SGD and composite-hook recovery probes",
+    "source_sha256": {
+      "fim/utils/checkpoint.py": "d3131981947a2a382dfa7c25fe936b50a7e8dabcf2513a2d6302d3fc971e8bc2",
+      "tests/test_public_checkpoint_recovery.py": "18a354ab4363ba6d99a276bcd793dceb0ad92ced68a19ccf8a9f2ce29a127f78"
+    },
+    "raw_failure_records": [
+      "research/public_checkpoint_baseline.txt",
+      "research/public_checkpoint_peer_failures.txt",
+      "research/public_checkpoint_sgd_failure.txt"
+    ],
+    "hosted_verification": "Exact-source hosted receipts will be linked in the associated draft PR; no scientific matrix is dispatched."
+  }
+}
