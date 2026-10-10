@@ -111,6 +111,25 @@
       "scientific_disposition_change": "None. Do not reclassify retained findings or use this receipt to advance a scientific checkpoint.",
       "execution_boundary": "Artificial bounded checks only; protected and frozen campaigns remain unrun and existing holds remain binding.",
       "integration_rule": "Keep this receipt and its source identity when integrating the separate code branch; the original canonical state fields continue to describe their own source-bound development work."
+    },
+    {
+      "recorded_on": "2026-10-10",
+      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/33",
+      "implementation_commit": "1d4fbe65bf5bdb6fd5d635de815c330c99e406b3",
+      "artifact_path": "research/development/SDE_ZERO_NOISE_FOLLOWUP_20261010.json",
+      "immutable_receipt": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/1d4fbe65bf5bdb6fd5d635de815c330c99e406b3/research/development/SDE_ZERO_NOISE_FOLLOWUP_20261010.json",
+      "scope": "Exact default zero-noise Milstein correction after coefficient validation; custom increments and nonzero-noise arithmetic retained.",
+      "verification": {
+        "passed": 35,
+        "failed": 0,
+        "seconds": 6.65,
+        "baseline_failed": 2,
+        "baseline_qualification": "Baseline executed once on byte-identical FIM/QFIM parent solver source in FIM checkout.",
+        "independent_review": "Parent source/test review; no independent rerun."
+      },
+      "status": "Verified development correction on existing draft branch; not merged.",
+      "scientific_disposition_change": "None; original adverse/mixed/invalid evidence and protected holds remain unchanged.",
+      "integration_rule": "This canonical update indexes the immutable separate branch; it does not import or claim combined execution of the implementation."
     }
   ],
   "history_index_coverage": {
