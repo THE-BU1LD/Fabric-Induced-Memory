@@ -140,3 +140,48 @@ def test_nonfinite_gradients_cannot_update_raw_or_ema_weights():
 def test_invalid_ema_decay_is_rejected(decay):
     with pytest.raises(ValueError, match="EMA decay"):
         EMA(StructuredStepModel(), decay=decay)
+
+
+@pytest.mark.parametrize("training", [True, False])
+@pytest.mark.parametrize("fail", [True, False])
+def test_eval_preserves_each_submodule_mode_on_success_and_failure(training, fail):
+    model = StructuredStepModel()
+    model.branch = nn.Sequential(nn.Dropout(), nn.Identity())
+    trainer = Trainer(model, use_amp=False)
+    model.train(training)
+    model.branch.train(not training)
+    model.branch[1].train(training)
+    before = [(module, module.training) for module in model.modules()]
+    model.fail = fail
+    batch = (torch.ones(1, 1, 2, 2), torch.zeros(1, 1, 2, 2))
+    if fail:
+        with pytest.raises(RuntimeError, match="artificial step failure"):
+            trainer.eval_step(batch)
+    else:
+        trainer.eval_step(batch)
+    assert all(module.training == mode for module, mode in before)
+
+
+def test_scaled_nonfinite_gradient_rejection_leaves_trainer_reusable():
+    model = StructuredStepModel()
+    trainer = Trainer(model, use_amp=False)
+    # Exercise the actual scaler state machine on CPU without claiming CUDA.
+    trainer.scaler = torch.amp.GradScaler("cpu", init_scale=8.0)
+    trainer.set_scheduler(total_steps=4)
+    hook = model.weight.register_hook(
+        lambda gradient: torch.full_like(gradient, float("inf"))
+    )
+    batch = (torch.ones(1, 1, 2, 2), torch.zeros(1, 1, 2, 2))
+    try:
+        with pytest.raises(RuntimeError, match="non-finite"):
+            trainer.train_step(batch)
+    finally:
+        hook.remove()
+    assert model.weight.item() == 1.0
+    assert trainer.ema.shadow["weight"].item() == 1.0
+    assert trainer.scheduler.last_epoch == 0
+    assert not trainer.optimizer.state
+    trainer.train_step(batch)
+    assert model.weight.item() != 1.0
+    assert trainer.scheduler.last_epoch == 1
+    assert trainer.scaler.get_scale() == 4.0

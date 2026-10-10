@@ -45,3 +45,13 @@ approval review; runtime tests must be established by the existing hosted CI.
 Until an actual passing hosted run is linked in the PR, runtime validation remains
 pending. This development repair supplies no scientific efficacy result, releases
 no execution hold, and does not establish research completion.
+
+## Second development pass: rejected-gradient recovery and mixed modes
+
+The inspected parent was `0ae2bf91fb1b88217637a5319f9c74628ffa4436`. Five additional artificial regression cases failed there while the 16 preceding Trainer cases passed. Evaluation restored only the root mode, recursively destroying intentionally mixed encoder/submodule modes on both successful and failed evaluation. Separately, a nonfinite gradient advanced an enabled GradScaler to its unscaled state; clipping raised without completing the scaler attempt, so the next valid batch failed with `unscale_() has already been called ... since the last update()`.
+
+Evaluation now snapshots and restores every submodule mode. If gradient clipping raises, the public Trainer completes the scaler update, clears rejected gradients, and re-raises. It performs no optimizer, scheduler or EMA update for that rejected attempt. The same Trainer then accepts a valid batch.
+
+The selected local suite now passes **21 tests** on the installed CPU PyTorch 2.14.1 runtime. Four new cases cover mixed modes on success/failure; the fifth exercises the actual CPU GradScaler state machine, a nonfinite-gradient hook, unchanged raw/EMA/optimizer/scheduler state, and a following valid update with the expected reduced scale. The older local-runtime limitation above is retained as history and is superseded for this pass. Existing deprecation warnings remain.
+
+This does not roll back model-owned episode memory after a failed model step and does not claim CUDA execution. The caller still owns episode recovery. The protected 40-cell protocol, source-bound experiment trainer, data, scientific outcomes and paper artifacts remain untouched. Hosted evidence is recorded per exact revision in the PR.

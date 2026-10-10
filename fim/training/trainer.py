@@ -137,9 +137,17 @@ class Trainer:
             loss = self._loss(self.model.step(x), y)
         self.scaler.scale(loss.total).backward()
         self.scaler.unscale_(self.optimizer)
-        torch.nn.utils.clip_grad_norm_(
-            self.model.parameters(), self.grad_clip, error_if_nonfinite=True,
-        )
+        try:
+            torch.nn.utils.clip_grad_norm_(
+                self.model.parameters(), self.grad_clip, error_if_nonfinite=True,
+            )
+        except RuntimeError:
+            # unscale_ has advanced the scaler state even when clipping rejects
+            # the gradients. Finish that attempt without an optimizer/scheduler
+            # or EMA update, so the next admitted batch can use this Trainer.
+            self.scaler.update()
+            self.optimizer.zero_grad(set_to_none=True)
+            raise
         self.scaler.step(self.optimizer)
         self.scaler.update()
         if self.scheduler is not None:
@@ -151,7 +159,7 @@ class Trainer:
     @torch.no_grad()
     def eval_step(self, batch) -> TrainStats:
         x, y = self._batch(batch)
-        was_training = self.model.training
+        modes = [(module, module.training) for module in self.model.modules()]
         averages = self.ema.average_parameters(self.model) if self.ema is not None else nullcontext()
         try:
             self.model.eval()
@@ -159,4 +167,7 @@ class Trainer:
                 loss = self._loss(self.model.step(x), y)
                 return self._stats(loss)
         finally:
-            self.model.train(was_training)
+            # A recursive train(previous) would overwrite deliberately mixed
+            # submodule modes, for example a frozen evaluation-only encoder.
+            for module, was_training in modes:
+                module.training = was_training
