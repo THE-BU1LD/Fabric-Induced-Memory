@@ -1,0 +1,8 @@
+{
+  "reviewer": "Independent root agent source review",
+  "test_rerun_by_reviewer": false,
+  "finding": "Halving smallest-subnormal response endpoints before integration lost a contribution whose large-time integral is representable.",
+  "planned_repair": "Use exponent-scaled scalar trapezoids with math.ldexp so midpoint energy is not rounded away before time scaling, with fsum for the final area.",
+  "original_passing_count": 54,
+  "scope": "One concrete source-review repair; historical receipt and exact source/test bytes retained."
+}
