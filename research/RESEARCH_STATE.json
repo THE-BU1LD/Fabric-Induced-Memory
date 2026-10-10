@@ -3,36 +3,47 @@
   "updated_on": "2026-10-10",
   "purpose": "Canonical entry state for future research sessions; referenced historical records remain authoritative and must not be overwritten.",
   "session_rule": "Read this file, RESEARCH_TRUTH.md and the applicable protocol before work. Append decisions and evidence before finishing. Never erase historical failures or silently reclassify evidence.",
-  "phase": "DEVELOPMENT_ENGINEERING_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
+  "phase": "DEVELOPMENT_PAIRED_RUNNER_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
   "scientific_checkpoint_change": "None. Passing targeted engineering tests does not complete a scientific checkpoint or establish model efficacy.",
   "development_budget": {
     "workstreams": 1,
-    "retained_end_to_end_demos": 1,
-    "max_focused_test_commands": 4,
-    "max_reported_test_seconds": 180,
+    "max_verification_commands_or_probes": 6,
+    "max_total_verification_command_seconds": 240,
     "max_review_repair_cycles": 2,
-    "new_model_training_runs": 0,
+    "retained_integration_demos": 1,
+    "retained_demo_model_arms": 3,
+    "retained_demo_optimizer_updates": 9,
+    "retained_demo_model_step_calls": 60,
     "protected_outcome_runs": 0,
     "scientific_matrix_dispatches": 0,
     "paid_compute": 0,
-    "numeric_threads": 1
+    "numeric_threads": 1,
+    "status": "CLOSED",
+    "consumed": {
+      "verification_commands_or_probes": 3,
+      "verification_command_seconds": 43.670314927003346,
+      "review_repair_cycles": 1,
+      "retained_demos": 1,
+      "retained_demo_optimizer_updates": 9,
+      "retained_demo_model_step_calls": 60
+    }
   },
   "terminal_research_disposition": null,
-  "release_status": "Engineering continuation reviewed and verified; integration remains pending through the named development branch.",
+  "release_status": "New paired development runner independently reviewed and one integration demo verified; separate stacked draft publication prepared. Research question remains unconfirmed and protected protocols held.",
   "repository": "THE-BU1LD/Fabric-Induced-Memory",
-  "base_commit": "84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+  "base_commit": "0ad7dc9766771cb3d9cb18bab649cfa2da3e4dc5",
   "research_question": "Does the implemented fabric-memory mechanism improve prediction and recall against mechanism-off controls when memory is isolated between independent trajectories?",
   "scientific_objective": "Identify whether retrieval and salience provide a reproducible benefit within declared benchmarks, budgets and independent units.",
   "current_hypothesis": "The current-code memory hypothesis remains unconfirmed. Retained miniature comparisons and historical ablations do not establish consistent superiority.",
   "intended_contribution": "A fully specified, falsifiable evaluation of structured memory and its component mechanisms, with all adverse outcomes retained.",
   "scope": {
-    "current_change": "Opt-in development-only byte-bound delayed-recall episode materialization and isolated paired loading",
+    "current_change": "New opt-in pinned-bank development runner using existing model interventions with verified trajectory isolation.",
     "excluded_from_this_change": [
-      "existing benchmark and native runtime sources",
-      "trainer and evaluator behavior",
-      "frozen protocols and held scientific seeds",
-      "historical evidence and conclusions",
-      "open PR implementations"
+      "Existing models and memory mechanisms",
+      "Existing experiment and public trainers/evaluators",
+      "Frozen protocols and protected outcomes",
+      "Historical conclusions and predecessor budgets",
+      "Competing open implementations"
     ]
   },
   "protected_evaluation": {
@@ -80,7 +91,46 @@
       "total_command_seconds": 6.125824353992357,
       "raw_bytes": 1300
     },
-    "episode_bank_record": "research/DEVELOPMENT_EPISODE_BANK_V1_RESULT_20261010.md"
+    "episode_bank_record": "research/DEVELOPMENT_EPISODE_BANK_V1_RESULT_20261010.md",
+    "paired_development_runner_record": "research/DEVELOPMENT_PAIRED_RUNNER_V1_RESULT_20261010.md",
+    "paired_development_demo": {
+      "allocated_parameters_per_arm": 2372,
+      "bank_sha256": "ae8e143064f27be469e69dc19fe1fac41d30737ecdcd4acff7a6de4a91afc938",
+      "compute_matched": false,
+      "diagnostic_observation_mse_float64_by_arm_split": {
+        "full": {
+          "development_eval": 1.0289934449153166,
+          "train": 0.5497110425441943,
+          "validation": 0.3222115305374137
+        },
+        "no_memory": {
+          "development_eval": 1.0287509765248437,
+          "train": 0.5513993717035174,
+          "validation": 0.318345916528457
+        },
+        "no_retrieval": {
+          "development_eval": 1.0287509765248437,
+          "train": 0.5513993717035174,
+          "validation": 0.318345916528457
+        }
+      },
+      "initial_parameter_sha256": "d3f82d4dcb72d1240162486afde58004b7e1a509745d657e3fd6ec2750fb775e",
+      "model_steps": 60,
+      "optimizer_updates": 9,
+      "phase": "DEVELOPMENT",
+      "process_peak_rss_bytes": 331022336,
+      "purpose": "INTEGRATION_ONLY",
+      "rss_scope": "Cumulative Linux process high-water mark including imports and all prior arms; not per-arm memory",
+      "run_sha256": "382d2e7febf87af361de2fc3c1ab2645d4aa6b2ff447a11f723f7159560617d4",
+      "schema": "FIM_PAIRED_DEVELOPMENT_RUN_V1",
+      "scientific_support_inferred": false,
+      "seconds": 0.8077199190011015,
+      "status": "VERIFIED_INTEGRATION",
+      "artifact_directory": "research/artifacts/development_paired_runner_v1_demo_20261010",
+      "manifest": "research/artifacts/development_paired_runner_v1_demo_20261010/manifest.json",
+      "command_receipt": "research/artifacts/development_paired_runner_v1_tests_20261010/retained_demo_command_receipt.json",
+      "total_command_seconds": 7.642118101008236
+    }
   },
   "claims_preserved": [
     "Stored delayed-recall FIM rollout MSE 0.1975817829 is above DeepONet 0.1579457372 and MLP 0.1965747178.",
@@ -98,34 +148,43 @@
     ]
   },
   "development_verification": {
-    "phase": "DEVELOPMENT",
+    "attempt": 2,
+    "kind": "FINAL_AFFECTED_SUITE_AFTER_REVIEW_REPAIR_1",
     "command": [
+      "python",
       "-m",
       "pytest",
       "-q",
+      "tests/test_paired_development_v1.py",
       "tests/test_episode_bank_v1.py",
-      "tests/test_benchmark_runtime_contracts.py",
-      "tests/test_delayed_recall_successor_v2.py"
+      "tests/test_current_component_ablations.py",
+      "tests/test_retrieval_temperature_gradient.py",
+      "tests/test_training_tensor_semantics.py"
     ],
     "exit_code": 0,
-    "total_command_seconds": 9.855664917005925,
+    "seconds": 9.62292953999713,
+    "timed_out": false,
+    "scope": "Bounded integration/failure/unit fixtures; one separately retained integration demo, no scientific hypothesis test.",
+    "passed": 124,
+    "new_runner_tests_passed": 45,
+    "pytest_seconds": 8.06,
     "source_sha256": {
+      "fim_experiments/paired_development_v1.py": "735af27ffbbc484ed286cd880dc784a8e7efe107dd724dadae4508b37cc49d73",
+      "fim_experiments/models.py": "16259452161edf0dc83568542f1705c5a4c82bb61db5ed63e8ba2f4865534520",
+      "fim_experiments/systems.py": "4199cb9498cfd255f267f442651d76ae374c269c9f4048ea70617f0a190e269b",
+      "fim_experiments/ablation_systems.py": "774400383ff260bc6c24cdfaaa6d27c9dd9cd881be53268f80a64fc989af4b50",
       "fim_experiments/episode_bank_v1.py": "2ef2ebd92cf805009b8f868386ac60c53009806b1addc51cdff5110fad28e4f6",
-      "tests/test_episode_bank_v1.py": "007b4bc643f3b6d067e2b4f4b1561f7ad54f98d062c94e2563afc8804002e137"
+      "fim_experiments/benchmark.py": "d9c892386c26d0a8d66403459140fa1e5722e86883e263c7fdd1375a586bec71",
+      "fim_experiments/runtime_benchmarks.py": "dcadcf54ecbbe93aa8666019e380169f34869e3b27a514c044e3cdfde2950d57",
+      "tests/test_paired_development_v1.py": "7aa6390a40fa60f088bef07e089849a4d65e46d43506274edad2709f588a9926",
+      "tests/test_episode_bank_v1.py": "007b4bc643f3b6d067e2b4f4b1561f7ad54f98d062c94e2563afc8804002e137",
+      "tests/test_current_component_ablations.py": "f0e02e6fe484ecaa9fd355a31262411ddf4eb119a457f4bcef7dcbe14514a4c7",
+      "tests/test_retrieval_temperature_gradient.py": "e40d2ee5c9c9f78b8ccdb68c22ad677bff5d90ebc6c8299dc623dc5df6527777",
+      "tests/test_training_tensor_semantics.py": "8b01be841e209d8b217ee3c25b68e92b661ef53e9d4d6440795434f1dc9b06d3"
     },
-    "threads": 1,
-    "new_model_training_runs": 0,
-    "scientific_outcome_runs": 0,
-    "passed": 108,
-    "subtests_passed": 7,
-    "failed": 0,
-    "pytest_seconds": 8.17,
-    "raw_log": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04.log",
-    "receipt": "research/artifacts/development_episode_bank_v1_tests_20261010/attempt_04_receipt.json",
-    "python": "3.12.14",
-    "torch": "2.14.1+cpu",
-    "pytest": "9.1.1",
-    "scope": "Bounded real-generator, artifact, source-freshness and trainer-adapter regressions; no model or protected outcome run."
+    "raw_log": "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02.log",
+    "receipt": "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02_receipt.json",
+    "predecessor_verification": "Preserved unchanged in the closed episode-bank predecessor session."
   },
   "decisions": [
     {
@@ -141,20 +200,29 @@
       "change": "Implement a new development-only episode artifact and verified consumer without modifying frozen execution.",
       "predicted_consequence": "Independent consumers receive the same pinned trajectory bytes despite unrelated RNG or caller tensor mutation.",
       "result": "108 tests and 7 subtests pass after two preserved review defects; one real five-episode artifact verifies paired identity. Scientific efficacy and protected execution remain unchanged."
+    },
+    {
+      "date": "2026-10-10",
+      "observation": "Pinned development banks lacked an executable model consumer and the existing reset helper suppresses errors.",
+      "change": "Add separate bounded paired runner with strict actual-memory resets, train-only SGD, exact initial tensors, raw evidence and complete-run admission.",
+      "result": "124 affected tests and one60-step/nine-update retained integration demonstration verify; one interruption/NPY review repair preserved. No efficacy conclusion."
     }
   ],
   "next_required_work": [
-    "Review and integrate the separate stacked episode-bank PR together with its parent fractional-history PR; preserve concurrent work.",
-    "Use the pinned development artifact path only under its documented fresh-interpreter, immutable-checkout and CPU-loader conditions.",
-    "Any scientific adoption requires a separately qualified prospective runner/protocol integration and exact frozen execution decision; the existing held matrix and historical conclusions remain unchanged."
+    "Finish separate reviewed draft publication and record exact PR/head/CI receipt; no more model execution in this closed session.",
+    "Reconcile concurrent open proposals explicitly before any integrated source is qualified; preserve all predecessor and parallel state histories.",
+    "Use independently justified, versioned methodology and authorization for any successor development budget or held scientific campaign; current engineering evidence does not complete the research."
   ],
-  "development_branch": "codex/fim-development-episode-bank-20261010",
+  "development_branch": "codex/fim-paired-development-runner-20261010",
   "independent_review": {
     "status": "COMPLETED",
-    "reviewer": "Parent-assigned independent finance_space agent",
-    "date": "2026-10-10",
-    "scope": "New artifact producer/consumer, meaningful tests, source freshness, failure preservation, CPU precondition and scientific boundary",
-    "result": "Two concrete review defects repaired; no remaining source blocker before final 108-test suite and one retained demo."
+    "reviewers": [
+      "Parent-assigned atg_ngmt_olympus source-only model/reset/training/failure reviewer",
+      "Parent root source-only receipt, seed/checkpoint, diagnostic and bounded-header reviewer"
+    ],
+    "result": "One review repair cycle; final source-only readback cleared before affected suite and single demo.",
+    "reviewed_source_sha256": "735af27ffbbc484ed286cd880dc784a8e7efe107dd724dadae4508b37cc49d73",
+    "reviewed_test_sha256": "7aa6390a40fa60f088bef07e089849a4d65e46d43506274edad2709f588a9926"
   },
   "engineering_sessions": [
     {
@@ -471,9 +539,215 @@
       "stacked_base_branch": "codex/fim-bounded-fractional-history-20261010",
       "result_record": "research/DEVELOPMENT_EPISODE_BANK_V1_RESULT_20261010.md",
       "publication_parent_commit": "1c2de9851b6d6858e25f6cdedb641ef9300343e2"
+    },
+    {
+      "session_id": "development-paired-runner-v1-20261010",
+      "event": "NEW_BOUNDED_ENGINEERING_CONTINUATION_AUTHORIZED",
+      "started_at_utc": "2026-10-10T05:43:55.357857+00:00",
+      "authorization": "The user attached the pipeline again and requested further real GitHub changes; parent approved a new-only prospective development runner and explicit tiny integration budget.",
+      "status": "CLOSED_VERIFIED_READY_FOR_DRAFT_PUBLICATION",
+      "source_base_commit": "0ad7dc9766771cb3d9cb18bab649cfa2da3e4dc5",
+      "predecessor_pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/35",
+      "predecessor_budget_status": "CLOSED_UNMODIFIED",
+      "contract": "research/DEVELOPMENT_PAIRED_RUNNER_V1_CONTRACT_20261010.md",
+      "budget": {
+        "workstreams": 1,
+        "max_verification_commands_or_probes": 6,
+        "max_total_verification_command_seconds": 240,
+        "max_review_repair_cycles": 2,
+        "retained_integration_demos": 1,
+        "retained_demo_model_arms": 3,
+        "retained_demo_optimizer_updates": 9,
+        "retained_demo_model_step_calls": 60,
+        "protected_outcome_runs": 0,
+        "scientific_matrix_dispatches": 0,
+        "paid_compute": 0,
+        "numeric_threads": 1
+      },
+      "budget_consumed": {
+        "verification_commands_or_probes": 3,
+        "verification_command_seconds": 43.670314927003346,
+        "review_repair_cycles": 1,
+        "retained_demos": 1,
+        "retained_demo_optimizer_updates": 9,
+        "retained_demo_model_step_calls": 60
+      },
+      "overlap_audit": {
+        "PR28": "Public fim/training trainer/optimizer; unchanged.",
+        "PR27": "Existing maintained experiment trainer/evaluator/admission; unchanged.",
+        "PR34": "Standalone fim/memory/trace_bank; unchanged.",
+        "PR32": "General metrics; unchanged.",
+        "PR36": "Newly observed standalone fim/core/stability_v2.py, tests and parallel canonical-state proposal at df0a0fce5ef5b28982a55428ebf0573f74c0fd45; no source integrated/revalidated here."
+      },
+      "events": [
+        {
+          "event": "PREIMPLEMENTATION_CONTRACT_RECORDED",
+          "observation": "Pinned episode banks have no consuming model runner; existing reset helper suppresses failures.",
+          "predicted_consequence": "Three existing interventions consume identical pinned inputs and initial parameters while strict resets prevent cross-episode memory and failures stay explicit."
+        },
+        {
+          "event": "FIRST_FOCUSED_GATE_PASSED",
+          "result": "40 real-model, isolation, pairing, reproducibility, failure and evidence-admission tests passed; no retained demonstration yet.",
+          "scientific_inference": "None; artificial DEVELOPMENT integration fixtures only."
+        },
+        {
+          "event": "REVIEW_REPAIR_CYCLE_1_DECLARED_BEFORE_EDITS",
+          "observation": "Independent source-only review found primary KeyboardInterrupt/SystemExit plus cleanup failure could escape before episode_failed is written; source review also found checkpoint NPY declared shapes should be bounded before NumPy allocates arrays.",
+          "cause": "Episode catch covers Exception only and error journaling occurs after finally; archive entry size alone does not validate declared NPY shape before np.load.",
+          "proposed_change": "Retain primary and cleanup BaseExceptions, re-raise cancellation after recording, stop remaining arms, and preflight NPY shape/dtype/payload length before array loading.",
+          "predicted_consequence": "Cancellation remains cancellation without losing cleanup evidence or running later arms; malformed checkpoint headers cannot bypass array allocation limits.",
+          "required_evidence": "Injected cancellation/cleanup tests with no real training plus bounded malformed-header tests; final affected suite and source-only readback before demo.",
+          "reviewer": "Independent atg_ngmt_olympus and parent root; NPY admission bound self-review."
+        },
+        {
+          "event": "INDEPENDENT_REPAIR_READBACK_COMPLETED",
+          "result": "Both cancellation preservation and preallocation checkpoint bounds approved; no further source blocker."
+        },
+        {
+          "event": "FINAL_AFFECTED_GATE_PASSED",
+          "result": "124 tests passed, including 45 new runner cases. No protected outcomes."
+        },
+        {
+          "event": "SOLE_RETAINED_DEMO_VERIFIED_AND_BUDGET_CLOSED",
+          "run_sha256": "382d2e7febf87af361de2fc3c1ab2645d4aa6b2ff447a11f723f7159560617d4",
+          "result": "60 model steps and 9 optimizer updates; every arm complete; only integration diagnostics retained. No further execution under this closed session."
+        }
+      ],
+      "verification_attempts": [
+        {
+          "attempt": 1,
+          "kind": "FOCUSED_REAL_MODEL_AND_FAILURE_TESTS",
+          "command": [
+            "python",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_paired_development_v1.py"
+          ],
+          "exit_code": 0,
+          "seconds": 26.40526728599798,
+          "scope": "Small artificial development fixtures; no retained demonstration or protected outcome.",
+          "pytest_result": "40 passed in 18.38s",
+          "log": "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01.log",
+          "source_snapshot": "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_01_source_snapshot.json"
+        },
+        {
+          "attempt": 2,
+          "kind": "FINAL_AFFECTED_SUITE_AFTER_REVIEW_REPAIR_1",
+          "command": [
+            "python",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_paired_development_v1.py",
+            "tests/test_episode_bank_v1.py",
+            "tests/test_current_component_ablations.py",
+            "tests/test_retrieval_temperature_gradient.py",
+            "tests/test_training_tensor_semantics.py"
+          ],
+          "exit_code": 0,
+          "seconds": 9.62292953999713,
+          "timed_out": false,
+          "scope": "Bounded artificial DEVELOPMENT fixtures only; no retained demonstration or protected outcome.",
+          "pytest_result": "124 passed in 8.06s",
+          "new_runner_tests_passed": 45,
+          "log": "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02.log",
+          "source_snapshot": "research/artifacts/development_paired_runner_v1_tests_20261010/attempt_02_source_snapshot.json"
+        },
+        {
+          "attempt": 3,
+          "kind": "SINGLE_RETAINED_INTEGRATION_DEMO",
+          "command": [
+            "python",
+            "-m",
+            "fim_experiments.paired_development_v1",
+            "demo",
+            "--output",
+            "research/artifacts/development_paired_runner_v1_demo_20261010"
+          ],
+          "exit_code": 0,
+          "seconds": 7.642118101008236,
+          "timed_out": false,
+          "planned_model_steps": 60,
+          "planned_optimizer_updates": 9,
+          "bank_sha256": "ae8e143064f27be469e69dc19fe1fac41d30737ecdcd4acff7a6de4a91afc938",
+          "runner_source_sha256": "735af27ffbbc484ed286cd880dc784a8e7efe107dd724dadae4508b37cc49d73",
+          "scope": "DEVELOPMENT / INTEGRATION_ONLY; consumes existing retained bank; not a frozen hypothesis test.",
+          "log": "research/artifacts/development_paired_runner_v1_tests_20261010/retained_demo.log",
+          "receipt": "research/artifacts/development_paired_runner_v1_tests_20261010/retained_demo_command_receipt.json",
+          "result": "VERIFIED_INTEGRATION"
+        }
+      ],
+      "budget_status": "CLOSED_NO_FURTHER_EXECUTION",
+      "independent_review": {
+        "status": "COMPLETED",
+        "reviewers": [
+          "Parent-assigned atg_ngmt_olympus source-only model/reset/training/failure reviewer",
+          "Parent root source-only receipt, seed/checkpoint, diagnostic and bounded-header reviewer"
+        ],
+        "result": "One review repair cycle; final source-only readback cleared before affected suite and single demo.",
+        "reviewed_source_sha256": "735af27ffbbc484ed286cd880dc784a8e7efe107dd724dadae4508b37cc49d73",
+        "reviewed_test_sha256": "7aa6390a40fa60f088bef07e089849a4d65e46d43506274edad2709f588a9926"
+      },
+      "source_sha256": {
+        "fim_experiments/paired_development_v1.py": "735af27ffbbc484ed286cd880dc784a8e7efe107dd724dadae4508b37cc49d73",
+        "fim_experiments/models.py": "16259452161edf0dc83568542f1705c5a4c82bb61db5ed63e8ba2f4865534520",
+        "fim_experiments/systems.py": "4199cb9498cfd255f267f442651d76ae374c269c9f4048ea70617f0a190e269b",
+        "fim_experiments/ablation_systems.py": "774400383ff260bc6c24cdfaaa6d27c9dd9cd881be53268f80a64fc989af4b50",
+        "fim_experiments/episode_bank_v1.py": "2ef2ebd92cf805009b8f868386ac60c53009806b1addc51cdff5110fad28e4f6",
+        "fim_experiments/benchmark.py": "d9c892386c26d0a8d66403459140fa1e5722e86883e263c7fdd1375a586bec71",
+        "fim_experiments/runtime_benchmarks.py": "dcadcf54ecbbe93aa8666019e380169f34869e3b27a514c044e3cdfde2950d57",
+        "tests/test_paired_development_v1.py": "7aa6390a40fa60f088bef07e089849a4d65e46d43506274edad2709f588a9926",
+        "tests/test_episode_bank_v1.py": "007b4bc643f3b6d067e2b4f4b1561f7ad54f98d062c94e2563afc8804002e137",
+        "tests/test_current_component_ablations.py": "f0e02e6fe484ecaa9fd355a31262411ddf4eb119a457f4bcef7dcbe14514a4c7",
+        "tests/test_retrieval_temperature_gradient.py": "e40d2ee5c9c9f78b8ccdb68c22ad677bff5d90ebc6c8299dc623dc5df6527777",
+        "tests/test_training_tensor_semantics.py": "8b01be841e209d8b217ee3c25b68e92b661ef53e9d4d6440795434f1dc9b06d3"
+      },
+      "demonstration": {
+        "allocated_parameters_per_arm": 2372,
+        "bank_sha256": "ae8e143064f27be469e69dc19fe1fac41d30737ecdcd4acff7a6de4a91afc938",
+        "compute_matched": false,
+        "diagnostic_observation_mse_float64_by_arm_split": {
+          "full": {
+            "development_eval": 1.0289934449153166,
+            "train": 0.5497110425441943,
+            "validation": 0.3222115305374137
+          },
+          "no_memory": {
+            "development_eval": 1.0287509765248437,
+            "train": 0.5513993717035174,
+            "validation": 0.318345916528457
+          },
+          "no_retrieval": {
+            "development_eval": 1.0287509765248437,
+            "train": 0.5513993717035174,
+            "validation": 0.318345916528457
+          }
+        },
+        "initial_parameter_sha256": "d3f82d4dcb72d1240162486afde58004b7e1a509745d657e3fd6ec2750fb775e",
+        "model_steps": 60,
+        "optimizer_updates": 9,
+        "phase": "DEVELOPMENT",
+        "process_peak_rss_bytes": 331022336,
+        "purpose": "INTEGRATION_ONLY",
+        "rss_scope": "Cumulative Linux process high-water mark including imports and all prior arms; not per-arm memory",
+        "run_sha256": "382d2e7febf87af361de2fc3c1ab2645d4aa6b2ff447a11f723f7159560617d4",
+        "schema": "FIM_PAIRED_DEVELOPMENT_RUN_V1",
+        "scientific_support_inferred": false,
+        "seconds": 0.8077199190011015,
+        "status": "VERIFIED_INTEGRATION",
+        "artifact_directory": "research/artifacts/development_paired_runner_v1_demo_20261010",
+        "manifest": "research/artifacts/development_paired_runner_v1_demo_20261010/manifest.json",
+        "command_receipt": "research/artifacts/development_paired_runner_v1_tests_20261010/retained_demo_command_receipt.json",
+        "total_command_seconds": 7.642118101008236
+      },
+      "result_record": "research/DEVELOPMENT_PAIRED_RUNNER_V1_RESULT_20261010.md",
+      "development_branch": "codex/fim-paired-development-runner-20261010",
+      "stacked_base_branch": "codex/fim-development-episode-bank-20261010",
+      "publication_parent_commit": "0ad7dc9766771cb3d9cb18bab649cfa2da3e4dc5"
     }
   ],
-  "active_engineering_session": "development-episode-bank-v1-20261010",
+  "active_engineering_session": "development-paired-runner-v1-20261010",
   "linked_development_receipts": [
     {
       "recorded_on": "2026-10-10",
