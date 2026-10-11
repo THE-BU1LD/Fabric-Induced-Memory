@@ -440,6 +440,64 @@
         "PR39 implicit diffusion is a separate proposal and is not included in this test total."
       ],
       "next_action": "Review this draft branch alongside its PR38 prerequisite; integrate only after maintainer review. Scientific study execution remains held."
+    },
+    {
+      "id": "fim-strict-evidence-json-20261011",
+      "status": "CLOSED_ENGINEERING_VERIFIED_FOR_EXISTING_DRAFT",
+      "base_commit": "a659bc621f38a527397ea7ae7a18f2f144e1c7b2",
+      "base_pr": 44,
+      "contract": "research/maintenance/strict_evidence_json_20261011/CONTRACT.md",
+      "predecessor_snapshot": "research/state_snapshots/PR44_a659bc621f38_before_strict_evidence_json_RESEARCH_STATE.json",
+      "predecessor_sha256": "352e5740307000b0ebc1d84c61a90090d9fda45948ad628d5a3f54b5c372f178",
+      "change": "Reject duplicate JSON keys and nonfinite real values before the trajectory analyzer and successor-verifier semantic admission. Preserve existing valid method, numerical and publication semantics.",
+      "verification": {
+        "new_test_methods": 9,
+        "baseline_failing_subcases": 34,
+        "baseline_log": "research/maintenance/strict_evidence_json_20261011/baseline.log",
+        "candidate_log": "research/maintenance/strict_evidence_json_20261011/candidate.log",
+        "existing_publication_test_methods": 17,
+        "existing_protocol_test_methods": 13,
+        "total_passing_distinct_test_methods": 39,
+        "new_python_dependencies": 0,
+        "torch_backend_imports": 0,
+        "full_repository_run": false,
+        "historical_864_tests_rerun": false,
+        "independent_review": "research/maintenance/strict_evidence_json_20261011/independent_review.json",
+        "compilation": "passed",
+        "preservation_receipt": "research/maintenance/strict_evidence_json_20261011/preservation.json",
+        "whitespace": {
+          "maintained_source_tests_and_metadata": "passed",
+          "complete_staged_check": "six original unittest trailing spaces in retained baseline.log",
+          "receipt": "research/maintenance/strict_evidence_json_20261011/whitespace.json"
+        }
+      },
+      "observed_failures": [
+        "Original readers fail 34 strengthened parse-boundary subcases across the same nine test methods. Full baseline output is retained.",
+        "A constructed duplicate execution_authorized field survives original json.loads and passes the unchanged frozen-method validator; repaired decoding rejects it before validation.",
+        "Complete staged whitespace check reports six unittest-emitted trailing spaces in baseline.log; raw original failure output is retained. Scoped source/tests/metadata check passed."
+      ],
+      "scientific_boundaries": {
+        "protected_runs": 0,
+        "protected_outcome_access": false,
+        "model_fits": 0,
+        "retained_demo_reruns": 0,
+        "paid_compute": 0,
+        "scientific_workflow_dispatches": 0,
+        "main_merges": 0,
+        "scientific_checkpoint_advanced": false,
+        "historical_negative_results_preserved": true
+      },
+      "historical_verifier_note": "docs/integration/20261011/verify_sources.py remains exact and describes its historical implementation tree. The present parser continuation changes two reader files; use this session preservation receipt for the current tree.",
+      "next_action": "Review the narrow continuation in existing draft PR44 with prerequisite PR38. Scientific execution and main integration remain subject to their existing separate gates.",
+      "budget_consumed": {
+        "new_admission_processes": 2,
+        "existing_neighbor_processes": 2,
+        "metadata_only_direct_probe": 1,
+        "repair_reruns": 0,
+        "full_torch_processes": 0,
+        "paid_compute": 0,
+        "scientific_runs": 0
+      }
     }
   ],
   "engineering_continuations": [
@@ -573,9 +631,9 @@
     }
   ],
   "current_engineering_session": {
-    "id": "fim-followup-integration-20261011",
-    "record": "followup_integration_sessions",
-    "note": "Earlier active/latest markers remain source-specific historical values; this pointer identifies the current integration session."
+    "id": "fim-strict-evidence-json-20261011",
+    "record": "maintenance_sessions",
+    "note": "Earlier integration receipts and closed budgets remain exact historical records. This pointer identifies the narrow parser continuation."
   },
   "followup_integration_sessions": [
     {

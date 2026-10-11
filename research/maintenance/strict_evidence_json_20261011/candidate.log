@@ -1,0 +1,14 @@
+test_analysis_preserves_valid_values_and_exact_source_hash (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_preserves_valid_values_and_exact_source_hash) ... ok
+test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) ... ok
+test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) ... ok
+test_both_readers_reject_invalid_utf8_or_syntax (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_invalid_utf8_or_syntax) ... ok
+test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) ... ok
+test_standalone_script_invocations_use_strict_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_standalone_script_invocations_use_strict_admission) ... ok
+test_successor_preserves_the_complete_unchanged_method (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_preserves_the_complete_unchanged_method) ... ok
+test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) ... ok
+test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.112s
+
+OK

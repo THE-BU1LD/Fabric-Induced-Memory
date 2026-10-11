@@ -8,6 +8,11 @@ import math
 from pathlib import Path
 from typing import Any
 
+try:
+    from scripts.evidence_json import decode_evidence_object
+except ModuleNotFoundError:
+    from evidence_json import decode_evidence_object
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PROTOCOL = (
     ROOT / "research" / "protocols" / "FIM_DELAYED_RECALL_SUCCESSOR_V2.json"
@@ -277,7 +282,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--protocol", type=Path, default=DEFAULT_PROTOCOL)
     args = parser.parse_args()
-    payload = json.loads(args.protocol.read_text(encoding="utf-8"))
+    payload = decode_evidence_object(args.protocol.read_bytes())
     print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
 
 

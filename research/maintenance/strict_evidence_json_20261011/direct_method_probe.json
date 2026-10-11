@@ -1,0 +1,8 @@
+{
+  "scope": "Constructed contradictory copy of frozen method; only unchanged metadata validator invoked, no backend loaded.",
+  "original_decode_plus_frozen_contract": "ACCEPTED",
+  "candidate_decode": "REJECTED",
+  "candidate_error": "duplicate JSON key: 'execution_authorized'",
+  "constructed_input_sha256": "6a6d3f3c2935cf15f1f126f09747babc0855aab08b6ae1b11838fd61fcbc6f12",
+  "retained_protocol_bytes_unchanged": true
+}

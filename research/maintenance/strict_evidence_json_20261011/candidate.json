@@ -1,0 +1,25 @@
+{
+  "base_commit": "a659bc621f38a527397ea7ae7a18f2f144e1c7b2",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_evidence_json_admission.py",
+    "-v"
+  ],
+  "python": "3.12.14",
+  "exit_code": 0,
+  "wall_seconds": 0.21134154299943475,
+  "source_sha256": {
+    "scripts/analyze_trajectory_isolated_ablations.py": "62be7cf03020af4b3779beb4188e3516a092ec9eadedd01c9134329be6b92c8b",
+    "scripts/verify_delayed_recall_successor_v2.py": "2c9df62121eaf2b38b5b36b98b9c25b1894d6294a49c601fb4a955e9c23fd068",
+    "scripts/evidence_json.py": "6dd73ddd26034f913485cf36a1cd400bebc4b1d344f45ed58ddef5162de1a38d",
+    "tests/test_evidence_json_admission.py": "d3920d12d31d920c76cd84243327f9b10befa4129c5fc305fded7b123bdb32cc"
+  },
+  "raw_log": "candidate.log",
+  "scope": "Same artificial JSON admission suite as baseline; no scientific outcomes or backend imports."
+}

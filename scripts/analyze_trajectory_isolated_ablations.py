@@ -6,7 +6,6 @@ import csv
 import hashlib
 import io
 import itertools
-import json
 import math
 import random
 import re
@@ -15,8 +14,10 @@ from statistics import mean, median
 from typing import Iterable
 
 try:
+    from scripts.evidence_json import decode_evidence_object
     from scripts.evidence_publication import publish_evidence
 except ModuleNotFoundError:
+    from evidence_json import decode_evidence_object
     from evidence_publication import publish_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -245,7 +246,7 @@ def main() -> None:
 
     manifest_bytes = args.manifest.read_bytes()
     manifest_sha256 = hashlib.sha256(manifest_bytes).hexdigest()
-    data = json.loads(manifest_bytes.decode("utf-8"))
+    data = decode_evidence_object(manifest_bytes)
     rows = validate_manifest(data)
     comparisons = build_comparisons(rows)
 

@@ -1,0 +1,24 @@
+{
+  "base_commit": "a659bc621f38a527397ea7ae7a18f2f144e1c7b2",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_evidence_json_admission.py",
+    "-v"
+  ],
+  "python": "3.12.14",
+  "exit_code": 1,
+  "wall_seconds": 0.22645409799952176,
+  "source_sha256": {
+    "scripts/analyze_trajectory_isolated_ablations.py": "4ee7742afef636140ca3e044bf0fa2bf15b757e3fcb77b86705aba9e1347b5e1",
+    "scripts/verify_delayed_recall_successor_v2.py": "0e1507d2990faf6927575ad12499514a7b20b633d19d468aad5657e65e203a8f",
+    "tests/test_evidence_json_admission.py": "d3920d12d31d920c76cd84243327f9b10befa4129c5fc305fded7b123bdb32cc"
+  },
+  "raw_log": "baseline.log",
+  "scope": "Artificial JSON and semantic-call doubles only; no scientific outcomes or backend imports."
+}

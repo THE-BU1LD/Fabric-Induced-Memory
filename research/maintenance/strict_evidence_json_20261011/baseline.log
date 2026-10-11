@@ -1,0 +1,736 @@
+test_analysis_preserves_valid_values_and_exact_source_hash (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_preserves_valid_values_and_exact_source_hash) ... ok
+test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) ... 
+  test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"execution_authorized":true,"execution_authorized":false}') ... FAIL
+  test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"status":"failed","status":"success"}]}') ... FAIL
+  test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"rollout_mse":8.0,"rollout_mse":0.0}]}') ... FAIL
+  test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"budget":{"epochs":4,"epochs":4}}') ... FAIL
+  test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"status":"failed","\\u0073tatus":"success"}]}') ... FAIL
+  test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"outer":[[{"nested":{"flag":true,"flag":false}}]]}') ... FAIL
+test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) ... 
+  test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) (token=b'NaN') ... FAIL
+  test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) (token=b'Infinity') ... FAIL
+  test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) (token=b'-Infinity') ... FAIL
+  test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) (token=b'1e9999') ... FAIL
+  test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) (token=b'-1e9999') ... FAIL
+test_both_readers_reject_invalid_utf8_or_syntax (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_invalid_utf8_or_syntax) ... ok
+test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) ... 
+  test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.analyze_trajectory_isolated_ablations', raw=b'[]') ... FAIL
+  test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.analyze_trajectory_isolated_ablations', raw=b'null') ... FAIL
+  test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.analyze_trajectory_isolated_ablations', raw=b'"fixture"') ... FAIL
+  test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.analyze_trajectory_isolated_ablations', raw=b'1') ... FAIL
+  test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.analyze_trajectory_isolated_ablations', raw=b'true') ... FAIL
+  test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.verify_delayed_recall_successor_v2', raw=b'[]') ... FAIL
+  test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.verify_delayed_recall_successor_v2', raw=b'null') ... FAIL
+  test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.verify_delayed_recall_successor_v2', raw=b'"fixture"') ... FAIL
+  test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.verify_delayed_recall_successor_v2', raw=b'1') ... FAIL
+  test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.verify_delayed_recall_successor_v2', raw=b'true') ... FAIL
+test_standalone_script_invocations_use_strict_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_standalone_script_invocations_use_strict_admission) ... 
+  test_standalone_script_invocations_use_strict_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_standalone_script_invocations_use_strict_admission) (script='analyze_trajectory_isolated_ablations.py') ... FAIL
+  test_standalone_script_invocations_use_strict_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_standalone_script_invocations_use_strict_admission) (script='verify_delayed_recall_successor_v2.py') ... FAIL
+test_successor_preserves_the_complete_unchanged_method (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_preserves_the_complete_unchanged_method) ... ok
+test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) ... 
+  test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"execution_authorized":true,"execution_authorized":false}') ... FAIL
+  test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"status":"failed","status":"success"}]}') ... FAIL
+  test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"rollout_mse":8.0,"rollout_mse":0.0}]}') ... FAIL
+  test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"budget":{"epochs":4,"epochs":4}}') ... FAIL
+  test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"status":"failed","\\u0073tatus":"success"}]}') ... FAIL
+  test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"outer":[[{"nested":{"flag":true,"flag":false}}]]}') ... FAIL
+test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) ... 
+  test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) (token=b'NaN') ... FAIL
+  test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) (token=b'Infinity') ... FAIL
+  test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) (token=b'-Infinity') ... FAIL
+  test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) (token=b'1e9999') ... FAIL
+  test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) (token=b'-1e9999') ... FAIL
+
+======================================================================
+FAIL: test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"execution_authorized":true,"execution_authorized":false}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 68, in test_analysis_rejects_duplicate_fields_before_admission
+    self.run_reader(analysis, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"status":"failed","status":"success"}]}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 68, in test_analysis_rejects_duplicate_fields_before_admission
+    self.run_reader(analysis, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"rollout_mse":8.0,"rollout_mse":0.0}]}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 68, in test_analysis_rejects_duplicate_fields_before_admission
+    self.run_reader(analysis, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"budget":{"epochs":4,"epochs":4}}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 68, in test_analysis_rejects_duplicate_fields_before_admission
+    self.run_reader(analysis, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"status":"failed","\\u0073tatus":"success"}]}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 68, in test_analysis_rejects_duplicate_fields_before_admission
+    self.run_reader(analysis, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_analysis_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_duplicate_fields_before_admission) (raw=b'{"outer":[[{"nested":{"flag":true,"flag":false}}]]}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 68, in test_analysis_rejects_duplicate_fields_before_admission
+    self.run_reader(analysis, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) (token=b'NaN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 78, in test_analysis_rejects_nonfinite_values_in_unused_metadata
+    self.run_reader(analysis, b'{"unused_metadata":' + token + b"}")
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) (token=b'Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 78, in test_analysis_rejects_nonfinite_values_in_unused_metadata
+    self.run_reader(analysis, b'{"unused_metadata":' + token + b"}")
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) (token=b'-Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 78, in test_analysis_rejects_nonfinite_values_in_unused_metadata
+    self.run_reader(analysis, b'{"unused_metadata":' + token + b"}")
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) (token=b'1e9999')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 78, in test_analysis_rejects_nonfinite_values_in_unused_metadata
+    self.run_reader(analysis, b'{"unused_metadata":' + token + b"}")
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_analysis_rejects_nonfinite_values_in_unused_metadata (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_analysis_rejects_nonfinite_values_in_unused_metadata) (token=b'-1e9999')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 78, in test_analysis_rejects_nonfinite_values_in_unused_metadata
+    self.run_reader(analysis, b'{"unused_metadata":' + token + b"}")
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.analyze_trajectory_isolated_ablations', raw=b'[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 89, in test_both_readers_reject_nonobject_documents
+    self.run_reader(module, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.analyze_trajectory_isolated_ablations', raw=b'null')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 89, in test_both_readers_reject_nonobject_documents
+    self.run_reader(module, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.analyze_trajectory_isolated_ablations', raw=b'"fixture"')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 89, in test_both_readers_reject_nonobject_documents
+    self.run_reader(module, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.analyze_trajectory_isolated_ablations', raw=b'1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 89, in test_both_readers_reject_nonobject_documents
+    self.run_reader(module, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.analyze_trajectory_isolated_ablations', raw=b'true')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 89, in test_both_readers_reject_nonobject_documents
+    self.run_reader(module, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main
+    rows = validate_manifest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.verify_delayed_recall_successor_v2', raw=b'[]')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 89, in test_both_readers_reject_nonobject_documents
+    self.run_reader(module, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.verify_delayed_recall_successor_v2', raw=b'null')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 89, in test_both_readers_reject_nonobject_documents
+    self.run_reader(module, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.verify_delayed_recall_successor_v2', raw=b'"fixture"')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 89, in test_both_readers_reject_nonobject_documents
+    self.run_reader(module, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.verify_delayed_recall_successor_v2', raw=b'1')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 89, in test_both_readers_reject_nonobject_documents
+    self.run_reader(module, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_both_readers_reject_nonobject_documents (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_both_readers_reject_nonobject_documents) (module='scripts.verify_delayed_recall_successor_v2', raw=b'true')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 89, in test_both_readers_reject_nonobject_documents
+    self.run_reader(module, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_standalone_script_invocations_use_strict_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_standalone_script_invocations_use_strict_admission) (script='analyze_trajectory_isolated_ablations.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 150, in test_standalone_script_invocations_use_strict_admission
+    self.assertIn("duplicate JSON key", result.stderr)
+AssertionError: 'duplicate JSON key' not found in 'Traceback (most recent call last):\n  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 287, in <module>\n    main()\n  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 249, in main\n    rows = validate_manifest(data)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/analyze_trajectory_isolated_ablations.py", line 91, in validate_manifest\n    raise ValueError("Unexpected protocol_name")\nValueError: Unexpected protocol_name\n'
+
+======================================================================
+FAIL: test_standalone_script_invocations_use_strict_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_standalone_script_invocations_use_strict_admission) (script='verify_delayed_recall_successor_v2.py')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 150, in test_standalone_script_invocations_use_strict_admission
+    self.assertIn("duplicate JSON key", result.stderr)
+AssertionError: 'duplicate JSON key' not found in 'Traceback (most recent call last):\n  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 285, in <module>\n    main()\n  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main\n    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))\n                     ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 160, in verify_protocol\n    verify_frozen_contract(payload)\n  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 156, in verify_frozen_contract\n    _verify_frozen_value(payload, FROZEN_CONTRACT, "")\n  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 126, in _verify_frozen_value\n    require(not missing, f"{label} is missing frozen fields: {missing}")\n  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 111, in require\n    raise ProtocolError(message)\nProtocolError: protocol is missing frozen fields: [\'analysis\', \'benchmark\', \'budget\', \'claim_boundary\', \'endpoint\', \'execution_authorized\', \'observation_noise_reference\', \'outcome_access_allowed\', \'paired_design\', \'protocol_name\', \'schema_version\', \'source\']\n'
+
+======================================================================
+FAIL: test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"execution_authorized":true,"execution_authorized":false}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 73, in test_successor_rejects_duplicate_fields_before_admission
+    self.run_reader(successor, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"status":"failed","status":"success"}]}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 73, in test_successor_rejects_duplicate_fields_before_admission
+    self.run_reader(successor, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"rollout_mse":8.0,"rollout_mse":0.0}]}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 73, in test_successor_rejects_duplicate_fields_before_admission
+    self.run_reader(successor, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"budget":{"epochs":4,"epochs":4}}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 73, in test_successor_rejects_duplicate_fields_before_admission
+    self.run_reader(successor, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"runs":[{"status":"failed","\\u0073tatus":"success"}]}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 73, in test_successor_rejects_duplicate_fields_before_admission
+    self.run_reader(successor, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_successor_rejects_duplicate_fields_before_admission (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_duplicate_fields_before_admission) (raw=b'{"outer":[[{"nested":{"flag":true,"flag":false}}]]}')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 73, in test_successor_rejects_duplicate_fields_before_admission
+    self.run_reader(successor, raw)
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) (token=b'NaN')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 83, in test_successor_rejects_nonfinite_values_before_backend_loading
+    self.run_reader(successor, b'{"unused_metadata":' + token + b"}")
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) (token=b'Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 83, in test_successor_rejects_nonfinite_values_before_backend_loading
+    self.run_reader(successor, b'{"unused_metadata":' + token + b"}")
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) (token=b'-Infinity')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 83, in test_successor_rejects_nonfinite_values_before_backend_loading
+    self.run_reader(successor, b'{"unused_metadata":' + token + b"}")
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) (token=b'1e9999')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 83, in test_successor_rejects_nonfinite_values_before_backend_loading
+    self.run_reader(successor, b'{"unused_metadata":' + token + b"}")
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+======================================================================
+FAIL: test_successor_rejects_nonfinite_values_before_backend_loading (test_evidence_json_admission.EvidenceJsonAdmissionTests.test_successor_rejects_nonfinite_values_before_backend_loading) (token=b'-1e9999')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 83, in test_successor_rejects_nonfinite_values_before_backend_loading
+    self.run_reader(successor, b'{"unused_metadata":' + token + b"}")
+  File "/workspace/scratch/979352a87beb/research_execution/fim/tests/test_evidence_json_admission.py", line 60, in run_reader
+    module.main()
+  File "/workspace/scratch/979352a87beb/research_execution/fim/scripts/verify_delayed_recall_successor_v2.py", line 281, in main
+    print(json.dumps(verify_protocol(payload), indent=2, sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1198, in _execute_mock_call
+    raise effect
+AssertionError: ambiguous JSON reached semantic admission
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.124s
+
+FAILED (failures=34)
