@@ -501,7 +501,7 @@
     },
     {
       "id": "fim-evidence-publication-cancellation-20261011",
-      "status": "CLOSED_ENGINEERING_VERIFIED_FOR_DRAFT_REVIEW",
+      "status": "CLOSED_PUBLISHED_DRAFT",
       "base_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
       "base_pr": 44,
       "contract": "research/maintenance/publication_cancellation_20261011/CONTRACT.md",
@@ -548,7 +548,15 @@
         "scientific_checkpoint_advanced": false,
         "historical_negative_results_preserved": true
       },
-      "next_action": "Review isolated draft stacked on PR44 and its prerequisite PR38. Scientific execution and main integration retain their separate gates."
+      "next_action": "Review isolated draft stacked on PR44 and its prerequisite PR38. Scientific execution and main integration retain their separate gates.",
+      "publication": {
+        "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/45",
+        "branch": "codex/fim-publication-cancellation-20261011-58c0b5",
+        "implementation_commit": "362293ef2fb20d12347b3caa8d3f5d3e09ff5dcf",
+        "implementation_tree": "039fc890095095efa8de019fb0c261d359b02aa2",
+        "complete_remote_tree_equals_local_prepared_tree": true,
+        "publication_followup": "This canonical-state-only followup records the completed draft publication. Tested runtime, tests and all evidence bytes are unchanged; no additional test or scientific run is claimed."
+      }
     }
   ],
   "engineering_continuations": [
