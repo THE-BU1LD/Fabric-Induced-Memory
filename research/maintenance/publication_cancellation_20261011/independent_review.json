@@ -1,0 +1,7 @@
+{
+  "reviewer": "Independent root agent",
+  "scope": "Reviewed initial publisher diff and cancellation regression source, agreed journal-before-replace and consumed-stage approach under the stated single-writer/no-arbitrary-asynchronous-interruption contract. Agreed that final repair must handle consumed rollback backups without reporting nonexistent recovery paths.",
+  "review_message": "Root reviewed current diff plus cancellation test source. Agree consumed backup after rollback rename must not report nonexistent recovery; your proposed final repair addresses it. Within stated single-writer/no-arbitrary-asynchronous-interruption contract, journal-before-replace and consumed-stage check are appropriate. Keep KeyboardInterrupt/SystemExit identity on successful restoration and explicit reduced guarantee on interrupted recovery; do not broaden to crash atomicity. Once final focused witnesses pass, publish draft and return source/receipt.",
+  "final_focused_gate": "27 methods passed; exact result at final_receipt.json",
+  "independent_test_rerun": false
+}

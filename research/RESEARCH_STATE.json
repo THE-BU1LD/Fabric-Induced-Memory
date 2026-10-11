@@ -498,6 +498,57 @@
         "paid_compute": 0,
         "scientific_runs": 0
       }
+    },
+    {
+      "id": "fim-evidence-publication-cancellation-20261011",
+      "status": "CLOSED_ENGINEERING_VERIFIED_FOR_DRAFT_REVIEW",
+      "base_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+      "base_pr": 44,
+      "contract": "research/maintenance/publication_cancellation_20261011/CONTRACT.md",
+      "predecessor_snapshot": "research/maintenance/publication_cancellation_20261011/predecessor_RESEARCH_STATE.json",
+      "predecessor_sha256": "735c2df5626b1b60effd0daef40e882e7655451a0d73237db098b2b3b16d52a3",
+      "change": "Recover Python cancellation during evidence-file replacement; journal before atomic rename, preserve original exceptions and available recovery backups, handle cancellation after completed rollback and failed recovery-status probes.",
+      "verification": {
+        "test_methods_passed": 27,
+        "existing_methods": 17,
+        "new_methods": 10,
+        "new_subcases_inside_new_methods": 54,
+        "final_receipt": "research/maintenance/publication_cancellation_20261011/final_receipt.json",
+        "raw_log": "research/maintenance/publication_cancellation_20261011/final.log",
+        "independent_source_review": "research/maintenance/publication_cancellation_20261011/independent_review.json",
+        "full_repository_run": false,
+        "hosted_ci_claim": false,
+        "torch_backend_imports": 0,
+        "new_dependencies": 0,
+        "counts_overlap": "First candidate 24 methods and final 27 overlap; subcases are not additional independent methods.",
+        "compile": "passed",
+        "preservation_receipt": "research/maintenance/publication_cancellation_20261011/preservation.json",
+        "unrelated_parent_leaves_and_modes_preserved": 441,
+        "whitespace": "Maintained code/tests/new metadata pass; full check records four unittest-emitted trailing spaces in preserved raw baseline.log."
+      },
+      "observed_failures": [
+        "Original publisher recorded 30 failing constructed subcases, then original KeyboardInterrupt escaped an expected-wrapper assertion and ended the incomplete baseline. Exact baseline test/source/log/receipt retained.",
+        "First passing candidate source review identified possible nonexistent backup instructions after completed rollback plus a recovery-status-probe failure path; reserved repair cycle corrected both."
+      ],
+      "budget_consumed": {
+        "baseline_processes": 1,
+        "candidate_processes": 2,
+        "repair_review_cycles": 1,
+        "test_command_seconds": 0.7473361879965523,
+        "protected_runs": 0,
+        "retained_demo_reruns": 0,
+        "paid_compute": 0
+      },
+      "scientific_boundaries": {
+        "protected_runs": 0,
+        "protected_outcome_access": false,
+        "model_fits": 0,
+        "scientific_workflow_dispatches": 0,
+        "main_merges": 0,
+        "scientific_checkpoint_advanced": false,
+        "historical_negative_results_preserved": true
+      },
+      "next_action": "Review isolated draft stacked on PR44 and its prerequisite PR38. Scientific execution and main integration retain their separate gates."
     }
   ],
   "engineering_continuations": [
@@ -631,9 +682,9 @@
     }
   ],
   "current_engineering_session": {
-    "id": "fim-strict-evidence-json-20261011",
+    "id": "fim-evidence-publication-cancellation-20261011",
     "record": "maintenance_sessions",
-    "note": "Earlier integration receipts and closed budgets remain exact historical records. This pointer identifies the narrow parser continuation."
+    "note": "Earlier source-bound receipts, negative results, closed budgets and held scientific execution remain preserved."
   },
   "followup_integration_sessions": [
     {

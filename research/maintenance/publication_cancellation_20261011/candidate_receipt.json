@@ -1,0 +1,25 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_evidence_publication*.py",
+    "-v"
+  ],
+  "returncode": 0,
+  "wall_seconds": 0.3493395120021887,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "source_sha256": {
+    "scripts/evidence_publication.py": "08ace9d32486a7bc542e54170d5525dd2c8fc5637f014e0799d5df2690ee6490",
+    "tests/test_evidence_publication_cancellation.py": "12476660e54e4278449fbeb0b29ec0efe49054cf9436bc2e3876cc1a0a9bc926",
+    "tests/test_evidence_publication.py": "76e9862101a9bd3b53c6d31b2a1013c4131d930d975c4526ed3790acf9c25b20"
+  },
+  "sources_unchanged": true,
+  "base_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+  "read_scientific_outcomes": false,
+  "baseline_note": "Baseline reproduced partial-publication failures but original KeyboardInterrupt escaped the expected recovery-error assertion and ended the process. Exact original tests and raw log retained. Candidate tests catch BaseException before asserting the expected recovery-error class to prevent this fixture from terminating a test runner."
+}

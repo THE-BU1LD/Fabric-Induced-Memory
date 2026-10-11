@@ -1,0 +1,42 @@
+{
+  "base_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+  "base_tree": "cdd6c51d661a119c4a836429b2a06ce042ed1998",
+  "base_leaf_count": 443,
+  "unrelated_base_leaves_and_modes_unchanged": 441,
+  "existing_changed_paths": [
+    "research/RESEARCH_STATE.json",
+    "scripts/evidence_publication.py"
+  ],
+  "added_paths_before_this_receipt": [
+    "research/maintenance/publication_cancellation_20261011/CONTRACT.md",
+    "research/maintenance/publication_cancellation_20261011/README.md",
+    "research/maintenance/publication_cancellation_20261011/baseline.log",
+    "research/maintenance/publication_cancellation_20261011/baseline_receipt.json",
+    "research/maintenance/publication_cancellation_20261011/baseline_tests.py.txt",
+    "research/maintenance/publication_cancellation_20261011/before_review/candidate.log",
+    "research/maintenance/publication_cancellation_20261011/before_review/candidate_receipt.json",
+    "research/maintenance/publication_cancellation_20261011/before_review/source.py.txt",
+    "research/maintenance/publication_cancellation_20261011/before_review/tests.py.txt",
+    "research/maintenance/publication_cancellation_20261011/candidate.log",
+    "research/maintenance/publication_cancellation_20261011/candidate_receipt.json",
+    "research/maintenance/publication_cancellation_20261011/final.log",
+    "research/maintenance/publication_cancellation_20261011/final_receipt.json",
+    "research/maintenance/publication_cancellation_20261011/independent_review.json",
+    "research/maintenance/publication_cancellation_20261011/original_source.py.txt",
+    "research/maintenance/publication_cancellation_20261011/predecessor_RESEARCH_STATE.json",
+    "tests/test_evidence_publication_cancellation.py"
+  ],
+  "complete_predecessor_state_preserved": true,
+  "original_runtime_source_preserved": true,
+  "scientific_workflows_protocols_models_and_outcome_leaves_unchanged": true,
+  "compile": "passed",
+  "full_whitespace": {
+    "returncode": 2,
+    "output": "research/maintenance/publication_cancellation_20261011/baseline.log:1: trailing whitespace.\n+test_cancellation_after_atomic_replace_removes_new_outputs (test_evidence_publication_cancellation.PublicationCancellationTests.test_cancellation_after_atomic_replace_removes_new_outputs) ... \nresearch/maintenance/publication_cancellation_20261011/baseline.log:11: trailing whitespace.\n+test_cancellation_after_atomic_replace_restores_existing_outputs (test_evidence_publication_cancellation.PublicationCancellationTests.test_cancellation_after_atomic_replace_restores_existing_outputs) ... \nresearch/maintenance/publication_cancellation_20261011/baseline.log:21: trailing whitespace.\n+test_cancellation_before_replace_removes_new_outputs (test_evidence_publication_cancellation.PublicationCancellationTests.test_cancellation_before_replace_removes_new_outputs) ... \nresearch/maintenance/publication_cancellation_20261011/baseline.log:28: trailing whitespace.\n+test_cancellation_before_replace_restores_existing_outputs (test_evidence_publication_cancellation.PublicationCancellationTests.test_cancellation_before_replace_restores_existing_outputs) ... \n"
+  },
+  "scoped_whitespace_excluding_raw_logs": {
+    "returncode": 0,
+    "output": ""
+  },
+  "verification_mechanism": "Exact Git index mode/blob identities compared with immutable parent tree. No scientific outcome was analyzed."
+}
