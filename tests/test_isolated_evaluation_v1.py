@@ -1,0 +1,252 @@
+"""Artificial public-model checks; no retained dataset or scientific run."""
+
+import copy
+
+import pytest
+import torch
+
+from fim.models.fim_model import FIMModel
+from fim.training.isolated_evaluation_v1 import evaluate_isolated_episode_v1
+from fim.training.trainer import Trainer
+
+
+def make_trainer(*, ema=True, dtype=torch.float32):
+    torch.manual_seed(23)
+    model = FIMModel(
+        in_channels=1, out_channels=1, latent_channels=8, trace_dim=4,
+        hidden_channels=8, num_layers=1, max_traces=8, memory_threshold=0.0,
+    ).to(dtype=dtype)
+    trainer = Trainer(model, device="cpu", use_amp=False, use_ema=ema)
+    trainer.set_scheduler(total_steps=4)
+    return trainer
+
+
+def episode():
+    x = torch.linspace(-1.0, 1.0, 3 * 4 * 6).reshape(1, 3, 1, 4, 6)
+    return x, 0.7 * x
+
+
+def assert_tree_equal(left, right):
+    assert type(left) is type(right)
+    if isinstance(left, torch.Tensor):
+        torch.testing.assert_close(left, right, rtol=0, atol=0)
+    elif isinstance(left, dict):
+        assert left.keys() == right.keys()
+        for name in left:
+            assert_tree_equal(left[name], right[name])
+    elif isinstance(left, (tuple, list)):
+        assert len(left) == len(right)
+        for a, b in zip(left, right):
+            assert_tree_equal(a, b)
+    else:
+        assert left == right
+
+
+def snapshot(trainer):
+    model = trainer.model
+    return {
+        "model": id(model),
+        "state_object": id(model._state),
+        "state_value": None if model._state is None else model._state.detach().clone(),
+        "state_version": None if model._state is None else model._state._version,
+        "parameters": {
+            name: (id(p), p._version, p.detach().clone(), id(p.grad),
+                   None if p.grad is None else p.grad.detach().clone())
+            for name, p in model.named_parameters()
+        },
+        "buffers": {
+            name: (id(value), value._version, value.detach().clone())
+            for name, value in model.named_buffers()
+        },
+        "modes": [(id(module), module.training) for module in model.modules()],
+        "optimizer": copy.deepcopy(trainer.optimizer.state_dict()),
+        "scheduler": copy.deepcopy(trainer.scheduler.state_dict()),
+        "scaler": copy.deepcopy(trainer.scaler.state_dict()),
+        "ema": None if trainer.ema is None else copy.deepcopy(trainer.ema.shadow),
+        "rng": torch.get_rng_state().clone(),
+    }
+
+
+def warm_trainer(trainer):
+    x, y = episode()
+    trainer.train_step((x[:, 0], y[:, 0]))
+    trainer.model.encoder.eval()  # Deliberately mixed module modes.
+    assert trainer.model.step_index == 1
+    assert int(trainer.model.trace_bank.fast_size) > 0
+
+
+def manual_reference(trainer, inputs, targets, weights):
+    # An independent conventional validation copy, with an explicit empty
+    # episode. Do not call the adapter or construct another Trainer/optimizer.
+    memo = {} if trainer.model._state is None else {id(trainer.model._state): None}
+    model = copy.deepcopy(trainer.model, memo)
+    model.reset_state(clear_memory=True)
+    model.eval()
+    if weights == "ema":
+        with torch.no_grad():
+            for name, parameter in model.named_parameters():
+                if parameter.requires_grad:
+                    parameter.copy_(trainer.ema.shadow[name])
+    result = []
+    with torch.no_grad():
+        for t in range(inputs.shape[1]):
+            prediction, output = model.step(inputs[:, t])
+            loss = trainer._loss((prediction, output), targets[:, t])
+            result.append(trainer._stats(loss))
+    return tuple(result), model
+
+
+def test_existing_eval_step_advances_training_episode_and_writes_memory():
+    """Reproduce the existing continuation semantics that require opt-in isolation."""
+    trainer = make_trainer()
+    warm_trainer(trainer)
+    x, y = episode()
+    state = trainer.model._state
+    previous_step = trainer.model.step_index
+    previous_times = trainer.model.trace_bank.fast_times.clone()
+    trainer.eval_step((x[:, 1], y[:, 1]))
+    assert trainer.model.step_index == previous_step + 1
+    assert trainer.model._state is not state
+    assert not torch.equal(trainer.model.trace_bank.fast_times, previous_times)
+
+
+@pytest.mark.parametrize("weights", ["raw", "ema"])
+@pytest.mark.parametrize("dtype", [torch.float32, torch.float64])
+def test_matches_explicit_empty_episode_and_preserves_entire_training_instance(weights, dtype):
+    trainer = make_trainer(dtype=dtype)
+    if dtype == torch.float32:
+        warm_trainer(trainer)
+    x, y = episode()
+    x, y = x.to(dtype), y.to(dtype)
+    expected, reference = manual_reference(trainer, x, y, weights)
+    before = snapshot(trainer)
+    actual = evaluate_isolated_episode_v1(trainer, x, y, weights=weights)
+    assert_tree_equal(snapshot(trainer), before)
+    assert actual == expected
+    assert reference.step_index == x.shape[1]
+    assert int(reference.trace_bank.fast_size) > 0
+    assert int(reference.trace_bank.fast_times.max()) == x.shape[1] - 1
+    assert len(actual) == x.shape[1]
+
+
+def test_raw_and_ema_are_explicit_distinct_weight_choices():
+    trainer = make_trainer()
+    x, y = episode()
+    with torch.no_grad():
+        for parameter in trainer.model.decoder.parameters():
+            parameter.add_(0.3)
+    before = snapshot(trainer)
+    raw = evaluate_isolated_episode_v1(trainer, x, y, weights="raw")
+    ema = evaluate_isolated_episode_v1(trainer, x, y, weights="ema")
+    assert raw[0].pred_loss != ema[0].pred_loss
+    assert_tree_equal(snapshot(trainer), before)
+
+
+def test_unrelated_episode_order_cannot_change_losses_or_training_state():
+    trainer = make_trainer()
+    warm_trainer(trainer)
+    x, y = episode()
+    before = snapshot(trainer)
+    first = evaluate_isolated_episode_v1(trainer, x, y, weights="ema")
+    evaluate_isolated_episode_v1(trainer, -2 * x, y + 1, weights="ema")
+    last = evaluate_isolated_episode_v1(trainer, x, y, weights="ema")
+    assert first == last
+    assert_tree_equal(snapshot(trainer), before)
+
+
+def test_failure_after_memory_write_preserves_rng_and_every_owner_component(monkeypatch):
+    trainer = make_trainer()
+    warm_trainer(trainer)
+    x, y = episode()
+    before = snapshot(trainer)
+    original = Trainer._loss
+    calls = []
+
+    def failing_loss(self, result, target):
+        calls.append(self.model.step_index)
+        torch.rand(3)  # Exercise RNG preservation even on a failing step.
+        if len(calls) == 2:
+            assert self.model is not trainer.model
+            assert int(self.model.trace_bank.fast_size) > 0
+            assert int(self.model.trace_bank.fast_times.max()) == 1
+            raise RuntimeError("injected loss failure after copied memory write")
+        return original(self, result, target)
+
+    monkeypatch.setattr(Trainer, "_loss", failing_loss)
+    with pytest.raises(RuntimeError, match="injected loss failure"):
+        evaluate_isolated_episode_v1(trainer, x, y, weights="ema")
+    assert calls == [1, 2]
+    assert_tree_equal(snapshot(trainer), before)
+
+
+def test_live_training_graph_and_parameter_versions_remain_valid_for_backward():
+    trainer = make_trainer()
+    trainer.model.eval()
+    reference = copy.deepcopy(trainer.model)
+    x, y = episode()
+    target = y[:, 0]
+    predicted, _ = trainer.model.step(x[:, 0], detach_cache=False, stochastic=False)
+    expected, _ = reference.step(x[:, 0], detach_cache=False, stochastic=False)
+    assert trainer.model._state.grad_fn is not None
+    before = snapshot(trainer)
+    evaluate_isolated_episode_v1(trainer, x, y, weights="ema")
+    assert_tree_equal(snapshot(trainer), before)
+    (predicted - target).square().mean().backward()
+    (expected - target).square().mean().backward()
+    for left, right in zip(trainer.model.parameters(), reference.parameters()):
+        if left.grad is None or right.grad is None:
+            assert left.grad is None and right.grad is None
+        else:
+            torch.testing.assert_close(left.grad, right.grad, rtol=0, atol=0)
+
+
+@pytest.mark.parametrize("fault", ["batch_two", "empty", "short_target", "nan", "dtype"])
+def test_bad_episode_rejected_without_mutation_or_copy(fault, monkeypatch):
+    trainer = make_trainer()
+    warm_trainer(trainer)
+    x, y = episode()
+    if fault == "batch_two":
+        x, y = x.repeat(2, 1, 1, 1, 1), y.repeat(2, 1, 1, 1, 1)
+    elif fault == "empty":
+        x, y = x[:, :0], y[:, :0]
+    elif fault == "short_target":
+        y = y[:, :-1]
+    elif fault == "nan":
+        y[0, -1, 0, 0, 0] = float("nan")
+    elif fault == "dtype":
+        x = x.double()
+    before = snapshot(trainer)
+    with monkeypatch.context() as patch:
+        patch.setattr(copy, "deepcopy", lambda *a, **k: pytest.fail("invalid input was copied"))
+        with pytest.raises((ValueError, TypeError)):
+            evaluate_isolated_episode_v1(trainer, x, y, weights="raw")
+    assert_tree_equal(snapshot(trainer), before)
+
+
+def test_ema_request_without_ema_is_rejected():
+    trainer = make_trainer(ema=False)
+    x, y = episode()
+    before = snapshot(trainer)
+    with pytest.raises(ValueError, match="has no EMA"):
+        evaluate_isolated_episode_v1(trainer, x, y, weights="ema")
+    assert_tree_equal(snapshot(trainer), before)
+
+
+def test_unknown_weight_choice_is_rejected():
+    trainer = make_trainer()
+    x, y = episode()
+    with pytest.raises(ValueError, match="weights"):
+        evaluate_isolated_episode_v1(trainer, x, y, weights="automatic")
+
+
+def test_execution_hooks_are_rejected_before_they_can_reach_owner_state():
+    trainer = make_trainer()
+    x, y = episode()
+    calls = []
+    hook = trainer.model.encoder.register_forward_hook(lambda *args: calls.append(True))
+    try:
+        with pytest.raises(ValueError, match="execution hooks"):
+            evaluate_isolated_episode_v1(trainer, x, y, weights="raw")
+    finally:
+        hook.remove()
+    assert calls == []

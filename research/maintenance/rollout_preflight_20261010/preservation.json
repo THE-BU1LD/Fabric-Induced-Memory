@@ -1,0 +1,11 @@
+{
+  "base_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+  "inherited_blobs_unchanged": 342,
+  "changed_inherited_paths": [
+    "fim/training/rollout.py",
+    "research/RESEARCH_STATE.json"
+  ],
+  "scientific_protocols_models_benchmarks_workflows_and_retained_outcomes_unchanged": true,
+  "scoped_diff_check": "passed",
+  "counts_note": "A new test module and source-bound receipts are additions, not inherited modifications."
+}

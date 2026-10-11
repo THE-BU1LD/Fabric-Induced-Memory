@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/workspace/scratch/17075f30bc81/work/research-venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_retention_v2.py",
+    "--junitxml=/workspace/scratch/7153eae6f7af/research_engineering/fim/research/verification/retention_v2_20261010/targeted.xml"
+  ],
+  "cwd": "/workspace/scratch/7153eae6f7af/research_engineering/fim",
+  "exit_code": 0,
+  "seconds": 10.125394045997382,
+  "python": "3.12.14",
+  "torch": "2.14.1+cpu",
+  "pytest_imported": "8.4.2",
+  "numeric_threads": 1,
+  "device": "cpu",
+  "scope": "Artificial engineering fixtures only; no scientific runs or outcome access",
+  "source_sha256": {
+    "fim/analysis/retention.py": "ff80d06b3d9c5d61411e5eb968825d8dee48f6778598a4554e2ca561c0c2f5aa",
+    "fim/analysis/retention_v2.py": "2037ad00c41824d456b8000eab592e96f9e73c211017594793ed2ac9fee06429",
+    "tests/test_retention_v2.py": "37e2c1e263e3630b70a23e17f4593a8d1fd0b525c621d0372dcd1a5c34ce0429"
+  }
+}

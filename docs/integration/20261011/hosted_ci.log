@@ -1,0 +1,386 @@
+﻿2026-10-11T03:07:04.2030333Z Current runner version: '2.337.0'
+2026-10-11T03:07:04.2067612Z ##[group]Runner Image Provisioner
+2026-10-11T03:07:04.2069169Z Hosted Compute Agent
+2026-10-11T03:07:04.2070116Z Version: 20261002.596
+2026-10-11T03:07:04.2071223Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+2026-10-11T03:07:04.2072457Z Build Date: 2026-10-02T22:28:27Z
+2026-10-11T03:07:04.2073734Z Worker ID: {94dc35cc-9ebc-4c91-af12-0fb70ac9e3cd}
+2026-10-11T03:07:04.2074876Z Region: eastus
+2026-10-11T03:07:04.2075751Z Cloud: Azure
+2026-10-11T03:07:04.2077110Z ##[endgroup]
+2026-10-11T03:07:04.2079613Z ##[group]Operating System
+2026-10-11T03:07:04.2080808Z Ubuntu
+2026-10-11T03:07:04.2081722Z 24.04.5
+2026-10-11T03:07:04.2082649Z LTS
+2026-10-11T03:07:04.2083541Z ##[endgroup]
+2026-10-11T03:07:04.2084426Z ##[group]Runner Image
+2026-10-11T03:07:04.2085509Z Image: ubuntu-24.04
+2026-10-11T03:07:04.2086477Z Version: 20261004.327.1
+2026-10-11T03:07:04.2089035Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-11T03:07:04.2091714Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+2026-10-11T03:07:04.2093665Z ##[endgroup]
+2026-10-11T03:07:04.2095623Z ##[group]GITHUB_TOKEN Permissions
+2026-10-11T03:07:04.2099238Z Contents: read
+2026-10-11T03:07:04.2100233Z Metadata: read
+2026-10-11T03:07:04.2101375Z Packages: read
+2026-10-11T03:07:04.2102252Z ##[endgroup]
+2026-10-11T03:07:04.2105558Z Secret source: Actions
+2026-10-11T03:07:04.2107405Z Cache mode: write
+2026-10-11T03:07:04.2108660Z Prepare workflow directory
+2026-10-11T03:07:04.2618220Z Prepare all required actions
+2026-10-11T03:07:04.2694128Z Getting action download info
+2026-10-11T03:07:04.4765361Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-11T03:07:04.5900015Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-11T03:07:04.7780866Z Complete job name: test
+2026-10-11T03:07:04.8613902Z ##[group]Run actions/checkout@v4
+2026-10-11T03:07:04.8614835Z with:
+2026-10-11T03:07:04.8615384Z   repository: THE-BU1LD/Fabric-Induced-Memory
+2026-10-11T03:07:04.8620038Z   token: ***
+2026-10-11T03:07:04.8620491Z   ssh-strict: true
+2026-10-11T03:07:04.8620943Z   ssh-user: git
+2026-10-11T03:07:04.8621398Z   persist-credentials: true
+2026-10-11T03:07:04.8621897Z   clean: true
+2026-10-11T03:07:04.8622354Z   sparse-checkout-cone-mode: true
+2026-10-11T03:07:04.8622903Z   fetch-depth: 1
+2026-10-11T03:07:04.8623366Z   fetch-tags: false
+2026-10-11T03:07:04.8623827Z   show-progress: true
+2026-10-11T03:07:04.8624283Z   lfs: false
+2026-10-11T03:07:04.8624703Z   submodules: false
+2026-10-11T03:07:04.8625164Z   set-safe-directory: true
+2026-10-11T03:07:04.8625684Z   allow-unsafe-pr-checkout: false
+2026-10-11T03:07:04.8626518Z ##[endgroup]
+2026-10-11T03:07:04.9735104Z Syncing repository: THE-BU1LD/Fabric-Induced-Memory
+2026-10-11T03:07:04.9738393Z ##[group]Getting Git version info
+2026-10-11T03:07:04.9739909Z Working directory is '/home/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory'
+2026-10-11T03:07:04.9741851Z [command]/usr/bin/git version
+2026-10-11T03:07:04.9830083Z git version 2.55.0
+2026-10-11T03:07:04.9853769Z ##[endgroup]
+2026-10-11T03:07:04.9870832Z Temporarily overriding HOME='/home/runner/work/_temp/972cc1ef-54cd-46f8-8515-bdfb1a765bbb' before making global git config changes
+2026-10-11T03:07:04.9873300Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-11T03:07:04.9878269Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory
+2026-10-11T03:07:04.9940303Z Deleting the contents of '/home/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory'
+2026-10-11T03:07:04.9944576Z ##[group]Initializing the repository
+2026-10-11T03:07:04.9949547Z [command]/usr/bin/git init /home/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory
+2026-10-11T03:07:05.0097468Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-11T03:07:05.0110467Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-11T03:07:05.0112351Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-11T03:07:05.0115280Z hint: call:
+2026-10-11T03:07:05.0116315Z hint:
+2026-10-11T03:07:05.0117656Z hint: 	git config --global init.defaultBranch <name>
+2026-10-11T03:07:05.0118947Z hint:
+2026-10-11T03:07:05.0120178Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-11T03:07:05.0121628Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-11T03:07:05.0123455Z hint:
+2026-10-11T03:07:05.0124428Z hint: 	git branch -m <name>
+2026-10-11T03:07:05.0125422Z hint:
+2026-10-11T03:07:05.0126869Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-11T03:07:05.0129426Z Initialized empty Git repository in /home/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.git/
+2026-10-11T03:07:05.0133399Z [command]/usr/bin/git remote add origin https://github.com/THE-BU1LD/Fabric-Induced-Memory
+2026-10-11T03:07:05.0180356Z ##[endgroup]
+2026-10-11T03:07:05.0181775Z ##[group]Disabling automatic garbage collection
+2026-10-11T03:07:05.0186041Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-11T03:07:05.0228358Z ##[endgroup]
+2026-10-11T03:07:05.0229769Z ##[group]Setting up auth
+2026-10-11T03:07:05.0236616Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-11T03:07:05.0289673Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-11T03:07:05.0713869Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-11T03:07:05.0754639Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-11T03:07:05.0991568Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-11T03:07:05.1031708Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-11T03:07:05.1271939Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-11T03:07:05.1318843Z ##[endgroup]
+2026-10-11T03:07:05.1319851Z ##[group]Fetching the repository
+2026-10-11T03:07:05.1329356Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +4a50e08f7d453103fd17e23087b147e5f7dc78a8:refs/remotes/pull/44/merge
+2026-10-11T03:07:05.6273316Z From https://github.com/THE-BU1LD/Fabric-Induced-Memory
+2026-10-11T03:07:05.6275442Z  * [new ref]         4a50e08f7d453103fd17e23087b147e5f7dc78a8 -> pull/44/merge
+2026-10-11T03:07:05.6280834Z ##[endgroup]
+2026-10-11T03:07:05.6282827Z ##[group]Determining the checkout info
+2026-10-11T03:07:05.6284864Z ##[endgroup]
+2026-10-11T03:07:05.6291444Z [command]/usr/bin/git sparse-checkout disable
+2026-10-11T03:07:05.6359835Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-11T03:07:05.6405006Z ##[group]Checking out the ref
+2026-10-11T03:07:05.6408820Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/44/merge
+2026-10-11T03:07:05.7528308Z Note: switching to 'refs/remotes/pull/44/merge'.
+2026-10-11T03:07:05.7529595Z 
+2026-10-11T03:07:05.7530520Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-11T03:07:05.7532640Z changes and commit them, and you can discard any commits you make in this
+2026-10-11T03:07:05.7534711Z state without impacting any branches by switching back to a branch.
+2026-10-11T03:07:05.7535731Z 
+2026-10-11T03:07:05.7536365Z If you want to create a new branch to retain commits you create, you may
+2026-10-11T03:07:05.7538391Z do so (now or later) by using -c with the switch command. Example:
+2026-10-11T03:07:05.7539371Z 
+2026-10-11T03:07:05.7539954Z   git switch -c <new-branch-name>
+2026-10-11T03:07:05.7540715Z 
+2026-10-11T03:07:05.7541077Z Or undo this operation with:
+2026-10-11T03:07:05.7541594Z 
+2026-10-11T03:07:05.7541890Z   git switch -
+2026-10-11T03:07:05.7542319Z 
+2026-10-11T03:07:05.7543120Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-11T03:07:05.7544158Z 
+2026-10-11T03:07:05.7545330Z HEAD is now at 4a50e08 Merge 82f724b725772bbd3e6d233b9d69c3d6ec1e0089 into 92bcc3eb5322d967684673ca61f22a8bbebdc16b
+2026-10-11T03:07:05.7549273Z ##[endgroup]
+2026-10-11T03:07:05.7593551Z [command]/usr/bin/git log -1 --format=%H
+2026-10-11T03:07:05.7623741Z 4a50e08f7d453103fd17e23087b147e5f7dc78a8
+2026-10-11T03:07:05.8028931Z ##[group]Run actions/setup-python@v5
+2026-10-11T03:07:05.8030212Z with:
+2026-10-11T03:07:05.8031161Z   python-version: 3.11
+2026-10-11T03:07:05.8032157Z   cache: pip
+2026-10-11T03:07:05.8033107Z   check-latest: false
+2026-10-11T03:07:05.8043125Z   token: ***
+2026-10-11T03:07:05.8044088Z   update-environment: true
+2026-10-11T03:07:05.8045209Z   allow-prereleases: false
+2026-10-11T03:07:05.8046256Z   freethreaded: false
+2026-10-11T03:07:05.8047358Z ##[endgroup]
+2026-10-11T03:07:05.9525966Z ##[group]Installed versions
+2026-10-11T03:07:05.9653183Z (node:2303) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-11T03:07:05.9657809Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-11T03:07:05.9660629Z Successfully set up CPython (3.11.17)
+2026-10-11T03:07:05.9663859Z ##[endgroup]
+2026-10-11T03:07:06.0867724Z [command]/opt/hostedtoolcache/Python/3.11.17/x64/bin/pip cache dir
+2026-10-11T03:07:06.4359239Z /home/runner/.cache/pip
+2026-10-11T03:07:06.5212554Z Cache hit for: setup-python-Linux-x64-24.04-Ubuntu-python-3.11.17-pip-68602a89235ddf784081b65a4cca2d5bcd8de558cb4332795f6e807c1086eb79
+2026-10-11T03:07:06.5361245Z (node:2303) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-11T03:07:07.5669735Z Received 230686720 of 2975653405 (7.8%), 218.9 MBs/sec
+2026-10-11T03:07:08.5698187Z Received 503316480 of 2975653405 (16.9%), 238.9 MBs/sec
+2026-10-11T03:07:09.5896152Z Received 767557632 of 2975653405 (25.8%), 241.6 MBs/sec
+2026-10-11T03:07:10.5996366Z Received 1031798784 of 2975653405 (34.7%), 243.6 MBs/sec
+2026-10-11T03:07:11.6065797Z Received 1262485504 of 2975653405 (42.4%), 238.6 MBs/sec
+2026-10-11T03:07:12.6099562Z Received 1514143744 of 2975653405 (50.9%), 238.7 MBs/sec
+2026-10-11T03:07:13.6268153Z Received 1782579200 of 2975653405 (59.9%), 240.6 MBs/sec
+2026-10-11T03:07:14.6290697Z Received 2046820352 of 2975653405 (68.8%), 241.9 MBs/sec
+2026-10-11T03:07:15.6388977Z Received 2302672896 of 2975653405 (77.4%), 241.9 MBs/sec
+2026-10-11T03:07:16.6436891Z Received 2575302656 of 2975653405 (86.5%), 243.6 MBs/sec
+2026-10-11T03:07:17.6515196Z Received 2839543808 of 2975653405 (95.4%), 244.1 MBs/sec
+2026-10-11T03:07:18.1729877Z Received 2975653405 of 2975653405 (100.0%), 244.4 MBs/sec
+2026-10-11T03:07:18.1731098Z Cache Size: ~2838 MB (2975653405 B)
+2026-10-11T03:07:18.1864781Z [command]/usr/bin/tar -xf /home/runner/work/_temp/fea0b0cd-aa94-4959-a973-ffe8b948b134/cache.tzst -P -C /home/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory --use-compress-program unzstd
+2026-10-11T03:07:23.6924186Z Cache restored successfully
+2026-10-11T03:07:24.2350347Z Cache restored from key: setup-python-Linux-x64-24.04-Ubuntu-python-3.11.17-pip-68602a89235ddf784081b65a4cca2d5bcd8de558cb4332795f6e807c1086eb79
+2026-10-11T03:07:24.2648470Z ##[group]Run python -m pip install --upgrade pip
+2026-10-11T03:07:24.2648993Z [36;1mpython -m pip install --upgrade pip[0m
+2026-10-11T03:07:24.2649342Z [36;1mpython -m pip install -e . pytest[0m
+2026-10-11T03:07:24.6002345Z shell: /usr/bin/bash -e {0}
+2026-10-11T03:07:24.6002776Z env:
+2026-10-11T03:07:24.6003179Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:07:24.6003885Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-11T03:07:24.6004545Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:07:24.6005121Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:07:24.6005687Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:07:24.6006289Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-11T03:07:24.6006982Z ##[endgroup]
+2026-10-11T03:07:25.2236800Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (26.2.1)
+2026-10-11T03:07:25.7100162Z Obtaining file:///home/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory
+2026-10-11T03:07:25.7114914Z   Installing build dependencies: started
+2026-10-11T03:07:26.3363373Z   Installing build dependencies: finished with status 'done'
+2026-10-11T03:07:26.3369900Z   Checking if build backend supports build_editable: started
+2026-10-11T03:07:26.6635308Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-10-11T03:07:26.6643307Z   Getting requirements to build editable: started
+2026-10-11T03:07:26.9882862Z   Getting requirements to build editable: finished with status 'done'
+2026-10-11T03:07:26.9892501Z   Preparing editable metadata (pyproject.toml): started
+2026-10-11T03:07:27.1922511Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-10-11T03:07:27.2895797Z Collecting pytest
+2026-10-11T03:07:27.2914506Z   Using cached pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+2026-10-11T03:07:27.3620444Z Collecting torch (from fim==0.1.0)
+2026-10-11T03:07:27.3639662Z   Using cached torch-2.14.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (37 kB)
+2026-10-11T03:07:27.6017882Z Collecting numpy (from fim==0.1.0)
+2026-10-11T03:07:27.6036024Z   Using cached numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+2026-10-11T03:07:27.7318568Z Collecting matplotlib (from fim==0.1.0)
+2026-10-11T03:07:27.7337448Z   Using cached matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+2026-10-11T03:07:27.7864015Z Collecting pyyaml (from fim==0.1.0)
+2026-10-11T03:07:27.7881942Z   Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-10-11T03:07:27.8033544Z Collecting iniconfig>=1.0.1 (from pytest)
+2026-10-11T03:07:27.8049702Z   Using cached iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+2026-10-11T03:07:27.8230258Z Collecting packaging>=22 (from pytest)
+2026-10-11T03:07:27.8246198Z   Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-11T03:07:27.8407419Z Collecting pluggy<2,>=1.5 (from pytest)
+2026-10-11T03:07:27.8424075Z   Using cached pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2026-10-11T03:07:27.8635180Z Collecting pygments>=2.7.2 (from pytest)
+2026-10-11T03:07:27.8652541Z   Using cached pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-10-11T03:07:27.9488598Z Collecting contourpy>=1.0.1 (from matplotlib->fim==0.1.0)
+2026-10-11T03:07:27.9506187Z   Using cached contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+2026-10-11T03:07:27.9663749Z Collecting cycler>=0.10 (from matplotlib->fim==0.1.0)
+2026-10-11T03:07:27.9679454Z   Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2026-10-11T03:07:28.1138595Z Collecting fonttools>=4.28.2 (from matplotlib->fim==0.1.0)
+2026-10-11T03:07:28.1159135Z   Using cached fonttools-4.66.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (130 kB)
+2026-10-11T03:07:28.1934379Z Collecting kiwisolver>=1.3.1 (from matplotlib->fim==0.1.0)
+2026-10-11T03:07:28.1951971Z   Using cached kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+2026-10-11T03:07:28.3829878Z Collecting pillow>=9 (from matplotlib->fim==0.1.0)
+2026-10-11T03:07:28.3848169Z   Using cached pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+2026-10-11T03:07:28.4130069Z Collecting pyparsing>=3 (from matplotlib->fim==0.1.0)
+2026-10-11T03:07:28.4148026Z   Using cached pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+2026-10-11T03:07:28.4326463Z Collecting python-dateutil>=2.7 (from matplotlib->fim==0.1.0)
+2026-10-11T03:07:28.4344312Z   Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2026-10-11T03:07:28.4553066Z Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib->fim==0.1.0)
+2026-10-11T03:07:28.4570937Z   Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-10-11T03:07:28.4865327Z Collecting filelock (from torch->fim==0.1.0)
+2026-10-11T03:07:28.5757485Z   Downloading filelock-4.1.0-py3-none-any.whl.metadata (2.0 kB)
+2026-10-11T03:07:28.5986275Z Collecting typing-extensions>=4.10.0 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.6004139Z   Using cached typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-10-11T03:07:28.6022448Z Requirement already satisfied: setuptools>=77.0.3 in /opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/site-packages (from torch->fim==0.1.0) (79.0.1)
+2026-10-11T03:07:28.6496402Z Collecting sympy>=1.13.3 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.6512999Z   Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2026-10-11T03:07:28.6764658Z Collecting networkx>=2.5.1 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.6783453Z   Using cached networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+2026-10-11T03:07:28.7002799Z Collecting jinja2 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.7020427Z   Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-10-11T03:07:28.7260071Z Collecting fsspec>=0.8.5 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.7278476Z   Using cached fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+2026-10-11T03:07:28.7614636Z Collecting cuda-toolkit==13.0.3 (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:28.7631739Z   Using cached cuda_toolkit-13.0.3.0-py2.py3-none-any.whl.metadata (17 kB)
+2026-10-11T03:07:28.8165624Z Collecting cuda-bindings<14,>=13.0.3 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.8182865Z   Using cached cuda_bindings-13.4.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+2026-10-11T03:07:28.8389690Z Collecting nvidia-cudnn-cu13==9.24.0.43 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.8407196Z   Using cached nvidia_cudnn_cu13-9.24.0.43-py3-none-manylinux_2_27_x86_64.whl.metadata (1.9 kB)
+2026-10-11T03:07:28.8570391Z Collecting nvidia-cusparselt-cu13==0.8.1 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.8586867Z   Using cached nvidia_cusparselt_cu13-0.8.1-py3-none-manylinux2014_x86_64.whl.metadata (12 kB)
+2026-10-11T03:07:28.8739035Z Collecting nvidia-nccl-cu13==2.30.7 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.8755862Z   Using cached nvidia_nccl_cu13-2.30.7-py3-none-manylinux_2_18_x86_64.whl.metadata (2.1 kB)
+2026-10-11T03:07:28.8907329Z Collecting nvidia-nvshmem-cu13==3.4.5 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.8924104Z   Using cached nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.1 kB)
+2026-10-11T03:07:28.9148394Z Collecting triton~=3.8.0 (from torch->fim==0.1.0)
+2026-10-11T03:07:28.9166096Z   Using cached triton-3.8.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (978 bytes)
+2026-10-11T03:07:28.9392217Z Collecting nvidia-cublas==13.1.1.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:28.9408609Z   Using cached nvidia_cublas-13.1.1.3-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+2026-10-11T03:07:28.9591014Z Collecting nvidia-cuda-nvrtc==13.0.88.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:28.9608518Z   Using cached nvidia_cuda_nvrtc-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+2026-10-11T03:07:28.9790964Z Collecting nvidia-cuda-runtime==13.0.96.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:28.9807551Z   Using cached nvidia_cuda_runtime-13.0.96-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+2026-10-11T03:07:28.9993448Z Collecting nvidia-cufft==12.0.0.61.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:29.0010066Z   Using cached nvidia_cufft-12.0.0.61-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+2026-10-11T03:07:29.0189124Z Collecting nvidia-nvjitlink<14,>=13.0.88 (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:29.0205416Z   Using cached nvidia_nvjitlink-13.4.92-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.8 kB)
+2026-10-11T03:07:29.0388552Z Collecting nvidia-cufile==1.15.1.6.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:29.0405255Z   Using cached nvidia_cufile-1.15.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+2026-10-11T03:07:29.0580471Z Collecting nvidia-cuda-cupti==13.0.85.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:29.0599960Z   Using cached nvidia_cuda_cupti-13.0.85-py3-none-manylinux_2_25_x86_64.whl.metadata (1.7 kB)
+2026-10-11T03:07:29.0777670Z Collecting nvidia-curand==10.4.0.35.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:29.0793922Z   Using cached nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+2026-10-11T03:07:29.0983945Z Collecting nvidia-cusolver==12.0.4.66.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:29.0999946Z   Using cached nvidia_cusolver-12.0.4.66-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+2026-10-11T03:07:29.1179963Z Collecting nvidia-cusparse==12.6.3.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:29.1197726Z   Using cached nvidia_cusparse-12.6.3.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+2026-10-11T03:07:29.1425575Z Collecting nvidia-nvtx==13.0.85.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.3; platform_system == "Linux"->torch->fim==0.1.0)
+2026-10-11T03:07:29.1443073Z   Using cached nvidia_nvtx-13.0.85-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl.metadata (1.8 kB)
+2026-10-11T03:07:29.1635001Z Collecting cuda-pathfinder>=1.4.2 (from cuda-bindings<14,>=13.0.3->torch->fim==0.1.0)
+2026-10-11T03:07:29.1651937Z   Using cached cuda_pathfinder-1.8.3-py3-none-any.whl.metadata (1.9 kB)
+2026-10-11T03:07:29.2254581Z Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch->fim==0.1.0)
+2026-10-11T03:07:29.2272442Z   Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2026-10-11T03:07:29.6790423Z Collecting MarkupSafe>=2.0 (from jinja2->torch->fim==0.1.0)
+2026-10-11T03:07:29.6808904Z   Using cached markupsafe-3.0.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-10-11T03:07:29.6855203Z Using cached pytest-9.1.1-py3-none-any.whl (386 kB)
+2026-10-11T03:07:29.6872572Z Using cached pluggy-1.6.0-py3-none-any.whl (20 kB)
+2026-10-11T03:07:29.6888147Z Using cached iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+2026-10-11T03:07:29.6903134Z Using cached packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-11T03:07:29.6918729Z Using cached pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-10-11T03:07:29.6939947Z Using cached matplotlib-3.11.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.9 MB)
+2026-10-11T03:07:29.6996226Z Using cached contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+2026-10-11T03:07:29.7013119Z Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2026-10-11T03:07:29.7029202Z Using cached fonttools-4.66.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+2026-10-11T03:07:29.7067897Z Using cached kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+2026-10-11T03:07:29.7088800Z Using cached numpy-2.4.6-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+2026-10-11T03:07:29.7169739Z Using cached pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+2026-10-11T03:07:29.7213033Z Using cached pyparsing-3.3.3-py3-none-any.whl (126 kB)
+2026-10-11T03:07:29.7229533Z Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2026-10-11T03:07:29.7245089Z Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-10-11T03:07:29.7260638Z Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+2026-10-11T03:07:29.7278579Z Using cached torch-2.14.1-cp311-cp311-manylinux_2_28_x86_64.whl (554.6 MB)
+2026-10-11T03:07:29.9219888Z Using cached cuda_toolkit-13.0.3.0-py2.py3-none-any.whl (2.5 kB)
+2026-10-11T03:07:29.9234542Z Using cached nvidia_cudnn_cu13-9.24.0.43-py3-none-manylinux_2_27_x86_64.whl (553.1 MB)
+2026-10-11T03:07:30.1207559Z Using cached nvidia_cusparselt_cu13-0.8.1-py3-none-manylinux2014_x86_64.whl (170.1 MB)
+2026-10-11T03:07:30.1819332Z Using cached nvidia_nccl_cu13-2.30.7-py3-none-manylinux_2_18_x86_64.whl (216.0 MB)
+2026-10-11T03:07:30.2599121Z Using cached nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (60.4 MB)
+2026-10-11T03:07:30.3454633Z Using cached cuda_bindings-13.4.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (7.2 MB)
+2026-10-11T03:07:30.3571597Z Using cached nvidia_cublas-13.1.1.3-py3-none-manylinux_2_27_x86_64.whl (423.1 MB)
+2026-10-11T03:07:31.1705836Z Using cached nvidia_cuda_cupti-13.0.85-py3-none-manylinux_2_25_x86_64.whl (10.7 MB)
+2026-10-11T03:07:31.1925033Z Using cached nvidia_cuda_nvrtc-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (90.2 MB)
+2026-10-11T03:07:31.3918735Z Using cached nvidia_cuda_runtime-13.0.96-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.2 MB)
+2026-10-11T03:07:31.4023683Z Using cached nvidia_cufft-12.0.0.61-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (214.1 MB)
+2026-10-11T03:07:31.8848287Z Using cached nvidia_cufile-1.15.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+2026-10-11T03:07:31.8947025Z Using cached nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl (59.5 MB)
+2026-10-11T03:07:32.0282377Z Using cached nvidia_cusolver-12.0.4.66-py3-none-manylinux_2_27_x86_64.whl (200.9 MB)
+2026-10-11T03:07:32.5507393Z Using cached nvidia_cusparse-12.6.3.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (145.9 MB)
+2026-10-11T03:07:32.9424578Z Using cached nvidia_nvjitlink-13.4.92-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (42.5 MB)
+2026-10-11T03:07:33.0547052Z Using cached nvidia_nvtx-13.0.85-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl (148 kB)
+2026-10-11T03:07:33.0562753Z Using cached triton-3.8.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (247.9 MB)
+2026-10-11T03:07:33.7194288Z Using cached cuda_pathfinder-1.8.3-py3-none-any.whl (62 kB)
+2026-10-11T03:07:33.7209805Z Using cached fsspec-2026.9.0-py3-none-any.whl (221 kB)
+2026-10-11T03:07:33.7226420Z Using cached networkx-3.6.1-py3-none-any.whl (2.1 MB)
+2026-10-11T03:07:33.7252282Z Using cached sympy-1.14.0-py3-none-any.whl (6.3 MB)
+2026-10-11T03:07:33.7450947Z Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+2026-10-11T03:07:33.7466850Z Using cached typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-10-11T03:07:33.7631940Z Downloading filelock-4.1.0-py3-none-any.whl (133 kB)
+2026-10-11T03:07:35.6734682Z Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-10-11T03:07:35.6750319Z Using cached markupsafe-3.0.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-10-11T03:07:37.9992715Z Building wheels for collected packages: fim
+2026-10-11T03:07:38.0000698Z   Building editable for fim (pyproject.toml): started
+2026-10-11T03:07:38.4162712Z   Building editable for fim (pyproject.toml): finished with status 'done'
+2026-10-11T03:07:38.4168867Z   Created wheel for fim: filename=fim-0.1.0-0.editable-py3-none-any.whl size=4058 sha256=11389fb551dcf9f318d765cd3eafaf50b587cb69efe2b73e94912b5190d29a7a
+2026-10-11T03:07:38.4170487Z   Stored in directory: /tmp/pip-ephem-wheel-cache-aw3bolln/wheels/d8/df/e6/d023d332301e8262c28debf68b60755a53248c88b1d0ef6613
+2026-10-11T03:07:38.4183693Z Successfully built fim
+2026-10-11T03:07:38.6070663Z Installing collected packages: nvidia-cusparselt-cu13, mpmath, cuda-toolkit, typing-extensions, triton, sympy, six, pyyaml, pyparsing, pygments, pluggy, pillow, packaging, nvidia-nvtx, nvidia-nvshmem-cu13, nvidia-nvjitlink, nvidia-nccl-cu13, nvidia-curand, nvidia-cufile, nvidia-cuda-runtime, nvidia-cuda-nvrtc, nvidia-cuda-cupti, numpy, networkx, MarkupSafe, kiwisolver, iniconfig, fsspec, fonttools, filelock, cycler, cuda-pathfinder, python-dateutil, pytest, nvidia-cusparse, nvidia-cufft, nvidia-cublas, jinja2, cuda-bindings, contourpy, nvidia-cusolver, nvidia-cudnn-cu13, matplotlib, torch, fim
+2026-10-11T03:08:18.5093154Z 
+2026-10-11T03:08:18.5118632Z Successfully installed MarkupSafe-3.0.4 contourpy-1.3.3 cuda-bindings-13.4.3 cuda-pathfinder-1.8.3 cuda-toolkit-13.0.3.0 cycler-0.12.1 filelock-4.1.0 fim-0.1.0 fonttools-4.66.1 fsspec-2026.9.0 iniconfig-2.3.1 jinja2-3.1.6 kiwisolver-1.5.1 matplotlib-3.11.2 mpmath-1.3.0 networkx-3.6.1 numpy-2.4.6 nvidia-cublas-13.1.1.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13.0.96 nvidia-cudnn-cu13-9.24.0.43 nvidia-cufft-12.0.0.61 nvidia-cufile-1.15.1.6 nvidia-curand-10.4.0.35 nvidia-cusolver-12.0.4.66 nvidia-cusparse-12.6.3.3 nvidia-cusparselt-cu13-0.8.1 nvidia-nccl-cu13-2.30.7 nvidia-nvjitlink-13.4.92 nvidia-nvshmem-cu13-3.4.5 nvidia-nvtx-13.0.85 packaging-26.3 pillow-12.3.0 pluggy-1.6.0 pygments-2.21.0 pyparsing-3.3.3 pytest-9.1.1 python-dateutil-2.9.0.post0 pyyaml-6.0.3 six-1.17.0 sympy-1.14.0 torch-2.14.1 triton-3.8.0 typing-extensions-4.16.0
+2026-10-11T03:08:18.8654108Z ##[group]Run python -m compileall -q fim fim_experiments scripts tests
+2026-10-11T03:08:18.8654678Z [36;1mpython -m compileall -q fim fim_experiments scripts tests[0m
+2026-10-11T03:08:18.8722563Z shell: /usr/bin/bash -e {0}
+2026-10-11T03:08:18.8722830Z env:
+2026-10-11T03:08:18.8723116Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:08:18.8723583Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-11T03:08:18.8724044Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:08:18.8724438Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:08:18.8724855Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:08:18.8725257Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-11T03:08:18.8725593Z ##[endgroup]
+2026-10-11T03:08:19.1394789Z ##[group]Run pytest -q
+2026-10-11T03:08:19.1395098Z [36;1mpytest -q[0m
+2026-10-11T03:08:19.1461185Z shell: /usr/bin/bash -e {0}
+2026-10-11T03:08:19.1461475Z env:
+2026-10-11T03:08:19.1461779Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:08:19.1462526Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib/pkgconfig
+2026-10-11T03:08:19.1462999Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:08:19.1463419Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:08:19.1463845Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.17/x64
+2026-10-11T03:08:19.1464261Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.17/x64/lib
+2026-10-11T03:08:19.1464620Z   MPLBACKEND: Agg
+2026-10-11T03:08:19.1464844Z ##[endgroup]
+2026-10-11T03:08:24.1449607Z sssss.ss................................................................ [  8%]
+2026-10-11T03:08:24.4381051Z ................................................................. [ 15%]
+2026-10-11T03:08:24.6705539Z ........................................................................ [ 23%]
+2026-10-11T03:08:24.9236329Z .............................................................. [ 31%]
+2026-10-11T03:08:25.3280715Z ........................................................................ [ 39%]
+2026-10-11T03:08:28.0068036Z ..................................................................... [ 47%]
+2026-10-11T03:08:32.7008838Z ........................................................................ [ 55%]
+2026-10-11T03:08:35.2622360Z ........................................................................ [ 63%]
+2026-10-11T03:08:35.8604808Z ........................................................................ [ 72%]
+2026-10-11T03:08:36.2883480Z ........................................................................ [ 80%]
+2026-10-11T03:08:36.4214777Z ........................................................................ [ 88%]
+2026-10-11T03:08:36.6050514Z ........................................................................ [ 96%]
+2026-10-11T03:08:37.0443132Z ...........................                                              [100%]
+2026-10-11T03:08:37.0444053Z =============================== warnings summary ===============================
+2026-10-11T03:08:37.0444890Z tests/test_isolated_evaluation_v1.py: 17 warnings
+2026-10-11T03:08:37.0445390Z tests/test_public_trainer.py: 16 warnings
+2026-10-11T03:08:37.0447828Z   /home/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/fim/training/trainer.py:51: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+2026-10-11T03:08:37.0449935Z     self.scaler = torch.cuda.amp.GradScaler(enabled=self.use_amp)
+2026-10-11T03:08:37.0450500Z 
+2026-10-11T03:08:37.0450918Z -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+2026-10-11T03:08:37.0471703Z 864 passed, 7 skipped, 33 warnings, 164 subtests passed in 17.30s
+2026-10-11T03:08:38.0307958Z Post job cleanup.
+2026-10-11T03:08:38.1606481Z Cache hit occurred on the primary key setup-python-Linux-x64-24.04-Ubuntu-python-3.11.17-pip-68602a89235ddf784081b65a4cca2d5bcd8de558cb4332795f6e807c1086eb79, not saving cache.
+2026-10-11T03:08:38.1608528Z (node:2454) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-11T03:08:38.1609457Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-11T03:08:38.1775146Z Post job cleanup.
+2026-10-11T03:08:38.2699839Z [command]/usr/bin/git version
+2026-10-11T03:08:38.2749343Z git version 2.55.0
+2026-10-11T03:08:38.2793135Z Temporarily overriding HOME='/home/runner/work/_temp/8c0bd7ae-51c1-4382-9a48-4b9129ea7415' before making global git config changes
+2026-10-11T03:08:38.2794515Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-11T03:08:38.2800228Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory
+2026-10-11T03:08:38.2850486Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-11T03:08:38.2895939Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-11T03:08:38.3185617Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-11T03:08:38.3222800Z http.https://github.com/.extraheader
+2026-10-11T03:08:38.3237380Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-11T03:08:38.3280611Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-11T03:08:38.3559578Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-11T03:08:38.3610533Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-11T03:08:38.4053773Z Cleaning up orphan processes
+2026-10-11T03:08:38.4379897Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

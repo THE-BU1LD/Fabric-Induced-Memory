@@ -1,0 +1,19 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "python_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+  "imported_versions": {
+    "torch": "2.14.1+cpu",
+    "pytest": "9.1.1",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "module_paths": {
+    "torch": "/workspace/scratch/526c2366bb64/research_lane/python_deps/torch/__init__.py",
+    "pytest": "/workspace/scratch/526c2366bb64/research_lane/pytest_deps/pytest/__init__.py",
+    "numpy": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/numpy/__init__.py",
+    "scipy": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy/__init__.py"
+  },
+  "platform": "linux",
+  "device": "cpu",
+  "dependency_isolation": "Torch and pytest installed in separate scratch targets; primary runtime packages supply the remaining already-installed dependencies."
+}

@@ -1,0 +1,11 @@
+{
+  "python": "3.12.14",
+  "executable": "/workspace/scratch/17075f30bc81/work/research-venv/bin/python",
+  "torch": "2.14.1+cpu",
+  "numpy": "2.3.5",
+  "pytest_module_version": "8.4.2",
+  "pytest_module_path": "/workspace/scratch/17075f30bc81/work/research-venv/lib/python3.12/site-packages/pytest/__init__.py",
+  "numerical_threads": 1,
+  "cuda_used": false,
+  "metadata_note": "Imported pytest module is8.4.2; stale external dist-info may report9.1.1. Tests bind the imported module/version."
+}

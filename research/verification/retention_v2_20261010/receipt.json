@@ -1,0 +1,24 @@
+{
+  "command": [
+    "/workspace/scratch/17075f30bc81/work/research-venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_retention_v2.py",
+    "--junitxml=/workspace/scratch/7153eae6f7af/research_engineering/fim/research/verification/retention_v2_20261010/targeted.xml"
+  ],
+  "cwd": "/workspace/scratch/7153eae6f7af/research_engineering/fim",
+  "exit_code": 0,
+  "seconds": 21.513810681000905,
+  "python": "3.12.14",
+  "torch": "2.14.1+cpu",
+  "pytest_imported": "8.4.2",
+  "numeric_threads": 1,
+  "device": "cpu",
+  "scope": "Artificial engineering fixtures only; one concrete review repair, no scientific runs or outcome access",
+  "source_sha256": {
+    "fim/analysis/retention.py": "ff80d06b3d9c5d61411e5eb968825d8dee48f6778598a4554e2ca561c0c2f5aa",
+    "fim/analysis/retention_v2.py": "5ad40858d754dfd93cd60e8b65efe9e731738f668be6164b72d963ce66b7b8b8",
+    "tests/test_retention_v2.py": "3d30e147849cb4e4ba11900a8e241daa0bb4b2e1c955568edc121f549649c23d"
+  }
+}

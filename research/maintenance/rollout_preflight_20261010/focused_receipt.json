@@ -1,0 +1,25 @@
+{
+  "phase": "DEVELOPMENT",
+  "scope": "Artificial public-rollout caller validation; no protected data or experiments",
+  "base_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+  "started_at_utc": "2026-10-10T17:19:32.928308+00:00",
+  "command": [
+    "/workspace/scratch/fecebaaf32e4/validation_env/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_public_rollout_preflight.py",
+    "--junitxml=/workspace/scratch/480f519f9cca/research_fixes/fim/research/maintenance/rollout_preflight_20261010/focused.xml"
+  ],
+  "exit_code": 0,
+  "seconds": 9.153334024998912,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "torch": "2.14.1+cpu",
+  "pytest": "9.1.1",
+  "source_sha256": {
+    "fim/training/rollout.py": "50fe8b1236358e24ecbee8d624a99539c6faf1debee2a273804eb36b7896fee1",
+    "tests/test_public_rollout_preflight.py": "540435c27c7038172d3b3e3bf6647958b21fbc59d1f94db59143a7a71a07dbfa"
+  },
+  "source_unchanged_after": true,
+  "log_sha256": "09221b8f191a7e45790e6b78fe45e1558cafd7efd9721b5e471b6d197bc92954"
+}

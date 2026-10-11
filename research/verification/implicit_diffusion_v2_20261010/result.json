@@ -1,0 +1,30 @@
+{
+  "parent_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+  "new_source_sha256": {
+    "fim/operators/implicit_diffusion_v2.py": "31268ce60fef7a5837290cfedbc248c049404529dd5e8c236a97c6a604d92215",
+    "tests/test_implicit_diffusion_v2.py": "38d1b0d85a4456f1b21e45164206401ba3a4a0db595d3b9a9cc8b950473e004c"
+  },
+  "tests": {
+    "tests": 722,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 7,
+    "passed": 715
+  },
+  "receipt": {
+    "command": [
+      "/workspace/scratch/17075f30bc81/work/research-venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "--junitxml=research/verification/implicit_diffusion_v2_20261010/full_suite.xml"
+    ],
+    "exit_code": 0,
+    "wall_seconds": 95.21966556700136,
+    "cpu_only": true,
+    "numerical_threads": 1,
+    "protected_runs": 0
+  },
+  "independent_review": "passed source review; no additional reviewer execution",
+  "scientific_disposition_changed": false
+}

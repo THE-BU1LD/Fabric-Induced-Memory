@@ -1,0 +1,43 @@
+{
+  "schema": "fim-followup-combined-test-receipt-v1",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "--junitxml=docs/integration/20261011/pytest.xml"
+  ],
+  "started_utc": "2026-10-11T03:03:05.424941+00:00",
+  "ended_utc": "2026-10-11T03:03:23.663359+00:00",
+  "elapsed_seconds": 18.224950753000485,
+  "exit_code": 0,
+  "timed_out": false,
+  "process_limit_seconds": 240,
+  "source_set_sha256_before": "7dedae52521d3bb3c4b42c61e35c6afa4226528e69fdc2afdb326f030bbc4c2f",
+  "source_set_sha256_after": "7dedae52521d3bb3c4b42c61e35c6afa4226528e69fdc2afdb326f030bbc4c2f",
+  "source_unchanged": true,
+  "base_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+  "source_state": "Exact proposed union in the working tree before publication; base HEAD with documented uncommitted candidate changes.",
+  "environment": "environment.json",
+  "log_sha256": "371497f27dcfa00b46df83f29188351aa19ef2fbfbc4d49f15e4d01159fe1214",
+  "scientific_runs": 0,
+  "protected_outcome_access": false,
+  "new_retained_demos": 0,
+  "counts_rule": "One combined collection, not an addition of earlier source-PR totals. Nested subtests are reported separately by pytest.",
+  "junit_summary": {
+    "tests": 1035,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 7,
+    "passed": 1028
+  },
+  "junit_sha256": "123c8c6ef754773d4e3e6079a49c8f338c217bc8d863bb7cb04f2902b69a4a5b",
+  "pytest_summary": {
+    "passed": 864,
+    "skipped": 7,
+    "warnings": 33,
+    "subtests_passed": 164,
+    "pytest_seconds": 17.31
+  },
+  "junit_counting_note": "Pytest 9.1.1 emits 164 subtest entries in JUnit: 1035 JUnit entries = 864 ordinary passes + 164 subtest passes + 7 skips. The 1028 passed JUnit entries are not 1028 distinct ordinary tests."
+}

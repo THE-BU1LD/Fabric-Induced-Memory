@@ -2,8 +2,8 @@
   "schema_version": "fim-engineering-integration-index-v1",
   "repository": "THE-BU1LD/Fabric-Induced-Memory",
   "canonical_entry_point": "research/RESEARCH_STATE.json",
-  "updated_on": "2026-10-10",
-  "phase": "ENGINEERING_INTEGRATION_PUBLISHED_AND_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
+  "updated_on": "2026-10-11",
+  "phase": "FOLLOWUP_ENGINEERING_INTEGRATION_PUBLISHED_AND_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
   "research_question": "Does the implemented fabric-memory mechanism improve prediction and recall against mechanism-off controls when memory is isolated between independent trajectories?",
   "scientific_objective": "Identify reproducible mechanism benefit within prospectively declared benchmarks, budgets and independent units.",
   "current_hypothesis": "Unconfirmed. Existing mixed, negative and baseline-winning records remain authoritative.",
@@ -250,5 +250,523 @@
     "Maintainer review of draft PR38 and source proposals before integration into main.",
     "A separately qualified prospective execution decision is still required for each held scientific protocol. Existing engineering acceptance does not resolve the memory-benefit hypothesis."
   ],
-  "release_status": "Draft integration published; main merge and scientific release remain pending their separate decisions."
+  "release_status": "Draft integration published; main merge and scientific release remain pending their separate decisions.",
+  "continuation_sessions": [
+    {
+      "id": "fabric.implicit_diffusion.v2.20261010",
+      "parent_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+      "parent_pr": 38,
+      "predecessor_state": "research/state_snapshots/PR38_92bcc3eb5322_before_implicit_diffusion_RESEARCH_STATE.json",
+      "predecessor_state_sha256": "0208c266d1dc7a4a0ea79cc6c914de345da3350ce3f16d1a525ab2703c7ebe11",
+      "previous_phase": "ENGINEERING_INTEGRATION_PUBLISHED_AND_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
+      "status": "BOUNDED_ENGINEERING_VERIFIED_FOR_DRAFT_REVIEW",
+      "contract": "research/development/IMPLICIT_DIFFUSION_V2_20261010.md",
+      "implementation": "fim/operators/implicit_diffusion_v2.py",
+      "source_sha256": {
+        "fim/operators/implicit_diffusion_v2.py": "31268ce60fef7a5837290cfedbc248c049404529dd5e8c236a97c6a604d92215",
+        "tests/test_implicit_diffusion_v2.py": "38d1b0d85a4456f1b21e45164206401ba3a4a0db595d3b9a9cc8b950473e004c"
+      },
+      "verification": {
+        "tests": 722,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 7,
+        "passed": 715
+      },
+      "test_command_receipt": "research/verification/implicit_diffusion_v2_20261010/full_suite_receipt.json",
+      "independent_review": "research/verification/implicit_diffusion_v2_20261010/independent_review.json",
+      "numerical_result": "The opt-in periodic backward-Euler solve matches an independently constructed dense linear system on bounded artificial tensors. No scientific model outcome was produced.",
+      "scientific_disposition_change": false,
+      "protected_runs": 0,
+      "protected_outcome_access": false,
+      "legacy_solver_default_exports_callers_protocols_workflows_unchanged": true,
+      "paid_compute": 0,
+      "next_gate": "Maintainer review of this optional operator; prospective source/configuration-bound development study before any efficacy claim. Existing protected execution holds remain.",
+      "retained_attempts": [
+        "baseline.json",
+        "targeted.log",
+        "targeted.xml",
+        "targeted_receipt.json",
+        "initial_test_source.py",
+        "review_fix.json"
+      ],
+      "counting_note": "715 cases include inherited685 plus30 added cases; do not add overlapping targeted or future hosted counts.",
+      "budget_consumed": {
+        "baseline_diagnostics": 1,
+        "targeted_processes": 1,
+        "full_processes": 1,
+        "review_cycles": 1,
+        "protected_runs": 0
+      },
+      "whitespace_receipt": "research/verification/implicit_diffusion_v2_20261010/whitespace_receipt.json"
+    },
+    {
+      "id": "fim.retention-analysis.v2.20261010",
+      "parent_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+      "parent_pull_request": 38,
+      "status": "TARGETED_ENGINEERING_VERIFIED_AFTER_SOURCE_REVIEW",
+      "contract": "research/development/RETENTION_ANALYSIS_V2_20261010.md",
+      "predecessor_state_snapshot": "research/state_snapshots/PR38_92bcc3eb5322_before_retention_v2_20261010_RESEARCH_STATE.json",
+      "predecessor_state_sha256": "0208c266d1dc7a4a0ea79cc6c914de345da3350ce3f16d1a525ab2703c7ebe11",
+      "implementation": "fim/analysis/retention_v2.py",
+      "tests": "tests/test_retention_v2.py",
+      "source_sha256": {
+        "fim/analysis/retention.py": "ff80d06b3d9c5d61411e5eb968825d8dee48f6778598a4554e2ca561c0c2f5aa",
+        "fim/analysis/retention_v2.py": "5ad40858d754dfd93cd60e8b65efe9e731738f668be6164b72d963ce66b7b8b8",
+        "tests/test_retention_v2.py": "3d30e147849cb4e4ba11900a8e241daa0bb4b2e1c955568edc121f549649c23d"
+      },
+      "verification": {
+        "tests": 58,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": 58
+      },
+      "receipt": "research/verification/retention_v2_20261010/receipt.json",
+      "raw_log": "research/verification/retention_v2_20261010/targeted.log",
+      "junit": "research/verification/retention_v2_20261010/targeted.xml",
+      "test_commands": 2,
+      "test_command_seconds": 31.639204726998287,
+      "failures_observed": [
+        "Independent source review found a subnormal-midpoint underflow not covered by the first 54 passing cases; revised scaling passes four additional Decimal-oracle fixtures."
+      ],
+      "retained_source_defect_reproduced": true,
+      "scope": "Explicitly imported version; existing defaults, frozen callers and retained outcomes unchanged",
+      "scientific_claim_change": false,
+      "protected_runs": 0,
+      "protected_outcome_access": false,
+      "paid_compute": 0,
+      "next_action": "Review the draft; prospectively adopt the version in a separately frozen study before any scientific use. Existing held evaluations remain held.",
+      "review_finding": "research/verification/retention_v2_20261010/review_finding.json",
+      "counts_overlap": "The 58 final cases include all 54 initial cases; counts are not added.",
+      "test_budget_status": "CLOSED",
+      "independent_source_review": "Root reviewed original source and identified the retained precision issue. Correction verified by the affected final analytical collection; no independent reviewer test rerun claimed."
+    }
+  ],
+  "prospective_colored_noise_v2_session": {
+    "id": "fim-colored-noise-v2-20261010",
+    "phase": "IMPLEMENTED_PENDING_HOSTED_VERIFICATION",
+    "base_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+    "parent_state_snapshot": "research/state_snapshots/noise_v2_20261010/PR38_92bcc3eb5322_RESEARCH_STATE.json",
+    "parent_state_git_blob": "c97d96219980996b1d9c4a5115fa0cd9a5b23151",
+    "contract": "docs/colored-noise-v2.md",
+    "receipt": "research/verification/colored_noise_v2_20261010/receipt.json",
+    "source_files": {
+      "fim/stochastic/colored_noise_v2.py": {
+        "sha256": "24d30a85624784b6ba7e485ef6a94894943dd9f4c4789541ac23d97b8d9daad6",
+        "git_blob": "1d647bfc6540765d4e0e42a9635966056b41130d",
+        "bytes": 5167
+      },
+      "tests/test_colored_noise_v2.py": {
+        "sha256": "f25d2aa4da602eebd701fb1b7a657e4c00a816f5f0fa0fae6882f1705aa85e67",
+        "git_blob": "9819b4d12b97f4f5d8a34680a7957063128cb9a1",
+        "bytes": 8120
+      },
+      "docs/colored-noise-v2.md": {
+        "sha256": "417445e7f80f5b48fce6df3738dfd297bd5c7a80dbe09923355e80ce848dfe87",
+        "git_blob": "151eb483cdda8ed544924eea2e1c64f3cc3a249c",
+        "bytes": 5919
+      }
+    },
+    "observed_source_defect": "Legacy rank>=2 ColoredNoise filters the input and draws no stochastic field; one-site sample std is undefined.",
+    "implemented_change": "Opt-in independent Gaussian spectral fields over explicit final spatial axes with deterministic unit ensemble variance normalization and caller generator support.",
+    "validation": {
+      "python": "3.12.14",
+      "compile_command": "python -m compileall -q fim/stochastic/colored_noise_v2.py tests/test_colored_noise_v2.py",
+      "compile_exit_code": 0,
+      "syntax_parse": "passed",
+      "tests_run": false,
+      "reason": "Local runtime has neither torch nor pytest. Actual PyTorch execution is pending ordinary hosted PR CI."
+    },
+    "preserved": {
+      "legacy_noise_unchanged": true,
+      "maintained_model_and_experiment_callers_unchanged": true,
+      "frozen_protocols_and_retained_outcomes_unchanged": true,
+      "inherited_scientific_job_dispatch_only": true
+    },
+    "protected_evaluation": "HELD",
+    "scientific_completion": false,
+    "next_action": "Run existing ordinary PR CI, inspect its checked-out revision and test outcomes, repair only concrete failures, and append actual logs."
+  },
+  "maintenance_sessions": [
+    {
+      "id": "fim-public-rollout-preflight-20261010",
+      "status": "ENGINEERING_VERIFIED_FOR_DRAFT_REVIEW",
+      "base_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+      "base_pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/38",
+      "proposed_branch": "fix/rollout-preflight-20261010",
+      "predecessor_snapshot": "research/state_snapshots/PR38_92bcc3eb5322_before_rollout_preflight.json",
+      "predecessor_sha256": "0208c266d1dc7a4a0ea79cc6c914de345da3350ce3f16d1a525ab2703c7ebe11",
+      "contract": "research/maintenance/rollout_preflight_20261010/CONTRACT.md",
+      "change": "Preflight caller-provided rollout tensors before any stateful model.step call. Retain recurrence, memory forwarding, output structure and control feature semantics for admitted inputs.",
+      "verification": {
+        "baseline": {
+          "passed": 9,
+          "failed": 21,
+          "receipt": "research/maintenance/rollout_preflight_20261010/baseline_receipt.json"
+        },
+        "focused": {
+          "passed": 30,
+          "receipt": "research/maintenance/rollout_preflight_20261010/focused_receipt.json"
+        },
+        "complete_collection": {
+          "passed": 715,
+          "skipped": 7,
+          "warnings": 16,
+          "subtests_passed": 164,
+          "pytest_seconds": 30.74,
+          "receipt": "research/maintenance/rollout_preflight_20261010/full_receipt.json"
+        },
+        "source_unchanged_during_tests": true,
+        "counts_overlap": true,
+        "independent_source_review": "research/maintenance/rollout_preflight_20261010/independent_review.json"
+      },
+      "budget_consumed": {
+        "test_processes": 3,
+        "test_command_seconds": 52.5088570049993,
+        "new_retained_demos": 0,
+        "protected_runs": 0,
+        "paid_compute": 0
+      },
+      "failures_preserved": [
+        "Baseline new regression collection failed 21 tests and passed 9 before the code repair. Exact old rollout source remains at base_commit; tests, log and XML are retained.",
+        "The unconfigured default interpreter and existing validation interpreter without its target PYTHONPATH did not import torch; no test or experiment executed in those probes."
+      ],
+      "scientific_claim_change": "None. Existing negative, mixed and baseline-winning findings and all protected execution/outcome holds remain unchanged.",
+      "limits": [
+        "No rollback after a model-side exception in an admitted rollout.",
+        "Independent-episode reset remains the caller responsibility.",
+        "Finite-prefix scans may add cost and device synchronization; no accelerator or performance qualification.",
+        "PR39 implicit diffusion is a separate proposal and is not included in this test total."
+      ],
+      "next_action": "Review this draft branch alongside its PR38 prerequisite; integrate only after maintainer review. Scientific study execution remains held."
+    }
+  ],
+  "engineering_continuations": [
+    {
+      "id": "fim.isolated-episode-evaluation.v1.20261010",
+      "phase": "ENGINEERING_VERIFIED_SCIENTIFIC_HOLDS_PRESERVED",
+      "base_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+      "contract": "docs/isolated-episode-evaluation-v1.md",
+      "receipt": "research/verification/isolated_evaluation_v1_20261010/receipt.json",
+      "verification": {
+        "status": "PASSED",
+        "passed": 41,
+        "failed": 0,
+        "skipped": 0,
+        "new_adapter_tests": 17,
+        "existing_neighbor_tests": 24,
+        "test_classes": {
+          "tests.test_isolated_evaluation_v1": 17,
+          "tests.test_public_trainer": 21,
+          "tests.test_cached_state_continuity": 3
+        },
+        "pytest_seconds": 54.67,
+        "command_wall_seconds": 74.31720948800285,
+        "warnings": 33,
+        "warning_kind": "Existing public Trainer GradScaler deprecation",
+        "raw_log": "pytest.log",
+        "junit": "pytest.xml",
+        "command_receipt": "attempt_02.json"
+      },
+      "source_sha256": {
+        "fim/training/isolated_evaluation_v1.py": "fd47a4623cfd0c61fdc9f65995bdbceee889b9ec6a7622927d631696469e50c1",
+        "tests/test_isolated_evaluation_v1.py": "a85790ff88e70e25e85376639a586bbc783a1e4cf69b676baf98776410e6652b",
+        "docs/isolated-episode-evaluation-v1.md": "6a75c551fb7875acef5df2e0e8c89a8579a6d5a51970c3771fa3e55974ac6cbc",
+        "README.md": "86bc3bc4366a6aae1fd52fa535a3a6994d081558bea2249840304d06615131d3"
+      },
+      "scientific_boundaries": {
+        "protected_runs": 0,
+        "protected_outcome_access": false,
+        "retained_demo_reruns": 0,
+        "paid_compute": 0,
+        "scientific_workflow_dispatches": 0,
+        "main_merges": 0,
+        "submissions": 0,
+        "historical_negative_results_preserved": true
+      },
+      "previous_state_rule": "All predecessor fields/values are retained and describe their original source-bound sessions; prior closed budgets and scientific holds are unchanged.",
+      "next_action": "Review draft implementation stacked on PR38; future scientific adoption requires prospective declaration and separate execution gates.",
+      "independent_review": {
+        "source_review": "Root inspected new API, tests and documentation; no blocking issue reported.",
+        "targeted_recheck": {
+          "passed": 2,
+          "failed": 0,
+          "pytest_seconds": 42.57,
+          "warnings": 2,
+          "tests": [
+            "test_live_training_graph_and_parameter_versions_remain_valid_for_backward",
+            "test_failure_after_memory_write_preserves_rng_and_every_owner_component"
+          ],
+          "scope": "Separate root-agent execution on the same source/environment. Both cases are already part of the 41-test collection; not extra unique tests.",
+          "receipt_source": "Parent-agent execution result communicated in this session; raw output retained in parent tool transcript."
+        }
+      },
+      "budget_consumed": {
+        "executed_test_commands": 3,
+        "local_author_test_commands": 2,
+        "root_review_test_commands": 1,
+        "test_failures": 0,
+        "repair_cycles": 0,
+        "status": "CLOSED"
+      }
+    }
+  ],
+  "active_engineering_continuation": {
+    "id": "fim.isolated-episode-evaluation.v1.20261010",
+    "record": "engineering_continuations",
+    "note": "The preceding active_engineering_session remains the preserved PR38 integration receipt; it is not a new run of this source."
+  },
+  "latest_engineering_continuation": {
+    "id": "fim.retention-analysis.v2.20261010",
+    "receipt": "research/verification/retention_v2_20261010/receipt.json",
+    "note": "Previous state fields and closed budgets remain source-specific; this appended entry describes only this new engineering change."
+  },
+  "followup_predecessor_records": [
+    {
+      "pr": 38,
+      "source_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261011/PR38_92bcc3eb5322_RESEARCH_STATE.json",
+      "git_blob": "c97d96219980996b1d9c4a5115fa0cd9a5b23151",
+      "sha256": "0208c266d1dc7a4a0ea79cc6c914de345da3350ce3f16d1a525ab2703c7ebe11"
+    },
+    {
+      "pr": 39,
+      "source_commit": "160f3d9d43919568f25db118211d7fb58be81ab0",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261011/PR39_160f3d9d4391_RESEARCH_STATE.json",
+      "git_blob": "1c923fdc4ea5a67833e57941e7adb53474da86b6",
+      "sha256": "54baef5c4048e3b03f27d5bf663e4e1a2e73e68a8f51e32819d0ab1217964cdc"
+    },
+    {
+      "pr": 40,
+      "source_commit": "eee27200e6dd50bc774f7a10cfd572da517defaf",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261011/PR40_eee27200e6dd_RESEARCH_STATE.json",
+      "git_blob": "5977ba9886afdec51a8d5e9a622d78906bafd3d7",
+      "sha256": "0b0d498de114ba37132f6de6b850dc1b32fcd02247e2d46483db406899d17668"
+    },
+    {
+      "pr": 41,
+      "source_commit": "765c8c58837cd3e6fc8ea86192ed768e382b2551",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261011/PR41_765c8c58837c_RESEARCH_STATE.json",
+      "git_blob": "61e0fb5602fefcdee20e36d97a460a76857cf5da",
+      "sha256": "cd54bfe77943815c125b47184d4fe680b06c5fd05aa9f6b6b38380e4125c4988"
+    },
+    {
+      "pr": 42,
+      "source_commit": "a3da3cfc08f69dd0f2354196c2a3fd32b5b9dd72",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261011/PR42_a3da3cfc08f6_RESEARCH_STATE.json",
+      "git_blob": "c3766fa2bb4c828fbcda1ba855e80a078b4ad740",
+      "sha256": "b39ed2c990fbe6d742a174b7c04a855d25d163cbaad702199f3c972aad9d6de9"
+    },
+    {
+      "pr": 43,
+      "source_commit": "e24a6a7e502db3f6cc5f6baeff375b36dc8f40e6",
+      "original_path": "research/RESEARCH_STATE.json",
+      "snapshot_path": "research/state_snapshots/integration_20261011/PR43_e24a6a7e502d_RESEARCH_STATE.json",
+      "git_blob": "62a6ed727eac81d746606d01cf44d7dd384e8a2d",
+      "sha256": "3a99ff9ccce43befa260002e943c1c54d776b52281bcac4e5e33584754bc12cb"
+    }
+  ],
+  "current_engineering_session": {
+    "id": "fim-followup-integration-20261011",
+    "record": "followup_integration_sessions",
+    "note": "Earlier active/latest markers remain source-specific historical values; this pointer identifies the current integration session."
+  },
+  "followup_integration_sessions": [
+    {
+      "id": "fim-followup-integration-20261011",
+      "status": "CLOSED_PUBLISHED_DRAFT",
+      "contract": "docs/integration/20261011/CONTRACT.md",
+      "base_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+      "source_inventory": "docs/integration/20261011/sources.json",
+      "adopted_proposals": [
+        {
+          "pr": 39,
+          "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/39",
+          "head_commit": "160f3d9d43919568f25db118211d7fb58be81ab0",
+          "tree": "964d0b0cc75cbf005f1d04f42c3c4f9ab2eb9e0f",
+          "changed_paths": [
+            "docs/implicit_diffusion_v2.md",
+            "fim/operators/implicit_diffusion_v2.py",
+            "research/RESEARCH_STATE.json",
+            "research/development/IMPLICIT_DIFFUSION_V2_20261010.md",
+            "research/state_snapshots/PR38_92bcc3eb5322_before_implicit_diffusion_RESEARCH_STATE.json",
+            "research/verification/implicit_diffusion_v2_20261010/baseline.json",
+            "research/verification/implicit_diffusion_v2_20261010/environment.json",
+            "research/verification/implicit_diffusion_v2_20261010/full_suite.log",
+            "research/verification/implicit_diffusion_v2_20261010/full_suite.xml",
+            "research/verification/implicit_diffusion_v2_20261010/full_suite_receipt.json",
+            "research/verification/implicit_diffusion_v2_20261010/independent_review.json",
+            "research/verification/implicit_diffusion_v2_20261010/initial_test_source.py",
+            "research/verification/implicit_diffusion_v2_20261010/result.json",
+            "research/verification/implicit_diffusion_v2_20261010/review_fix.json",
+            "research/verification/implicit_diffusion_v2_20261010/targeted.log",
+            "research/verification/implicit_diffusion_v2_20261010/targeted.xml",
+            "research/verification/implicit_diffusion_v2_20261010/targeted_receipt.json",
+            "research/verification/implicit_diffusion_v2_20261010/whitespace_receipt.json",
+            "tests/test_implicit_diffusion_v2.py"
+          ]
+        },
+        {
+          "pr": 40,
+          "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/40",
+          "head_commit": "eee27200e6dd50bc774f7a10cfd572da517defaf",
+          "tree": "a4d71e2aa65569ff65828e83d084e8a6ff4eeeaf",
+          "changed_paths": [
+            "docs/colored-noise-v2.md",
+            "fim/stochastic/colored_noise_v2.py",
+            "research/RESEARCH_STATE.json",
+            "research/state_snapshots/noise_v2_20261010/PR38_92bcc3eb5322_RESEARCH_STATE.json",
+            "research/verification/colored_noise_v2_20261010/receipt.json",
+            "tests/test_colored_noise_v2.py"
+          ]
+        },
+        {
+          "pr": 41,
+          "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/41",
+          "head_commit": "765c8c58837cd3e6fc8ea86192ed768e382b2551",
+          "tree": "357a8049e8e8cf663980e5df214655fb8e3456a8",
+          "changed_paths": [
+            "fim/training/rollout.py",
+            "research/RESEARCH_STATE.json",
+            "research/maintenance/rollout_preflight_20261010/CONTRACT.md",
+            "research/maintenance/rollout_preflight_20261010/README.md",
+            "research/maintenance/rollout_preflight_20261010/baseline.log",
+            "research/maintenance/rollout_preflight_20261010/baseline.xml",
+            "research/maintenance/rollout_preflight_20261010/baseline_receipt.json",
+            "research/maintenance/rollout_preflight_20261010/focused.log",
+            "research/maintenance/rollout_preflight_20261010/focused.xml",
+            "research/maintenance/rollout_preflight_20261010/focused_receipt.json",
+            "research/maintenance/rollout_preflight_20261010/full.log",
+            "research/maintenance/rollout_preflight_20261010/full.xml",
+            "research/maintenance/rollout_preflight_20261010/full_receipt.json",
+            "research/maintenance/rollout_preflight_20261010/independent_review.json",
+            "research/maintenance/rollout_preflight_20261010/preservation.json",
+            "research/state_snapshots/PR38_92bcc3eb5322_before_rollout_preflight.json",
+            "tests/test_public_rollout_preflight.py"
+          ]
+        },
+        {
+          "pr": 42,
+          "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/42",
+          "head_commit": "a3da3cfc08f69dd0f2354196c2a3fd32b5b9dd72",
+          "tree": "24fe311078956a0e5ad9c3439f02fcb9df8492b0",
+          "changed_paths": [
+            "README.md",
+            "docs/isolated-episode-evaluation-v1.md",
+            "fim/training/isolated_evaluation_v1.py",
+            "research/RESEARCH_STATE.json",
+            "research/verification/isolated_evaluation_v1_20261010/attempt_01.json",
+            "research/verification/isolated_evaluation_v1_20261010/attempt_01_test_isolated_evaluation_v1.py.snapshot",
+            "research/verification/isolated_evaluation_v1_20261010/attempt_02.json",
+            "research/verification/isolated_evaluation_v1_20261010/pytest.log",
+            "research/verification/isolated_evaluation_v1_20261010/pytest.xml",
+            "research/verification/isolated_evaluation_v1_20261010/receipt.json",
+            "tests/test_isolated_evaluation_v1.py"
+          ]
+        },
+        {
+          "pr": 43,
+          "url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/43",
+          "head_commit": "e24a6a7e502db3f6cc5f6baeff375b36dc8f40e6",
+          "tree": "c78278fe5064f0c4b206de78a1b469d9e412a051",
+          "changed_paths": [
+            "fim/analysis/retention_v2.py",
+            "research/RESEARCH_STATE.json",
+            "research/development/RETENTION_ANALYSIS_V2_20261010.md",
+            "research/state_snapshots/PR38_92bcc3eb5322_before_retention_v2_20261010_RESEARCH_STATE.json",
+            "research/verification/retention_v2_20261010/archive_packaging.json",
+            "research/verification/retention_v2_20261010/before_review/implementation.py",
+            "research/verification/retention_v2_20261010/before_review/receipt.json",
+            "research/verification/retention_v2_20261010/before_review/targeted.log",
+            "research/verification/retention_v2_20261010/before_review/targeted.xml",
+            "research/verification/retention_v2_20261010/before_review/test_source.py.txt",
+            "research/verification/retention_v2_20261010/receipt.json",
+            "research/verification/retention_v2_20261010/review_finding.json",
+            "research/verification/retention_v2_20261010/targeted.log",
+            "research/verification/retention_v2_20261010/targeted.xml",
+            "tests/test_retention_v2.py"
+          ]
+        }
+      ],
+      "source_conflicts": "None outside canonical state; six exact state snapshots retained and source-specific entries unioned.",
+      "new_runtime_implementations": 0,
+      "adopted_paths": 63,
+      "unchanged_base_leaves": 341,
+      "preserved_canonical_states": 6,
+      "development_budget": {
+        "full_test_processes": 1,
+        "conditional_repair_reruns": 1,
+        "seconds_per_test_process": 240,
+        "numeric_threads": 1,
+        "paid_compute": 0,
+        "protected_runs": 0,
+        "new_retained_demos": 0
+      },
+      "verification": {
+        "status": "LOCAL_COMBINED_SUITE_PASSED",
+        "passed": 864,
+        "skipped": 7,
+        "warnings": 33,
+        "subtests_passed": 164,
+        "pytest_seconds": 17.31,
+        "complete_command_seconds": 18.224950753000485,
+        "source_unchanged_before_after": true,
+        "source_set_sha256": "7dedae52521d3bb3c4b42c61e35c6afa4226528e69fdc2afdb326f030bbc4c2f",
+        "source_set_file_count": 141,
+        "test_receipt": "docs/integration/20261011/test_receipt.json",
+        "source_verifier": "docs/integration/20261011/verify_sources.py",
+        "original_git_trees_verified": true,
+        "compilation": "passed",
+        "hosted_ci": {
+          "status": "BOTH_IMPLEMENTATION_WORKFLOWS_PASSED",
+          "receipt": "docs/integration/20261011/hosted_verification.json",
+          "passed_each": 864,
+          "skipped_each": 7,
+          "subtests_each": 164,
+          "counts_overlap": true,
+          "scientific_job": "SKIPPED",
+          "merge_checkout_tree_equals_implementation_tree": true
+        },
+        "counts_overlap": true,
+        "whitespace": {
+          "maintained_source_tests_authored_metadata": "passed",
+          "all_staged_files": "failed on original whitespace in four exact imported historical log/XML files",
+          "receipt": "docs/integration/20261011/whitespace_receipt.json"
+        }
+      },
+      "scientific_status": "HELD; inherited adverse results and hypothesis status unchanged",
+      "next_action": "Maintainer review of PR44 and PR38 before integration into main. Existing scientific protocol execution/outcome holds remain intact until their separately qualified decision.",
+      "budget_consumed": {
+        "full_test_processes": 1,
+        "repair_reruns": 0,
+        "test_command_seconds": 18.224950753000485,
+        "new_retained_demos": 0,
+        "protected_runs": 0,
+        "paid_compute": 0
+      },
+      "failures": [
+        "The complete staged whitespace check reports existing trace formatting in four retained predecessor logs/XML files. Exact historical bytes were preserved; scoped maintained code/tests/new metadata check passes. No test failure occurred."
+      ],
+      "independent_review": {
+        "status": "ACCEPTED_FOR_DRAFT_PUBLICATION",
+        "receipt": "docs/integration/20261011/independent_review.json",
+        "test_rerun": false
+      },
+      "publication": {
+        "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/44",
+        "branch": "integration/fim-followups-20261011",
+        "implementation_commit": "82f724b725772bbd3e6d233b9d69c3d6ec1e0089",
+        "implementation_tree": "6c694ff12268a1a6b7b0164ca85dcbe49369b1c9",
+        "all_13_new_blobs_verified": true,
+        "complete_remote_tree_equals_local_reviewed_tree": true,
+        "metadata_followup": "This followup records hosted acceptance and publication only. The entire tested source set remains exact; no local test or scientific run is repeated."
+      }
+    }
+  ]
 }

@@ -1,0 +1,636 @@
+FFFF.FFFFFFFFFF..FFFFFFF......                                           [100%]
+=================================== FAILURES ===================================
+__ test_short_sequence_is_rejected_before_any_state_change[control_sequence] ___
+
+sequence = 'control_sequence'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    def test_short_sequence_is_rejected_before_any_state_change(sequence):
+        model = StatefulStepModel()
+        with pytest.raises(ValueError, match=sequence):
+            autoregressive_rollout(
+                model, torch.zeros(2, 3), 3, update_memory=True,
+                **{sequence: torch.zeros(2, 1, 3)},
+            )
+>       assert model.calls == []
+E       assert [(tensor([[0....., 0., 0.]]))] == []
+E         
+E         Left contains one more item: (tensor([[0., 0., 0.],\n        [0., 0., 0.]]), tensor([[0., 0., 0.],\n        [0., 0., 0.]]))
+E         Use -v to get more diff
+
+tests/test_public_rollout_preflight.py:35: AssertionError
+___ test_short_sequence_is_rejected_before_any_state_change[teacher_forcing] ___
+
+sequence = 'teacher_forcing'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    def test_short_sequence_is_rejected_before_any_state_change(sequence):
+        model = StatefulStepModel()
+        with pytest.raises(ValueError, match=sequence):
+            autoregressive_rollout(
+                model, torch.zeros(2, 3), 3, update_memory=True,
+                **{sequence: torch.zeros(2, 1, 3)},
+            )
+>       assert model.calls == []
+E       assert [(tensor([[0.... 0.]]), None)] == []
+E         
+E         Left contains 2 more items, first extra item: (tensor([[0., 0., 0.],\n        [0., 0., 0.]]), None)
+E         Use -v to get more diff
+
+tests/test_public_rollout_preflight.py:35: AssertionError
+_ test_invalid_sequence_is_rejected_without_entering_model[batch-control_sequence] _
+
+sequence = 'control_sequence', kind = 'batch'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    @pytest.mark.parametrize("kind", ["batch", "rank", "not_tensor", "nan", "inf"])
+    def test_invalid_sequence_is_rejected_without_entering_model(sequence, kind):
+        values = {
+            "batch": torch.zeros(1, 3, 3),
+            "rank": torch.zeros(3),
+            "not_tensor": [[[0.0]]],
+            "nan": torch.tensor([[[0.0] * 3] * 2 + [[float("nan")] * 3]] * 2),
+            "inf": torch.tensor([[[0.0] * 3] * 2 + [[float("inf")] * 3]] * 2),
+        }
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match=sequence):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (TypeError, ValueError)
+
+tests/test_public_rollout_preflight.py:50: Failed
+_ test_invalid_sequence_is_rejected_without_entering_model[batch-teacher_forcing] _
+
+sequence = 'teacher_forcing', kind = 'batch'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    @pytest.mark.parametrize("kind", ["batch", "rank", "not_tensor", "nan", "inf"])
+    def test_invalid_sequence_is_rejected_without_entering_model(sequence, kind):
+        values = {
+            "batch": torch.zeros(1, 3, 3),
+            "rank": torch.zeros(3),
+            "not_tensor": [[[0.0]]],
+            "nan": torch.tensor([[[0.0] * 3] * 2 + [[float("nan")] * 3]] * 2),
+            "inf": torch.tensor([[[0.0] * 3] * 2 + [[float("inf")] * 3]] * 2),
+        }
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match=sequence):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (TypeError, ValueError)
+
+tests/test_public_rollout_preflight.py:50: Failed
+_ test_invalid_sequence_is_rejected_without_entering_model[rank-teacher_forcing] _
+
+sequence = 'teacher_forcing', kind = 'rank'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    @pytest.mark.parametrize("kind", ["batch", "rank", "not_tensor", "nan", "inf"])
+    def test_invalid_sequence_is_rejected_without_entering_model(sequence, kind):
+        values = {
+            "batch": torch.zeros(1, 3, 3),
+            "rank": torch.zeros(3),
+            "not_tensor": [[[0.0]]],
+            "nan": torch.tensor([[[0.0] * 3] * 2 + [[float("nan")] * 3]] * 2),
+            "inf": torch.tensor([[[0.0] * 3] * 2 + [[float("inf")] * 3]] * 2),
+        }
+        model = StatefulStepModel()
+        with pytest.raises((TypeError, ValueError), match=sequence):
+            autoregressive_rollout(
+                model, torch.zeros(2, 3), 3, update_memory=True,
+                **{sequence: values[kind]},
+            )
+>       assert model.calls == []
+E       assert [(tensor([[0.... 0.]]), None)] == []
+E         
+E         Left contains one more item: (tensor([[0., 0., 0.],\n        [0., 0., 0.]]), None)
+E         Use -v to get more diff
+
+tests/test_public_rollout_preflight.py:55: AssertionError
+_ test_invalid_sequence_is_rejected_without_entering_model[not_tensor-control_sequence] _
+
+sequence = 'control_sequence', kind = 'not_tensor'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    @pytest.mark.parametrize("kind", ["batch", "rank", "not_tensor", "nan", "inf"])
+    def test_invalid_sequence_is_rejected_without_entering_model(sequence, kind):
+        values = {
+            "batch": torch.zeros(1, 3, 3),
+            "rank": torch.zeros(3),
+            "not_tensor": [[[0.0]]],
+            "nan": torch.tensor([[[0.0] * 3] * 2 + [[float("nan")] * 3]] * 2),
+            "inf": torch.tensor([[[0.0] * 3] * 2 + [[float("inf")] * 3]] * 2),
+        }
+        model = StatefulStepModel()
+        with pytest.raises((TypeError, ValueError), match=sequence):
+>           autoregressive_rollout(
+                model, torch.zeros(2, 3), 3, update_memory=True,
+                **{sequence: values[kind]},
+            )
+
+tests/test_public_rollout_preflight.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../fecebaaf32e4/research_execution/testdeps/torch/utils/_contextlib.py:124: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = <tests.test_public_rollout_preflight.StatefulStepModel object at 0x7f44a3aa5f10>
+x0 = tensor([[0., 0., 0.],
+        [0., 0., 0.]]), steps = 3
+control_sequence = [[[0.0]]], teacher_forcing = None, update_memory = True
+return_outputs = True
+
+    @torch.no_grad()
+    def autoregressive_rollout(
+        model,
+        x0: torch.Tensor,
+        steps: int,
+        *,
+        control_sequence: Optional[torch.Tensor] = None,
+        teacher_forcing: Optional[torch.Tensor] = None,
+        update_memory: bool = False,
+        return_outputs: bool = True,
+    ) -> Tuple[torch.Tensor, Optional[List]]:
+        if steps <= 0:
+            raise ValueError("steps must be > 0")
+    
+        B = x0.shape[0]
+    
+        preds = torch.zeros(
+            B,
+            steps,
+            *x0.shape[1:],
+            device=x0.device,
+            dtype=x0.dtype,
+        )
+    
+        outputs: Optional[List] = [] if return_outputs else None
+    
+        x = x0
+    
+        for t in range(steps):
+            if control_sequence is not None:
+>               if control_sequence.dim() < 2 or t >= control_sequence.shape[1]:
+                   ^^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'list' object has no attribute 'dim'
+
+fim/training/rollout.py:38: AttributeError
+_ test_invalid_sequence_is_rejected_without_entering_model[not_tensor-teacher_forcing] _
+
+sequence = 'teacher_forcing', kind = 'not_tensor'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    @pytest.mark.parametrize("kind", ["batch", "rank", "not_tensor", "nan", "inf"])
+    def test_invalid_sequence_is_rejected_without_entering_model(sequence, kind):
+        values = {
+            "batch": torch.zeros(1, 3, 3),
+            "rank": torch.zeros(3),
+            "not_tensor": [[[0.0]]],
+            "nan": torch.tensor([[[0.0] * 3] * 2 + [[float("nan")] * 3]] * 2),
+            "inf": torch.tensor([[[0.0] * 3] * 2 + [[float("inf")] * 3]] * 2),
+        }
+        model = StatefulStepModel()
+        with pytest.raises((TypeError, ValueError), match=sequence):
+>           autoregressive_rollout(
+                model, torch.zeros(2, 3), 3, update_memory=True,
+                **{sequence: values[kind]},
+            )
+
+tests/test_public_rollout_preflight.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../fecebaaf32e4/research_execution/testdeps/torch/utils/_contextlib.py:124: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = <tests.test_public_rollout_preflight.StatefulStepModel object at 0x7f44a426cd10>
+x0 = tensor([[0., 0., 0.],
+        [0., 0., 0.]]), steps = 3
+control_sequence = None, teacher_forcing = [[[0.0]]], update_memory = True
+return_outputs = True
+
+    @torch.no_grad()
+    def autoregressive_rollout(
+        model,
+        x0: torch.Tensor,
+        steps: int,
+        *,
+        control_sequence: Optional[torch.Tensor] = None,
+        teacher_forcing: Optional[torch.Tensor] = None,
+        update_memory: bool = False,
+        return_outputs: bool = True,
+    ) -> Tuple[torch.Tensor, Optional[List]]:
+        if steps <= 0:
+            raise ValueError("steps must be > 0")
+    
+        B = x0.shape[0]
+    
+        preds = torch.zeros(
+            B,
+            steps,
+            *x0.shape[1:],
+            device=x0.device,
+            dtype=x0.dtype,
+        )
+    
+        outputs: Optional[List] = [] if return_outputs else None
+    
+        x = x0
+    
+        for t in range(steps):
+            if control_sequence is not None:
+                if control_sequence.dim() < 2 or t >= control_sequence.shape[1]:
+                    raise ValueError("control_sequence shorter than steps or invalid shape")
+                control = control_sequence[:, t]
+            else:
+                control = None
+    
+            result = model.step(
+                x,
+                control=control,
+                update_memory=update_memory,
+            )
+    
+            if isinstance(result, tuple):
+                y, out = result
+            else:
+                y = result
+                out = None
+    
+            if y.shape != x.shape:
+                raise RuntimeError(
+                    f"Shape mismatch: predicted {y.shape} vs input {x.shape}"
+                )
+    
+            preds[:, t] = y
+    
+            if outputs is not None:
+                outputs.append(out)
+    
+            if teacher_forcing is not None:
+>               if teacher_forcing.dim() < 2 or t >= teacher_forcing.shape[1]:
+                   ^^^^^^^^^^^^^^^^^^^
+E               AttributeError: 'list' object has no attribute 'dim'
+
+fim/training/rollout.py:67: AttributeError
+_ test_invalid_sequence_is_rejected_without_entering_model[nan-control_sequence] _
+
+sequence = 'control_sequence', kind = 'nan'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    @pytest.mark.parametrize("kind", ["batch", "rank", "not_tensor", "nan", "inf"])
+    def test_invalid_sequence_is_rejected_without_entering_model(sequence, kind):
+        values = {
+            "batch": torch.zeros(1, 3, 3),
+            "rank": torch.zeros(3),
+            "not_tensor": [[[0.0]]],
+            "nan": torch.tensor([[[0.0] * 3] * 2 + [[float("nan")] * 3]] * 2),
+            "inf": torch.tensor([[[0.0] * 3] * 2 + [[float("inf")] * 3]] * 2),
+        }
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match=sequence):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (TypeError, ValueError)
+
+tests/test_public_rollout_preflight.py:50: Failed
+_ test_invalid_sequence_is_rejected_without_entering_model[nan-teacher_forcing] _
+
+sequence = 'teacher_forcing', kind = 'nan'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    @pytest.mark.parametrize("kind", ["batch", "rank", "not_tensor", "nan", "inf"])
+    def test_invalid_sequence_is_rejected_without_entering_model(sequence, kind):
+        values = {
+            "batch": torch.zeros(1, 3, 3),
+            "rank": torch.zeros(3),
+            "not_tensor": [[[0.0]]],
+            "nan": torch.tensor([[[0.0] * 3] * 2 + [[float("nan")] * 3]] * 2),
+            "inf": torch.tensor([[[0.0] * 3] * 2 + [[float("inf")] * 3]] * 2),
+        }
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match=sequence):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (TypeError, ValueError)
+
+tests/test_public_rollout_preflight.py:50: Failed
+_ test_invalid_sequence_is_rejected_without_entering_model[inf-control_sequence] _
+
+sequence = 'control_sequence', kind = 'inf'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    @pytest.mark.parametrize("kind", ["batch", "rank", "not_tensor", "nan", "inf"])
+    def test_invalid_sequence_is_rejected_without_entering_model(sequence, kind):
+        values = {
+            "batch": torch.zeros(1, 3, 3),
+            "rank": torch.zeros(3),
+            "not_tensor": [[[0.0]]],
+            "nan": torch.tensor([[[0.0] * 3] * 2 + [[float("nan")] * 3]] * 2),
+            "inf": torch.tensor([[[0.0] * 3] * 2 + [[float("inf")] * 3]] * 2),
+        }
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match=sequence):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (TypeError, ValueError)
+
+tests/test_public_rollout_preflight.py:50: Failed
+_ test_invalid_sequence_is_rejected_without_entering_model[inf-teacher_forcing] _
+
+sequence = 'teacher_forcing', kind = 'inf'
+
+    @pytest.mark.parametrize("sequence", ["control_sequence", "teacher_forcing"])
+    @pytest.mark.parametrize("kind", ["batch", "rank", "not_tensor", "nan", "inf"])
+    def test_invalid_sequence_is_rejected_without_entering_model(sequence, kind):
+        values = {
+            "batch": torch.zeros(1, 3, 3),
+            "rank": torch.zeros(3),
+            "not_tensor": [[[0.0]]],
+            "nan": torch.tensor([[[0.0] * 3] * 2 + [[float("nan")] * 3]] * 2),
+            "inf": torch.tensor([[[0.0] * 3] * 2 + [[float("inf")] * 3]] * 2),
+        }
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match=sequence):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (TypeError, ValueError)
+
+tests/test_public_rollout_preflight.py:50: Failed
+___ test_teacher_forcing_feature_shape_is_checked_before_first_step[shape0] ____
+
+shape = (2, 3, 1)
+
+    @pytest.mark.parametrize("shape", [(2, 3, 1), (2, 3, 1, 3)])
+    def test_teacher_forcing_feature_shape_is_checked_before_first_step(shape):
+        model = StatefulStepModel()
+>       with pytest.raises(ValueError, match="teacher_forcing"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_public_rollout_preflight.py:62: Failed
+___ test_teacher_forcing_feature_shape_is_checked_before_first_step[shape1] ____
+
+shape = (2, 3, 1, 3)
+
+    @pytest.mark.parametrize("shape", [(2, 3, 1), (2, 3, 1, 3)])
+    def test_teacher_forcing_feature_shape_is_checked_before_first_step(shape):
+        model = StatefulStepModel()
+        with pytest.raises(ValueError, match="teacher_forcing"):
+>           autoregressive_rollout(
+                model, torch.zeros(2, 3), 3, teacher_forcing=torch.zeros(shape),
+            )
+
+tests/test_public_rollout_preflight.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../fecebaaf32e4/research_execution/testdeps/torch/utils/_contextlib.py:124: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = <tests.test_public_rollout_preflight.StatefulStepModel object at 0x7f44a3aab680>
+x0 = tensor([[0., 0., 0.],
+        [0., 0., 0.]]), steps = 3
+control_sequence = None
+teacher_forcing = tensor([[[[0., 0., 0.]],
+
+         [[0., 0., 0.]],
+
+         [[0., 0., 0.]]],
+
+
+        [[[0., 0., 0.]],
+
+         [[0., 0., 0.]],
+
+         [[0., 0., 0.]]]])
+update_memory = False, return_outputs = True
+
+    @torch.no_grad()
+    def autoregressive_rollout(
+        model,
+        x0: torch.Tensor,
+        steps: int,
+        *,
+        control_sequence: Optional[torch.Tensor] = None,
+        teacher_forcing: Optional[torch.Tensor] = None,
+        update_memory: bool = False,
+        return_outputs: bool = True,
+    ) -> Tuple[torch.Tensor, Optional[List]]:
+        if steps <= 0:
+            raise ValueError("steps must be > 0")
+    
+        B = x0.shape[0]
+    
+        preds = torch.zeros(
+            B,
+            steps,
+            *x0.shape[1:],
+            device=x0.device,
+            dtype=x0.dtype,
+        )
+    
+        outputs: Optional[List] = [] if return_outputs else None
+    
+        x = x0
+    
+        for t in range(steps):
+            if control_sequence is not None:
+                if control_sequence.dim() < 2 or t >= control_sequence.shape[1]:
+                    raise ValueError("control_sequence shorter than steps or invalid shape")
+                control = control_sequence[:, t]
+            else:
+                control = None
+    
+            result = model.step(
+                x,
+                control=control,
+                update_memory=update_memory,
+            )
+    
+            if isinstance(result, tuple):
+                y, out = result
+            else:
+                y = result
+                out = None
+    
+            if y.shape != x.shape:
+                raise RuntimeError(
+                    f"Shape mismatch: predicted {y.shape} vs input {x.shape}"
+                )
+    
+>           preds[:, t] = y
+            ^^^^^^^^^^^
+E           RuntimeError: expand(torch.FloatTensor{[2, 1, 3]}, size=[2, 3]): the number of sizes provided (2) must be greater or equal to the number of dimensions in the tensor (3)
+
+fim/training/rollout.py:61: RuntimeError
+________ test_teacher_forcing_dtype_is_not_silently_cast_between_steps _________
+
+    def test_teacher_forcing_dtype_is_not_silently_cast_between_steps():
+        model = StatefulStepModel()
+>       with pytest.raises(ValueError, match="teacher_forcing"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+tests/test_public_rollout_preflight.py:71: Failed
+__________ test_invalid_step_count_is_rejected_before_execution[1.5] ___________
+
+steps = 1.5
+
+    @pytest.mark.parametrize("steps", [0, -1, 1.5, True])
+    def test_invalid_step_count_is_rejected_before_execution(steps):
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match="steps"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'steps'
+E         Actual message: 'zeros(): argument \'size\' failed to unpack the object at pos 2 with error "type must be tuple of ints,but got float"'
+
+tests/test_public_rollout_preflight.py:82: AssertionError
+__________ test_invalid_step_count_is_rejected_before_execution[True] __________
+
+steps = True
+
+    @pytest.mark.parametrize("steps", [0, -1, 1.5, True])
+    def test_invalid_step_count_is_rejected_before_execution(steps):
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match="steps"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (TypeError, ValueError)
+
+tests/test_public_rollout_preflight.py:82: Failed
+____________ test_invalid_initial_tensor_does_not_enter_model[None] ____________
+
+x0 = None
+
+    @pytest.mark.parametrize("x0", [None, torch.tensor(1.0), torch.empty(0, 3), torch.empty(2, 0), torch.full((2, 3), float("nan"))])
+    def test_invalid_initial_tensor_does_not_enter_model(x0):
+        model = StatefulStepModel()
+        with pytest.raises((TypeError, ValueError), match="x0"):
+>           autoregressive_rollout(model, x0, 2)
+
+tests/test_public_rollout_preflight.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../fecebaaf32e4/research_execution/testdeps/torch/utils/_contextlib.py:124: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = <tests.test_public_rollout_preflight.StatefulStepModel object at 0x7f44a3aab410>
+x0 = None, steps = 2, control_sequence = None, teacher_forcing = None
+update_memory = False, return_outputs = True
+
+    @torch.no_grad()
+    def autoregressive_rollout(
+        model,
+        x0: torch.Tensor,
+        steps: int,
+        *,
+        control_sequence: Optional[torch.Tensor] = None,
+        teacher_forcing: Optional[torch.Tensor] = None,
+        update_memory: bool = False,
+        return_outputs: bool = True,
+    ) -> Tuple[torch.Tensor, Optional[List]]:
+        if steps <= 0:
+            raise ValueError("steps must be > 0")
+    
+>       B = x0.shape[0]
+            ^^^^^^^^
+E       AttributeError: 'NoneType' object has no attribute 'shape'
+
+fim/training/rollout.py:22: AttributeError
+____________ test_invalid_initial_tensor_does_not_enter_model[x01] _____________
+
+x0 = tensor(1.)
+
+    @pytest.mark.parametrize("x0", [None, torch.tensor(1.0), torch.empty(0, 3), torch.empty(2, 0), torch.full((2, 3), float("nan"))])
+    def test_invalid_initial_tensor_does_not_enter_model(x0):
+        model = StatefulStepModel()
+        with pytest.raises((TypeError, ValueError), match="x0"):
+>           autoregressive_rollout(model, x0, 2)
+
+tests/test_public_rollout_preflight.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../fecebaaf32e4/research_execution/testdeps/torch/utils/_contextlib.py:124: in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+model = <tests.test_public_rollout_preflight.StatefulStepModel object at 0x7f44a3aa6060>
+x0 = tensor(1.), steps = 2, control_sequence = None, teacher_forcing = None
+update_memory = False, return_outputs = True
+
+    @torch.no_grad()
+    def autoregressive_rollout(
+        model,
+        x0: torch.Tensor,
+        steps: int,
+        *,
+        control_sequence: Optional[torch.Tensor] = None,
+        teacher_forcing: Optional[torch.Tensor] = None,
+        update_memory: bool = False,
+        return_outputs: bool = True,
+    ) -> Tuple[torch.Tensor, Optional[List]]:
+        if steps <= 0:
+            raise ValueError("steps must be > 0")
+    
+>       B = x0.shape[0]
+            ^^^^^^^^^^^
+E       IndexError: tuple index out of range
+
+fim/training/rollout.py:22: IndexError
+____________ test_invalid_initial_tensor_does_not_enter_model[x02] _____________
+
+x0 = tensor([], size=(0, 3))
+
+    @pytest.mark.parametrize("x0", [None, torch.tensor(1.0), torch.empty(0, 3), torch.empty(2, 0), torch.full((2, 3), float("nan"))])
+    def test_invalid_initial_tensor_does_not_enter_model(x0):
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match="x0"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (TypeError, ValueError)
+
+tests/test_public_rollout_preflight.py:90: Failed
+____________ test_invalid_initial_tensor_does_not_enter_model[x03] _____________
+
+x0 = tensor([], size=(2, 0))
+
+    @pytest.mark.parametrize("x0", [None, torch.tensor(1.0), torch.empty(0, 3), torch.empty(2, 0), torch.full((2, 3), float("nan"))])
+    def test_invalid_initial_tensor_does_not_enter_model(x0):
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match="x0"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (TypeError, ValueError)
+
+tests/test_public_rollout_preflight.py:90: Failed
+____________ test_invalid_initial_tensor_does_not_enter_model[x04] _____________
+
+x0 = tensor([[nan, nan, nan],
+        [nan, nan, nan]])
+
+    @pytest.mark.parametrize("x0", [None, torch.tensor(1.0), torch.empty(0, 3), torch.empty(2, 0), torch.full((2, 3), float("nan"))])
+    def test_invalid_initial_tensor_does_not_enter_model(x0):
+        model = StatefulStepModel()
+>       with pytest.raises((TypeError, ValueError), match="x0"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE any of (TypeError, ValueError)
+
+tests/test_public_rollout_preflight.py:90: Failed
+=========================== short test summary info ============================
+FAILED tests/test_public_rollout_preflight.py::test_short_sequence_is_rejected_before_any_state_change[control_sequence]
+FAILED tests/test_public_rollout_preflight.py::test_short_sequence_is_rejected_before_any_state_change[teacher_forcing]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_sequence_is_rejected_without_entering_model[batch-control_sequence]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_sequence_is_rejected_without_entering_model[batch-teacher_forcing]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_sequence_is_rejected_without_entering_model[rank-teacher_forcing]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_sequence_is_rejected_without_entering_model[not_tensor-control_sequence]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_sequence_is_rejected_without_entering_model[not_tensor-teacher_forcing]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_sequence_is_rejected_without_entering_model[nan-control_sequence]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_sequence_is_rejected_without_entering_model[nan-teacher_forcing]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_sequence_is_rejected_without_entering_model[inf-control_sequence]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_sequence_is_rejected_without_entering_model[inf-teacher_forcing]
+FAILED tests/test_public_rollout_preflight.py::test_teacher_forcing_feature_shape_is_checked_before_first_step[shape0]
+FAILED tests/test_public_rollout_preflight.py::test_teacher_forcing_feature_shape_is_checked_before_first_step[shape1]
+FAILED tests/test_public_rollout_preflight.py::test_teacher_forcing_dtype_is_not_silently_cast_between_steps
+FAILED tests/test_public_rollout_preflight.py::test_invalid_step_count_is_rejected_before_execution[1.5]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_step_count_is_rejected_before_execution[True]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_initial_tensor_does_not_enter_model[None]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_initial_tensor_does_not_enter_model[x01]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_initial_tensor_does_not_enter_model[x02]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_initial_tensor_does_not_enter_model[x03]
+FAILED tests/test_public_rollout_preflight.py::test_invalid_initial_tensor_does_not_enter_model[x04]
+21 failed, 9 passed in 5.19s
