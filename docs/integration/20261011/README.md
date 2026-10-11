@@ -68,9 +68,14 @@ failed all-files check is retained in `whitespace_receipt.json`.
 ## Remaining gates
 
 Review this combined draft and its PR38 prerequisite before integration into
-main. No constituent PR is closed or merged here. Ordinary hosted acceptance
-must identify the tested commit/tree; it is recorded separately from local
-validation when available.
+main. No constituent PR is closed or merged here. Both ordinary hosted workflows passed the same 864/7/164 collection.
+Their generated merge checkout has exactly the reviewed implementation tree.
+`hosted_verification.json` and two decoded logs retain the run/job URLs,
+test totals, environment and source identity. The protected scientific job was
+skipped. PR44 remains a draft; the implementation commit is
+`82f724b725772bbd3e6d233b9d69c3d6ec1e0089`, tree
+`6c694ff12268a1a6b7b0164ca85dcbe49369b1c9`. This later metadata followup records
+publication and hosted acceptance without changing any tested source byte.
 
 Scientific execution remains a separate, source-bound decision. No protected
 matrix, held-seed campaign, protected outcome access, retained development-demo
