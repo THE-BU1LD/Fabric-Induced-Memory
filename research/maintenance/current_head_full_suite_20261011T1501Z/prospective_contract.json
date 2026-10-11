@@ -1,0 +1,18 @@
+{
+  "id": "fim-current-head-engineering-20261011T1501Z",
+  "recorded_before_execution_utc": "2026-10-11T15:01:55.029573+00:00",
+  "base_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+  "source_tree": "cdd6c51d661a119c4a836429b2a06ce042ed1998",
+  "purpose": "Close the missing full ordinary repository collection for the strict-JSON maintenance continuation in draft PR44.",
+  "authorization": "Current user request to find and execute outstanding work; engineering verification only.",
+  "full_test_processes": 1,
+  "process_timeout_seconds": 240,
+  "numeric_threads": 1,
+  "new_test_source": false,
+  "code_changes": false,
+  "protected_runs": 0,
+  "scientific_workflow_dispatches": 0,
+  "paid_compute": 0,
+  "scientific_claim_change": false,
+  "history_rule": "Earlier closed sessions, budgets and failures are preserved unchanged. This is a distinct verification receipt for the current source."
+}

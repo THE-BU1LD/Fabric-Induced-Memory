@@ -498,6 +498,57 @@
         "paid_compute": 0,
         "scientific_runs": 0
       }
+    },
+    {
+      "id": "fim-current-head-engineering-20261011T1501Z",
+      "status": "CLOSED_FULL_ENGINEERING_SUITE_VERIFIED",
+      "base_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+      "base_tree": "cdd6c51d661a119c4a836429b2a06ce042ed1998",
+      "base_pr": 44,
+      "contract": "research/maintenance/current_head_full_suite_20261011T1501Z/prospective_contract.json",
+      "predecessor_snapshot": "research/state_snapshots/PR44_58c0b5b1249b_before_full_engineering_verification.json",
+      "predecessor_sha256": "735c2df5626b1b60effd0daef40e882e7655451a0d73237db098b2b3b16d52a3",
+      "change": "Verification metadata only. Execute the previously missing complete ordinary repository test collection on the existing strict-JSON source; no runtime or test source change.",
+      "verification": {
+        "ordinary_passed": 873,
+        "skipped": 7,
+        "subtests_passed": 204,
+        "warnings": 33,
+        "pytest_seconds": 11.08,
+        "failed": 0,
+        "errors": 0,
+        "junit_testcase_elements": 880,
+        "junit_suite_reported_tests": 1084,
+        "command_seconds": 11.951177194001502,
+        "source_unchanged_during_run": true,
+        "receipt": "research/maintenance/current_head_full_suite_20261011T1501Z/test_receipt.json",
+        "raw_log": "research/maintenance/current_head_full_suite_20261011T1501Z/pytest.log",
+        "junit": "research/maintenance/current_head_full_suite_20261011T1501Z/pytest.xml.gz",
+        "environment": "research/maintenance/current_head_full_suite_20261011T1501Z/environment.json"
+      },
+      "budget_consumed": {
+        "full_test_processes": 1,
+        "repair_reruns": 0,
+        "numeric_threads": 1,
+        "protected_runs": 0,
+        "retained_demo_reruns": 0,
+        "paid_compute": 0
+      },
+      "observed_failures": [],
+      "retained_limitations": [
+        "Seven inherited compatibility tests remain skipped because their required benchmark or module APIs are unavailable.",
+        "33 inherited GradScaler deprecation warnings remain visible.",
+        "The new receipt is local CPU engineering verification, not a new hosted or scientific result."
+      ],
+      "scientific_boundaries": {
+        "protected_evaluation": "HELD",
+        "protected_outcome_access": false,
+        "scientific_workflow_dispatches": 0,
+        "scientific_runs": 0,
+        "scientific_claim_change": false,
+        "historical_negative_results_preserved": true
+      },
+      "next_action": "Maintainer review of existing draft PR44 and prerequisite PR38. Protected studies retain their separate prospective execution and outcome-access gates."
     }
   ],
   "engineering_continuations": [
@@ -631,9 +682,9 @@
     }
   ],
   "current_engineering_session": {
-    "id": "fim-strict-evidence-json-20261011",
+    "id": "fim-current-head-engineering-20261011T1501Z",
     "record": "maintenance_sessions",
-    "note": "Earlier integration receipts and closed budgets remain exact historical records. This pointer identifies the narrow parser continuation."
+    "note": "Full ordinary repository collection verified on the strict-JSON source. Earlier source-specific sessions, closed budgets and scientific holds remain exact in the predecessor snapshot."
   },
   "followup_integration_sessions": [
     {
