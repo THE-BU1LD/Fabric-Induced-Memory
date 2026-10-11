@@ -1,0 +1,34 @@
+{
+  "recorded_at_utc": "2026-10-10 17:35:23 UTC",
+  "reason": "Archived test source snapshots matched pytest discovery and should remain evidence rather than active test modules.",
+  "change": "Rename only the archived test source files from .py to .py.txt, preserving their exact bytes; active tests and discovery configuration are unchanged.",
+  "preserved_archives": [
+    {
+      "previous_path": "research/verification/retention_v2_20261010/before_review/test_source.py",
+      "current_path": "research/verification/retention_v2_20261010/before_review/test_source.py.txt",
+      "git_blob": "5c4bacb9697b7f57dddf821251742dea558beece"
+    }
+  ],
+  "final_distinct_active_new_cases": 58,
+  "additional_local_test_execution": false,
+  "filename_validation": {
+    "patterns": [
+      "test_*.py",
+      "*_test.py"
+    ],
+    "archived_test_snapshot_matches_after_rename": 0
+  },
+  "historical_ci_before_filename_repair": {
+    "commit": "f2155ffa5c887500b5c64f52eee6dad8bca8bc11",
+    "runs": [
+      38071946624,
+      38071946635
+    ],
+    "passed": 797,
+    "skipped": 7,
+    "warnings": 16,
+    "subtests_passed": 164,
+    "duplicated_archived_cases": 54,
+    "note": "The 797 total includes 54 archived before-review cases and must not be presented as 797 distinct active tests."
+  }
+}

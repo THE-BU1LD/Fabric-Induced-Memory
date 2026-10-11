@@ -1,0 +1,93 @@
+{
+  "schema": "FIM_ISOLATED_EPISODE_EVALUATION_V1_ENGINEERING_RECEIPT",
+  "base_commit": "92bcc3eb5322d967684673ca61f22a8bbebdc16b",
+  "scope": "Artificial public-model observed-input validation checks only; no maintained benchmark, protected outcome or retained demo rerun.",
+  "source_sha256": {
+    "fim/training/isolated_evaluation_v1.py": "fd47a4623cfd0c61fdc9f65995bdbceee889b9ec6a7622927d631696469e50c1",
+    "tests/test_isolated_evaluation_v1.py": "a85790ff88e70e25e85376639a586bbc783a1e4cf69b676baf98776410e6652b",
+    "docs/isolated-episode-evaluation-v1.md": "6a75c551fb7875acef5df2e0e8c89a8579a6d5a51970c3771fa3e55974ac6cbc",
+    "README.md": "86bc3bc4366a6aae1fd52fa535a3a6994d081558bea2249840304d06615131d3"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "pytest": "9.1.1",
+    "numpy": "2.3.5"
+  },
+  "verification": {
+    "status": "PASSED",
+    "passed": 41,
+    "failed": 0,
+    "skipped": 0,
+    "new_adapter_tests": 17,
+    "existing_neighbor_tests": 24,
+    "test_classes": {
+      "tests.test_isolated_evaluation_v1": 17,
+      "tests.test_public_trainer": 21,
+      "tests.test_cached_state_continuity": 3
+    },
+    "pytest_seconds": 54.67,
+    "command_wall_seconds": 74.31720948800285,
+    "warnings": 33,
+    "warning_kind": "Existing public Trainer GradScaler deprecation",
+    "raw_log": "pytest.log",
+    "junit": "pytest.xml",
+    "command_receipt": "attempt_02.json"
+  },
+  "prior_attempt": {
+    "receipt": "attempt_01.json",
+    "passed": 15,
+    "interpretation": "Subset before two explicit float64 cases and neighboring existing tests. Not added to final count."
+  },
+  "observed_failure": {
+    "kind": "EXPECTED_BASELINE_BEHAVIOR_IN_ARTIFICIAL_REPRODUCER",
+    "observation": "The retained public Trainer.eval_step advances FIMModel.step_index, replaces the recurrent cache and updates trace timestamps on the original training model. Its raw-weight/mode restoration does not isolate an unrelated validation episode.",
+    "legacy_runtime_changed": false
+  },
+  "setup_failures": [
+    "Initial local pytest invocation could not import pytest; no tests collected. Installed pytest into the isolated task venv before the first executed test collection."
+  ],
+  "behavior": "Opt-in CPU-only evaluation on one owned model copy with empty initial episode state and within-episode memory; explicit raw/EMA choice; original model tensor objects/version counters, pending graph, gradients, optimizer/scheduler/EMA/scaler and CPU RNG preserved.",
+  "limits": [
+    "Observed-input one-step losses, not autoregressive forecast evidence.",
+    "One additional full model copy; exclusive caller ownership required.",
+    "Concrete public Trainer and FIMModel only; module execution hooks rejected.",
+    "No full repository suite or accelerator validation claimed."
+  ],
+  "scientific_boundaries": {
+    "protected_runs": 0,
+    "protected_outcome_access": false,
+    "retained_demo_reruns": 0,
+    "paid_compute": 0,
+    "scientific_workflow_dispatches": 0,
+    "main_merges": 0,
+    "submissions": 0,
+    "historical_negative_results_preserved": true
+  },
+  "independent_review": {
+    "source_review": "Root inspected new API, tests and documentation; no blocking issue reported.",
+    "targeted_recheck": {
+      "passed": 2,
+      "failed": 0,
+      "pytest_seconds": 42.57,
+      "warnings": 2,
+      "tests": [
+        "test_live_training_graph_and_parameter_versions_remain_valid_for_backward",
+        "test_failure_after_memory_write_preserves_rng_and_every_owner_component"
+      ],
+      "scope": "Separate root-agent execution on the same source/environment. Both cases are already part of the 41-test collection; not extra unique tests.",
+      "receipt_source": "Parent-agent execution result communicated in this session; raw output retained in parent tool transcript."
+    }
+  },
+  "next_action": "Review draft implementation stacked on PR38; future scientific adoption requires prospective declaration and separate execution gates.",
+  "budget_consumed": {
+    "executed_test_commands": 3,
+    "local_author_test_commands": 2,
+    "root_review_test_commands": 1,
+    "test_failures": 0,
+    "repair_cycles": 0,
+    "status": "CLOSED"
+  },
+  "compilation": "Passed for the new runtime and test source",
+  "whitespace": "git diff --cached --check passed"
+}

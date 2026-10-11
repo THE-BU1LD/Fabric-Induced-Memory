@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/workspace/scratch/17075f30bc81/work/research-venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "--junitxml=research/verification/implicit_diffusion_v2_20261010/full_suite.xml"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 95.21966556700136,
+  "cpu_only": true,
+  "numerical_threads": 1,
+  "protected_runs": 0
+}

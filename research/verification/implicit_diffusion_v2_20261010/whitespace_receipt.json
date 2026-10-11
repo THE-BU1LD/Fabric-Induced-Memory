@@ -1,0 +1,7 @@
+{
+  "full_staged_exit_code": 2,
+  "full_staged_output": "research/verification/implicit_diffusion_v2_20261010/targeted.log:9: trailing whitespace.\n+E       \nresearch/verification/implicit_diffusion_v2_20261010/targeted.xml:5: trailing whitespace.\n+E       \n",
+  "source_test_authored_metadata_exit_code": 0,
+  "source_test_authored_metadata_output": "",
+  "decision": "Retain exact original failure log/XML bytes. Two trailing-whitespace diagnostics belong to the pytest failure trace; authored code/tests pass scoped whitespace."
+}

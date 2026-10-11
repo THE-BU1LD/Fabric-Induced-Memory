@@ -1,0 +1,9 @@
+.........................................                                [100%]
+=============================== warnings summary ===============================
+tests/test_isolated_evaluation_v1.py: 17 warnings
+tests/test_public_trainer.py: 16 warnings
+  /workspace/scratch/4596783ac622/research_engineering/fim/fim/training/trainer.py:51: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+    self.scaler = torch.cuda.amp.GradScaler(enabled=self.use_amp)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+41 passed, 33 warnings in 54.67s
