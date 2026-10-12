@@ -1,0 +1,45 @@
+{
+  "schema": "FIM_PR45_BASE_RECONCILIATION_V1",
+  "date": "2026-10-12",
+  "reason": "GitHub currently reports PR45 mergeable:false after PR44 appended full engineering verification to the shared canonical research index.",
+  "target_pr": 45,
+  "target_head": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+  "incoming_pr": 44,
+  "incoming_head": "2c0d63959defe5544ee0f40b86f7de2f430d0125",
+  "common_ancestor": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+  "scope": [
+    "Import the exact eight added PR44 evidence files by existing Git blob identity.",
+    "Union the two independently appended maintenance sessions without rewriting either record.",
+    "Preserve exact complete predecessor canonical states.",
+    "Update the existing PR45 branch with an ordinary fast-forward two-parent reconciliation commit; retain Draft."
+  ],
+  "allow_existing_changes": [
+    "research/RESEARCH_STATE.json"
+  ],
+  "new_root": "research/maintenance/pr45_base_reconcile_20261012",
+  "verification": {
+    "selected_original_file_git_hashes": true,
+    "complete_three_parent_tree_identity": true,
+    "complete_candidate_tree_union": true,
+    "publisher_command": "python -m unittest discover -s tests -p test_evidence_publication*.py -v",
+    "max_test_processes": 1,
+    "timeout_seconds": 60,
+    "repair_cycle": "Only for a concrete reconciliation or verification failure.",
+    "new_tests": 0,
+    "full_repository_run": false,
+    "backend_imports": false,
+    "dependencies_to_install": 0
+  },
+  "scientific_boundaries": {
+    "protected_evaluation": "HELD",
+    "protected_outcome_access": false,
+    "model_fits": 0,
+    "scientific_dispatch": 0,
+    "retained_outcome_rescoring": 0,
+    "paid_compute": 0,
+    "main_merge": 0,
+    "scientific_claim_change": false
+  },
+  "source_bound_receipts": "PR44's 873/7/204 full-suite receipt stays bound to 58c0b5b; no full-suite acceptance is inferred for the PR45 publisher.",
+  "next_action": "Independent review of the concrete canonical/tree reconciliation and maintainer review of the existing PR45/PR44/PR38 stack."
+}

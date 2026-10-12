@@ -1,0 +1,83 @@
+{
+  "schema": "FIM_PR45_BASE_RECONCILIATION_SOURCE_UNION_V1",
+  "parents": {
+    "base": {
+      "commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+      "tree": "cdd6c51d661a119c4a836429b2a06ce042ed1998",
+      "leaves": 443
+    },
+    "pr44": {
+      "commit": "2c0d63959defe5544ee0f40b86f7de2f430d0125",
+      "tree": "6888209ce2f7e7024ff32cd7c5dbaa5b330266be",
+      "leaves": 451
+    },
+    "pr45": {
+      "commit": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+      "tree": "6552a47bac1ee190d2a6c35effa2926fd469e1fc",
+      "leaves": 461
+    }
+  },
+  "all_three_parent_tree_hashes_reconstructed": true,
+  "observed_mergeable_before": false,
+  "sole_conflicting_path": "research/RESEARCH_STATE.json",
+  "incoming_unchanged_entries": {
+    "research/maintenance/current_head_full_suite_20261011T1501Z/README.md": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "48ae015a3788103d410d9bd8d56d64b1bcc0b73c"
+    },
+    "research/maintenance/current_head_full_suite_20261011T1501Z/environment.json": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc44de2cbbaf74db843a9d0b5b27c53cb382ba7f"
+    },
+    "research/maintenance/current_head_full_suite_20261011T1501Z/independent_review.json": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd53ac33f631228b08fdf4d549f648c4f02c3137"
+    },
+    "research/maintenance/current_head_full_suite_20261011T1501Z/prospective_contract.json": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d872e2b85bf7c5d2fb6b02781d3581e21ab5f065"
+    },
+    "research/maintenance/current_head_full_suite_20261011T1501Z/pytest.log": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "741fdd2025232a02296da4f389c6352ed55c7887"
+    },
+    "research/maintenance/current_head_full_suite_20261011T1501Z/pytest.xml.gz": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c795e48d2e15a358da55ee81294116beee1968aa"
+    },
+    "research/maintenance/current_head_full_suite_20261011T1501Z/test_receipt.json": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7cfd6d711973671db80141510ede670d46dbcd8c"
+    },
+    "research/state_snapshots/PR44_58c0b5b1249b_before_full_engineering_verification.json": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ee713a31d3c16e2002ac2d9d9ebf3a283b55a6db"
+    }
+  },
+  "all_existing_maintenance_sessions_preserved": true,
+  "scientific_holds_and_claims_unchanged": true,
+  "candidate_union_leaves_before_new_metadata": 469,
+  "existing_candidate_paths_changed": [
+    "research/RESEARCH_STATE.json"
+  ],
+  "all_other_pr45_leaves_preserved": 460,
+  "local_materialization": "Selected source files only. Complete inherited paths/modes/blobs verified from immutable Git trees; no full local checkout or full-suite result is claimed.",
+  "verification_correction": {
+    "kind": "TOOLING_COMPARISON_CORRECTION",
+    "initial_tree": "de84cc8bf53b36883abe73a5b73bc3dd78108679",
+    "false_difference_count": 477,
+    "cause": "Initial JavaScript verifier compared JSON.stringify on dictionaries whose identical fields had different insertion orders (mode/sha/type versus mode/type/sha).",
+    "repair": "Compare the explicit path, mode, type and sha fields. All 477 remote leaves match; independently calculated tree SHA also matches.",
+    "source_or_runtime_change": false,
+    "test_rerun": false,
+    "branch_updated_before_correction": false
+  }
+}

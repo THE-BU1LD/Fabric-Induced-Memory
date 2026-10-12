@@ -1,0 +1,52 @@
+{
+  "id": "fim-current-head-engineering-20261011T1501Z",
+  "started_at_utc": "2026-10-11T15:01:56.134166+00:00",
+  "finished_at_utc": "2026-10-11T15:02:08.085364+00:00",
+  "command": [
+    "/workspace/scratch/280c8e531e5a/fim-verify-venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "--junitxml=/workspace/scratch/280c8e531e5a/fim_review_run/pytest.xml"
+  ],
+  "cwd": "/workspace/scratch/280c8e531e5a/fim-engineering-review",
+  "exit_code": 0,
+  "timed_out": false,
+  "elapsed_seconds": 11.951177194001502,
+  "source_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+  "source_tree": "cdd6c51d661a119c4a836429b2a06ce042ed1998",
+  "source_identity_after": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+  "working_tree_after": "",
+  "log_sha256": "cf805b6c26e6c04a31ecc9a960f71461687bbc8e9822e3e80ae031b11e34ae4f",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "torch": "2.14.1+cpu",
+    "pytest": "9.1.1",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8",
+    "pyyaml": "6.0.3",
+    "cuda_available": false
+  },
+  "numeric_threads": 1,
+  "scientific_runs": 0,
+  "paid_compute": 0,
+  "historical_budgets_unchanged": true,
+  "source_unchanged": true,
+  "collection": {
+    "ordinary_passed": 873,
+    "skipped": 7,
+    "subtests_passed": 204,
+    "warnings": 33,
+    "pytest_seconds": 11.08,
+    "failed": 0,
+    "errors": 0,
+    "junit_testcase_elements": 880,
+    "junit_suite_reported_tests": 1084
+  },
+  "counting_note": "Subtests are reported separately. These include the previously tested cases and are not added to historical totals.",
+  "receipt_generation_note": "The first metadata normalization assumed one XML testcase element per passing subtest. This pytest output has 880 testcase elements and a suite tests total of 1084 because 204 subtests are included in the suite count. The normalization was corrected against the raw XML and log. No test was rerun.",
+  "junit_archive": "pytest.xml.gz",
+  "junit_uncompressed_sha256": "3ad66661b8aed1568e0c253e6b8f5aab0e49a62a0e467b035d1d8741d8adb46b"
+}

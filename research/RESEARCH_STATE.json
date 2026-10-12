@@ -2,7 +2,7 @@
   "schema_version": "fim-engineering-integration-index-v1",
   "repository": "THE-BU1LD/Fabric-Induced-Memory",
   "canonical_entry_point": "research/RESEARCH_STATE.json",
-  "updated_on": "2026-10-11",
+  "updated_on": "2026-10-12",
   "phase": "FOLLOWUP_ENGINEERING_INTEGRATION_PUBLISHED_AND_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
   "research_question": "Does the implemented fabric-memory mechanism improve prediction and recall against mechanism-off controls when memory is isolated between independent trajectories?",
   "scientific_objective": "Identify reproducible mechanism benefit within prospectively declared benchmarks, budgets and independent units.",
@@ -557,6 +557,123 @@
         "complete_remote_tree_equals_local_prepared_tree": true,
         "publication_followup": "This canonical-state-only followup records the completed draft publication. Tested runtime, tests and all evidence bytes are unchanged; no additional test or scientific run is claimed."
       }
+    },
+    {
+      "id": "fim-current-head-engineering-20261011T1501Z",
+      "status": "CLOSED_FULL_ENGINEERING_SUITE_VERIFIED",
+      "base_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+      "base_tree": "cdd6c51d661a119c4a836429b2a06ce042ed1998",
+      "base_pr": 44,
+      "contract": "research/maintenance/current_head_full_suite_20261011T1501Z/prospective_contract.json",
+      "predecessor_snapshot": "research/state_snapshots/PR44_58c0b5b1249b_before_full_engineering_verification.json",
+      "predecessor_sha256": "735c2df5626b1b60effd0daef40e882e7655451a0d73237db098b2b3b16d52a3",
+      "change": "Verification metadata only. Execute the previously missing complete ordinary repository test collection on the existing strict-JSON source; no runtime or test source change.",
+      "verification": {
+        "ordinary_passed": 873,
+        "skipped": 7,
+        "subtests_passed": 204,
+        "warnings": 33,
+        "pytest_seconds": 11.08,
+        "failed": 0,
+        "errors": 0,
+        "junit_testcase_elements": 880,
+        "junit_suite_reported_tests": 1084,
+        "command_seconds": 11.951177194001502,
+        "source_unchanged_during_run": true,
+        "receipt": "research/maintenance/current_head_full_suite_20261011T1501Z/test_receipt.json",
+        "raw_log": "research/maintenance/current_head_full_suite_20261011T1501Z/pytest.log",
+        "junit": "research/maintenance/current_head_full_suite_20261011T1501Z/pytest.xml.gz",
+        "environment": "research/maintenance/current_head_full_suite_20261011T1501Z/environment.json"
+      },
+      "budget_consumed": {
+        "full_test_processes": 1,
+        "repair_reruns": 0,
+        "numeric_threads": 1,
+        "protected_runs": 0,
+        "retained_demo_reruns": 0,
+        "paid_compute": 0
+      },
+      "observed_failures": [],
+      "retained_limitations": [
+        "Seven inherited compatibility tests remain skipped because their required benchmark or module APIs are unavailable.",
+        "33 inherited GradScaler deprecation warnings remain visible.",
+        "The new receipt is local CPU engineering verification, not a new hosted or scientific result."
+      ],
+      "scientific_boundaries": {
+        "protected_evaluation": "HELD",
+        "protected_outcome_access": false,
+        "scientific_workflow_dispatches": 0,
+        "scientific_runs": 0,
+        "scientific_claim_change": false,
+        "historical_negative_results_preserved": true
+      },
+      "next_action": "Maintainer review of existing draft PR44 and prerequisite PR38. Protected studies retain their separate prospective execution and outcome-access gates."
+    },
+    {
+      "id": "fim-pr45-base-reconcile-20261012",
+      "status": "ENGINEERING_RECONCILIATION_VERIFIED_FOR_EXISTING_DRAFT",
+      "date": "2026-10-12",
+      "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/45",
+      "previous_head": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+      "incoming_base_head": "2c0d63959defe5544ee0f40b86f7de2f430d0125",
+      "common_ancestor": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+      "contract": "research/maintenance/pr45_base_reconcile_20261012/CONTRACT.json",
+      "observed_blocker": "GitHub reported mergeable:false. The only three-way conflicting path was research/RESEARCH_STATE.json after PR44 and PR45 independently appended maintenance histories.",
+      "change": "Import the exact eight new PR44 evidence files; retain every PR45 publisher/test/source/evidence blob and both source-specific maintenance records. Reconcile the canonical index and fast-forward the existing PR45 draft with both previous tips as parents.",
+      "predecessors": [
+        {
+          "commit": "2c0d63959defe5544ee0f40b86f7de2f430d0125",
+          "snapshot": "research/maintenance/pr45_base_reconcile_20261012/pr44_predecessor_RESEARCH_STATE.json",
+          "sha256": "6fbdce4cf8ed18a168b737568bd28696ec48fbecbc0bf065353d5a7bccdf96a8"
+        },
+        {
+          "commit": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+          "snapshot": "research/maintenance/pr45_base_reconcile_20261012/pr45_predecessor_RESEARCH_STATE.json",
+          "sha256": "4526b26d32cdbae41e980274d262895e0b0eb92c36d0317e407f32cd71aa4748"
+        }
+      ],
+      "verification": {
+        "test_methods_passed": 27,
+        "new_test_methods": 0,
+        "test_processes": 1,
+        "unittest_seconds": 0.154,
+        "command_seconds": 0.23399812200023007,
+        "test_receipt": "research/maintenance/pr45_base_reconcile_20261012/test_receipt.json",
+        "raw_log": "research/maintenance/pr45_base_reconcile_20261012/test.log",
+        "source_sha256_unchanged": true,
+        "complete_parent_trees_reconstructed": 3,
+        "preservation_receipt": "research/maintenance/pr45_base_reconcile_20261012/preservation.json",
+        "unchanged_pr45_leaves_and_modes": 460,
+        "full_repository_run": false,
+        "hosted_ci_claim": false,
+        "compilation": "passed",
+        "independent_source_review": "research/maintenance/pr45_base_reconcile_20261012/independent_review.json",
+        "canonical_pointer_resolves_exactly_once": true,
+        "new_metadata_whitespace": "passed"
+      },
+      "observed_failures": [
+        "The original GitHub mergeability blocker is recorded; no numerical, runtime or test failure occurred in this reconciliation.",
+        "The initial complete-tree comparison falsely marked 477 leaves different because JSON dictionary member order differed. Explicit path/mode/type/SHA equality found zero actual differences. The comparison correction is retained in preservation.json; no runtime change or test rerun resulted."
+      ],
+      "historical_receipt_rule": "The 873 passed/7 skipped/204 subtests result belongs to PR44 source 58c0b5b1249b44456052de4ddda7adbbb0a7acae and is not relabeled as full-suite acceptance of the cancellation-repair source. Current 27 methods overlap the historical publisher collection and are not added as new distinct tests.",
+      "budget_consumed": {
+        "focused_test_processes": 1,
+        "full_test_processes": 0,
+        "new_dependencies": 0,
+        "model_fits": 0,
+        "protected_runs": 0,
+        "paid_compute": 0
+      },
+      "scientific_boundaries": {
+        "protected_evaluation": "HELD",
+        "protected_outcome_access": false,
+        "retained_outcome_rescoring": 0,
+        "scientific_dispatches": 0,
+        "main_merges": 0,
+        "scientific_checkpoint_advanced": false,
+        "historical_negative_results_preserved": true
+      },
+      "next_action": "Read back the existing PR45 head and mergeability after the lease-checked fast-forward. Maintainer review of PR45/PR44/PR38 remains; the 40-cell matrix and delayed-recall successor require their separate prospective execution decision."
     }
   ],
   "engineering_continuations": [
@@ -690,9 +807,9 @@
     }
   ],
   "current_engineering_session": {
-    "id": "fim-evidence-publication-cancellation-20261011",
+    "id": "fim-pr45-base-reconcile-20261012",
     "record": "maintenance_sessions",
-    "note": "Earlier source-bound receipts, negative results, closed budgets and held scientific execution remain preserved."
+    "note": "Resolve the current PR45 base conflict while preserving both source-specific histories. The PR44 full-suite receipt remains bound to its original source; only focused publisher checks qualify this reconciliation."
   },
   "followup_integration_sessions": [
     {
