@@ -612,7 +612,7 @@
     {
       "id": "fim-public-checkpoint-payload-isolation-20261012",
       "parent_commit": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
-      "status": "FOCUSED_ENGINEERING_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
+      "status": "PUBLISHED_DRAFT_FOCUSED_ENGINEERING_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
       "contract": "research/maintenance/checkpoint_payload_isolation_20261012/CONTRACT.md",
       "receipt": "research/maintenance/checkpoint_payload_isolation_20261012/receipt.json",
       "predecessor_state": "research/maintenance/checkpoint_payload_isolation_20261012/predecessor_RESEARCH_STATE.json",
@@ -676,6 +676,22 @@
         ],
         "test_source_after_integration": "The complete runtime/test set remains byte-identical to the tested PR45-derived candidate. No integration test rerun is counted.",
         "review_path": "Separate draft against current PR44 contains the unchanged PR45 cancellation implementation plus this public checkpoint ownership repair; existing PR44 and PR45 branches remain unchanged."
+      },
+      "publication": {
+        "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/46",
+        "branch": "codex/fim-checkpoint-payload-isolation-20261012",
+        "implementation_commit": "15060b44ee869b842b185adae9dd940a828c4f4e",
+        "implementation_tree": "186552742a24c3ba1853bf2a789013770f751e15",
+        "integration_base_commit": "2c0d63959defe5544ee0f40b86f7de2f430d0125",
+        "additional_parent_commit": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+        "github_readback": {
+          "state": "open",
+          "draft": true,
+          "mergeable": true,
+          "mergeable_state": "clean"
+        },
+        "remote_tree_equals_prepared_local_tree": true,
+        "metadata_followup": "This canonical-state-only followup records publication; all tested runtime, tests and evidence bytes remain unchanged. No additional test or scientific execution is claimed."
       }
     }
   ],
