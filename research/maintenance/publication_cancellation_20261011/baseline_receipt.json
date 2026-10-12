@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-p",
+    "test_evidence_publication_cancellation.py",
+    "-v"
+  ],
+  "returncode": -2,
+  "wall_seconds": 0.11892658899887465,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "source_sha256": "efb584d5dccabf856ba3f61051ce1ebde9b8f3819bf7913acfd9d294d7cf4c1e",
+  "tests_sha256": "457d561d717341dac976ada3848ec29a9b38be06f7529227641dcf26d28e8387",
+  "predecessor_state_sha256": "735c2df5626b1b60effd0daef40e882e7655451a0d73237db098b2b3b16d52a3",
+  "base_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+  "read_scientific_outcomes": false
+}

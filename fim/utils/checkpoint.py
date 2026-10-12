@@ -231,6 +231,8 @@ def load_checkpoint(
     Model keys, tensor shapes/dtypes and shared aliases are exact. Passing an
     optimizer or scheduler requests a resume of that component, so a missing
     component is an error. No unrestricted-pickle fallback is attempted.
+    The returned payload is a caller-owned snapshot: editing it cannot change
+    live components, and subsequent training cannot rewrite its contents.
     """
     payload = torch.load(path, map_location=map_location, weights_only=True)
     if not isinstance(payload, dict) or "model" not in payload or "epoch" not in payload:
@@ -250,6 +252,13 @@ def load_checkpoint(
         candidate = copy.deepcopy(scheduler)
         candidate.load_state_dict(copy.deepcopy(state))
 
+    # Native optimizer/scheduler loaders can retain tensor/container aliases.
+    # Prepare private inputs before any live mutation, including copies needed
+    # by model load hooks. Keep the deserialized payload as the return snapshot.
+    applied_model = copy.deepcopy(payload["model"])
+    applied_optimizer = copy.deepcopy(payload["optimizer"]) if optimizer is not None else None
+    applied_scheduler = copy.deepcopy(payload["scheduler"]) if scheduler is not None else None
+
     original_model = {name: value.detach().clone() for name, value in model.state_dict().items()}
     original_optimizer_state = None
     original_optimizer_groups = None
@@ -266,11 +275,11 @@ def load_checkpoint(
         ]
     original_scheduler = _scheduler_snapshot(scheduler) if scheduler is not None else []
     try:
-        model.load_state_dict(payload["model"], strict=True)
+        model.load_state_dict(applied_model, strict=True)
         if optimizer is not None:
-            optimizer.load_state_dict(payload["optimizer"])
+            optimizer.load_state_dict(applied_optimizer)
         if scheduler is not None:
-            scheduler.load_state_dict(payload["scheduler"])
+            scheduler.load_state_dict(applied_scheduler)
     except BaseException:
         # Restore tensor bytes directly so a failing model load hook is not
         # invoked a second time. Parameter objects and existing gradients remain.

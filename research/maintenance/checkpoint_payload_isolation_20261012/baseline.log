@@ -1,0 +1,534 @@
+FFFFFFFFFFF.                                                             [100%]
+=================================== FAILURES ===================================
+_____ test_payload_edits_preserve_live_moments_and_exact_next_update[adam] _____
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_payload_edits_preserve_li0')
+kind = 'adam'
+
+    @pytest.mark.parametrize("kind", ["adam", "adamw", "sgd"])
+    def test_payload_edits_preserve_live_moments_and_exact_next_update(tmp_path, kind):
+        source = _model()
+        source_opt = _optimizer(source, kind)
+        _step(source, source_opt)
+        path = tmp_path / "artificial.pt"
+        save_checkpoint(path, source, source_opt, epoch=1)
+        receiver = _model()
+        receiver_opt = _optimizer(receiver, kind)
+        parameter_ids = [id(parameter) for parameter in receiver.parameters()]
+        payload = load_checkpoint(path, receiver, receiver_opt)
+        before = copy.deepcopy(receiver_opt.state_dict())
+    
+        for state in payload["optimizer"]["state"].values():
+            for value in state.values():
+                value.add_(100)
+        payload["optimizer"]["param_groups"][0]["lr"] = 999.0
+>       _equal(receiver_opt.state_dict(), before)
+
+tests/test_checkpoint_payload_isolation.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor(101.), right = tensor(1.)
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Scalars are not equal!
+E           
+E           Expected 1.0 but got 101.0.
+E           Absolute difference: 100.0
+E           Relative difference: 100.0
+
+tests/test_checkpoint_payload_isolation.py:38: AssertionError
+____ test_payload_edits_preserve_live_moments_and_exact_next_update[adamw] _____
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_payload_edits_preserve_li1')
+kind = 'adamw'
+
+    @pytest.mark.parametrize("kind", ["adam", "adamw", "sgd"])
+    def test_payload_edits_preserve_live_moments_and_exact_next_update(tmp_path, kind):
+        source = _model()
+        source_opt = _optimizer(source, kind)
+        _step(source, source_opt)
+        path = tmp_path / "artificial.pt"
+        save_checkpoint(path, source, source_opt, epoch=1)
+        receiver = _model()
+        receiver_opt = _optimizer(receiver, kind)
+        parameter_ids = [id(parameter) for parameter in receiver.parameters()]
+        payload = load_checkpoint(path, receiver, receiver_opt)
+        before = copy.deepcopy(receiver_opt.state_dict())
+    
+        for state in payload["optimizer"]["state"].values():
+            for value in state.values():
+                value.add_(100)
+        payload["optimizer"]["param_groups"][0]["lr"] = 999.0
+>       _equal(receiver_opt.state_dict(), before)
+
+tests/test_checkpoint_payload_isolation.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor(101.), right = tensor(1.)
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Scalars are not equal!
+E           
+E           Expected 1.0 but got 101.0.
+E           Absolute difference: 100.0
+E           Relative difference: 100.0
+
+tests/test_checkpoint_payload_isolation.py:38: AssertionError
+_____ test_payload_edits_preserve_live_moments_and_exact_next_update[sgd] ______
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_payload_edits_preserve_li2')
+kind = 'sgd'
+
+    @pytest.mark.parametrize("kind", ["adam", "adamw", "sgd"])
+    def test_payload_edits_preserve_live_moments_and_exact_next_update(tmp_path, kind):
+        source = _model()
+        source_opt = _optimizer(source, kind)
+        _step(source, source_opt)
+        path = tmp_path / "artificial.pt"
+        save_checkpoint(path, source, source_opt, epoch=1)
+        receiver = _model()
+        receiver_opt = _optimizer(receiver, kind)
+        parameter_ids = [id(parameter) for parameter in receiver.parameters()]
+        payload = load_checkpoint(path, receiver, receiver_opt)
+        before = copy.deepcopy(receiver_opt.state_dict())
+    
+        for state in payload["optimizer"]["state"].values():
+            for value in state.values():
+                value.add_(100)
+        payload["optimizer"]["param_groups"][0]["lr"] = 999.0
+>       _equal(receiver_opt.state_dict(), before)
+
+tests/test_checkpoint_payload_isolation.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor([[99.8410, 99.6640]], dtype=torch.float64)
+right = tensor([[-0.1590, -0.3360]], dtype=torch.float64)
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Tensor-likes are not equal!
+E           
+E           Mismatched elements: 2 / 2 (100.0%)
+E           Greatest absolute difference: 100.0 at index (0, 0)
+E           Greatest relative difference: 628.9308176100628 at index (0, 0)
+
+tests/test_checkpoint_payload_isolation.py:38: AssertionError
+_______ test_next_live_update_does_not_rewrite_returned_checkpoint[adam] _______
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_next_live_update_does_not0')
+kind = 'adam'
+
+    @pytest.mark.parametrize("kind", ["adam", "adamw", "sgd"])
+    def test_next_live_update_does_not_rewrite_returned_checkpoint(tmp_path, kind):
+        model = _model()
+        optimizer = _optimizer(model, kind)
+        _step(model, optimizer)
+        path = tmp_path / "artificial.pt"
+        save_checkpoint(path, model, optimizer, epoch=1)
+        payload = load_checkpoint(path, model, optimizer)
+        before = copy.deepcopy(payload)
+        _step(model, optimizer)
+>       _equal(payload, before)
+
+tests/test_checkpoint_payload_isolation.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor(2.), right = tensor(1.)
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Scalars are not equal!
+E           
+E           Expected 1.0 but got 2.0.
+E           Absolute difference: 1.0
+E           Relative difference: 1.0
+
+tests/test_checkpoint_payload_isolation.py:38: AssertionError
+______ test_next_live_update_does_not_rewrite_returned_checkpoint[adamw] _______
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_next_live_update_does_not1')
+kind = 'adamw'
+
+    @pytest.mark.parametrize("kind", ["adam", "adamw", "sgd"])
+    def test_next_live_update_does_not_rewrite_returned_checkpoint(tmp_path, kind):
+        model = _model()
+        optimizer = _optimizer(model, kind)
+        _step(model, optimizer)
+        path = tmp_path / "artificial.pt"
+        save_checkpoint(path, model, optimizer, epoch=1)
+        payload = load_checkpoint(path, model, optimizer)
+        before = copy.deepcopy(payload)
+        _step(model, optimizer)
+>       _equal(payload, before)
+
+tests/test_checkpoint_payload_isolation.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor(2.), right = tensor(1.)
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Scalars are not equal!
+E           
+E           Expected 1.0 but got 2.0.
+E           Absolute difference: 1.0
+E           Relative difference: 1.0
+
+tests/test_checkpoint_payload_isolation.py:38: AssertionError
+_______ test_next_live_update_does_not_rewrite_returned_checkpoint[sgd] ________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_next_live_update_does_not2')
+kind = 'sgd'
+
+    @pytest.mark.parametrize("kind", ["adam", "adamw", "sgd"])
+    def test_next_live_update_does_not_rewrite_returned_checkpoint(tmp_path, kind):
+        model = _model()
+        optimizer = _optimizer(model, kind)
+        _step(model, optimizer)
+        path = tmp_path / "artificial.pt"
+        save_checkpoint(path, model, optimizer, epoch=1)
+        payload = load_checkpoint(path, model, optimizer)
+        before = copy.deepcopy(payload)
+        _step(model, optimizer)
+>       _equal(payload, before)
+
+tests/test_checkpoint_payload_isolation.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor([[-0.2903, -0.6254]], dtype=torch.float64)
+right = tensor([[-0.1590, -0.3360]], dtype=torch.float64)
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Tensor-likes are not equal!
+E           
+E           Mismatched elements: 2 / 2 (100.0%)
+E           Greatest absolute difference: 0.28935360000000004 at index (0, 1)
+E           Greatest relative difference: 0.8611714285714287 at index (0, 1)
+
+tests/test_checkpoint_payload_isolation.py:38: AssertionError
+_ test_nested_scheduler_payload_is_separate_and_continuation_matches[exponential] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_nested_scheduler_payload_0')
+kind = 'exponential'
+
+    @pytest.mark.parametrize("kind", ["exponential", "multistep", "sequential"])
+    def test_nested_scheduler_payload_is_separate_and_continuation_matches(tmp_path, kind):
+        source = _model()
+        source_opt = _optimizer(source, "adamw")
+        source_scheduler = _scheduler(source_opt, kind)
+        _step(source, source_opt, source_scheduler)
+        path = tmp_path / "artificial.pt"
+        save_checkpoint(path, source, source_opt, source_scheduler, epoch=1)
+        receiver = _model()
+        receiver_opt = _optimizer(receiver, "adamw")
+        receiver_scheduler = _scheduler(receiver_opt, kind)
+        children = list(getattr(receiver_scheduler, "_schedulers", []))
+        payload = load_checkpoint(path, receiver, receiver_opt, receiver_scheduler)
+        before = copy.deepcopy(receiver_scheduler.state_dict())
+    
+        payload["scheduler"]["base_lrs" if kind != "sequential" else "_milestones"][0] = 999
+        if kind == "multistep":
+            payload["scheduler"]["milestones"][2] = 100
+        elif kind == "sequential":
+            payload["scheduler"]["_schedulers"][0]["base_lrs"][0] = 999
+>       _equal(receiver_scheduler.state_dict(), before)
+
+tests/test_checkpoint_payload_isolation.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:47: in _equal
+    _equal(first, second)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = 999, right = 0.03
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+            torch.testing.assert_close(left, right, rtol=0, atol=0)
+        elif isinstance(left, dict):
+            assert left.keys() == right.keys()
+            for key in left:
+                _equal(left[key], right[key])
+        elif isinstance(left, (list, tuple)):
+            assert type(left) is type(right)
+            assert len(left) == len(right)
+            for first, second in zip(left, right):
+                _equal(first, second)
+        else:
+>           assert left == right
+E           assert 999 == 0.03
+
+tests/test_checkpoint_payload_isolation.py:49: AssertionError
+_ test_nested_scheduler_payload_is_separate_and_continuation_matches[multistep] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_nested_scheduler_payload_1')
+kind = 'multistep'
+
+    @pytest.mark.parametrize("kind", ["exponential", "multistep", "sequential"])
+    def test_nested_scheduler_payload_is_separate_and_continuation_matches(tmp_path, kind):
+        source = _model()
+        source_opt = _optimizer(source, "adamw")
+        source_scheduler = _scheduler(source_opt, kind)
+        _step(source, source_opt, source_scheduler)
+        path = tmp_path / "artificial.pt"
+        save_checkpoint(path, source, source_opt, source_scheduler, epoch=1)
+        receiver = _model()
+        receiver_opt = _optimizer(receiver, "adamw")
+        receiver_scheduler = _scheduler(receiver_opt, kind)
+        children = list(getattr(receiver_scheduler, "_schedulers", []))
+        payload = load_checkpoint(path, receiver, receiver_opt, receiver_scheduler)
+        before = copy.deepcopy(receiver_scheduler.state_dict())
+    
+        payload["scheduler"]["base_lrs" if kind != "sequential" else "_milestones"][0] = 999
+        if kind == "multistep":
+            payload["scheduler"]["milestones"][2] = 100
+        elif kind == "sequential":
+            payload["scheduler"]["_schedulers"][0]["base_lrs"][0] = 999
+>       _equal(receiver_scheduler.state_dict(), before)
+
+tests/test_checkpoint_payload_isolation.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = 100, right = 1
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+            torch.testing.assert_close(left, right, rtol=0, atol=0)
+        elif isinstance(left, dict):
+            assert left.keys() == right.keys()
+            for key in left:
+                _equal(left[key], right[key])
+        elif isinstance(left, (list, tuple)):
+            assert type(left) is type(right)
+            assert len(left) == len(right)
+            for first, second in zip(left, right):
+                _equal(first, second)
+        else:
+>           assert left == right
+E           assert 100 == 1
+
+tests/test_checkpoint_payload_isolation.py:49: AssertionError
+_ test_nested_scheduler_payload_is_separate_and_continuation_matches[sequential] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_nested_scheduler_payload_2')
+kind = 'sequential'
+
+    @pytest.mark.parametrize("kind", ["exponential", "multistep", "sequential"])
+    def test_nested_scheduler_payload_is_separate_and_continuation_matches(tmp_path, kind):
+        source = _model()
+        source_opt = _optimizer(source, "adamw")
+        source_scheduler = _scheduler(source_opt, kind)
+        _step(source, source_opt, source_scheduler)
+        path = tmp_path / "artificial.pt"
+        save_checkpoint(path, source, source_opt, source_scheduler, epoch=1)
+        receiver = _model()
+        receiver_opt = _optimizer(receiver, "adamw")
+        receiver_scheduler = _scheduler(receiver_opt, kind)
+        children = list(getattr(receiver_scheduler, "_schedulers", []))
+        payload = load_checkpoint(path, receiver, receiver_opt, receiver_scheduler)
+        before = copy.deepcopy(receiver_scheduler.state_dict())
+    
+        payload["scheduler"]["base_lrs" if kind != "sequential" else "_milestones"][0] = 999
+        if kind == "multistep":
+            payload["scheduler"]["milestones"][2] = 100
+        elif kind == "sequential":
+            payload["scheduler"]["_schedulers"][0]["base_lrs"][0] = 999
+>       _equal(receiver_scheduler.state_dict(), before)
+
+tests/test_checkpoint_payload_isolation.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:47: in _equal
+    _equal(first, second)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = 999, right = 2
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+            torch.testing.assert_close(left, right, rtol=0, atol=0)
+        elif isinstance(left, dict):
+            assert left.keys() == right.keys()
+            for key in left:
+                _equal(left[key], right[key])
+        elif isinstance(left, (list, tuple)):
+            assert type(left) is type(right)
+            assert len(left) == len(right)
+            for first, second in zip(left, right):
+                _equal(first, second)
+        else:
+>           assert left == right
+E           assert 999 == 2
+
+tests/test_checkpoint_payload_isolation.py:49: AssertionError
+______ test_metadata_alias_to_optimizer_tensor_cannot_mutate_active_state ______
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_metadata_alias_to_optimiz0')
+
+    def test_metadata_alias_to_optimizer_tensor_cannot_mutate_active_state(tmp_path):
+        model = _model()
+        optimizer = _optimizer(model, "adamw")
+        _step(model, optimizer)
+        state = optimizer.state_dict()
+        first = next(iter(state["state"].values()))
+        path = tmp_path / "artificial.pt"
+        # An ordinary serializable alias, no custom pickle object or load hook.
+        torch.save({"model": model.state_dict(), "optimizer": state, "epoch": 1,
+                    "extra": {"moment_snapshot": first["exp_avg"]}}, path)
+        payload = load_checkpoint(path, model, optimizer)
+        before = copy.deepcopy(optimizer.state_dict())
+        payload["extra"]["moment_snapshot"].fill_(999)
+>       _equal(optimizer.state_dict(), before)
+
+tests/test_checkpoint_payload_isolation.py:145: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor([[999., 999.]], dtype=torch.float64)
+right = tensor([[-0.0159, -0.0336]], dtype=torch.float64)
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Tensor-likes are not equal!
+E           
+E           Mismatched elements: 2 / 2 (100.0%)
+E           Greatest absolute difference: 999.0336 at index (0, 1)
+E           Greatest relative difference: 62831.18867924529 at index (0, 0)
+
+tests/test_checkpoint_payload_isolation.py:38: AssertionError
+____________ test_native_load_hook_receives_private_component_state ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_native_load_hook_receives0')
+
+    def test_native_load_hook_receives_private_component_state(tmp_path):
+        model = _model()
+        optimizer = _optimizer(model, "adamw")
+        _step(model, optimizer)
+        path = tmp_path / "artificial.pt"
+        save_checkpoint(path, model, optimizer)
+        retained = []
+    
+        def retain_input(actual, state):
+            if actual is optimizer:
+                retained.append(state)
+    
+        handle = optimizer.register_load_state_dict_pre_hook(retain_input)
+        try:
+            payload = load_checkpoint(path, model, optimizer)
+        finally:
+            handle.remove()
+        assert len(retained) == 1
+        before = copy.deepcopy(payload)
+        for state in retained[0]["state"].values():
+            for value in state.values():
+                value.add_(100)
+>       _equal(payload, before)
+
+tests/test_checkpoint_payload_isolation.py:170: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+tests/test_checkpoint_payload_isolation.py:42: in _equal
+    _equal(left[key], right[key])
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+left = tensor(101.), right = tensor(1.)
+
+    def _equal(left, right):
+        if isinstance(left, torch.Tensor):
+>           torch.testing.assert_close(left, right, rtol=0, atol=0)
+E           AssertionError: Scalars are not equal!
+E           
+E           Expected 1.0 but got 101.0.
+E           Absolute difference: 100.0
+E           Relative difference: 100.0
+
+tests/test_checkpoint_payload_isolation.py:38: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_checkpoint_payload_isolation.py::test_payload_edits_preserve_live_moments_and_exact_next_update[adam]
+FAILED tests/test_checkpoint_payload_isolation.py::test_payload_edits_preserve_live_moments_and_exact_next_update[adamw]
+FAILED tests/test_checkpoint_payload_isolation.py::test_payload_edits_preserve_live_moments_and_exact_next_update[sgd]
+FAILED tests/test_checkpoint_payload_isolation.py::test_next_live_update_does_not_rewrite_returned_checkpoint[adam]
+FAILED tests/test_checkpoint_payload_isolation.py::test_next_live_update_does_not_rewrite_returned_checkpoint[adamw]
+FAILED tests/test_checkpoint_payload_isolation.py::test_next_live_update_does_not_rewrite_returned_checkpoint[sgd]
+FAILED tests/test_checkpoint_payload_isolation.py::test_nested_scheduler_payload_is_separate_and_continuation_matches[exponential]
+FAILED tests/test_checkpoint_payload_isolation.py::test_nested_scheduler_payload_is_separate_and_continuation_matches[multistep]
+FAILED tests/test_checkpoint_payload_isolation.py::test_nested_scheduler_payload_is_separate_and_continuation_matches[sequential]
+FAILED tests/test_checkpoint_payload_isolation.py::test_metadata_alias_to_optimizer_tensor_cannot_mutate_active_state
+FAILED tests/test_checkpoint_payload_isolation.py::test_native_load_hook_receives_private_component_state
+11 failed, 1 passed in 2.03s

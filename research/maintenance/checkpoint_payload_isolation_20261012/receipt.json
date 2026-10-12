@@ -1,0 +1,84 @@
+{
+  "id": "fim-public-checkpoint-payload-isolation-20261012",
+  "parent_commit": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+  "parent_pr": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/45",
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "numpy": "2.3.5",
+    "pytest": "9.1.1",
+    "device": "cpu",
+    "numeric_threads": 1
+  },
+  "verification": {
+    "baseline": {
+      "failed": 11,
+      "passed": 1,
+      "errors": 0,
+      "skipped": 0,
+      "receipt": "baseline_receipt.json"
+    },
+    "candidate": {
+      "passed": 38,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "warnings": 0,
+      "new_tests": 13,
+      "existing_recovery_tests": 25,
+      "pytest_seconds": 2.14,
+      "receipt": "candidate_receipt.json"
+    },
+    "compilation": "python -m py_compile fim/utils/checkpoint.py tests/test_checkpoint_payload_isolation.py: passed",
+    "whitespace": "Maintained source/test/docs/JSON scoped check passed; raw baseline log preserves original pytest trace whitespace."
+  },
+  "source_sha256": {
+    "fim/utils/checkpoint.py": "b0cf1dc351308e474d583feb31c083b7a5c9449ac3cef37978bbac6ccd7a2a98",
+    "tests/test_checkpoint_payload_isolation.py": "cc0688244705d5eb66f13baef692dfc9768a2438083d566c76555e055ca2efb6",
+    "tests/test_public_checkpoint_recovery.py": "18a354ab4363ba6d99a276bcd793dceb0ad92ced68a19ccf8a9f2ce29a127f78"
+  },
+  "predecessor_state_sha256": "4526b26d32cdbae41e980274d262895e0b0eb92c36d0317e407f32cd71aa4748",
+  "independent_review": {
+    "reviewer": "Root agent source and complete regression-file review",
+    "status": "NO_SUBSTANTIVE_ISSUE",
+    "execution": false,
+    "note": "Copies complete before live mutation; return snapshot is isolated and existing validation/hook/rollback paths remain intact. Transient copy memory overhead is documented."
+  },
+  "budget_consumed": {
+    "baseline_processes": 1,
+    "candidate_processes": 1,
+    "repair_processes": 0,
+    "test_command_seconds": 6.27268604999972,
+    "status": "CLOSED"
+  },
+  "research_boundaries": {
+    "protected_outcome_access": false,
+    "protected_runs": 0,
+    "retained_checkpoint_loads": 0,
+    "benchmark_campaigns": 0,
+    "paid_compute": 0,
+    "scientific_dispatches": 0,
+    "main_merges": 0,
+    "scientific_checkpoint_advanced": false,
+    "historical_negative_results_preserved": true
+  },
+  "limitations": [
+    "Focused synthetic CPU verification, not full-repository or hosted CI.",
+    "Component copies add transient checkpoint-sized memory.",
+    "Existing public helper does not restore global RNG, external EMA or unregistered FIM episode state."
+  ],
+  "next_action": "Review the combined isolated draft against current PR44; PR45 cancellation work is included, existing branches remain unchanged, and scientific execution holds remain binding.",
+  "integration": {
+    "integration_base_commit": "2c0d63959defe5544ee0f40b86f7de2f430d0125",
+    "cancellation_source_commit": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+    "integration_base_state_snapshot": "research/maintenance/checkpoint_payload_isolation_20261012/PR44_2c0d63959def_RESEARCH_STATE.json",
+    "integration_base_state_sha256": "6fbdce4cf8ed18a168b737568bd28696ec48fbecbc0bf065353d5a7bccdf96a8",
+    "integration_conflict": "Canonical maintenance-session/pointer divergence only; PR44 latest change added verification artifacts and metadata, no runtime/test/workflow changes.",
+    "resolution": "Union both complete source-specific maintenance histories; retain both predecessor states and exact Git objects; current pointer selects the new checkpoint ownership receipt.",
+    "imported_sessions": [
+      "fim-current-head-engineering-20261011T1501Z"
+    ],
+    "test_source_after_integration": "The complete runtime/test set remains byte-identical to the tested PR45-derived candidate. No integration test rerun is counted.",
+    "review_path": "Separate draft against current PR44 contains the unchanged PR45 cancellation implementation plus this public checkpoint ownership repair; existing PR44 and PR45 branches remain unchanged."
+  }
+}

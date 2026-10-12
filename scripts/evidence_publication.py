@@ -1,4 +1,4 @@
-"""Stage related evidence files and roll back ordinary publication failures.
+"""Stage related evidence files and roll back publication failures/cancellation.
 
 This does not claim crash-atomic visibility for files in different directories.
 Readers must wait for the producing command to succeed. No scientific data is
@@ -17,7 +17,7 @@ from typing import Iterable
 class PublicationRollbackError(RuntimeError):
     """Publication failed and one or more previous outputs need recovery."""
 
-    def __init__(self, original_error: Exception, recovery: list[dict]) -> None:
+    def __init__(self, original_error: BaseException, recovery: list[dict]) -> None:
         self.original_error = original_error
         self.recovery = recovery
         super().__init__(
@@ -50,9 +50,14 @@ def publish_evidence(
     second content write. Existing symlinks and non-regular destinations are
     rejected. Outputs may not alias one another or a protected input by path.
 
+    Python cancellation during replacement also triggers recovery, then the
+    original exception is reraised. A replacement is journaled before its call;
+    a consumed staging file identifies a rename that completed before raising.
+
     Requires a single writer and quiescent readers. A killed process, power
-    loss, concurrent writers/readers, and a failed rollback are outside the
-    all-or-restored guarantee; failed rollback leaves explicit recovery paths.
+    loss, arbitrary asynchronous interruption, concurrent writers/readers, and
+    a failed rollback are outside the all-or-restored guarantee; failed rollback
+    leaves explicit recovery paths.
     """
     protected = {Path(path).resolve() for path in protected_inputs}
     targets: list[tuple[Path, bytes, int | None]] = []
@@ -79,7 +84,7 @@ def publish_evidence(
         raise ValueError("At least one evidence output is required")
 
     staged: list[dict] = []
-    published: list[dict] = []
+    attempted: list[dict] = []
     keep: set[Path] = set()
     try:
         for destination, payload, mode in targets:
@@ -94,25 +99,47 @@ def publish_evidence(
                 os.chmod(entry["next"], mode)
         try:
             for entry in staged:
+                attempted.append(entry)
                 os.replace(entry["next"], entry["destination"])
-                published.append(entry)
-        except Exception as original_error:
+        except BaseException as original_error:
             recovery = []
-            for entry in reversed(published):
+            for entry in reversed(attempted):
                 try:
+                    # Under the single-writer contract, an unconsumed staging
+                    # file means the rename never committed. Keep this status
+                    # probe inside recovery handling as it can itself fail.
+                    if entry["next"].exists():
+                        continue
                     if entry["previous"] is None:
-                        entry["destination"].unlink()
+                        entry["destination"].unlink(missing_ok=True)
                     else:
                         os.replace(entry["previous"], entry["destination"])
-                except Exception as rollback_error:
+                except BaseException as rollback_error:
+                    probe_error = None
+                    try:
+                        # The recovery operation may have completed before
+                        # Python delivered its exception. A consumed backup or
+                        # removed new output requires no further recovery.
+                        restored = not (
+                            entry["previous"] if entry["previous"] is not None
+                            else entry["destination"]
+                        ).exists()
+                    except BaseException as exc:
+                        restored = False
+                        probe_error = repr(exc)
+                    if restored:
+                        continue
                     if entry["previous"] is not None:
                         keep.add(entry["previous"])
-                    recovery.append({
+                    failure = {
                         "destination": str(entry["destination"]),
                         "previous_bytes": str(entry["previous"]) if entry["previous"] else None,
                         "action": "restore previous_bytes" if entry["previous"] else "remove new output",
                         "error": repr(rollback_error),
-                    })
+                    }
+                    if probe_error is not None:
+                        failure["recovery_status_error"] = probe_error
+                    recovery.append(failure)
             if recovery:
                 raise PublicationRollbackError(original_error, recovery) from original_error
             raise

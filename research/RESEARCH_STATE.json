@@ -2,7 +2,7 @@
   "schema_version": "fim-engineering-integration-index-v1",
   "repository": "THE-BU1LD/Fabric-Induced-Memory",
   "canonical_entry_point": "research/RESEARCH_STATE.json",
-  "updated_on": "2026-10-11",
+  "updated_on": "2026-10-12",
   "phase": "FOLLOWUP_ENGINEERING_INTEGRATION_PUBLISHED_AND_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
   "research_question": "Does the implemented fabric-memory mechanism improve prediction and recall against mechanism-off controls when memory is isolated between independent trajectories?",
   "scientific_objective": "Identify reproducible mechanism benefit within prospectively declared benchmarks, budgets and independent units.",
@@ -500,6 +500,65 @@
       }
     },
     {
+      "id": "fim-evidence-publication-cancellation-20261011",
+      "status": "CLOSED_PUBLISHED_DRAFT",
+      "base_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
+      "base_pr": 44,
+      "contract": "research/maintenance/publication_cancellation_20261011/CONTRACT.md",
+      "predecessor_snapshot": "research/maintenance/publication_cancellation_20261011/predecessor_RESEARCH_STATE.json",
+      "predecessor_sha256": "735c2df5626b1b60effd0daef40e882e7655451a0d73237db098b2b3b16d52a3",
+      "change": "Recover Python cancellation during evidence-file replacement; journal before atomic rename, preserve original exceptions and available recovery backups, handle cancellation after completed rollback and failed recovery-status probes.",
+      "verification": {
+        "test_methods_passed": 27,
+        "existing_methods": 17,
+        "new_methods": 10,
+        "new_subcases_inside_new_methods": 54,
+        "final_receipt": "research/maintenance/publication_cancellation_20261011/final_receipt.json",
+        "raw_log": "research/maintenance/publication_cancellation_20261011/final.log",
+        "independent_source_review": "research/maintenance/publication_cancellation_20261011/independent_review.json",
+        "full_repository_run": false,
+        "hosted_ci_claim": false,
+        "torch_backend_imports": 0,
+        "new_dependencies": 0,
+        "counts_overlap": "First candidate 24 methods and final 27 overlap; subcases are not additional independent methods.",
+        "compile": "passed",
+        "preservation_receipt": "research/maintenance/publication_cancellation_20261011/preservation.json",
+        "unrelated_parent_leaves_and_modes_preserved": 441,
+        "whitespace": "Maintained code/tests/new metadata pass; full check records four unittest-emitted trailing spaces in preserved raw baseline.log."
+      },
+      "observed_failures": [
+        "Original publisher recorded 30 failing constructed subcases, then original KeyboardInterrupt escaped an expected-wrapper assertion and ended the incomplete baseline. Exact baseline test/source/log/receipt retained.",
+        "First passing candidate source review identified possible nonexistent backup instructions after completed rollback plus a recovery-status-probe failure path; reserved repair cycle corrected both."
+      ],
+      "budget_consumed": {
+        "baseline_processes": 1,
+        "candidate_processes": 2,
+        "repair_review_cycles": 1,
+        "test_command_seconds": 0.7473361879965523,
+        "protected_runs": 0,
+        "retained_demo_reruns": 0,
+        "paid_compute": 0
+      },
+      "scientific_boundaries": {
+        "protected_runs": 0,
+        "protected_outcome_access": false,
+        "model_fits": 0,
+        "scientific_workflow_dispatches": 0,
+        "main_merges": 0,
+        "scientific_checkpoint_advanced": false,
+        "historical_negative_results_preserved": true
+      },
+      "next_action": "Review isolated draft stacked on PR44 and its prerequisite PR38. Scientific execution and main integration retain their separate gates.",
+      "publication": {
+        "pull_request": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/45",
+        "branch": "codex/fim-publication-cancellation-20261011-58c0b5",
+        "implementation_commit": "362293ef2fb20d12347b3caa8d3f5d3e09ff5dcf",
+        "implementation_tree": "039fc890095095efa8de019fb0c261d359b02aa2",
+        "complete_remote_tree_equals_local_prepared_tree": true,
+        "publication_followup": "This canonical-state-only followup records the completed draft publication. Tested runtime, tests and all evidence bytes are unchanged; no additional test or scientific run is claimed."
+      }
+    },
+    {
       "id": "fim-current-head-engineering-20261011T1501Z",
       "status": "CLOSED_FULL_ENGINEERING_SUITE_VERIFIED",
       "base_commit": "58c0b5b1249b44456052de4ddda7adbbb0a7acae",
@@ -549,6 +608,75 @@
         "historical_negative_results_preserved": true
       },
       "next_action": "Maintainer review of existing draft PR44 and prerequisite PR38. Protected studies retain their separate prospective execution and outcome-access gates."
+    },
+    {
+      "id": "fim-public-checkpoint-payload-isolation-20261012",
+      "parent_commit": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+      "status": "FOCUSED_ENGINEERING_VERIFIED_SCIENTIFIC_EXECUTION_HELD",
+      "contract": "research/maintenance/checkpoint_payload_isolation_20261012/CONTRACT.md",
+      "receipt": "research/maintenance/checkpoint_payload_isolation_20261012/receipt.json",
+      "predecessor_state": "research/maintenance/checkpoint_payload_isolation_20261012/predecessor_RESEARCH_STATE.json",
+      "change": "Detach the public checkpoint return snapshot from native model/optimizer/scheduler load inputs before live mutation.",
+      "verification": {
+        "baseline": {
+          "failed": 11,
+          "passed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "receipt": "baseline_receipt.json"
+        },
+        "candidate": {
+          "passed": 38,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "warnings": 0,
+          "new_tests": 13,
+          "existing_recovery_tests": 25,
+          "pytest_seconds": 2.14,
+          "receipt": "candidate_receipt.json"
+        },
+        "compilation": "python -m py_compile fim/utils/checkpoint.py tests/test_checkpoint_payload_isolation.py: passed",
+        "whitespace": "Maintained source/test/docs/JSON scoped check passed; raw baseline log preserves original pytest trace whitespace."
+      },
+      "independent_review": {
+        "reviewer": "Root agent source and complete regression-file review",
+        "status": "NO_SUBSTANTIVE_ISSUE",
+        "execution": false,
+        "note": "Copies complete before live mutation; return snapshot is isolated and existing validation/hook/rollback paths remain intact. Transient copy memory overhead is documented."
+      },
+      "budget_consumed": {
+        "baseline_processes": 1,
+        "candidate_processes": 1,
+        "repair_processes": 0,
+        "test_command_seconds": 6.27268604999972,
+        "status": "CLOSED"
+      },
+      "research_boundaries": {
+        "protected_outcome_access": false,
+        "protected_runs": 0,
+        "retained_checkpoint_loads": 0,
+        "benchmark_campaigns": 0,
+        "paid_compute": 0,
+        "scientific_dispatches": 0,
+        "main_merges": 0,
+        "scientific_checkpoint_advanced": false,
+        "historical_negative_results_preserved": true
+      },
+      "next_action": "Review the combined isolated draft against current PR44; PR45 cancellation work is included, existing branches remain unchanged, and scientific execution holds remain binding.",
+      "integration": {
+        "integration_base_commit": "2c0d63959defe5544ee0f40b86f7de2f430d0125",
+        "cancellation_source_commit": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+        "integration_base_state_snapshot": "research/maintenance/checkpoint_payload_isolation_20261012/PR44_2c0d63959def_RESEARCH_STATE.json",
+        "integration_base_state_sha256": "6fbdce4cf8ed18a168b737568bd28696ec48fbecbc0bf065353d5a7bccdf96a8",
+        "integration_conflict": "Canonical maintenance-session/pointer divergence only; PR44 latest change added verification artifacts and metadata, no runtime/test/workflow changes.",
+        "resolution": "Union both complete source-specific maintenance histories; retain both predecessor states and exact Git objects; current pointer selects the new checkpoint ownership receipt.",
+        "imported_sessions": [
+          "fim-current-head-engineering-20261011T1501Z"
+        ],
+        "test_source_after_integration": "The complete runtime/test set remains byte-identical to the tested PR45-derived candidate. No integration test rerun is counted.",
+        "review_path": "Separate draft against current PR44 contains the unchanged PR45 cancellation implementation plus this public checkpoint ownership repair; existing PR44 and PR45 branches remain unchanged."
+      }
     }
   ],
   "engineering_continuations": [
@@ -682,9 +810,9 @@
     }
   ],
   "current_engineering_session": {
-    "id": "fim-current-head-engineering-20261011T1501Z",
+    "id": "fim-public-checkpoint-payload-isolation-20261012",
     "record": "maintenance_sessions",
-    "note": "Full ordinary repository collection verified on the strict-JSON source. Earlier source-specific sessions, closed budgets and scientific holds remain exact in the predecessor snapshot."
+    "note": "Earlier source-specific receipts, closed budgets, adverse findings and protected holds remain unchanged. This entry describes the public checkpoint ownership repair only."
   },
   "followup_integration_sessions": [
     {

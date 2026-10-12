@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/workspace/scratch/979352a87beb/wharton_test_env/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "-W",
+    "error",
+    "tests/test_checkpoint_payload_isolation.py",
+    "tests/test_public_checkpoint_recovery.py",
+    "--junitxml=research/maintenance/checkpoint_payload_isolation_20261012/candidate.xml"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 3.2575706210000135,
+  "parent_commit": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+  "source_sha256": {
+    "fim/utils/checkpoint.py": "b0cf1dc351308e474d583feb31c083b7a5c9449ac3cef37978bbac6ccd7a2a98",
+    "tests/test_checkpoint_payload_isolation.py": "cc0688244705d5eb66f13baef692dfc9768a2438083d566c76555e055ca2efb6",
+    "tests/test_public_checkpoint_recovery.py": "18a354ab4363ba6d99a276bcd793dceb0ad92ced68a19ccf8a9f2ce29a127f78"
+  }
+}

@@ -1,0 +1,183 @@
+"""Returned public checkpoints are snapshots, not handles into live training."""
+from __future__ import annotations
+
+import copy
+
+import pytest
+import torch
+
+from fim.utils.checkpoint import load_checkpoint, save_checkpoint
+
+
+def _model():
+    model = torch.nn.Linear(2, 1, dtype=torch.float64)
+    with torch.no_grad():
+        model.weight.copy_(torch.tensor([[0.3, -0.2]], dtype=torch.float64))
+        model.bias.fill_(0.1)
+    return model
+
+
+def _optimizer(model, kind):
+    if kind == "sgd":
+        return torch.optim.SGD(model.parameters(), lr=0.03, momentum=0.9)
+    cls = torch.optim.Adam if kind == "adam" else torch.optim.AdamW
+    return cls(model.parameters(), lr=0.03, amsgrad=True)
+
+
+def _step(model, optimizer, scheduler=None):
+    optimizer.zero_grad(set_to_none=True)
+    x = torch.tensor([[0.4, -0.7], [0.1, 0.8]], dtype=torch.float64)
+    (model(x) - 0.6).square().mean().backward()
+    optimizer.step()
+    if scheduler is not None:
+        scheduler.step()
+
+
+def _equal(left, right):
+    if isinstance(left, torch.Tensor):
+        torch.testing.assert_close(left, right, rtol=0, atol=0)
+    elif isinstance(left, dict):
+        assert left.keys() == right.keys()
+        for key in left:
+            _equal(left[key], right[key])
+    elif isinstance(left, (list, tuple)):
+        assert type(left) is type(right)
+        assert len(left) == len(right)
+        for first, second in zip(left, right):
+            _equal(first, second)
+    else:
+        assert left == right
+
+
+@pytest.mark.parametrize("kind", ["adam", "adamw", "sgd"])
+def test_payload_edits_preserve_live_moments_and_exact_next_update(tmp_path, kind):
+    source = _model()
+    source_opt = _optimizer(source, kind)
+    _step(source, source_opt)
+    path = tmp_path / "artificial.pt"
+    save_checkpoint(path, source, source_opt, epoch=1)
+    receiver = _model()
+    receiver_opt = _optimizer(receiver, kind)
+    parameter_ids = [id(parameter) for parameter in receiver.parameters()]
+    payload = load_checkpoint(path, receiver, receiver_opt)
+    before = copy.deepcopy(receiver_opt.state_dict())
+
+    for state in payload["optimizer"]["state"].values():
+        for value in state.values():
+            value.add_(100)
+    payload["optimizer"]["param_groups"][0]["lr"] = 999.0
+    _equal(receiver_opt.state_dict(), before)
+    _step(source, source_opt)
+    _step(receiver, receiver_opt)
+    _equal(source.state_dict(), receiver.state_dict())
+    _equal(source_opt.state_dict(), receiver_opt.state_dict())
+    assert [id(parameter) for parameter in receiver.parameters()] == parameter_ids
+
+
+@pytest.mark.parametrize("kind", ["adam", "adamw", "sgd"])
+def test_next_live_update_does_not_rewrite_returned_checkpoint(tmp_path, kind):
+    model = _model()
+    optimizer = _optimizer(model, kind)
+    _step(model, optimizer)
+    path = tmp_path / "artificial.pt"
+    save_checkpoint(path, model, optimizer, epoch=1)
+    payload = load_checkpoint(path, model, optimizer)
+    before = copy.deepcopy(payload)
+    _step(model, optimizer)
+    _equal(payload, before)
+
+
+def _scheduler(optimizer, kind):
+    if kind == "multistep":
+        return torch.optim.lr_scheduler.MultiStepLR(optimizer, [2, 4], gamma=0.5)
+    if kind == "sequential":
+        children = [torch.optim.lr_scheduler.LinearLR(optimizer),
+                    torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.8)]
+        return torch.optim.lr_scheduler.SequentialLR(optimizer, children, milestones=[2])
+    return torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.8)
+
+
+@pytest.mark.parametrize("kind", ["exponential", "multistep", "sequential"])
+def test_nested_scheduler_payload_is_separate_and_continuation_matches(tmp_path, kind):
+    source = _model()
+    source_opt = _optimizer(source, "adamw")
+    source_scheduler = _scheduler(source_opt, kind)
+    _step(source, source_opt, source_scheduler)
+    path = tmp_path / "artificial.pt"
+    save_checkpoint(path, source, source_opt, source_scheduler, epoch=1)
+    receiver = _model()
+    receiver_opt = _optimizer(receiver, "adamw")
+    receiver_scheduler = _scheduler(receiver_opt, kind)
+    children = list(getattr(receiver_scheduler, "_schedulers", []))
+    payload = load_checkpoint(path, receiver, receiver_opt, receiver_scheduler)
+    before = copy.deepcopy(receiver_scheduler.state_dict())
+
+    payload["scheduler"]["base_lrs" if kind != "sequential" else "_milestones"][0] = 999
+    if kind == "multistep":
+        payload["scheduler"]["milestones"][2] = 100
+    elif kind == "sequential":
+        payload["scheduler"]["_schedulers"][0]["base_lrs"][0] = 999
+    _equal(receiver_scheduler.state_dict(), before)
+    assert receiver_scheduler.optimizer is receiver_opt
+    assert all(actual is expected for actual, expected in
+               zip(getattr(receiver_scheduler, "_schedulers", []), children))
+    for _ in range(3):
+        _step(source, source_opt, source_scheduler)
+        _step(receiver, receiver_opt, receiver_scheduler)
+    _equal(source.state_dict(), receiver.state_dict())
+    _equal(source_opt.state_dict(), receiver_opt.state_dict())
+    _equal(source_scheduler.state_dict(), receiver_scheduler.state_dict())
+
+
+def test_metadata_alias_to_optimizer_tensor_cannot_mutate_active_state(tmp_path):
+    model = _model()
+    optimizer = _optimizer(model, "adamw")
+    _step(model, optimizer)
+    state = optimizer.state_dict()
+    first = next(iter(state["state"].values()))
+    path = tmp_path / "artificial.pt"
+    # An ordinary serializable alias, no custom pickle object or load hook.
+    torch.save({"model": model.state_dict(), "optimizer": state, "epoch": 1,
+                "extra": {"moment_snapshot": first["exp_avg"]}}, path)
+    payload = load_checkpoint(path, model, optimizer)
+    before = copy.deepcopy(optimizer.state_dict())
+    payload["extra"]["moment_snapshot"].fill_(999)
+    _equal(optimizer.state_dict(), before)
+
+
+def test_native_load_hook_receives_private_component_state(tmp_path):
+    model = _model()
+    optimizer = _optimizer(model, "adamw")
+    _step(model, optimizer)
+    path = tmp_path / "artificial.pt"
+    save_checkpoint(path, model, optimizer)
+    retained = []
+
+    def retain_input(actual, state):
+        if actual is optimizer:
+            retained.append(state)
+
+    handle = optimizer.register_load_state_dict_pre_hook(retain_input)
+    try:
+        payload = load_checkpoint(path, model, optimizer)
+    finally:
+        handle.remove()
+    assert len(retained) == 1
+    before = copy.deepcopy(payload)
+    for state in retained[0]["state"].values():
+        for value in state.values():
+            value.add_(100)
+    _equal(payload, before)
+
+
+def test_weights_only_payload_remains_independent_in_both_directions(tmp_path):
+    model = _model()
+    path = tmp_path / "artificial.pt"
+    save_checkpoint(path, model, epoch=3, extra={"label": "artificial"})
+    payload = load_checkpoint(path, model)
+    payload["model"]["weight"].fill_(999)
+    _equal(model.state_dict(), _model().state_dict())
+    before = copy.deepcopy(payload)
+    with torch.no_grad():
+        model.bias.add_(4)
+    _equal(payload, before)

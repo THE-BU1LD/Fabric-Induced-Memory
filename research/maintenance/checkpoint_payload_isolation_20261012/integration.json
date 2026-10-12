@@ -1,0 +1,13 @@
+{
+  "integration_base_commit": "2c0d63959defe5544ee0f40b86f7de2f430d0125",
+  "cancellation_source_commit": "323fc2738c08daed9dcac48a429cc4b1dd8b0e4a",
+  "integration_base_state_snapshot": "research/maintenance/checkpoint_payload_isolation_20261012/PR44_2c0d63959def_RESEARCH_STATE.json",
+  "integration_base_state_sha256": "6fbdce4cf8ed18a168b737568bd28696ec48fbecbc0bf065353d5a7bccdf96a8",
+  "integration_conflict": "Canonical maintenance-session/pointer divergence only; PR44 latest change added verification artifacts and metadata, no runtime/test/workflow changes.",
+  "resolution": "Union both complete source-specific maintenance histories; retain both predecessor states and exact Git objects; current pointer selects the new checkpoint ownership receipt.",
+  "imported_sessions": [
+    "fim-current-head-engineering-20261011T1501Z"
+  ],
+  "test_source_after_integration": "The complete runtime/test set remains byte-identical to the tested PR45-derived candidate. No integration test rerun is counted.",
+  "review_path": "Separate draft against current PR44 contains the unchanged PR45 cancellation implementation plus this public checkpoint ownership repair; existing PR44 and PR45 branches remain unchanged."
+}
