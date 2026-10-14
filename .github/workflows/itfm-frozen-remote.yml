@@ -23,7 +23,7 @@ jobs:
       OPENBLAS_NUM_THREADS: '1'
       VECLIB_MAXIMUM_THREADS: '1'
       EXPECTED_SHA: ${{ github.sha }}
-      MANIFEST_SHA: a6fa86f9db0b22500fe4817b664d82865c29b048bc0fa487ca57a4cbbd7c0e59
+      MANIFEST_SHA: 6391a3a6ae8ff68fe16a70c2830285993df8ff215f25e19a4d30dce539169443
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -39,6 +39,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 remote_execution/retain_release.py create
+      - name: Reclaim disposable runner disk buffers
+        run: |
+          sudo -n /usr/sbin/purge
+          vm_stat
       - name: Bootstrap exact Python 3.11.15 after original admission
         run: python3 -B remote_execution/bootstrap_python.py
       - name: Verify source and unchanged admission guard

@@ -5,6 +5,12 @@
       "head_sha": "99e9b1445c8b7a7169fadd064978d90d52cb6c3a",
       "reason": "setup-python lacks exact 3.11.15 macOS ARM64; all numerical stages skipped; downloaded retained assets verified; v3 campaign not consumed",
       "retained_draft": "itfm-execution-38577058691"
+    },
+    {
+      "id": 38577627585,
+      "head_sha": "6322d58f12bcc35433710445486f218cb823e3b9",
+      "reason": "Fresh runner resource admission blocked at 303.94/299.81 MiB before Python download; numerical step skipped; retained assets hash-verified; no campaign consumption",
+      "retained_draft": "itfm-execution-38577627585"
     }
   ]
 }
