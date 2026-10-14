@@ -14,6 +14,7 @@ def collect(root, output):
     selected = {root / "REMOTE_MANIFEST.json", root / "REMOTE_EXECUTION_STARTED.json"}
     for name in (
         "remote-preflight",
+        "remote-bootstrap",
         "remote-install",
         "remote-run",
         "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1",

@@ -46,6 +46,9 @@ def prepare(output):
             raise RuntimeError("v3 source changed: " + name)
         selected.add(V3 / name)
     selected.add(V3 / "freezes/development-2.json")
+    adjudication = Path("remote_execution/PREEXECUTION_ADJUDICATION.json")
+    if (ROOT / adjudication).exists():
+        selected.add(adjudication)
     selected.update(
         p.relative_to(ROOT)
         for p in (ROOT / "remote_execution").iterdir()

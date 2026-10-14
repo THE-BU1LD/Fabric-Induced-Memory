@@ -76,6 +76,11 @@ class RemoteTests(unittest.TestCase):
             once.check("12", [{"id": 11}, {"id": 12}], "1")
         with self.assertRaises(RuntimeError):
             once.check("12", [{"id": 12}], "2")
+        once.check("12", [{"id": 11}, {"id": 12}], "1", adjudicated=[11])
+        with self.assertRaises(RuntimeError):
+            once.check(
+                "12", [{"id": 10}, {"id": 11}, {"id": 12}], "1", adjudicated=[11]
+            )
 
     def test_blocked_preflight_launches_nothing(self):
         with (
