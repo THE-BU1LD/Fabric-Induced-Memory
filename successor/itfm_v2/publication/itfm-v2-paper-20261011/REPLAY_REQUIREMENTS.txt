@@ -1,0 +1,6 @@
+# Proposed replay environment observed locally on 2026-10-11.
+# This is not a recovered historical complete lock. Python 3.11.15.
+torch==2.12.1
+numpy==2.4.6
+pytest==9.1.1
+setuptools==81.0.0

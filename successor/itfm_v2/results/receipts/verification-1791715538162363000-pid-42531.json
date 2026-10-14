@@ -1,0 +1,61 @@
+{
+  "failed_step": "resource_admission_before_experiment",
+  "finished_at_unix": 1791715542.087948,
+  "niceness": 10,
+  "python": "/opt/homebrew/opt/python@3.11/bin/python3.11",
+  "schema_version": 1,
+  "started_at_unix": 1791715538.1623528,
+  "status": "blocked_resource",
+  "steps": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/scripts/check_resource_admission.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791715538.249877,
+      "name": "resource_admission_before_tests",
+      "started_at_unix": 1791715538.162424,
+      "stderr": "",
+      "stdout": "{\"free_plus_speculative_bytes\": 587972608, \"pageouts_cumulative\": 631288, \"status\": \"PASS\", \"threshold_bytes\": 536870912}\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "-m",
+        "pytest"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791715541.96975,
+      "name": "tests",
+      "started_at_unix": 1791715538.249892,
+      "stderr": "",
+      "stdout": "..........                                                               [100%]\n10 passed in 2.09s\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/scripts/audit_contract.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791715542.027454,
+      "name": "static_contract_audit",
+      "started_at_unix": 1791715541.9697669,
+      "stderr": "",
+      "stdout": "{\"status\": \"pass\"}\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/scripts/check_resource_admission.py"
+      ],
+      "exit_code": 1,
+      "finished_at_unix": 1791715542.087928,
+      "name": "resource_admission_before_experiment",
+      "started_at_unix": 1791715542.027474,
+      "stderr": "",
+      "stdout": "{\"free_plus_speculative_bytes\": 527171584, \"pageouts_cumulative\": 631302, \"status\": \"BLOCK\", \"threshold_bytes\": 536870912}\n"
+    }
+  ],
+  "threads": 1
+}
