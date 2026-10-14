@@ -34,6 +34,7 @@ def prepare(output):
     selected.update(V2 / name for name in baseline)
     selected.add(PUB / "PRESERVATION_BASELINE.json")
     selected.add(PUB / "REPLAY_REQUIREMENTS.txt")
+    selected.add(V2 / "README.md")
     for folder in (PUB / "frozen_source", PUB / "tools", V2 / "paper"):
         selected.update(
             p.relative_to(ROOT)

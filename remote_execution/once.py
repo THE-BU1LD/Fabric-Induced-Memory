@@ -19,6 +19,18 @@ def check(current, runs, attempt, adjudicated=()):
         )
 
 
+def tests_only(item):
+    pipeline = item.get("retained_pipeline_receipt", {})
+    steps = pipeline.get("steps", [])
+    return (
+        pipeline.get("status") == "failed"
+        and pipeline.get("failed_step") == "static_contract_audit"
+        and [s["name"] for s in steps]
+        == ["resource_admission_before_tests", "tests", "static_contract_audit"]
+        and [s["exit_code"] for s in steps] == [0, 0, 1]
+    )
+
+
 if __name__ == "__main__":
     repo = os.environ["GITHUB_REPOSITORY"]
     current = os.environ["GITHUB_RUN_ID"]
@@ -63,7 +75,13 @@ if __name__ == "__main__":
                 previous["head_sha"] != item["head_sha"]
                 or previous["status"] != "completed"
                 or not guarded
-                or any(s["conclusion"] != "skipped" for s in guarded)
+                or not (
+                    all(s["conclusion"] == "skipped" for s in guarded)
+                    or (
+                        tests_only(item)
+                        and all(s["conclusion"] == "failure" for s in guarded)
+                    )
+                )
             ):
                 raise RuntimeError("prior attempt not proven pre-execution; no retry")
             accepted.append(item["id"])

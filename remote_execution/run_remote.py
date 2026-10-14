@@ -171,8 +171,7 @@ def execute(expected, mode):
                 [
                     sys.executable,
                     "-B",
-                    str(PUB / "tools/reproduce.py"),
-                    "execute",
+                    str(ROOT / "remote_execution/replay_v2.py"),
                     "--python",
                     sys.executable,
                     "--output",

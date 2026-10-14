@@ -9,6 +9,7 @@ import once
 import prepare
 import run_remote
 import retain_release
+import replay_v2
 
 
 class RemoteTests(unittest.TestCase):
@@ -145,6 +146,42 @@ class RemoteTests(unittest.TestCase):
                 hashlib.sha256((self.root / part["file"]).read_bytes()).hexdigest(),
                 part["sha256"],
             )
+
+    def test_supplement_preserves_frozen_source_and_satisfies_audit(self):
+        import runpy
+
+        source = replay_v2.PUB / "frozen_source"
+        destination = self.root / "workspace"
+        replay_v2.supplemented_copy(source, destination)
+        for path in source.rglob("*"):
+            if path.is_file():
+                self.assertEqual(
+                    prepare.digest(path),
+                    prepare.digest(destination / path.relative_to(source)),
+                )
+        audit = runpy.run_path(str(source / "src/fim_v2/audit.py"))["audit"]
+        self.assertEqual(audit(destination)["status"], "pass")
+
+    def test_outcome_access_never_adjudicated_as_tests_only(self):
+        item = {
+            "retained_pipeline_receipt": {
+                "status": "failed",
+                "failed_step": "static_contract_audit",
+                "steps": [
+                    {"name": n, "exit_code": c}
+                    for n, c in [
+                        ("resource_admission_before_tests", 0),
+                        ("tests", 0),
+                        ("static_contract_audit", 1),
+                    ]
+                ],
+            }
+        }
+        self.assertTrue(once.tests_only(item))
+        item["retained_pipeline_receipt"]["steps"].append(
+            {"name": "development_experiment", "exit_code": 1}
+        )
+        self.assertFalse(once.tests_only(item))
 
 
 if __name__ == "__main__":

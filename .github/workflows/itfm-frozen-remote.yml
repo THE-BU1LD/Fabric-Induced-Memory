@@ -23,7 +23,7 @@ jobs:
       OPENBLAS_NUM_THREADS: '1'
       VECLIB_MAXIMUM_THREADS: '1'
       EXPECTED_SHA: ${{ github.sha }}
-      MANIFEST_SHA: 6391a3a6ae8ff68fe16a70c2830285993df8ff215f25e19a4d30dce539169443
+      MANIFEST_SHA: 5989a179f7420d87438631874c0fe22cc1fc472121383bb5e5fa09a22518960f
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
