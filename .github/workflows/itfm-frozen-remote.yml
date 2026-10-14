@@ -13,7 +13,7 @@ concurrency:
 jobs:
   frozen:
     if: ${{ !github.event.repository.private }}
-    runs-on: macos-15
+    runs-on: macos-26
     timeout-minutes: 80
     env:
       PYTHONDONTWRITEBYTECODE: '1'
@@ -23,7 +23,7 @@ jobs:
       OPENBLAS_NUM_THREADS: '1'
       VECLIB_MAXIMUM_THREADS: '1'
       EXPECTED_SHA: ${{ github.sha }}
-      MANIFEST_SHA: 5989a179f7420d87438631874c0fe22cc1fc472121383bb5e5fa09a22518960f
+      MANIFEST_SHA: 4ac81e7c97e13a071c2fd7b565a799dc4827769c9f6890236bcf0f1d01cbb436
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:

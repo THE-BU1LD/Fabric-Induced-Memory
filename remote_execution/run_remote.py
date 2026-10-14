@@ -46,6 +46,14 @@ def expect(path, status):
     return result
 
 
+def verify_os_family(actual, historical):
+    expected = historical.split("-")[1].split(".")[0]
+    if actual.split(".")[0] != expected:
+        raise RuntimeError(
+            "historical macOS family mismatch: " + actual + " vs " + historical
+        )
+
+
 def stage(name, command, cwd, output, timeout):
     env = {
         **os.environ,
@@ -84,6 +92,23 @@ def preflight(expected, output):
     verify_manifest(ROOT, expected)
     if platform.system() != "Darwin" or platform.machine() != "arm64":
         raise RuntimeError("macOS ARM64 required; no platform/guard substitution")
+    historical = json.loads((V2 / "results/development-v2/manifest.json").read_text())[
+        "environment"
+    ]
+    verify_os_family(platform.mac_ver()[0], historical["platform"])
+    write(
+        output / "HOST_ENVIRONMENT.json",
+        {
+            "platform": platform.platform(),
+            "macos": platform.mac_ver()[0],
+            "machine": platform.machine(),
+            "python": sys.version,
+            "historical": historical,
+            "image_os": os.environ.get("ImageOS"),
+            "image_version": os.environ.get("ImageVersion"),
+            "boundary": "OS family matched; exact patch/build equality not claimed",
+        },
+    )
     if sys.version_info[:3] != (3, 11, 15):
         raise RuntimeError("Python 3.11.15 required")
     if shutil.disk_usage(ROOT).free < 3 * 1024**3:

@@ -62,3 +62,19 @@ No scientific enhancement or retuning is folded into a frozen study.
 
 Local preparation tests do not establish remote runtime success or scientific efficacy.
 The final local verification receipt is in `audits/remote-preparation-20261014/`.
+
+## Executed outcome — 14 October 2026
+
+- [x] User authorized public dedicated-branch deployment; published `codex/itfm-remote-20261014` without changing main.
+- [x] Avoided potentially billed Actions artifact storage by using unpublished draft-release assets; no paid resources used.
+- [x] Reserved the study, deployed exact source hashes and retained all four attempts.
+- [x] Repaired infrastructure-only setup failures with explicit retained adjudications.
+- [x] Passed remote resource admission and installed exact direct requirements.
+- [x] Completed v2's 10 runtime tests, all three seeds and 96 internal checks.
+- [x] Executed and retained the strict raw historical comparison: 48/66 pass; 18 seed-307 checks fail.
+- [x] Downloaded and hash-verified all outputs and protected predecessor files.
+- [ ] Resolve the seed-307 strict historical discrepancy without changing frozen tolerances.
+- [ ] V3 tests, campaign and raw verification: withheld behind the failed v2 raw gate.
+
+The v3 budget is unconsumed. Do not automatically repeat the outcome-bearing run.
+Latest report: `audits/remote-deployment-20261014/REPORT.md`.

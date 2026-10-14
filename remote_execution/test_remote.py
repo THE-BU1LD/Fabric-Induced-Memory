@@ -66,6 +66,17 @@ class RemoteTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "macOS ARM64"):
                 run_remote.preflight("x", self.root)
 
+    def test_historical_os_family_required(self):
+        with self.assertRaises(RuntimeError):
+            run_remote.verify_os_family("15.7.9", "macOS-26.5.2-arm64-arm-64bit")
+        run_remote.verify_os_family("26.5.2", "macOS-26.5.2-arm64-arm-64bit")
+
+    def test_outcome_retry_needs_specific_human_authorization(self):
+        self.assertFalse(once.authorized_diagnostic({"id": 38578599860}))
+        self.assertFalse(
+            once.authorized_diagnostic({"id": 1, "v3_campaign_consumed": False})
+        )
+
     def test_symlink_escape_rejected(self):
         (self.root / "link").symlink_to(self.root.parent, target_is_directory=True)
         with self.assertRaises(ValueError):
