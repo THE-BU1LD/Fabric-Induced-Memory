@@ -6,6 +6,6 @@ The workflow executes 87 scalar tests and 10 tensor integration tests on one sta
 
 The source manifest freezes both test inventories and all runtime source files. The supervisor rejects zero tests, missing tests, skips, expected failures, contradictory receipts and source changes. It kills only its owned worker process group on timeout or interruption. Receipts include explicit RSS units and runtime identity. Scalar acceptance uses the same exact-inventory rule.
 
-Results and dependency versions are preserved in downloadable job logs as SHA-256-bound base64 records. No Actions artifact or cache storage is requested. Re-running this workflow requires a new reviewed authorization; attempt 1 is the sole admitted run.
+Results and dependency versions are preserved in downloadable job logs as SHA-256-bound base64 records. No Actions artifact or cache storage is requested. The first job stopped during Python setup before all tests because Python 3.11.15 had no macOS ARM build. This corrected bundle pins the catalogued Python 3.11.9 build. The workflow allows exactly that retained setup failure plus this one test execution; it rejects reruns and any other prior attempt.
 
 Earlier local bundles and research evidence remain preserved separately. A green job establishes software test success only: novelty, model efficacy, independent reproduction and research completion remain unestablished.

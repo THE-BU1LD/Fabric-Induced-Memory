@@ -20,13 +20,13 @@ jobs:
       MKL_NUM_THREADS: '1'
       OPENBLAS_NUM_THREADS: '1'
       VECLIB_MAXIMUM_THREADS: '1'
-      MANIFEST_SHA: 87f9956c654e6991a815335258e1d281d816bc854c06a9f56f705e63d942ea82
+      MANIFEST_SHA: 67a5253aab94d5f99d83fe3218db54670401e5fd8a502236123280b64af2849b
       RUNNER_SCRIPT: successor/itfm_v4/repairs/observation_pipeline_v1/runtime_verification.py
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Enforce exact checkout and one authorized workflow run
+      - name: Enforce exact checkout and one admitted test execution
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -36,7 +36,15 @@ jobs:
           repo = os.environ['GITHUB_REPOSITORY']
           run = json.loads(subprocess.check_output(['gh','api',f'/repos/{repo}/actions/runs/{os.environ["GITHUB_RUN_ID"]}']))
           runs = json.loads(subprocess.check_output(['gh','api',f'/repos/{repo}/actions/workflows/{run["workflow_id"]}/runs?per_page=100']))
-          assert runs['total_count'] == 1 and runs['workflow_runs'][0]['id'] == run['id'], 'Previous workflow attempt exists; review required'
+          prior_id = 38847030101
+          assert runs['total_count'] == 2 and {x['id'] for x in runs['workflow_runs']} == {prior_id, run['id']}, 'Unexpected workflow attempt'
+          prior = json.loads(subprocess.check_output(['gh','api',f'/repos/{repo}/actions/runs/{prior_id}/jobs']))
+          assert len(prior['jobs']) == 1 and prior['jobs'][0]['conclusion'] == 'failure'
+          steps = {s['name']: s for s in prior['jobs'][0]['steps']}
+          assert steps['Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1']['conclusion'] == 'failure'
+          assert steps['Verify all 87 scalar software tests']['conclusion'] == 'skipped'
+          assert steps['Verify ten exact tensor tests within the 30 second worker budget']['conclusion'] == 'skipped'
+          assert run['head_sha'] == os.environ['GITHUB_SHA']
           PY_ONCE
       - name: Reclaim disposable host caches and admit runtime setup
         run: |
@@ -44,7 +52,7 @@ jobs:
           python3 -B "$RUNNER_SCRIPT" preflight --manifest-sha256 "$MANIFEST_SHA" --receipt setup-admission.json
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
         with:
-          python-version: '3.11.15'
+          python-version: '3.11.9'
       - name: Verify all 87 scalar software tests
         run: python -B successor/itfm_v4/repairs/observation_pipeline_v1/run_final_tests.py --manifest-sha256 "$MANIFEST_SHA" --receipt scalar-receipt.json
       - name: Admit and install exact direct dependencies

@@ -101,7 +101,7 @@
     "test_tensor.TensorIntegrationTests.test_same_tick_reveal_cannot_affect_prediction"
   ],
   "files": {
-    "README.md": "627b1f9dac8703e45aac549c6822b42f04fa5d5cb62da6564f0b0500dd37b453",
+    "README.md": "39d30c21ad1db8d85d0a7a12f00c334a7fca00bd8d099dd9270bff08f16dd821",
     "requirements-runtime.txt": "4f7fae6efc93990ead9d29a5899f93fa91f66a1ea7c979e94d6ceb78a63c84ab",
     "successor/itfm_v2/src/fim_sota/__init__.py": "960cc4ee8e699a9dd429e723ceea4b6f75cb22dce18eaa46b8d77ca94f9d33ed",
     "successor/itfm_v2/src/fim_sota/adapter.py": "0d88d64eb64bf42a46b7c6bc6f0b089f1ab123e74ea301040307b87b0d0fc126",
