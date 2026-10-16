@@ -1,0 +1,476 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-08T11:36:46.317392+00:00",
+  "base_commit": "08d2c3df4262612bffe38488f97e263769ff7ef6",
+  "base_tree": "12dd357e9f66ba9ddb66ff38ba12735643b98449",
+  "source_heads": {
+    "20": "c6c1188ded48f4cd83ade3553ca10914be7217cd",
+    "21": "3ff0fe1de64795e6241bf0ee54c5c5ad06a3850f",
+    "22": "605ca23a3961fcbf95fabfd211ab69e8a77c2ca3",
+    "23": "28f8da75642204f7a9447aaef73532ab65d7a5c8",
+    "24": "758bf83430d30cfb3f29b204650dafe3d13da803"
+  },
+  "integration_files": [
+    {
+      "path": ".github/workflows/current-component-ablations.yml",
+      "source_prs": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "git_blob": "c3db0063a67b847f66f43db3d9e89b7886d97bbf",
+      "sha256": "162dba748806f37cf28c55f11cf5ab34c6dbb54ed6e7d4617bc7e97567147711"
+    },
+    {
+      "path": "fim/geometry/graph.py",
+      "source_prs": [
+        20
+      ],
+      "git_blob": "a14a104aed9b00943fe1ab2dfb3856c6433ff759",
+      "sha256": "ab4e3dc720beb8df2f11d5798e9287d74005753e96281b7f136fb2b638759250"
+    },
+    {
+      "path": "tests/test_graph_execution_modes.py",
+      "source_prs": [
+        20
+      ],
+      "git_blob": "aff820a57231f3330589307a3fa47d85ad5c1239",
+      "sha256": "fb9011ad3c777a7c74581587a4e7585433f7858fd83f5363513808be4a10600c"
+    },
+    {
+      "path": "tests/test_graph_propagation.py",
+      "source_prs": [
+        20
+      ],
+      "git_blob": "1a062ed85e050996be442dd3403f7bb1f92a2919",
+      "sha256": "458c34c03979463dd5fd728ec793a2e1eaaa94a7095c4d31b01b627cb987bb71"
+    },
+    {
+      "path": "docs/runtime-benchmark-contracts.md",
+      "source_prs": [
+        21
+      ],
+      "git_blob": "1e406bbfb27962b93ad083f0829362f8a7bf3c76",
+      "sha256": "6be4c5197c09f6f3e750f92265d393a655799dcb2c0843bbb65a5d53798e216c"
+    },
+    {
+      "path": "fim_experiments/runtime_benchmarks.py",
+      "source_prs": [
+        21
+      ],
+      "git_blob": "9c000059809e7459b81ac59723a2f210a95ae8fe",
+      "sha256": "dcadcf54ecbbe93aa8666019e380169f34869e3b27a514c044e3cdfde2950d57"
+    },
+    {
+      "path": "tests/test_benchmark_runtime_contracts.py",
+      "source_prs": [
+        21
+      ],
+      "git_blob": "eeeb634afd2ddac6afa84e2937143f053c1780a0",
+      "sha256": "fd4c45e527c0c955159e0d1bc495a0a8588f9fc7c869e162303f35e1cc33583b"
+    },
+    {
+      "path": "scripts/analyze_trajectory_isolated_ablations.py",
+      "source_prs": [
+        22
+      ],
+      "git_blob": "d22274da35bd4a30be2d69810ac7e73b1cd2e3a9",
+      "sha256": "f0c730d4791f1914275aa130e72d6735a267730dcd32a710557675e586da9c1e"
+    },
+    {
+      "path": "scripts/evidence_publication.py",
+      "source_prs": [
+        22
+      ],
+      "git_blob": "c0d04cdc8097a6709d9633313d0b92df1958d416",
+      "sha256": "efb584d5dccabf856ba3f61051ce1ebde9b8f3819bf7913acfd9d294d7cf4c1e"
+    },
+    {
+      "path": "tests/test_evidence_publication.py",
+      "source_prs": [
+        22
+      ],
+      "git_blob": "378d73eec35cf8c65196baa633ae969d4c5c4700",
+      "sha256": "76e9862101a9bd3b53c6d31b2a1013c4131d930d975c4526ed3790acf9c25b20"
+    },
+    {
+      "path": "docs/checkpoint-evaluation-weights.md",
+      "source_prs": [
+        23
+      ],
+      "git_blob": "34de09f79cb32940dffd3876e85c818e358d7558",
+      "sha256": "d7d56fc837afe8b914e1146ac7b5737230d31b7715f27349185a798e525052f1"
+    },
+    {
+      "path": "fim_experiments/train.py",
+      "source_prs": [
+        23
+      ],
+      "git_blob": "f1b0a9f5e71c46b96a762f88f649b76f75403b65",
+      "sha256": "4ee895825d12c9b448d660b2d08e5cbb6b5cf09fa0a0d67327bb0665bc0ebb81"
+    },
+    {
+      "path": "scripts/evaluate_checkpoint.py",
+      "source_prs": [
+        23
+      ],
+      "git_blob": "c18625656266652380792d27e24aa2ba5d3d0dfb",
+      "sha256": "c1b7b478d82e457b7071b465ed1fcf2adb04109e41be5f1d74764d66267a0a9d"
+    },
+    {
+      "path": "tests/test_checkpoint_evaluation_weights.py",
+      "source_prs": [
+        23
+      ],
+      "git_blob": "d9f63ac8bd042bfe99c1e4e741629352437a13da",
+      "sha256": "ad387d712f0360cf03b62181d49366c8164d815374c1c61623e97419a0414b9e"
+    },
+    {
+      "path": "RESEARCH_TRUTH.md",
+      "source_prs": [
+        24
+      ],
+      "git_blob": "d2bfb2dcf9eb842d77f600e3d0cf4c17517ad801",
+      "sha256": "0b7c85c36ad353b0d5fd06aea3f1ba55b686dcc7a4163a244eba861030ad19bd"
+    }
+  ],
+  "overlap_resolution": [
+    {
+      "path": ".github/workflows/current-component-ablations.yml",
+      "difference": "two comments only",
+      "selected_pr": 23
+    }
+  ],
+  "preserved_base_blobs": 212,
+  "protected_blobs": [
+    {
+      "path": "fim_experiments/benchmark.py",
+      "git_blob": "c91a6afe9d86830c6bcfaa2d9187547d9688050d"
+    },
+    {
+      "path": "paper/Final FIM.pdf",
+      "git_blob": "90599ea853284b99ec6233a5f01fd7439c763339"
+    },
+    {
+      "path": "research/protocols/FIM_DELAYED_RECALL_SUCCESSOR_V2.json",
+      "git_blob": "61e954763626eea5d82c56ac38981215919dfc73"
+    },
+    {
+      "path": "research/protocols/FIM_DELAYED_RECALL_SUCCESSOR_V2.md",
+      "git_blob": "628364ae214e0d83a79d057775453f10dc9546be"
+    },
+    {
+      "path": "research/protocols/FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md",
+      "git_blob": "57a83c49196bac7b4aa344c37ece0978d6df9014"
+    },
+    {
+      "path": "results/evaluate.py",
+      "git_blob": "da7a4bd6f061158618a1c5fce6b00f807fd02409"
+    },
+    {
+      "path": "results/metrics/metrics.json",
+      "git_blob": "6ab9ae0b6441f9acf8e11315a30f01380be0a143"
+    },
+    {
+      "path": "results/mini_processed/mini_suite_summary.json",
+      "git_blob": "3356862e015d2e97339e9c0a55c163e947284b28"
+    },
+    {
+      "path": "results/mini_processed/mini_suite_summary.md",
+      "git_blob": "9f07a71c53abd29ed665f07aaa72c96aaa413574"
+    },
+    {
+      "path": "results/mini_processed/mini_suite_summary.png",
+      "git_blob": "f34bb1f874e353c1e3350831dea22a5c1dee0e12"
+    },
+    {
+      "path": "results/mini_processed/mini_suite_summary_best.json",
+      "git_blob": "4c6c6e2d29cf1c2d16e8133f4f0d66e36024abf8"
+    },
+    {
+      "path": "results/mini_processed/mini_suite_summary_best.png",
+      "git_blob": "712bdd3ae28279cd1b82712f751c35ceab847879"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_deeponet/checkpoints/best_fim_checkpoint.pt",
+      "git_blob": "d225ca1dfee5b71c52234635edf50bc2365253f3"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_deeponet/checkpoints/fim_checkpoint.pt",
+      "git_blob": "cab5c232d8a167c58f6186a0d7e3e469aeff2e22"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_deeponet/checkpoints/final_state.pt",
+      "git_blob": "16369b010b956f5aa766400d08a07b38867f1621"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_deeponet/configs/resolved_config.yaml",
+      "git_blob": "bb334f445d31b0ed288158c24f8a4b2022dec302"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_deeponet/figures/rollout_comparison.pdf",
+      "git_blob": "b2dd97671d76d79e4cafd6031c395a304dec465c"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_deeponet/logs/run.log",
+      "git_blob": "4c3b9ff399b36f4f9f1625373fff6e4572968a1a"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_deeponet/metrics/run_results.json",
+      "git_blob": "e022835b2928fffd2e04580584c9318f06cf2b85"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_deeponet/metrics/summary.json",
+      "git_blob": "ee1996b116c62d7cd500c2ec98fd843864e6267c"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_deeponet/summary.json",
+      "git_blob": "ee1996b116c62d7cd500c2ec98fd843864e6267c"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_fim_plus/checkpoints/best_fim_checkpoint.pt",
+      "git_blob": "d4ff6bb3a4bbc62b025204621e5a9baa77ea1ffb"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_fim_plus/checkpoints/fim_checkpoint.pt",
+      "git_blob": "62e9a1fa9c36f46d6f5dee05be5af3bc40a0c7cd"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_fim_plus/checkpoints/final_state.pt",
+      "git_blob": "8c07c704757ac37587e9837ec5128e1f97bd25d9"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_fim_plus/configs/resolved_config.yaml",
+      "git_blob": "9b8d18497f4a05e29ae73a0550cb41f1e61d7561"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_fim_plus/figures/rollout_comparison.pdf",
+      "git_blob": "fc2b1602827dfe868bf7e94d7e1402d5799c713d"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_fim_plus/logs/run.log",
+      "git_blob": "c69f5e501dc750cdc660180753c4a214b1433b51"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_fim_plus/metrics/run_results.json",
+      "git_blob": "27b846f873259b08ec82051c6d65952af75ca99f"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_fim_plus/metrics/summary.json",
+      "git_blob": "62e122ce245957d4762199d16d8b8225ebd298d6"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_fim_plus/summary.json",
+      "git_blob": "62e122ce245957d4762199d16d8b8225ebd298d6"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_mlp/checkpoints/best_fim_checkpoint.pt",
+      "git_blob": "1678029c6f8063681f919fc31e10407742586fd1"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_mlp/checkpoints/fim_checkpoint.pt",
+      "git_blob": "6632194b399ea1d500ad897ff4544eb713b2d13f"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_mlp/checkpoints/final_state.pt",
+      "git_blob": "4d35443cc0c021cf87a696be23aa070665abd488"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_mlp/configs/resolved_config.yaml",
+      "git_blob": "239041624a5a3428bd7441676e85aafda86dcb03"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_mlp/figures/rollout_comparison.pdf",
+      "git_blob": "c8e4d9c5cc8cfc71a8fc3a8ae0a0cae686184acb"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_mlp/logs/run.log",
+      "git_blob": "5055945f6c8b0ebf0615d734dfa854b8fa2f615a"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_mlp/metrics/run_results.json",
+      "git_blob": "4e945e90563d75e5b7eb6343932c5fdec08d81e0"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_mlp/metrics/summary.json",
+      "git_blob": "da1d3f4507efdf82b68c7b265bb6cf084aceb16a"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_mlp/summary.json",
+      "git_blob": "da1d3f4507efdf82b68c7b265bb6cf084aceb16a"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_ssm/checkpoints/best_fim_checkpoint.pt",
+      "git_blob": "123bc3098fbf6c2c100d2496286225354ad1704c"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_ssm/checkpoints/fim_checkpoint.pt",
+      "git_blob": "c9ce51c2bc8c40283933153dbd8dc101d580df57"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_ssm/checkpoints/final_state.pt",
+      "git_blob": "ffe677ede2b49236630008392848ea57b46e9b81"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_ssm/configs/resolved_config.yaml",
+      "git_blob": "018a43f498dd318c7753bb9859d5ce2b899c9797"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_ssm/figures/rollout_comparison.pdf",
+      "git_blob": "8f6904a79b48ffafab84913b6ae962e93e5a712c"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_ssm/logs/run.log",
+      "git_blob": "a4c9ae5a4af97cf303ea0bf76ce07c0d91c9cfe7"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_ssm/metrics/run_results.json",
+      "git_blob": "1ee5c4b4dd792375338537cdcf171be3e5726be4"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_ssm/metrics/summary.json",
+      "git_blob": "8ea45ceb3a402ef2248795d060347a7ac0798cfa"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_ssm/summary.json",
+      "git_blob": "8ea45ceb3a402ef2248795d060347a7ac0798cfa"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_transformer/checkpoints/best_fim_checkpoint.pt",
+      "git_blob": "b3c32f8928b60a64d7f7d12d56d81804bae18f23"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_transformer/checkpoints/fim_checkpoint.pt",
+      "git_blob": "0f773e882ba283b13aae8bcf0ccce63d12de1bc2"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_transformer/checkpoints/final_state.pt",
+      "git_blob": "20b3c74825f9a208fca33b8f088c73eabd95f54e"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_transformer/configs/resolved_config.yaml",
+      "git_blob": "6c2734b604cf402b7017d40c5ac3510d0ce58e8f"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_transformer/figures/rollout_comparison.pdf",
+      "git_blob": "0fcb53e2916918eeb87c5a11a69d029a33dd12a0"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_transformer/logs/run.log",
+      "git_blob": "223aac0367ce6e48b68ab9610feca919af5796d9"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_transformer/metrics/run_results.json",
+      "git_blob": "69354be8d19efa0476cd3d82ddd83acdb975092e"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_transformer/metrics/summary.json",
+      "git_blob": "77ea7145db1fa59c9ca6d27596c414811c9ef8c7"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/delayed_recall_transformer/summary.json",
+      "git_blob": "77ea7145db1fa59c9ca6d27596c414811c9ef8c7"
+    },
+    {
+      "path": "results/mini_suite/mini_suite/suite_summary.json",
+      "git_blob": "f3f2dec58631e8e178fd8a20758a4222ee0ac3a2"
+    },
+    {
+      "path": "results/process_suite.py",
+      "git_blob": "2efe1db8b3a178c6f9416136f559bd0898eb2786"
+    },
+    {
+      "path": "results/run_results.py",
+      "git_blob": "a3cf8bc688b1f90fa936d826ceacf64e03c4ad23"
+    },
+    {
+      "path": "results/smoke_delayed/delayed_recall_fim_plus/checkpoints/best_fim_checkpoint.pt",
+      "git_blob": "0f11427e8a79094976c59a7de188eadd305535ca"
+    },
+    {
+      "path": "results/smoke_delayed/delayed_recall_fim_plus/checkpoints/fim_checkpoint.pt",
+      "git_blob": "f7daf218d3b46cae695cc0e4790884ebef8656fe"
+    },
+    {
+      "path": "results/smoke_delayed/delayed_recall_fim_plus/checkpoints/final_state.pt",
+      "git_blob": "bd9a174e3de83f400c3819258f78c7ed037061ba"
+    },
+    {
+      "path": "results/smoke_delayed/delayed_recall_fim_plus/configs/resolved_config.yaml",
+      "git_blob": "567066957445d2f0e32ef20c544192e19ad2c820"
+    },
+    {
+      "path": "results/smoke_delayed/delayed_recall_fim_plus/figures/rollout_comparison.pdf",
+      "git_blob": "0d9e89df49e5553ea2d3e3446b504e57233c61d1"
+    },
+    {
+      "path": "results/smoke_delayed/delayed_recall_fim_plus/logs/run.log",
+      "git_blob": "8ab5ccfd3bb458a63a64eeba893f0de58fb18ec1"
+    },
+    {
+      "path": "results/smoke_delayed/delayed_recall_fim_plus/metrics/run_results.json",
+      "git_blob": "ce57533ed91c5f0d5bee607bea81048db67b79ad"
+    },
+    {
+      "path": "results/smoke_delayed/delayed_recall_fim_plus/metrics/summary.json",
+      "git_blob": "be396f0cb5419618ace2af9644d4286d8d854939"
+    },
+    {
+      "path": "results/trajectories/pred.pt",
+      "git_blob": "8252812f64a06ab7045ef15b9e1c4c2fb5ecff38"
+    },
+    {
+      "path": "results/trajectories/true.pt",
+      "git_blob": "2eeedaf3f2ed59973b603c98b3e34fda7b7d4c35"
+    },
+    {
+      "path": "results/visualize.py",
+      "git_blob": "df9bc83dfad9085b0f1390aea6ab001f76658eb6"
+    }
+  ],
+  "runtime": {
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "pytest": "9.1.1"
+  },
+  "repository_suite": {
+    "passed": 176,
+    "skipped": 7,
+    "subtests_passed": 10,
+    "failed": 0,
+    "errors": 0,
+    "duration_seconds": 8.05,
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MPLBACKEND=Agg PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -r s",
+    "receipt": "pytest.xml"
+  },
+  "compileall": "PASS",
+  "frozen_v2_verifier": {
+    "status": "VERIFIED_PREOUTCOME_METHOD_FREEZE",
+    "benchmark_git_blob": "c91a6afe9d86830c6bcfaa2d9187547d9688050d",
+    "execution_authorized": false,
+    "outcome_access_allowed": false,
+    "command": "python -m scripts.verify_delayed_recall_successor_v2"
+  },
+  "wheel_build": "PASS",
+  "installed_smoke": {
+    "status": "PASS",
+    "package_imports": [
+      "fim/geometry/graph.py",
+      "fim_experiments/runtime_benchmarks.py",
+      "scripts/evidence_publication.py",
+      "scripts/evaluate_checkpoint.py"
+    ],
+    "graph_ema_roundtrip": "pass after inference warmup with finite gradients",
+    "runtime_generation": "bounded 2-observation implementation fixture",
+    "evidence_publication": "three artificial UTF-8 files",
+    "scientific_outcomes_generated": false
+  },
+  "scientific_matrix_dispatched": false,
+  "retained_outcomes_evaluated": false,
+  "source_limitations": [
+    "Seven historical optional-component cases skipped; exact reasons are in pytest.xml",
+    "This receipt establishes combined engineering behavior only",
+    "Repository main and existing PR heads were unchanged during local qualification"
+  ]
+}

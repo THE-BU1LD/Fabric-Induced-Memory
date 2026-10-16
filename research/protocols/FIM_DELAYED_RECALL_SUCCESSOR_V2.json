@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "protocol_name": "FIM_DELAYED_RECALL_SUCCESSOR_V2",
+  "status": "FROZEN_METHOD_PREOUTCOME_REVIEW_REQUIRED",
+  "execution_authorized": false,
+  "outcome_access_allowed": false,
+  "source": {
+    "base_main_commit": "ae6d8a9622e8b28615715e8b68ca04b2a6188653",
+    "delayed_recall_benchmark_git_blob": "c91a6afe9d86830c6bcfaa2d9187547d9688050d",
+    "recall_metrics_git_blob": "7d7e0d1c3daa4d5f7f4d2e02792fa363e1826c84"
+  },
+  "benchmark": {
+    "name": "delayed_recall",
+    "dimension": 33,
+    "memory_dim": 32,
+    "delay": 8,
+    "steps": 16,
+    "cue_noise": 0.02,
+    "distractor_scale": 0.3,
+    "reveal_sharpness": 0.35,
+    "latent_transition_stochastic": false,
+    "observation_stochastic": true
+  },
+  "endpoint": {
+    "primary": "recall_window_memory_mse",
+    "observation_times": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "target_indices": [
+      7,
+      8,
+      9,
+      10
+    ],
+    "window_length": 4,
+    "channels": "memory_payload_only_exclude_clock",
+    "aggregation": "mean_over_batch_time_memory_features",
+    "secondary": [
+      "rollout_mse",
+      "final_step_mse",
+      "rollout_mae",
+      "final_step_mae"
+    ]
+  },
+  "observation_noise_reference": {
+    "type": "analytic_conditional_mean_floor",
+    "scope": "post_cue_memory_features",
+    "expected_mse_per_memory_feature": 0.09,
+    "formula": "distractor_scale_squared",
+    "is_trainable_baseline": false
+  },
+  "paired_design": {
+    "seeds": [
+      607,
+      701,
+      809,
+      907,
+      1009
+    ],
+    "variants": [
+      "full",
+      "no_memory",
+      "no_retrieval",
+      "no_salience_gating"
+    ],
+    "identical_trajectory_bytes_per_seed_across_variants": true,
+    "generate_and_hash_trajectory_artifact_before_variant_execution": true,
+    "memory_reset_between_independent_episodes": true,
+    "batch_size": 1,
+    "no_best_checkpoint_selection": true
+  },
+  "budget": {
+    "epochs": 4,
+    "dataset_size": 32,
+    "batch_size": 1,
+    "train_rollout_steps": 16,
+    "eval_rollout_steps": 20,
+    "teacher_forcing_ratio": 0.5,
+    "horizon_decay": 1,
+    "dynamic_data": false,
+    "use_ema": false,
+    "evaluate_ema": false
+  },
+  "analysis": {
+    "primary_comparison": "full_vs_no_memory",
+    "mechanism_comparison": "full_vs_no_retrieval",
+    "report_raw_per_seed_values": true,
+    "paired_bootstrap_samples": 10000,
+    "paired_bootstrap_seed": 20261005,
+    "exact_sign_flip_descriptive": true,
+    "claim_rule": "No memory-benefit claim unless the paired mean primary delta favors full and full wins at least 4 of 5 frozen seeds; retrieval-specific claims additionally require the same directional rule versus no_retrieval.",
+    "failure_rule": "Retain every failed cell; do not replace seeds, extend budgets, move the recall window, or tune the mechanism after outcome access."
+  },
+  "claim_boundary": {
+    "rewrites_frozen_v1": false,
+    "historical_v1_primary_remains_whole_rollout_mse": true,
+    "successor_outcomes_may_rescue_v1": false,
+    "negative_or_mixed_result_must_be_retained": true
+  }
+}

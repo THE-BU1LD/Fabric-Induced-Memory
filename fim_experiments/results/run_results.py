@@ -1,149 +1,148 @@
 from __future__ import annotations
 
-import torch
+import json
+from pathlib import Path
+from typing import Any, Optional
+
 import matplotlib.pyplot as plt
-from sklearn.decomposition import PCA
+import torch
 
 
-def run(model, benchmark, device="cpu"):
-    device = torch.device(device)
-    model.eval()
+def _canonical_prediction(output: Any) -> torch.Tensor:
+    """Return the prediction tensor from supported model output conventions."""
+    if hasattr(output, "prediction"):
+        return output.prediction
+    if isinstance(output, tuple):
+        if not output:
+            raise ValueError("Model returned an empty tuple.")
+        return output[0]
+    if torch.is_tensor(output):
+        return output
+    raise TypeError(f"Unsupported model output type: {type(output)!r}")
 
-    x, y = benchmark.generate_batch(batch_size=64, device=device)
 
-    x = x.unsqueeze(2).unsqueeze(3).to(device)
-    y = y.unsqueeze(2).unsqueeze(3).to(device)
+def _canonical_salience(output: Any) -> Optional[torch.Tensor]:
+    if hasattr(output, "salience"):
+        value = output.salience
+        return value if torch.is_tensor(value) else None
+    if isinstance(output, tuple) and len(output) > 1 and torch.is_tensor(output[1]):
+        return output[1]
+    return None
 
-    preds = []
-    latents_full = []
-    latents_flat = []
-    saliences = []
 
-    with torch.no_grad():
-        for t in range(x.shape[1]):
-            pred, sal = model(x[:, t])
-
-            preds.append(pred.squeeze(-1).squeeze(-1).cpu())
-            saliences.append(sal.cpu())
-
-            z = model.encoder(x[:, t])
-            z = model.dynamics(z)
-
-            latents_full.append(z.cpu())
-            latents_flat.append(z.mean(dim=(2, 3)).cpu())
-
-    preds = torch.stack(preds, dim=1)
-    latents_full = torch.stack(latents_full, dim=1)
-    latents_flat = torch.cat(latents_flat, dim=0)
-    saliences = torch.stack(saliences, dim=1)
-
-    true = y.squeeze(-1).squeeze(-1).cpu()
-    pred = preds.cpu()
-
-    mse = torch.mean((pred - true) ** 2).item()
-
-    plt.figure()
-    plt.plot(pred[0, :, 0].numpy())
-    plt.plot(true[0, :, 0].numpy())
-    plt.title("Trajectory")
-    plt.savefig("trajectory.png")
-    plt.close()
-
-    pca = PCA(n_components=3)
-    z_3d = pca.fit_transform(latents_flat.numpy())
-
-    fig = plt.figure()
-    ax = fig.add_subplot(projection="3d")
-    ax.scatter(z_3d[:, 0], z_3d[:, 1], z_3d[:, 2], s=2)
-    plt.title("Latent Manifold")
-    plt.savefig("latent_manifold.png")
-    plt.close()
-
-    plt.figure()
-    sal_map = saliences[0, -1, 0]
-    plt.imshow(sal_map.numpy())
-    plt.colorbar()
-    plt.title("Spatial Salience")
-    plt.savefig("salience_spatial.png")
-    plt.close()
-
-    plt.figure()
-    latent_map = latents_full[0, -1, 0]
-    plt.imshow(latent_map.numpy())
-    plt.colorbar()
-    plt.title("Latent Heatmap")
-    plt.savefig("latent_heatmap.png")
-    plt.close()
-
-    fig = plt.figure()
-    ax = fig.add_subplot(projection="3d")
-
-    Z = latent_map.numpy()
-    H, W = Z.shape
-
-    X, Y = torch.meshgrid(
-        torch.arange(H),
-        torch.arange(W),
-        indexing="ij"
+def _coerce_like(prediction: torch.Tensor, reference: torch.Tensor) -> torch.Tensor:
+    """Map field-shaped model output back to the benchmark state shape safely."""
+    if prediction.shape == reference.shape:
+        return prediction
+    if prediction.numel() == reference.numel():
+        return prediction.reshape_as(reference)
+    raise ValueError(
+        "Prediction cannot be mapped to benchmark state shape: "
+        f"prediction={tuple(prediction.shape)} reference={tuple(reference.shape)}"
     )
 
-    ax.plot_surface(X.numpy(), Y.numpy(), Z)
-    plt.title("3D Surface")
-    plt.savefig("latent_surface.png")
-    plt.close()
 
-    diff = torch.abs(pred - true).mean(dim=-1)
-
-    plt.figure()
-    plt.plot(diff[0].numpy())
-    plt.title("Chaos Divergence")
-    plt.savefig("chaos.png")
-    plt.close()
-
-    latent_energy = latents_flat.norm(dim=1)
+def _write_trajectory_plot(path: Path, predicted: torch.Tensor, truth: torch.Tensor) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    pred_series = predicted[0].detach().cpu().reshape(predicted.shape[1], -1)[:, 0]
+    true_series = truth[0].detach().cpu().reshape(truth.shape[1], -1)[:, 0]
 
     plt.figure()
-    plt.plot(latent_energy.numpy())
-    plt.title("Latent Energy")
-    plt.savefig("energy.png")
+    plt.plot(pred_series.numpy(), label="prediction")
+    plt.plot(true_series.numpy(), label="truth")
+    plt.xlabel("rollout step")
+    plt.ylabel("state[0]")
+    plt.title("Autoregressive rollout")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig(path)
     plt.close()
 
-    sal_scalar = saliences.mean(dim=(2, 3, 4))
 
-    plt.figure()
-    plt.imshow(sal_scalar.numpy(), aspect="auto")
-    plt.colorbar()
-    plt.title("Salience Over Time")
-    plt.savefig("salience_time.png")
-    plt.close()
+def run(
+    model,
+    benchmark,
+    device="cpu",
+    rollout_steps: int = 50,
+    perturbation_scale: float = 0.01,
+    perturbation_trials: int = 5,
+    divergence_threshold: float = 0.15,
+    plot_path: str | Path | None = None,
+    save_results_path: str | Path | None = None,
+    batch_size: int = 32,
+):
+    """Evaluate a model with a benchmark-native autoregressive rollout.
 
-    fig = plt.figure()
-    ax = fig.add_subplot(projection="3d")
+    The perturbation arguments are accepted for API compatibility with the main
+    experiment runner, but this function deliberately reports only metrics it
+    actually computes. Stability/perturbation claims must come from a dedicated
+    implemented analysis rather than placeholder fields.
+    """
+    del perturbation_scale, perturbation_trials, divergence_threshold
 
-    T = latents_full.shape[1]
-    H = latents_full.shape[3]
-    W = latents_full.shape[4]
+    device = torch.device(device)
+    steps = int(rollout_steps)
+    if steps <= 0:
+        raise ValueError("rollout_steps must be positive")
+    if int(batch_size) <= 0:
+        raise ValueError("batch_size must be positive")
 
-    for t in range(0, T, max(1, T // 20)):
-        surface = latents_full[0, t, 0].numpy()
+    model.eval()
+    if hasattr(model, "reset_state"):
+        model.reset_state()
+    elif hasattr(model, "clear_memory"):
+        model.clear_memory()
 
-        X, Y = torch.meshgrid(
-            torch.arange(H),
-            torch.arange(W),
-            indexing="ij"
+    x0 = benchmark.sample_initial_state(batch_size=int(batch_size), device=device)
+    truth = benchmark.rollout(x0, steps=steps)
+
+    predictions = [x0]
+    salience_seen = False
+    x = x0
+
+    with torch.no_grad():
+        for _ in range(steps):
+            output = model(x)
+            prediction = _coerce_like(_canonical_prediction(output), x)
+            salience_seen = salience_seen or _canonical_salience(output) is not None
+            predictions.append(prediction)
+            x = prediction.detach()
+
+    predicted = torch.stack(predictions, dim=1)
+    if predicted.shape != truth.shape:
+        raise ValueError(
+            f"Rollout shape mismatch: prediction={tuple(predicted.shape)} "
+            f"truth={tuple(truth.shape)}"
         )
 
-        ax.plot_surface(
-            X.numpy(),
-            Y.numpy(),
-            surface,
-            alpha=0.3
-        )
+    # Exclude the seeded initial condition from forecast error. Including t=0
+    # would add an artificial zero-error point and bias the reported rollout
+    # metric downward, especially for short horizons.
+    forecast_error = predicted[:, 1:] - truth[:, 1:]
+    mse_by_step = forecast_error.reshape(
+        forecast_error.shape[0], forecast_error.shape[1], -1
+    ).pow(2).mean(dim=-1)
+    mae_by_step = forecast_error.reshape(
+        forecast_error.shape[0], forecast_error.shape[1], -1
+    ).abs().mean(dim=-1)
 
-    plt.title("3D Time Evolution")
-    plt.savefig("time_evolution_3d.png")
-    plt.close()
-
-    return {
-        "mse": mse
+    metrics = {
+        "rollout_mse": float(mse_by_step.mean().item()),
+        "final_step_mse": float(mse_by_step[:, -1].mean().item()),
+        "rollout_mae": float(mae_by_step.mean().item()),
+        "final_step_mae": float(mae_by_step[:, -1].mean().item()),
+        "rollout_steps": steps,
+        "evaluation_batch_size": int(batch_size),
+        "salience_available": bool(salience_seen),
     }
+
+    if plot_path is not None:
+        _write_trajectory_plot(Path(plot_path), predicted, truth)
+
+    if save_results_path is not None:
+        output_path = Path(save_results_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with output_path.open("w", encoding="utf-8") as handle:
+            json.dump(metrics, handle, indent=2)
+
+    return metrics

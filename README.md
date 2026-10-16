@@ -41,100 +41,92 @@ The active synthetic manuscript for this local task is
 `successor/itfm_v2/paper/main.tex`. Its recovered source, safe verification tools,
 and readiness receipts are in
 `successor/itfm_v2/publication/itfm-v2-paper-20261011`.
-The current worktree includes untracked research and a preserved historical
-relocation; the old HEAD and remote below do not identify these manuscript bytes.
-No public release of this revision is claimed. The original FIM negative study
+The full research snapshot, including the preserved historical relocation, is
+now tracked in Git. This archive does not constitute a validated scientific release. The original FIM negative study
 in `FIM/` and the prospective public ITFM-R campaign remain separate.
 
 See [the revision report](successor/itfm_v2/publication/itfm-v2-paper-20261011/REVISION_REPORT.md)
 and [publication checklist](PUBLICATION_READINESS_CHECKLIST_2026-10-11.md) for
 the current work status. The manuscript is corrected but remains release-blocked.
 
-## Historical repository notice
+## Canonical FIM implementation
 
 # Fabric-Induced Memory (FIM)
 
-> **Legacy snapshot:** this repository is retained for provenance.  
-> **Canonical current repository:** `THE-BU1LD/Fabric-Induced-Memory`  
-> Do not use this repository as the default target for new FIM research, CI, paper, or release work unless a task explicitly refers to this historical snapshot.
+FIM is a research framework for neural sequence models with a structured latent memory fabric rather than only a larger context window or a single compressed hidden state.
 
-FIM is a research framework for studying whether a structured latent memory can help neural sequence models retain and retrieve information over long horizons.
+The implementation explores local information propagation, persistent traces, decay, salience, retrieval, latent geometry, stochastic dynamics, and long-horizon forecasting.
 
-The implementation includes an adaptive memory bank, salience-based trace storage, retrieval-conditioned latent updates, scientific/sequence benchmarks, training and evaluation code, experiment utilities, tests, and paper assets.
+## Evidence boundary
 
-## Scientific status
+Read [`RESEARCH_TRUTH.md`](RESEARCH_TRUTH.md) before quoting results.
 
-**The current repository should be treated as an experimental research codebase, not as evidence of a proven memory advantage.**
+The public repository contains real source code, tests, experiment runners, stored checkpoints/logs/configs, a delayed-recall mini-suite, historical paper-reference values, and an existing PDF manuscript. These artifacts are not all equivalent forms of evidence.
 
-The compact paper-reference artifact currently records identical Lorenz ablation values for the full, no-memory, and no-retrieval variants (`1.317169` each), while the recorded no-spectral-mixing variant is `0.869918`. Those values do not establish a positive contribution from the memory or retrieval mechanism.
+In particular:
 
-Before quoting or strengthening any result, read:
+- `results/mini_processed/mini_suite_summary.md` is a persisted compact delayed-recall comparison. In that stored artifact, FIM is competitive but does **not** have the lowest rollout MSE; DeepONet does.
+- `paper_reference_results.json` explicitly identifies its values as compact results transcribed from the existing paper. Treat those as historical paper-reference values unless they are freshly reproduced from the current commit/configuration.
+- The repository must not be described as showing that the full FIM model consistently beats every baseline or ablation. The committed artifacts do not support that blanket statement.
 
-- `RESEARCH_TRUTH.md` — current supported and unsupported claims
-- `EVIDENCE_LEDGER.md` — claim-to-artifact status and publication gate
-- `paper_reference_results.json` — compact values transcribed from the current paper PDF
+Negative results and baseline wins are part of the scientific record and should be preserved.
 
-## Repository layout
+## Canonical execution
 
-```text
-.
-├── fim/                  # core model components
-├── fim_experiments/      # experiment entry point, systems, benchmarks, training
-├── configs/              # experiment configuration files
-├── results/              # evaluation and result-processing code/artifacts
-├── scripts/              # experiment helpers
-├── tests/                # test suite
-├── paper/                # current paper PDF
-├── main.py               # current experiment entry point
-└── paper_reference_results.json
-```
-
-## Setup
+Install the repository and test it before research runs:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-pip install -e .
+python -m pip install -e . pytest
+python -m compileall -q fim fim_experiments scripts tests
+MPLBACKEND=Agg pytest -q
 ```
 
-Inspect the current CLI:
+Run one maintained training/evaluation experiment:
 
 ```bash
-python main.py --help
+DEVICE=auto \
+BENCHMARK=lorenz96 \
+MODEL=fim_plus \
+EXP_NAME=lorenz_fim_seed42 \
+SEED=42 \
+bash scripts/run_train.sh
 ```
 
-Run the test suite:
+The experiment runner preserves resolved configuration, logs, metrics, figures and checkpoints under the selected results root. It does not rely on an ad-hoc root-level `model.pt`.
+
+Evaluate an existing checkpoint without retraining:
 
 ```bash
-pytest -q
+CHECKPOINT=results/lorenz_fim_seed42/lorenz96_fim_plus/checkpoints/final_state.pt \
+DEVICE=auto \
+bash scripts/run_eval.sh
 ```
 
-## Mechanism ablations
-
-The repository now includes an evidence-bounded ablation path using the current experiment code rather than the legacy `run_train.py` interface.
+Run the supported model-comparison suite:
 
 ```bash
-bash scripts/run_ablation.sh
+python scripts/run_full_suite.py --device auto
 ```
 
-By default, this runs three predeclared seeds (`41 42 43`) for three mechanism variants:
+### Component-ablation warning
 
-- `full`: memory writes and retrieval enabled
-- `no_memory`: memory writes and retrieval both disabled
-- `no_retrieval`: memory writes enabled, retrieval and retrieval-conditioned feedback disabled
+The historical `scripts/run_ablation.sh` used flags that were not connected to the maintained experiment CLI. It is intentionally disabled rather than producing misleading paper evidence. Component ablations must be implemented as explicit tested configuration switches with frozen semantics before they are run or quoted.
 
-The runner writes resolved experiment outputs plus per-run provenance and a root `ablation_manifest.json`. It then produces `ablation_summary.json` and `ablation_summary.md` with descriptive across-seed mean, standard deviation, minimum, and maximum for scalar metrics.
+## Repository map
 
-The existence of this runner does **not** mean the paper result has been reproduced. A clean run still needs to complete successfully, outputs need to be inspected, and matched strong non-memory baselines remain required before stronger mechanism claims are safe.
+- `fim/` — core dynamics, geometry, memory, operators, stochastic modules, training, and utilities.
+- `fim_experiments/` — benchmark systems, training/evaluation runners, and experiment orchestration.
+- `tests/` and `fim/epistemic_tests_full/tests/` — implementation and scientific sanity checks.
+- `scripts/` — maintained train/evaluation/suite entrypoints plus paper/research utilities.
+- `results/` — stored run artifacts and processed summaries.
+- `docs/` — architecture, mathematics, and evidence-bounded experiment documentation.
+- `paper/` — existing manuscript artifact.
+- `RESEARCH_TRUTH.md` — current evidence and claim boundary.
 
-## Reproducibility boundary
+## Reproducibility rule
 
-The next scientific milestone is a clean current-code ablation suite with explicit full / no-memory / no-retrieval controls, identical predeclared seeds and data settings, retained raw artifacts, provenance, and generated summaries tied to the exact code revision.
+For new paper evidence, preserve the Git commit, dirty-tree state, resolved configuration, seed, benchmark/data identity, raw metrics/predictions, logs/checkpoints, and failure state. Paper tables and figures should be regenerated from those retained artifacts rather than manually copied from historical summaries.
 
-A matched strong non-memory baseline and an appropriate predeclared statistical comparison are still required for a paper-facing mechanism claim.
+## Current status
 
-## Research integrity
-
-Negative and null results belong in the repository. If repaired ablations continue to show no measurable benefit from memory or retrieval, that outcome should be reported directly.
+**IMPLEMENTED / EVIDENCE_PARTIAL.** The repository is a substantive research implementation with stored experimental artifacts, but a fresh frozen multi-seed benchmark-and-ablation reproduction is still required before stronger submission claims are justified.
