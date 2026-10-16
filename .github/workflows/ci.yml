@@ -19,11 +19,15 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -e . pytest
-      - name: Compile
+      - name: Compile maintained root sources
         run: |
           python -m compileall -q fim fim_experiments scripts tests
-      - name: Test
+      - name: Collect both maintained root suites
+        run: pytest --collect-only -q
+      - name: Run both maintained root suites
         env:
           MPLBACKEND: Agg
-        run: |
-          pytest -q
+        run: pytest -q
+      - name: ITFM v3 standard-library contract tests (no scientific campaign)
+        working-directory: successor/itfm_v3
+        run: python -m unittest -v test_standard
