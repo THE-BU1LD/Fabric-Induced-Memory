@@ -19,7 +19,9 @@ EXP = ROOT / "fim_experiments"
 if str(EXP) not in sys.path:
     sys.path.insert(0, str(EXP))
 
-import main as experiment_main
+# Resolve the maintained experiment runner by its qualified module name.
+# A bare `import main` resolves the repository's CLI shim under pytest.
+import fim_experiments.main as experiment_main
 import train as train_module
 from ablation_systems import AblatedFIMSystem, variant_switches
 
