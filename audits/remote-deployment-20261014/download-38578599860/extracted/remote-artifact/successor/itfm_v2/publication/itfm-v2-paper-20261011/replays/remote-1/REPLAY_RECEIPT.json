@@ -1,0 +1,66 @@
+{
+  "admission": {
+    "samples": [
+      {
+        "free_plus_speculative_bytes": 2708570112,
+        "pageouts": 1113,
+        "swap_used_mib": 0.0
+      },
+      {
+        "free_plus_speculative_bytes": 2705637376,
+        "pageouts": 1113,
+        "swap_used_mib": 0.0
+      }
+    ],
+    "status": "PASS",
+    "threshold_bytes": 536870912
+  },
+  "boundary": "Same host and operator. This is not external independent reproduction or an isolated dependency installation.",
+  "budget": {
+    "max_total_execution_seconds": 300,
+    "paid_compute": 0,
+    "seconds_per_step": 300,
+    "seeds": [
+      101,
+      211,
+      307
+    ],
+    "threads": 1
+  },
+  "checked_at": "2026-10-14T14:14:15.899231+00:00",
+  "manuscript": {
+    "generated_results.tex": "8857d7a23222945ec8e7c88420369dd13989c38d8c6047127a6fe4ff163ef1b3",
+    "main.tex": "731e75c88886659cdd6d19dffc32c7c8c1f47afc3096a2ea8d1350723a30e9e4",
+    "references.bib": "02691c9947bdc747b7b6c6133bbfae51cdd7cbf594d9b26990b798db52108782"
+  },
+  "status": "FAILED",
+  "steps": [
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/run_pipeline.py"
+      ],
+      "exit_code": 0,
+      "name": "frozen_tests_and_experiment",
+      "seconds": 8.41881012916565,
+      "stderr": "",
+      "stdout": "{\"status\": \"complete\", \"receipt\": \"/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/receipts/verification-1791987257155579000-pid-2682.json\"}\n",
+      "timed_out": false
+    },
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/tools/reproduce.py",
+        "worker",
+        "--output",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1"
+      ],
+      "exit_code": 1,
+      "name": "raw_capture_and_reference_check",
+      "seconds": 12.625086784362793,
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/tools/reproduce.py\", line 299, in <module>\n    main()\n  File \"/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/tools/reproduce.py\", line 291, in main\n    else worker(args.output)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/tools/reproduce.py\", line 276, in worker\n    raise RuntimeError(\"raw replay discrepancy retained\")\nRuntimeError: raw replay discrepancy retained\n",
+      "stdout": "",
+      "timed_out": false
+    }
+  ]
+}

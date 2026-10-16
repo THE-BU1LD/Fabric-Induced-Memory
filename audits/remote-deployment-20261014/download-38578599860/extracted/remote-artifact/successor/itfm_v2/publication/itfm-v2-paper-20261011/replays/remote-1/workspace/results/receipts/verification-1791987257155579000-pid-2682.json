@@ -1,0 +1,89 @@
+{
+  "finished_at_unix": 1791987265.4742222,
+  "niceness": -10,
+  "python": "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+  "schema_version": 1,
+  "started_at_unix": 1791987257.155571,
+  "status": "complete",
+  "steps": [
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/check_resource_admission.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791987257.5296938,
+      "name": "resource_admission_before_tests",
+      "started_at_unix": 1791987257.155618,
+      "stderr": "",
+      "stdout": "{\"free_plus_speculative_bytes\": 2655764480, \"pageouts_cumulative\": 1113, \"pageouts_during_stability_check\": 0, \"stability_interval_seconds\": 0.25, \"status\": \"PASS\", \"threshold_bytes\": 536870912}\n"
+    },
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "-m",
+        "pytest"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791987259.2953641,
+      "name": "tests",
+      "started_at_unix": 1791987257.529699,
+      "stderr": "",
+      "stdout": "..........                                                               [100%]\n10 passed in 1.09s\n"
+    },
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/audit_contract.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791987259.366396,
+      "name": "static_contract_audit",
+      "started_at_unix": 1791987259.295372,
+      "stderr": "",
+      "stdout": "{\"status\": \"pass\"}\n"
+    },
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/check_resource_admission.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791987259.7530901,
+      "name": "resource_admission_before_experiment",
+      "started_at_unix": 1791987259.36641,
+      "stderr": "",
+      "stdout": "{\"free_plus_speculative_bytes\": 2516697088, \"pageouts_cumulative\": 1113, \"pageouts_during_stability_check\": 0, \"stability_interval_seconds\": 0.25, \"status\": \"PASS\", \"threshold_bytes\": 536870912}\n"
+    },
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "-m",
+        "fim_v2.experiment",
+        "--protocol",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/protocols/development_v2.json",
+        "--output",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791987265.371307,
+      "name": "development_experiment",
+      "started_at_unix": 1791987259.753109,
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS_BOUNDED_DEVELOPMENT\"}\n"
+    },
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/verify_results.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791987265.4742131,
+      "name": "result_verification",
+      "started_at_unix": 1791987265.371315,
+      "stderr": "",
+      "stdout": "{\"status\": \"pass\", \"checks\": 96}\n"
+    }
+  ],
+  "threads": 1
+}

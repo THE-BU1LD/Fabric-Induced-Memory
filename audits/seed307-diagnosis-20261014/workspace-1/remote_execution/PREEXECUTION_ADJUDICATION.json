@@ -1,0 +1,80 @@
+{
+  "runs": [
+    {
+      "id": 38577058691,
+      "head_sha": "99e9b1445c8b7a7169fadd064978d90d52cb6c3a",
+      "reason": "setup-python lacks exact 3.11.15 macOS ARM64; all numerical stages skipped; downloaded retained assets verified; v3 campaign not consumed",
+      "retained_draft": "itfm-execution-38577058691"
+    },
+    {
+      "id": 38577627585,
+      "head_sha": "6322d58f12bcc35433710445486f218cb823e3b9",
+      "reason": "Fresh runner resource admission blocked at 303.94/299.81 MiB before Python download; numerical step skipped; retained assets hash-verified; no campaign consumption",
+      "retained_draft": "itfm-execution-38577627585"
+    },
+    {
+      "id": 38577967203,
+      "head_sha": "1499b37d03c83bea1c54d0f0f5bfca743aebfc29",
+      "reason": "10 tests passed; frozen static audit found README omitted by isolated wrapper; no experiment seed or v3 stage started. Only supplement retained documentation in fresh copy.",
+      "retained_pipeline_receipt": {
+        "failed_step": "static_contract_audit",
+        "finished_at_unix": 1791987005.229137,
+        "niceness": -10,
+        "python": "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "schema_version": 1,
+        "started_at_unix": 1791987003.0737321,
+        "status": "failed",
+        "steps": [
+          {
+            "command": [
+              "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+              "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/check_resource_admission.py"
+            ],
+            "exit_code": 0,
+            "finished_at_unix": 1791987003.5042439,
+            "name": "resource_admission_before_tests",
+            "started_at_unix": 1791987003.07377,
+            "stderr": "",
+            "stdout": "{\"free_plus_speculative_bytes\": 2162491392, \"pageouts_cumulative\": 1075, \"pageouts_during_stability_check\": 0, \"stability_interval_seconds\": 0.25, \"status\": \"PASS\", \"threshold_bytes\": 536870912}\n"
+          },
+          {
+            "command": [
+              "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+              "-m",
+              "pytest"
+            ],
+            "exit_code": 0,
+            "finished_at_unix": 1791987005.170395,
+            "name": "tests",
+            "started_at_unix": 1791987003.504255,
+            "stderr": "",
+            "stdout": "..........                                                               [100%]\n10 passed in 1.03s\n"
+          },
+          {
+            "command": [
+              "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+              "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/audit_contract.py"
+            ],
+            "exit_code": 1,
+            "finished_at_unix": 1791987005.229131,
+            "name": "static_contract_audit",
+            "started_at_unix": 1791987005.1704068,
+            "stderr": "",
+            "stdout": "{\"status\": \"fail\"}\n"
+          }
+        ],
+        "threads": 1
+      },
+      "retained_draft": "itfm-execution-38577967203"
+    },
+    {
+      "id": 38578599860,
+      "head_sha": "b7a97d1fcaa5a61d7511781f670d7324b8616932",
+      "explicit_user_request": "Diagnose the seed 307 discrepancy, fix any implementation issue without weakening the guards or changing frozen results, then finish v2 and v3 remotely. Preserve all evidence and ask before anything costs money.",
+      "v3_campaign_consumed": false,
+      "retained_raw_receipt_status": "FAIL",
+      "reason": "Explicitly authorized diagnostic continuation: historical macOS26 vs replay macOS15 mismatch. Switch only runner OS family; source, tolerances, seeds and budgets unchanged. All failed raw outputs retained.",
+      "retained_draft": "itfm-execution-38578599860"
+    }
+  ]
+}

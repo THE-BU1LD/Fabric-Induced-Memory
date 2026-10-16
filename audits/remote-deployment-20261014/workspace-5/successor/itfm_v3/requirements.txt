@@ -1,0 +1,3 @@
+# Intended numerical runtime, not a complete clean-environment lock.
+# Python 3.11. No automatic installation is performed.
+torch==2.12.1

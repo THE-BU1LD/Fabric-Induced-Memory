@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "protocol_id": "fim-bounded-periodic-online-diagnostic-candidate-20261016",
+  "status": "CANDIDATE_NOT_FROZEN_NOT_ADMITTED",
+  "created_date_local": "2026-10-16",
+  "timezone": "Asia/Kolkata",
+  "preparation_mode": "PREPARE_FOR_LATER_GPU_LAUNCH_NO_EXECUTION_NOW",
+  "historical_planning_completion_time_local": "2026-10-16T22:00:00+05:30",
+  "historical_planning_completion_time_utc": "2026-10-16T16:30:00+00:00",
+  "launch_completion_deadline": null,
+  "launch_deadline_policy": "At first account-ledger creation, the operator must explicitly supply a future completion deadline as an ISO timestamp with timezone; there is no default. The selected deadline is stored in that ledger and governs admission and freeze. An existing ledger retains its deadline and allowance, with no silent extension or reset.",
+  "completion_target_is_authorization_or_schedule": false,
+  "scope": "A prospective narrow synthetic diagnostic using the existing fixed trained MLP and existing residual-memory evaluator. This document is not an executable campaign manifest or a confirmatory freeze.",
+  "question": "On held-out owners from the bounded periodic field generator, does validation-scaled, same-owner past-residual retrieval improve one-step prediction over the same frozen MLP, last-residual correction and persistence, and do fixed-scale value interventions remove any observed advantage?",
+  "claims_excluded": [
+    "new architecture or novelty",
+    "physical PDE fidelity",
+    "public-benchmark generalization or superiority",
+    "state of the art",
+    "independent reproduction",
+    "universal long-rollout stability",
+    "confirmatory evidence from development outcomes",
+    "reopening the consumed v3 campaign or passing v4 contribution admission"
+  ],
+  "source_binding": {
+    "status": "PENDING_ENGINEERING_AND_RUNTIME_GATES",
+    "required_before_freeze": [
+      "source inventory and exact retained source bytes",
+      "resolved per-seed configuration hashes",
+      "generator/specification and raw-data identity procedure",
+      "analysis implementation and test hashes",
+      "environment, device, precision and numerical-test receipts",
+      "prospective seed outcome-access inventory"
+    ]
+  },
+  "outcome_access": {
+    "existing_manifest_seeds": [101, 202, 303],
+    "existing_manifest_class": "DEVELOPMENT_ONLY",
+    "existing_test_outcomes_cannot_be_promoted_to_confirmation": true,
+    "candidate_seeds": [1601, 1709, 1801, 1907, 2003],
+    "candidate_seed_outcomes_inspected_by_this_draft": false,
+    "candidate_seed_prospective_status": "Must be checked and recorded before generation; choosing different numbers alone does not establish protected confirmation.",
+    "policy": "No candidate test score may change architecture, optimizer, epoch budget, alpha grid, memory settings, endpoints, seeds or exclusions. Any post-outcome change is a separately versioned development study, with this record retained."
+  },
+  "candidate_common_config": {
+    "schema_version": 1,
+    "purpose": "development",
+    "benchmark": "bounded_periodic_field_v1",
+    "device": "cuda",
+    "precision": "fp32",
+    "epochs": 30,
+    "batch_size": 32,
+    "train_trajectories": 32,
+    "validation_trajectories": 8,
+    "test_trajectories": 8,
+    "context_steps": 8,
+    "sequence_steps": 96,
+    "channels": 1,
+    "spatial_points": 128,
+    "hidden": 128,
+    "learning_rate": 0.001,
+    "gradient_accumulation": 2,
+    "wall_seconds": 3600,
+    "example_budget": 200000,
+    "checkpoint_seconds": 60,
+    "memory_capacity": 64,
+    "memory_topk": 4,
+    "memory_temperature": 0.2,
+    "variant": "memory",
+    "threads": 1
+  },
+  "design": {
+    "fixture": "bounded-periodic-field-v1",
+    "generator": "Current generate_fixture in fim_sota/engineering_runtime.py; bounded tanh of periodic spatial fields plus fixed-scale independent Gaussian innovations. This is not an AR process or a physical PDE.",
+    "splits": "Disjoint owner IDs and local generator streams, offsets train=10003, validation=20003, test=30007; no fitted normalization.",
+    "training_examples_per_seed": 2816,
+    "validation_forecasts_per_seed": 704,
+    "test_forecasts_per_seed": 704,
+    "optimization": "Train one existing ResidualMLPControl per seed; canonical owner-major chronological examples; Adam, fixed learning rate; select lowest sample-weighted base validation MSE among 30 epoch boundaries, deterministic first minimum.",
+    "checkpoint_reuse": "Every method for a seed uses the identical validation-selected frozen model checkpoint; methods do not receive separate training or tuning budgets.",
+    "observed_information": "At origin t, the complete observed field context x[t-7:t+1] is available. The next target x[t+1] is used for scoring after the prediction and becomes eligible for residual retrieval only at t+1. Owners are isolated, and each method and split starts with a fresh bank.",
+    "online_protocol": "Singleton chronological evaluation. Store target minus frozen base prediction, not target minus corrected prediction. Keys use normalized observed context only. Retrieval is same-owner and strictly past-origin with available_time <= query_time.",
+    "memory_parameters": "FIFO 64 entries per owner, top-4 cosine retrieval, temperature 0.2, minimum age 1, fixed untrained context keys; all settings are fixed before test access.",
+    "primary_methods": ["base", "memory", "last_residual", "persistence"],
+    "existing_diagnostic_controls": ["erased", "spatial_mean"],
+    "baseline_information": {
+      "base": "The identical trained MLP sees the same eight observed context steps and no residual bank.",
+      "memory": "Base plus validation-scaled top-4 contextual past-residual correction.",
+      "last_residual": "Base plus validation-scaled most recently available same-owner base residual, using the same observation arrivals and owner resets; top-k=1.",
+      "persistence": "Predict the most recent observed field x[t], requiring no trainable parameters or tuning. It has no privileged information.",
+      "erased": "The contextual retrieval/write path is retained but retrieved values are zeroed; prediction must equal base. It is an identity/implementation control, not an independent competitor."
+    },
+    "alpha_selection": {
+      "grid": [0.0, 0.25, 0.5, 1.0],
+      "selection_split": "validation",
+      "criterion": "Minimum total elementwise MSE; ties select smaller alpha.",
+      "allowance": "One pass of stored validation predictions per method and four fixed scale candidates; no additional search, fitting on test, or alpha-dependent base retraining.",
+      "independently_selected_methods": ["memory", "last_residual", "spatial_mean"],
+      "base_and_erased": "Zero correction; tie rule selects alpha=0.",
+      "zero_selected_disposition": "Retain and report base fallback as a valid negative/no-use result.",
+      "validation_reporting": "The same validation set selects the base checkpoint and correction scale in a declared two-stage procedure; validation scores are selection scores, not unbiased held-out estimates."
+    }
+  },
+  "endpoints": {
+    "primary": "For each test owner, mean squared error over all 88 origins, channels and spatial points, including the first no-memory forecast. Average owners equally within seed, then average the five seed means equally.",
+    "primary_paired_contrasts": ["memory_minus_base", "memory_minus_last_residual", "memory_minus_persistence"],
+    "direction": "Negative difference favors memory.",
+    "report": ["all owner and seed MSEs", "all paired differences", "mean, median, minimum and maximum seed differences", "selected alpha for every seed/method", "relative differences only when comparator MSE is strictly positive", "retrieval-hit and occupancy diagnostics", "elapsed time and peak memory from actual receipts"],
+    "units": "Time steps and spatial coordinates are correlated and never counted as independent samples. Owners are paired within seed; top-level replicates are complete seeds, each including its own generated data and trained checkpoint.",
+    "uncertainty": {
+      "procedure": "Enumerate all 2^5 sign assignments to the five paired seed-level differences. Report the fraction whose absolute mean is >= the observed absolute mean, including ties. Label this a sign-symmetry reference p-value, not a randomized-treatment test.",
+      "assumption": "Seed-level paired differences must be independently sampled and sign-symmetric under the null for the reference test to be exact; the diagnostic does not prove that assumption.",
+      "multiplicity": "Holm adjustment across the three predeclared primary contrasts, with all raw and adjusted values retained.",
+      "five_seed_limit": "The minimum attainable two-sided p-value is 2/32=0.0625; no p<0.05 rejection or conventional significance claim is possible with five nonzero seed differences, before multiplicity adjustment.",
+      "zero_ties": "Retain zero differences and enumerate all assignments; never discard a seed to improve significance.",
+      "headline_interval": "None promised from five seeds. Report all seed differences and descriptive spread; do not use a time-step or coordinate bootstrap as independent evidence."
+    }
+  },
+  "value_interventions": {
+    "status": "CANDIDATE_ANALYSIS_REQUIRES_IMPLEMENTATION_AND_TEST_RECEIPT",
+    "data_source": "Retained full-memory raw records containing base_prediction, correction and target.",
+    "fixed_scale": "Use the full-memory alpha selected on validation. Do not recalibrate intervention alpha.",
+    "erase": "base_prediction; must agree with the saved base and erased-control predictions.",
+    "sign_invert": "base_prediction - alpha_memory * correction; identical keys, retrieval decisions, writes and base checkpoint. This is distinct from statistical sign-flip enumeration.",
+    "spatial_average": "base_prediction + alpha_memory * channelwise spatial mean(correction), broadcast only over space; do not mix channels.",
+    "interpretation": "Changes measure sensitivity to a fixed correction value under this diagnostic. They do not independently prove causal usefulness, geometry novelty or gain beyond the equally informed simple controls.",
+    "retuning_prohibited": true
+  },
+  "autonomous_diagnostic": {
+    "model": "The identical frozen base MLP checkpoint, with memory disabled and zero residual writes.",
+    "implemented_horizon": "Initialize with eight observed fields and recursively predict the remaining 88 fixture steps; future targets are scorer-only.",
+    "metrics": ["per-owner per-horizon MSE", "overall MSE", "maximum absolute prediction", "nonfinite first-failure location", "complete prediction/context traces"],
+    "extended_horizon": "Not part of the current executable endpoint. A separate frozen stress specification and tested checkpoint-preserving generator are required before extending beyond 96 steps; do not change training config hashes merely to load the checkpoint.",
+    "claim_boundary": "This differs from online one-step evaluation because future observations are unavailable. It diagnoses finite-horizon base rollout only, not a memory advantage, out-of-distribution generalization or a stability theorem."
+  },
+  "complete_inventory": {
+    "expected_seed_cells": 5,
+    "per_seed": "One trained/selected checkpoint, all five implemented variants on validation and test, persistence/base predictions, raw fixture, full raw prediction records, autonomous base diagnostic and verified source/config/data/checkpoint identities.",
+    "comparison_integrity": "Each method must have the exact same seed/owner/origin/target identity inventory. Reject duplicates, omissions, nonfinite values and mismatched target bytes before aggregation.",
+    "failure_policy": "Any missing, stopped, invalid or nonfinite cell makes the planned aggregate INCOMPLETE. Preserve failure receipts and all complete cells; never drop or replace failed seeds or substitute historical outputs.",
+    "resume_policy": "Only identity-validated checkpoint continuation with unchanged scientific settings into a new unique run; explicitly retain original attempt and continuation lineage. No automatic retry of a failed or ambiguous campaign cell.",
+    "valid_negative": "Worse error, alpha=0, persistence/last-residual wins and intervention nonresponse are valid reported outcomes. Infrastructure failure is incomplete, not a scientific negative."
+  },
+  "budget_and_admission": {
+    "available_kaggle_quota_hours": null,
+    "available_quota_status": "UNKNOWN_MUST_BE_READ_BEFORE_LAUNCH",
+    "runtime_estimate": "UNMEASURED",
+    "planning_preference_hours": [4, 6],
+    "maximum_total_wall_seconds_candidate": 21600,
+    "maximum_cell_wall_seconds_candidate": 3600,
+    "per_cell_shutdown_reserve_seconds": 30,
+    "five_cell_maximum_plus_shutdown_seconds": 18150,
+    "remaining_envelope_for_admission_profiling_analysis_export_seconds": 3450,
+    "quota_note": "Wall-clock limits are not a promise of runtime or of Kaggle quota charging. Actual accelerator allocation and remaining quota must be verified. Prior GPU work in this session counts against the user-approved quota envelope.",
+    "execution": "Sequential cells on one selected device; workers=0, threads=1, fp32; no compilation, distributed training or concurrent GPU cells.",
+    "required_gates": [
+      "current source static/control tests pass",
+      "resource-admitted numerical CPU correctness and exact-recovery tests pass",
+      "actual CUDA availability and tiny requested-device training/evaluation tests pass if CUDA is selected",
+      "representative end-to-end CPU versus CUDA timing and memory measurements completed on development/smoke data",
+      "actual available quota and total remaining budget recorded",
+      "full-shape projected work plus measured export overhead fits the remaining hard envelope with reserve",
+      "freeze source/configuration/analysis/outcome-access inventory before opening candidate test outcomes"
+    ],
+    "stop_rule": "If any gate fails, retain BLOCKED or INCOMPLETE and do not launch at the clock time merely to meet the schedule. If measured cost cannot fit, revise this unfrozen candidate prospectively or run fewer explicitly development-only checks; never silently shorten a frozen cell or omit seeds."
+  }
+}

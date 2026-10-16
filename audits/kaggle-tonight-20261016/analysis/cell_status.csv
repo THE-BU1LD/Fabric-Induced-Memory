@@ -1,0 +1,6 @@
+cell_id,seed,mandatory,ledger_state,artifact_valid,reason
+periodic-seed-1601,1601,True,PENDING,False,Upstream access/readiness gates blocked; never launched
+periodic-seed-1709,1709,True,PENDING,False,Upstream access/readiness gates blocked; never launched
+periodic-seed-1801,1801,True,PENDING,False,Upstream access/readiness gates blocked; never launched
+periodic-seed-1907,1907,True,PENDING,False,Upstream access/readiness gates blocked; never launched
+periodic-seed-2003,2003,True,PENDING,False,Upstream access/readiness gates blocked; never launched

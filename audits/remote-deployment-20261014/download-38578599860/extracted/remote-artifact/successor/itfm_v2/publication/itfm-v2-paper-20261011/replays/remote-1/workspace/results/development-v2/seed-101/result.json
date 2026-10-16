@@ -1,0 +1,245 @@
+{
+  "dataset_checks": {
+    "test_families": 9,
+    "test_full_context_max_abs_difference": 0.0,
+    "test_minimum_calibration_age": 15,
+    "test_paired_future_min_mse": 2.249999761581421,
+    "test_queries": 108,
+    "test_records": 594,
+    "train_families": 30,
+    "train_full_context_max_abs_difference": 0.0,
+    "train_minimum_calibration_age": 15,
+    "train_paired_future_min_mse": 2.249999523162842,
+    "train_queries": 360,
+    "train_records": 1980,
+    "validation_families": 9,
+    "validation_full_context_max_abs_difference": 0.0,
+    "validation_minimum_calibration_age": 15,
+    "validation_paired_future_min_mse": 2.249999523162842,
+    "validation_queries": 108,
+    "validation_records": 594
+  },
+  "dataset_identity": {
+    "anchor_count": 3,
+    "context_length": 3,
+    "dataset": "episodic-spatial-alias-v2",
+    "family_count": 48,
+    "query_repeats": 2,
+    "residual_scale": 0.75,
+    "seed": 101,
+    "shape": [
+      1,
+      16,
+      16
+    ],
+    "splits": {
+      "test": [
+        1,
+        7,
+        13,
+        17,
+        20,
+        30,
+        36,
+        39,
+        40
+      ],
+      "train": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9,
+        11,
+        12,
+        15,
+        16,
+        18,
+        21,
+        23,
+        24,
+        25,
+        26,
+        27,
+        29,
+        31,
+        32,
+        33,
+        34,
+        35,
+        37,
+        43,
+        44,
+        46,
+        47
+      ],
+      "validation": [
+        10,
+        14,
+        19,
+        22,
+        28,
+        38,
+        41,
+        42,
+        45
+      ]
+    },
+    "washout_events": 12
+  },
+  "decision": {
+    "erasure_gain_removal": 1.0,
+    "gates": {
+      "all_nonoracle_control_gains": true,
+      "erasure_removes_gain": true,
+      "nonquery_preserved": true,
+      "oracle_gap_recovery": true,
+      "retrieval_precision": true,
+      "sign_flip_not_equivalent": true,
+      "swap_direction": true,
+      "vector_not_equivalent": true
+    },
+    "nonquery_nmse_degradation": 0.0,
+    "oracle_gap_recovery": 1.0,
+    "relative_gains": {
+      "last_value": 1.0,
+      "no_memory": 1.0,
+      "recent_only": 1.0,
+      "sign_flip": 1.0,
+      "vector_broadcast": 1.0
+    },
+    "status": "PASS_BOUNDED_DEVELOPMENT"
+  },
+  "identifiability": {
+    "gates": {
+      "age_beyond_context": true,
+      "analytical_zero_shift_is_base": true,
+      "full_context_alias": true,
+      "future_divergence": true,
+      "oracle_gap": true
+    },
+    "last_two_visible_frames_max_abs_difference": 0.0,
+    "oracle_relative_gain": 1.0,
+    "validation_base_query_nmse": 0.48768471053256524,
+    "validation_oracle_query_nmse": 0.0
+  },
+  "normalization_variance": 1.1534091234207153,
+  "prediction_artifacts": {
+    "seed-101/predictions-erase.json": "a032cf3ed52dd1582aa721007a11f9c8cea283a1c50974b1f01e68c8eb2ab70a",
+    "seed-101/predictions-last_value.json": "c7e99d3e8e80a3ab445e1a5c48e8c6e73afdf8b38278cbae471759098a249b0c",
+    "seed-101/predictions-no_memory.json": "a032cf3ed52dd1582aa721007a11f9c8cea283a1c50974b1f01e68c8eb2ab70a",
+    "seed-101/predictions-oracle_anchor.json": "de9e7f9129993348b6b135e9e2839d629b111906e58cee4c21a19d938e990b1f",
+    "seed-101/predictions-paired_swap.json": "da435ce0df4fbd93d459dd3f7d8a561095579c6d89cdf3d29f55ad3ea8487089",
+    "seed-101/predictions-recent_only.json": "aa4675b5aaf4fdaeb2ea5b0b1189338e6e1a01cbea94bf1558d28dcc5a0b2f96",
+    "seed-101/predictions-sign_flip.json": "acc1242e79847ff98c22e00b3bf389663986642dad66b0d73d008463bc24c357",
+    "seed-101/predictions-tensor_memory.json": "3d91ed3c6fb96a7f89b0409d892304345b00b20fcbb5f1cf497b1ecac25bb01a",
+    "seed-101/predictions-vector_broadcast.json": "a032cf3ed52dd1582aa721007a11f9c8cea283a1c50974b1f01e68c8eb2ab70a"
+  },
+  "schema_version": 1,
+  "seed": 101,
+  "summaries": {
+    "erase": {
+      "nonquery_mse": 0.0625000001226433,
+      "nonquery_nmse": 0.05418719069716073,
+      "nonquery_rows": 486.0,
+      "query_mse": 0.5625000011037897,
+      "query_nmse": 0.4876847162744466,
+      "query_rows": 108.0,
+      "retrieval_anchor_precision": 1.0,
+      "retrieval_rate": 1.0,
+      "swap_donor_direction": 0.0
+    },
+    "last_value": {
+      "nonquery_mse": 0.18750000073585982,
+      "nonquery_nmse": 0.1625615724104756,
+      "nonquery_rows": 486.0,
+      "query_mse": 0.5625000011037897,
+      "query_nmse": 0.4876847162744466,
+      "query_rows": 108.0,
+      "retrieval_anchor_precision": 0.0,
+      "retrieval_rate": 1.0,
+      "swap_donor_direction": 0.0
+    },
+    "no_memory": {
+      "nonquery_mse": 0.0625000001226433,
+      "nonquery_nmse": 0.05418719069716073,
+      "nonquery_rows": 486.0,
+      "query_mse": 0.5625000011037897,
+      "query_nmse": 0.4876847162744466,
+      "query_rows": 108.0,
+      "retrieval_anchor_precision": 1.0,
+      "retrieval_rate": 1.0,
+      "swap_donor_direction": 0.0
+    },
+    "oracle_anchor": {
+      "nonquery_mse": 0.0625000001226433,
+      "nonquery_nmse": 0.05418719069716073,
+      "nonquery_rows": 486.0,
+      "query_mse": 0.0,
+      "query_nmse": 0.0,
+      "query_rows": 108.0,
+      "retrieval_anchor_precision": 1.0,
+      "retrieval_rate": 1.0,
+      "swap_donor_direction": 0.0
+    },
+    "paired_swap": {
+      "nonquery_mse": 0.0625000001226433,
+      "nonquery_nmse": 0.05418719069716073,
+      "nonquery_rows": 486.0,
+      "query_mse": 2.250000008830318,
+      "query_nmse": 1.9507388689257072,
+      "query_rows": 108.0,
+      "retrieval_anchor_precision": 1.0,
+      "retrieval_rate": 1.0,
+      "swap_donor_direction": 1.0
+    },
+    "recent_only": {
+      "nonquery_mse": 0.0625000001226433,
+      "nonquery_nmse": 0.05418719069716073,
+      "nonquery_rows": 486.0,
+      "query_mse": 0.5625000011037897,
+      "query_nmse": 0.4876847162744466,
+      "query_rows": 108.0,
+      "retrieval_anchor_precision": 0.0,
+      "retrieval_rate": 0.0,
+      "swap_donor_direction": 0.0
+    },
+    "sign_flip": {
+      "nonquery_mse": 0.0625000001226433,
+      "nonquery_nmse": 0.05418719069716073,
+      "nonquery_rows": 486.0,
+      "query_mse": 2.250000008830318,
+      "query_nmse": 1.9507388689257072,
+      "query_rows": 108.0,
+      "retrieval_anchor_precision": 1.0,
+      "retrieval_rate": 1.0,
+      "swap_donor_direction": 0.0
+    },
+    "tensor_memory": {
+      "nonquery_mse": 0.0625000001226433,
+      "nonquery_nmse": 0.05418719069716073,
+      "nonquery_rows": 486.0,
+      "query_mse": 0.0,
+      "query_nmse": 0.0,
+      "query_rows": 108.0,
+      "retrieval_anchor_precision": 1.0,
+      "retrieval_rate": 1.0,
+      "swap_donor_direction": 0.0
+    },
+    "vector_broadcast": {
+      "nonquery_mse": 0.0625000001226433,
+      "nonquery_nmse": 0.05418719069716073,
+      "nonquery_rows": 486.0,
+      "query_mse": 0.5625000011037897,
+      "query_nmse": 0.4876847162744466,
+      "query_rows": 108.0,
+      "retrieval_anchor_precision": 1.0,
+      "retrieval_rate": 1.0,
+      "swap_donor_direction": 0.0
+    }
+  },
+  "validation_alpha": 1.0
+}

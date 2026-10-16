@@ -1,0 +1,122 @@
+[
+  {
+    "version": "3.11.9",
+    "stable": true,
+    "files": [
+      {
+        "filename": "python-3.11.9-darwin-arm64.tar.gz",
+        "arch": "arm64",
+        "platform": "darwin",
+        "download_url": "https://github.com/actions/python-versions/releases/download/3.11.9-9947079978/python-3.11.9-darwin-arm64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "3.11.8",
+    "stable": true,
+    "files": [
+      {
+        "filename": "python-3.11.8-darwin-arm64.tar.gz",
+        "arch": "arm64",
+        "platform": "darwin",
+        "download_url": "https://github.com/actions/python-versions/releases/download/3.11.8-11113201752/python-3.11.8-darwin-arm64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "3.11.7",
+    "stable": true,
+    "files": [
+      {
+        "filename": "python-3.11.7-darwin-arm64.tar.gz",
+        "arch": "arm64",
+        "platform": "darwin",
+        "download_url": "https://github.com/actions/python-versions/releases/download/3.11.7-11113197120/python-3.11.7-darwin-arm64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "3.11.6",
+    "stable": true,
+    "files": [
+      {
+        "filename": "python-3.11.6-darwin-arm64.tar.gz",
+        "arch": "arm64",
+        "platform": "darwin",
+        "download_url": "https://github.com/actions/python-versions/releases/download/3.11.6-11113179737/python-3.11.6-darwin-arm64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "3.11.5",
+    "stable": true,
+    "files": [
+      {
+        "filename": "python-3.11.5-darwin-arm64.tar.gz",
+        "arch": "arm64",
+        "platform": "darwin",
+        "download_url": "https://github.com/actions/python-versions/releases/download/3.11.5-11113174019/python-3.11.5-darwin-arm64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "3.11.4",
+    "stable": true,
+    "files": [
+      {
+        "filename": "python-3.11.4-darwin-arm64.tar.gz",
+        "arch": "arm64",
+        "platform": "darwin",
+        "download_url": "https://github.com/actions/python-versions/releases/download/3.11.4-11113170699/python-3.11.4-darwin-arm64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "3.11.3",
+    "stable": true,
+    "files": [
+      {
+        "filename": "python-3.11.3-darwin-arm64.tar.gz",
+        "arch": "arm64",
+        "platform": "darwin",
+        "download_url": "https://github.com/actions/python-versions/releases/download/3.11.3-11059198104/python-3.11.3-darwin-arm64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "3.11.2",
+    "stable": true,
+    "files": [
+      {
+        "filename": "python-3.11.2-darwin-arm64.tar.gz",
+        "arch": "arm64",
+        "platform": "darwin",
+        "download_url": "https://github.com/actions/python-versions/releases/download/3.11.2-11059137522/python-3.11.2-darwin-arm64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "3.11.1",
+    "stable": true,
+    "files": [
+      {
+        "filename": "python-3.11.1-darwin-arm64.tar.gz",
+        "arch": "arm64",
+        "platform": "darwin",
+        "download_url": "https://github.com/actions/python-versions/releases/download/3.11.1-11058799881/python-3.11.1-darwin-arm64.tar.gz"
+      }
+    ]
+  },
+  {
+    "version": "3.11.0",
+    "stable": true,
+    "files": [
+      {
+        "filename": "python-3.11.0-darwin-arm64.tar.gz",
+        "arch": "arm64",
+        "platform": "darwin",
+        "download_url": "https://github.com/actions/python-versions/releases/download/3.11.0-11058707212/python-3.11.0-darwin-arm64.tar.gz"
+      }
+    ]
+  }
+]

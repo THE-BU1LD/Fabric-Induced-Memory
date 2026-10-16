@@ -1,0 +1,49 @@
+{
+  "failed_step": "static_contract_audit",
+  "finished_at_unix": 1791987005.229137,
+  "niceness": -10,
+  "python": "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+  "schema_version": 1,
+  "started_at_unix": 1791987003.0737321,
+  "status": "failed",
+  "steps": [
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/check_resource_admission.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791987003.5042439,
+      "name": "resource_admission_before_tests",
+      "started_at_unix": 1791987003.07377,
+      "stderr": "",
+      "stdout": "{\"free_plus_speculative_bytes\": 2162491392, \"pageouts_cumulative\": 1075, \"pageouts_during_stability_check\": 0, \"stability_interval_seconds\": 0.25, \"status\": \"PASS\", \"threshold_bytes\": 536870912}\n"
+    },
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "-m",
+        "pytest"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791987005.170395,
+      "name": "tests",
+      "started_at_unix": 1791987003.504255,
+      "stderr": "",
+      "stdout": "..........                                                               [100%]\n10 passed in 1.03s\n"
+    },
+    {
+      "command": [
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+        "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/audit_contract.py"
+      ],
+      "exit_code": 1,
+      "finished_at_unix": 1791987005.229131,
+      "name": "static_contract_audit",
+      "started_at_unix": 1791987005.1704068,
+      "stderr": "",
+      "stdout": "{\"status\": \"fail\"}\n"
+    }
+  ],
+  "threads": 1
+}

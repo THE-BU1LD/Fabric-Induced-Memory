@@ -1,0 +1,9 @@
+{
+  "status": "ENVIRONMENT_PREPARED_NOT_EXECUTED",
+  "mode": "install",
+  "manifest_sha256": "5989a179f7420d87438631874c0fe22cc1fc472121383bb5e5fa09a22518960f",
+  "github_sha": "b7a97d1fcaa5a61d7511781f670d7324b8616932",
+  "run_id": "38578599860",
+  "boundary": "Remote execution by same operator, not independent replication",
+  "source_preserved": true
+}

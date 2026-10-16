@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-14T01:13:55.067865+00:00",
+  "scope": "PDF build preflight only; no compiler invocation",
+  "admission": {
+    "status": "BLOCKED",
+    "samples": [
+      {
+        "free_plus_speculative_bytes": 144048128,
+        "pageouts": 139177,
+        "swap_used_mib": 647.31
+      },
+      {
+        "free_plus_speculative_bytes": 155992064,
+        "pageouts": 139177,
+        "swap_used_mib": 647.31
+      }
+    ],
+    "threshold_bytes": 536870912
+  }
+}

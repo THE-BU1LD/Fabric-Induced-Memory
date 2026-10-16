@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "study_id": "itfm-v4-observation-safe-residual-memory-20261015",
+  "canonical": true,
+  "updated_at": "2026-10-16T02:45:40.019244+00:00",
+  "phase": "CONTRIBUTION_NOT_READY_RESOURCE_BLOCKED",
+  "disposition": "NOT_EVALUATED",
+  "terminal": false,
+  "authorization": {
+    "request_sha256": "afd9d4f11cc233fae8811f742017ddfe39d9fc8f392a1044256d39d2e57a7fa1",
+    "scope": "Start-to-finish successor research under the user supplied ten-checkpoint pipeline; fixed budget and honest terminal outcomes; preserve predecessors.",
+    "paid_compute_authorized": false,
+    "external_submission_authorized": false
+  },
+  "question": "Can a causally valid, observation-aware residual memory add useful forecasting information beyond matched retrieval and long-history controls under incomplete and delayed observations?",
+  "objective": "Establish a defensible contribution before implementation, then execute the requested research lifecycle when gates permit.",
+  "hypothesis": "PROVISIONAL: visibility-aware residual storage and uncertainty-aware correction can preserve useful memory gains under partial delayed feedback; novelty and practical significance require adversarial prior-art review.",
+  "intended_contribution": "UNRESOLVED: distinguish an algorithmic contribution from an established retrieval method or correctness/measurement study.",
+  "scope": "Prospective successor only; all earlier FIM and ITFM versions unchanged.",
+  "development_budget": {
+    "concepts": 8,
+    "concepts_reviewed": 8,
+    "model_trials_authorized_before_checkpoint_1": 0,
+    "numerical_trials_consumed": 0,
+    "rule": "Freeze finite implementation and experiment budgets after a defensible concept passes; no open-ended positive search."
+  },
+  "compute_budget": {
+    "paid_cost": 0,
+    "local_model_runs_before_admission": 0,
+    "memory_floor_mib": 512,
+    "rule": "Two stable resource samples plus disk, ownership, full-shape feasibility and declared stopping budget required."
+  },
+  "protected_evaluation_boundary": {
+    "opened": false,
+    "rule": "No protected data/outcome access before complete source, data, baseline, metric, budget and stopping freeze."
+  },
+  "repositories": [
+    "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory"
+  ],
+  "datasets": {
+    "admitted": [],
+    "candidate_tracks": [
+      "partial-observation PDE forecasting",
+      "non-Markovian PDE forecasting"
+    ],
+    "status": "Not admitted"
+  },
+  "artifacts": [
+    "CONCEPT_AUDIT.json",
+    "FLAW_CHECKLIST.json",
+    "FLAW_CHECKLIST.md",
+    "MATH_AND_FALSIFIERS.md",
+    "README.md",
+    "audit/FINAL_VERIFICATION.json",
+    "audit/PORTFOLIO_RECONCILIATION.json",
+    "audit/PORTFOLIO_STATE_BEFORE.json",
+    "audit/PORTFOLIO_STATE_BEFORE_APPLY.json",
+    "audit/PORTFOLIO_STATE_CANDIDATE.json",
+    "audit/RESOURCE_ADMISSION.json",
+    "audit/SOURCE_DEFECTS.json",
+    "audit/SOURCE_DEFECTS_REFINED.json",
+    "audit/UPSTREAM_LICENSE_SCAN.json",
+    "audit_source.py",
+    "ARTIFACT_MANIFEST.json",
+    "repairs/evidence_integrity_v1/README.md",
+    "repairs/evidence_integrity_v1/CONTRACT.md",
+    "repairs/evidence_integrity_v1/REPAIR_DISPOSITION.json",
+    "repairs/evidence_integrity_v1/FINAL_VERIFICATION.json",
+    "repairs/observation_pipeline_v1/README.md",
+    "repairs/observation_pipeline_v1/CONTRACT.md",
+    "repairs/observation_pipeline_v1/FINAL_VERIFICATION.json",
+    "repairs/observation_pipeline_v1/REPAIR_DISPOSITION.json",
+    "repairs/observation_pipeline_v1/TEST_ROUND_3.json",
+    "repairs/observation_pipeline_v1/TENSOR_ADMISSION_FULL.json",
+    "../../audits/continuation-20261015-01/REPORT.md",
+    "../../audits/continuation-20261015-01/ALL_ITEMS.json",
+    "repairs/observation_pipeline_v1/PERSISTENCE.md",
+    "repairs/observation_pipeline_v1/extension_20261015/REPORT.md",
+    "repairs/observation_pipeline_v1/extension_20261015/ALL_ITEMS.json",
+    "repairs/observation_pipeline_v1/extension_20261015/CONCEPT_REVIEW.json",
+    "repairs/observation_pipeline_v1/extension_20261015/FINAL_VERIFICATION.json",
+    "repairs/observation_pipeline_v1/extension_20261015/TEST_ROUND_5.json",
+    "repairs/observation_pipeline_v1/extension_20261015/TENSOR_ADMISSION.json"
+  ],
+  "claims": {
+    "supported": [
+      "Seven existing-public-stack source/scalar defects demonstrated by adversarial audit fixtures; none reported repaired.",
+      "Four audit controls and 27 exact rational identity checks passed.",
+      "440 protected predecessor files, 12 frozen v3 source files and 12 status sources match retained hashes.",
+      "Five candidate mechanisms reviewed against 15 primary-source records; reading depth is explicitly bounded.",
+      "2026-10-15 evidence_integrity_v1 standalone verifier corrects V01-V06 counterexamples; 43 adversarial software tests and lint/format pass. Not integrated into historical model runners; no scientific or independent claim.",
+      "2026-10-15T15:43:38.089172+00:00 New observed-event ledger and prediction recorder pass 36 software tests; recorder integrates unchanged evidence validator. Tensor bridge source is present but runtime-unverified.",
+      "2026-10-16T02:45:40.019244+00:00 Durable recording and scalar replay extension passes 69 software tests (36 existing plus 33 new), including abrupt process exit, disk faults, external-anchor truncation detection, preserved failures and real CLI reanalysis. No tensor runtime or scientific support established."
+    ],
+    "unsupported": [
+      "novel model",
+      "positive v4 performance",
+      "SOTA",
+      "independent reproduction",
+      "publication ready",
+      "all flaws discovered",
+      "all 35 checklist items fixed",
+      "full research lifecycle complete",
+      "evidence-integrity repair integrated into full model experiments",
+      "tensor observation-mask defect fixed",
+      "observation_pipeline_v1 tensor runtime validation or deployment accuracy improvement",
+      "tensor/model/optimizer recovery verified",
+      "journal hashes authenticate external provenance",
+      "durable recorder integrated runtime validation",
+      "all ten research checkpoints passed"
+    ]
+  },
+  "decisions": [
+    "Do not restart consumed v3.",
+    "Do not implement a new model until the contribution gate is satisfied.",
+    "The five-concept review is complete; no candidate passes the contribution gate. Do not bypass the user instruction against model implementation before Checkpoint 1.",
+    "Preserve source defects as findings in the existing public stack; do not attribute them to the separate synthetic pipeline without evidence.",
+    "Further numerical execution requires an admitted prospectively budgeted study; v3 allowance remains consumed.",
+    "Treat the new evidence validator as an engineering repair with explicit prospective schema. Do not rewrite frozen results or interpret its integrity pass as scientific success.",
+    "The renewed user implementation instruction approves the previously proposed finite +3 repair/+3 concept extension; counters remain cumulative.",
+    "Three further concept reviews completed; partial-data subspace estimation and missing-outcome kernels constrain the proposed novelty. No new model implementation before Checkpoint 1.",
+    "Recovered prediction journals may resume scoring/export only; forecasting requires separately validated tensor state recovery."
+  ],
+  "failures": [
+    "Contribution distinctness and identification assumptions remain unresolved.",
+    "Two memory samples 134.75/139.515625 MiB are below the 512 MiB floor.",
+    "Source/data terms and public baseline admission remain incomplete.",
+    "Renewed preflight: 81.484375/109.46875 MiB, pageouts increased by 2. No model execution admitted.",
+    "2026-10-15T15:43:38.089172+00:00 Tensor correctness admission blocked before import: 81.96875/90.890625 MiB; pageouts 665355 to 665357. Initial sandbox swap-read refusal retained.",
+    "2026-10-15T15:53:20.322996+00:00 Planned tensor test preflight failed: 136.578125/114.25 MiB, pageouts +2; zero model imports.",
+    "2026-10-16T02:45:40.019244+00:00 Tensor admission failed before import: 247.6875/185.890625 MiB, pageouts +3; zero tensor tests executed."
+  ],
+  "history": [
+    {
+      "at": "2026-10-15T13:57:48.345082+00:00",
+      "event": "Initialized prospective v4 before implementation; linked complete predecessor portfolio state and current source identity."
+    },
+    {
+      "at": "2026-10-15T14:21:02.747648+00:00",
+      "event": "Completed bounded five-concept review and 35-item flaw checklist. Seven source/scalar defects, four audit controls and 27 rational checks recorded. Contribution gate remains blocked; zero new model runs; predecessor hashes preserved."
+    },
+    {
+      "at": "2026-10-15T14:39:26.750196+00:00",
+      "event": "Identical user request renewed. Began a separately scoped correction of demonstrated evidence-tool defects under the invalid-evidence repair branch. Scientific contribution gate and consumed campaign remain unchanged. Contract recorded before repair implementation."
+    },
+    {
+      "at": "2026-10-15T14:53:20.985605+00:00",
+      "event": "Completed bounded evidence_integrity_v1 repair: six counterexamples addressed, 43 tests pass, original and refined source snapshots retained. All 440 protected predecessor files and 12 frozen v3 sources unchanged. No scientific checkpoints advance; no model run. Full integration and V07 remain open."
+    },
+    {
+      "at": "2026-10-15T15:43:38.089172+00:00",
+      "event": "Implemented observation_pipeline_v1 under renewed improvement request: 36 adversarial standard-library tests pass; lint/format pass. Real validator receives complete raw exports. Target-free actual-adapter bridge and six tensor tests added, runtime blocked at 81.97/90.89 MiB with rising pageouts. Zero model/scientific execution, unchanged contribution gate and consumed v3. All 440 predecessor files, 12 frozen v3 sources and 47 original public/repair files unchanged."
+    },
+    {
+      "at": "2026-10-15T15:53:20.322996+00:00",
+      "event": "All-items continuation: mapped all 35 checklist items across seven workstreams; no implementation change. Existing three repair rounds and five concept reviews exhausted; explicit +3/+3 extension pending, no counter reset. Planned tensor acceptance blocked before import at 136.58/114.25 MiB with pageouts +2. Exact upstream terms filename/README recheck remains unadmitted. 440 protected and 43 repair-package files preserved."
+    },
+    {
+      "at": "2026-10-15T16:39:46.079421+00:00",
+      "event": "Renewed attached full-pipeline implementation instruction accepted as authorization for previously proposed +3 repair rounds and +3 concepts; limits increased to 6 and 8 without resetting 3 and 5 consumed. Prior files snapshotted; scientific execution remains unadmitted."
+    },
+    {
+      "at": "2026-10-16T02:38:48.190231+00:00",
+      "event": "Cumulative repair round 4: durable recorders, observation journal replay and raw bundle reanalysis implemented. Source snapshot retained before 30-second bounded stdlib acceptance suite."
+    },
+    {
+      "at": "2026-10-16T02:41:31.565381+00:00",
+      "event": "Round 4 passed 63 software tests. Cumulative round 5 hardens exported schema/type checks and adds interruption, uncommitted-tail, malformed-CLI and negative-verdict controls; original package remains untouched."
+    },
+    {
+      "at": "2026-10-16T02:45:40.019244+00:00",
+      "event": "Completed durable evidence extension: 69/69 scalar software tests; exact sources, crash/failure receipts and all prior artifacts retained. Three additional concept reviews bring total to 8/8; contribution remains blocked. Repair budget 5/6 consumed. Tensor gate refused before imports at 247.69/185.89 MiB with rising pageouts. No scientific or protected runs; no claim of lifecycle completion."
+    }
+  ],
+  "checkpoints": {
+    "1": "BLOCKED",
+    "2": "NOT_EVALUATED",
+    "3": "NOT_EVALUATED",
+    "4": "NOT_EVALUATED",
+    "5": "NOT_EVALUATED",
+    "6": "NOT_EVALUATED",
+    "7": "NOT_EVALUATED",
+    "8": "NOT_EVALUATED",
+    "9": "NOT_EVALUATED",
+    "10": "NOT_EVALUATED"
+  },
+  "source_head": "32d8aa0b109f08a8ecd23c7bd97eaf29b5fe8989",
+  "next_action": "Establish a defensible contribution and admitted observation/data contract before a new model study. Existing six tensor tests require a host with stable >=512 MiB reserve. Model/bank recovery, full-shape profiling, public baselines, frozen confirmation, paper evidence and independent verification remain open. One of six cumulative engineering repair rounds remains; all eight concept reviews are consumed.",
+  "checkpoint_scope": "This prospective v4 concept only. Earlier version outcomes and checkpoints remain in their own states and the complete before snapshot.",
+  "engineering_repair": {
+    "version": "observation_pipeline_v1",
+    "phase": "DURABLE_SCALAR_EVIDENCE_VERIFIED_TENSOR_RUNTIME_BLOCKED",
+    "contract": "repairs/observation_pipeline_v1/CONTRACT.md",
+    "scope": "Observed-event boundary, raw export, durable prediction/scorer records, scalar observation replay, exact frozen-plan reanalysis; tensor bridge remains unverified.",
+    "max_repair_rounds": 6,
+    "repair_rounds_consumed": 5,
+    "max_test_seconds_per_invocation": 30,
+    "tests_passed": 69,
+    "tensor_tests_planned": 6,
+    "tensor_tests_executed": 0,
+    "scientific_trials": 0,
+    "numerical_admission": false,
+    "receipt": "repairs/observation_pipeline_v1/extension_20261015/FINAL_VERIFICATION.json",
+    "report": "repairs/observation_pipeline_v1/extension_20261015/REPORT.md"
+  },
+  "engineering_repair_history": [
+    {
+      "version": "evidence_integrity_v1",
+      "phase": "VERIFIED_REFERENCE_INTEGRATION_PENDING",
+      "contract": "repairs/evidence_integrity_v1/CONTRACT.md",
+      "scope": "V01-V06 evidence-tool defects; V07 tensor writer and research model not implemented",
+      "max_repair_rounds": 3,
+      "max_test_seconds_per_invocation": 30,
+      "scientific_trials": 0,
+      "numerical_admission": false,
+      "repair_rounds_consumed": 3,
+      "tests_passed": 43,
+      "receipt": "repairs/evidence_integrity_v1/FINAL_VERIFICATION.json",
+      "report": "repairs/evidence_integrity_v1/README.md"
+    }
+  ],
+  "latest_continuation": {
+    "status": "DURABLE_REPAIR_VERIFIED_SCIENCE_AND_TENSOR_BLOCKED",
+    "report": "repairs/observation_pipeline_v1/extension_20261015/REPORT.md",
+    "all_items": "repairs/observation_pipeline_v1/extension_20261015/ALL_ITEMS.json",
+    "implementation_changed": true,
+    "repair_rounds_consumed": 5,
+    "repair_rounds_limit": 6,
+    "concepts_reviewed": 8,
+    "concept_limit": 8
+  },
+  "budget_extensions": [
+    {
+      "at": "2026-10-15T16:39:46.079421+00:00",
+      "authorization": "User renewed implement-all instruction following the concrete +3 repair/+3 concept proposal; applied as approval of that bounded extension.",
+      "request_sha256": "afd9d4f11cc233fae8811f742017ddfe39d9fc8f392a1044256d39d2e57a7fa1",
+      "repair_rounds_previous": 3,
+      "repair_rounds_added": 3,
+      "repair_rounds_limit": 6,
+      "concepts_previous": 5,
+      "concepts_added": 3,
+      "concept_limit": 8,
+      "scientific_trials": 0,
+      "paid_cost": 0,
+      "test_seconds_per_invocation": 30,
+      "scope": "Durable prediction and observed-event evidence; crash/replay and corruption tests; complete independent bundle reanalysis. Existing scientific/model gate remains closed. No change to previous sealed files.",
+      "stop": "No further implementation changes after cumulative round 6; no additional concepts after 8; tensor imports require fresh admission."
+    }
+  ]
+}

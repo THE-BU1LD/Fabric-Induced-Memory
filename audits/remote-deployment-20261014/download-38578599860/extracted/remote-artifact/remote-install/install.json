@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+    "-m",
+    "pip",
+    "install",
+    "--disable-pip-version-check",
+    "--only-binary=:all:",
+    "-r",
+    "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/REPLAY_REQUIREMENTS.txt"
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 300
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "campaign_id": "itfm-v2-sota-confirmation-v1",
+  "updated_at": "2026-10-11T17:29:55+05:30",
+  "phase": "PROTOCOL_FROZEN_ENGINEERING_AND_SYNTHETIC_MANUSCRIPT_SOURCE_STATIC_IMPLEMENTED_EXECUTION_NOT_STARTED",
+  "development_evidence": {
+    "status": "PASS_BOUNDED_DEVELOPMENT",
+    "seeds_completed": 3,
+    "seeds_expected": 3,
+    "independent_checks_passed": 96,
+    "independent_checks_total": 96
+  },
+  "stage_status": {
+    "S0_source_data_license_and_compute_admission": "PENDING",
+    "S1_exact_frontier_reproduction": "NOT_STARTED",
+    "S2_oracle_memory_gap_triage": "NOT_STARTED",
+    "S3_development_and_ablation": "NOT_STARTED",
+    "S4_frozen_multiseed_test": "NOT_STARTED",
+    "S5_independent_reproduction": "NOT_STARTED"
+  },
+  "engineering_status": {
+    "fim_sota_package": "STATIC_IMPLEMENTED",
+    "typed_config_and_cli": "STATIC_IMPLEMENTED",
+    "batched_causal_memory": "STATIC_IMPLEMENTED_RUNTIME_NOT_TESTED",
+    "dataset_and_backbone_contracts": "STATIC_IMPLEMENTED_OFFICIAL_INTEGRATIONS_NOT_ADMITTED",
+    "training_evaluation_orchestration_verification": "STATIC_IMPLEMENTED_RUNTIME_NOT_TESTED",
+    "ruff": "PASS_ZERO_ISSUES",
+    "python_ast": "PASS_27_FILES",
+    "lightweight_cli_and_resolved_config": "PASS_WITHOUT_TORCH_IMPORT",
+    "runtime_tests": "BLOCKED_RESOURCE_NOT_RUN",
+    "container_ci_and_license_scan": "DEFINED_NOT_EXECUTED",
+    "synthetic_manuscript_source": "AUTHORED_EVIDENCE_BOUND_NOT_COMPILED",
+    "paper_release_verifier": "PASS_19_OF_19_STANDARD_LIBRARY_NO_TORCH"
+  },
+  "current_blockers": [
+    "POBench-PDE and HS-FNO datasets are not present or hash-registered locally.",
+    "Fresh GitHub root-tree checks at both exact locked commits found no root license entry; use and redistribution terms require an authoritative receipt before source integration.",
+    "No accelerator and cost budget has been authorized for exact frontier reproduction.",
+    "No public-data oracle memory gap has yet been demonstrated.",
+    "The latest readiness snapshot is blocked at 301170688 free-plus-speculative bytes versus the 536870912-byte floor, with 5610.62 MiB swap used and 414 additional pageouts between samples.",
+    "The manuscript source has not been compiled or visually inspected, and no arXiv source package has been staged."
+  ],
+  "claims": {
+    "synthetic_mechanism": "SUPPORTED_BOUNDED",
+    "public_stack_engineering": "STATIC_IMPLEMENTED_RUNTIME_UNVERIFIED",
+    "public_data_advantage": "NOT_EVALUATED",
+    "state_of_the_art": "NOT_EVALUATED",
+    "publication_ready": "NO"
+  }
+}

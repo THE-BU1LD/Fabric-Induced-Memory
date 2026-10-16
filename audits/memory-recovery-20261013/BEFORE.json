@@ -1,0 +1,343 @@
+{
+  "at": "2026-10-13T15:41:36.846569+00:00",
+  "process_rss_totals_mib": {
+    "Other": 4756.92,
+    "Codex/ChatGPT": 3966.84,
+    "Chrome": 3045.77
+  },
+  "largest_processes": [
+    {
+      "pid": 1121,
+      "ppid": 635,
+      "rss_mib": 1117.48,
+      "cpu_percent": 27.1,
+      "elapsed": "03:10:00",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 78553,
+      "ppid": 639,
+      "rss_mib": 548.3,
+      "cpu_percent": 0.2,
+      "elapsed": "07:37",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 1108,
+      "ppid": 635,
+      "rss_mib": 537.34,
+      "cpu_percent": 7.7,
+      "elapsed": "03:10:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 80158,
+      "ppid": 639,
+      "rss_mib": 533.62,
+      "cpu_percent": 91.0,
+      "elapsed": "05:15",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 1262,
+      "ppid": 635,
+      "rss_mib": 433.89,
+      "cpu_percent": 3.4,
+      "elapsed": "03:09:51",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 635,
+      "ppid": 1,
+      "rss_mib": 405.77,
+      "cpu_percent": 8.3,
+      "elapsed": "03:10:35",
+      "command": "/Applications/ChatGPT.app/Contents/MacOS/ChatGPT",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 1120,
+      "ppid": 635,
+      "rss_mib": 356.73,
+      "cpu_percent": 11.2,
+      "elapsed": "03:10:00",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 827,
+      "ppid": 1,
+      "rss_mib": 339.64,
+      "cpu_percent": 23.3,
+      "elapsed": "03:10:26",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores",
+      "group": "Other"
+    },
+    {
+      "pid": 639,
+      "ppid": 1,
+      "rss_mib": 254.89,
+      "cpu_percent": 0.1,
+      "elapsed": "03:10:35",
+      "command": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+      "group": "Chrome"
+    },
+    {
+      "pid": 76643,
+      "ppid": 639,
+      "rss_mib": 156.56,
+      "cpu_percent": 0.0,
+      "elapsed": "10:54",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 6287,
+      "ppid": 639,
+      "rss_mib": 127.53,
+      "cpu_percent": 0.2,
+      "elapsed": "02:05:16",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 77551,
+      "ppid": 639,
+      "rss_mib": 123.47,
+      "cpu_percent": 0.3,
+      "elapsed": "09:33",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 44260,
+      "ppid": 639,
+      "rss_mib": 114.05,
+      "cpu_percent": 0.0,
+      "elapsed": "01:05:40",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 81454,
+      "ppid": 639,
+      "rss_mib": 105.11,
+      "cpu_percent": 0.0,
+      "elapsed": "03:03",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 2176,
+      "ppid": 639,
+      "rss_mib": 102.59,
+      "cpu_percent": 0.2,
+      "elapsed": "03:06:33",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 877,
+      "ppid": 635,
+      "rss_mib": 86.02,
+      "cpu_percent": 16.6,
+      "elapsed": "03:10:21",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Service).app/Contents/MacOS/Codex (Service)",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 9669,
+      "ppid": 639,
+      "rss_mib": 80.92,
+      "cpu_percent": 0.0,
+      "elapsed": "01:55:15",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 82301,
+      "ppid": 1271,
+      "rss_mib": 79.2,
+      "cpu_percent": 0.0,
+      "elapsed": "01:34",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 897,
+      "ppid": 639,
+      "rss_mib": 78.06,
+      "cpu_percent": 0.0,
+      "elapsed": "03:10:20",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper",
+      "group": "Chrome"
+    },
+    {
+      "pid": 2173,
+      "ppid": 639,
+      "rss_mib": 70.81,
+      "cpu_percent": 0.0,
+      "elapsed": "03:06:34",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 895,
+      "ppid": 639,
+      "rss_mib": 69.33,
+      "cpu_percent": 0.0,
+      "elapsed": "03:10:20",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper",
+      "group": "Chrome"
+    },
+    {
+      "pid": 1851,
+      "ppid": 639,
+      "rss_mib": 65.23,
+      "cpu_percent": 0.0,
+      "elapsed": "03:08:27",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 914,
+      "ppid": 1,
+      "rss_mib": 59.02,
+      "cpu_percent": 0.0,
+      "elapsed": "03:10:19",
+      "command": "/System/Applications/Stocks.app/Contents/MacOS/Stocks",
+      "group": "Other"
+    },
+    {
+      "pid": 1840,
+      "ppid": 639,
+      "rss_mib": 57.81,
+      "cpu_percent": 0.0,
+      "elapsed": "03:08:32",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 17996,
+      "ppid": 639,
+      "rss_mib": 56.72,
+      "cpu_percent": 0.0,
+      "elapsed": "01:46:18",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 1829,
+      "ppid": 639,
+      "rss_mib": 54.08,
+      "cpu_percent": 0.0,
+      "elapsed": "03:08:36",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    },
+    {
+      "pid": 878,
+      "ppid": 635,
+      "rss_mib": 50.92,
+      "cpu_percent": 0.0,
+      "elapsed": "03:10:21",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Service).app/Contents/MacOS/Codex (Service)",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 408,
+      "ppid": 1,
+      "rss_mib": 48.45,
+      "cpu_percent": 26.5,
+      "elapsed": "03:10:38",
+      "command": "/System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer",
+      "group": "Other"
+    },
+    {
+      "pid": 838,
+      "ppid": 1,
+      "rss_mib": 47.17,
+      "cpu_percent": 0.0,
+      "elapsed": "03:10:25",
+      "command": "/System/Applications/Stocks.app/Contents/PlugIns/StocksWidget.appex/Contents/MacOS/StocksWidget",
+      "group": "Other"
+    },
+    {
+      "pid": 1354,
+      "ppid": 635,
+      "rss_mib": 46.5,
+      "cpu_percent": 0.0,
+      "elapsed": "03:09:39",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 83339,
+      "ppid": 1108,
+      "rss_mib": 43.25,
+      "cpu_percent": 0.0,
+      "elapsed": "00:32",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 82544,
+      "ppid": 1108,
+      "rss_mib": 43.22,
+      "cpu_percent": 0.0,
+      "elapsed": "01:17",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node",
+      "group": "Codex/ChatGPT"
+    },
+    {
+      "pid": 1271,
+      "ppid": 635,
+      "rss_mib": 41.22,
+      "cpu_percent": 0.0,
+      "elapsed": "03:09:49",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService",
+      "group": "Other"
+    },
+    {
+      "pid": 572,
+      "ppid": 1,
+      "rss_mib": 40.55,
+      "cpu_percent": 3.7,
+      "elapsed": "03:10:36",
+      "command": "/System/Library/DriverExtensions/com.apple.DriverKit-AppleBCMWLAN.dext/com.apple.DriverKit-AppleBCMWLAN",
+      "group": "Other"
+    },
+    {
+      "pid": 28353,
+      "ppid": 639,
+      "rss_mib": 39.91,
+      "cpu_percent": 0.0,
+      "elapsed": "01:32:00",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)",
+      "group": "Chrome"
+    }
+  ],
+  "admission": {
+    "status": "BLOCKED",
+    "samples": [
+      {
+        "free_bytes": 491765760,
+        "pageouts": 213537,
+        "swap_mib": 4383.31
+      },
+      {
+        "free_bytes": 352124928,
+        "pageouts": 213537,
+        "swap_mib": 4383.31
+      }
+    ]
+  },
+  "vm_stat": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                    14201.\nPages active:                                 222572.\nPages inactive:                               222827.\nPages speculative:                              6979.\nPages throttled:                                   0.\nPages wired down:                             167179.\nPages purgeable:                                 135.\n\"Translation faults\":                      247935328.\nPages copy-on-write:                         9851452.\nPages zero filled:                         151453814.\nPages reactivated:                          30260577.\nPages purged:                                3119154.\nFile-backed pages:                            141689.\nAnonymous pages:                              310689.\nPages stored in compressor:                  1251614.\nPages occupied by compressor:                 375437.\nDecompressions:                             26676685.\nCompressions:                               32328707.\nPageins:                                    10902984.\nPageouts:                                     213537.\nSwapins:                                       54486.\nSwapouts:                                     333860.\n",
+  "swap": "vm.swapusage: total = 5120.00M  used = 4383.31M  free = 736.69M  (encrypted)\n",
+  "boundary": "RSS totals can double count shared memory and exclude compressed/swap pages. No process stopped."
+}

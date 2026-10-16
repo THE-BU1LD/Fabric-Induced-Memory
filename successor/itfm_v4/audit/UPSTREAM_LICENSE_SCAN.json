@@ -1,0 +1,23 @@
+{
+  "checked_on": "2026-10-15",
+  "sources": [
+    {
+      "repository": "Kingyum-Hou/LANO",
+      "sha": "b53a62100b4705f1382a7c344b2d84afa255b96f",
+      "truncated": false,
+      "entries": 111,
+      "license_name_matches": [],
+      "scope": "Filename audit at pinned revision; absence is not a legal conclusion or a complete source-header review."
+    },
+    {
+      "repository": "lennonshikhman/hs-fno",
+      "sha": "9ebf2a7aa483c7f74769365c187c7d9492ecd6ef",
+      "truncated": false,
+      "entries": 99,
+      "license_name_matches": [],
+      "scope": "Filename audit at pinned revision; absence is not a legal conclusion or a complete source-header review."
+    }
+  ],
+  "integration_status": "NOT_ADMITTED_NO_APPLICABLE_LICENSE_RECEIPT",
+  "next_action": "Find explicit applicable terms or an authoritative permission receipt for the exact source and data; do not infer a license from public visibility."
+}

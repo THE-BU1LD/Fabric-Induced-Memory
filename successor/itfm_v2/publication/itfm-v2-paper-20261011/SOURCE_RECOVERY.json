@@ -1,0 +1,14 @@
+{
+  "status": "EXACT_EXECUTED_SOURCE_RECOVERED",
+  "files": 20,
+  "bundle_sha256": "5d01a2917fe78719e40fecbc702131e76a3b7f842986d79d47e5660c7221631a",
+  "pyproject_sha256": "e1f53e42797ac6aeb1f07b00ca898785264ed87e36405e0f512e68cc48e65cca",
+  "recovery_source": {
+    "session_id": "01a12aad-3ad5-7bf3-9e88-0660d2333bdd",
+    "record_line": 61,
+    "record_timestamp": "2026-10-11T11:17:05.113Z",
+    "method": "Historical tool-response text accepted only after matching pre-existing SHA-256."
+  },
+  "boundary": "Full historical dependency lock absent. Exact source recovery is not a model rerun or external reproduction.",
+  "prior_attempt": "Read-only extraction TypeError because tool output was a list; baseline and manuscript copy saved, no frozen evidence changed."
+}

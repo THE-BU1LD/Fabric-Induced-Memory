@@ -1,0 +1,38 @@
+{
+  "at": "2026-10-16T02:42:42.749456+00:00",
+  "scope": "Actual tensor software integration, no scientific trial",
+  "status": "BLOCKED_ADMISSION",
+  "samples": [
+    {
+      "free_mib": 247.6875,
+      "pageouts": 805928,
+      "swap_mib": 7761.31
+    },
+    {
+      "free_mib": 185.890625,
+      "pageouts": 805931,
+      "swap_mib": 7761.31
+    }
+  ],
+  "floor_mib": 512,
+  "source_sha256": {
+    "test_tensor.py": "f256882d695ff05a48115c26999d466c2b03c14ce3d775714ae1b60d3a5cdc3d",
+    "durable.py": "052e3991046553b8b04ec6dbb6a8ed44c4c0ff37b422e9f31d64e8dc923a78b3",
+    "journal.py": "f849d2faf53fe7496e0c76749f74c2807f3dd638e553ddaa15a01ff34cd45693",
+    "run_tests.py": "37db147f0d42c55f7b7a1df55a5d239d5a7941a17569e91bec170f744ab63339",
+    "observations.py": "9e4781ba9452514e01dcdd8c501324d9421de645eec05614ae9fb89ea678a74a",
+    "recorder.py": "3594b5d0f91adcbbf386ef7132393257bdf3f7f255e08300e002abc9bb1b729e",
+    "test_recovery.py": "68f7fd926124ac85f065acb4e19cf2d0870a2660b8f588b813c560aac5ea72a0",
+    "verify_export.py": "63aeabf254e89a481abd58a0392b6bdac10eb6f02e2780f9a5bdc73f747b9e11",
+    "tensor_bridge.py": "702f6c670e9f2b75bb3459ac39488fb2923d2939ff4c2f9c70eeaffdd8407e87",
+    "run_recovery_tests.py": "24e6c22ad7a224dc72581ac9394ece789b83e4a7f6d9086d7f3afc375e24f0ba",
+    "integrity.py": "ef9d1c457a87bd144784152ec3878fe4b7210c2a44c778cab987aacb95085f1d",
+    "test_pipeline.py": "79f93181d34b13892344f44c10953c2857c2903dce9d786a51d60784bf3afde8",
+    "run_tensor_tests.py": "cf42bb8a7785c9c3ba5364906f79e264273f59e7eb8b568f96387e950037cf92"
+  },
+  "tests_run": 0,
+  "model_modules_imported": [],
+  "errors": [
+    "Memory/pageout/swap admission failed"
+  ]
+}

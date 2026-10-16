@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-13T14:12:03.257772+00:00",
+  "files": {
+    "METHOD.md": "7e2bb9f1fe5c7d84d129c21c3f16c8a457b1b14befc16c5b2d26cd631e0d5d17",
+    "README.md": "1e274d5a70a8ec856a9aa701e6805af835c067d8a9536834e543c6299a166a1b",
+    "core.py": "b42e22ea48ba6a956efc9d3740c5082848680a9aeef4198d1b7a70df0c077ddf",
+    "data.py": "913a0bf162b001c08e618765ba5889d5db6fd30f42bdbd7fb7b36c262741360e",
+    "experiment.py": "6e94854d7d22d9143e69d6817c3f2fd06b28a49b88acd8d6d26a141f97fcf45a",
+    "models.py": "0db7fb9839d43d6fd699fed795ab9f2031504c16bb4c55cc6806a7f70efe9267",
+    "protocol.json": "3b323e87e6a14ae612439be06e5db7e0665198da2f30119fee101c15bcbe2186",
+    "requirements.txt": "ba66e0c8f28dc06ed85f75818440c618cf2268c22d87e9826cbe267626e174c6",
+    "run.py": "6f561d8cd6477ab4ef0136c35eab19f775fd54953db1dfee8a38252089630acf",
+    "test_runtime.py": "b82623fb59adeebd5085baf7ec1bd7c4670a4f3df4e8624fc57e6c7a584f0b7b",
+    "test_standard.py": "9c04f7a8b82b24d1c198ad282f00c1acb7fefd9d51d7c87a32bf8359cda6c89c",
+    "verify.py": "17301da5406c96525c8d56b659472af4b612fd6dbd6b49717b08bbdc6e1476c2"
+  },
+  "scope": "Prospective development source freeze, not external preregistration"
+}

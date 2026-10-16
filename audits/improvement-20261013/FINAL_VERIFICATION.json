@@ -1,0 +1,12 @@
+{
+  "final_source_freeze_matches": true,
+  "protected_files_checked": 440,
+  "protected_files_changed": [],
+  "unrelated_portfolio_projects_changed": [],
+  "v2_replay": "BLOCKED_RESOURCE",
+  "v3_runtime_tests": "BLOCKED_RESOURCE",
+  "v3_campaign_consumed": false,
+  "v3_numerical_results": 0,
+  "static_tests": 11,
+  "portfolio_validation": "separately executed final validator"
+}

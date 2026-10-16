@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "command": [
+    "python3",
+    "-m",
+    "unittest",
+    "test_release",
+    "-v"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_existing_receipt_never_overwritten (test_release.ReleaseTests.test_existing_receipt_never_overwritten) ... ok\ntest_frozen_result_write_rejected (test_release.ReleaseTests.test_frozen_result_write_rejected) ... ok\ntest_path_escape_rejected (test_release.ReleaseTests.test_path_escape_rejected) ... ok\ntest_replay_refuses_existing_output_before_verification (test_release.ReleaseTests.test_replay_refuses_existing_output_before_verification) ... ok\ntest_replay_resource_stop_imports_no_model (test_release.ReleaseTests.test_replay_resource_stop_imports_no_model) ... ok\ntest_stage_refuses_unmet_gates_without_creating_output (test_release.ReleaseTests.test_stage_refuses_unmet_gates_without_creating_output) ... ok\ntest_stale_manuscript_receipt_rejected (test_release.ReleaseTests.test_stale_manuscript_receipt_rejected) ... ok\ntest_status_label_alone_cannot_clear_release_gate (test_release.ReleaseTests.test_status_label_alone_cannot_clear_release_gate) ... ok\ntest_symlink_escape_rejected (test_release.ReleaseTests.test_symlink_escape_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.023s\n\nOK\n",
+  "scope": "standard-library preservation/release-gate tests only; no model import"
+}

@@ -1,0 +1,5 @@
+# Inspect the existing environment first. Do not replace a CUDA torch build.
+# Constraints for an isolated environment only; Kaggle often already provides these.
+torch>=2.6,<3
+numpy>=1.26,<3
+pytest>=8,<10

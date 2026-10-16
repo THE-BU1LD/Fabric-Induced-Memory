@@ -1,0 +1,69 @@
+{
+  "checks": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "remote_execution",
+        "-p",
+        "test_remote.py",
+        "-v"
+      ],
+      "exit": 0,
+      "log": "check-0.log"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "-B",
+        "-O",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "remote_execution",
+        "-p",
+        "test_remote.py",
+        "-v"
+      ],
+      "exit": 0,
+      "log": "check-1.log"
+    },
+    {
+      "command": [
+        "ruff",
+        "check",
+        "remote_execution"
+      ],
+      "exit": 0,
+      "log": "check-2.log"
+    },
+    {
+      "command": [
+        "ruff",
+        "format",
+        "--check",
+        "remote_execution"
+      ],
+      "exit": 0,
+      "log": "check-3.log"
+    }
+  ],
+  "protected_files": 440,
+  "preservation_mismatches": [],
+  "packaged_v2_checks_passed": 228,
+  "packaged_v2_checks_total": 228,
+  "v3_frozen_files": 12,
+  "v3_mismatches": [],
+  "workspace": "audits/remote-preparation-20261014/workspace-1",
+  "manifest_sha256": "4112fe39a9844f7513ffaf3138c766bab1d1eef15c05a732ec09fa7d9feebef9",
+  "remote_jobs_launched": 0,
+  "paid_actions": 0,
+  "publication_performed": false,
+  "scientific_results": "NOT_RUN",
+  "workflow_yaml": "PARSED; manual-only, standard macOS, no cancellation checked"
+}

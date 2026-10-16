@@ -1,0 +1,6 @@
+{
+  "reason": "Frozen static audit requires README; original 20-file replay copy omitted it",
+  "scientific_source_or_guard_changed": false,
+  "sha256": "878fb9574d65b75fba57e95073c73a315d2a8a839aa8a7ba0cc3a36284f1dbf0",
+  "source": "successor/itfm_v2/README.md"
+}

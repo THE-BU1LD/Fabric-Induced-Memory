@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-14T01:20:58.450253+00:00",
+  "attempts": [
+    {
+      "command": [
+        "/usr/sbin/purge"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "Unable to purge disk buffers: Operation not permitted\n"
+    },
+    {
+      "command": [
+        "sudo",
+        "-n",
+        "/usr/sbin/purge"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "sudo: a password is required\n"
+    }
+  ]
+}

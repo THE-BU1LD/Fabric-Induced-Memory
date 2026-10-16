@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-16T03:44:53.394211+00:00",
+  "status": "PASS_PREFLIGHT_ONLY",
+  "tests_run": 0,
+  "manifest_sha256": "87f9956c654e6991a815335258e1d281d816bc854c06a9f56f705e63d942ea82",
+  "model_modules_imported": [],
+  "scope": "Tensor software verification only; zero scientific trials.",
+  "samples": [
+    {
+      "free_mib": 3486.1875,
+      "pageouts": 1524,
+      "swap_mib": 0.0
+    },
+    {
+      "free_mib": 3462.859375,
+      "pageouts": 1524,
+      "swap_mib": 0.0
+    }
+  ],
+  "disk_free_bytes": 101917167616,
+  "pre_import_sample": {
+    "free_mib": 3460.375,
+    "pageouts": 1524,
+    "swap_mib": 0.0
+  },
+  "elapsed_seconds": 2.1500455419999867,
+  "peak_rss_raw": 31047680,
+  "peak_rss_units": "bytes on macOS; KiB on Linux"
+}

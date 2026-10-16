@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "project_id": "fim-successor-itfm-v2",
+  "title": "Interventional Episodic Tensor Memory",
+  "created_at": "2026-10-11T00:00:00+05:30",
+  "canonical_state": true,
+  "predecessors": {
+    "fim_component_study": "immutable bounded negative result",
+    "itfm_v1": "preserved development protocol; zero completed model fits"
+  },
+  "updated_at": "2026-10-12T06:48:15.675212+05:30",
+  "phase": "BOUNDED_SYNTHETIC_PAPER_REVISED_RELEASE_BLOCKED",
+  "research_question": "Can a past-only owner-safe tensor memory reuse a spatial innovation older than the complete visible context, and can memory-only interventions localize the resulting forecast gain?",
+  "supported": [
+    "The v2 question and decision rule are locally specified in the retained development protocol; no external preregistration is asserted.",
+    "The v2 implementation is separate from v1 and predecessor artifacts.",
+    "The exact guarded pipeline passed 10 runtime tests and the static contract audit.",
+    "All three frozen development seeds passed the complete decision rule.",
+    "The historical local verifier passed 96 of 96 scalar-record, saved-flag, decision and hash checks; it was not an independent raw-output reproduction.",
+    "A separate fim_sota package now implements typed configuration, causal tensor-memory, dataset/backbone contracts, training, evaluation, orchestration, and result-verification infrastructure at source level.",
+    "Ruff 0.15.20 reports zero issues and all 27 Python files in the fim_sota and SOTA-test scope parse successfully.",
+    "A complete evidence-bound LaTeX manuscript source, bibliography, results table, literature audit, claim-to-artifact map, and fail-closed release verifier now exist for the bounded synthetic result.",
+    "The new release-verifier source passes Ruff and formatting checks without importing Torch or reading protected public outcomes.",
+    "The lightweight paper-source verifier passed 19 of 19 evidence-binding checks without Torch, protected outcomes, compilation, rendering, or staging.",
+    "The publication revision recovered all 20 exact executed source files in a separate archive without changing current public-stack metadata or original results.",
+    "Manuscript definitions and limitations now match the executed implementation; tables cover all nine conditions and three seeds.",
+    "The final source/scalar-record audit passes 228 of 228 checks; 15 standard-library release/preservation tests and Ruff pass. These are bounded local checks, not a fresh numerical execution."
+  ],
+  "unsupported": [
+    "V2 is state of the art on a public benchmark.",
+    "V2 generalizes to natural systems.",
+    "V2 is publication-ready.",
+    "V2 outperforms strong recurrent or state-space models on public data.",
+    "The new fim_sota runtime tests, container, CI, public loaders, frontier reproductions, training engine, or evaluation stack have executed successfully.",
+    "The manuscript has compiled or passed rendered visual inspection.",
+    "An arXiv package has been release-certified or submitted.",
+    "A clean dependency environment or new raw-output replay has executed for this revision.",
+    "A separate operator or independent scientific reviewer has certified the revised manuscript."
+  ],
+  "checkpoints": {
+    "1_question_and_falsifiers": "PASS",
+    "2_protocol_frozen": "PASS_DEVELOPMENT",
+    "3_implementation": "PASS",
+    "4_static_audit": "PASS_10_OF_10",
+    "5_runtime_tests": "PASS_10_OF_10_EXACT_PIPELINE",
+    "6_identifiability_gate": "PASS_ALL_THREE_SEEDS",
+    "7_development_execution": "PASS_BOUNDED_DEVELOPMENT_3_OF_3",
+    "8_result_verification": "PASS_96_OF_96",
+    "9_public_confirmation": "PROTOCOL_CREATED_NOT_EXECUTED",
+    "10_research_complete": "NOT_REACHED"
+  },
+  "current_blocker": {
+    "kind": "PUBLICATION_RESOURCE_AND_EXTERNAL_RELEASE_GATES",
+    "checked_at": "2026-10-12T06:48:15.675212+05:30",
+    "resource_evidence": [
+      "publication/itfm-v2-paper-20261011/replays/attempt-20261012-01/REPLAY_RECEIPT.json",
+      "publication/itfm-v2-paper-20261011/resumptions/20261012-01/BUILD_ADMISSION.json"
+    ],
+    "effect": "Replay and build not admitted; clean/raw replay, PDF visual QA, independent reproduction/review, release archive/identity/terms/destination remain open."
+  },
+  "integrity_rules": [
+    "Never overwrite v1 or predecessor artifacts.",
+    "Never change thresholds after inspecting development outcomes.",
+    "Retain every seed, control, failure, and blocked receipt.",
+    "Do not describe synthetic development as natural-domain confirmation.",
+    "Never treat schema-only fixtures, fail-closed wrappers, dry-run manifests, or source presence as official reproduction or empirical evidence.",
+    "Never call manuscript source arXiv-ready until compilation, rendered inspection, authorship/license confirmation, public disposition, and independent reproduction gates are recorded."
+  ],
+  "latest_session": {
+    "request": "Check current memory and run isolated replay/PDF if admitted; preserve frozen results",
+    "checked_at": "2026-10-12T06:48:15.675212+05:30",
+    "verdict": "BLOCKED_RESOURCE_NOT_PUBLICATION_READY",
+    "report": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/REPORT.md",
+    "verification": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/VERIFICATION.json",
+    "release_gate": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/RELEASE_GATE.json",
+    "replay_receipt": "publication/itfm-v2-paper-20261011/replays/attempt-20261012-01/REPLAY_RECEIPT.json",
+    "build_admission": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/BUILD_ADMISSION.json",
+    "frozen_results_changed": false
+  },
+  "publication_readiness_audit": {
+    "checked_at": "2026-10-11T18:31:58.179635+05:30",
+    "verdict": "NOT_READY",
+    "checklist": "../../PUBLICATION_READINESS_CHECKLIST_2026-10-11.md",
+    "receipt": "../../audits/publication-readiness-20261011T182740/audit.json",
+    "paper_source_checks": "19/19 PASS",
+    "current_source_and_retained_error_record_replay": "95/96 PASS; source:pyproject.toml FAIL",
+    "historical_verifier": "96/96 receipt preserved; not a certification of the current changed environment",
+    "numeric_boundary": "Retained summaries and decision predicates agree with stored errors. No raw-tensor replay or independent reproduction.",
+    "new_blockers": [
+      "Exact executed pyproject.toml/environment must be recovered or reconstruction limits disclosed.",
+      "Manuscript donor-direction definition, recent-only control interpretation, key dimensions, calibration subset, aggregation, and artifact-verification scope need reconciliation.",
+      "Successor source remains untracked; canonical release identity and stale statuses need reconciliation."
+    ],
+    "scientific_disposition": "Bounded synthetic evidence preserved; public efficacy and SOTA remain NOT_EVALUATED."
+  },
+  "history": [
+    {
+      "at": "2026-10-11T18:31:58.179635+05:30",
+      "event": "Publication-readiness checklist and read-only audit completed. Replayed retained error-record verifier predicates without overwriting historical artifacts: 95/96 checks pass; current pyproject.toml fails executed-source hash. Paper checker remains 19/19. No numerical rerun, PDF build, or release attempted."
+    },
+    {
+      "at": "2026-10-11T20:28:48.422397+05:30",
+      "event": "Publication revision completed safe editorial/source/tool work. Exact executed source recovered; every implementation discrepancy reconciled;228/228 local source/scalar checks and15/15 tool tests pass. Frozen evidence unchanged. Actual replay and PDF admission failed. Publication readiness remains blocked; all59 checklist items dispositioned; public routeC deferred.",
+      "prior_state_snapshot": "publication/itfm-v2-paper-20261011/CHILD_STATE_BEFORE_REVISION.json",
+      "report": "publication/itfm-v2-paper-20261011/REVISION_REPORT.md"
+    },
+    {
+      "at": "2026-10-12T06:48:15.675212+05:30",
+      "event": "Publication resumption: isolated replay and PDF admission blocked below 512 MiB with rising pageouts; no model/compiler launched. Fresh 228/228 local source/scalar checks pass; 57/57 protected files unchanged; all nine release gates remain open.",
+      "report": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/REPORT.md"
+    }
+  ],
+  "publication_revision": {
+    "checked_at": "2026-10-11T20:28:48.422397+05:30",
+    "verdict": "NOT_READY",
+    "route": "B",
+    "source_recovered": "20/20 exact executed files",
+    "originals_preserved": "57/57 protected files unchanged including37 existing result/receipt files",
+    "static_check": "228/228 PASS",
+    "tool_tests": "15/15 PASS; Ruff check and format PASS",
+    "checklist": "publication/itfm-v2-paper-20261011/CHECKLIST_DISPOSITION.json",
+    "author_choice": "Sole author Ryan; optional affiliation/funding/conflicts omitted at request; licenses/venue unspecified. No submission authorization."
+  },
+  "failures": [
+    "Publication replay attempt1:244.28/198.16MiB free-plus-speculative;23 added pageouts; stopped before model import.",
+    "Publication PDF build attempt1:188.20/224.16MiB; one added pageout; stopped before compiler launch.",
+    "2026-10-12T06:48:15.675212+05:30 Replay/build admission failed; no execution. See publication/itfm-v2-paper-20261011/resumptions/20261012-01/REPORT.md"
+  ],
+  "publication_resumption": {
+    "checked_at": "2026-10-12T06:48:15.675212+05:30",
+    "verdict": "BLOCKED_RESOURCE_NOT_PUBLICATION_READY",
+    "report": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/REPORT.md",
+    "verification": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/VERIFICATION.json",
+    "release_gate": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/RELEASE_GATE.json",
+    "replay_receipt": "publication/itfm-v2-paper-20261011/replays/attempt-20261012-01/REPLAY_RECEIPT.json",
+    "build_admission": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/BUILD_ADMISSION.json",
+    "frozen_results_changed": false
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-11T17:29:55+05:30",
+  "request": "get the full research pipeline done",
+  "contract_comparison": {
+    "prior_attachment_sha256": "64f934dfdba3c835e4be3dfc7a428bef6075aecfaa753c00ea7c1b8e13f6a312",
+    "current_attachment_sha256": "0d621acf6bd24f370d2c78c2e9a97ee9d2a2a82d28a29c127750c58fdda381d5",
+    "semantic_change": false,
+    "difference": "The current attachment removes only the earlier prefixed request sentence; the 574-line pipeline contract is otherwise identical."
+  },
+  "upstream_source_checks": {
+    "lano": {
+      "commit": "b53a62100b4705f1382a7c344b2d84afa255b96f",
+      "commit_resolves": true,
+      "root_license_entry_present": false,
+      "url": "https://github.com/Kingyum-Hou/LANO/commit/b53a62100b4705f1382a7c344b2d84afa255b96f"
+    },
+    "hs_fno": {
+      "commit": "9ebf2a7aa483c7f74769365c187c7d9492ecd6ef",
+      "commit_resolves": true,
+      "root_license_entry_present": false,
+      "url": "https://github.com/lennonshikhman/hs-fno/commit/9ebf2a7aa483c7f74769365c187c7d9492ecd6ef"
+    },
+    "license_admission": "BLOCKED_NO_AUTHORITATIVE_SOURCE_USE_OR_REDISTRIBUTION_RECEIPT"
+  },
+  "local_public_data_scan": {
+    "status": "ABSENT",
+    "scope": [
+      "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research",
+      "/Volumes/PRO-BLADE/GitHubRepos/BU1LD-ML4Science",
+      "/Volumes/PRO-BLADE/GitHubRepos/Wharton-Experiment",
+      "/Volumes/PRO-BLADE/GitHubRepos/Finance4all-Quant-Research"
+    ],
+    "matches": 0,
+    "boundary": "No POBench, LANO, HS-FNO, or matching Navier-Stokes benchmark dataset path was found in this scoped filename inventory."
+  },
+  "resource_samples": [
+    {
+      "checked_at": "2026-10-11T17:28:44+05:30",
+      "page_size_bytes": 16384,
+      "free_pages": 6777,
+      "speculative_pages": 6461,
+      "free_plus_speculative_bytes": 216891392,
+      "threshold_bytes": 536870912,
+      "pageouts_cumulative": 670581,
+      "swap_used_mib": 5618.62,
+      "status": "BLOCKED"
+    },
+    {
+      "checked_at": "2026-10-11T17:29:55+05:30",
+      "page_size_bytes": 16384,
+      "free_pages": 8529,
+      "speculative_pages": 9853,
+      "free_plus_speculative_bytes": 301170688,
+      "threshold_bytes": 536870912,
+      "pageouts_cumulative": 670995,
+      "pageouts_increase_from_prior_sample": 414,
+      "swap_used_mib": 5610.62,
+      "status": "BLOCKED"
+    }
+  ],
+  "unchanged_external_requirements": [
+    "authoritative source and dataset license receipts",
+    "dataset bytes, hashes, splits, preprocessing identity, and official equivalence",
+    "named accelerator and maximum wall-clock, energy, and monetary budgets"
+  ],
+  "verdict": "S0_BLOCKED_NO_PUBLIC_EXECUTION_OR_RELEASE_ADMITTED",
+  "actions_not_started": [
+    "dependency installation",
+    "Torch or frontier-model import",
+    "runtime tests",
+    "dataset download or generation",
+    "container build",
+    "frontier reproduction",
+    "oracle-gap evaluation",
+    "training or protected evaluation",
+    "LaTeX compilation or PDF rendering",
+    "release staging"
+  ],
+  "retained_evidence": {
+    "bounded_synthetic_result": "UNCHANGED_3_OF_3_SEEDS_96_OF_96_VERIFIER_CHECKS",
+    "paper_source": "UNCHANGED_PASS_SOURCE_EVIDENCE_BOUND_19_OF_19",
+    "public_advantage": "NOT_EVALUATED",
+    "state_of_the_art": "NOT_EVALUATED",
+    "arxiv_ready": false
+  }
+}

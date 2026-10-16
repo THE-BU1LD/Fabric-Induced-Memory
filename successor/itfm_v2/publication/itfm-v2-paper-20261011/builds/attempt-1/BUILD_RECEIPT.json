@@ -1,0 +1,27 @@
+{
+  "admission": {
+    "samples": [
+      {
+        "free_plus_speculative_bytes": 197345280,
+        "pageouts": 894032,
+        "swap_used_mib": 9080.31
+      },
+      {
+        "free_plus_speculative_bytes": 235044864,
+        "pageouts": 894033,
+        "swap_used_mib": 9080.31
+      }
+    ],
+    "status": "BLOCKED",
+    "threshold_bytes": 536870912
+  },
+  "boundary": "Local compilation only. Every rendered page still requires inspection.",
+  "budget_seconds": 120,
+  "checked_at": "2026-10-11T14:46:46.295524+00:00",
+  "manuscript": {
+    "generated_results.tex": "8857d7a23222945ec8e7c88420369dd13989c38d8c6047127a6fe4ff163ef1b3",
+    "main.tex": "e49dc57c95fdd2d24a81736a132beb1f41207daac5122a744e26601d64339153",
+    "references.bib": "02691c9947bdc747b7b6c6133bbfae51cdd7cbf594d9b26990b798db52108782"
+  },
+  "status": "BLOCKED_RESOURCE"
+}

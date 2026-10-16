@@ -1,0 +1,31 @@
+{
+  "account_id": "ryangomez010",
+  "authorized_hours": 0.0,
+  "deadline_utc_timestamp": 1792168200.0,
+  "platform_limit_guaranteed": false,
+  "platform_shutdown_requires_confirmation": true,
+  "q0_hours": null,
+  "quota_observation": null,
+  "requested_hours": null,
+  "reserve_fraction": 0.1,
+  "schema_version": 1,
+  "session_observation": {
+    "active_session_ids": [],
+    "observed_at": 1792133548.0
+  },
+  "sessions": {},
+  "policy": {
+    "preferred_budget_hours": null,
+    "possible_expanded_budget_hours": null,
+    "expanded_authorized": false
+  },
+  "estimates": {
+    "wall_clock_allocated_seconds_estimated": 0.0,
+    "physical_device_hours_estimated": 0.0,
+    "reported_quota_debit_observed": null,
+    "quota_balance_decrease_derived_from_observations": null,
+    "quota_spent_conservative_estimate": 0.0,
+    "quota_remaining_estimate": null
+  },
+  "all_campaign_sessions_confirmed_stopped": false
+}

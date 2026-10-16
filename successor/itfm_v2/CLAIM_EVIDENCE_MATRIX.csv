@@ -1,0 +1,13 @@
+claim,evidence_required,current_status,allowed_statement
+"Complete visible context is aliased","Corpus audit over every paired query and split","Pass on 3 of 3 seeds","The frozen synthetic corpus has identical complete visible contexts at paired queries"
+"Paired futures diverge","Per-query paired target MSE above zero","Pass on 3 of 3 seeds","Paired synthetic futures diverge despite identical visible context"
+"Past memory contains useful information","Oracle past-only memory beats frozen base by at least 20%","Pass; 100% oracle-gap recovery available","Past-only memory is useful in the frozen synthetic construction"
+"Tensor retrieval improves query prediction","Three seeds; at least 5% over every non-oracle information control","Pass on 3 of 3 seeds; 100% relative gain","Tensor memory perfectly solved the frozen synthetic query endpoint"
+"Gain is caused by retrieved value","Erasure removes at least 80% of gain; swaps exceed 0.9 donor-direction score","Pass on 3 of 3 seeds; both 1.0","Synthetic gain is intervention-localized to the retrieved tensor value"
+"Spatial structure matters","Vector broadcast and sign-flip controls fail to reproduce gain","Pass on 3 of 3 seeds","The frozen synthetic result requires the signed spatial tensor"
+"Benefit comes from information outside visible context","Minimum age plus recent-only and last-value controls","Pass on 3 of 3 seeds","The frozen synthetic gain uses information older than the visible context"
+"Artifacts are intact","Source/protocol/result/prediction hashes independently rechecked","Pass; 96 of 96 verifier checks","The retained bounded-development artifacts verify independently on this host"
+"V2 works on natural systems","Frozen public-domain partial-observation confirmation","Protocol created; not executed","Unsupported"
+"V2 is state of the art","Material win over reproduced LANO and HS-FNO frontiers under frozen public protocols","Not executed","Unsupported"
+"V2 is publication-ready","Public confirmation independent reproduction novelty review and clean release lineage","Not reached","Unsupported"
+

@@ -1,0 +1,9 @@
+{
+  "commit": "1499b37d03c83bea1c54d0f0f5bfca743aebfc29",
+  "manifest_sha256": "6391a3a6ae8ff68fe16a70c2830285993df8ff215f25e19a4d30dce539169443",
+  "adjudicated_runs": [
+    38577058691,
+    38577627585
+  ],
+  "scientific_sources_changed": false
+}

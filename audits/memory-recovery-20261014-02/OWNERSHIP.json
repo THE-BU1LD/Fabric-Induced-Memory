@@ -1,0 +1,10 @@
+{
+  "matching_processes": [],
+  "processes_stopped": [],
+  "rss_mib": {
+    "Other": 4652.703125,
+    "Chrome": 2763.109375,
+    "Codex/ChatGPT": 4689.75,
+    "VS Code": 790.828125
+  }
+}

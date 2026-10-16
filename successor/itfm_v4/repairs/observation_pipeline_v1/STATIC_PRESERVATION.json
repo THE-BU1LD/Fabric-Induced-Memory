@@ -1,0 +1,40 @@
+{
+  "commands": [
+    {
+      "command": [
+        "ruff",
+        "check",
+        "successor/itfm_v4/repairs/observation_pipeline_v1",
+        "--exclude",
+        "source_round_1",
+        "--exclude",
+        "source_round_2"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ruff",
+        "format",
+        "--check",
+        "successor/itfm_v4/repairs/observation_pipeline_v1",
+        "--exclude",
+        "source_round_1",
+        "--exclude",
+        "source_round_2"
+      ],
+      "exit_code": 0,
+      "stdout": "8 files already formatted\n",
+      "stderr": ""
+    }
+  ],
+  "parsed_current_python_files": 8,
+  "predecessors_checked": 440,
+  "predecessor_mismatches": [],
+  "v3_sources_checked": 12,
+  "v3_mismatches": [],
+  "public_and_repair_files_checked": 47,
+  "public_and_repair_mismatches": []
+}

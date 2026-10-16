@@ -1,0 +1,6 @@
+{
+  "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260728/cpython-3.11.15%2B20260728-aarch64-apple-darwin-install_only.tar.gz",
+  "sha256": "7dc10e31eede05a6ab1ec9e0b961f521078b0959f838ed1d7452597d529ff802",
+  "version": "(3, 11, 15)",
+  "distribution": "Astral python-build-standalone; exact patch version, different build from local Homebrew"
+}

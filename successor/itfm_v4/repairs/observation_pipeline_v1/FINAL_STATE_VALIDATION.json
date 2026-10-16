@@ -1,0 +1,18 @@
+{
+  "validator_exit": 0,
+  "validator_stdout": "VALID: 33 projects, 0 warning(s), live_git=not_checked\n",
+  "validator_stderr": "",
+  "final_test_source_mismatches": [],
+  "scientific_checkpoints": {
+    "1": "BLOCKED",
+    "2": "NOT_EVALUATED",
+    "3": "NOT_EVALUATED",
+    "4": "NOT_EVALUATED",
+    "5": "NOT_EVALUATED",
+    "6": "NOT_EVALUATED",
+    "7": "NOT_EVALUATED",
+    "8": "NOT_EVALUATED",
+    "9": "NOT_EVALUATED",
+    "10": "NOT_EVALUATED"
+  }
+}

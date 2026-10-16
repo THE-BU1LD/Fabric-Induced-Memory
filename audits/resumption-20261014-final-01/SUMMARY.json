@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-14T11:43:58.032363+00:00",
+  "status": "BLOCKED_RESOURCE",
+  "memory_mib": [
+    99.796875,
+    144.0625
+  ],
+  "pageout_increase": 2,
+  "swap_used_mib": 7850.38,
+  "threshold_mib": 512,
+  "numerical_stages_started": [],
+  "v3_status": "WITHHELD_V2_NOT_COMPLETED",
+  "protected_files_checked": 440,
+  "preservation_mismatches": [],
+  "replay_receipt": "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/attempt-20261014-final-01/REPLAY_RECEIPT.json"
+}

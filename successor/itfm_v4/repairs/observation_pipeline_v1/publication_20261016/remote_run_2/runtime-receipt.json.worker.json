@@ -1,0 +1,56 @@
+{
+  "at": "2026-10-16T03:49:18.323658+00:00",
+  "status": "PASS_TENSOR_SOFTWARE_ONLY",
+  "tests_run": 10,
+  "manifest_sha256": "67a5253aab94d5f99d83fe3218db54670401e5fd8a502236123280b64af2849b",
+  "model_modules_imported": [
+    "torch",
+    "numpy"
+  ],
+  "scope": "Tensor software verification only; zero scientific trials.",
+  "samples": [
+    {
+      "free_mib": 3208.875,
+      "pageouts": 4814,
+      "swap_mib": 0.0
+    },
+    {
+      "free_mib": 3174.625,
+      "pageouts": 4814,
+      "swap_mib": 0.0
+    }
+  ],
+  "disk_free_bytes": 101140774912,
+  "pre_import_sample": {
+    "free_mib": 3167.03125,
+    "pageouts": 4814,
+    "swap_mib": 0.0
+  },
+  "environment": {
+    "python": "3.11.9 (v3.11.9:de54cf5be3, Apr  2 2024, 07:12:50) [Clang 13.0.0 (clang-1300.0.29.30)]",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "torch": "2.12.1",
+    "numpy": "2.4.6"
+  },
+  "executed": [
+    "test_tensor.TensorIntegrationTests.test_actual_predictions_automatically_reach_validator",
+    "test_tensor.TensorIntegrationTests.test_model_change_and_split_change_are_refused",
+    "test_tensor.TensorIntegrationTests.test_mutated_input_after_prediction_cannot_change_stored_base",
+    "test_tensor.TensorIntegrationTests.test_non_tensor_configuration_change_is_refused",
+    "test_tensor.TensorIntegrationTests.test_partial_then_complete_reveal_writes_real_bank_once",
+    "test_tensor.TensorIntegrationTests.test_same_tick_reveal_cannot_affect_prediction",
+    "test_durable_tensor.DurableTensorTests.test_actual_bank_and_durable_observation_replay_agree",
+    "test_durable_tensor.DurableTensorTests.test_actual_predictions_survive_restart_and_reanalyze",
+    "test_durable_tensor.DurableTensorTests.test_owner_output_survives_batch_permutation",
+    "test_durable_tensor.DurableTensorTests.test_unrelated_empty_owner_does_not_disable_populated_owner"
+  ],
+  "test_log": "test_actual_predictions_automatically_reach_validator (test_tensor.TensorIntegrationTests.test_actual_predictions_automatically_reach_validator) ... ok\ntest_model_change_and_split_change_are_refused (test_tensor.TensorIntegrationTests.test_model_change_and_split_change_are_refused) ... ok\ntest_mutated_input_after_prediction_cannot_change_stored_base (test_tensor.TensorIntegrationTests.test_mutated_input_after_prediction_cannot_change_stored_base) ... ok\ntest_non_tensor_configuration_change_is_refused (test_tensor.TensorIntegrationTests.test_non_tensor_configuration_change_is_refused) ... ok\ntest_partial_then_complete_reveal_writes_real_bank_once (test_tensor.TensorIntegrationTests.test_partial_then_complete_reveal_writes_real_bank_once) ... ok\ntest_same_tick_reveal_cannot_affect_prediction (test_tensor.TensorIntegrationTests.test_same_tick_reveal_cannot_affect_prediction) ... ok\ntest_actual_bank_and_durable_observation_replay_agree (test_durable_tensor.DurableTensorTests.test_actual_bank_and_durable_observation_replay_agree) ... ok\ntest_actual_predictions_survive_restart_and_reanalyze (test_durable_tensor.DurableTensorTests.test_actual_predictions_survive_restart_and_reanalyze) ... ok\ntest_owner_output_survives_batch_permutation (test_durable_tensor.DurableTensorTests.test_owner_output_survives_batch_permutation) ... ok\ntest_unrelated_empty_owner_does_not_disable_populated_owner (test_durable_tensor.DurableTensorTests.test_unrelated_empty_owner_does_not_disable_populated_owner) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 1.052s\n\nOK\n",
+  "skipped": 0,
+  "failures": 0,
+  "errors": 0,
+  "expected_failures": 0,
+  "unexpected_successes": 0,
+  "elapsed_seconds": 6.198314209000046,
+  "peak_rss_raw": 250380288,
+  "peak_rss_units": "bytes on macOS; KiB on Linux"
+}

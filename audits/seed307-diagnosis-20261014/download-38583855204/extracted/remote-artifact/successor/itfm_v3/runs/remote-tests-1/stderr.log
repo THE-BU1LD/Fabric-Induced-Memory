@@ -1,0 +1,17 @@
+test_actual_recent_window_and_empty_interval_rejection (test_runtime.NumericalContracts.test_actual_recent_window_and_empty_interval_rejection) ... ok
+test_all_trained_baselines_are_causal_and_have_gradients (test_runtime.NumericalContracts.test_all_trained_baselines_are_causal_and_have_gradients) ... ok
+test_current_and_future_values_cannot_affect_prediction (test_runtime.NumericalContracts.test_current_and_future_values_cannot_affect_prediction) ... ok
+test_disjoint_owners_and_repeatability (test_runtime.NumericalContracts.test_disjoint_owners_and_repeatability) ... ok
+test_feature_shift_no_current_or_future_target (test_runtime.NumericalContracts.test_feature_shift_no_current_or_future_target) ... ok
+test_hand_computed_memory_and_fifo_eviction (test_runtime.NumericalContracts.test_hand_computed_memory_and_fifo_eviction) ... ok
+test_interventions_hold_keys_fixed (test_runtime.NumericalContracts.test_interventions_hold_keys_fixed) ... ok
+test_noisy_keys_not_exact_and_masks_causal (test_runtime.NumericalContracts.test_noisy_keys_not_exact_and_masks_causal) ... ok
+test_oracle_privilege_not_available_to_models (test_runtime.NumericalContracts.test_oracle_privilege_not_available_to_models) ... ok
+test_owner_isolation_and_batch_reordering (test_runtime.NumericalContracts.test_owner_isolation_and_batch_reordering) ... ok
+test_selection_uses_only_supplied_validation (test_runtime.NumericalContracts.test_selection_uses_only_supplied_validation) ... ok
+test_small_end_to_end_and_independent_verifier (test_runtime.NumericalContracts.test_small_end_to_end_and_independent_verifier) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 9.935s
+
+OK

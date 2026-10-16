@@ -1,0 +1,24 @@
+% Generated from unchanged retained records by publication tools/release.py.
+\begin{table}[ht]\centering\small
+\caption{Query NMSE for every declared condition and seed. Each cell uses 108 query rows. Paired-swap error is measured against the recipient target, while its diagnostic success rate below concerns the donor.}
+\label{tab:results}\begin{tabular}{lrrr}\toprule
+Condition & 101 & 211 & 307 \\\midrule
+Base output & 0.487685 & 0.487685 & 0.487685 \\
+Tensor memory & 0.000000 & 0.000000 & 0.000000 \\
+Erase & 0.487685 & 0.487685 & 0.487685 \\
+Sign flip & 1.950739 & 1.950739 & 1.950739 \\
+Spatial mean & 0.487685 & 0.487685 & 0.487685 \\
+Recent restriction (empty) & 0.487685 & 0.487685 & 0.487685 \\
+Last residual & 0.487685 & 0.487685 & 0.487685 \\
+Paired swap & 1.950739 & 1.950739 & 1.950739 \\
+Oracle anchor & 0.000000 & 0.000000 & 0.000000 \\
+\bottomrule\end{tabular}\end{table}
+\begin{table}[ht]\centering\small
+\caption{Additional retained diagnostics. Non-query metrics use 486 rows per seed. Precision and donor success use the relevant valid query retrievals.}
+\begin{tabular}{lrrr}\toprule
+Metric & 101 & 211 & 307 \\\midrule
+Base non-query NMSE & 0.054187 & 0.054187 & 0.054187 \\
+Tensor non-query NMSE & 0.054187 & 0.054187 & 0.054187 \\
+Matching-anchor precision & 1.000000 & 1.000000 & 1.000000 \\
+Donor improvement rate & 1.000000 & 1.000000 & 1.000000 \\
+\bottomrule\end{tabular}\end{table}

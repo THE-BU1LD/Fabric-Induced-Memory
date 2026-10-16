@@ -1,0 +1,323 @@
+{
+  "at": "2026-10-15T14:53:20.985605+00:00",
+  "scope": "35 original items retained; no item fully closed because integration or scientific/external evidence remains open. Six demonstrated verifier failure modes addressed in the standalone validator.",
+  "flaws": [
+    {
+      "id": "F01",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_PRIOR_ART",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "A claim-by-claim distinction and a falsifying experiment that does not reduce to an existing baseline.",
+      "fully_closed": false
+    },
+    {
+      "id": "F02",
+      "severity": "P0",
+      "original_finding_status": "MATHEMATICAL_BOUNDARY",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Conditional-risk derivation plus frozen empirical criteria.",
+      "fully_closed": false
+    },
+    {
+      "id": "F03",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_SOURCE_NOT_REPAIRED",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Mutating every hidden target, including NaN/Inf, leaves predictions, keys, normalization and memory checksum unchanged.",
+      "fully_closed": false
+    },
+    {
+      "id": "F04",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_SOURCE_NOT_REPAIRED",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Multi-horizon delayed and out-of-order reveal tests; zero future contributions.",
+      "fully_closed": false
+    },
+    {
+      "id": "F05",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_EXECUTABLE_AUDIT",
+      "repair_status": "REFERENCE_IMPLEMENTED_INTEGRATION_PENDING",
+      "change": "One per-sample metric and explicit reduction hierarchy; both metric paths share the definition.",
+      "original_required_evidence": "Unequal-energy fixture: mean 0.5 versus pooled sqrt(1/101); repaired paths must agree.",
+      "fully_closed": false
+    },
+    {
+      "id": "F06",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_EXECUTABLE_AUDIT",
+      "repair_status": "REFERENCE_IMPLEMENTED_INTEGRATION_PENDING",
+      "change": "Strict finite values, arithmetic, types, claim keys and refusal receipts.",
+      "original_required_evidence": "NaN on either side and infinity on both sides must all fail.",
+      "fully_closed": false
+    },
+    {
+      "id": "F07",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_EXECUTABLE_AUDIT",
+      "repair_status": "REFERENCE_IMPLEMENTED_INTEGRATION_PENDING",
+      "change": "Exact planned sample identities and full cell/seed coverage; duplicate/missing/extra inputs rejected.",
+      "original_required_evidence": "Duplicates, missing IDs, extra IDs, wrong seeds and mismatched sources must fail.",
+      "fully_closed": false
+    },
+    {
+      "id": "F08",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_EXECUTABLE_AUDIT",
+      "repair_status": "PARTIAL_REFERENCE_REPAIR",
+      "change": "Family/cell regression gates now enforced from raw arrays. No scientific claim is authorized; confirmatory uncertainty and multiplicity still require a scientific protocol.",
+      "original_required_evidence": "100 percent supplied family regression and unsupported confidence must never pass.",
+      "fully_closed": false
+    },
+    {
+      "id": "F09",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_SOURCE_NOT_REPAIRED",
+      "repair_status": "PARTIAL_CLAIM_SAFEGUARD",
+      "change": "No independence boolean or scientific claim authorization path. Actual independent reproduction remains absent.",
+      "original_required_evidence": "An independent operator reproduces frozen results; self-assertion cannot unlock claims.",
+      "fully_closed": false
+    },
+    {
+      "id": "F10",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_EXECUTABLE_AUDIT",
+      "repair_status": "REFERENCE_IMPLEMENTED_INTEGRATION_PENDING",
+      "change": "Trajectory/seed/cell estimand is preserved in exploratory family resampling; no confirmatory coverage claim.",
+      "original_required_evidence": "Unequal trajectory counts retain the predeclared estimand: audit fixture expects 0.5, current function gives 0.1.",
+      "fully_closed": false
+    },
+    {
+      "id": "F11",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_EXECUTABLE_AUDIT",
+      "repair_status": "REFERENCE_IMPLEMENTED_INTEGRATION_PENDING",
+      "change": "No aggregation before complete successful expected observations; failures retained in refusal details.",
+      "original_required_evidence": "Removing one candidate row must block complete-study adjudication.",
+      "fully_closed": false
+    },
+    {
+      "id": "F12",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_SOURCE_CAUSAL_ROLE_UNTESTED",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Finite nonzero gradients and actual parameter changes on informative delayed-recall unit cases.",
+      "fully_closed": false
+    },
+    {
+      "id": "F13",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_SOURCE_CAUSAL_ROLE_UNTESTED",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Batch reorder and batch-size changes preserve each episode's outputs.",
+      "fully_closed": false
+    },
+    {
+      "id": "F14",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_SOURCE_CAUSAL_ROLE_UNTESTED",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Adding an empty unrelated episode leaves another episode's prediction unchanged.",
+      "fully_closed": false
+    },
+    {
+      "id": "F15",
+      "severity": "P1",
+      "original_finding_status": "CONFIRMED_SOURCE_CAUSAL_ROLE_UNTESTED",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Owner isolation, eviction traces, fixed total and per-owner byte comparisons.",
+      "fully_closed": false
+    },
+    {
+      "id": "F16",
+      "severity": "P1",
+      "original_finding_status": "SOURCE_DIAGNOSIS_REQUIRES_RUNTIME",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Known-source reconstruction, amplitude scaling and localized intervention tests.",
+      "fully_closed": false
+    },
+    {
+      "id": "F17",
+      "severity": "P1",
+      "original_finding_status": "CONFIRMED_SPECIFICATION",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Any more complex candidate must beat matching kNN/kernel/local-linear controls.",
+      "fully_closed": false
+    },
+    {
+      "id": "F18",
+      "severity": "P1",
+      "original_finding_status": "OPEN_SCIENTIFIC_QUESTION",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Gain survives context and information matching.",
+      "fully_closed": false
+    },
+    {
+      "id": "F19",
+      "severity": "P1",
+      "original_finding_status": "CONFIRMED_SCOPE_LIMIT",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Open-loop memory receives no true future values; report each track separately.",
+      "fully_closed": false
+    },
+    {
+      "id": "F20",
+      "severity": "P1",
+      "original_finding_status": "MATHEMATICAL_LIMIT",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Missingness stress tests and sensitivity analysis; propensity corrections compared with established estimators.",
+      "fully_closed": false
+    },
+    {
+      "id": "F21",
+      "severity": "P1",
+      "original_finding_status": "OPEN_SCIENTIFIC_QUESTION",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Gain under declared shifts and bounded harm; no universal guarantee.",
+      "fully_closed": false
+    },
+    {
+      "id": "F22",
+      "severity": "P1",
+      "original_finding_status": "CONFIRMED_LOGICAL_LIMIT",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Distinct predictions for informative interventions with coverage reported.",
+      "fully_closed": false
+    },
+    {
+      "id": "F23",
+      "severity": "P1",
+      "original_finding_status": "CONFIRMED_SPECIFICATION",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Complete unseen-dynamics and dictionary results beyond in-distribution owners.",
+      "fully_closed": false
+    },
+    {
+      "id": "F24",
+      "severity": "P1",
+      "original_finding_status": "OPEN_METHODOLOGY",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Prospective power and uncertainty plan with preserved pairing and dependence.",
+      "fully_closed": false
+    },
+    {
+      "id": "F25",
+      "severity": "P1",
+      "original_finding_status": "MATHEMATICAL_BOUNDARY",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Declared sample-size justification; no seed additions selected for significance.",
+      "fully_closed": false
+    },
+    {
+      "id": "F26",
+      "severity": "P1",
+      "original_finding_status": "SOURCE_DIAGNOSIS_REQUIRES_RUNTIME",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "History perturbation and independent upstream validation reproduction.",
+      "fully_closed": false
+    },
+    {
+      "id": "F27",
+      "severity": "P1",
+      "original_finding_status": "CONFIRMED_RETAINED_EXECUTION",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Measured peak memory/time/output safety margin; retain resource failures.",
+      "fully_closed": false
+    },
+    {
+      "id": "F28",
+      "severity": "P0",
+      "original_finding_status": "CONFIRMED_RETAINED_EXECUTION",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Consumed-marker preservation and no duplicate execution.",
+      "fully_closed": false
+    },
+    {
+      "id": "F29",
+      "severity": "P1",
+      "original_finding_status": "OPEN_ENGINEERING",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Matching predictions and state within frozen tolerances without extra training opportunities.",
+      "fully_closed": false
+    },
+    {
+      "id": "F30",
+      "severity": "P0",
+      "original_finding_status": "FRESH_FILENAME_SCAN_NOT_LEGAL_CONCLUSION",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Authoritative permission/license receipts plus checksums; public visibility alone is insufficient.",
+      "fully_closed": false
+    },
+    {
+      "id": "F31",
+      "severity": "P1",
+      "original_finding_status": "CONFIRMED_REPOSITORY_STATE",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Every historical attribution uses its executed source, not a similar current path.",
+      "fully_closed": false
+    },
+    {
+      "id": "F32",
+      "severity": "P1",
+      "original_finding_status": "HYPOTHESIS_NOT_ESTABLISHED_CAUSE",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Measured gradients, activity and held-out contribution.",
+      "fully_closed": false
+    },
+    {
+      "id": "F33",
+      "severity": "P1",
+      "original_finding_status": "OPEN_METHODOLOGY",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Accuracy-cost advantage survives complete accounting.",
+      "fully_closed": false
+    },
+    {
+      "id": "F34",
+      "severity": "P0",
+      "original_finding_status": "OPEN_RELEASE",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Reviewed manuscript, reproducible figures, verified package and explicit submission authority.",
+      "fully_closed": false
+    },
+    {
+      "id": "F35",
+      "severity": "P1",
+      "original_finding_status": "MATHEMATICAL_LIMIT",
+      "repair_status": "OPEN_UNCHANGED",
+      "change": "Not addressed by this evidence-tool repair.",
+      "original_required_evidence": "Analytical assumptions or a documented proxy; failed proxy does not prove all history useless.",
+      "fully_closed": false
+    }
+  ],
+  "V07_tensor_writer": "OPEN_NOT_REPAIRED",
+  "tests": "TEST_ROUND_3.json"
+}

@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-14T14:45:56.140609+00:00",
+  "hypothesis": "macOS runtime-family mismatch contributes to float32 generator/error variation",
+  "evidence": "Historical macOS26.5.2; remote15.7.9; discrepancies already present in seed307 calibration rows, families17 and24; no retrieval at time0",
+  "intervention": "standard free macos-26 runner; extra OS-family preflight",
+  "unchanged": [
+    "all frozen source",
+    "1e-10 comparison",
+    "512MiB guard",
+    "seeds",
+    "one thread",
+    "v3 campaign budget"
+  ],
+  "acceptance": "original full v2 raw PASS required; no reinterpretation of old failed receipt",
+  "v3": "run only after original strict v2 checks pass"
+}

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-15T14:01:43.249696+00:00",
+  "samples": [
+    {
+      "free_mib": 134.75,
+      "pageouts": 611167,
+      "swap_used_mib": 6050.44
+    },
+    {
+      "free_mib": 139.515625,
+      "pageouts": 611167,
+      "swap_used_mib": 6050.44
+    }
+  ],
+  "floor_mib": 512,
+  "disk_free_gib": 196.5385513305664,
+  "matching_study_processes": [],
+  "lock_files": [],
+  "intended_action": "Literature, theory, source audit and small standard-library validation tools; no model execution before conceptual and resource gates",
+  "status": "BLOCKED_RESOURCE_OR_OWNER"
+}

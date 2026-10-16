@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-16T03:47:46.799685+00:00",
+  "reason": "Correct unavailable Python setup so the explicitly requested tests can execute; prior job ran zero tests.",
+  "user_authorization": "Publish v4 and run tests on the free public macOS runner; complete routine infrastructure corrections within that requested work.",
+  "prior_job": 38847030101,
+  "setup_attempts_total_limit": 2,
+  "test_executions_limit": 1,
+  "paid_cost": 0,
+  "scientific_trials": 0,
+  "source_changes": "No Python implementation or tests changed; runtime pin, documented setup failure and exact prior-attempt gate only."
+}

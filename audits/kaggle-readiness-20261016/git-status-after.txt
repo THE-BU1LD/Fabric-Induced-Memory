@@ -1,0 +1,125 @@
+ M README.md
+ D fim/__init__.py
+ D fim/analysis/__init__.py
+ D fim/analysis/lyapunov.py
+ D fim/analysis/metrics.py
+ D fim/analysis/retention.py
+ D fim/analysis/spectral.py
+ D fim/core/__init__.py
+ D fim/core/dynamics.py
+ D fim/core/fabric.py
+ D fim/core/fractional.py
+ D fim/core/integrator.py
+ D fim/core/stability.py
+ D fim/core/state.py
+ D fim/epistemic_tests_full/README.md
+ D fim/epistemic_tests_full/tests/conftest.py
+ D fim/epistemic_tests_full/tests/test_benchmark_generation.py
+ D fim/epistemic_tests_full/tests/test_fractional_dynamics.py
+ D fim/epistemic_tests_full/tests/test_levy_sampling.py
+ D fim/epistemic_tests_full/tests/test_memory.py
+ D fim/epistemic_tests_full/tests/test_rollout_stability.py
+ D fim/epistemic_tests_full/tests/test_training_execution.py
+ D fim/geometry/graph.py
+ D fim/geometry/grid.py
+ D fim/geometry/manifold.py
+ D fim/geometry/topology.py
+ D fim/memory/compression.py
+ D fim/memory/consolidation.py
+ D fim/memory/init.py
+ D fim/memory/retrieval.py
+ D fim/memory/salience.py
+ D fim/memory/trace_bank.py
+ D fim/models/decoder.py
+ D fim/models/encoder.py
+ D fim/models/fim_model.py
+ D fim/models/init.py
+ D fim/models/latent_operator.py
+ D fim/operators/advection.py
+ D fim/operators/damping.py
+ D fim/operators/diffusion.py
+ D fim/operators/init.py
+ D fim/operators/propagation.py
+ D fim/operators/reaction.py
+ D fim/operators/spectral.py
+ D fim/operators/write.py
+ D fim/physics/base.py
+ D fim/physics/diffusion_equation.py
+ D fim/physics/fractional_pde.py
+ D fim/physics/init.py
+ D fim/physics/navier_stokes.py
+ D fim/physics/wave_equation.py
+ D fim/stochastic/brownian.py
+ D fim/stochastic/init.py
+ D fim/stochastic/levy.py
+ D fim/stochastic/noise.py
+ D fim/stochastic/sde.py
+ D fim/training/losses.py
+ D fim/training/optimizer.py
+ D fim/training/rollout.py
+ D fim/training/scheduler.py
+ D fim/training/trainer.py
+ D fim/utils/checkpoint.py
+ D fim/utils/config.py
+ D fim/utils/init.py
+ D fim/utils/logging.py
+ D fim/utils/seed.py
+ D fim/utils/visualization.py
+?? .DS_Store
+?? .github/workflows/itfm-sota-ci.yml
+?? FIM/.gitattributes
+?? FIM/.github/
+?? FIM/.gitignore
+?? FIM/ARCHIVAL_RELEASE.md
+?? FIM/AUDIT_CHECKLIST_2026-09-13.md
+?? FIM/CANONICAL_LINEAGE.md
+?? FIM/CLAIM_EVIDENCE_MATRIX.csv
+?? FIM/COMPLETION_MANIFEST.md
+?? FIM/FINAL_STATUS_2026-09-30.md
+?? FIM/PROJECT_STATUS.md
+?? FIM/QFIM/
+?? FIM/README.md
+?? FIM/REPRODUCE.md
+?? FIM/RESEARCH_TRUTH.md
+?? FIM/SAME_LINEAGE.md
+?? FIM/TRUTH_MAP.md
+?? FIM/chaos.png
+?? FIM/chaos_divergence.png
+?? FIM/configs/
+?? FIM/docs/
+?? FIM/energy.png
+?? FIM/fim/
+?? FIM/fim_experiments/
+?? FIM/latent_heatmap.png
+?? FIM/latent_manifold.png
+?? FIM/latent_norm.png
+?? FIM/latent_surface.png
+?? FIM/main.py
+?? FIM/multi_dim.png
+?? FIM/notebooks/
+?? FIM/output/
+?? FIM/paper/
+?? FIM/paper_reference_results.json
+?? FIM/publication_package/
+?? FIM/pyproject.toml
+?? FIM/pytest.ini
+?? FIM/requirements.txt
+?? FIM/research/
+?? FIM/results/
+?? FIM/results_smoke/
+?? FIM/salience_heatmap.png
+?? FIM/salience_hist.png
+?? FIM/salience_spatial.png
+?? FIM/salience_time.png
+?? FIM/scripts/
+?? FIM/tests/
+?? FIM/time_evolution_3d.png
+?? FIM/trajectory.png
+?? FIM/uv.lock
+?? ITFM_V2_STATUS_2026-10-11.md
+?? PUBLICATION_READINESS_CHECKLIST_2026-10-11.md
+?? SUCCESSOR_IDEA_AUDIT_2026-10-11.md
+?? UPGRADE_PLAN_2026-10-14.md
+?? audits/
+?? remote_execution/
+?? successor/

@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-14T14:02:37.098732+00:00",
+  "branch": "codex/itfm-remote-20261014",
+  "manifest_sha256": "4ac81e7c97e13a071c2fd7b565a799dc4827769c9f6890236bcf0f1d01cbb436",
+  "status": "V2_PASS_V3_PARTIAL_RESOURCE_FAILURE_CAMPAIGN_CONSUMED",
+  "paid_compute": false,
+  "run_id": 38583855204,
+  "commit": "e1555619c8992f4faf46fe442d3751623fd57852",
+  "retained_prior_attempts": [
+    38577058691,
+    38577627585,
+    38577967203
+  ],
+  "all_attempts_retained": [
+    38577058691,
+    38577627585,
+    38577967203,
+    38578599860,
+    38583855204
+  ],
+  "v3_campaign_consumed": true,
+  "latest_report": "audits/seed307-diagnosis-20261014/REPORT.md"
+}

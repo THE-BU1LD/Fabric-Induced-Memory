@@ -1,0 +1,230 @@
+verify	Set up job	﻿2026-10-16T03:44:46.0034020Z Current runner version: '2.337.0'
+verify	Set up job	2026-10-16T03:44:46.0053350Z ##[group]Runner Image Provisioner
+verify	Set up job	2026-10-16T03:44:46.0053980Z Hosted Compute Agent
+verify	Set up job	2026-10-16T03:44:46.0054350Z Version: 20260828.587
+verify	Set up job	2026-10-16T03:44:46.0054770Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+verify	Set up job	2026-10-16T03:44:46.0055250Z Build Date: 2026-08-28T16:44:25Z
+verify	Set up job	2026-10-16T03:44:46.0055710Z Worker ID: {78be5847-7d38-4191-a461-533aaa4c7c8d}
+verify	Set up job	2026-10-16T03:44:46.0056460Z Azure Region: westus
+verify	Set up job	2026-10-16T03:44:46.0056900Z ##[endgroup]
+verify	Set up job	2026-10-16T03:44:46.0059050Z ##[group]Operating System
+verify	Set up job	2026-10-16T03:44:46.0059530Z macOS
+verify	Set up job	2026-10-16T03:44:46.0059860Z 26.6.2
+verify	Set up job	2026-10-16T03:44:46.0060200Z 25G83
+verify	Set up job	2026-10-16T03:44:46.0060530Z ##[endgroup]
+verify	Set up job	2026-10-16T03:44:46.0060900Z ##[group]Runner Image
+verify	Set up job	2026-10-16T03:44:46.0061330Z Image: macos-26-arm64
+verify	Set up job	2026-10-16T03:44:46.0061720Z Version: 20260907.0351.1
+verify	Set up job	2026-10-16T03:44:46.0062460Z Included Software: https://github.com/actions/runner-images/blob/macos-26-arm64/20260907.0351/images/macos/macos-26-arm64-Readme.md
+verify	Set up job	2026-10-16T03:44:46.0063610Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-26-arm64%2F20260907.0351
+verify	Set up job	2026-10-16T03:44:46.0064260Z ##[endgroup]
+verify	Set up job	2026-10-16T03:44:46.0065090Z ##[group]GITHUB_TOKEN Permissions
+verify	Set up job	2026-10-16T03:44:46.0066350Z Actions: read
+verify	Set up job	2026-10-16T03:44:46.0066710Z Contents: read
+verify	Set up job	2026-10-16T03:44:46.0067070Z Metadata: read
+verify	Set up job	2026-10-16T03:44:46.0067430Z ##[endgroup]
+verify	Set up job	2026-10-16T03:44:46.0068910Z Secret source: Actions
+verify	Set up job	2026-10-16T03:44:46.0069480Z Cache mode: write
+verify	Set up job	2026-10-16T03:44:46.0069920Z Prepare workflow directory
+verify	Set up job	2026-10-16T03:44:46.0857120Z Prepare all required actions
+verify	Set up job	2026-10-16T03:44:46.0905100Z Getting action download info
+verify	Set up job	2026-10-16T03:44:46.2956830Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+verify	Set up job	2026-10-16T03:44:46.9498660Z Download action repository 'actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1' (SHA:ece7cb06caefa5fff74198d8649806c4678c61a1)
+verify	Set up job	2026-10-16T03:44:47.2041110Z Complete job name: verify
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-16T03:44:47.3072180Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3073780Z with:
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3074380Z   persist-credentials: false
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3075140Z   repository: THE-BU1LD/Fabric-Induced-Memory
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3084560Z   token: ***
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3085280Z   ssh-strict: true
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3085870Z   ssh-user: git
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3086440Z   clean: true
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3087340Z   sparse-checkout-cone-mode: true
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3088220Z   fetch-depth: 1
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3088970Z   fetch-tags: false
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3089580Z   show-progress: true
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3090180Z   lfs: false
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3090760Z   submodules: false
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3091350Z   set-safe-directory: true
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3092060Z   allow-unsafe-pr-checkout: false
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3094080Z env:
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3094780Z   PYTHONDONTWRITEBYTECODE: 1
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3095540Z   PYTHONNOUSERSITE: 1
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3096140Z   OMP_NUM_THREADS: 1
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3096900Z   MKL_NUM_THREADS: 1
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3098800Z   OPENBLAS_NUM_THREADS: 1
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3099640Z   VECLIB_MAXIMUM_THREADS: 1
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3101350Z   MANIFEST_SHA: 87f9956c654e6991a815335258e1d281d816bc854c06a9f56f705e63d942ea82
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3103200Z   RUNNER_SCRIPT: successor/itfm_v4/repairs/observation_pipeline_v1/runtime_verification.py
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.3106010Z ##[endgroup]
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.7787590Z Syncing repository: THE-BU1LD/Fabric-Induced-Memory
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.7789720Z ##[group]Getting Git version info
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.7790820Z Working directory is '/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory'
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.7792400Z [command]/opt/homebrew/bin/git version
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8238170Z git version 2.55.0
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8272820Z ##[endgroup]
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8287830Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/e7d8fd2c-e079-4070-831b-62e02e192a9f/.gitconfig'
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8294190Z Temporarily overriding HOME='/Users/runner/work/_temp/e7d8fd2c-e079-4070-831b-62e02e192a9f' before making global git config changes
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8299140Z Adding repository directory to the temporary git global config as a safe directory
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8304490Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8458540Z Deleting the contents of '/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory'
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8463490Z ##[group]Initializing the repository
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8466970Z [command]/opt/homebrew/bin/git init /Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8725040Z hint: Using 'master' as the name for the initial branch. This default branch name
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8728730Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8730990Z hint: to use in all of your new repositories, which will suppress this warning,
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8732430Z hint: call:
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8733230Z hint:
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8734170Z hint: 	git config --global init.defaultBranch <name>
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8735080Z hint:
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8735950Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8737380Z hint: 'development'. The just-created branch can be renamed via this command:
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8738590Z hint:
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8739260Z hint: 	git branch -m <name>
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8739940Z hint:
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8740820Z hint: Disable this message with "git config set advice.defaultBranchName false"
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8742780Z Initialized empty Git repository in /Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.git/
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8746350Z [command]/opt/homebrew/bin/git remote add origin https://github.com/THE-BU1LD/Fabric-Induced-Memory
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8821480Z ##[endgroup]
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8822790Z ##[group]Disabling automatic garbage collection
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.8824850Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.9002080Z ##[endgroup]
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.9004740Z ##[group]Setting up auth
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.9010190Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:47.9102610Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:48.0426490Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:48.0502640Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:48.2228210Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:48.2231580Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:48.4197160Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:48.4207040Z ##[endgroup]
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:48.4212540Z ##[group]Fetching the repository
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:48.4218860Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b2292c548f3c39d6eb828a237942e00c52fc0eaf:refs/remotes/origin/codex/itfm-v4-runtime-20261016
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.0823520Z From https://github.com/THE-BU1LD/Fabric-Induced-Memory
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.0826340Z  * [new ref]         b2292c548f3c39d6eb828a237942e00c52fc0eaf -> origin/codex/itfm-v4-runtime-20261016
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.0829760Z ##[endgroup]
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.0832090Z ##[group]Determining the checkout info
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.0833510Z ##[endgroup]
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.0834500Z [command]/opt/homebrew/bin/git sparse-checkout disable
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.0932950Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.1025350Z ##[group]Checking out the ref
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.1027510Z [command]/opt/homebrew/bin/git checkout --progress --force -B codex/itfm-v4-runtime-20261016 refs/remotes/origin/codex/itfm-v4-runtime-20261016
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.1238530Z Switched to a new branch 'codex/itfm-v4-runtime-20261016'
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.1249010Z branch 'codex/itfm-v4-runtime-20261016' set up to track 'origin/codex/itfm-v4-runtime-20261016'.
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.1253770Z ##[endgroup]
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.1375780Z [command]/opt/homebrew/bin/git log -1 --format=%H
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.1468650Z b2292c548f3c39d6eb828a237942e00c52fc0eaf
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.1481670Z ##[group]Removing auth
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.1485080Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.1569420Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.2997140Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.3070250Z http.https://github.com/.extraheader
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.3214270Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.3219000Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.4452350Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.4758570Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+verify	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:49.6152140Z ##[endgroup]
+verify	Enforce exact checkout and one authorized workflow run	﻿2026-10-16T03:44:49.6336660Z ##[group]Run test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6337320Z ^[[36;1mtest "$(git rev-parse HEAD)" = "$GITHUB_SHA"^[[0m
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6337780Z ^[[36;1mpython3 - <<'PY_ONCE'^[[0m
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6338120Z ^[[36;1mimport json, os, subprocess^[[0m
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6338610Z ^[[36;1mrepo = os.environ['GITHUB_REPOSITORY']^[[0m
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6339980Z ^[[36;1mrun = json.loads(subprocess.check_output(['gh','api',f'/repos/{repo}/actions/runs/{os.environ["GITHUB_RUN_ID"]}']))^[[0m
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6340920Z ^[[36;1mruns = json.loads(subprocess.check_output(['gh','api',f'/repos/{repo}/actions/workflows/{run["workflow_id"]}/runs?per_page=100']))^[[0m
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6341750Z ^[[36;1massert runs['total_count'] == 1 and runs['workflow_runs'][0]['id'] == run['id'], 'Previous workflow attempt exists; review required'^[[0m
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6342250Z ^[[36;1mPY_ONCE^[[0m
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6417850Z shell: /bin/bash -e {0}
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6418580Z env:
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6418870Z   PYTHONDONTWRITEBYTECODE: 1
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6419990Z   PYTHONNOUSERSITE: 1
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6420680Z   OMP_NUM_THREADS: 1
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6420990Z   MKL_NUM_THREADS: 1
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6421590Z   OPENBLAS_NUM_THREADS: 1
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6422200Z   VECLIB_MAXIMUM_THREADS: 1
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6422800Z   MANIFEST_SHA: 87f9956c654e6991a815335258e1d281d816bc854c06a9f56f705e63d942ea82
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6423380Z   RUNNER_SCRIPT: successor/itfm_v4/repairs/observation_pipeline_v1/runtime_verification.py
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6427570Z   GH_TOKEN: ***
+verify	Enforce exact checkout and one authorized workflow run	2026-10-16T03:44:49.6427850Z ##[endgroup]
+verify	Reclaim disposable host caches and admit runtime setup	﻿2026-10-16T03:44:51.1020830Z ##[group]Run python3 -c 'import subprocess; subprocess.run(["sudo", "-n", "/usr/sbin/purge"], check=True, timeout=20)'
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1021550Z ^[[36;1mpython3 -c 'import subprocess; subprocess.run(["sudo", "-n", "/usr/sbin/purge"], check=True, timeout=20)'^[[0m
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1022470Z ^[[36;1mpython3 -B "$RUNNER_SCRIPT" preflight --manifest-sha256 "$MANIFEST_SHA" --receipt setup-admission.json^[[0m
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1055350Z shell: /bin/bash -e {0}
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1055580Z env:
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1055760Z   PYTHONDONTWRITEBYTECODE: 1
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1055950Z   PYTHONNOUSERSITE: 1
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1056270Z   OMP_NUM_THREADS: 1
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1056490Z   MKL_NUM_THREADS: 1
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1056640Z   OPENBLAS_NUM_THREADS: 1
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1056830Z   VECLIB_MAXIMUM_THREADS: 1
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1057120Z   MANIFEST_SHA: 87f9956c654e6991a815335258e1d281d816bc854c06a9f56f705e63d942ea82
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1057570Z   RUNNER_SCRIPT: successor/itfm_v4/repairs/observation_pipeline_v1/runtime_verification.py
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:51.1057960Z ##[endgroup]
+verify	Reclaim disposable host caches and admit runtime setup	2026-10-16T03:44:55.5539380Z {"at": "2026-10-16T03:44:53.394211+00:00", "disk_free_bytes": 101917167616, "elapsed_seconds": 2.1500455419999867, "manifest_sha256": "87f9956c654e6991a815335258e1d281d816bc854c06a9f56f705e63d942ea82", "model_modules_imported": [], "peak_rss_raw": 31047680, "peak_rss_units": "bytes on macOS; KiB on Linux", "pre_import_sample": {"free_mib": 3460.375, "pageouts": 1524, "swap_mib": 0.0}, "samples": [{"free_mib": 3486.1875, "pageouts": 1524, "swap_mib": 0.0}, {"free_mib": 3462.859375, "pageouts": 1524, "swap_mib": 0.0}], "scope": "Tensor software verification only; zero scientific trials.", "status": "PASS_PREFLIGHT_ONLY", "tests_run": 0}
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	﻿2026-10-16T03:44:55.6733610Z ##[group]Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6734160Z with:
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6734410Z   python-version: 3.11.15
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6734770Z   check-latest: false
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6737070Z   token: ***
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6737340Z   update-environment: true
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6737720Z   allow-prereleases: false
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6737970Z   freethreaded: false
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6738300Z env:
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6738510Z   PYTHONDONTWRITEBYTECODE: 1
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6738910Z   PYTHONNOUSERSITE: 1
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6739170Z   OMP_NUM_THREADS: 1
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6739380Z   MKL_NUM_THREADS: 1
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6739700Z   OPENBLAS_NUM_THREADS: 1
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6739960Z   VECLIB_MAXIMUM_THREADS: 1
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6740380Z   MANIFEST_SHA: 87f9956c654e6991a815335258e1d281d816bc854c06a9f56f705e63d942ea82
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6740920Z   RUNNER_SCRIPT: successor/itfm_v4/repairs/observation_pipeline_v1/runtime_verification.py
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:55.6741510Z ##[endgroup]
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:56.2186820Z ##[group]Installed versions
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:56.2219480Z Version 3.11.15 was not found in the local cache
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	2026-10-16T03:44:57.5422700Z ##[error]The version '3.11.15' with architecture 'arm64' was not found for macOS 26.6.2.
+verify	Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1	The list of all available versions can be found here: https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json
+verify	Preserve receipts in downloadable job logs	﻿2026-10-16T03:44:57.5587320Z ##[group]Run python3 - <<'PY_RETAIN'
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5588180Z ^[[36;1mpython3 - <<'PY_RETAIN'^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5588780Z ^[[36;1mimport base64, hashlib^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5589330Z ^[[36;1mfrom pathlib import Path^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5590620Z ^[[36;1mfor pattern in ('*-admission.json','scalar-receipt.json','runtime-receipt.json*','dependency-check.txt','resolved-environment.txt'):^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5592030Z ^[[36;1m    for p in sorted(Path('.').glob(pattern)):^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5592680Z ^[[36;1m        if not p.is_file():^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5593210Z ^[[36;1m            continue^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5593800Z ^[[36;1m        if p.stat().st_size > 8*1024*1024:^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5594690Z ^[[36;1m            raise ValueError('Oversize output retained on runner: '+str(p))^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5595530Z ^[[36;1m        raw=p.read_bytes()^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5596380Z ^[[36;1m        print('ITFM_FILE_BEGIN '+p.name+' '+hashlib.sha256(raw).hexdigest(),flush=True)^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5604680Z ^[[36;1m        encoded=base64.b64encode(raw).decode()^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5605390Z ^[[36;1m        for start in range(0,len(encoded),6000):^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5606210Z ^[[36;1m            print('ITFM_BASE64 '+encoded[start:start+6000],flush=True)^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5607060Z ^[[36;1m        print('ITFM_FILE_END '+p.name,flush=True)^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5607690Z ^[[36;1mPY_RETAIN^[[0m
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5679610Z shell: /bin/bash -e {0}
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5679860Z env:
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5680030Z   PYTHONDONTWRITEBYTECODE: 1
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5680250Z   PYTHONNOUSERSITE: 1
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5680410Z   OMP_NUM_THREADS: 1
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5680590Z   MKL_NUM_THREADS: 1
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5680780Z   OPENBLAS_NUM_THREADS: 1
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5680970Z   VECLIB_MAXIMUM_THREADS: 1
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5681260Z   MANIFEST_SHA: 87f9956c654e6991a815335258e1d281d816bc854c06a9f56f705e63d942ea82
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5681960Z   RUNNER_SCRIPT: successor/itfm_v4/repairs/observation_pipeline_v1/runtime_verification.py
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.5682430Z ##[endgroup]
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.6759970Z ITFM_FILE_BEGIN setup-admission.json f7acff4ddf4cd3734e0e444ebd47303141b13b67d6ad52bcd500b3807f1e63ad
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.6780080Z ITFM_BASE64 ewogICJhdCI6ICIyMDI2LTEwLTE2VDAzOjQ0OjUzLjM5NDIxMSswMDowMCIsCiAgInN0YXR1cyI6ICJQQVNTX1BSRUZMSUdIVF9PTkxZIiwKICAidGVzdHNfcnVuIjogMCwKICAibWFuaWZlc3Rfc2hhMjU2IjogIjg3Zjk5NTZjNjU0ZTY5OTFhODE1MzM1MjU4ZTFkMjgxZDgxNmJjODU0YzA2YTlmNTZmNzA1ZTYzZDk0MmVhODIiLAogICJtb2RlbF9tb2R1bGVzX2ltcG9ydGVkIjogW10sCiAgInNjb3BlIjogIlRlbnNvciBzb2Z0d2FyZSB2ZXJpZmljYXRpb24gb25seTsgemVybyBzY2llbnRpZmljIHRyaWFscy4iLAogICJzYW1wbGVzIjogWwogICAgewogICAgICAiZnJlZV9taWIiOiAzNDg2LjE4NzUsCiAgICAgICJwYWdlb3V0cyI6IDE1MjQsCiAgICAgICJzd2FwX21pYiI6IDAuMAogICAgfSwKICAgIHsKICAgICAgImZyZWVfbWliIjogMzQ2Mi44NTkzNzUsCiAgICAgICJwYWdlb3V0cyI6IDE1MjQsCiAgICAgICJzd2FwX21pYiI6IDAuMAogICAgfQogIF0sCiAgImRpc2tfZnJlZV9ieXRlcyI6IDEwMTkxNzE2NzYxNiwKICAicHJlX2ltcG9ydF9zYW1wbGUiOiB7CiAgICAiZnJlZV9taWIiOiAzNDYwLjM3NSwKICAgICJwYWdlb3V0cyI6IDE1MjQsCiAgICAic3dhcF9taWIiOiAwLjAKICB9LAogICJlbGFwc2VkX3NlY29uZHMiOiAyLjE1MDA0NTU0MTk5OTk4NjcsCiAgInBlYWtfcnNzX3JhdyI6IDMxMDQ3NjgwLAogICJwZWFrX3Jzc191bml0cyI6ICJieXRlcyBvbiBtYWNPUzsgS2lCIG9uIExpbnV4Igp9Cg==
+verify	Preserve receipts in downloadable job logs	2026-10-16T03:44:57.6802290Z ITFM_FILE_END setup-admission.json
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-16T03:44:57.7073890Z Post job cleanup.
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:57.8630990Z [command]/opt/homebrew/bin/git version
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:57.8993190Z git version 2.55.0
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:57.9020300Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/025c5a6b-daab-4546-8d1e-7ecfcd1c4bdb/.gitconfig'
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:57.9024550Z Temporarily overriding HOME='/Users/runner/work/_temp/025c5a6b-daab-4546-8d1e-7ecfcd1c4bdb' before making global git config changes
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:57.9025340Z Adding repository directory to the temporary git global config as a safe directory
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:57.9027940Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:57.9248530Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:57.9363910Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:58.1112340Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:58.1220160Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:58.3287850Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+verify	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-16T03:44:58.3601060Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+verify	Complete job	﻿2026-10-16T03:44:58.5381660Z Cleaning up orphan processes
+verify	Complete job	2026-10-16T03:44:58.8770420Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

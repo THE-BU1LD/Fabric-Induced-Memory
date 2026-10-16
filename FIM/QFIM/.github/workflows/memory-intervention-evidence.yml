@@ -1,0 +1,240 @@
+name: QFIM paired memory intervention evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/memory-intervention-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  TARGET_SHA: 0d4d34b0dacbc13fbf10c3e4316ea44fc4f40d6b
+  PYTHONUNBUFFERED: '1'
+
+jobs:
+  paired-memory-intervention:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [11, 23, 37, 51, 71]
+        benchmark: [lorenz, fractional, delayed_recall]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Train frozen FIM without legacy evaluator
+        run: |
+          root="artifacts/memory_intervention/${{ matrix.benchmark }}/seed_${{ matrix.seed }}"
+          mkdir -p "$root"
+          set -o pipefail
+          python main.py \
+            --benchmark '${{ matrix.benchmark }}' \
+            --model fim_plus \
+            --seed '${{ matrix.seed }}' \
+            --device cpu \
+            --epochs 10 \
+            --batch_size 32 \
+            --dataset_size 512 \
+            --hidden 64 \
+            --trace_dim 32 \
+            --rollout_steps 16 \
+            --results_root "$root/train" \
+            --exp_name memory_intervention_train \
+            --no_eval \
+            2>&1 | tee "$root/train.log"
+      - name: Paired same-checkpoint interventions
+        run: |
+          root="artifacts/memory_intervention/${{ matrix.benchmark }}/seed_${{ matrix.seed }}"
+          python - "$root" '${{ matrix.seed }}' '${{ matrix.benchmark }}' <<'PY'
+          import csv
+          import json
+          import math
+          import random
+          import sys
+          from pathlib import Path
+
+          import torch
+
+          from fim_experiments.main import build_system, select_benchmark
+
+          root = Path(sys.argv[1])
+          seed = int(sys.argv[2])
+          benchmark_name = sys.argv[3]
+          train_dir = root / 'train' / 'memory_intervention_train' / f'{benchmark_name}_fim_plus'
+          checkpoint = torch.load(train_dir / 'checkpoints' / 'final_state.pt', map_location='cpu', weights_only=False)
+          cfg = checkpoint['config']
+          cfg['runtime']['device'] = 'cpu'
+
+          benchmark = select_benchmark(cfg['benchmark'])
+          model = build_system(cfg, benchmark, torch.device('cpu'))
+          model.load_state_dict(checkpoint['model_state_dict'], strict=True)
+          model.eval()
+
+          eval_seed = seed + 100000
+          random.seed(eval_seed)
+          torch.manual_seed(eval_seed)
+          batch_size = 32
+          steps = 32 if benchmark_name != 'delayed_recall' else int(getattr(benchmark, 'default_steps', 16))
+          x0 = benchmark.sample_initial_state(batch_size, device='cpu')
+          gt = benchmark.rollout(x0, steps=steps)
+
+          def prepare(x):
+              if x.ndim == 2:
+                  return x.unsqueeze(1).unsqueeze(1)
+              if x.ndim == 3:
+                  return x.unsqueeze(1)
+              return x
+
+          def align(pred, target):
+              if pred.shape == target.shape:
+                  return target
+              return target.reshape_as(pred)
+
+          @torch.no_grad()
+          def run_condition(name):
+              if hasattr(model, 'reset_state'):
+                  model.reset_state()
+              elif hasattr(model, 'clear_memory'):
+                  model.clear_memory()
+              current = prepare(x0)
+              per_example_sse = torch.zeros(batch_size)
+              per_example_count = torch.zeros(batch_size)
+              final_per_example = None
+              retrieval_steps = 0
+              bank_sizes = []
+              step_mse = []
+              for t in range(steps):
+                  if name == 'clean_memory':
+                      store, retrieve = True, True
+                  elif name == 'no_retrieval':
+                      store, retrieve = True, False
+                  elif name == 'no_memory':
+                      store, retrieve = False, False
+                  elif name == 'clear_halfway':
+                      if t == steps // 2 and hasattr(model, 'clear_memory'):
+                          model.clear_memory()
+                      store, retrieve = True, True
+                  else:
+                      raise ValueError(name)
+
+                  out = model.step(current, store_traces=store, retrieve=retrieve)
+                  pred = out.prediction
+                  target = align(pred, gt[:, t + 1])
+                  flat_err = (pred.float() - target.float()).reshape(batch_size, -1) ** 2
+                  per_example_sse += flat_err.sum(dim=1)
+                  per_example_count += flat_err.shape[1]
+                  final_per_example = flat_err.mean(dim=1)
+                  step_mse.append(float(flat_err.mean().item()))
+                  if getattr(out, 'retrieved', None) is not None:
+                      retrieval_steps += 1
+                  bank = getattr(model, 'bank', None)
+                  bank_sizes.append(int(len(bank)) if bank is not None else 0)
+                  current = prepare(pred.detach())
+
+              per_example = per_example_sse / per_example_count.clamp_min(1)
+              return {
+                  'condition': name,
+                  'mean_mse': float(per_example.mean().item()),
+                  'median_mse': float(per_example.median().item()),
+                  'final_step_mse': float(final_per_example.mean().item()),
+                  'retrieval_steps': int(retrieval_steps),
+                  'retrieval_fraction_steps': float(retrieval_steps / max(steps, 1)),
+                  'max_bank_size': int(max(bank_sizes) if bank_sizes else 0),
+                  'final_bank_size': int(bank_sizes[-1] if bank_sizes else 0),
+                  'step_mse': step_mse,
+                  'per_example_mse': [float(x) for x in per_example.tolist()],
+              }
+
+          conditions = ['clean_memory', 'no_retrieval', 'no_memory', 'clear_halfway']
+          results = {name: run_condition(name) for name in conditions}
+          clean = torch.tensor(results['clean_memory']['per_example_mse'])
+
+          paired = {}
+          for name in conditions[1:]:
+              other = torch.tensor(results[name]['per_example_mse'])
+              delta = other - clean  # positive => clean memory has lower error
+              paired[name] = {
+                  'mean_delta_mse_other_minus_clean': float(delta.mean().item()),
+                  'median_delta_mse_other_minus_clean': float(delta.median().item()),
+                  'wins_clean_lower_error': int((delta > 0).sum().item()),
+                  'ties': int((delta == 0).sum().item()),
+                  'losses_clean_higher_error': int((delta < 0).sum().item()),
+                  'n': int(delta.numel()),
+                  'paired_dz': float(delta.mean().item() / delta.std(unbiased=True).item()) if delta.numel() > 1 and delta.std(unbiased=True).item() > 0 else None,
+                  'per_example_delta': [float(x) for x in delta.tolist()],
+              }
+
+          payload = {
+              'scientific_target_sha': '0d4d34b0dacbc13fbf10c3e4316ea44fc4f40d6b',
+              'analysis': 'post-freeze evaluator correction; same checkpoint paired intervention',
+              'benchmark': benchmark_name,
+              'seed': seed,
+              'eval_seed': eval_seed,
+              'batch_size': batch_size,
+              'steps': steps,
+              'training': {
+                  'epochs': 10,
+                  'dataset_size': 512,
+                  'batch_size': 32,
+                  'hidden': 64,
+                  'trace_dim': 32,
+                  'legacy_evaluation_disabled_during_training': True,
+              },
+              'conditions': results,
+              'paired_effects': paired,
+          }
+          (root / 'paired_memory_intervention.json').write_text(json.dumps(payload, indent=2))
+
+          with (root / 'per_example.csv').open('w', newline='') as f:
+              writer = csv.writer(f)
+              writer.writerow(['benchmark','seed','example','clean_memory','no_retrieval','no_memory','clear_halfway'])
+              for i in range(batch_size):
+                  writer.writerow([
+                      benchmark_name, seed, i,
+                      results['clean_memory']['per_example_mse'][i],
+                      results['no_retrieval']['per_example_mse'][i],
+                      results['no_memory']['per_example_mse'][i],
+                      results['clear_halfway']['per_example_mse'][i],
+                  ])
+
+          print(json.dumps({
+              'benchmark': benchmark_name,
+              'seed': seed,
+              'means': {k: v['mean_mse'] for k,v in results.items()},
+              'retrieval_fraction': results['clean_memory']['retrieval_fraction_steps'],
+              'max_bank_size': results['clean_memory']['max_bank_size'],
+              'paired': paired,
+          }, indent=2))
+          PY
+      - name: Preserve provenance
+        if: always()
+        run: |
+          root="artifacts/memory_intervention/${{ matrix.benchmark }}/seed_${{ matrix.seed }}"
+          {
+            echo "scientific_target_sha=$TARGET_SHA"
+            echo "workflow_head_sha=$GITHUB_SHA"
+            echo "benchmark=${{ matrix.benchmark }}"
+            echo "seed=${{ matrix.seed }}"
+            echo "utc=$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            python --version
+          } > "$root/PROVENANCE.txt"
+          find "$root" -type f -print0 | sort -z | xargs -0 sha256sum > "$root/MANIFEST.sha256" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qfim-memory-${{ matrix.benchmark }}-${{ matrix.seed }}
+          path: artifacts/memory_intervention/${{ matrix.benchmark }}/seed_${{ matrix.seed }}
+          if-no-files-found: warn

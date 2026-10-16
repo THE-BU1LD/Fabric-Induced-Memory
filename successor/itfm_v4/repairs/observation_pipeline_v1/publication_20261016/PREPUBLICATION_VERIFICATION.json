@@ -1,0 +1,11 @@
+{
+  "stage": "/private/tmp/itfm-v4-publish-l498zlk5",
+  "commit": "b2292c548f3c39d6eb828a237942e00c52fc0eaf",
+  "manifest_sha256": "87f9956c654e6991a815335258e1d281d816bc854c06a9f56f705e63d942ea82",
+  "files": 25,
+  "workflow_steps": 8,
+  "lint": "All checks passed!",
+  "historical_artifacts_preserved": true,
+  "scalar_tests": 87,
+  "remote_published": false
+}

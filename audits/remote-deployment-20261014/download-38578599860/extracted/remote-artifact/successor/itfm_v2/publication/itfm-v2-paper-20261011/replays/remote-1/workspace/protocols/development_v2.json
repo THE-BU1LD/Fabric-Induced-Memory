@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "protocol_id": "itfm-development-v2",
+  "status": "development",
+  "created_on": "2026-10-11",
+  "dataset": {
+    "family_count": 48,
+    "anchor_count": 3,
+    "query_repeats": 2,
+    "context_length": 3,
+    "height": 16,
+    "width": 16,
+    "channels": 1,
+    "washout_events": 12,
+    "residual_scale": 0.75,
+    "smoothness": 14.0,
+    "train_fraction": 0.625,
+    "validation_fraction": 0.1875,
+    "seeds": [101, 211, 307]
+  },
+  "memory": {
+    "topk": 1,
+    "capacity": 128,
+    "minimum_age": 4,
+    "temperature": 0.05,
+    "minimum_similarity": 0.999999,
+    "calibration": "validation_closed_form_clipped_0_1"
+  },
+  "controls": [
+    "no_memory",
+    "tensor_memory",
+    "erase",
+    "sign_flip",
+    "vector_broadcast",
+    "recent_only",
+    "last_value",
+    "paired_swap",
+    "oracle_anchor"
+  ],
+  "identifiability": {
+    "minimum_oracle_relative_gain": 0.20,
+    "require_full_context_alias": true,
+    "require_future_divergence": true,
+    "require_age_beyond_context": true
+  },
+  "decision": {
+    "minimum_control_relative_gain": 0.05,
+    "minimum_oracle_gap_recovery": 0.50,
+    "minimum_erasure_gain_removal": 0.80,
+    "minimum_swap_donor_direction": 0.90,
+    "minimum_retrieval_precision": 0.99,
+    "maximum_nonquery_variance_degradation": 0.01
+  },
+  "failure_policy": {
+    "retain_failed_runs": true,
+    "retain_all_seeds": true,
+    "no_silent_retry": true,
+    "no_post_outcome_threshold_changes": true
+  },
+  "protected_public_confirmation": {
+    "created": false,
+    "selected": false,
+    "accessible": false
+  }
+}
+

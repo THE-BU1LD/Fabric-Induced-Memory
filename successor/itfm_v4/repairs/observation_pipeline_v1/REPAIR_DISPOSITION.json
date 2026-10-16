@@ -1,0 +1,7 @@
+{
+  "at": "2026-10-15T15:43:38.089172+00:00",
+  "V07": "Target-free bridge source and tested observed-event core implemented; actual tensor validation and migration pending, NOT FULLY CLOSED",
+  "F04": "Arrival/maturity and same-tick ordering enforced in new ledger; tensor tests pending",
+  "V01_V06": "Existing reference validator now called by tested raw prediction recorder; source-level actual tensor export connection added; full experiment execution pending",
+  "other_scientific_flaws": "Unchanged; no checkpoint advanced"
+}

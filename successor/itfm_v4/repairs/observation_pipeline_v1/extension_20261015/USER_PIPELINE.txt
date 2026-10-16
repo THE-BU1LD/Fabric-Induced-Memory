@@ -1,0 +1,576 @@
+Redo this start to finish till the model is perfect. When it fails and even the current state, figure out what’s going well, what’s wrong a a checklist of all flaws how will everything be fixed and additionally improvements you will add and how and the proof it will work as well. Only stop once we have solid positive results and research
+
+ULTIMATE INDIVIDUAL RESEARCH PROJECT PIPELINE
+Research State / Project Contract
+Initialize: Create the canonical state of the project before any work begins
+Define the exact research question, scientific objective, current hypothesis, intended contribution, project scope, current phase, development budget, compute budget, protected evaluation boundary, repositories, datasets, artifacts, claims, decisions, failures, and complete project history.
+Create a single canonical research state that every future research session must read before beginning and update before finishing.
+Never allow previous negative results, failed experiments, frozen protocols, or important decisions to disappear between iterations.
+
+Abstract
+Find the problem, find the ideas, create something new, abstract the original concept, find the approach
+Understand the research field and identify important unresolved problems.
+Search deeply through existing literature, methods, mathematical approaches, implementations, benchmarks, and known limitations.
+Determine what existing approaches fundamentally struggle with rather than merely finding an arbitrary benchmark where they perform poorly.
+Generate multiple possible mechanisms and approaches.
+Abstract the strongest underlying idea away from one specific implementation or dataset.
+Determine:
+* The fundamental problem.
+* Why the problem matters.
+* What existing approaches do.
+* Where existing approaches fail.
+* Why those failures occur.
+* What principle could solve the failure.
+* What genuinely new mechanism can be introduced.
+* Why that mechanism should work.
+* Under what assumptions it should work.
+* Where it probably will not work.
+* What observation would falsify the central hypothesis.
+Reduce the research direction to one precise statement:
+Existing approaches struggle with X under Y. We propose Z because mechanism M predicts Q.
+Do not begin implementation until there is a defensible research contribution rather than merely an interesting idea.
+
+Concrete
+Ground the abstraction: Criticise each and every single flaw it has. Figure out what can be done so that it has the strongest defensible direction. Understand exactly what will be implemented
+Attack the idea adversarially before investing substantial compute.
+Criticise:
+* Novelty.
+* Scientific significance.
+* Mathematical validity.
+* Assumptions.
+* Identifiability.
+* Causality.
+* Computational feasibility.
+* Scaling.
+* Data requirements.
+* Potential leakage.
+* Confounders.
+* Baseline fairness.
+* Optimization difficulty.
+* Numerical stability.
+* Generalization.
+* Robustness.
+* Complexity.
+* Whether a simpler method accomplishes the same objective.
+* Whether apparent improvements could arise from additional parameters, compute, information, tuning, or data rather than the proposed mechanism.
+* Every obvious reviewer objection.
+* Every likely failure mode.
+For every flaw:
+Flaw → Cause → Severity → Possible Solution → Required Evidence
+Repair the idea where scientifically justified.
+Compare multiple implementations of the underlying abstraction and choose the strongest testable version.
+Define precisely what will be implemented and what will deliberately not be implemented.
+Create the complete model contract.
+Checkpoint 1 — IDEA READY
+Do not continue unless:
+* The question is precise.
+* Prior-art boundaries are understood.
+* The mechanism is explicit.
+* The contribution is falsifiable.
+* The project has a reason to exist.
+* Major conceptual flaws have been addressed.
+* A bounded experiment could meaningfully answer the question.
+
+Paper
+Write the introduction, related work, problem formulation, and specify the whole model. Each and every single component in chronological order. Full mathematical, technical, scientific and exact specifications of each component, function, algorithm and every single aspect of the idea
+Write the scientific specification before seeing final results.
+Complete:
+Introduction
+Define the problem, motivation, scientific gap, proposed mechanism, hypotheses, and intended contribution.
+Do not claim experimental success before it exists.
+Related Work / Literature Review
+Perform a rigorous literature review.
+Identify:
+* Closest methods.
+* Foundational work.
+* Strongest competing approaches.
+* Recent approaches.
+* Similar mechanisms.
+* Negative or contradictory findings.
+* Relevant theoretical results.
+* Existing benchmark results.
+* The exact novelty boundary.
+Every meaningful novelty claim must survive comparison against prior work.
+Problem Formulation
+Define:
+* Inputs.
+* Outputs.
+* State spaces.
+* Variables.
+* Units where applicable.
+* Assumptions.
+* Constraints.
+* Objective.
+* Optimization problem.
+* Probabilistic formulation where applicable.
+* Identifiability conditions.
+* Training setting.
+* Inference setting.
+* Evaluation setting.
+Full Model Specification
+Specify every component chronologically.
+For every component define:
+* Purpose.
+* Inputs.
+* Outputs.
+* Dimensions.
+* Parameters.
+* Equations.
+* Transformations.
+* Initialization.
+* Optimization.
+* Interactions with other components.
+* Computational complexity.
+* Expected behavior.
+* Failure behavior.
+Specify the complete forward process.
+Specify the complete training process.
+Specify the complete inference process.
+Specify all losses and regularization.
+Specify all algorithms exactly.
+Specify numerical procedures and tolerances where relevant.
+Specify all hyperparameters or explicitly identify those reserved for development calibration.
+The paper specification must be sufficiently complete that a competent researcher could independently implement the proposed model without guessing scientifically important details.
+Checkpoint 2 — MODEL SPECIFICATION READY
+No major architectural decision should remain implicit.
+
+Experiments
+Figure out what data will be used. What will we test it on and how will it be tested
+Determine exactly what evidence could support or reject the hypothesis.
+Define:
+* Datasets.
+* Dataset provenance.
+* Licenses.
+* Data generation where synthetic.
+* Independent experimental units.
+* Training data.
+* Development data.
+* Validation data.
+* Protected test data.
+* OOD data.
+* Intervention data where applicable.
+* Distribution shifts.
+* Primary endpoint.
+* Secondary endpoints.
+* Practical effect threshold.
+* Baselines.
+* Mechanism-off controls.
+* Compute-matched controls.
+* Parameter-matched controls where appropriate.
+* Statistical procedures.
+* Uncertainty estimation.
+* Number of independent repetitions.
+* Randomness sources.
+* Seed policy.
+* Failure handling.
+* Stopping conditions.
+* Compute measurement.
+* Memory measurement.
+* Runtime measurement.
+Explicitly design:
+The strongest experiment that could falsify the central hypothesis.
+Do not design experiments merely to make the method look favorable.
+
+Methodology
+Finalise and extend the experiments, add benchmarks and ablation tests as well and specify protocols and implementations
+Build the complete scientific evaluation matrix.
+Include:
+Primary Experiment
+Direct test of the central hypothesis.
+Strong Baselines
+Use credible state-of-the-art, classical, simple, and task-appropriate alternatives.
+Mechanism-Off Control
+Remove the proposed mechanism while preserving everything else possible.
+Compute-Matched Control
+Determine whether the same resources spent elsewhere explain the improvement.
+Parameter-Matched Control
+Where scientifically appropriate.
+Ablation Studies
+Remove or modify each meaningful component independently.
+Sensitivity Analysis
+Test important hyperparameters and assumptions.
+Robustness Tests
+Noise, perturbations, initialization changes, missing information, corrupted inputs, and relevant distribution changes.
+OOD / Generalization Tests
+Evaluate on genuinely unseen conditions appropriate to the scientific claim.
+Scaling Tests
+Where appropriate, vary dataset size, model size, problem difficulty, dimensionality, horizon, or compute.
+Efficiency Tests
+Measure runtime, memory, compute, convergence, and relevant algorithmic cost.
+Failure Analysis
+Preserve and analyze failure cases rather than deleting them.
+Statistical Protocol
+Predefine uncertainty calculations, comparisons, aggregation, multiplicity handling where relevant, and decision rules.
+Separate all experimentation into:
+DEVELOPMENT — outcomes may be inspected and used to improve the approach.
+CONFIRMATORY — protected outcomes cannot be used to redesign the tested hypothesis.
+Checkpoint 3 — METHODOLOGY READY
+Freeze the intended confirmatory methodology before protected outcomes are observed.
+
+Coding
+Phase 1
+Implement the full paper-specified model strictly. No pseudocode, no placeholders, no scaffolding. Highest-quality implementation, complete and calibrated
+Implement every scientifically required component.
+Build:
+* Model.
+* Mathematical operators.
+* Training system.
+* Inference system.
+* Configuration system.
+* Serialization/checkpointing.
+* Numerical safeguards.
+* Deterministic controls where possible.
+* Unit tests.
+* Mathematical tests.
+* Shape tests.
+* Gradient tests where applicable.
+* Edge-case tests.
+* Hand-verifiable sanity cases.
+Compare implementation against the paper line by line.
+Checkpoint 4 — MODEL IMPLEMENTED
+The implementation must faithfully represent the scientific specification.
+
+Phase 2
+Implement the full methodology strictly. No pseudocode, no placeholders, no scaffolding. Highest-quality implementation and calibrated
+Implement:
+* Dataset pipelines.
+* Preprocessing.
+* Frozen splits.
+* Baselines.
+* Controls.
+* Training.
+* Evaluation.
+* Metrics.
+* Ablations.
+* Robustness tests.
+* OOD tests.
+* Statistical analysis.
+* Compute profiling.
+* Experiment manifests.
+* Logging.
+* Artifact preservation.
+* Failure preservation.
+* Reproduction commands.
+* Figure generation.
+* Table generation.
+Every result must be traceable to its configuration, code revision, data/split identity, environment, raw output, and analysis.
+Checkpoint 5 — EXPERIMENT SYSTEM IMPLEMENTED
+The complete methodology must be executable end-to-end.
+
+Phase 3
+Increase algorithm efficiency, prepare it for runs, ensure it works end to end, remove anything unnecessary, improve engineering quality, and document scientifically meaningful changes
+Profile everything.
+Improve:
+* Runtime.
+* Memory.
+* Numerical stability.
+* Parallelism.
+* Batching.
+* Data loading.
+* Checkpointing.
+* Failure recovery.
+* Logging.
+* Reproducibility.
+* Resource efficiency.
+Remove unnecessary computation.
+Engineering-equivalent optimizations may be incorporated after equivalence testing.
+Any change that alters the scientific mechanism, hypothesis, model behavior, evaluation, or claim becomes a recorded development hypothesis and must be evaluated as such.
+Never silently change the science while optimizing the implementation.
+
+Dry Run
+Verify the complete system before expensive scientific execution
+Perform bounded end-to-end tests.
+Verify:
+* Data integrity.
+* Split integrity.
+* No leakage.
+* Baselines execute.
+* Proposed model executes.
+* Metrics are correct.
+* Artifacts save correctly.
+* Failures are retained.
+* Recovery works.
+* Statistics execute.
+* Figures regenerate.
+* Runtime is measured.
+* Memory is measured.
+* Expected full-run cost is measured.
+* Reproduction commands work.
+Checkpoint 6 — RUN READY
+Do not begin expensive execution until the complete pipeline works.
+
+Scientific Runs — Development
+Run the full development methodology
+Execute the authorized development matrix.
+Retain all outcomes.
+For every important weakness use:
+Observation → Hypothesized Cause → Proposed Change → Predicted Consequence → Discriminating Experiment → Result
+Do not blindly optimize metrics.
+Do not search indefinitely for a positive result.
+Use a fixed development/improvement budget.
+Audit:
+* Unexpected failures.
+* Unexpected successes.
+* Baseline behavior.
+* Mechanism behavior.
+* Ablations.
+* Variance.
+* Scaling.
+* Efficiency.
+* Generalization.
+* Confounding explanations.
+
+If Results Can Be Improved
+Result Audit
+Start back at Concrete, but first audit everything
+Audit the entire project against the observed evidence.
+Determine:
+* Exactly what failed.
+* Exactly what succeeded.
+* Whether the hypothesis was wrong.
+* Whether the implementation was wrong.
+* Whether the methodology was weak.
+* Whether the mechanism behaved as predicted.
+* Whether another variable explains the result.
+* Whether the baseline was stronger than expected.
+* Whether the model requires a scientifically justified modification.
+* Whether the evidence reveals a genuinely new hypothesis.
+Do not simply ask how to increase the score.
+Ask:
+What scientific explanation best accounts for the observed result?
+If a justified improvement exists, return to Concrete and revise the development version.
+Record every revision.
+Repeat only within the approved development budget.
+If the required change materially alters the hypothesis, mechanism, model, or scientific claim, create a new version / successor hypothesis rather than rewriting history.
+
+Scientific Freeze
+When development has produced a mature hypothesis worth testing:
+Freeze:
+* Research question.
+* Hypothesis.
+* Code commit.
+* Architecture.
+* Dataset versions.
+* Dataset hashes.
+* Splits.
+* Baselines.
+* Hyperparameters.
+* Metrics.
+* Primary endpoint.
+* Practical effect threshold.
+* Statistical analysis.
+* Seed/repetition policy.
+* Exclusion rules.
+* Stopping rules.
+* Environment.
+* Compute protocol.
+Protected evaluation must remain protected until this point.
+Checkpoint 7 — CONFIRMATORY PROTOCOL FROZEN
+
+Scientific Runs — Confirmatory
+Run the full frozen methodology
+Do not adapt the study to the observed protected outcomes.
+Retain:
+* Every successful run.
+* Every failed run.
+* Every seed.
+* Every configuration.
+* Raw outputs.
+* Logs.
+* Checkpoints.
+* Runtime.
+* Memory.
+* Compute.
+* Deviations.
+* Unexpected observations.
+Classify the scientific result:
+SUPPORTED
+The evidence supports the predefined claim within its tested scope.
+MIXED
+The mechanism works under some declared conditions but not others.
+NEGATIVE
+The valid evidence does not support the tested claim.
+INCONCLUSIVE
+The experiment cannot resolve the hypothesis with sufficient precision.
+INVALID
+A genuine methodological, implementation, leakage, measurement, or protocol defect invalidates the test.
+
+If Results Are Great / Supported
+Verify them.
+Attempt to break them.
+Run only the predefined robustness and verification work.
+Reproduce the major findings independently where practical.
+Ensure the advantage cannot be explained by:
+* Additional compute.
+* Additional parameters.
+* Additional information.
+* Leakage.
+* Baseline weakness.
+* Tuning asymmetry.
+* Statistical artifacts.
+* Incorrect aggregation.
+* Lucky initialization.
+Then proceed to final paper completion.
+
+If Results Are Mixed
+Determine precisely:
+* Where the method works.
+* Where it fails.
+* Why.
+* Whether the original broad claim must be narrowed.
+* Whether a new mechanism is suggested.
+Preserve the original result.
+A genuinely new hypothesis becomes a separately versioned successor study.
+Do not convert a post-hoc subgroup observation into the original confirmatory hypothesis.
+
+If Results Are Negative
+First verify that the experiment itself is valid.
+If valid:
+Accept the negative result.
+Determine whether the negative finding is scientifically informative enough for publication.
+Explain:
+* Why the mechanism failed.
+* Which assumptions failed.
+* Which regimes were tested.
+* What the evidence rules out.
+* What remains unresolved.
+Do not rerun the frozen experiment merely to obtain a positive result.
+A new idea becomes a new successor study.
+
+If Results Are Inconclusive
+Determine exactly why.
+Possible causes:
+* Excessive variance.
+* Insufficient independent units.
+* Weak measurement.
+* Insufficient precision.
+* Inadequate compute.
+* Unstable optimization.
+* Poorly identified effect.
+* Experimental limitations.
+Only authorize additional evidence if it can realistically resolve the uncertainty.
+Otherwise close the study as inconclusive with explicit limits.
+
+If Results Are Invalid
+Identify the exact validity failure.
+Examples:
+* Bug.
+* Leakage.
+* Incorrect metric.
+* Broken baseline.
+* Incorrect split.
+* Corrupted dataset.
+* Mathematical implementation error.
+* Invalid statistical procedure.
+Document the invalid evidence.
+Fix the defect.
+Freeze the corrected protocol.
+Rerun only the scientifically affected work.
+Never erase the invalid run history.
+
+Evidence Audit
+Audit every scientific claim before finishing the paper
+Construct:
+Claim → Experiment → Raw Artifact → Analysis → Figure/Table
+For every claim ask:
+* Is it directly supported?
+* Is the evidence valid?
+* Is uncertainty represented?
+* Is the scope correct?
+* Is there a simpler explanation?
+* Does the wording exceed the evidence?
+Remove or weaken unsupported claims.
+Audit all equations, citations, tables, figures, statistics, numerical values, and conclusions.
+Checkpoint 8 — EVIDENCE LOCKED
+
+Finish the Paper
+Complete:
+* Abstract.
+* Introduction.
+* Related work.
+* Problem formulation.
+* Method.
+* Algorithms.
+* Methodology.
+* Experimental setup.
+* Results.
+* Ablations.
+* Robustness.
+* OOD/generalization.
+* Efficiency.
+* Statistical analysis.
+* Failure analysis.
+* Discussion.
+* Limitations.
+* Conclusion.
+* Reproducibility statement.
+* Appendices.
+Generate directly from verified evidence:
+* Heatmaps.
+* Architecture diagrams.
+* Flowcharts.
+* Scientific diagrams.
+* Performance graphs.
+* Scaling plots.
+* Ablation plots.
+* Robustness plots.
+* Tables.
+* Statistical summaries.
+Every important number in the paper must trace back to retained evidence.
+
+Independent Verification
+Use a clean environment and independent review pass.
+Verify:
+* Repository builds.
+* Tests pass.
+* Major experiments reproduce where feasible.
+* Raw results regenerate analysis.
+* Figures regenerate.
+* Tables regenerate.
+* Paper numbers match artifacts.
+* Mathematical derivations are checked.
+* Citations support the statements attributed to them.
+* No unsupported claim remains.
+The verifier must actively attempt to find errors rather than merely confirm completion.
+Checkpoint 9 — VERIFIED
+
+Release
+Prepare the complete research artifact.
+Verify:
+* Final source.
+* Final PDF.
+* Figures.
+* Tables.
+* Bibliography.
+* Supplement.
+* Code.
+* Configurations.
+* Environment.
+* Dataset instructions.
+* Reproduction instructions.
+* Raw evidence where distributable.
+* Artifact hashes.
+* Authorship.
+* Licensing.
+* Ethics requirements.
+* Venue requirements.
+* arXiv package.
+* Submission package.
+Perform final visual and scientific inspection.
+Freeze the release commit/version.
+Record the final disposition:
+SUPPORTED / MIXED / NEGATIVE / INCONCLUSIVE
+Record the exact scope of the conclusion.
+Checkpoint 10 — RESEARCH COMPLETE
+The project is finished only when the scientific question has reached a defensible terminal conclusion and the evidence, implementation, paper, and reproducibility package are complete.
+
+Successor Research
+New observations do not reopen completed research automatically.
+A successor project requires:
+Previous Finding → Remaining Problem → New Hypothesis → Material Scientific Difference → New Falsifier → New Protocol → New Project Version
+Preserve the completed predecessor exactly as it was.
+Then restart from:
+ABSTRACT → CONCRETE → PAPER → EXPERIMENTS → METHODOLOGY → CODING → DEVELOPMENT → FREEZE → CONFIRMATION → EVIDENCE → PAPER → VERIFICATION → RELEASE
+ULTIMATE RULE
+Research does not continue until the result becomes positive.
+Research continues until the question becomes answerable, the experiment becomes valid, the evidence becomes defensible, and the project reaches a scientifically honest terminal state.

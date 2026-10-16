@@ -1,0 +1,15 @@
+{
+  "status": "COLLECTED_NOT_SCIENTIFICALLY_CERTIFIED",
+  "files": {
+    "REMOTE_MANIFEST.json": {
+      "sha256": "a6fa86f9db0b22500fe4817b664d82865c29b048bc0fa487ca57a4cbbd7c0e59",
+      "bytes": 16813
+    },
+    "remote-bootstrap/ADMISSION.json": {
+      "sha256": "71213fa6b4534123beaa663b86d07024d6ffd96768bcd6886c5dce8d70d69e22",
+      "bytes": 301
+    }
+  },
+  "bytes": 17114,
+  "source_manifest_sha256": "a6fa86f9db0b22500fe4817b664d82865c29b048bc0fa487ca57a4cbbd7c0e59"
+}

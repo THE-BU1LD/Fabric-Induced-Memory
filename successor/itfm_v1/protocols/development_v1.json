@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "protocol_id": "itfm-development-v1",
+  "status": "development",
+  "dataset": {
+    "name": "aliased_advection",
+    "trajectory_count": 96,
+    "time_steps": 48,
+    "height": 16,
+    "width": 16,
+    "channels": 1,
+    "context_length": 3,
+    "train_fraction": 0.625,
+    "validation_fraction": 0.1875,
+    "test_fraction": 0.1875,
+    "split_unit": "paired_family_id",
+    "seed": 20261011,
+    "speed": 1,
+    "smoothness": 18.0,
+    "observation_noise": 0.0
+  },
+  "models": [
+    "itfm_transport",
+    "itfm",
+    "no_memory",
+    "vector_broadcast",
+    "sham_transport",
+    "finite_history_cnn",
+    "conv_gru",
+    "gated_diagonal_ssm",
+    "periodic_xcorr"
+  ],
+  "primary_model": "itfm_transport",
+  "interventions": [
+    "none",
+    "erase",
+    "random_value",
+    "value_swap",
+    "oracle_value"
+  ],
+  "training": {
+    "seeds": [101, 211, 307],
+    "epochs": 20,
+    "batch_size": 8,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "early_stopping": "disabled for primary development comparison",
+    "selection_metric": "validation_alias_nmse"
+  },
+  "model": {
+    "hidden_channels": 32,
+    "key_channels": 16,
+    "memory_capacity": 128,
+    "topk": 4,
+    "temperature": 0.2,
+    "max_feedback": 1.0,
+    "parameter_match_relative_tolerance": 0.05,
+    "transport_mode": "bounded_xcorr",
+    "max_transport_shift": 2
+  },
+  "robustness": [
+    {
+      "name": "input_noise_005",
+      "kind": "context_corruption",
+      "noise_std": 0.05,
+      "missing_fraction": 0.0,
+      "seed": 401
+    },
+    {
+      "name": "missing_025",
+      "kind": "context_corruption",
+      "noise_std": 0.0,
+      "missing_fraction": 0.25,
+      "seed": 409
+    },
+    {
+      "name": "speed_2_ood",
+      "kind": "speed_ood",
+      "speed": 2,
+      "seed": 20261011
+    }
+  ],
+  "sensitivity": [],
+  "evaluation_sensitivity": [
+    {
+      "name": "topk_1",
+      "field": "topk",
+      "value": 1
+    },
+    {
+      "name": "topk_8",
+      "field": "topk",
+      "value": 8
+    },
+    {
+      "name": "max_transport_shift_1",
+      "field": "max_transport_shift",
+      "value": 1
+    },
+    {
+      "name": "max_transport_shift_3",
+      "field": "max_transport_shift",
+      "value": 3
+    }
+  ],
+  "endpoints": {
+    "primary": "alias_conditioned_nmse",
+    "secondary": [
+      "overall_nmse",
+      "non_alias_nmse",
+      "retrieval_regime_precision",
+      "erasure_degradation",
+      "swap_donor_direction",
+      "random_value_specificity_gap",
+      "runtime_seconds",
+      "peak_memory_bytes"
+    ],
+    "practical_relative_improvement": 0.05
+  },
+  "statistics": {
+    "independent_unit": "paired_family_id",
+    "aggregation": "mean within trajectory then across paired families",
+    "uncertainty": "paired-family bootstrap with 10000 resamples for the eventual full development run",
+    "multiplicity": "Holm adjustment for declared pairwise secondary comparisons",
+    "development_note": "No p-value from this development protocol authorizes a confirmatory claim."
+  },
+  "failure_policy": {
+    "retain_failed_runs": true,
+    "retain_all_seeds": true,
+    "no_silent_retry": true,
+    "exclude_only_by_predeclared_machine_readable_reason": true
+  },
+  "protected_test": {
+    "created": false,
+    "accessible": false,
+    "note": "A separate public-domain protocol must be selected and frozen after development."
+  }
+}
+

@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "protocol_id": "itfm-v2-sota-confirmation-v1",
+  "frozen_at": "2026-10-11T16:35:05+05:30",
+  "status": "FROZEN_BEFORE_PUBLIC_BENCHMARK_EXECUTION",
+  "claim_under_test": "A causally admissible episodic tensor-residual memory can materially improve strong public partial-observation and non-Markovian PDE forecasters beyond reproduced frontier models without using protected targets or materially increasing non-query error.",
+  "candidate": {
+    "name": "ITFM-R",
+    "form": "backbone prediction plus validation-calibrated retrieved residual tensor",
+    "primary_backbone": "LANO",
+    "secondary_backbone": "HS-FNO",
+    "key": "detached backbone latent context plus observation mask and lead-time encoding",
+    "value": "detached observation-space residual tensor available only after the target becomes observable",
+    "retrieval": "same-trajectory, strictly past, minimum-age, top-k cosine retrieval",
+    "calibration": "validation-only scalar or monotone gate; clipped to a preregistered safe range",
+    "test_updates": "past observed transitions may be appended online; test targets may never tune parameters, thresholds, keys, or calibration"
+  },
+  "stages": [
+    {
+      "id": "S0",
+      "name": "source_data_license_and_compute_admission",
+      "gate": "exact upstream commits, dataset checksums, licenses, split manifests, accelerator identity, wall-clock budget, memory budget, and carbon/cost receipt are recorded"
+    },
+    {
+      "id": "S1",
+      "name": "exact_frontier_reproduction",
+      "gate": "official LANO and HS-FNO results reproduce within declared tolerance before ITFM-R is evaluated"
+    },
+    {
+      "id": "S2",
+      "name": "oracle_memory_gap_triage",
+      "gate": "validation-only past-residual oracle improves the matching frontier backbone by at least 10% on at least two POBench-PDE datasets or three HS-FNO families"
+    },
+    {
+      "id": "S3",
+      "name": "development_and_ablation",
+      "gate": "train and validation only; fixed budgets; no protected-test inspection; all memory interventions retained"
+    },
+    {
+      "id": "S4",
+      "name": "frozen_multiseed_test",
+      "gate": "all declared seeds, cells, failures, latency, memory, parameter, and energy metrics are retained"
+    },
+    {
+      "id": "S5",
+      "name": "independent_reproduction",
+      "gate": "fresh environment and operator reproduce hashes, splits, primary metrics, and claim decision"
+    }
+  ],
+  "primary_track": {
+    "benchmark": "POBench-PDE",
+    "datasets": ["navier_stokes", "diffusion_reaction", "era5"],
+    "mask_patterns": ["point_wise", "patch_wise"],
+    "train_missing_percent": [5, 25, 50],
+    "test_missing_percent_by_train": {
+      "5": [5, 25],
+      "25": [25, 50],
+      "50": [50, 75]
+    },
+    "metric": "full-domain relative_l2",
+    "cells": 36,
+    "seeds": [101, 211, 307, 401, 503],
+    "required_baselines": [
+      "LANO official reproduction",
+      "LANO plus parameter-matched residual MLP",
+      "LANO plus lag-stack",
+      "LANO plus ConvGRU",
+      "FNO-MPT",
+      "LNO-MPT",
+      "OFormer",
+      "GNOT",
+      "IPOT",
+      "MIONet",
+      "persistence and climatology"
+    ],
+    "material_sota_gate": {
+      "minimum_macro_relative_error_reduction_vs_reproduced_lano": 0.10,
+      "minimum_cells_won_of_36": 30,
+      "maximum_relative_regression_any_cell": 0.02,
+      "minimum_seed_win_fraction": 0.80,
+      "family_cluster_bootstrap_confidence": 0.95,
+      "multiple_comparison_control": "Holm at alpha 0.05"
+    }
+  },
+  "secondary_track": {
+    "benchmark": "HS-FNO delay-PDE suite",
+    "families": [
+      "delayed_reaction_diffusion",
+      "epidemic_delay",
+      "nonlocal_neural_field",
+      "delayed_wave",
+      "distributed_memory"
+    ],
+    "seeds": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+    "required_baselines": [
+      "HS-FNO official reproduction",
+      "current-state FNO",
+      "lag-stack FNO",
+      "history-to-history FNO",
+      "ConvLSTM",
+      "Transformer",
+      "parameter-matched HS-FNO"
+    ],
+    "material_sota_gate": {
+      "reported_reference_rollout_error": 0.094,
+      "maximum_target_rollout_error": 0.0799,
+      "minimum_relative_improvement_vs_reproduced_hs_fno": 0.15,
+      "minimum_family_wins_of_5": 4,
+      "maximum_relative_regression_any_family": 0.02
+    }
+  },
+  "memory_causality_controls": [
+    "no_memory",
+    "erase_retrieved_value",
+    "sign_flip_retrieved_value",
+    "spatial_shuffle_retrieved_value",
+    "channel_mean_broadcast",
+    "recent_only",
+    "last_residual",
+    "wrong_trajectory",
+    "time_permuted_bank",
+    "oracle_past_residual"
+  ],
+  "fairness": {
+    "optimization": "equal train examples, early-stopping information, tuning trials, and wall-clock envelope within each backbone class",
+    "capacity": "report backbone, adapter, and memory-bank parameters/bytes separately; include parameter-matched learned residual control",
+    "compute": "report training and inference wall time, peak accelerator memory, throughput, and energy where available",
+    "data": "official trajectory-level splits only; no family or trajectory crosses a split",
+    "failures": "all seeds, cells, OOMs, divergence, and unavailable baselines remain in the manifest"
+  },
+  "protected_test_policy": {
+    "allowed_before_freeze": [
+      "schema validation",
+      "shape and dtype checks",
+      "train/validation oracle-gap triage",
+      "upstream reproduction on official validation settings"
+    ],
+    "forbidden_before_final_run": [
+      "viewing candidate test metrics",
+      "choosing datasets or cells from candidate test outcomes",
+      "changing retrieval thresholds from candidate test outcomes",
+      "dropping failed seeds or cells"
+    ]
+  },
+  "claim_policy": {
+    "broad_sota_allowed_only_if": "both primary and secondary material gates pass plus independent reproduction",
+    "track_specific_sota_allowed_only_if": "the corresponding complete material gate passes plus independent reproduction",
+    "otherwise": "report bounded positive, mixed, negative, invalid, or resource-blocked outcome exactly"
+  }
+}

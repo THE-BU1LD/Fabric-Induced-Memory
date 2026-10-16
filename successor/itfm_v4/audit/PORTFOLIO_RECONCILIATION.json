@@ -1,0 +1,8 @@
+{
+  "expected_before_sha256": "bff88d84d2746191e22e720e12f0097e16f8ebcd0c9ac80ae15abc419bbc4a5d",
+  "candidate_sha256": "19d89593ceadbbd40f18a544d1da54ba5c7a9696947ffe856ec7f60f90b9cf4d",
+  "other_projects_unchanged": 32,
+  "history_decisions_failures_prefix_preserved": true,
+  "status": "APPLIED",
+  "applied_sha256": "19d89593ceadbbd40f18a544d1da54ba5c7a9696947ffe856ec7f60f90b9cf4d"
+}

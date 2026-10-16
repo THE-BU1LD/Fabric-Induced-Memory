@@ -1,0 +1,433 @@
+{
+  "updated_at": "2026-10-11T20:23:36.421089+05:30",
+  "route": "B",
+  "verdict": "NOT_PUBLICATION_READY",
+  "items_total": 59,
+  "counts": {
+    "PARTIAL": 12,
+    "COMPLETE": 22,
+    "BLOCKED_EXTERNAL": 3,
+    "BLOCKED_RESOURCE": 3,
+    "NOT_APPLICABLE": 1,
+    "DEFERRED_ROUTE_C": 13,
+    "BLOCKED_DEPENDENCY": 2,
+    "BLOCKED_AUTHOR_CHOICE": 1,
+    "POST_PREPARATION": 2
+  },
+  "items": [
+    {
+      "id": "S1",
+      "status": "PARTIAL",
+      "disposition": "Route B selected; venue intentionally unspecified per author.",
+      "evidence": "RELEASE_GATES.json; AUTHOR_INSTRUCTIONS.json",
+      "item": "Record one publication route."
+    },
+    {
+      "id": "S2",
+      "status": "COMPLETE",
+      "disposition": "Title, abstract and conclusion limited to exact synthetic residual reuse.",
+      "evidence": "../../paper/main.tex",
+      "item": "Freeze the permitted claim."
+    },
+    {
+      "id": "S3",
+      "status": "COMPLETE",
+      "disposition": "Public ITFM-R campaign explicitly deferred; no public efficacy claim borrowed.",
+      "evidence": "RELEASE_GATES.json; ../../paper/main.tex",
+      "item": "Record the public campaign's disposition."
+    },
+    {
+      "id": "S4",
+      "status": "COMPLETE",
+      "disposition": "Predecessor and v1 conclusions preserved separately; no predecessor execution.",
+      "evidence": "../../RESEARCH_STATE.json; PRESERVATION_BASELINE.json",
+      "item": "Preserve the negative predecessor."
+    },
+    {
+      "id": "S5",
+      "status": "BLOCKED_EXTERNAL",
+      "disposition": "Venue fit and significance need an actual independent assessment; venue unset.",
+      "evidence": "INTERNAL_SCIENTIFIC_REVIEW.md",
+      "item": "Assess venue fit."
+    },
+    {
+      "id": "R1",
+      "status": "COMPLETE",
+      "disposition": "Authentic executed metadata and all 20 source files recovered by original hash; historical full lock absence disclosed.",
+      "evidence": "SOURCE_RECOVERY.json; frozen_source/pyproject.toml",
+      "item": "Recover the exact executed v2 environment definition."
+    },
+    {
+      "id": "R2",
+      "status": "PARTIAL",
+      "disposition": "Exact synthetic source isolated from public stack; proposed observed pins recorded, no clean resolved lock tested.",
+      "evidence": "frozen_source; REPLAY_REQUIREMENTS.txt",
+      "item": "Separate synthetic and public environments."
+    },
+    {
+      "id": "R3",
+      "status": "PARTIAL",
+      "disposition": "Both named remotes reachable but have different HEADs; untracked v2 is not a public immutable release.",
+      "evidence": "REPOSITORY_IDENTITY.json",
+      "item": "Reconcile canonical repository identity."
+    },
+    {
+      "id": "R4",
+      "status": "COMPLETE",
+      "disposition": "Current status notices supersede old zero-seed claims; canonical states and paper docs reconcile the narrow result and open gates.",
+      "evidence": "../../README.md; ../../READINESS_REPORT.md; ../../RESEARCH_STATE.json",
+      "item": "Correct stale status routing."
+    },
+    {
+      "id": "R5",
+      "status": "COMPLETE",
+      "disposition": "New wrappers isolate outputs, refuse collisions/protected paths, retain failed admission and bound child process groups.",
+      "evidence": "tools/reproduce.py; tools/build_pdf.py; TOOL_TESTS_FINAL_V3.json",
+      "item": "Document and test non-overwriting reproduction."
+    },
+    {
+      "id": "R6",
+      "status": "COMPLETE",
+      "disposition": "New verifier hashes exact20-file archive, original bytes and all retained records; checks table and stale/substantive receipt gates.",
+      "evidence": "tools/release.py; STATIC_VERIFICATION_FINAL_V2.json; TOOL_TESTS_FINAL_V3.json",
+      "item": "Make evidence checks cover the files actually shipped."
+    },
+    {
+      "id": "R7",
+      "status": "BLOCKED_RESOURCE",
+      "disposition": "Real replay attempt stopped before model imports; clean dependency installation and numerical replay not performed.",
+      "evidence": "replays/attempt-1/REPLAY_RECEIPT.json",
+      "item": "Reproduce from an empty environment."
+    },
+    {
+      "id": "R8",
+      "status": "NOT_APPLICABLE",
+      "disposition": "Route A not selected; predecessor remains closed negative, its historical source gap is not erased.",
+      "evidence": "../../../../PUBLICATION_READINESS_CHECKLIST_2026-10-11.md",
+      "item": "Close the original FIM source gap if publishing A."
+    },
+    {
+      "id": "M1",
+      "status": "COMPLETE",
+      "disposition": "Donor predicate now exactly compares swapped and base distance to donor.",
+      "evidence": "../../paper/main.tex; ../../paper/CLAIM_EVIDENCE_MAP.md",
+      "item": "Fix the donor-direction definition."
+    },
+    {
+      "id": "M2",
+      "status": "COMPLETE",
+      "disposition": "Min-age4/max-age3 empty restriction explicitly named and interpreted.",
+      "evidence": "../../paper/main.tex; ../../paper/CLAIM_EVIDENCE_MAP.md",
+      "item": "Explain the recent-only control's empty eligibility set."
+    },
+    {
+      "id": "M3",
+      "status": "COMPLETE",
+      "disposition": "Full-context key and global-scan cost/storage match executed source.",
+      "evidence": "../../paper/main.tex; ../../paper/CLAIM_EVIDENCE_MAP.md",
+      "item": "Correct the key and storage specification."
+    },
+    {
+      "id": "M4",
+      "status": "COMPLETE",
+      "disposition": "Calibration subset, denominator fallback and clipping specified; no trained backbone claimed.",
+      "evidence": "../../paper/main.tex; ../../paper/CLAIM_EVIDENCE_MAP.md",
+      "item": "Match the calibration equation to the actual subset."
+    },
+    {
+      "id": "M5",
+      "status": "COMPLETE",
+      "disposition": "Pooled estimator, balanced equivalence, inclusive swap threshold and eight predicates specified.",
+      "evidence": "../../paper/main.tex; ../../paper/CLAIM_EVIDENCE_MAP.md",
+      "item": "Align aggregation and thresholds."
+    },
+    {
+      "id": "M6",
+      "status": "COMPLETE",
+      "disposition": "Base/erase output-ablation identity and deliberate other-owner swap explained.",
+      "evidence": "../../paper/main.tex; ../../paper/CLAIM_EVIDENCE_MAP.md",
+      "item": "Clarify what each control changes."
+    },
+    {
+      "id": "M7",
+      "status": "COMPLETE",
+      "disposition": "Constructed events, target timing and owner parity information boundary stated.",
+      "evidence": "../../paper/main.tex; ../../paper/CLAIM_EVIDENCE_MAP.md",
+      "item": "State the event-stream construction precisely."
+    },
+    {
+      "id": "M8",
+      "status": "COMPLETE",
+      "disposition": "Five stored identifiability predicates separated from dataset checks; external preregistration not asserted.",
+      "evidence": "../../paper/main.tex; ../../paper/CLAIM_EVIDENCE_MAP.md",
+      "item": "Resolve audit-count and preregistration wording."
+    },
+    {
+      "id": "M9",
+      "status": "COMPLETE",
+      "disposition": "Saved scalar errors/flags distinguished from raw tensors and independent regeneration.",
+      "evidence": "../../paper/main.tex; ../../paper/CLAIM_EVIDENCE_MAP.md",
+      "item": "Describe retained artifacts accurately."
+    },
+    {
+      "id": "M10",
+      "status": "COMPLETE",
+      "disposition": "Squared-error bound and intervention expectations derived under explicit assumptions.",
+      "evidence": "../../paper/main.tex; ../../paper/CLAIM_EVIDENCE_MAP.md",
+      "item": "Give a hand-checkable explanation of the exact result."
+    },
+    {
+      "id": "N1",
+      "status": "COMPLETE",
+      "disposition": "Targeted comparison now covers associative recall, external memory, retrieval tests, interventions and memory forecasting.",
+      "evidence": "CITATION_AUDIT.json; ../../paper/main.tex",
+      "item": "Expand the novelty audit beyond PDE architectures."
+    },
+    {
+      "id": "N2",
+      "status": "COMPLETE",
+      "disposition": "All six retained citations checked against primary metadata and relevant text/abstracts for the limited attributed claims; no borrowed performance numbers.",
+      "evidence": "CITATION_AUDIT.json; ../../paper/references.bib",
+      "item": "Verify every citation and attributed claim."
+    },
+    {
+      "id": "N3",
+      "status": "COMPLETE",
+      "disposition": "Analytic ignored-retrieval, shortcut and exact-lookup counterexamples distinguish diagnostics; not claimed as new runs.",
+      "evidence": "../../paper/main.tex",
+      "item": "Demonstrate why the harness is useful."
+    },
+    {
+      "id": "N4",
+      "status": "COMPLETE",
+      "disposition": "Exact-key/fixed-grid/capacity/generator/three-seed/untrained limits retained.",
+      "evidence": "../../paper/main.tex",
+      "item": "Set the limits of the synthetic evidence."
+    },
+    {
+      "id": "N5",
+      "status": "PARTIAL",
+      "disposition": "Causal language and information paths internally audited and narrowed; independent review absent.",
+      "evidence": "INTERNAL_SCIENTIFIC_REVIEW.md",
+      "item": "Review the causal language."
+    },
+    {
+      "id": "P1",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Complete S0 admission."
+    },
+    {
+      "id": "P2",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Admit compute and resources."
+    },
+    {
+      "id": "P3",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Execute the public engineering checks."
+    },
+    {
+      "id": "P4",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Reproduce the frontiers at S1."
+    },
+    {
+      "id": "P5",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Pass or honestly stop at S2."
+    },
+    {
+      "id": "P6",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Complete S3 fair comparisons."
+    },
+    {
+      "id": "P7",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Run every declared memory intervention."
+    },
+    {
+      "id": "P8",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Freeze the executable final experiment."
+    },
+    {
+      "id": "P9",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Complete the entire S4 matrix."
+    },
+    {
+      "id": "P10",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Apply the predeclared statistics."
+    },
+    {
+      "id": "P11",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Adjudicate the actual claim."
+    },
+    {
+      "id": "P12",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Measure cost and limits."
+    },
+    {
+      "id": "P13",
+      "status": "DEFERRED_ROUTE_C",
+      "disposition": "Prospective public benchmark work; not required for the chosen exact synthetic claim and not counted as complete.",
+      "evidence": "RELEASE_GATES.json scope; ../../SOTA_CAMPAIGN_STATE.json",
+      "item": "Complete S5 external reproduction."
+    },
+    {
+      "id": "V1",
+      "status": "BLOCKED_RESOURCE",
+      "disposition": "Tensor capture/reference worker prepared; actual raw-output replay not executed.",
+      "evidence": "tools/reproduce.py; replays/attempt-1/REPLAY_RECEIPT.json",
+      "item": "Recompute from sufficient raw evidence."
+    },
+    {
+      "id": "V2",
+      "status": "PARTIAL",
+      "disposition": "All27 scalar artifacts and table/source paths reconciled; original raw tensor link remains absent.",
+      "evidence": "../../paper/CLAIM_EVIDENCE_MAP.md; STATIC_VERIFICATION_FINAL_V2.json",
+      "item": "Verify every claim-to-artifact path."
+    },
+    {
+      "id": "V3",
+      "status": "BLOCKED_EXTERNAL",
+      "disposition": "No separate operator/clean external reproduction receipt; local tool tests cannot substitute.",
+      "evidence": "RELEASE_GATES.json",
+      "item": "Obtain a clean external reproduction receipt."
+    },
+    {
+      "id": "V4",
+      "status": "BLOCKED_EXTERNAL",
+      "disposition": "Internal review findings resolved in prose; independent scientific review remains absent.",
+      "evidence": "INTERNAL_SCIENTIFIC_REVIEW.md; RELEASE_GATES.json",
+      "item": "Close an adversarial scientific review."
+    },
+    {
+      "id": "W1",
+      "status": "COMPLETE",
+      "disposition": "Generator, equations, event timing, parameters, split/calibration/controls, metrics, fixed stopping and reproduction commands supplied.",
+      "evidence": "../../paper/main.tex",
+      "item": "Make the paper self-contained."
+    },
+    {
+      "id": "W2",
+      "status": "PARTIAL",
+      "disposition": "Inline TikZ timeline and analytic worked example added; rendered visual inspection blocked.",
+      "evidence": "../../paper/main.tex; builds/attempt-1/BUILD_RECEIPT.json",
+      "item": "Include reader-facing evidence visuals."
+    },
+    {
+      "id": "W3",
+      "status": "PARTIAL",
+      "disposition": "All values/labels generated and checked; four-column tables replace 12-column layout, which still needs rendered inspection.",
+      "evidence": "../../paper/generated_results.tex; STATIC_VERIFICATION_FINAL_V2.json",
+      "item": "Reconcile tables and text automatically."
+    },
+    {
+      "id": "W4",
+      "status": "PARTIAL",
+      "disposition": "Related work/limits/availability/AI assistance written; optional author fields omitted per request, actual public release links/required venue declarations unavailable.",
+      "evidence": "AUTHOR_INSTRUCTIONS.json; ../../paper/main.tex",
+      "item": "Complete the scholarly sections."
+    },
+    {
+      "id": "W5",
+      "status": "BLOCKED_RESOURCE",
+      "disposition": "Real build attempt stopped at memory/pageout guard before compilation.",
+      "evidence": "builds/attempt-1/BUILD_RECEIPT.json",
+      "item": "Compile from a clean source package."
+    },
+    {
+      "id": "W6",
+      "status": "BLOCKED_DEPENDENCY",
+      "disposition": "No admitted PDF exists to render and inspect.",
+      "evidence": "builds/attempt-1/BUILD_RECEIPT.json",
+      "item": "Inspect every rendered page."
+    },
+    {
+      "id": "W7",
+      "status": "PARTIAL",
+      "disposition": "Scientific narrative and repository current notices reconciled; final PDF/archive/destination consistency still pending.",
+      "evidence": "../../paper/main.tex; ../../README.md",
+      "item": "Perform a final consistency and language pass."
+    },
+    {
+      "id": "L1",
+      "status": "PARTIAL",
+      "disposition": "Sole author confirmed and optional fields omitted; licenses/destination deliberately unspecified, no grant inferred.",
+      "evidence": "AUTHOR_INSTRUCTIONS.json",
+      "item": "Confirm author-controlled metadata and rights."
+    },
+    {
+      "id": "L2",
+      "status": "PARTIAL",
+      "disposition": "Local exact source/preservation/checks/instructions prepared; raw replay, tested lock, rights and immutable public archive absent.",
+      "evidence": "SOURCE_RECOVERY.json; README.md; RELEASE_GATES.json",
+      "item": "Create the reproducibility archive."
+    },
+    {
+      "id": "L3",
+      "status": "BLOCKED_DEPENDENCY",
+      "disposition": "Three-input lean stager implemented but required release/build/rights gates remain open; no release package certified.",
+      "evidence": "tools/release.py; RELEASE_GATE_FINAL_V2.json",
+      "item": "Build the lean submission package."
+    },
+    {
+      "id": "L4",
+      "status": "PARTIAL",
+      "disposition": "Current bytes verified and final blocked decision retained; PDF/archive/external approvals not available.",
+      "evidence": "STATIC_VERIFICATION_FINAL_V2.json; RELEASE_GATE_FINAL_V2.json",
+      "item": "Verify the release identity after final edits."
+    },
+    {
+      "id": "L5",
+      "status": "BLOCKED_AUTHOR_CHOICE",
+      "disposition": "Destination is intentionally unspecified; actual venue-specific compliance cannot be checked.",
+      "evidence": "AUTHOR_INSTRUCTIONS.json",
+      "item": "Check the actual destination's requirements."
+    },
+    {
+      "id": "L6",
+      "status": "POST_PREPARATION",
+      "disposition": "Server-generated PDF review is a later upload step; no upload performed.",
+      "evidence": "RELEASE_GATES.json scope",
+      "item": "Review the server-generated PDF and final metadata."
+    },
+    {
+      "id": "L7",
+      "status": "POST_PREPARATION",
+      "disposition": "Final submission is separate from preparation and has not been authorized or attempted.",
+      "evidence": "RELEASE_GATES.json scope",
+      "item": "Obtain final author authorization and retain the submission receipt."
+    }
+  ],
+  "boundary": "All 59 checklist items dispositioned. COMPLETE requires actual local evidence; deferred/NA/future items are not completed experiments. External and resource gates remain open."
+}

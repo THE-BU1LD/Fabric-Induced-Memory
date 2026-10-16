@@ -1,0 +1,26 @@
+[project]
+name = "fim-s1"
+version = "0.1.0"
+description = "Interventional Tensor Fabric Memory successor study"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.1"]
+
+[project.scripts]
+fim-s1-experiment = "fim_s1.experiment:main"
+fim-s1-analyze = "fim_s1.analysis:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "numpy>=1.26"]
+datasets = ["h5py>=3.10", "numpy>=1.26"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+

@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-15T15:43:38.089172+00:00",
+  "status": "SCALAR_PIPELINE_VERIFIED_TENSOR_RUNTIME_BLOCKED",
+  "software_tests": 36,
+  "software_failures": 0,
+  "lint": "PASS",
+  "format": "PASS",
+  "tensor_tests_executed": 0,
+  "tensor_admission": "TENSOR_ADMISSION_FULL.json",
+  "tensor_admission_samples": [
+    {
+      "free_mib": 81.96875,
+      "pageouts": 665355,
+      "swap_mib": 10630.5
+    },
+    {
+      "free_mib": 90.890625,
+      "pageouts": 665357,
+      "swap_mib": 10630.5
+    }
+  ],
+  "model_modules_imported": [],
+  "scientific_trials": 0,
+  "new_architecture_implemented": false,
+  "protected_evaluation_opened": false,
+  "predecessors_unchanged": 440,
+  "v3_sources_unchanged": 12,
+  "old_public_and_repair_files_unchanged": 47,
+  "source_scope": "New package plus root README routing and canonical state. Frozen public writer remains unchanged.",
+  "limits": [
+    "Tensor bridge source exists; actual tensor runtime and whole experiment integration unverified.",
+    "Partial observations staged until full-vector maturity; no partial-value bank implemented.",
+    "No accuracy or novelty result. Contribution gate stays blocked."
+  ],
+  "admission_source_note": "Full refusal predates final addition of stricter pre-import recheck; exact refusal source retained in source_round_2. No resource guard was relaxed."
+}

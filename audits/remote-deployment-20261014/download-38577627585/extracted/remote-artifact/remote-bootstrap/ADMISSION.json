@@ -1,0 +1,16 @@
+{
+  "status": "BLOCKED",
+  "samples": [
+    {
+      "free_plus_speculative_bytes": 318701568,
+      "pageouts": 1036,
+      "swap_used_mib": 0.0
+    },
+    {
+      "free_plus_speculative_bytes": 314376192,
+      "pageouts": 1036,
+      "swap_used_mib": 0.0
+    }
+  ],
+  "threshold_bytes": 536870912
+}

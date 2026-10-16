@@ -1,0 +1,11 @@
+{
+  "status": "COLLECTED_NOT_SCIENTIFICALLY_CERTIFIED",
+  "files": {
+    "REMOTE_MANIFEST.json": {
+      "sha256": "e05a83d0ff65b06b05bb3934a91a9c0f39301403923c859f40b55f9357f55ab0",
+      "bytes": 16578
+    }
+  },
+  "bytes": 16578,
+  "source_manifest_sha256": "e05a83d0ff65b06b05bb3934a91a9c0f39301403923c859f40b55f9357f55ab0"
+}

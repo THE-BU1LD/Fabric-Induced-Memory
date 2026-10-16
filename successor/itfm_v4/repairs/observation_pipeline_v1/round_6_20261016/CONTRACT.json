@@ -1,0 +1,15 @@
+{
+  "at": "2026-10-16T02:53:39.510359+00:00",
+  "request": "implement all of this right now",
+  "scope": "Remaining cumulative repair round 6: exact test-inventory verification, separate bounded worker, durable-to-tensor acceptance fixtures and minimal public-runner package preparation. No uploads or remote jobs before concrete disclosure approval.",
+  "counter_before": 5,
+  "counter_after": 6,
+  "repair_round_limit": 6,
+  "concepts_reviewed": 8,
+  "concept_limit": 8,
+  "scientific_trials": 0,
+  "paid_compute": 0,
+  "local_test_seconds": 30,
+  "remote_runtime_job_limit_if_approved": 1,
+  "scope_limit": "No new research architecture or protected results; original source and test receipts remain immutable."
+}

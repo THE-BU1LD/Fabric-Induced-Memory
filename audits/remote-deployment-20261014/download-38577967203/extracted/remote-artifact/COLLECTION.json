@@ -1,0 +1,207 @@
+{
+  "status": "COLLECTED_NOT_SCIENTIFICALLY_CERTIFIED",
+  "files": {
+    "REMOTE_EXECUTION_STARTED.json": {
+      "sha256": "3b31d4a8a98e44177c91fd25b3c822398ff0250677643f6e9a58a358fa760121",
+      "bytes": 168
+    },
+    "REMOTE_MANIFEST.json": {
+      "sha256": "6391a3a6ae8ff68fe16a70c2830285993df8ff215f25e19a4d30dce539169443",
+      "bytes": 16813
+    },
+    "remote-bootstrap/ADMISSION.json": {
+      "sha256": "94214d7d08f601f5adb69c7e77bc5d0bb8efee9e67fe55e58fc237cb8b29fd07",
+      "bytes": 300
+    },
+    "remote-bootstrap/RUNTIME.json": {
+      "sha256": "403d9de0d9c37a7880fa9e1445c11b9642baf795f26b52a65ee66f661beae004",
+      "bytes": 381
+    },
+    "remote-bootstrap/python.tar.gz": {
+      "sha256": "7dc10e31eede05a6ab1ec9e0b961f521078b0959f838ed1d7452597d529ff802",
+      "bytes": 27243366
+    },
+    "remote-install/ADMISSION.json": {
+      "sha256": "4847ea6bb47ba7ed8b6cd5be240c18212c6c50f8db20e5eee417583524e1c6db",
+      "bytes": 300
+    },
+    "remote-install/SOURCE_CHECKS.json": {
+      "sha256": "e674ab54cedca78a9317c4095679e79843a86ae9b00121cda9ef8cbee3df2953",
+      "bytes": 12079
+    },
+    "remote-install/SUMMARY.json": {
+      "sha256": "ff8af469aab68e97b9c081228981565bb4eaefcf99ccc14f859a2b5618ecfea9",
+      "bytes": 357
+    },
+    "remote-install/dependency_check.json": {
+      "sha256": "b73fef25d22252f97c2133896cee42f404d496206b5d36c7d4fe1e19a00f5a54",
+      "bytes": 193
+    },
+    "remote-install/dependency_check.log": {
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "bytes": 30
+    },
+    "remote-install/install.json": {
+      "sha256": "accb50c2e52f85a18a524ed6688539cf071e20e774e25aa3f7287f725822a30b",
+      "bytes": 415
+    },
+    "remote-install/install.log": {
+      "sha256": "f13a715ad1fabb836ed794932ccb609fbe1bd1cf12ba0ffaddc220dfe302eff3",
+      "bytes": 7836
+    },
+    "remote-install/resolved_environment.json": {
+      "sha256": "2b8b183305527386b47d93d6f104b799ee224beae72c1d675b80a883dd5bea7f",
+      "bytes": 207
+    },
+    "remote-install/resolved_environment.log": {
+      "sha256": "556d1a2eee3f31a1d1439731a8aa78fec09d1fc4cfd79dd651b98fb411df4eb1",
+      "bytes": 269
+    },
+    "remote-preflight/ADMISSION.json": {
+      "sha256": "c357b277c65941524697ac6feca4b99e4e37d8055cbe820fd15208abddefd97e",
+      "bytes": 300
+    },
+    "remote-preflight/SOURCE_CHECKS.json": {
+      "sha256": "e674ab54cedca78a9317c4095679e79843a86ae9b00121cda9ef8cbee3df2953",
+      "bytes": 12079
+    },
+    "remote-preflight/SUMMARY.json": {
+      "sha256": "bfbcffe7f97a10bd327a4e676c522d178fbec221449b000c178d6fdc8e88ce74",
+      "bytes": 345
+    },
+    "remote-run/ADMISSION.json": {
+      "sha256": "92ae380867beeeab1d77a494b5c30611284f5edfe87db81ba2d4a73cdd09d29e",
+      "bytes": 300
+    },
+    "remote-run/SOURCE_CHECKS.json": {
+      "sha256": "e674ab54cedca78a9317c4095679e79843a86ae9b00121cda9ef8cbee3df2953",
+      "bytes": 12079
+    },
+    "remote-run/SUMMARY.json": {
+      "sha256": "1fa358b2367190396d31f853f5459cc1c468b6045a2567972c6d319a02018879",
+      "bytes": 392
+    },
+    "remote-run/v2.json": {
+      "sha256": "6f549e3f726f11b3903be388c6c43fabefc7146dfb9d0b07e6c5517226491144",
+      "bytes": 593
+    },
+    "remote-run/v2.log": {
+      "sha256": "af15ee678b7563efe73f055f749130ec1bef5d89443da4c34f0e4949fdd7046b",
+      "bytes": 849
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/REPLAY_RECEIPT.json": {
+      "sha256": "849f95a362a4103f1129adea7fa0534bd191088a3d60cdb2544b6fa1d8f98c72",
+      "bytes": 1597
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/.gitignore": {
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+      "bytes": 37
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/CACHEDIR.TAG": {
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "bytes": 191
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/README.md": {
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+      "bytes": 302
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/v/cache/nodeids": {
+      "sha256": "9cd10f2263d636bac22a4dbb32f98dcc7db2b05a3ef19d9ad7a3b5d2bef09e51",
+      "bytes": 749
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/METHODOLOGY.md": {
+      "sha256": "1846f4f4a8ff7dade0e6140594e718aacee2c3ebedbe6799b0c9670a93995f59",
+      "bytes": 3937
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/PROJECT_CONTRACT.md": {
+      "sha256": "c276ac187cece3cc512a588ee299fbc1a775cdd271e2b3552029275db90b57d6",
+      "bytes": 3002
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/protocols/development_v2.json": {
+      "sha256": "8cb1ea0493da40ece0663f1777dccf5bf01f367050b771434a9574b0ef52330b",
+      "bytes": 1591
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/pyproject.toml": {
+      "sha256": "e1f53e42797ac6aeb1f07b00ca898785264ed87e36405e0f512e68cc48e65cca",
+      "bytes": 494
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/receipts/verification-1791987003073741000-pid-2146.json": {
+      "sha256": "66e58d2885e3cd389918ce590e93cce84e54a2762f3fe08cbded9a98f5af97d3",
+      "bytes": 2039
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/static_audit.json": {
+      "sha256": "10f5c27ca3c884663534c3acd8ebf475f9bd46ec2604022596ae87caab959bc4",
+      "bytes": 488
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/verification_receipt.json": {
+      "sha256": "66e58d2885e3cd389918ce590e93cce84e54a2762f3fe08cbded9a98f5af97d3",
+      "bytes": 2039
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/audit_contract.py": {
+      "sha256": "534003e7e9e034ad395d64cdd0013325a8b7a2e67cf3827b6e02848cdbfc1351",
+      "bytes": 544
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/check_resource_admission.py": {
+      "sha256": "7eb62af11217f7e79a5b62d4d5420ed5ae6dbedaa5165c57a97e95b8782d7360",
+      "bytes": 1741
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/run_pipeline.py": {
+      "sha256": "ca752f68b8c1c45ec184626d55400ebf50a14638be206a94adb6b1aa86d6562c",
+      "bytes": 3695
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/verify_results.py": {
+      "sha256": "966b3ed851ca3283fca3acf020b4a61f10b3fc04379167b701d26cf6e9436eac",
+      "bytes": 7410
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/__init__.py": {
+      "sha256": "70363df39caad22c18813416cec1a2921ec2ad6a80788504998578fe9e48d2fb",
+      "bytes": 235
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/analysis.py": {
+      "sha256": "1e09666445f51b57bcd42cd9e5163b38d692c8a7d4cc65821760d94ef5ae24c8",
+      "bytes": 2536
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/audit.py": {
+      "sha256": "f703c74297b13866beffe4ed4f0d3cd0eb099289a0453d9edf74d9475d56a988",
+      "bytes": 2392
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/data.py": {
+      "sha256": "78575f1377162a4c0c65af7501f5b5817d0b6844667aae329f79d4e94582fbd5",
+      "bytes": 10220
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/evaluation.py": {
+      "sha256": "ceaa27acf190a45deeab87aa7c32d642f70b54ad568bcb9b8e137004706c10d2",
+      "bytes": 8548
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/experiment.py": {
+      "sha256": "7bd2fbd82e7b014355ce42ff6526be98bb23a992fdb643b1b30240f10b20dfce",
+      "bytes": 10479
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/memory.py": {
+      "sha256": "63de75c6058923c8b88bf75838b19ca328d0197db4fa0eeede9a8bf575447820",
+      "bytes": 6264
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/resources.py": {
+      "sha256": "7013ea93b729fa57d2d9ba14ed8277d0515dc88600c334848193cc7984991653",
+      "bytes": 1869
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_data.py": {
+      "sha256": "6b9bccb5d9143534d3fcd919344b953dd39b3e5a720b72c52e58c8385618b314",
+      "bytes": 1558
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_decision.py": {
+      "sha256": "c5745c884c50c0c1d2eb26395af41e2491d2223c7af8ff95ccdc053685d676f3",
+      "bytes": 1615
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_evaluation.py": {
+      "sha256": "ca72a3c9f64af9fe8338eb3094d8a02f55bb0f8de9e86319cad34a145916e869",
+      "bytes": 1314
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_memory.py": {
+      "sha256": "f9750aee7d02885abae29dd1aca57c069f3c2c9fd947fcc55dbecd2bc0027874",
+      "bytes": 2609
+    }
+  },
+  "bytes": 27389146,
+  "source_manifest_sha256": "6391a3a6ae8ff68fe16a70c2830285993df8ff215f25e19a4d30dce539169443"
+}

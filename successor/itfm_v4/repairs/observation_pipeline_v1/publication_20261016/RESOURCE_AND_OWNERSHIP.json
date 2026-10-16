@@ -1,0 +1,17 @@
+{
+  "samples": [
+    {
+      "free_mib": 216.984375,
+      "pageouts": 849390,
+      "swap_mib": 11665.19
+    },
+    {
+      "free_mib": 200.4375,
+      "pageouts": 849391,
+      "swap_mib": 11665.19
+    }
+  ],
+  "matching_runners": [],
+  "locks": [],
+  "local_tensor_run": false
+}

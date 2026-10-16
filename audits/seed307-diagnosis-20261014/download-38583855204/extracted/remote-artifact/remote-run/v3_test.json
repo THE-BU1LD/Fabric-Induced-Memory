@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+    "-B",
+    "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v3/run.py",
+    "test",
+    "--python",
+    "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+    "--freeze",
+    "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v3/freezes/development-2.json",
+    "--output",
+    "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v3/runs/remote-tests-1"
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 150
+}

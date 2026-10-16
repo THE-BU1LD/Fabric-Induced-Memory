@@ -1,0 +1,10 @@
+{
+  "install-admission.json": "4b4b7f42165f6ff17db59e11068f6bbe1654691058ea2b799e903d8b1f569644",
+  "setup-admission.json": "3ea90fa4a8a16c8a6f9197b9c1c8b6b321cf70e8b5180b837fb56ed8e48571d3",
+  "scalar-receipt.json": "e1c33aa24d1ee425576a8243fa9a5250a305d6118347f9c89a136abfe0431ee5",
+  "runtime-receipt.json": "94d8622600645ce17f85857db860922725e71fb9f84b9aac9a4ae792f0df39a8",
+  "runtime-receipt.json.worker.json": "451b6b17b3b72d440812153ae1e4225edb035e82433dc9b4c8641a6142070a00",
+  "runtime-receipt.json.worker.log": "052a187d233e7b40e76ff0f6faabf7c420da7e444a2115d265e7bc2311029622",
+  "dependency-check.txt": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+  "resolved-environment.txt": "b445d7982acfdd480be780877d01607604792c80f73413416aad94b61322ae56"
+}

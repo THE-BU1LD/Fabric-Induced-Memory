@@ -1,0 +1,25 @@
+{
+  "scope": "Initial closeout including retained portfolio schema error",
+  "checks": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "fa537a",
+        "wall_time_seconds": 0.000009375,
+        "exit_code": 1,
+        "original_token_count": 32,
+        "output": "ERROR: PR-012 (Fabric-Induced-Memory): budgets must contain exactly development and compute\nINVALID: 1 error(s), 0 warning(s)\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "872fd9",
+        "wall_time_seconds": 0.00001375,
+        "exit_code": 0,
+        "original_token_count": 55,
+        "output": "{\n  \"all_ten_scientific_checkpoints_unchanged\": true,\n  \"all_32_other_projects_unchanged\": true,\n  \"engineering_status_consistent\": true,\n  \"final_tested_source_unchanged\": true,\n  \"original_checklist_preserved\": true\n}\n"
+      }
+    }
+  ]
+}

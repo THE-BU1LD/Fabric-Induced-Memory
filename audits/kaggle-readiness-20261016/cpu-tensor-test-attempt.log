@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/scripts/kaggle.py", line 12, in <module>
+    main()
+    ~~~~^^
+  File "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/cli.py", line 162, in main
+    arguments.handler(arguments)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/engineering.py", line 860, in handle
+    raise RuntimeError("tensor checks blocked before imports")
+RuntimeError: tensor checks blocked before imports
+Traceback (most recent call last):
+  File "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/scripts/kaggle.py", line 12, in <module>
+    main()
+    ~~~~^^
+  File "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/cli.py", line 162, in main
+    arguments.handler(arguments)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/engineering.py", line 784, in handle
+    raise RuntimeError(f"{command} failed or blocked (exit {code})")
+RuntimeError: test failed or blocked (exit 1)

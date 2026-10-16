@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-14T01:14:29.797632+00:00",
+  "status": "BLOCKED_RESOURCE",
+  "report": "audits/resumption-20261014-01/REPORT.md",
+  "replay_receipt": "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/attempt-20261014-01/REPLAY_RECEIPT.json",
+  "numerical_stages_started": [],
+  "v3_dependency": "v2 replay has not completed",
+  "v3_campaign_consumed": false,
+  "v2_checks_passed": 228,
+  "v3_contract_tests_passed": 11,
+  "protected_files_unchanged": 440,
+  "pdf_admission": "BLOCKED_RESOURCE",
+  "guards_changed": false
+}

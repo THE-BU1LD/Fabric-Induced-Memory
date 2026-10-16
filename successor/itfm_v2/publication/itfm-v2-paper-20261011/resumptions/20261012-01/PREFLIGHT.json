@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-10-12T06:48:15.675212+05:30",
+  "compiler": "/opt/homebrew/bin/tectonic",
+  "dirty_state": " M README.md\n D fim/__init__.py\n D fim/analysis/__init__.py\n D fim/analysis/lyapunov.py\n D fim/analysis/metrics.py\n D fim/analysis/retention.py\n D fim/analysis/spectral.py\n D fim/core/__init__.py\n D fim/core/dynamics.py\n D fim/core/fabric.py\n D fim/core/fractional.py\n D fim/core/integrator.py\n D fim/core/stability.py\n D fim/core/state.py\n D fim/epistemic_tests_full/README.md\n D fim/epistemic_tests_full/tests/conftest.py\n D fim/epistemic_tests_full/tests/test_benchmark_generation.py\n D fim/epistemic_tests_full/tests/test_fractional_dynamics.py\n D fim/epistemic_tests_full/tests/test_levy_sampling.py\n D fim/epistemic_tests_full/tests/test_memory.py\n D fim/epistemic_tests_full/tests/test_rollout_stability.py\n D fim/epistemic_tests_full/tests/test_training_execution.py\n D fim/geometry/graph.py\n D fim/geometry/grid.py\n D fim/geometry/manifold.py\n D fim/geometry/topology.py\n D fim/memory/compression.py\n D fim/memory/consolidation.py\n D fim/memory/init.py\n D fim/memory/retrieval.py\n D fim/memory/salience.py\n D fim/memory/trace_bank.py\n D fim/models/decoder.py\n D fim/models/encoder.py\n D fim/models/fim_model.py\n D fim/models/init.py\n D fim/models/latent_operator.py\n D fim/operators/advection.py\n D fim/operators/damping.py\n D fim/operators/diffusion.py\n D fim/operators/init.py\n D fim/operators/propagation.py\n D fim/operators/reaction.py\n D fim/operators/spectral.py\n D fim/operators/write.py\n D fim/physics/base.py\n D fim/physics/diffusion_equation.py\n D fim/physics/fractional_pde.py\n D fim/physics/init.py\n D fim/physics/navier_stokes.py\n D fim/physics/wave_equation.py\n D fim/stochastic/brownian.py\n D fim/stochastic/init.py\n D fim/stochastic/levy.py\n D fim/stochastic/noise.py\n D fim/stochastic/sde.py\n D fim/training/losses.py\n D fim/training/optimizer.py\n D fim/training/rollout.py\n D fim/training/scheduler.py\n D fim/training/trainer.py\n D fim/utils/checkpoint.py\n D fim/utils/config.py\n D fim/utils/init.py\n D fim/utils/logging.py\n D fim/utils/seed.py\n D fim/utils/visualization.py\n?? .DS_Store\n?? .github/workflows/itfm-sota-ci.yml\n?? FIM/.gitattributes\n?? FIM/.github/\n?? FIM/.gitignore\n?? FIM/ARCHIVAL_RELEASE.md\n?? FIM/AUDIT_CHECKLIST_2026-09-13.md\n?? FIM/CANONICAL_LINEAGE.md\n?? FIM/CLAIM_EVIDENCE_MATRIX.csv\n?? FIM/COMPLETION_MANIFEST.md\n?? FIM/FINAL_STATUS_2026-09-30.md\n?? FIM/PROJECT_STATUS.md\n?? FIM/QFIM/\n?? FIM/README.md\n?? FIM/REPRODUCE.md\n?? FIM/RESEARCH_TRUTH.md\n?? FIM/SAME_LINEAGE.md\n?? FIM/TRUTH_MAP.md\n?? FIM/chaos.png\n?? FIM/chaos_divergence.png\n?? FIM/configs/\n?? FIM/docs/\n?? FIM/energy.png\n?? FIM/fim/\n?? FIM/fim_experiments/\n?? FIM/latent_heatmap.png\n?? FIM/latent_manifold.png\n?? FIM/latent_norm.png\n?? FIM/latent_surface.png\n?? FIM/main.py\n?? FIM/multi_dim.png\n?? FIM/notebooks/\n?? FIM/output/\n?? FIM/paper/\n?? FIM/paper_reference_results.json\n?? FIM/publication_package/\n?? FIM/pyproject.toml\n?? FIM/pytest.ini\n?? FIM/requirements.txt\n?? FIM/research/\n?? FIM/results/\n?? FIM/results_smoke/\n?? FIM/salience_heatmap.png\n?? FIM/salience_hist.png\n?? FIM/salience_spatial.png\n?? FIM/salience_time.png\n?? FIM/scripts/\n?? FIM/tests/\n?? FIM/time_evolution_3d.png\n?? FIM/trajectory.png\n?? FIM/uv.lock\n?? ITFM_V2_STATUS_2026-10-11.md\n?? PUBLICATION_READINESS_CHECKLIST_2026-10-11.md\n?? SUCCESSOR_IDEA_AUDIT_2026-10-11.md\n?? audits/\n?? successor/\n",
+  "disk_free_bytes": 262165106688,
+  "head": "32d8aa0b109f08a8ecd23c7bd97eaf29b5fe8989",
+  "intended_action": "Isolated frozen three-seed replay (300 seconds, one thread), then PDF build (120 seconds), only if admitted. No frozen-result changes.",
+  "ownership": "No competing ITFM runner or local lock found; unrelated LGWM campaign active; processes left untouched.",
+  "resource_admission": {
+    "samples": [
+      {
+        "free_plus_speculative_bytes": 153796608,
+        "pageouts": 975844,
+        "swap_used_mib": 9994.69
+      },
+      {
+        "free_plus_speculative_bytes": 159711232,
+        "pageouts": 975846,
+        "swap_used_mib": 9994.69
+      }
+    ],
+    "status": "BLOCKED",
+    "threshold_bytes": 536870912
+  }
+}

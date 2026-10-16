@@ -1,0 +1,72 @@
+{
+  "author_metadata": {
+    "status": "UNSPECIFIED_BY_AUTHOR",
+    "receipt": null,
+    "sha256": null,
+    "note": "Ryan is the sole displayed author; optional fields omitted. Distribution terms/destination left unspecified at author request."
+  },
+  "clean_environment_replay": {
+    "status": "BLOCKED_RESOURCE",
+    "receipt": null,
+    "sha256": null,
+    "note": "No installs or numerical run admitted; replay attempt stopped before model import."
+  },
+  "raw_output_verification": {
+    "status": "BLOCKED_RESOURCE",
+    "receipt": null,
+    "sha256": null,
+    "note": "Capture worker prepared and reviewed at source level; not executed."
+  },
+  "independent_reproduction": {
+    "status": "PENDING_EXTERNAL",
+    "receipt": null,
+    "sha256": null,
+    "note": "No separate operator receipt exists."
+  },
+  "scientific_review": {
+    "status": "PENDING_EXTERNAL",
+    "receipt": null,
+    "sha256": null,
+    "note": "Internal editing audit is not independent scientific review."
+  },
+  "pdf_build": {
+    "status": "BLOCKED_RESOURCE",
+    "receipt": null,
+    "sha256": null,
+    "note": "Build attempt stopped before compilation; no PDF produced."
+  },
+  "visual_inspection": {
+    "status": "BLOCKED_DEPENDENCY",
+    "receipt": null,
+    "sha256": null,
+    "note": "No compiled PDF to render and inspect."
+  },
+  "public_archive": {
+    "status": "BLOCKED_RELEASE_RIGHTS_AND_IDENTITY",
+    "receipt": null,
+    "sha256": null,
+    "note": "Two distinct remote HEADs, unpublished local successor, unspecified distribution terms."
+  },
+  "venue_requirements": {
+    "status": "UNSPECIFIED_BY_AUTHOR",
+    "receipt": null,
+    "sha256": null,
+    "note": "No destination selected; actual destination requirements cannot be certified."
+  },
+  "scope": {
+    "route": "B",
+    "claim": "bounded exact synthetic mechanism case study",
+    "public_benchmark_campaign": "DEFERRED_NOT_REQUIRED_FOR_THIS_CLAIM",
+    "submission_authorized": false,
+    "sole_author_confirmed": true,
+    "author_display_name": "Ryan",
+    "manuscript_license": null,
+    "code_license": null,
+    "venue": null,
+    "author_metadata_instruction": "just put nothing",
+    "optional_author_fields": "OMITTED_AT_AUTHOR_REQUEST",
+    "author_name_basis": "Existing displayed name retained; sole authorship confirmed by just me; user requested no further metadata",
+    "destination_disposition": "UNSPECIFIED_AT_AUTHOR_REQUEST",
+    "license_disposition": "UNSPECIFIED_AT_AUTHOR_REQUEST_NOT_A_LICENSE_GRANT"
+  }
+}

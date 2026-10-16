@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-14T14:50:42.915359+00:00",
+  "freeze": {
+    "at": "2026-10-13T14:14:15.145434+00:00",
+    "files": {
+      "METHOD.md": "7e2bb9f1fe5c7d84d129c21c3f16c8a457b1b14befc16c5b2d26cd631e0d5d17",
+      "README.md": "b6373bb46190fbc6df46e9a43aba1899a3bd9c4a129c47338a255db8c0e21678",
+      "core.py": "885be9ba30f714a8eae3bbcf792b4f2b92f9d8b11326a5d451b8994c9b106a34",
+      "data.py": "913a0bf162b001c08e618765ba5889d5db6fd30f42bdbd7fb7b36c262741360e",
+      "experiment.py": "ddc0768a90f0804ee32b2e2ec960e1f11065716e764af049bd905bda0541cf79",
+      "models.py": "0db7fb9839d43d6fd699fed795ab9f2031504c16bb4c55cc6806a7f70efe9267",
+      "protocol.json": "3b323e87e6a14ae612439be06e5db7e0665198da2f30119fee101c15bcbe2186",
+      "requirements.txt": "ba66e0c8f28dc06ed85f75818440c618cf2268c22d87e9826cbe267626e174c6",
+      "run.py": "6f561d8cd6477ab4ef0136c35eab19f775fd54953db1dfee8a38252089630acf",
+      "test_runtime.py": "b82623fb59adeebd5085baf7ec1bd7c4670a4f3df4e8624fc57e6c7a584f0b7b",
+      "test_standard.py": "30209bcaf660e8fe3873f46023783a78cc0d114fed77d3bf947cb5387cf78f49",
+      "verify.py": "db3fdaac5fa547a8d76200e4e4e18e84478231ccd9572c112bd5547bd81704d9"
+    },
+    "scope": "Prospective development source freeze, not external preregistration"
+  },
+  "output": "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v3/runs/remote-campaign-1"
+}

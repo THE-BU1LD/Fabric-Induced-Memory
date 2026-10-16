@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "session_id": "publication-readiness-20261011T182740",
+  "checked_at": "2026-10-11T18:27:40.392164+05:30",
+  "verdict": "NOT_PUBLICATION_READY",
+  "scope": "Read-only publication audit and checklist; no model import, experiment, install, PDF build, release staging, or protected-public evaluation.",
+  "git": {
+    "head": "32d8aa0b109f08a8ecd23c7bd97eaf29b5fe8989",
+    "branch": "main",
+    "status_before_audit_artifacts": [
+      " D fim/__init__.py",
+      " D fim/analysis/__init__.py",
+      " D fim/analysis/lyapunov.py",
+      " D fim/analysis/metrics.py",
+      " D fim/analysis/retention.py",
+      " D fim/analysis/spectral.py",
+      " D fim/core/__init__.py",
+      " D fim/core/dynamics.py",
+      " D fim/core/fabric.py",
+      " D fim/core/fractional.py",
+      " D fim/core/integrator.py",
+      " D fim/core/stability.py",
+      " D fim/core/state.py",
+      " D fim/epistemic_tests_full/README.md",
+      " D fim/epistemic_tests_full/tests/conftest.py",
+      " D fim/epistemic_tests_full/tests/test_benchmark_generation.py",
+      " D fim/epistemic_tests_full/tests/test_fractional_dynamics.py",
+      " D fim/epistemic_tests_full/tests/test_levy_sampling.py",
+      " D fim/epistemic_tests_full/tests/test_memory.py",
+      " D fim/epistemic_tests_full/tests/test_rollout_stability.py",
+      " D fim/epistemic_tests_full/tests/test_training_execution.py",
+      " D fim/geometry/graph.py",
+      " D fim/geometry/grid.py",
+      " D fim/geometry/manifold.py",
+      " D fim/geometry/topology.py",
+      " D fim/memory/compression.py",
+      " D fim/memory/consolidation.py",
+      " D fim/memory/init.py",
+      " D fim/memory/retrieval.py",
+      " D fim/memory/salience.py",
+      " D fim/memory/trace_bank.py",
+      " D fim/models/decoder.py",
+      " D fim/models/encoder.py",
+      " D fim/models/fim_model.py",
+      " D fim/models/init.py",
+      " D fim/models/latent_operator.py",
+      " D fim/operators/advection.py",
+      " D fim/operators/damping.py",
+      " D fim/operators/diffusion.py",
+      " D fim/operators/init.py",
+      " D fim/operators/propagation.py",
+      " D fim/operators/reaction.py",
+      " D fim/operators/spectral.py",
+      " D fim/operators/write.py",
+      " D fim/physics/base.py",
+      " D fim/physics/diffusion_equation.py",
+      " D fim/physics/fractional_pde.py",
+      " D fim/physics/init.py",
+      " D fim/physics/navier_stokes.py",
+      " D fim/physics/wave_equation.py",
+      " D fim/stochastic/brownian.py",
+      " D fim/stochastic/init.py",
+      " D fim/stochastic/levy.py",
+      " D fim/stochastic/noise.py",
+      " D fim/stochastic/sde.py",
+      " D fim/training/losses.py",
+      " D fim/training/optimizer.py",
+      " D fim/training/rollout.py",
+      " D fim/training/scheduler.py",
+      " D fim/training/trainer.py",
+      " D fim/utils/checkpoint.py",
+      " D fim/utils/config.py",
+      " D fim/utils/init.py",
+      " D fim/utils/logging.py",
+      " D fim/utils/seed.py",
+      " D fim/utils/visualization.py",
+      "?? .DS_Store",
+      "?? .github/workflows/itfm-sota-ci.yml",
+      "?? FIM/.gitattributes",
+      "?? FIM/.github/",
+      "?? FIM/.gitignore",
+      "?? FIM/ARCHIVAL_RELEASE.md",
+      "?? FIM/AUDIT_CHECKLIST_2026-09-13.md",
+      "?? FIM/CANONICAL_LINEAGE.md",
+      "?? FIM/CLAIM_EVIDENCE_MATRIX.csv",
+      "?? FIM/COMPLETION_MANIFEST.md",
+      "?? FIM/FINAL_STATUS_2026-09-30.md",
+      "?? FIM/PROJECT_STATUS.md",
+      "?? FIM/QFIM/",
+      "?? FIM/README.md",
+      "?? FIM/REPRODUCE.md",
+      "?? FIM/RESEARCH_TRUTH.md",
+      "?? FIM/SAME_LINEAGE.md",
+      "?? FIM/TRUTH_MAP.md",
+      "?? FIM/chaos.png",
+      "?? FIM/chaos_divergence.png",
+      "?? FIM/configs/",
+      "?? FIM/docs/",
+      "?? FIM/energy.png",
+      "?? FIM/fim/",
+      "?? FIM/fim_experiments/",
+      "?? FIM/latent_heatmap.png",
+      "?? FIM/latent_manifold.png",
+      "?? FIM/latent_norm.png",
+      "?? FIM/latent_surface.png",
+      "?? FIM/main.py",
+      "?? FIM/multi_dim.png",
+      "?? FIM/notebooks/",
+      "?? FIM/output/",
+      "?? FIM/paper/",
+      "?? FIM/paper_reference_results.json",
+      "?? FIM/publication_package/",
+      "?? FIM/pyproject.toml",
+      "?? FIM/pytest.ini",
+      "?? FIM/requirements.txt",
+      "?? FIM/research/",
+      "?? FIM/results/",
+      "?? FIM/results_smoke/",
+      "?? FIM/salience_heatmap.png",
+      "?? FIM/salience_hist.png",
+      "?? FIM/salience_spatial.png",
+      "?? FIM/salience_time.png",
+      "?? FIM/scripts/",
+      "?? FIM/tests/",
+      "?? FIM/time_evolution_3d.png",
+      "?? FIM/trajectory.png",
+      "?? FIM/uv.lock",
+      "?? ITFM_V2_STATUS_2026-10-11.md",
+      "?? SUCCESSOR_IDEA_AUDIT_2026-10-11.md",
+      "?? successor/"
+    ],
+    "successor_tracked_files": []
+  },
+  "resources": {
+    "samples": [
+      {
+        "at": "2026-10-11T18:27:40.533038+05:30",
+        "free_plus_speculative_bytes": 142999552,
+        "pageouts": 683870,
+        "swap": "vm.swapusage: total = 7168.00M  used = 5979.06M  free = 1188.94M  (encrypted)"
+      },
+      {
+        "at": "2026-10-11T18:27:41.153274+05:30",
+        "free_plus_speculative_bytes": 144654336,
+        "pageouts": 683871,
+        "swap": "vm.swapusage: total = 7168.00M  used = 5979.06M  free = 1188.94M  (encrypted)"
+      }
+    ],
+    "threshold_bytes": 536870912,
+    "pageout_increase": 1,
+    "admitted": false
+  },
+  "bounded_verifier_replay": {
+    "status": "fail",
+    "checks_passed": 95,
+    "checks_total": 96,
+    "failed": [
+      "source:pyproject.toml"
+    ],
+    "checks": {
+      "manifest_pass": true,
+      "no_failures": true,
+      "run_count": true,
+      "protocol_hash": true,
+      "source:METHODOLOGY.md": true,
+      "source:PROJECT_CONTRACT.md": true,
+      "source:protocols/development_v2.json": true,
+      "source:pyproject.toml": false,
+      "source:scripts/audit_contract.py": true,
+      "source:scripts/check_resource_admission.py": true,
+      "source:scripts/run_pipeline.py": true,
+      "source:scripts/verify_results.py": true,
+      "source:src/fim_v2/__init__.py": true,
+      "source:src/fim_v2/analysis.py": true,
+      "source:src/fim_v2/audit.py": true,
+      "source:src/fim_v2/data.py": true,
+      "source:src/fim_v2/evaluation.py": true,
+      "source:src/fim_v2/experiment.py": true,
+      "source:src/fim_v2/memory.py": true,
+      "source:src/fim_v2/resources.py": true,
+      "source:tests/test_data.py": true,
+      "source:tests/test_decision.py": true,
+      "source:tests/test_evaluation.py": true,
+      "source:tests/test_memory.py": true,
+      "result:101": true,
+      "decision:101": true,
+      "artifact:seed-101/predictions-erase.json": true,
+      "artifact:seed-101/predictions-last_value.json": true,
+      "artifact:seed-101/predictions-no_memory.json": true,
+      "artifact:seed-101/predictions-oracle_anchor.json": true,
+      "artifact:seed-101/predictions-paired_swap.json": true,
+      "artifact:seed-101/predictions-recent_only.json": true,
+      "artifact:seed-101/predictions-sign_flip.json": true,
+      "artifact:seed-101/predictions-tensor_memory.json": true,
+      "artifact:seed-101/predictions-vector_broadcast.json": true,
+      "mode_count:101": true,
+      "metrics:101:erase": true,
+      "metrics:101:last_value": true,
+      "metrics:101:no_memory": true,
+      "metrics:101:oracle_anchor": true,
+      "metrics:101:paired_swap": true,
+      "metrics:101:recent_only": true,
+      "metrics:101:sign_flip": true,
+      "metrics:101:tensor_memory": true,
+      "metrics:101:vector_broadcast": true,
+      "independent_gates:101": true,
+      "reported_gates:101": true,
+      "identifiability:101": true,
+      "result:211": true,
+      "decision:211": true,
+      "artifact:seed-211/predictions-erase.json": true,
+      "artifact:seed-211/predictions-last_value.json": true,
+      "artifact:seed-211/predictions-no_memory.json": true,
+      "artifact:seed-211/predictions-oracle_anchor.json": true,
+      "artifact:seed-211/predictions-paired_swap.json": true,
+      "artifact:seed-211/predictions-recent_only.json": true,
+      "artifact:seed-211/predictions-sign_flip.json": true,
+      "artifact:seed-211/predictions-tensor_memory.json": true,
+      "artifact:seed-211/predictions-vector_broadcast.json": true,
+      "mode_count:211": true,
+      "metrics:211:erase": true,
+      "metrics:211:last_value": true,
+      "metrics:211:no_memory": true,
+      "metrics:211:oracle_anchor": true,
+      "metrics:211:paired_swap": true,
+      "metrics:211:recent_only": true,
+      "metrics:211:sign_flip": true,
+      "metrics:211:tensor_memory": true,
+      "metrics:211:vector_broadcast": true,
+      "independent_gates:211": true,
+      "reported_gates:211": true,
+      "identifiability:211": true,
+      "result:307": true,
+      "decision:307": true,
+      "artifact:seed-307/predictions-erase.json": true,
+      "artifact:seed-307/predictions-last_value.json": true,
+      "artifact:seed-307/predictions-no_memory.json": true,
+      "artifact:seed-307/predictions-oracle_anchor.json": true,
+      "artifact:seed-307/predictions-paired_swap.json": true,
+      "artifact:seed-307/predictions-recent_only.json": true,
+      "artifact:seed-307/predictions-sign_flip.json": true,
+      "artifact:seed-307/predictions-tensor_memory.json": true,
+      "artifact:seed-307/predictions-vector_broadcast.json": true,
+      "mode_count:307": true,
+      "metrics:307:erase": true,
+      "metrics:307:last_value": true,
+      "metrics:307:no_memory": true,
+      "metrics:307:oracle_anchor": true,
+      "metrics:307:paired_swap": true,
+      "metrics:307:recent_only": true,
+      "metrics:307:sign_flip": true,
+      "metrics:307:tensor_memory": true,
+      "metrics:307:vector_broadcast": true,
+      "independent_gates:307": true,
+      "reported_gates:307": true,
+      "identifiability:307": true
+    },
+    "boundary": "Uses existing standard-library verifier helpers to reaggregate stored squared errors and booleans. No raw predictions, targets, generator, model execution, or external reproduction was independently replayed."
+  },
+  "source_details": [
+    {
+      "path": "METHODOLOGY.md",
+      "expected": "1846f4f4a8ff7dade0e6140594e718aacee2c3ebedbe6799b0c9670a93995f59",
+      "current": "1846f4f4a8ff7dade0e6140594e718aacee2c3ebedbe6799b0c9670a93995f59",
+      "matches": true
+    },
+    {
+      "path": "PROJECT_CONTRACT.md",
+      "expected": "c276ac187cece3cc512a588ee299fbc1a775cdd271e2b3552029275db90b57d6",
+      "current": "c276ac187cece3cc512a588ee299fbc1a775cdd271e2b3552029275db90b57d6",
+      "matches": true
+    },
+    {
+      "path": "protocols/development_v2.json",
+      "expected": "8cb1ea0493da40ece0663f1777dccf5bf01f367050b771434a9574b0ef52330b",
+      "current": "8cb1ea0493da40ece0663f1777dccf5bf01f367050b771434a9574b0ef52330b",
+      "matches": true
+    },
+    {
+      "path": "pyproject.toml",
+      "expected": "e1f53e42797ac6aeb1f07b00ca898785264ed87e36405e0f512e68cc48e65cca",
+      "current": "553459edc5acb8bcb25c4f9724ffb3840ca5d7efa94409a41efda78483e58649",
+      "matches": false
+    },
+    {
+      "path": "scripts/audit_contract.py",
+      "expected": "534003e7e9e034ad395d64cdd0013325a8b7a2e67cf3827b6e02848cdbfc1351",
+      "current": "534003e7e9e034ad395d64cdd0013325a8b7a2e67cf3827b6e02848cdbfc1351",
+      "matches": true
+    },
+    {
+      "path": "scripts/check_resource_admission.py",
+      "expected": "7eb62af11217f7e79a5b62d4d5420ed5ae6dbedaa5165c57a97e95b8782d7360",
+      "current": "7eb62af11217f7e79a5b62d4d5420ed5ae6dbedaa5165c57a97e95b8782d7360",
+      "matches": true
+    },
+    {
+      "path": "scripts/run_pipeline.py",
+      "expected": "ca752f68b8c1c45ec184626d55400ebf50a14638be206a94adb6b1aa86d6562c",
+      "current": "ca752f68b8c1c45ec184626d55400ebf50a14638be206a94adb6b1aa86d6562c",
+      "matches": true
+    },
+    {
+      "path": "scripts/verify_results.py",
+      "expected": "966b3ed851ca3283fca3acf020b4a61f10b3fc04379167b701d26cf6e9436eac",
+      "current": "966b3ed851ca3283fca3acf020b4a61f10b3fc04379167b701d26cf6e9436eac",
+      "matches": true
+    },
+    {
+      "path": "src/fim_v2/__init__.py",
+      "expected": "70363df39caad22c18813416cec1a2921ec2ad6a80788504998578fe9e48d2fb",
+      "current": "70363df39caad22c18813416cec1a2921ec2ad6a80788504998578fe9e48d2fb",
+      "matches": true
+    },
+    {
+      "path": "src/fim_v2/analysis.py",
+      "expected": "1e09666445f51b57bcd42cd9e5163b38d692c8a7d4cc65821760d94ef5ae24c8",
+      "current": "1e09666445f51b57bcd42cd9e5163b38d692c8a7d4cc65821760d94ef5ae24c8",
+      "matches": true
+    },
+    {
+      "path": "src/fim_v2/audit.py",
+      "expected": "f703c74297b13866beffe4ed4f0d3cd0eb099289a0453d9edf74d9475d56a988",
+      "current": "f703c74297b13866beffe4ed4f0d3cd0eb099289a0453d9edf74d9475d56a988",
+      "matches": true
+    },
+    {
+      "path": "src/fim_v2/data.py",
+      "expected": "78575f1377162a4c0c65af7501f5b5817d0b6844667aae329f79d4e94582fbd5",
+      "current": "78575f1377162a4c0c65af7501f5b5817d0b6844667aae329f79d4e94582fbd5",
+      "matches": true
+    },
+    {
+      "path": "src/fim_v2/evaluation.py",
+      "expected": "ceaa27acf190a45deeab87aa7c32d642f70b54ad568bcb9b8e137004706c10d2",
+      "current": "ceaa27acf190a45deeab87aa7c32d642f70b54ad568bcb9b8e137004706c10d2",
+      "matches": true
+    },
+    {
+      "path": "src/fim_v2/experiment.py",
+      "expected": "7bd2fbd82e7b014355ce42ff6526be98bb23a992fdb643b1b30240f10b20dfce",
+      "current": "7bd2fbd82e7b014355ce42ff6526be98bb23a992fdb643b1b30240f10b20dfce",
+      "matches": true
+    },
+    {
+      "path": "src/fim_v2/memory.py",
+      "expected": "63de75c6058923c8b88bf75838b19ca328d0197db4fa0eeede9a8bf575447820",
+      "current": "63de75c6058923c8b88bf75838b19ca328d0197db4fa0eeede9a8bf575447820",
+      "matches": true
+    },
+    {
+      "path": "src/fim_v2/resources.py",
+      "expected": "7013ea93b729fa57d2d9ba14ed8277d0515dc88600c334848193cc7984991653",
+      "current": "7013ea93b729fa57d2d9ba14ed8277d0515dc88600c334848193cc7984991653",
+      "matches": true
+    },
+    {
+      "path": "tests/test_data.py",
+      "expected": "6b9bccb5d9143534d3fcd919344b953dd39b3e5a720b72c52e58c8385618b314",
+      "current": "6b9bccb5d9143534d3fcd919344b953dd39b3e5a720b72c52e58c8385618b314",
+      "matches": true
+    },
+    {
+      "path": "tests/test_decision.py",
+      "expected": "c5745c884c50c0c1d2eb26395af41e2491d2223c7af8ff95ccdc053685d676f3",
+      "current": "c5745c884c50c0c1d2eb26395af41e2491d2223c7af8ff95ccdc053685d676f3",
+      "matches": true
+    },
+    {
+      "path": "tests/test_evaluation.py",
+      "expected": "ca72a3c9f64af9fe8338eb3094d8a02f55bb0f8de9e86319cad34a145916e869",
+      "current": "ca72a3c9f64af9fe8338eb3094d8a02f55bb0f8de9e86319cad34a145916e869",
+      "matches": true
+    },
+    {
+      "path": "tests/test_memory.py",
+      "expected": "f9750aee7d02885abae29dd1aca57c069f3c2c9fd947fcc55dbecd2bc0027874",
+      "current": "f9750aee7d02885abae29dd1aca57c069f3c2c9fd947fcc55dbecd2bc0027874",
+      "matches": true
+    }
+  ],
+  "paper_source_check": {
+    "schema_version": 1,
+    "status": "PASS_SOURCE_EVIDENCE_BOUND",
+    "checks_passed": 19,
+    "checks_total": 19,
+    "checks": [
+      {
+        "name": "hash:results/development-v2/manifest.json",
+        "passed": true,
+        "detail": "76c2bda7436f9b4798c423b02c99a3d65df3170e08629b1f847c0b6a3e4606bf"
+      },
+      {
+        "name": "hash:results/result_verification.json",
+        "passed": true,
+        "detail": "fe7ab41ec8d9634e82c08b292cf4c1d0f4d2f7a7d91d9dbe2463fce23969c6ce"
+      },
+      {
+        "name": "hash:results/verification_receipt.json",
+        "passed": true,
+        "detail": "4b91f3db87dedb80e2851b1b28427a33b9846c0ca3fd47c7f53de4cd64f30f79"
+      },
+      {
+        "name": "hash:results/development-v2/seed-101/result.json",
+        "passed": true,
+        "detail": "8f03e8449a20fd05ea34c95a600d9e53ca195d145d1b543bbe1a948ab82f92b0"
+      },
+      {
+        "name": "hash:results/development-v2/seed-211/result.json",
+        "passed": true,
+        "detail": "948bb206d63721a260e1742f3ce7e39d2771d07b5a3b9840535d3ceffc4f7867"
+      },
+      {
+        "name": "hash:results/development-v2/seed-307/result.json",
+        "passed": true,
+        "detail": "f147987396d95af850d400bd6a7490cf3b11877aa91175a72085a270d942d165"
+      },
+      {
+        "name": "manifest_complete",
+        "passed": true,
+        "detail": "PASS_BOUNDED_DEVELOPMENT"
+      },
+      {
+        "name": "source_identity",
+        "passed": true,
+        "detail": "5d01a2917fe78719e40fecbc702131e76a3b7f842986d79d47e5660c7221631a"
+      },
+      {
+        "name": "protocol_identity",
+        "passed": true,
+        "detail": "8cb1ea0493da40ece0663f1777dccf5bf01f367050b771434a9574b0ef52330b"
+      },
+      {
+        "name": "independent_script_verification",
+        "passed": true,
+        "detail": "pass:96"
+      },
+      {
+        "name": "public_claims_still_closed",
+        "passed": true,
+        "detail": "{\"public_data_advantage\": \"NOT_EVALUATED\", \"public_stack_engineering\": \"STATIC_IMPLEMENTED_RUNTIME_UNVERIFIED\", \"publication_ready\": \"NO\", \"state_of_the_art\": \"NOT_EVALUATED\", \"synthetic_mechanism\": \"SUPPORTED_BOUNDED\"}"
+      },
+      {
+        "name": "seed:101",
+        "passed": true,
+        "detail": "{'erasure_gain_removal': 1.0, 'gates': {'all_nonoracle_control_gains': True, 'erasure_removes_gain': True, 'nonquery_preserved': True, 'oracle_gap_recovery': True, 'retrieval_precision': True, 'sign_flip_not_equivalent': True, 'swap_direction': True, 'vector_not_equivalent': True}, 'nonquery_nmse_degradation': 0.0, 'oracle_gap_recovery': 1.0, 'relative_gains': {'last_value': 1.0, 'no_memory': 1.0, 'recent_only': 1.0, 'sign_flip': 1.0, 'vector_broadcast': 1.0}, 'status': 'PASS_BOUNDED_DEVELOPMENT'}"
+      },
+      {
+        "name": "seed:211",
+        "passed": true,
+        "detail": "{'erasure_gain_removal': 1.0, 'gates': {'all_nonoracle_control_gains': True, 'erasure_removes_gain': True, 'nonquery_preserved': True, 'oracle_gap_recovery': True, 'retrieval_precision': True, 'sign_flip_not_equivalent': True, 'swap_direction': True, 'vector_not_equivalent': True}, 'nonquery_nmse_degradation': 0.0, 'oracle_gap_recovery': 1.0, 'relative_gains': {'last_value': 1.0, 'no_memory': 1.0, 'recent_only': 1.0, 'sign_flip': 1.0, 'vector_broadcast': 1.0}, 'status': 'PASS_BOUNDED_DEVELOPMENT'}"
+      },
+      {
+        "name": "seed:307",
+        "passed": true,
+        "detail": "{'erasure_gain_removal': 1.0, 'gates': {'all_nonoracle_control_gains': True, 'erasure_removes_gain': True, 'nonquery_preserved': True, 'oracle_gap_recovery': True, 'retrieval_precision': True, 'sign_flip_not_equivalent': True, 'swap_direction': True, 'vector_not_equivalent': True}, 'nonquery_nmse_degradation': 0.0, 'oracle_gap_recovery': 1.0, 'relative_gains': {'last_value': 1.0, 'no_memory': 1.0, 'recent_only': 1.0, 'sign_flip': 1.0, 'vector_broadcast': 1.0}, 'status': 'PASS_BOUNDED_DEVELOPMENT'}"
+      },
+      {
+        "name": "table_row:101",
+        "passed": true,
+        "detail": "101 & 0.487685 & 0.000000 & 0.487685 & 1.950739 & 0.487685 & 0.487685 & 0.487685 & 0.000000 & 0.054187 & 1.000 & 1.000 \\\\"
+      },
+      {
+        "name": "table_row:211",
+        "passed": true,
+        "detail": "211 & 0.487685 & 0.000000 & 0.487685 & 1.950739 & 0.487685 & 0.487685 & 0.487685 & 0.000000 & 0.054187 & 1.000 & 1.000 \\\\"
+      },
+      {
+        "name": "table_row:307",
+        "passed": true,
+        "detail": "307 & 0.487685 & 0.000000 & 0.487685 & 1.950739 & 0.487685 & 0.487685 & 0.487685 & 0.000000 & 0.054187 & 1.000 & 1.000 \\\\"
+      },
+      {
+        "name": "citations_resolved",
+        "passed": true,
+        "detail": "cited=['han2025raft', 'hou2026lano', 'koren2025spatiotemporal', 'lara2026nop', 'li2020fno', 'lin2021mori', 'ruiz2024memory', 'shikhman2026hsfno', 'singh2024semilinear'] missing=[]"
+      },
+      {
+        "name": "no_placeholder_markers",
+        "passed": true,
+        "detail": ""
+      }
+    ],
+    "release_boundary": "Source verification only. This is not compilation, rendered visual QA, public confirmation, independent reproduction, or arXiv submission."
+  },
+  "result_artifacts": {
+    "prediction_record_files_hashed": 27,
+    "rows_read": 16038,
+    "seed_summaries": [
+      {
+        "seed": 101,
+        "query_nmse_no_memory": 0.4876847162744466,
+        "query_nmse_tensor": 0.0,
+        "decision_gates_from_error_records": {
+          "all_nonoracle_control_gains": true,
+          "oracle_gap_recovery": true,
+          "erasure_removes_gain": true,
+          "swap_direction": true,
+          "retrieval_precision": true,
+          "nonquery_preserved": true,
+          "sign_flip_not_equivalent": true,
+          "vector_not_equivalent": true
+        },
+        "identifiability": "recorded booleans read; not regenerated"
+      },
+      {
+        "seed": 211,
+        "query_nmse_no_memory": 0.4876847296721697,
+        "query_nmse_tensor": 0.0,
+        "decision_gates_from_error_records": {
+          "all_nonoracle_control_gains": true,
+          "oracle_gap_recovery": true,
+          "erasure_removes_gain": true,
+          "swap_direction": true,
+          "retrieval_precision": true,
+          "nonquery_preserved": true,
+          "sign_flip_not_equivalent": true,
+          "vector_not_equivalent": true
+        },
+        "identifiability": "recorded booleans read; not regenerated"
+      },
+      {
+        "seed": 307,
+        "query_nmse_no_memory": 0.48768470861860486,
+        "query_nmse_tensor": 0.0,
+        "decision_gates_from_error_records": {
+          "all_nonoracle_control_gains": true,
+          "oracle_gap_recovery": true,
+          "erasure_removes_gain": true,
+          "swap_direction": true,
+          "retrieval_precision": true,
+          "nonquery_preserved": true,
+          "sign_flip_not_equivalent": true,
+          "vector_not_equivalent": true
+        },
+        "identifiability": "recorded booleans read; not regenerated"
+      }
+    ]
+  },
+  "findings": [
+    "Executed pyproject.toml hash differs from current file; current pins specify Torch 2.11.0 while execution manifest records 2.12.1.",
+    "Paper donor-direction definition compares donor versus recipient; implementation compares donor distance of swapped prediction versus base.",
+    "Recent-only has minimum_age=4 and maximum_age=3, leaving no eligible entry by construction.",
+    "Stored prediction JSON contains error summaries and retrieval metadata, not prediction/target tensors.",
+    "Identifiability verifier reads saved gate booleans; it does not regenerate data checks.",
+    "Paper last-frame key differs from full repeated-context key in executed code; equivalence and complexity need correction.",
+    "No-memory computes retrieval and writes before zeroing correction; it is not a no-bank timing control.",
+    "Older top-level ITFM status and the current-verdict subsection of READINESS_REPORT say zero seeds despite completed canonical result.",
+    "Synthetic study and public stack are untracked in this checkout; root README points to a different canonical remote."
+  ],
+  "immutable_inputs": {
+    "development_manifest_sha256": "76c2bda7436f9b4798c423b02c99a3d65df3170e08629b1f847c0b6a3e4606bf",
+    "historical_result_verification_sha256": "fe7ab41ec8d9634e82c08b292cf4c1d0f4d2f7a7d91d9dbe2463fce23969c6ce",
+    "historical_pipeline_receipt_sha256": "4b91f3db87dedb80e2851b1b28427a33b9846c0ca3fd47c7f53de4cd64f30f79",
+    "manuscript_sha256": "3d58dceb822271085c2db9d5644e50f557fc093a30a0668ce0d73205c5cdb3d9"
+  },
+  "external_reference_checks": [
+    "https://info.arxiv.org/help/submit/index.html",
+    "https://info.arxiv.org/help/submit_tex.html",
+    "https://arxiv.org/abs/2601.15547",
+    "https://arxiv.org/abs/2409.02313"
+  ]
+}

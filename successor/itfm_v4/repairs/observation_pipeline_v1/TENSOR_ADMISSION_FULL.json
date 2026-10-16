@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-15T15:39:58.475297+00:00",
+  "scope": "Actual tensor software integration, no scientific trial",
+  "status": "BLOCKED_ADMISSION",
+  "samples": [
+    {
+      "free_mib": 81.96875,
+      "pageouts": 665355,
+      "swap_mib": 10630.5
+    },
+    {
+      "free_mib": 90.890625,
+      "pageouts": 665357,
+      "swap_mib": 10630.5
+    }
+  ],
+  "floor_mib": 512,
+  "source_sha256": {
+    "test_tensor.py": "f256882d695ff05a48115c26999d466c2b03c14ce3d775714ae1b60d3a5cdc3d",
+    "run_tests.py": "37db147f0d42c55f7b7a1df55a5d239d5a7941a17569e91bec170f744ab63339",
+    "observations.py": "9e4781ba9452514e01dcdd8c501324d9421de645eec05614ae9fb89ea678a74a",
+    "recorder.py": "3594b5d0f91adcbbf386ef7132393257bdf3f7f255e08300e002abc9bb1b729e",
+    "tensor_bridge.py": "702f6c670e9f2b75bb3459ac39488fb2923d2939ff4c2f9c70eeaffdd8407e87",
+    "integrity.py": "ef9d1c457a87bd144784152ec3878fe4b7210c2a44c778cab987aacb95085f1d",
+    "test_pipeline.py": "79f93181d34b13892344f44c10953c2857c2903dce9d786a51d60784bf3afde8",
+    "run_tensor_tests.py": "5a1cb34e964b9e1f7d5c790c5f80a40ed34d56c41c745394e7ff3e62bbe41bc3"
+  },
+  "tests_run": 0,
+  "model_modules_imported": [],
+  "errors": [
+    "Memory/pageout/swap admission failed"
+  ]
+}

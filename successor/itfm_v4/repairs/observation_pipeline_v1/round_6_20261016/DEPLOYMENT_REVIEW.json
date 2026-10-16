@@ -1,0 +1,122 @@
+{
+  "target_repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "visibility": "public",
+  "branch": "codex/itfm-v4-runtime-20261016",
+  "job_limit": 1,
+  "runner": "standard macos-26 arm64",
+  "workflow_timeout_minutes": 15,
+  "tensor_worker_seconds": 30,
+  "manifest_sha256": "d7ca447f6ec0204fbca892835b9186ad391064cb87d85ea56bd1b6abb9ab5597",
+  "files": [
+    {
+      "path": ".github/workflows/itfm-v4-runtime.yml",
+      "bytes": 3590,
+      "sha256": "d8bb396ff7017a873c36363187681949cbfa6021a37977c2fca800e5880e7fc1"
+    },
+    {
+      "path": "SOURCE_MANIFEST.json",
+      "bytes": 3549,
+      "sha256": "d7ca447f6ec0204fbca892835b9186ad391064cb87d85ea56bd1b6abb9ab5597"
+    },
+    {
+      "path": "requirements-runtime.txt",
+      "bytes": 27,
+      "sha256": "4f7fae6efc93990ead9d29a5899f93fa91f66a1ea7c979e94d6ceb78a63c84ab"
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/__init__.py",
+      "bytes": 423,
+      "sha256": "960cc4ee8e699a9dd429e723ceea4b6f75cb22dce18eaa46b8d77ca94f9d33ed"
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/adapter.py",
+      "bytes": 11202,
+      "sha256": "0d88d64eb64bf42a46b7c6bc6f0b089f1ab123e74ea301040307b87b0d0fc126"
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/config.py",
+      "bytes": 8957,
+      "sha256": "9385a9a6d3a89a292a8c1284095bf195e309a6547cc0b6549e91f8c756a69984"
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/contracts.py",
+      "bytes": 4628,
+      "sha256": "76dfc42bdd7231ddd5707595fe86da9a08906a20eddf9a75d61463456e51ccaa"
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/memory.py",
+      "bytes": 34782,
+      "sha256": "643bed2a6ce8b54d4829604ce451eee31e9990d36b8863a133f48b793b94de8a"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/evidence_integrity_v1/evidence.py",
+      "bytes": 20317,
+      "sha256": "519bea984bb910426fd21ca98865777d9b47dbd3bcb4b67445ca74e8c8ea4832"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/durable.py",
+      "bytes": 10332,
+      "sha256": "052e3991046553b8b04ec6dbb6a8ed44c4c0ff37b422e9f31d64e8dc923a78b3"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/integrity.py",
+      "bytes": 641,
+      "sha256": "ef9d1c457a87bd144784152ec3878fe4b7210c2a44c778cab987aacb95085f1d"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/journal.py",
+      "bytes": 6518,
+      "sha256": "f849d2faf53fe7496e0c76749f74c2807f3dd638e553ddaa15a01ff34cd45693"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/observations.py",
+      "bytes": 7401,
+      "sha256": "9e4781ba9452514e01dcdd8c501324d9421de645eec05614ae9fb89ea678a74a"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/recorder.py",
+      "bytes": 6185,
+      "sha256": "3594b5d0f91adcbbf386ef7132393257bdf3f7f255e08300e002abc9bb1b729e"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/run_tensor_tests.py",
+      "bytes": 5375,
+      "sha256": "cf42bb8a7785c9c3ba5364906f79e264273f59e7eb8b568f96387e950037cf92"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/runtime_verification.py",
+      "bytes": 10081,
+      "sha256": "1e398318f10d4b661bebd2a27aaee9b4b354eb632fbfb03db8c7931bc5bdbb9e"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/tensor_bridge.py",
+      "bytes": 9981,
+      "sha256": "702f6c670e9f2b75bb3459ac39488fb2923d2939ff4c2f9c70eeaffdd8407e87"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/test_durable_tensor.py",
+      "bytes": 4695,
+      "sha256": "2315d6380d72263e5656ea05799f6cc0529fec648a88104703beea5c3fb76428"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/test_pipeline.py",
+      "bytes": 14708,
+      "sha256": "79f93181d34b13892344f44c10953c2857c2903dce9d786a51d60784bf3afde8"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/test_tensor.py",
+      "bytes": 5768,
+      "sha256": "f256882d695ff05a48115c26999d466c2b03c14ce3d775714ae1b60d3a5cdc3d"
+    },
+    {
+      "path": "successor/itfm_v4/repairs/observation_pipeline_v1/verify_export.py",
+      "bytes": 4114,
+      "sha256": "63aeabf254e89a481abd58a0392b6bdac10eb6f02e2780f9a5bdc73f747b9e11"
+    }
+  ],
+  "disclosure": "Only allowlisted software source and deterministic software tests, manifest, requirements and workflow. No scientific results, datasets, full worktree, private state/history, credentials or attached user text.",
+  "storage": "Receipts in normal job logs; no Actions artifacts, cache, release assets or paid runners.",
+  "authorized_upload": false,
+  "remote_job_launched": false,
+  "total_bytes": 173274
+}

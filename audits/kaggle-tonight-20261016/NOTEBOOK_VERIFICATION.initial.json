@@ -1,0 +1,13 @@
+{
+  "status": "PASS_STATIC_PORTABILITY_ONLY",
+  "notebook_sha256": "1309ea8c69ddf0e89c6191d62ccda61475cf1c8b7fe9a920dd31e20d2c60fa85",
+  "total_cells": 35,
+  "python_cells_ast_validated": 16,
+  "bootstrap_executions": 2,
+  "idempotent_extraction": true,
+  "embedded_source_sha256": "97a31bff8d785c37b0f2af6bfc374900670ed66bd554e17bb1d6525253a719f2",
+  "numerical_imports": [],
+  "torch_experiments_run": 0,
+  "stdlib_profile_origin_outside_support": true,
+  "bootstrapped_source_files": 20
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "run_name": "itfm-r-development",
+  "output_root": "results/sota/runs",
+  "backbone": "lano",
+  "backbone_checkpoint": null,
+  "backbone_identity_sha256": null,
+  "dataset": {
+    "benchmark": "pobench_pde",
+    "name": "navier_stokes",
+    "root": "datasets/pobench/navier_stokes",
+    "manifest": "admission/datasets/navier_stokes.json",
+    "split": "train",
+    "mask_pattern": "point_wise",
+    "missing_percent": 25,
+    "observed_only_loss": false
+  },
+  "memory": {
+    "key_dimension": 256,
+    "residual_shape": [1, 64, 64],
+    "capacity_per_trajectory": 4096,
+    "minimum_age": 4,
+    "topk": 4,
+    "temperature": 0.05,
+    "minimum_similarity": 0.25,
+    "chunk_size": 16384,
+    "eviction": "fifo",
+    "residual_normalization": "channel_std",
+    "approximate_search": false,
+    "ann_bits": 32
+  },
+  "training": {
+    "mode": "frozen_backbone",
+    "gate": "one_sequence",
+    "seed": 101,
+    "epochs": 1,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "gradient_accumulation": 1,
+    "gradient_clip_norm": 1.0,
+    "precision": "fp32",
+    "early_stopping_patience": 10,
+    "checkpoint_every_steps": 100,
+    "distributed": false,
+    "wall_clock_budget_seconds": 3600,
+    "example_budget": 100000,
+    "tuning_trial_budget": 1
+  },
+  "evaluation": {
+    "seeds": [101, 211, 307, 401, 503],
+    "protected_test": false,
+    "frozen_development_receipt": null,
+    "bootstrap_repetitions": 10000,
+    "confidence": 0.95,
+    "fail_on_missing_run": true
+  },
+  "metadata": {
+    "evidence_class": "configuration_only",
+    "results_available": "false"
+  }
+}

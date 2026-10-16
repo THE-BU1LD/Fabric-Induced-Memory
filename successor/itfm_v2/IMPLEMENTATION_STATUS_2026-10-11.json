@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "project": "ITFM-R public benchmark stack",
+  "recorded_at": "2026-10-11T17:08:35+05:30",
+  "scope": "successor/itfm_v2 only; predecessor, v1, frozen protocols, and retained results were not modified",
+  "verdict": "SUBSTANTIAL_STATIC_IMPLEMENTATION_COMPLETE_RUNTIME_AND_EXTERNAL_GATES_BLOCKED",
+  "implemented_source": [
+    "dedicated fim_sota package and stable APIs",
+    "versioned typed configuration, migration checks, resolved-config command, deterministic state, structured logging, immutable run IDs, atomic JSON, checkpoint schemas",
+    "batched and chunked GPU-native causal residual memory, exact reference path, mixed-precision-safe masked cosine, deterministic ties, approximate candidate search, four eviction policies, serialization, checksums, telemetry, latency and peak-memory instrumentation",
+    "learned normalized keys with mask, lead-time, and physical-parameter conditioning; residual normalization; per-channel calibration; monotone similarity and uncertainty gates; exact backbone fallback",
+    "erase, sign-flip, spatial shuffle, channel mean, recent-only, last-residual, wrong-trajectory, time-permuted, random-key, random-value, paired-swap, and oracle selection controls",
+    "manifest-bound Navier-Stokes, Diffusion-Reaction, and ERA5 NPZ loaders; explicit deterministic point/patch masks; trajectory split-overlap checks; provenance; checksum verification; cache identities; schema-only fixtures",
+    "locked-upstream bridges for all five HS-FNO families and history-window construction",
+    "common ForecastBatch, BackboneOutput, rollout, checkpoint identity, parameter count, LANO, HS-FNO, persistence, climatology, and residual-MLP contracts",
+    "budgeted unified training with 1/8/64/full gates, frozen/joint modes, accumulation, mixed precision, clipping, resume, validation early stopping, NaN/OOM/preemption/resource receipts, and distributed admission",
+    "full/observed/unobserved relative L2, MSE, spectral, horizon, uncertainty calibration, retrieval, physics-hook, runtime, parameter, and memory metrics",
+    "trajectory-first aggregation, paired effects, family-cluster bootstrap, confidence intervals, Holm correction, win/loss/tie cells, and missing/failing-run accounting",
+    "oracle-gap triage and frozen stop rules, robustness grid, worst-group reporting, intervention artifact separation/hashing, and causal summaries",
+    "fetch-data, verify-data, reproduce-lano, reproduce-hsfno, run-oracle-gap, train-adapter, run-ablation, run-pobench-final, run-hsfno-final, verify-results, build-report, and archive-manifest CLI paths",
+    "CI workflow, direct platform pins, a pinned PyTorch/CUDA container definition, third-party notices, license scanner, model card, dataset-card template, and security/privacy boundary"
+  ],
+  "static_verification": {
+    "source_bundle_scope": "15 fim_sota modules, 7 SOTA test modules, pyproject.toml, Dockerfile, README.md, and 3 platform pin files",
+    "source_bundle_files": 28,
+    "source_bundle_sha256": "d6956a54741edda75a554df63917ab8bbfc5117631313fe05055a149b37efc97",
+    "ruff_version": "0.15.20",
+    "ruff_status": "PASS_ZERO_ISSUES",
+    "python_ast_status": "PASS_27_FILES",
+    "json_status": "PASS_BASE_CONFIGURATION",
+    "lightweight_cli_import": "PASS_WITHOUT_TORCH_IMPORT",
+    "print_resolved_config": "PASS",
+    "runtime_tests_written": 23,
+    "runtime_tests_status": "BLOCKED_RESOURCE_NOT_RUN"
+  },
+  "partial_not_claimed_complete": [
+    "The platform text files pin direct dependencies, but full transitive wheel hashes were not resolved in an admitted clean environment.",
+    "POBench loaders enforce declared manifests but have not been compared byte-for-byte with official preprocessing, normalization, or split outputs.",
+    "LANO and HS-FNO are fail-closed integration contracts; paper-faithful independent implementations and upstream reproductions are absent.",
+    "External comparison models are registered as unavailable until exact implementation and reproduction receipts are supplied.",
+    "The container image definition and CI workflow are present but unbuilt and unexecuted.",
+    "Metric, statistics, trainer, and verifier source is lint-clean but runtime-unverified."
+  ],
+  "external_and_scientific_blockers": [
+    "POBench-PDE and HS-FNO dataset bytes, hashes, official preprocessing receipts, and licenses are absent.",
+    "LANO and HS-FNO source use and redistribution remain license-blocked in the frozen registry.",
+    "No accelerator, energy meter, wall-clock budget, or independent operator is admitted.",
+    "No public-data oracle gap, frontier reproduction, training run, protected evaluation, or independent reproduction exists.",
+    "No public-data, natural-system, publication-ready, or state-of-the-art claim is permitted."
+  ],
+  "resource_snapshot": {
+    "free_plus_speculative_bytes": 188940288,
+    "required_bytes": 536870912,
+    "pageouts": 659578,
+    "swap_used_mib": 4799.31,
+    "other_active_jobs": ["NeuroCAD pytest", "LGWM experiment matrix"],
+    "admission": "BLOCKED"
+  }
+}

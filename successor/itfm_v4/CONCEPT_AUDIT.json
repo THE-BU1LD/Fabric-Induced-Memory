@@ -1,0 +1,223 @@
+{
+  "as_of": "2026-10-15",
+  "scope": "Targeted primary-source review of five candidate directions; not an exhaustive novelty certification.",
+  "searches": [
+    "retrieval residual memory frozen forecasting",
+    "streaming memory nonstationarity delayed feedback",
+    "partial observations neural operator history",
+    "missing outcome kernel regression"
+  ],
+  "source_access_notes": [
+    "Hugging Face markdown/API fetches for 2610.07834 returned tool fetch errors; primary arXiv HTML was used.",
+    "The first ADAPT-Z HTML URL used an unavailable v3; primary metadata establishes v2.",
+    "Pinned GitHub tree URLs failed through web fetch; GitHub connector succeeded."
+  ],
+  "sources": [
+    {
+      "id": "freshcast",
+      "title": "Retrieval Is Not Enough: Refreshing Memory for Frozen Time-Series Forecasters",
+      "url": "https://arxiv.org/html/2610.07834v1",
+      "version": "2610.07834v1",
+      "date": "2026-10-06",
+      "read": "Abstract, method Sections 3.1-3.6, theoretical statement, comparison and causal-admissibility passages",
+      "finding": "Frozen forecasting, continually refreshed memory, learned relational weighting and validation-calibrated correction are already combined. Whole future windows must be observed before retrieval.",
+      "implication": "The earlier upgrade sketch cannot support novelty by those components alone. Coordinate-wise asynchronous visibility remains a comparison question, not an established new invention."
+    },
+    {
+      "id": "saraf",
+      "title": "Stationarity-Aware Retrieval-Augmented Time Series Forecasting",
+      "url": "https://arxiv.org/html/2606.04135v1",
+      "version": "2606.04135v1",
+      "date": "2026-06-02",
+      "read": "Abstract, retrieval description and Appendix E limitations",
+      "finding": "Retrieval relevance, diversity and aggregation already account for stationarity. The authors identify global similarity, dense-window storage and dataset-level stationarity as limitations.",
+      "implication": "Learned retention, diversity or drift awareness alone do not justify a new FIM claim. Any localized policy must beat this family under equal information and storage."
+    },
+    {
+      "id": "epoc",
+      "title": "EPOC: Endpoint-Preserving Online Correction With Compressed Residual State for Multi-Horizon Time Series Forecasting",
+      "url": "https://arxiv.org/html/2609.30929v2",
+      "version": "2609.30929v2",
+      "read": "Primary abstract and full-text structure; targeted method review required before implementation",
+      "finding": "A close comparator for online correction from compressed residual state.",
+      "implication": "Spatial or temporal residual compression is not sufficient novelty. Exact estimator and state/cost equivalence require a closer implementation comparison."
+    },
+    {
+      "id": "craft",
+      "title": "Channel-wise Retrieval for Multivariate Time Series Forecasting",
+      "url": "https://arxiv.org/abs/2604.05543",
+      "version": "2604.05543",
+      "date": "2026-04-07",
+      "read": "Primary abstract",
+      "finding": "Per-channel retrieval with graph pruning and spectral ranking addresses heterogeneous channel dynamics.",
+      "implication": "Channel-specific retrieval must be compared with this method. CRAFT is an ambiguous acronym; this is the Kang et al. method, not unrelated CRAFT papers."
+    },
+    {
+      "id": "adaptz",
+      "title": "Online time series prediction using feature adjustment",
+      "url": "https://arxiv.org/abs/2509.03810v2",
+      "version": "2509.03810v2",
+      "date": "2026-02-26",
+      "read": "Primary abstract and version metadata",
+      "finding": "ADAPT-Z adapts representations using current features and historical gradients under delayed multi-step feedback.",
+      "implication": "Delayed feedback and frozen-backbone adaptation are established comparison axes, not novelty by themselves."
+    },
+    {
+      "id": "raft",
+      "title": "Retrieval-Augmented Forecasting of Time-series",
+      "url": "https://github.com/archon159/RAFT",
+      "read": "Author repository README and linked paper metadata",
+      "finding": "Official implementation of a retrieval forecasting comparator; README specifies its original package versions.",
+      "implication": "Use an exact admitted revision and reproduce its recipe before reporting superiority; dependency declarations alone do not prove reproducibility."
+    },
+    {
+      "id": "memno",
+      "title": "On the Benefits of Memory for Modeling Time-Dependent PDEs",
+      "url": "https://arxiv.org/html/2409.02313v2",
+      "version": "2409.02313v2",
+      "date": "2025-04-24",
+      "read": "Primary abstract and full-text outline; original theory and architecture",
+      "finding": "MemNO combines temporal state-space modeling with Fourier operators and studies coarse/noisy PDE observations.",
+      "implication": "Memory benefit for partially observed PDEs is an occupied research problem. A current-state baseline alone is insufficient."
+    },
+    {
+      "id": "hsfno",
+      "title": "HS-FNO: History-Space Fourier Neural Operator for Non-Markovian Partial Differential Equations",
+      "url": "https://arxiv.org/html/2605.09523v2",
+      "version": "2605.09523v2",
+      "read": "Primary article and current project registry",
+      "finding": "A history-state neural operator is a relevant comparator for non-Markovian dynamics.",
+      "implication": "The successor needs actual temporal-history controls and compatible state semantics. Pinned source integration remains unadmitted."
+    },
+    {
+      "id": "lano",
+      "title": "Learning Neural Operators from Partial Observations via Latent Autoregressive Modeling",
+      "url": "https://arxiv.org/abs/2601.15547v2",
+      "version": "2601.15547v2",
+      "date": "2026-01-27",
+      "read": "Primary abstract and local exact-version benchmark contract",
+      "finding": "LANO and POBench-PDE directly address partial observation, masked supervision and latent reconstruction.",
+      "implication": "Adding online target reveals changes the information contract unless the official task provides them. Any online extension must be separately named and shared by all controls."
+    },
+    {
+      "id": "missing-kernel",
+      "title": "Nonparametric Regression With Missing Outcomes Using Weighted Kernel Estimating Equations",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3491912/",
+      "read": "Primary methods and stated missing-at-random assumptions",
+      "finding": "Inverse-probability and augmented inverse-probability weighted kernel estimators already address missing outcomes under stated assumptions.",
+      "implication": "Masked kernel residual estimation and propensity weighting need a precise distinction; they do not identify arbitrary outcome-dependent missingness automatically."
+    },
+    {
+      "id": "onenet",
+      "title": "OneNet supplemental delayed-feedback evaluation",
+      "url": "https://papers.neurips.cc/paper_files/paper/2023/file/dd6a47bc0aad6f34aa5e77706d90cdc4-Supplemental-Conference.pdf",
+      "read": "Primary supplementary section C.8",
+      "finding": "Delayed feedback is explicitly evaluated in earlier online forecasting work.",
+      "implication": "A delayed-reveal experiment is useful but not itself a new setting."
+    },
+    {
+      "id": "tafas",
+      "title": "Battling the Non-stationarity in Time Series Forecasting via Test-time Adaptation",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/33965",
+      "date": "2025-04-11",
+      "read": "Primary publisher abstract and primary arXiv introduction",
+      "finding": "TAFAS already uses partially observed targets and gated calibration for forecasting adaptation.",
+      "implication": "Partial feedback and a calibration gate are established ingredients; a new coordinate-level mechanism needs a material distinction."
+    },
+    {
+      "id": "delay-audit",
+      "title": "Training on the Future: A Delay-Aware Audit of Test-Time Adaptation for Time-Series Forecasting",
+      "url": "https://arxiv.org/html/2610.12232v1",
+      "date": "2026-10-08",
+      "read": "Primary abstract, Sections 1-4 and scope; external results not locally reproduced",
+      "finding": "Audits causal release delays in published adaptation methods and includes closed-form residual correctors. Partial-ground-truth prefixes are shortened for additional label lag.",
+      "implication": "A generic delayed-feedback correctness audit is also occupied. Candidate D requires a distinct scientific question about spatial missingness, not merely fixing timing."
+    },
+    {
+      "id": "cosa",
+      "title": "COSA: Context-aware Output-Space Adapter for Test-Time Adaptation in Time Series Forecasting",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/2a8ce71baac4c89bf9ff479d8240c7d9-Abstract-Conference.html",
+      "read": "Primary proceedings abstract",
+      "finding": "A gated output-space adapter is updated on observed ground truth under a leakage-free protocol.",
+      "implication": "Frozen forecasting with gated residual adaptation is a comparator class."
+    },
+    {
+      "id": "principled-tta",
+      "title": "Towards Principled Test-Time Adaptation for Time Series Forecasting",
+      "url": "https://arxiv.org/html/2605.17250v1",
+      "read": "Primary abstract only; full article is available but no detailed method review is claimed",
+      "finding": "Studies protocol cleanliness and adaptation using matured ground truth.",
+      "implication": "Causal maturity is an established evaluation requirement; detailed comparison remains required if this direction is pursued."
+    }
+  ],
+  "concepts": [
+    {
+      "id": "A",
+      "mechanism": "Streaming residual retrieval plus a validation scalar gate",
+      "closest": [
+        "freshcast",
+        "raft"
+      ],
+      "decision": "REJECT_AS_SOLE_NOVELTY",
+      "cause": "Substantial mechanism overlap; correcting implementation is useful but does not create an architectural contribution.",
+      "falsifier": "A reproduced existing method matches or exceeds the candidate at equal information/cost."
+    },
+    {
+      "id": "B",
+      "mechanism": "Learned drift-aware addressing, diversity and retention",
+      "closest": [
+        "saraf",
+        "craft"
+      ],
+      "decision": "NOT_READY",
+      "cause": "The proposed mechanism is not yet mathematically distinct; predictive similarity and retention utility are unverified.",
+      "falsifier": "Simple admitted retrieval or stationarity-aware controls match performance with fewer bytes or less compute."
+    },
+    {
+      "id": "C",
+      "mechanism": "Compressed spatial residual memory with lightweight online correction",
+      "closest": [
+        "epoc",
+        "hsfno",
+        "memno"
+      ],
+      "decision": "NOT_READY",
+      "cause": "Compression can erase relevant state; the difference from existing residual/state methods is not established.",
+      "falsifier": "A direct history operator or residual ridge baseline matches the accuracy-cost frontier."
+    },
+    {
+      "id": "D",
+      "mechanism": "Coordinate-level arrival-safe residual storage with mask-normalized retrieval and support-aware correction",
+      "closest": [
+        "freshcast",
+        "missing-kernel",
+        "adaptz",
+        "onenet",
+        "tafas",
+        "delay-audit",
+        "cosa",
+        "principled-tta"
+      ],
+      "decision": "BEST_CORRECTNESS_REFERENCE_BUT_RESEARCH_GATE_NOT_PASSED",
+      "cause": "Visibility is necessary correctness. A comparative measurement contribution may be defensible, but novelty, selection assumptions, public data timing and matched baselines remain unresolved. A recent delay-aware audit further narrows the possible measurement contribution; partial feedback alone is not new.",
+      "falsifier": "After fixing visibility and giving controls the same observations, the practical advantage disappears or a standard masked estimator matches it."
+    },
+    {
+      "id": "E",
+      "mechanism": "Transport stored residual fields using physical geometry or symmetry before retrieval fusion",
+      "closest": [
+        "memno",
+        "lano",
+        "hsfno"
+      ],
+      "decision": "NOT_READY_HIGHER_RISK",
+      "cause": "No established transport operator, valid cross-geometry residual law, or bounded demonstration distinguishes this from existing operators.",
+      "falsifier": "Transported residuals fail known-source reconstruction or no better than equally informed spatial interpolation/local regression."
+    }
+  ],
+  "checkpoint_1": {
+    "status": "NOT_READY",
+    "reason": "The central conceptual blockers are an unresolved material contribution beyond close prior work, insufficiently specified observation/selection assumptions, and no discriminating bounded study that isolates the proposed mechanism. Data and compute admission are additional downstream execution blockers, not substitutes for the contribution assessment.",
+    "model_implementation_permitted": false
+  }
+}

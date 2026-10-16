@@ -1,0 +1,675 @@
+{
+  "status": "COLLECTED_NOT_SCIENTIFICALLY_CERTIFIED",
+  "files": {
+    "REMOTE_EXECUTION_STARTED.json": {
+      "sha256": "de8c10ffd88973fed13fb38242d8b408fc89de2f4220349a96cefeacddfd1342",
+      "bytes": 168
+    },
+    "REMOTE_MANIFEST.json": {
+      "sha256": "4ac81e7c97e13a071c2fd7b565a799dc4827769c9f6890236bcf0f1d01cbb436",
+      "bytes": 17021
+    },
+    "remote-bootstrap/ADMISSION.json": {
+      "sha256": "19adbc14d4ae0596ed669ff049f41daa4c3a39235c19163b532f44a8f89fa517",
+      "bytes": 300
+    },
+    "remote-bootstrap/RUNTIME.json": {
+      "sha256": "403d9de0d9c37a7880fa9e1445c11b9642baf795f26b52a65ee66f661beae004",
+      "bytes": 381
+    },
+    "remote-bootstrap/python.tar.gz": {
+      "sha256": "7dc10e31eede05a6ab1ec9e0b961f521078b0959f838ed1d7452597d529ff802",
+      "bytes": 27243366
+    },
+    "remote-install/ADMISSION.json": {
+      "sha256": "4a763270c5da1c08d15746a07bbd33bed08828725661a731e553041fe29e966c",
+      "bytes": 300
+    },
+    "remote-install/HOST_ENVIRONMENT.json": {
+      "sha256": "e5973a31cdfd0fed5ca948460bc8abe63aeb648ba07b49b29e9454f6a9036b2b",
+      "bytes": 481
+    },
+    "remote-install/SOURCE_CHECKS.json": {
+      "sha256": "e674ab54cedca78a9317c4095679e79843a86ae9b00121cda9ef8cbee3df2953",
+      "bytes": 12079
+    },
+    "remote-install/SUMMARY.json": {
+      "sha256": "cd50aa0115d4f4e605ebbf0862aa0133f84f7ae329bbb0bd6512fa39da4ccdcd",
+      "bytes": 357
+    },
+    "remote-install/dependency_check.json": {
+      "sha256": "b73fef25d22252f97c2133896cee42f404d496206b5d36c7d4fe1e19a00f5a54",
+      "bytes": 193
+    },
+    "remote-install/dependency_check.log": {
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "bytes": 30
+    },
+    "remote-install/install.json": {
+      "sha256": "accb50c2e52f85a18a524ed6688539cf071e20e774e25aa3f7287f725822a30b",
+      "bytes": 415
+    },
+    "remote-install/install.log": {
+      "sha256": "e9da7f08d2988ee8998c2078b11a1d05ffede5684fd5c35179d55172e5ae9f7c",
+      "bytes": 7833
+    },
+    "remote-install/resolved_environment.json": {
+      "sha256": "2b8b183305527386b47d93d6f104b799ee224beae72c1d675b80a883dd5bea7f",
+      "bytes": 207
+    },
+    "remote-install/resolved_environment.log": {
+      "sha256": "2dc9da3da6c77bc694e91d2d7509bf1410680a31ef6a413880b8929c48a73810",
+      "bytes": 269
+    },
+    "remote-preflight/ADMISSION.json": {
+      "sha256": "c75966f7b984508857482465ab03b12003a47499a4377fbe106d0657b7e46ebe",
+      "bytes": 300
+    },
+    "remote-preflight/HOST_ENVIRONMENT.json": {
+      "sha256": "e5973a31cdfd0fed5ca948460bc8abe63aeb648ba07b49b29e9454f6a9036b2b",
+      "bytes": 481
+    },
+    "remote-preflight/SOURCE_CHECKS.json": {
+      "sha256": "e674ab54cedca78a9317c4095679e79843a86ae9b00121cda9ef8cbee3df2953",
+      "bytes": 12079
+    },
+    "remote-preflight/SUMMARY.json": {
+      "sha256": "f62d6007c21224fc9cb8326368b76b2335711643dbbc7357a3f0ba440248c5bb",
+      "bytes": 345
+    },
+    "remote-run/ADMISSION.json": {
+      "sha256": "7e3a78e757948956a77be9b8ef7a54c8799847dee842f25da3954c7ab02880ec",
+      "bytes": 300
+    },
+    "remote-run/HOST_ENVIRONMENT.json": {
+      "sha256": "e5973a31cdfd0fed5ca948460bc8abe63aeb648ba07b49b29e9454f6a9036b2b",
+      "bytes": 481
+    },
+    "remote-run/SOURCE_CHECKS.json": {
+      "sha256": "e674ab54cedca78a9317c4095679e79843a86ae9b00121cda9ef8cbee3df2953",
+      "bytes": 12079
+    },
+    "remote-run/SUMMARY.json": {
+      "sha256": "b9161b8b044c0391b8d517e9776d98d9af2593c749b91095cdc49bf0642d9136",
+      "bytes": 396
+    },
+    "remote-run/v2.json": {
+      "sha256": "a94d5b5f4fec6adfc9a315ee2f4f29c5b0d230c749c3740d7cfe23a7470f34df",
+      "bytes": 536
+    },
+    "remote-run/v2.log": {
+      "sha256": "6e90663edea9aa11e5aac2d06fb99f81c0c0b5215c9a4c93922b13ff2f04d759",
+      "bytes": 32
+    },
+    "remote-run/v3_run.json": {
+      "sha256": "2824ac02885323891273501be7aecdca28f58275e7f9e9809b6a50d1c108ba89",
+      "bytes": 788
+    },
+    "remote-run/v3_run.log": {
+      "sha256": "3bbabcf1511fa3e2d3d8958525db90747b1e9439f0db2bcc868dfe33ae653096",
+      "bytes": 2348
+    },
+    "remote-run/v3_test.json": {
+      "sha256": "6c385e7a42506a40bf69e109b9feb90aa836a918e61ae3b98ac65866bb84e8d2",
+      "bytes": 642
+    },
+    "remote-run/v3_test.log": {
+      "sha256": "b5afef7edfe7a0f358a0071f7c361a45ffa24bd425c4f84cef0c67a36fcd59ca",
+      "bytes": 2350
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/DOCUMENTATION_SUPPLEMENT.json": {
+      "sha256": "fc650d31d5f35090a51281b287b9b60144b271de86f77059f33ab0c59cae70d3",
+      "bytes": 265
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/RAW_OUTPUT_RECEIPT.json": {
+      "sha256": "02dd540ea4048fb9a222956814271809f680b4fa8266c777324858acd21f5a88",
+      "bytes": 5994
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/REPLAY_RECEIPT.json": {
+      "sha256": "a97f4240aa668672028ed65c203755d2d1d98f026ab7e9e94c06872f337927da",
+      "bytes": 5989
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/instrumented_evaluation.py": {
+      "sha256": "6387a1d99e693046a256b3ad947e87ac1419bce3c35a3881aa96684a8c40d52f",
+      "bytes": 7733
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-erase.pt": {
+      "sha256": "774e3ff3f5c483718e593941950c1f0f7b730f3c9936e3fa20c3d2f823c04030",
+      "bytes": 3897693
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-last_value.pt": {
+      "sha256": "16b1ba8394bdac95c42c4437e155c286f6e62430eb4cb6d45d01270077488207",
+      "bytes": 3913021
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-no_memory.pt": {
+      "sha256": "084704c48a2e658c290fefe991b8613b4d07bb97ca53eefe81ccf812e7d08308",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-oracle_anchor.pt": {
+      "sha256": "6bba47d863a3d63c8de0f905bc111acd37cd3264406933bd538fa683c8e5c1ed",
+      "bytes": 3921949
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-paired_swap.pt": {
+      "sha256": "a42646151c9f61f308e8c7f15ed3baf0bcc7d4ed724949369f5a0cacc8e0b082",
+      "bytes": 3915613
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-recent_only.pt": {
+      "sha256": "959e44196c7c596f0dd0adb28a91f31242bd0d2b2962481fe91f173e73775553",
+      "bytes": 3915485
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-sign_flip.pt": {
+      "sha256": "11887d9296e187a060b94fd9b8bbd63ce22eacf1299b0fdb826a77fb92aa9e3a",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-tensor_memory.pt": {
+      "sha256": "01a391f5b476513b374b6119c6a8f092c2ec4b148b1051a37d2c91a075465894",
+      "bytes": 3921629
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-vector_broadcast.pt": {
+      "sha256": "50c1898da658f2b4c84ff7d45d5ffe28af738b0061f1d66baa4b88d221919899",
+      "bytes": 3930557
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-erase.pt": {
+      "sha256": "531f39b099e00068e0be2dc75ca67b7211c7509b89476f442289ae4e54f54d1a",
+      "bytes": 3897693
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-last_value.pt": {
+      "sha256": "53398c576064b7bc145d5a28f3cebe8851bfe0d5d5dbfaaba5dd065432002009",
+      "bytes": 3913021
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-no_memory.pt": {
+      "sha256": "37b5c6e748b29dcd7826d8e557b2b73f6a00cbf8f6ebbf4b819d2d8dcbace79b",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-oracle_anchor.pt": {
+      "sha256": "c5e05db79eb3086ae1a00b68eaa1a0888087992cbe0a045957d101be17b8c863",
+      "bytes": 3921949
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-paired_swap.pt": {
+      "sha256": "587a902109abc6e5affea8a9903ddf08d7b2d0c14fee991462d164cbdda1e071",
+      "bytes": 3915613
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-recent_only.pt": {
+      "sha256": "61db0ab8944b97263a821115037bbf52f6c872124c2302c654ff1427050ebb25",
+      "bytes": 3915485
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-sign_flip.pt": {
+      "sha256": "2f268b990569936876f3550924f6c4452a9d16d081e18b4f8b12465baded3391",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-tensor_memory.pt": {
+      "sha256": "3f2c24928bd3c7864e119b5a0ff5c295595b70ea024b37b01005e573b8f7cf18",
+      "bytes": 3921629
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-vector_broadcast.pt": {
+      "sha256": "87c0984bc0b7e2faab537722c9206fd9d51287718b2dfd4774666a3f01628a1a",
+      "bytes": 3930557
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-erase.pt": {
+      "sha256": "cdd9155ecef733cd5654ae607321bb3efcb4229dfe2c264d627ddd5820588f8f",
+      "bytes": 3897693
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-last_value.pt": {
+      "sha256": "e78180e5928b94ee045b474d41bcd110c045807881988be5dbc9346eb7b6c7ca",
+      "bytes": 3913021
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-no_memory.pt": {
+      "sha256": "9c55003c4035f3bba6734d7b3de6aade92dd8de4d701755807e1908133a90b42",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-oracle_anchor.pt": {
+      "sha256": "e1266e95dcef05c05b463f4d8d9abf7f43d5879fcf7072126eca9a8945b2629d",
+      "bytes": 3921949
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-paired_swap.pt": {
+      "sha256": "31a8833e87cc309fdd38b2bad06cbd7faf1ea7aebb2144d48f0ab059388a02fb",
+      "bytes": 3915613
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-recent_only.pt": {
+      "sha256": "fa1025fa6dec82a60ecae1e400ba1d159066f20a871cdc57dac382a04301c267",
+      "bytes": 3915485
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-sign_flip.pt": {
+      "sha256": "6bca84ce3d089f46e0a4325bc90280c398df5539098433917bcd7d3a8f9233b3",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-tensor_memory.pt": {
+      "sha256": "205a56328c915c7711148722410071d4f3fda1dea4abd026069f70162dccfb4b",
+      "bytes": 3921629
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-vector_broadcast.pt": {
+      "sha256": "d971da6b4555e2f36fab7398defd2d96b5f070f4d7d95c78ae046bf94afde666",
+      "bytes": 3930557
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/.gitignore": {
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+      "bytes": 37
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/CACHEDIR.TAG": {
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "bytes": 191
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/README.md": {
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+      "bytes": 302
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/v/cache/nodeids": {
+      "sha256": "9cd10f2263d636bac22a4dbb32f98dcc7db2b05a3ef19d9ad7a3b5d2bef09e51",
+      "bytes": 749
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/METHODOLOGY.md": {
+      "sha256": "1846f4f4a8ff7dade0e6140594e718aacee2c3ebedbe6799b0c9670a93995f59",
+      "bytes": 3937
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/PROJECT_CONTRACT.md": {
+      "sha256": "c276ac187cece3cc512a588ee299fbc1a775cdd271e2b3552029275db90b57d6",
+      "bytes": 3002
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/README.md": {
+      "sha256": "878fb9574d65b75fba57e95073c73a315d2a8a839aa8a7ba0cc3a36284f1dbf0",
+      "bytes": 6135
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/protocols/development_v2.json": {
+      "sha256": "8cb1ea0493da40ece0663f1777dccf5bf01f367050b771434a9574b0ef52330b",
+      "bytes": 1591
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/pyproject.toml": {
+      "sha256": "e1f53e42797ac6aeb1f07b00ca898785264ed87e36405e0f512e68cc48e65cca",
+      "bytes": 494
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/manifest.json": {
+      "sha256": "c2243b3bb889cfb7aad22ead4499b8a3df21088e4e6f39ca62e5ab4b31db10b8",
+      "bytes": 5187
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-erase.json": {
+      "sha256": "cb65bb566f150f4f697e161184a2fca346c3c11acf3d05e3f64d7f70e4c945c4",
+      "bytes": 251804
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-last_value.json": {
+      "sha256": "c7e99d3e8e80a3ab445e1a5c48e8c6e73afdf8b38278cbae471759098a249b0c",
+      "bytes": 242870
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-no_memory.json": {
+      "sha256": "cb65bb566f150f4f697e161184a2fca346c3c11acf3d05e3f64d7f70e4c945c4",
+      "bytes": 251804
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-oracle_anchor.json": {
+      "sha256": "de9e7f9129993348b6b135e9e2839d629b111906e58cee4c21a19d938e990b1f",
+      "bytes": 242018
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-paired_swap.json": {
+      "sha256": "326e0903eee79310117491602ef9e7596ab6550f4fdfbdd8f6cca9549844413a",
+      "bytes": 251932
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-recent_only.json": {
+      "sha256": "aa4675b5aaf4fdaeb2ea5b0b1189338e6e1a01cbea94bf1558d28dcc5a0b2f96",
+      "bytes": 244854
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-sign_flip.json": {
+      "sha256": "3ad3e7f6a88c42c75b7c642edccbe5ad9fef02ee535f1f80a9bcb6ca72060c4e",
+      "bytes": 251836
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-tensor_memory.json": {
+      "sha256": "ffce33d0e0f8b1127c66386bc0de93b27c7ce5815088f9e099ca9f32782d5b5b",
+      "bytes": 251380
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-vector_broadcast.json": {
+      "sha256": "cb65bb566f150f4f697e161184a2fca346c3c11acf3d05e3f64d7f70e4c945c4",
+      "bytes": 251804
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/result.json": {
+      "sha256": "8f03e8449a20fd05ea34c95a600d9e53ca195d145d1b543bbe1a948ab82f92b0",
+      "bytes": 7020
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-erase.json": {
+      "sha256": "d3ab4a42da9ff3eef6af0f8d5a9eee878914fae697f51a650f810d75288a5d80",
+      "bytes": 252400
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-last_value.json": {
+      "sha256": "4fb5d847f16d853863f00a43eab4c9a45e27cce29c5d2ba5e459f79c46dcaf6b",
+      "bytes": 243547
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-no_memory.json": {
+      "sha256": "d3ab4a42da9ff3eef6af0f8d5a9eee878914fae697f51a650f810d75288a5d80",
+      "bytes": 252400
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-oracle_anchor.json": {
+      "sha256": "5c4754c33cb839ab9a0567bd1e762cabd53caefbf45c9a80e241de29206b7a32",
+      "bytes": 242214
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-paired_swap.json": {
+      "sha256": "9dc52355f130b45f01461322fe3172135dd8cc9ebb4abdbdd5eb3a51a79accc2",
+      "bytes": 252412
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-recent_only.json": {
+      "sha256": "20b05944d248c9a6cb6b31005464e89bc6328ede9f6ee421ce89a438e020494b",
+      "bytes": 245310
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-sign_flip.json": {
+      "sha256": "5a9a862c4e0276c7a67d8e9aa2e4f002c3da039b321edb0b01acaca188b37d93",
+      "bytes": 252364
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-tensor_memory.json": {
+      "sha256": "fb2463c0d2a2085e8cb77b80f5fc66def77840b3272f53bb334a24b30ec42b45",
+      "bytes": 251716
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-vector_broadcast.json": {
+      "sha256": "01a7febf41e4ced7d665bee9c456707f5b36caacb3021609be576e1573d21550",
+      "bytes": 252400
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/result.json": {
+      "sha256": "948bb206d63721a260e1742f3ce7e39d2771d07b5a3b9840535d3ceffc4f7867",
+      "bytes": 7027
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-erase.json": {
+      "sha256": "99bcf358a2ab5346b1d772f99eb400beae42c8bd0e01bfbd5dab1fff979434cf",
+      "bytes": 252500
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-last_value.json": {
+      "sha256": "5adfba81193245004dfa45ff0d972d870f6c80e293044b21b73fd55a604feeb5",
+      "bytes": 243938
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-no_memory.json": {
+      "sha256": "99bcf358a2ab5346b1d772f99eb400beae42c8bd0e01bfbd5dab1fff979434cf",
+      "bytes": 252500
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-oracle_anchor.json": {
+      "sha256": "b93019d06cd1aaf7cd30a091638735fcbc1b9f1db1fdd575bd1509d2848b3bbc",
+      "bytes": 242384
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-paired_swap.json": {
+      "sha256": "cc5194eae894b0686f38bfcbb8209b3581caf07c7bdbf09220bc887ce27eeb7f",
+      "bytes": 252256
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-recent_only.json": {
+      "sha256": "8f6350d93b77f4bbd2b32a16018820cbf55684b9ff5d29015262fb25d27e0d19",
+      "bytes": 245688
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-sign_flip.json": {
+      "sha256": "48ca43d63afcc10bead0bec6b78843159b682ed02a3bd3a14b462b5b5f1519c3",
+      "bytes": 252328
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-tensor_memory.json": {
+      "sha256": "7d6534e25e7dc7d9e8d706bb366eb02eb65e3c67144584ad40ea2d21ca28ce68",
+      "bytes": 251608
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-vector_broadcast.json": {
+      "sha256": "4bd2b45507bfae7f3d276fec3ef54ceb134f1328b6d527308540ee1d22a3c382",
+      "bytes": 252500
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/result.json": {
+      "sha256": "f147987396d95af850d400bd6a7490cf3b11877aa91175a72085a270d942d165",
+      "bytes": 7036
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/receipts/verification-1791989393801291000-pid-1731.json": {
+      "sha256": "b58bd5278c0e094d901c438024a47961a6b481651ed1093d3a909ead54338b89",
+      "bytes": 4104
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/result_verification.json": {
+      "sha256": "fe7ab41ec8d9634e82c08b292cf4c1d0f4d2f7a7d91d9dbe2463fce23969c6ce",
+      "bytes": 4167
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/static_audit.json": {
+      "sha256": "b6f1c2ea968af9bec38aaf0aa7efd82738b55720ff3c7ed93628453b29e60693",
+      "bytes": 487
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/verification_receipt.json": {
+      "sha256": "b58bd5278c0e094d901c438024a47961a6b481651ed1093d3a909ead54338b89",
+      "bytes": 4104
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/audit_contract.py": {
+      "sha256": "534003e7e9e034ad395d64cdd0013325a8b7a2e67cf3827b6e02848cdbfc1351",
+      "bytes": 544
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/check_resource_admission.py": {
+      "sha256": "7eb62af11217f7e79a5b62d4d5420ed5ae6dbedaa5165c57a97e95b8782d7360",
+      "bytes": 1741
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/run_pipeline.py": {
+      "sha256": "ca752f68b8c1c45ec184626d55400ebf50a14638be206a94adb6b1aa86d6562c",
+      "bytes": 3695
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/verify_results.py": {
+      "sha256": "966b3ed851ca3283fca3acf020b4a61f10b3fc04379167b701d26cf6e9436eac",
+      "bytes": 7410
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/__init__.py": {
+      "sha256": "70363df39caad22c18813416cec1a2921ec2ad6a80788504998578fe9e48d2fb",
+      "bytes": 235
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/analysis.py": {
+      "sha256": "1e09666445f51b57bcd42cd9e5163b38d692c8a7d4cc65821760d94ef5ae24c8",
+      "bytes": 2536
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/audit.py": {
+      "sha256": "f703c74297b13866beffe4ed4f0d3cd0eb099289a0453d9edf74d9475d56a988",
+      "bytes": 2392
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/data.py": {
+      "sha256": "78575f1377162a4c0c65af7501f5b5817d0b6844667aae329f79d4e94582fbd5",
+      "bytes": 10220
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/evaluation.py": {
+      "sha256": "ceaa27acf190a45deeab87aa7c32d642f70b54ad568bcb9b8e137004706c10d2",
+      "bytes": 8548
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/experiment.py": {
+      "sha256": "7bd2fbd82e7b014355ce42ff6526be98bb23a992fdb643b1b30240f10b20dfce",
+      "bytes": 10479
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/memory.py": {
+      "sha256": "63de75c6058923c8b88bf75838b19ca328d0197db4fa0eeede9a8bf575447820",
+      "bytes": 6264
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/resources.py": {
+      "sha256": "7013ea93b729fa57d2d9ba14ed8277d0515dc88600c334848193cc7984991653",
+      "bytes": 1869
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_data.py": {
+      "sha256": "6b9bccb5d9143534d3fcd919344b953dd39b3e5a720b72c52e58c8385618b314",
+      "bytes": 1558
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_decision.py": {
+      "sha256": "c5745c884c50c0c1d2eb26395af41e2491d2223c7af8ff95ccdc053685d676f3",
+      "bytes": 1615
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_evaluation.py": {
+      "sha256": "ca72a3c9f64af9fe8338eb3094d8a02f55bb0f8de9e86319cad34a145916e869",
+      "bytes": 1314
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_memory.py": {
+      "sha256": "f9750aee7d02885abae29dd1aca57c069f3c2c9fd947fcc55dbecd2bc0027874",
+      "bytes": 2609
+    },
+    "successor/itfm_v3/runs/CAMPAIGN_CONSUMED.json": {
+      "sha256": "55a5a35ee808d9f4e5f68e2d5190f2cde5c53382e869640812983a4c6618adbc",
+      "bytes": 1400
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/ENVIRONMENT.json": {
+      "sha256": "8d478ed2cb1fb2d945722cf1ce03606794c348ca7d26826a3eaaffe3030677ed",
+      "bytes": 133
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/FAILURE.json": {
+      "sha256": "07da071c641f3cd78b721a814a596b1be764f66747715ad15e535a3b1cc767c2",
+      "bytes": 1135
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/RECEIPT.json": {
+      "sha256": "3c771077c728547d5af2242ec7da372059ecf827bf52bec6553744719e4594d8",
+      "bytes": 2644
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/WORKER_ADMISSION.json": {
+      "sha256": "c82b02d7a9814482abb77a36bb11eb6e48c7e6da7da7f856ebf3ae2c08e9f169",
+      "bytes": 222
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/base-training.jsonl": {
+      "sha256": "cc2cdfa9ff866f4454af3d563ef488c7275ab65396b1df90f5b381dcd1d2aac0",
+      "bytes": 2338
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/base.pt": {
+      "sha256": "b6ec2c93003ad426fd496cf68165c24102eb3bd02e0c25c3cc7411b6d61d91e8",
+      "bytes": 10751
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/development_data.pt": {
+      "sha256": "46825d2bf041ebc4be31a75c2caab2a871e9e4ddfa99ed7bcd3865d476aa83ef",
+      "bytes": 1786197
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/finite_history-128-training.jsonl": {
+      "sha256": "b45a71a634bc9ffcae048b9e678ea33020a659213b39f5595ac9e5180bbb99bd",
+      "bytes": 2350
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/finite_history-128.pt": {
+      "sha256": "75aab503bec56ef097afd48de9d542d388a675a23c8f9aa6ab1073724dc82457",
+      "bytes": 208011
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/finite_history-64-training.jsonl": {
+      "sha256": "5d51299d001b5b736d3b31c28ae406070f2e8b67364db67380fdf2f0dccfd6f4",
+      "bytes": 2344
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/finite_history-64.pt": {
+      "sha256": "6347aa1e3b77fadf57f7cfbf9f9b4531f0b21e56d733b803fe9f4aa9a7219e8c",
+      "bytes": 105345
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/gru-128-training.jsonl": {
+      "sha256": "bdd45f90d638e5c687bfa8e4e7587b78c010c259484ebead2683ceb0565d6855",
+      "bytes": 2336
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/gru-128.pt": {
+      "sha256": "ee518fb9888024f128acb80da94f87bfae619d12043f6c6ac88079b49edb89b5",
+      "bytes": 284373
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/gru-64-training.jsonl": {
+      "sha256": "e8d4862a3ad17c100346cbbdd64f11b673f8fe9fea1a8fe234fa5214f92b06c7",
+      "bytes": 2337
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/clean-401/gru-64.pt": {
+      "sha256": "dc55790e299c5f6edb00cadd664b029cf1b829ab5659590604525c7788263c21",
+      "bytes": 94345
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/METHOD.md": {
+      "sha256": "7e2bb9f1fe5c7d84d129c21c3f16c8a457b1b14befc16c5b2d26cd631e0d5d17",
+      "bytes": 8894
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/README.md": {
+      "sha256": "b6373bb46190fbc6df46e9a43aba1899a3bd9c4a129c47338a255db8c0e21678",
+      "bytes": 5259
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/core.py": {
+      "sha256": "885be9ba30f714a8eae3bbcf792b4f2b92f9d8b11326a5d451b8994c9b106a34",
+      "bytes": 7126
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/data.py": {
+      "sha256": "913a0bf162b001c08e618765ba5889d5db6fd30f42bdbd7fb7b36c262741360e",
+      "bytes": 3439
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/experiment.py": {
+      "sha256": "ddc0768a90f0804ee32b2e2ec960e1f11065716e764af049bd905bda0541cf79",
+      "bytes": 14820
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/models.py": {
+      "sha256": "0db7fb9839d43d6fd699fed795ab9f2031504c16bb4c55cc6806a7f70efe9267",
+      "bytes": 5649
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/protocol.json": {
+      "sha256": "3b323e87e6a14ae612439be06e5db7e0665198da2f30119fee101c15bcbe2186",
+      "bytes": 3007
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/requirements.txt": {
+      "sha256": "ba66e0c8f28dc06ed85f75818440c618cf2268c22d87e9826cbe267626e174c6",
+      "bytes": 138
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/run.py": {
+      "sha256": "6f561d8cd6477ab4ef0136c35eab19f775fd54953db1dfee8a38252089630acf",
+      "bytes": 9736
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/test_runtime.py": {
+      "sha256": "b82623fb59adeebd5085baf7ec1bd7c4670a4f3df4e8624fc57e6c7a584f0b7b",
+      "bytes": 7151
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/test_standard.py": {
+      "sha256": "30209bcaf660e8fe3873f46023783a78cc0d114fed77d3bf947cb5387cf78f49",
+      "bytes": 3212
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/source/verify.py": {
+      "sha256": "db3fdaac5fa547a8d76200e4e4e18e84478231ccd9572c112bd5547bd81704d9",
+      "bytes": 11009
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/stderr.log": {
+      "sha256": "5292fe8fab884f9824ae9843e3ab748fde8d72e0b944016aba17dda681d9d0c6",
+      "bytes": 1170
+    },
+    "successor/itfm_v3/runs/remote-campaign-1/stdout.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "successor/itfm_v3/runs/remote-tests-1/ENVIRONMENT.json": {
+      "sha256": "8d478ed2cb1fb2d945722cf1ce03606794c348ca7d26826a3eaaffe3030677ed",
+      "bytes": 133
+    },
+    "successor/itfm_v3/runs/remote-tests-1/RECEIPT.json": {
+      "sha256": "c125c1797bae3af731459ce7fc41b772dc9947202fe3c162944f43978c8afdae",
+      "bytes": 2646
+    },
+    "successor/itfm_v3/runs/remote-tests-1/WORKER_ADMISSION.json": {
+      "sha256": "e3535a3e0e0fe34ac9cf7bfb9e44fcb62bebc36d1c99a98dd9bdccdc28cdd322",
+      "bytes": 224
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/METHOD.md": {
+      "sha256": "7e2bb9f1fe5c7d84d129c21c3f16c8a457b1b14befc16c5b2d26cd631e0d5d17",
+      "bytes": 8894
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/README.md": {
+      "sha256": "b6373bb46190fbc6df46e9a43aba1899a3bd9c4a129c47338a255db8c0e21678",
+      "bytes": 5259
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/core.py": {
+      "sha256": "885be9ba30f714a8eae3bbcf792b4f2b92f9d8b11326a5d451b8994c9b106a34",
+      "bytes": 7126
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/data.py": {
+      "sha256": "913a0bf162b001c08e618765ba5889d5db6fd30f42bdbd7fb7b36c262741360e",
+      "bytes": 3439
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/experiment.py": {
+      "sha256": "ddc0768a90f0804ee32b2e2ec960e1f11065716e764af049bd905bda0541cf79",
+      "bytes": 14820
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/models.py": {
+      "sha256": "0db7fb9839d43d6fd699fed795ab9f2031504c16bb4c55cc6806a7f70efe9267",
+      "bytes": 5649
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/protocol.json": {
+      "sha256": "3b323e87e6a14ae612439be06e5db7e0665198da2f30119fee101c15bcbe2186",
+      "bytes": 3007
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/requirements.txt": {
+      "sha256": "ba66e0c8f28dc06ed85f75818440c618cf2268c22d87e9826cbe267626e174c6",
+      "bytes": 138
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/run.py": {
+      "sha256": "6f561d8cd6477ab4ef0136c35eab19f775fd54953db1dfee8a38252089630acf",
+      "bytes": 9736
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/test_runtime.py": {
+      "sha256": "b82623fb59adeebd5085baf7ec1bd7c4670a4f3df4e8624fc57e6c7a584f0b7b",
+      "bytes": 7151
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/test_standard.py": {
+      "sha256": "30209bcaf660e8fe3873f46023783a78cc0d114fed77d3bf947cb5387cf78f49",
+      "bytes": 3212
+    },
+    "successor/itfm_v3/runs/remote-tests-1/source/verify.py": {
+      "sha256": "db3fdaac5fa547a8d76200e4e4e18e84478231ccd9572c112bd5547bd81704d9",
+      "bytes": 11009
+    },
+    "successor/itfm_v3/runs/remote-tests-1/stderr.log": {
+      "sha256": "cbf1b143a0d906b4c5a230376db2b57c14cdd25559470552aab65bdbe7ce268f",
+      "bytes": 1703
+    },
+    "successor/itfm_v3/runs/remote-tests-1/stdout.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  },
+  "bytes": 142562728,
+  "source_manifest_sha256": "4ac81e7c97e13a071c2fd7b565a799dc4827769c9f6890236bcf0f1d01cbb436"
+}

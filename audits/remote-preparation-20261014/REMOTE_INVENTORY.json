@@ -1,0 +1,70 @@
+[
+  {
+    "command": [
+      "gh",
+      "api",
+      "repos/build-the-future-11/Fabric-Induced-Memory",
+      "--jq",
+      "{full_name,private,default_branch,permissions,archived}"
+    ],
+    "exit": 0,
+    "stdout": "{\"archived\":false,\"default_branch\":\"main\",\"full_name\":\"build-the-future-11/Fabric-Induced-Memory\",\"permissions\":{\"admin\":true,\"maintain\":true,\"pull\":true,\"push\":true,\"triage\":true},\"private\":true}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "gh",
+      "api",
+      "repos/THE-BU1LD/Fabric-Induced-Memory",
+      "--jq",
+      "{full_name,private,default_branch,permissions,archived}"
+    ],
+    "exit": 0,
+    "stdout": "{\"archived\":false,\"default_branch\":\"main\",\"full_name\":\"THE-BU1LD/Fabric-Induced-Memory\",\"permissions\":{\"admin\":true,\"maintain\":true,\"pull\":true,\"push\":true,\"triage\":true},\"private\":false}\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "gh",
+      "api",
+      "repos/THE-BU1LD/Fabric-Induced-Memory/actions/runners"
+    ],
+    "exit": 0,
+    "stdout": "{\"total_count\":0,\"runners\":[]}",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "gh",
+      "api",
+      "repos/THE-BU1LD/Fabric-Induced-Memory/actions/permissions"
+    ],
+    "exit": 0,
+    "stdout": "{\"enabled\":true,\"allowed_actions\":\"all\",\"sha_pinning_required\":false}",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "gcloud",
+      "auth",
+      "list",
+      "--format=json"
+    ],
+    "exit": 0,
+    "stdout": "[\n  {\n    \"account\": \"ryangomez@thebu1ld.com\",\n    \"status\": \"ACTIVE\"\n  }\n]\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "gcloud",
+      "compute",
+      "instances",
+      "list",
+      "--project=calcium-blend-498208-e0",
+      "--format=json"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "ERROR: (gcloud.compute.instances.list) There was a problem refreshing your current auth tokens: ('invalid_grant: Bad Request', {'error': 'invalid_grant', 'error_description': 'Bad Request'})\nPlease run:\n\n  $ gcloud auth login\n\nto obtain new credentials.\n\nIf you have already logged in with a different account, run:\n\n  $ gcloud config set account ACCOUNT\n\nto select an already authenticated account to use.\n"
+  }
+]

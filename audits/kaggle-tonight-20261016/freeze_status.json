@@ -1,0 +1,5 @@
+{
+  "status": "NOT_FROZEN",
+  "reason": "Must measure representative runtime, verify CPU/CUDA readiness and private persistence, observe real quota, then freeze before new test cells. Those prerequisite observations are unavailable.",
+  "candidate": "../../successor/itfm_v2/kaggle/tonight_20261016/protocol_candidate.json"
+}

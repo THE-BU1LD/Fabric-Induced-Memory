@@ -1,0 +1,15 @@
+{
+  "expected_before_sha256": "f2d5b66007629393cc659802545fc908f3247068f23fc76167e542e39985764f",
+  "candidate_sha256": "549b98d8a3ab9e26a14e3e655db828b2a2fd06ed938f20c70aa3f849389ed0eb",
+  "other_projects_unchanged": 32,
+  "scientific_checkpoints_unchanged": true,
+  "history_preserved": true,
+  "status": "APPLIED_SCHEMA_REPAIRED",
+  "applied_sha256": "549b98d8a3ab9e26a14e3e655db828b2a2fd06ed938f20c70aa3f849389ed0eb",
+  "schema_repair": {
+    "before_sha256": "549b98d8a3ab9e26a14e3e655db828b2a2fd06ed938f20c70aa3f849389ed0eb",
+    "after_sha256": "ffa06868bca99bde0db981ba6bd9f0b4a1fa4df3d797bc3c30ab77b892b39ed5",
+    "reason": "budgets allows exactly development and compute",
+    "at": "2026-10-15T14:55:59.968892+00:00"
+  }
+}

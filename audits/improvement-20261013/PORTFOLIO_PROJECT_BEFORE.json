@@ -1,0 +1,169 @@
+{
+  "id": "PR-012",
+  "name": "Fabric-Induced-Memory",
+  "path": "Fabric-Induced-Memory",
+  "kind": "scientific_study",
+  "branch": "main",
+  "head": "32d8aa0b109f08a8ecd23c7bd97eaf29b5fe8989",
+  "worktree": "PREEXISTING_RELOCATION_DIRTY_65_TRACKED_DELETIONS_AND_UNTRACKED_FIM_EVIDENCE_TREE",
+  "status_sources": [
+    "FIM/FINAL_STATUS_2026-09-30.md",
+    "FIM/COMPLETION_MANIFEST.md",
+    "FIM/RESEARCH_TRUTH.md",
+    "EVIDENCE_LEDGER.md",
+    "SUCCESSOR_IDEA_AUDIT_2026-10-11.md",
+    "successor/itfm_v2/RESEARCH_STATE.json",
+    "successor/itfm_v2/SOTA_CAMPAIGN_STATE.json",
+    "successor/itfm_v2/FULL_LIFECYCLE_STATUS_2026-10-11.json",
+    "successor/itfm_v2/RESUMPTION_AUDIT_2026-10-11T1729.json",
+    "PUBLICATION_READINESS_CHECKLIST_2026-10-11.md",
+    "audits/publication-readiness-20261011T182740/audit.json",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/REVISION_REPORT.md",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/CHECKLIST_DISPOSITION.json",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/RELEASE_GATE_FINAL_V2.json",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/resumptions/20261012-01/REPORT.md"
+  ],
+  "question": "Do the tested FIM memory/retrieval components provide benefit in the frozen component matrix?",
+  "objective": "Evaluate component mechanisms with fail-closed completeness and preserve unfavorable ablations.",
+  "hypothesis": "The maintained current-code component superiority claim is not supported.",
+  "contribution": "A complete 24-cell bounded negative component study and evidence-preserving runner; the separately versioned ITFM v2 successor adds a bounded synthetic intervention-identifiability result.",
+  "scope": "Closed negative predecessor; routeB exact synthetic ITFM v2 manuscript revised. Public ITFM-R campaign deferred separately; no public efficacy claim.",
+  "phase": "TERMINAL_PREDECESSOR_SYNTHETIC_PUBLICATION_REVISION_RELEASE_BLOCKED",
+  "disposition": "NEGATIVE_PREDECESSOR_SUPPORTED_BOUNDED_SYNTHETIC_SUCCESSOR",
+  "terminal": true,
+  "budgets": {
+    "development": "PREDECESSOR_CLOSED_SUCCESSOR_PUBLIC_ZERO_UNTIL_S0",
+    "compute": "BLOCKED_RESOURCE_ADMISSION_FAILED"
+  },
+  "protected_evaluation": "Do not rerun the predecessor to seek a positive outcome. ITFM v2 public protected evaluation remains locked until source, data, license, frontier reproduction, oracle-gap, development-freeze, and resource gates pass.",
+  "repositories": [
+    "Fabric-Induced-Memory/FIM",
+    "Fabric-Induced-Memory/successor/itfm_v2"
+  ],
+  "datasets": {
+    "status": "PREDECESSOR_FROZEN_SUCCESSOR_SYNTHETIC_RETAINED_PUBLIC_DATA_ABSENT",
+    "items": [
+      "frozen two-benchmark by four-variant by three-seed predecessor matrix",
+      "ITFM v2 episodic-spatial-alias-v2 three-seed retained result",
+      "POBench-PDE and HS-FNO public inputs not admitted"
+    ]
+  },
+  "artifacts": [
+    "FIM/COMPLETION_MANIFEST.md",
+    "FIM/results/current_component_ablations/manifest.json",
+    "FIM/results/current_component_ablations/analysis.json",
+    "FIM/publication_package",
+    "SUCCESSOR_IDEA_AUDIT_2026-10-11.md",
+    "successor/itfm_v2/results/development-v2/manifest.json",
+    "successor/itfm_v2/results/result_verification.json",
+    "successor/itfm_v2/IMPLEMENTATION_STATUS_2026-10-11.json",
+    "successor/itfm_v2/FULL_LIFECYCLE_STATUS_2026-10-11.json",
+    "successor/itfm_v2/RESUMPTION_AUDIT_2026-10-11T1729.json",
+    "successor/itfm_v2/paper/main.tex",
+    "PUBLICATION_READINESS_CHECKLIST_2026-10-11.md",
+    "audits/publication-readiness-20261011T182740/audit.json",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/SOURCE_RECOVERY.json",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/STATIC_VERIFICATION_FINAL_V2.json",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/TOOL_TESTS_FINAL_V3.json",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/REVISION_REPORT.md",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/RELEASE_GATE_FINAL_V2.json",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/resumptions/20261012-01/REPORT.md"
+  ],
+  "claims": {
+    "supported": [
+      "bounded negative predecessor component result",
+      "predecessor 24/24 matrix completion",
+      "predecessor six paired comparisons split 3/6 full-favorable and 3/6 removal-favorable with minimum exact p=0.5",
+      "ITFM v2 bounded synthetic mechanism result passed all three frozen seeds and 96 of 96 local verifier checks",
+      "ITFM-R public stack is statically implemented and runtime-unverified",
+      "evidence-bound synthetic manuscript source exists",
+      "Exact20-file executed ITFM v2 source archive recovered separately and SHA-256 verified.",
+      "Revised synthetic paper definitions match executed algorithm;228/228 local source/scalar checks and15/15 tool tests pass, with frozen outcomes preserved."
+    ],
+    "unsupported": [
+      "broad FIM superiority",
+      "clean predecessor release identity",
+      "exact-source predecessor rerun from the current tree",
+      "ITFM-R public-data advantage",
+      "ITFM-R state of the art",
+      "public-stack runtime success",
+      "independent reproduction",
+      "compiled or arXiv-ready successor paper"
+    ]
+  },
+  "decisions": [
+    "Do not restore superseded labels or erase negative controls.",
+    "The historical successor block was resolved only by creating a separate version with a new identifiable synthetic contract; do not reinterpret the predecessor.",
+    "Do not execute or claim the public ITFM-R campaign until S0 and the resource gate pass.",
+    "2026-10-11 publication routeB selected for narrow synthetic case study; routeC public confirmation explicitly deferred. Author chose sole authorship and no additional metadata; no license/venue/submission authorization inferred."
+  ],
+  "failures": [
+    "Outer worktree is a large relocation/replacement and must not be normalized without provenance.",
+    "Frozen source identity e8071b2243247361e3ea0da1eaa412e69f204593f80102fe5f837dead5300f46 differs from current-tree identity 06712dd535f0a6a7e72622ed18239bf34482e0bf72b3d90cd8e3c9d5649ca5c6; no matching source archive was found.",
+    "The predecessor experimental memory stores opaque latent values, broadcasts corrections spatially, and uses batch-position owners; these prevent a strong causal memory interpretation.",
+    "The successor initially failed Checkpoint 1 on novelty and observability; that failure remains historical and was not overwritten.",
+    "Public datasets, admitted licenses, exact frontier reproductions, authorized accelerator budget, public oracle-gap evidence, protected evaluation, and external reproduction are absent.",
+    "Two fresh resource samples failed below 512 MiB and pageouts rose by 414; exact-pinned upstream roots still had no license entry, so no runtime public work or paper compilation was admitted.",
+    "Publication audit 2026-10-11T18:31:58.179635+05:30: current v2 pyproject.toml differs from the executed manifest; current verifier replay fails one source check. Donor-direction definition and recent-only eligibility interpretation require manuscript reconciliation. Historical evidence is preserved.",
+    "2026-10-11 publication replay and PDF admission failed below512MiB with rising pageouts; no model or compiler started.",
+    "2026-10-11 two named remotes resolve to distinct HEADs; untracked successor still lacks a verified immutable public release and selected distribution terms.",
+    "2026-10-12T06:48:15.675212+05:30 Replay and PDF admission blocked; fresh receipts in publication/itfm-v2-paper-20261011/resumptions/20261012-01"
+  ],
+  "history": [
+    "2026-09-30 closed bounded negative predecessor",
+    "2026-10-11 dirty relocation preserved",
+    "2026-10-11 frozen/current predecessor source hash mismatch and successor audit recorded without training",
+    "2026-10-11 separate ITFM v2 synthetic protocol executed earlier under admitted resources: 3 of 3 seeds and 96 of 96 verifier checks passed",
+    "2026-10-11 public ITFM-R stack statically implemented without runtime execution",
+    "2026-10-11 evidence-bound synthetic manuscript source authored; PDF and public confirmation remained blocked",
+    "2026-10-11 resumption audit reverified frontier pins and preserved the unchanged S0 stop",
+    "2026-10-11T18:31:58.179635+05:30 publication-readiness audit: 27 retained record artifacts and numerical summaries verified; current executed-source replay 95/96 with pyproject.toml mismatch; 19/19 paper checker pass; comprehensive three-route checklist saved; no scientific or release gate upgraded.",
+    "2026-10-11T20:28:48.422397+05:30 publication revision: recovered exact20-file v2 source; corrected paper discrepancies;228/228 local source/scalar checks and15/15 tooling tests pass; all59 checklist items dispositioned.57/57 protected files unchanged. Replay/build blocked by resource admission. No external reproduction/review, compiled PDF, public archive or submission claimed.",
+    "2026-10-12T06:48:15.675212+05:30 Publication resumption: isolated replay and PDF admission blocked below 512 MiB with rising pageouts; no model/compiler launched. Fresh 228/228 local source/scalar checks pass; 57/57 protected files unchanged; all nine release gates remain open."
+  ],
+  "checkpoints": {
+    "1": "PASS",
+    "2": "PASS",
+    "3": "PASS",
+    "4": "PASS",
+    "5": "PASS",
+    "6": "PASS",
+    "7": "PASS",
+    "8": "PASS",
+    "9": "BLOCKED",
+    "10": "BLOCKED"
+  },
+  "next_gate": "For selected routeB: admit stable local resources and clean environment, replay all frozen seeds into fresh outputs and verify raw tensors; obtain actual independent review/reproduction; compile and inspect every page; resolve intended archive identity and distribution/destination terms if author elects release. Public routeC remains deferred and must pass its own S0 before any public execution. Do not reopen predecessor.",
+  "publication_readiness_audit": {
+    "at": "2026-10-11T18:31:58.179635+05:30",
+    "verdict": "NOT_READY",
+    "checklist": "PUBLICATION_READINESS_CHECKLIST_2026-10-11.md",
+    "receipt": "audits/publication-readiness-20261011T182740/audit.json",
+    "current_verifier_checks": "95/96; source:pyproject.toml fails",
+    "historical_receipt": "96/96 preserved",
+    "scientific_claims_changed": false
+  },
+  "publication_revision": {
+    "checked_at": "2026-10-11T20:28:48.422397+05:30",
+    "verdict": "NOT_READY",
+    "route": "B",
+    "source_recovered": "20/20 exact executed files",
+    "originals_preserved": "57/57 protected files unchanged including37 existing result/receipt files",
+    "static_check": "228/228 PASS",
+    "tool_tests": "15/15 PASS; Ruff check and format PASS",
+    "checklist": "publication/itfm-v2-paper-20261011/CHECKLIST_DISPOSITION.json",
+    "author_choice": "Sole author Ryan; optional affiliation/funding/conflicts omitted at request; licenses/venue unspecified. No submission authorization.",
+    "report": "successor/itfm_v2/publication/itfm-v2-paper-20261011/REVISION_REPORT.md",
+    "gate_receipt": "successor/itfm_v2/publication/itfm-v2-paper-20261011/RELEASE_GATE_FINAL_V2.json"
+  },
+  "publication_resumption": {
+    "checked_at": "2026-10-12T06:48:15.675212+05:30",
+    "verdict": "BLOCKED_RESOURCE_NOT_PUBLICATION_READY",
+    "report": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/REPORT.md",
+    "verification": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/VERIFICATION.json",
+    "release_gate": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/RELEASE_GATE.json",
+    "replay_receipt": "publication/itfm-v2-paper-20261011/replays/attempt-20261012-01/REPLAY_RECEIPT.json",
+    "build_admission": "publication/itfm-v2-paper-20261011/resumptions/20261012-01/BUILD_ADMISSION.json",
+    "frozen_results_changed": false
+  }
+}

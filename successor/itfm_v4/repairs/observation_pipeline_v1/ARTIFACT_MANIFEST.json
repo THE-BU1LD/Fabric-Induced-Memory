@@ -1,0 +1,220 @@
+{
+  "scope": "Engineering repair only. Scientific contribution and tensor runtime remain blocked.",
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "sha256": "78a70a1536b3ae643bd832b5c43fd31c456c27c607eeb9b4b33c2d3280a9dc7f",
+      "bytes": 4707
+    },
+    {
+      "path": "FINAL_STATE_VALIDATION.json",
+      "sha256": "93ff299497b4a9fbf820444d8ff7722872728e46ed02dd89075cbc5b41772c29",
+      "bytes": 460
+    },
+    {
+      "path": "FINAL_VERIFICATION.json",
+      "sha256": "08894a78a1cb9733bffeb7eee71ea625978a17ffe6a418f9106b7737bda76684",
+      "bytes": 1340
+    },
+    {
+      "path": "PORTFOLIO_APPLY.json",
+      "sha256": "267aea98deb0fdbbcb53b82663b557978e29aeda1c09a549f5d0562e3f73ad3c",
+      "bytes": 232
+    },
+    {
+      "path": "PORTFOLIO_BEFORE.json",
+      "sha256": "e8cd1a16e9900d194e23e3fd4d12d68293095de91e9489f08d9fa629fb13d5c7",
+      "bytes": 268588
+    },
+    {
+      "path": "PORTFOLIO_BEFORE_APPLY.json",
+      "sha256": "e8cd1a16e9900d194e23e3fd4d12d68293095de91e9489f08d9fa629fb13d5c7",
+      "bytes": 268588
+    },
+    {
+      "path": "PORTFOLIO_CANDIDATE.json",
+      "sha256": "e4bdd88a749f28eb60c01ebe42df7737410e0491319ad4e47a449c3f29a9f5ba",
+      "bytes": 271433
+    },
+    {
+      "path": "PORTFOLIO_CANDIDATE_VALIDATION.json",
+      "sha256": "88243c346795a0ec2a6b1713d2737683da9cbe5599137920ea655c6cc6382961",
+      "bytes": 160
+    },
+    {
+      "path": "PREFLIGHT.json",
+      "sha256": "7381e46cc56acb03d656343dfeb3c8cb57658d85f76fc9233174d616bad2d627",
+      "bytes": 4125
+    },
+    {
+      "path": "PRESERVATION_BEFORE.json",
+      "sha256": "7a2bdf6a3e938d874c31193eef9416e2c9102aa3f872b728e63c5bff5de8461f",
+      "bytes": 5814
+    },
+    {
+      "path": "README.md",
+      "sha256": "706d4d2e5bcda81c98ebff19838c2183e9c02973b9556e51637bb73d527fc8c6",
+      "bytes": 5354
+    },
+    {
+      "path": "REPAIR_DISPOSITION.json",
+      "sha256": "0c5b0499a14892d2920df75a15f56a08e12e1b54522fced07c252c492aa3b23a",
+      "bytes": 533
+    },
+    {
+      "path": "STATE_BEFORE.json",
+      "sha256": "547e8d52afdf6aff4ecdf143d4727abf3a4cd4248659c40e2c8a04fe38be6059",
+      "bytes": 8160
+    },
+    {
+      "path": "STATIC_PRESERVATION.json",
+      "sha256": "10b036de661434e0b1b90c8c232b0e20ea61972ade2dd6b0e250013409c1a8c8",
+      "bytes": 896
+    },
+    {
+      "path": "TENSOR_ADMISSION.json",
+      "sha256": "099f64a8cde25bf2e17c55c50f341b20098739627aac926421226a64dcdd5f43",
+      "bytes": 1080
+    },
+    {
+      "path": "TENSOR_ADMISSION_FULL.json",
+      "sha256": "9769efb4aa73b8b746f93bc50d8a6ea4bfc25f4787e246381ca8038f3a699d2a",
+      "bytes": 1236
+    },
+    {
+      "path": "TEST_ROUND_1.json",
+      "sha256": "a851aa0f8998f27761aa35deb737e0a1d2ae0b943d0b17ae8ab750e00cc5f795",
+      "bytes": 6026
+    },
+    {
+      "path": "TEST_ROUND_2.json",
+      "sha256": "a2582e058988b17d0e1f4a463358ac6ccd21c78864314f189482c0e52523386d",
+      "bytes": 6211
+    },
+    {
+      "path": "TEST_ROUND_3.json",
+      "sha256": "fd0d47f4e6ae0b50e8c7ad709eba64c397f162437ec3949f3aa8a98dcb4ca010",
+      "bytes": 6296
+    },
+    {
+      "path": "integrity.py",
+      "sha256": "ef9d1c457a87bd144784152ec3878fe4b7210c2a44c778cab987aacb95085f1d",
+      "bytes": 641
+    },
+    {
+      "path": "observations.py",
+      "sha256": "9e4781ba9452514e01dcdd8c501324d9421de645eec05614ae9fb89ea678a74a",
+      "bytes": 7401
+    },
+    {
+      "path": "recorder.py",
+      "sha256": "3594b5d0f91adcbbf386ef7132393257bdf3f7f255e08300e002abc9bb1b729e",
+      "bytes": 6185
+    },
+    {
+      "path": "run_tensor_tests.py",
+      "sha256": "cf42bb8a7785c9c3ba5364906f79e264273f59e7eb8b568f96387e950037cf92",
+      "bytes": 5375
+    },
+    {
+      "path": "run_tests.py",
+      "sha256": "37db147f0d42c55f7b7a1df55a5d239d5a7941a17569e91bec170f744ab63339",
+      "bytes": 3240
+    },
+    {
+      "path": "source_round_1/CONTRACT.md",
+      "sha256": "78a70a1536b3ae643bd832b5c43fd31c456c27c607eeb9b4b33c2d3280a9dc7f",
+      "bytes": 4707
+    },
+    {
+      "path": "source_round_1/integrity.py",
+      "sha256": "6d22bbd8d44a69d9446667abb0b5b7e0e3a8f6334f98c4cc9029dc4c865945e4",
+      "bytes": 627
+    },
+    {
+      "path": "source_round_1/observations.py",
+      "sha256": "c63c84240a53066bfca8a6415efddf96c464db02bcca63de4d25d35f8fd024e1",
+      "bytes": 7117
+    },
+    {
+      "path": "source_round_1/recorder.py",
+      "sha256": "b0151f821e321e086a4d1365153acafed922112ce52a9d0233517e49f6859fa2",
+      "bytes": 5731
+    },
+    {
+      "path": "source_round_1/run_tests.py",
+      "sha256": "37db147f0d42c55f7b7a1df55a5d239d5a7941a17569e91bec170f744ab63339",
+      "bytes": 3240
+    },
+    {
+      "path": "source_round_1/tensor_bridge.py",
+      "sha256": "67fafc1228070745ab88730dac24ef34f2f425d8488805c175d8dbef22923222",
+      "bytes": 7627
+    },
+    {
+      "path": "source_round_1/test_pipeline.py",
+      "sha256": "aec58b5d285bef87e2e800b98e7393be99520fe4019f672a300e2d8d81425034",
+      "bytes": 13921
+    },
+    {
+      "path": "source_round_2/CONTRACT.md",
+      "sha256": "78a70a1536b3ae643bd832b5c43fd31c456c27c607eeb9b4b33c2d3280a9dc7f",
+      "bytes": 4707
+    },
+    {
+      "path": "source_round_2/integrity.py",
+      "sha256": "ef9d1c457a87bd144784152ec3878fe4b7210c2a44c778cab987aacb95085f1d",
+      "bytes": 641
+    },
+    {
+      "path": "source_round_2/observations.py",
+      "sha256": "9e4781ba9452514e01dcdd8c501324d9421de645eec05614ae9fb89ea678a74a",
+      "bytes": 7401
+    },
+    {
+      "path": "source_round_2/recorder.py",
+      "sha256": "3594b5d0f91adcbbf386ef7132393257bdf3f7f255e08300e002abc9bb1b729e",
+      "bytes": 6185
+    },
+    {
+      "path": "source_round_2/run_tensor_tests.py",
+      "sha256": "5a1cb34e964b9e1f7d5c790c5f80a40ed34d56c41c745394e7ff3e62bbe41bc3",
+      "bytes": 5064
+    },
+    {
+      "path": "source_round_2/run_tests.py",
+      "sha256": "37db147f0d42c55f7b7a1df55a5d239d5a7941a17569e91bec170f744ab63339",
+      "bytes": 3240
+    },
+    {
+      "path": "source_round_2/tensor_bridge.py",
+      "sha256": "702f6c670e9f2b75bb3459ac39488fb2923d2939ff4c2f9c70eeaffdd8407e87",
+      "bytes": 9981
+    },
+    {
+      "path": "source_round_2/test_pipeline.py",
+      "sha256": "79f93181d34b13892344f44c10953c2857c2903dce9d786a51d60784bf3afde8",
+      "bytes": 14708
+    },
+    {
+      "path": "source_round_2/test_tensor.py",
+      "sha256": "f256882d695ff05a48115c26999d466c2b03c14ce3d775714ae1b60d3a5cdc3d",
+      "bytes": 5768
+    },
+    {
+      "path": "tensor_bridge.py",
+      "sha256": "702f6c670e9f2b75bb3459ac39488fb2923d2939ff4c2f9c70eeaffdd8407e87",
+      "bytes": 9981
+    },
+    {
+      "path": "test_pipeline.py",
+      "sha256": "79f93181d34b13892344f44c10953c2857c2903dce9d786a51d60784bf3afde8",
+      "bytes": 14708
+    },
+    {
+      "path": "test_tensor.py",
+      "sha256": "f256882d695ff05a48115c26999d466c2b03c14ce3d775714ae1b60d3a5cdc3d",
+      "bytes": 5768
+    }
+  ]
+}

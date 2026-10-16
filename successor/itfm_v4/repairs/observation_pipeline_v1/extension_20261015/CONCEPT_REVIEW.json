@@ -1,0 +1,94 @@
+{
+  "at": "2026-10-16T02:44:13.974723+00:00",
+  "previous_reviews": 5,
+  "additional_reviews": 3,
+  "cumulative_reviews": 8,
+  "limit": 8,
+  "sources": [
+    {
+      "id": "epoc",
+      "url": "https://arxiv.org/html/2609.30929v2",
+      "read": "Sections 1-3 including complete-block feedback, DCT coefficients, endpoint and online ridge; setup and reported comparisons.",
+      "finding": "EPOC combines residual compression, an explicit endpoint and online ridge correction on a frozen base. Its update contract waits for complete target blocks. Reported performance is external and was not reproduced here."
+    },
+    {
+      "id": "grouse",
+      "url": "https://arxiv.org/abs/1006.4046",
+      "read": "Author abstract and author project page; no implementation or theorem proof reproduced.",
+      "finding": "GROUSE already estimates and tracks a subspace from incomplete vectors. Adding a mask to low-rank residual fitting is insufficient to establish a new contribution."
+    },
+    {
+      "id": "missing-kernel",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3491912/",
+      "read": "Primary full-text search result: abstract, sections 2-4; direct open initially returned a bot check.",
+      "finding": "IPW and augmented kernel estimating equations address missing outcomes under stated MAR and model assumptions; double robustness depends on the stated nuisance-model conditions. They do not supply arbitrary MNAR identification."
+    },
+    {
+      "id": "kernel-machines",
+      "url": "https://arxiv.org/abs/1806.02865",
+      "read": "Primary abstract only.",
+      "finding": "Missing-response regression with weighted and doubly robust kernel machines is existing work; detailed comparator derivation remains required."
+    },
+    {
+      "id": "delay-audit",
+      "url": "https://arxiv.org/html/2610.12232v1",
+      "read": "Sections 3-5, particularly per-coordinate RLS, anti-windup, common cached predictions, maturity and delay scope.",
+      "finding": "The audit already compares delayed adaptation with per-coordinate closed-form correction, common predictions and multiple controls. Spatial missingness is a possible narrower question, not demonstrated novelty from a missing keyword."
+    }
+  ],
+  "concepts": [
+    {
+      "id": "F",
+      "mechanism": "Support-conditioned low-rank residual completion before memory retrieval",
+      "equation": "For a fixed basis U and observed selector M, z_hat=argmin_z ||M(Uz-r)||^2+lambda||z||^2; correction U z_hat.",
+      "closest": [
+        "epoc",
+        "grouse"
+      ],
+      "flaw": "The estimator is regularized masked least squares; the claimed new part is not specified. Sparse masks can make M U rank deficient.",
+      "cause": "Compression plus partial observations combines established tools; geometry and incoherence assumptions determine identifiability.",
+      "severity": "P0",
+      "repair": "Specify a material estimator difference and compare with fixed-basis least squares, online subspace tracking and complete-block correction at equal observations and retained bytes.",
+      "required_evidence": "A non-tautological discrimination under matched masks, delay, base predictions, compute and tuning; rank/conditioning failure analysis.",
+      "falsifier": "The standard masked estimator matches the candidate at equal cost, or the claimed geometry cannot be identified from visible coordinates.",
+      "decision": "NOT_READY_NO_NEW_MODEL_IMPLEMENTED"
+    },
+    {
+      "id": "G",
+      "mechanism": "Doubly robust coordinate-level residual memory under observation selection",
+      "equation": "Pseudo-outcome mu(x)+m*(r-mu(x))/pi(x), followed by declared kernel aggregation; pi bounded away from zero.",
+      "closest": [
+        "missing-kernel",
+        "kernel-machines"
+      ],
+      "flaw": "Double robustness and weighted kernels are established; arbitrary outcome-dependent missingness is not identified.",
+      "cause": "Unobserved selection factors can violate MAR; small propensities inflate variance; temporal dependence complicates inference.",
+      "severity": "P0",
+      "repair": "Declare a realistic observation design and nuisance-training split; specify what differs from existing weighted kernel methods and what does not.",
+      "required_evidence": "Both-nuisance-valid and one-nuisance-invalid controls, positivity diagnostics, independent-trajectory uncertainty, and an MNAR failure case.",
+      "falsifier": "Any gain disappears under information-matched IPW/AIPW controls or depends on inaccessible outcome-dependent propensities.",
+      "decision": "REJECT_AS_SOLE_NOVELTY"
+    },
+    {
+      "id": "H",
+      "mechanism": "Measurement study of joint spatial censoring and delayed release at fixed revealed-scalar budget",
+      "precise_question": "Does the topology of observed coordinates change usable residual information and adapter ranking after matching the observed scalar budget and arrival times?",
+      "closest": [
+        "delay-audit",
+        "missing-kernel",
+        "epoc"
+      ],
+      "flaw": "A delay audit alone already exists. A full-block versus partial-block comparison can merely show different usable information, not a better estimator.",
+      "cause": "Availability, selection and the model update rule can be confounded; public task contracts may not provide online outcomes.",
+      "severity": "P0",
+      "repair": "Separate information-access effect from estimator effect using a support-matched control and a correct masked estimator; establish a real observation process and admitted data before freezing a study.",
+      "required_evidence": "Exact prior-art scope comparison, licensed dataset with meaningful observation timing, equal-information controls and a prospectively bounded endpoint with precision analysis.",
+      "falsifier": "Adapter rankings and effect size are explained by usable observations alone, or no scientifically meaningful real observation process supports the setting.",
+      "decision": "POTENTIAL_MEASUREMENT_DIRECTION_NOT_READY"
+    }
+  ],
+  "checkpoint_1": "BLOCKED",
+  "novelty_certified": false,
+  "model_trials": 0,
+  "scope": "Targeted primary-source review; no exhaustive search or experimental verification claimed."
+}

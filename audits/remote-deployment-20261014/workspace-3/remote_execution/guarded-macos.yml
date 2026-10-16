@@ -1,0 +1,59 @@
+# Authorized deployment template. Substitute reviewed manifest SHA before pushing.
+# Uses free standard public runner and draft release assets, not billed artifact storage.
+name: ITFM frozen remote campaign
+on:
+  push:
+    branches: [codex/itfm-remote-20261014]
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: itfm-frozen-development-single-campaign
+  cancel-in-progress: false
+jobs:
+  frozen:
+    if: ${{ !github.event.repository.private }}
+    runs-on: macos-15
+    timeout-minutes: 80
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONNOUSERSITE: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      VECLIB_MAXIMUM_THREADS: '1'
+      EXPECTED_SHA: ${{ github.sha }}
+      MANIFEST_SHA: REVIEWED_MANIFEST_SHA256
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Bind exact deployment and forbid repeat attempts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$GITHUB_SHA" = "$EXPECTED_SHA"
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          python3 remote_execution/once.py
+      - name: Establish draft output retention before execution
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 remote_execution/retain_release.py create
+      - name: Bootstrap exact Python 3.11.15 after original admission
+        run: python3 -B remote_execution/bootstrap_python.py
+      - name: Verify source and unchanged admission guard
+        run: python -B remote_execution/run_remote.py preflight --manifest-sha256 "$MANIFEST_SHA"
+      - name: Create isolated environment
+        run: python -m venv .remote-venv
+      - name: Install exact direct requirements after admission
+        run: .remote-venv/bin/python -B remote_execution/run_remote.py install --manifest-sha256 "$MANIFEST_SHA"
+      - name: V2 raw replay, then V3 tests, campaign and raw verification
+        run: .remote-venv/bin/python -B remote_execution/run_remote.py run --manifest-sha256 "$MANIFEST_SHA"
+      - name: Retain failures and hash all collected outputs
+        if: ${{ always() }}
+        run: python3 -B remote_execution/collect.py collect --output remote-artifact
+      - name: Retain outputs as draft-release assets (no Actions artifact storage)
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -B remote_execution/retain_release.py upload

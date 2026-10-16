@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-16T02:57:16.727134+00:00",
+  "status": "PASS_SCALAR_AND_PACKAGE_CHECKS_TENSOR_NOT_EXECUTED",
+  "tests": 81,
+  "tested_source_mismatches": [],
+  "preservation": {
+    "predecessors": {
+      "count": 440,
+      "mismatches": []
+    },
+    "v3": {
+      "count": 12,
+      "mismatches": []
+    },
+    "previous_extension": {
+      "count": 35,
+      "mismatches": []
+    },
+    "original_package": {
+      "count": 44,
+      "mismatches": []
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "ruff",
+        "check",
+        "runtime_verification.py",
+        "test_runtime_gate.py",
+        "test_durable_tensor.py",
+        "run_final_tests.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n"
+    },
+    {
+      "command": [
+        "ruff",
+        "format",
+        "--check",
+        "runtime_verification.py",
+        "test_runtime_gate.py",
+        "test_durable_tensor.py",
+        "run_final_tests.py"
+      ],
+      "exit_code": 0,
+      "stdout": "4 files already formatted\n"
+    }
+  ],
+  "tensor_tests_planned": 10,
+  "tensor_tests_executed": 0,
+  "scientific_trials": 0
+}

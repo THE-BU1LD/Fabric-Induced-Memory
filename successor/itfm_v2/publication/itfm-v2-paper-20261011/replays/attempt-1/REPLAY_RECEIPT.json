@@ -1,0 +1,36 @@
+{
+  "admission": {
+    "samples": [
+      {
+        "free_plus_speculative_bytes": 256147456,
+        "pageouts": 885365,
+        "swap_used_mib": 7650.5
+      },
+      {
+        "free_plus_speculative_bytes": 207781888,
+        "pageouts": 885388,
+        "swap_used_mib": 7650.5
+      }
+    ],
+    "status": "BLOCKED",
+    "threshold_bytes": 536870912
+  },
+  "boundary": "Same host and operator. This is not external independent reproduction or an isolated dependency installation.",
+  "budget": {
+    "paid_compute": 0,
+    "seconds_per_step": 300,
+    "seeds": [
+      101,
+      211,
+      307
+    ],
+    "threads": 1
+  },
+  "manuscript": {
+    "generated_results.tex": "8857d7a23222945ec8e7c88420369dd13989c38d8c6047127a6fe4ff163ef1b3",
+    "main.tex": "e49dc57c95fdd2d24a81736a132beb1f41207daac5122a744e26601d64339153",
+    "references.bib": "02691c9947bdc747b7b6c6133bbfae51cdd7cbf594d9b26990b798db52108782"
+  },
+  "status": "BLOCKED_RESOURCE",
+  "steps": []
+}

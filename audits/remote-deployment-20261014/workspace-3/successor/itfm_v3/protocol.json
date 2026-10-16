@@ -1,0 +1,24 @@
+{
+  "protocol_id": "itfm-v3-noisy-drifting-recall-development-1",
+  "scope": "Synthetic development only; no public efficacy, novelty or confirmation claim",
+  "seeds": [401, 503, 607, 709, 811],
+  "data": {"train_owners": 48, "validation_owners": 16, "evaluation_owners": 16, "steps": 192, "warmup": 32, "cue_dim": 16, "value_dim": 16, "anchors": 24, "residual_scale": 0.75, "observation_noise": 0.03},
+  "conditions": [
+    {"name": "clean", "cue_noise": 0.0, "drift": 0.0, "distractors": 0.0, "anchors": 24},
+    {"name": "noisy", "cue_noise": 0.15, "drift": 0.0, "distractors": 0.0, "anchors": 24},
+    {"name": "drift", "cue_noise": 0.0, "drift": 0.05, "distractors": 0.0, "anchors": 24},
+    {"name": "distractors", "cue_noise": 0.0, "drift": 0.0, "distractors": 0.35, "anchors": 24},
+    {"name": "capacity", "cue_noise": 0.0, "drift": 0.0, "distractors": 0.0, "anchors": 64},
+    {"name": "combined", "cue_noise": 0.15, "drift": 0.05, "distractors": 0.35, "anchors": 64}
+  ],
+  "memory": {"capacity": 32, "topk": 4, "minimum_age": 1, "recent_max_age": 8, "temperatures": [0.05, 0.2], "alphas": [0.0, 0.25, 0.5, 0.75, 1.0]},
+  "training": {"epochs": 40, "base_epochs": 40, "batch_size": 8, "learning_rate": 0.001, "weight_decay": 0.0001, "gradient_clip": 1.0, "widths": [64, 128], "history": 8, "attention_history": 32, "loss": "all post-warmup events MSE", "selection": "lowest validation mean per-owner primary NMSE; deterministic tie by candidate order"},
+  "baselines": ["base", "last_value", "knn1", "knn4", "recent", "finite_history", "gru", "attention"],
+  "interventions": ["erase", "sign_flip", "spatial_mean", "value_permutation"],
+  "oracle": "privileged anchor-ID past-only lookup with the same FIFO capacity; diagnostic only",
+  "endpoint": {"primary": "mean per-owner NMSE on recurring anchors whose last occurrence is older than 8 events, after warmup", "normalizer": "training target variance per seed and condition", "minimum_rows_per_owner": 8, "selection_split": "validation", "report_all_conditions_and_seeds": true},
+  "decision": {"minimum_baseline_relative_gain": 0.05, "minimum_oracle_relative_gain": 0.20, "minimum_oracle_gap_recovery": 0.50, "minimum_erasure_gain_removal": 0.80, "maximum_nonprimary_nmse_degradation": 0.01, "minimum_valid_permutation_fraction": 0.90, "minimum_permutation_error_increase": 0.01, "minimum_owners_with_primary_rows": 16, "require_all_seeds_all_nonclean_conditions": true},
+  "budget": {"max_seconds": 1800, "threads": 1, "max_campaigns": 1, "paid_compute": 0, "max_output_gib": 2, "minimum_free_mib": 512, "max_runtime_tests_seconds": 120},
+  "stopping": "Retain every failed or partial run; no automatic retry; no selection or threshold changes after evaluation access. Infrastructure failure remains incomplete, not negative.",
+  "protected_evaluation": {"created": false, "authorized": false, "note": "All five seeds are development evidence. Any confirmation or natural-domain study requires a separate prospectively frozen protocol."}
+}

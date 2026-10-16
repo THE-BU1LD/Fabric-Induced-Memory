@@ -1,0 +1,4081 @@
+{
+  "at": "2026-10-14T01:20:37.894629+00:00",
+  "processes": [
+    {
+      "pid": 940,
+      "ppid": 649,
+      "rss_mib": 849.671875,
+      "elapsed": "09:02:12",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 945,
+      "ppid": 649,
+      "rss_mib": 462.390625,
+      "elapsed": "09:02:12",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+    },
+    {
+      "pid": 1143,
+      "ppid": 649,
+      "rss_mib": 382.203125,
+      "elapsed": "09:02:02",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 4280,
+      "ppid": 643,
+      "rss_mib": 359.890625,
+      "elapsed": "08:46:35",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 3177,
+      "ppid": 643,
+      "rss_mib": 318.84375,
+      "elapsed": "04:53",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 649,
+      "ppid": 1,
+      "rss_mib": 295.296875,
+      "elapsed": "09:02:21",
+      "command": "/Applications/ChatGPT.app/Contents/MacOS/ChatGPT"
+    },
+    {
+      "pid": 939,
+      "ppid": 649,
+      "rss_mib": 291.796875,
+      "elapsed": "09:02:12",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 643,
+      "ppid": 1,
+      "rss_mib": 252.40625,
+      "elapsed": "09:02:22",
+      "command": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    },
+    {
+      "pid": 4953,
+      "ppid": 945,
+      "rss_mib": 146.921875,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 4945,
+      "ppid": 945,
+      "rss_mib": 141.515625,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 4420,
+      "ppid": 643,
+      "rss_mib": 131.34375,
+      "elapsed": "08:45:07",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 3632,
+      "ppid": 643,
+      "rss_mib": 125.53125,
+      "elapsed": "02:02",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 3634,
+      "ppid": 643,
+      "rss_mib": 115.234375,
+      "elapsed": "02:02",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 4946,
+      "ppid": 4943,
+      "rss_mib": 113.953125,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+    },
+    {
+      "pid": 1616,
+      "ppid": 643,
+      "rss_mib": 113.109375,
+      "elapsed": "09:00:24",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 871,
+      "ppid": 1,
+      "rss_mib": 111.9375,
+      "elapsed": "09:02:15",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores"
+    },
+    {
+      "pid": 2481,
+      "ppid": 643,
+      "rss_mib": 107.71875,
+      "elapsed": "08:56:00",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 3897,
+      "ppid": 643,
+      "rss_mib": 102.296875,
+      "elapsed": "01:12",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 3558,
+      "ppid": 643,
+      "rss_mib": 99.890625,
+      "elapsed": "02:41",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 4864,
+      "ppid": 945,
+      "rss_mib": 98.90625,
+      "elapsed": "00:06",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 1345,
+      "ppid": 643,
+      "rss_mib": 92.484375,
+      "elapsed": "09:01:39",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 2736,
+      "ppid": 643,
+      "rss_mib": 90.453125,
+      "elapsed": "08:53:12",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 722,
+      "ppid": 643,
+      "rss_mib": 82.953125,
+      "elapsed": "09:02:20",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper"
+    },
+    {
+      "pid": 829,
+      "ppid": 649,
+      "rss_mib": 81.65625,
+      "elapsed": "09:02:17",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Service).app/Contents/MacOS/Codex (Service)"
+    },
+    {
+      "pid": 88362,
+      "ppid": 643,
+      "rss_mib": 79.203125,
+      "elapsed": "03:00:49",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 4519,
+      "ppid": 1161,
+      "rss_mib": 78.703125,
+      "elapsed": "00:33",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+    },
+    {
+      "pid": 1301,
+      "ppid": 649,
+      "rss_mib": 73.265625,
+      "elapsed": "09:01:45",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 723,
+      "ppid": 643,
+      "rss_mib": 72.703125,
+      "elapsed": "09:02:20",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper"
+    },
+    {
+      "pid": 2403,
+      "ppid": 649,
+      "rss_mib": 70.8125,
+      "elapsed": "08:56:25",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 885,
+      "ppid": 643,
+      "rss_mib": 69.875,
+      "elapsed": "09:02:15",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 4424,
+      "ppid": 643,
+      "rss_mib": 69.0,
+      "elapsed": "08:45:07",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 4954,
+      "ppid": 945,
+      "rss_mib": 68.421875,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 1076,
+      "ppid": 649,
+      "rss_mib": 68.0,
+      "elapsed": "09:02:05",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 4283,
+      "ppid": 643,
+      "rss_mib": 62.734375,
+      "elapsed": "08:46:34",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 2523,
+      "ppid": 643,
+      "rss_mib": 61.703125,
+      "elapsed": "08:55:30",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 2868,
+      "ppid": 643,
+      "rss_mib": 59.921875,
+      "elapsed": "06:00",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper"
+    },
+    {
+      "pid": 4863,
+      "ppid": 945,
+      "rss_mib": 58.171875,
+      "elapsed": "00:06",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 1361,
+      "ppid": 643,
+      "rss_mib": 57.671875,
+      "elapsed": "09:01:36",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 408,
+      "ppid": 1,
+      "rss_mib": 57.15625,
+      "elapsed": "09:02:25",
+      "command": "/System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer"
+    },
+    {
+      "pid": 830,
+      "ppid": 649,
+      "rss_mib": 55.859375,
+      "elapsed": "09:02:17",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Service).app/Contents/MacOS/Codex (Service)"
+    },
+    {
+      "pid": 2401,
+      "ppid": 649,
+      "rss_mib": 55.84375,
+      "elapsed": "08:56:26",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 4942,
+      "ppid": 945,
+      "rss_mib": 55.625,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 2432,
+      "ppid": 649,
+      "rss_mib": 54.546875,
+      "elapsed": "08:56:21",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 1160,
+      "ppid": 649,
+      "rss_mib": 52.328125,
+      "elapsed": "09:02:00",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 4749,
+      "ppid": 643,
+      "rss_mib": 49.4375,
+      "elapsed": "08:42:51",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 1302,
+      "ppid": 649,
+      "rss_mib": 47.875,
+      "elapsed": "09:01:45",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 1295,
+      "ppid": 649,
+      "rss_mib": 47.640625,
+      "elapsed": "09:01:45",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Renderer).app/Contents/MacOS/Codex (Renderer)"
+    },
+    {
+      "pid": 774,
+      "ppid": 643,
+      "rss_mib": 47.203125,
+      "elapsed": "09:02:19",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 771,
+      "ppid": 643,
+      "rss_mib": 47.171875,
+      "elapsed": "09:02:19",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 2472,
+      "ppid": 643,
+      "rss_mib": 46.65625,
+      "elapsed": "08:56:02",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 4959,
+      "ppid": 649,
+      "rss_mib": 43.625,
+      "elapsed": "00:00",
+      "command": "/opt/homebrew/bin/gh"
+    },
+    {
+      "pid": 4112,
+      "ppid": 945,
+      "rss_mib": 43.5,
+      "elapsed": "00:52",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 4958,
+      "ppid": 4956,
+      "rss_mib": 42.78125,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+    },
+    {
+      "pid": 4944,
+      "ppid": 945,
+      "rss_mib": 42.5,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 99140,
+      "ppid": 945,
+      "rss_mib": 41.484375,
+      "elapsed": "10:29",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 96978,
+      "ppid": 945,
+      "rss_mib": 41.3125,
+      "elapsed": "12:34",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 97337,
+      "ppid": 945,
+      "rss_mib": 41.3125,
+      "elapsed": "12:10",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 98414,
+      "ppid": 945,
+      "rss_mib": 41.265625,
+      "elapsed": "11:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 98683,
+      "ppid": 945,
+      "rss_mib": 41.265625,
+      "elapsed": "10:50",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 99430,
+      "ppid": 945,
+      "rss_mib": 41.265625,
+      "elapsed": "10:17",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 4961,
+      "ppid": 4899,
+      "rss_mib": 41.21875,
+      "elapsed": "00:00",
+      "command": "gh"
+    },
+    {
+      "pid": 4951,
+      "ppid": 945,
+      "rss_mib": 41.171875,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 95606,
+      "ppid": 945,
+      "rss_mib": 41.09375,
+      "elapsed": "13:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 95358,
+      "ppid": 945,
+      "rss_mib": 41.078125,
+      "elapsed": "14:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 96105,
+      "ppid": 945,
+      "rss_mib": 41.078125,
+      "elapsed": "13:19",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 97841,
+      "ppid": 945,
+      "rss_mib": 41.078125,
+      "elapsed": "11:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 1261,
+      "ppid": 1214,
+      "rss_mib": 40.96875,
+      "elapsed": "09:01:51",
+      "command": "/Applications/Google Drive.app/Contents/MacOS/Google Drive"
+    },
+    {
+      "pid": 4300,
+      "ppid": 643,
+      "rss_mib": 40.921875,
+      "elapsed": "08:46:28",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 4304,
+      "ppid": 643,
+      "rss_mib": 40.84375,
+      "elapsed": "08:46:27",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 3460,
+      "ppid": 1,
+      "rss_mib": 40.21875,
+      "elapsed": "03:20",
+      "command": "/System/Library/PrivateFrameworks/Noticeboard.framework/Versions/A/Resources/nbagent.app/Contents/MacOS/nbagent"
+    },
+    {
+      "pid": 4859,
+      "ppid": 945,
+      "rss_mib": 39.984375,
+      "elapsed": "00:06",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 570,
+      "ppid": 1,
+      "rss_mib": 39.484375,
+      "elapsed": "09:02:23",
+      "command": "/System/Library/DriverExtensions/com.apple.DriverKit-AppleBCMWLAN.dext/com.apple.DriverKit-AppleBCMWLAN"
+    },
+    {
+      "pid": 4113,
+      "ppid": 945,
+      "rss_mib": 38.296875,
+      "elapsed": "00:52",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 97336,
+      "ppid": 945,
+      "rss_mib": 37.8125,
+      "elapsed": "12:10",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 660,
+      "ppid": 1,
+      "rss_mib": 37.78125,
+      "elapsed": "09:02:21",
+      "command": "/System/Applications/Messages.app/Contents/MacOS/Messages"
+    },
+    {
+      "pid": 95608,
+      "ppid": 945,
+      "rss_mib": 37.78125,
+      "elapsed": "13:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 99432,
+      "ppid": 945,
+      "rss_mib": 37.5,
+      "elapsed": "10:17",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 98682,
+      "ppid": 945,
+      "rss_mib": 37.46875,
+      "elapsed": "10:50",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 97837,
+      "ppid": 945,
+      "rss_mib": 37.453125,
+      "elapsed": "11:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 96103,
+      "ppid": 945,
+      "rss_mib": 37.4375,
+      "elapsed": "13:19",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 773,
+      "ppid": 643,
+      "rss_mib": 37.203125,
+      "elapsed": "09:02:19",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper (Renderer).app/Contents/MacOS/Google Chrome Helper (Renderer)"
+    },
+    {
+      "pid": 666,
+      "ppid": 1,
+      "rss_mib": 37.125,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/CoreServices/Finder.app/Contents/MacOS/Finder"
+    },
+    {
+      "pid": 96975,
+      "ppid": 945,
+      "rss_mib": 36.796875,
+      "elapsed": "12:34",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 4116,
+      "ppid": 945,
+      "rss_mib": 36.59375,
+      "elapsed": "00:52",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 98418,
+      "ppid": 945,
+      "rss_mib": 36.4375,
+      "elapsed": "11:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 99139,
+      "ppid": 945,
+      "rss_mib": 36.4375,
+      "elapsed": "10:29",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 95356,
+      "ppid": 945,
+      "rss_mib": 36.421875,
+      "elapsed": "14:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 98413,
+      "ppid": 945,
+      "rss_mib": 35.609375,
+      "elapsed": "11:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 98681,
+      "ppid": 945,
+      "rss_mib": 35.609375,
+      "elapsed": "10:50",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 99141,
+      "ppid": 945,
+      "rss_mib": 35.609375,
+      "elapsed": "10:29",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 99434,
+      "ppid": 945,
+      "rss_mib": 35.609375,
+      "elapsed": "10:17",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 95610,
+      "ppid": 945,
+      "rss_mib": 35.59375,
+      "elapsed": "13:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 96106,
+      "ppid": 945,
+      "rss_mib": 35.59375,
+      "elapsed": "13:19",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 96973,
+      "ppid": 945,
+      "rss_mib": 35.59375,
+      "elapsed": "12:34",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 97335,
+      "ppid": 945,
+      "rss_mib": 35.59375,
+      "elapsed": "12:10",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 97840,
+      "ppid": 945,
+      "rss_mib": 35.59375,
+      "elapsed": "11:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 95355,
+      "ppid": 945,
+      "rss_mib": 35.578125,
+      "elapsed": "14:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 929,
+      "ppid": 1,
+      "rss_mib": 35.171875,
+      "elapsed": "09:02:12",
+      "command": "/System/Applications/Stocks.app/Contents/MacOS/Stocks"
+    },
+    {
+      "pid": 664,
+      "ppid": 1,
+      "rss_mib": 34.515625,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter"
+    },
+    {
+      "pid": 411,
+      "ppid": 1,
+      "rss_mib": 34.046875,
+      "elapsed": "09:02:25",
+      "command": "/System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow"
+    },
+    {
+      "pid": 1161,
+      "ppid": 649,
+      "rss_mib": 33.8125,
+      "elapsed": "09:02:00",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/MacOS/SkyComputerUseService"
+    },
+    {
+      "pid": 4858,
+      "ppid": 945,
+      "rss_mib": 31.171875,
+      "elapsed": "00:06",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 22398,
+      "ppid": 649,
+      "rss_mib": 30.109375,
+      "elapsed": "07:00:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
+    },
+    {
+      "pid": 99431,
+      "ppid": 945,
+      "rss_mib": 29.359375,
+      "elapsed": "10:17",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 641,
+      "ppid": 1,
+      "rss_mib": 29.125,
+      "elapsed": "09:02:22",
+      "command": "/usr/libexec/sharingd"
+    },
+    {
+      "pid": 94116,
+      "ppid": 1,
+      "rss_mib": 29.078125,
+      "elapsed": "02:16:46",
+      "command": "/usr/libexec/duetexpertd"
+    },
+    {
+      "pid": 99136,
+      "ppid": 945,
+      "rss_mib": 29.046875,
+      "elapsed": "10:29",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 98412,
+      "ppid": 945,
+      "rss_mib": 29.0,
+      "elapsed": "11:01",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 96099,
+      "ppid": 945,
+      "rss_mib": 28.9375,
+      "elapsed": "13:19",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 4932,
+      "ppid": 4931,
+      "rss_mib": 28.71875,
+      "elapsed": "00:02",
+      "command": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python"
+    },
+    {
+      "pid": 96976,
+      "ppid": 945,
+      "rss_mib": 28.6875,
+      "elapsed": "12:34",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 97334,
+      "ppid": 945,
+      "rss_mib": 28.671875,
+      "elapsed": "12:10",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 97839,
+      "ppid": 945,
+      "rss_mib": 28.65625,
+      "elapsed": "11:41",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 98680,
+      "ppid": 945,
+      "rss_mib": 28.65625,
+      "elapsed": "10:50",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 95607,
+      "ppid": 945,
+      "rss_mib": 28.640625,
+      "elapsed": "13:41",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 95354,
+      "ppid": 945,
+      "rss_mib": 28.625,
+      "elapsed": "14:01",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 4117,
+      "ppid": 945,
+      "rss_mib": 28.1875,
+      "elapsed": "00:52",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 855,
+      "ppid": 1,
+      "rss_mib": 28.046875,
+      "elapsed": "09:02:16",
+      "command": "/System/Applications/Weather.app/Contents/PlugIns/WeatherWidget.appex/Contents/MacOS/WeatherWidget"
+    },
+    {
+      "pid": 1390,
+      "ppid": 643,
+      "rss_mib": 27.703125,
+      "elapsed": "09:01:31",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper"
+    },
+    {
+      "pid": 421,
+      "ppid": 1,
+      "rss_mib": 27.59375,
+      "elapsed": "09:02:25",
+      "command": "/usr/sbin/coreaudiod"
+    },
+    {
+      "pid": 95077,
+      "ppid": 1,
+      "rss_mib": 27.203125,
+      "elapsed": "16:05",
+      "command": "/System/Library/PrivateFrameworks/UIFoundation.framework/Versions/A/XPCServices/nsattributedstringagent.xpc/Contents/MacOS/nsattributedstringagent"
+    },
+    {
+      "pid": 916,
+      "ppid": 1,
+      "rss_mib": 26.484375,
+      "elapsed": "09:02:13",
+      "command": "/System/Applications/Stocks.app/Contents/PlugIns/StocksWidget.appex/Contents/MacOS/StocksWidget"
+    },
+    {
+      "pid": 582,
+      "ppid": 1,
+      "rss_mib": 26.0,
+      "elapsed": "09:02:23",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds_stores"
+    },
+    {
+      "pid": 4540,
+      "ppid": 945,
+      "rss_mib": 25.828125,
+      "elapsed": "08:44:45",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex-code-mode-host"
+    },
+    {
+      "pid": 1222,
+      "ppid": 1201,
+      "rss_mib": 25.796875,
+      "elapsed": "09:01:53",
+      "command": "/Applications/Ollama.app/Contents/MacOS/Ollama"
+    },
+    {
+      "pid": 693,
+      "ppid": 1,
+      "rss_mib": 25.109375,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/corespotlightd"
+    },
+    {
+      "pid": 74480,
+      "ppid": 1,
+      "rss_mib": 25.046875,
+      "elapsed": "03:44:22",
+      "command": "/System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/Support/akd"
+    },
+    {
+      "pid": 95084,
+      "ppid": 1,
+      "rss_mib": 24.875,
+      "elapsed": "16:04",
+      "command": "/System/Library/PrivateFrameworks/UIFoundation.framework/Versions/A/XPCServices/nsattributedstringagent.xpc/Contents/MacOS/nsattributedstringagent"
+    },
+    {
+      "pid": 763,
+      "ppid": 1,
+      "rss_mib": 24.171875,
+      "elapsed": "09:02:20",
+      "command": "/System/Library/CoreServices/Spotlight.app/Contents/MacOS/Spotlight"
+    },
+    {
+      "pid": 3252,
+      "ppid": 1,
+      "rss_mib": 23.921875,
+      "elapsed": "04:22",
+      "command": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/com.apple.Safari.SafeBrowsing.Service"
+    },
+    {
+      "pid": 835,
+      "ppid": 649,
+      "rss_mib": 23.859375,
+      "elapsed": "09:02:17",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Service).app/Contents/MacOS/Codex (Service)"
+    },
+    {
+      "pid": 1391,
+      "ppid": 643,
+      "rss_mib": 23.765625,
+      "elapsed": "09:01:31",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper"
+    },
+    {
+      "pid": 913,
+      "ppid": 1,
+      "rss_mib": 23.71875,
+      "elapsed": "09:02:13",
+      "command": "/System/Applications/FindMy.app/Contents/PlugIns/FindMyWidgetPeople.appex/Contents/MacOS/FindMyWidgetPeople"
+    },
+    {
+      "pid": 915,
+      "ppid": 1,
+      "rss_mib": 22.28125,
+      "elapsed": "09:02:13",
+      "command": "/System/Applications/FindMy.app/Contents/PlugIns/FindMyWidgetItems.appex/Contents/MacOS/FindMyWidgetItems"
+    },
+    {
+      "pid": 69538,
+      "ppid": 1,
+      "rss_mib": 22.140625,
+      "elapsed": "03:53:12",
+      "command": "/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated"
+    },
+    {
+      "pid": 899,
+      "ppid": 1,
+      "rss_mib": 21.578125,
+      "elapsed": "09:02:14",
+      "command": "/System/Library/CoreServices/Screen Time.app/Contents/PlugIns/ScreenTimeWidgetExtension.appex/Contents/MacOS/ScreenTimeWidgetExtension"
+    },
+    {
+      "pid": 731,
+      "ppid": 643,
+      "rss_mib": 21.4375,
+      "elapsed": "09:02:20",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/Google Chrome Helper.app/Contents/MacOS/Google Chrome Helper"
+    },
+    {
+      "pid": 95047,
+      "ppid": 1,
+      "rss_mib": 21.265625,
+      "elapsed": "16:21",
+      "command": "/System/Library/Services/AppleSpell.service/Contents/MacOS/AppleSpell"
+    },
+    {
+      "pid": 663,
+      "ppid": 1,
+      "rss_mib": 20.859375,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/CoreServices/Dock.app/Contents/MacOS/Dock"
+    },
+    {
+      "pid": 978,
+      "ppid": 649,
+      "rss_mib": 20.28125,
+      "elapsed": "09:02:11",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/Codex (Service).app/Contents/MacOS/Codex (Service)"
+    },
+    {
+      "pid": 732,
+      "ppid": 1,
+      "rss_mib": 19.75,
+      "elapsed": "09:02:20",
+      "command": "/System/Library/CoreServices/NotificationCenter.app/Contents/MacOS/NotificationCenter"
+    },
+    {
+      "pid": 654,
+      "ppid": 1,
+      "rss_mib": 19.46875,
+      "elapsed": "09:02:21",
+      "command": "/System/Applications/Notes.app/Contents/MacOS/Notes"
+    },
+    {
+      "pid": 4962,
+      "ppid": 4960,
+      "rss_mib": 19.296875,
+      "elapsed": "00:00",
+      "command": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python"
+    },
+    {
+      "pid": 81684,
+      "ppid": 1,
+      "rss_mib": 18.359375,
+      "elapsed": "03:14:14",
+      "command": "/System/Library/CoreServices/iconservicesagent"
+    },
+    {
+      "pid": 423,
+      "ppid": 1,
+      "rss_mib": 17.71875,
+      "elapsed": "09:02:25",
+      "command": "/usr/libexec/airportd"
+    },
+    {
+      "pid": 4947,
+      "ppid": 4944,
+      "rss_mib": 17.53125,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 4941,
+      "ppid": 945,
+      "rss_mib": 17.421875,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 657,
+      "ppid": 1,
+      "rss_mib": 17.265625,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod"
+    },
+    {
+      "pid": 400,
+      "ppid": 1,
+      "rss_mib": 17.125,
+      "elapsed": "09:02:26",
+      "command": "/usr/sbin/bluetoothd"
+    },
+    {
+      "pid": 364,
+      "ppid": 1,
+      "rss_mib": 17.078125,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mds"
+    },
+    {
+      "pid": 4654,
+      "ppid": 4519,
+      "rss_mib": 16.984375,
+      "elapsed": "00:23",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex-code-mode-host"
+    },
+    {
+      "pid": 383,
+      "ppid": 1,
+      "rss_mib": 16.890625,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/locationd"
+    },
+    {
+      "pid": 4862,
+      "ppid": 945,
+      "rss_mib": 16.75,
+      "elapsed": "00:06",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 4887,
+      "ppid": 4859,
+      "rss_mib": 16.703125,
+      "elapsed": "00:05",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 678,
+      "ppid": 1,
+      "rss_mib": 16.453125,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/VoiceShortcuts.framework/Versions/A/Support/siriactionsd"
+    },
+    {
+      "pid": 4957,
+      "ppid": 4951,
+      "rss_mib": 15.75,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 2882,
+      "ppid": 1,
+      "rss_mib": 15.5625,
+      "elapsed": "05:58",
+      "command": "/System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService"
+    },
+    {
+      "pid": 23021,
+      "ppid": 1,
+      "rss_mib": 15.46875,
+      "elapsed": "05:49:28",
+      "command": "/usr/libexec/PerfPowerServices"
+    },
+    {
+      "pid": 94909,
+      "ppid": 1,
+      "rss_mib": 15.421875,
+      "elapsed": "32:36",
+      "command": "/System/Library/PrivateFrameworks/SoftwareUpdate.framework/Resources/SoftwareUpdateNotificationManager.app/Contents/MacOS/SoftwareUpdateNotificationManager"
+    },
+    {
+      "pid": 655,
+      "ppid": 1,
+      "rss_mib": 15.265625,
+      "elapsed": "09:02:21",
+      "command": "/System/Applications/Photos.app/Contents/MacOS/Photos"
+    },
+    {
+      "pid": 4955,
+      "ppid": 945,
+      "rss_mib": 15.140625,
+      "elapsed": "00:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 94938,
+      "ppid": 1,
+      "rss_mib": 15.078125,
+      "elapsed": "16:58",
+      "command": "/System/Library/CoreServices/TextInputSwitcher.app/Contents/MacOS/TextInputSwitcher"
+    },
+    {
+      "pid": 738,
+      "ppid": 1,
+      "rss_mib": 15.03125,
+      "elapsed": "09:02:20",
+      "command": "/System/Library/CoreServices/UIKitSystem.app/Contents/MacOS/UIKitSystem"
+    },
+    {
+      "pid": 2336,
+      "ppid": 945,
+      "rss_mib": 15.015625,
+      "elapsed": "08:56:30",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 656,
+      "ppid": 1,
+      "rss_mib": 14.6875,
+      "elapsed": "09:02:21",
+      "command": "/System/Applications/Preview.app/Contents/MacOS/Preview"
+    },
+    {
+      "pid": 1199,
+      "ppid": 1,
+      "rss_mib": 14.578125,
+      "elapsed": "09:01:54",
+      "command": "/Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python"
+    },
+    {
+      "pid": 685,
+      "ppid": 1,
+      "rss_mib": 14.515625,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/TelephonyUtilities.framework/callservicesd"
+    },
+    {
+      "pid": 4943,
+      "ppid": 945,
+      "rss_mib": 14.4375,
+      "elapsed": "00:01",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 4956,
+      "ppid": 945,
+      "rss_mib": 14.296875,
+      "elapsed": "00:01",
+      "command": "/Users/ryan/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+    },
+    {
+      "pid": 76199,
+      "ppid": 1,
+      "rss_mib": 14.28125,
+      "elapsed": "03:41:18",
+      "command": "/usr/libexec/coreduetd"
+    },
+    {
+      "pid": 75923,
+      "ppid": 1,
+      "rss_mib": 14.21875,
+      "elapsed": "03:41:39",
+      "command": "/System/Library/PrivateFrameworks/iCloudDriveCore.framework/Versions/A/Support/bird"
+    },
+    {
+      "pid": 625,
+      "ppid": 1,
+      "rss_mib": 14.0625,
+      "elapsed": "09:02:22",
+      "command": "/usr/libexec/rapportd"
+    },
+    {
+      "pid": 1045,
+      "ppid": 1,
+      "rss_mib": 14.0625,
+      "elapsed": "09:02:08",
+      "command": "/System/Applications/Home.app/Contents/PlugIns/HomeEnergyWidgetsExtension.appex/Contents/MacOS/HomeEnergyWidgetsExtension"
+    },
+    {
+      "pid": 639,
+      "ppid": 1,
+      "rss_mib": 13.921875,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/PrivateFrameworks/IDS.framework/identityservicesd.app/Contents/MacOS/identityservicesd"
+    },
+    {
+      "pid": 417,
+      "ppid": 1,
+      "rss_mib": 13.828125,
+      "elapsed": "09:02:25",
+      "command": "/usr/libexec/runningboardd"
+    },
+    {
+      "pid": 856,
+      "ppid": 1,
+      "rss_mib": 13.8125,
+      "elapsed": "09:02:16",
+      "command": "/System/Applications/Podcasts.app/Contents/PlugIns/PodcastsWidget.appex/Contents/MacOS/PodcastsWidget"
+    },
+    {
+      "pid": 76127,
+      "ppid": 1,
+      "rss_mib": 13.8125,
+      "elapsed": "03:41:23",
+      "command": "/System/Library/CoreServices/CoreServicesUIAgent.app/Contents/MacOS/CoreServicesUIAgent"
+    },
+    {
+      "pid": 1016,
+      "ppid": 1,
+      "rss_mib": 13.734375,
+      "elapsed": "09:02:08",
+      "command": "/System/Applications/Clock.app/Contents/PlugIns/WorldClockWidget.appex/Contents/MacOS/WorldClockWidget"
+    },
+    {
+      "pid": 684,
+      "ppid": 1,
+      "rss_mib": 13.703125,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/Support/suggestd"
+    },
+    {
+      "pid": 697,
+      "ppid": 1,
+      "rss_mib": 13.703125,
+      "elapsed": "09:02:21",
+      "command": "/Applications/Google Drive.app/Contents/Applications/FinderHelper.app/Contents/PlugIns/FinderSyncExtension.appex/Contents/MacOS/FinderSyncExtension"
+    },
+    {
+      "pid": 852,
+      "ppid": 1,
+      "rss_mib": 13.703125,
+      "elapsed": "09:02:16",
+      "command": "/System/Applications/Home.app/Contents/PlugIns/HomeWidget.appex/Contents/MacOS/HomeWidget"
+    },
+    {
+      "pid": 930,
+      "ppid": 649,
+      "rss_mib": 13.578125,
+      "elapsed": "09:02:12",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/native/bare-modifier-monitor"
+    },
+    {
+      "pid": 94168,
+      "ppid": 1,
+      "rss_mib": 13.5625,
+      "elapsed": "02:16:40",
+      "command": "/System/Library/PrivateFrameworks/AppPredictionFoundation.framework/Versions/A/XPCServices/AppPredictionIntentsHelperService.xpc/Contents/MacOS/AppPredictionIntentsHelperService"
+    },
+    {
+      "pid": 409,
+      "ppid": 1,
+      "rss_mib": 13.546875,
+      "elapsed": "09:02:25",
+      "command": "/System/Library/PrivateFrameworks/TCC.framework/Support/tccd"
+    },
+    {
+      "pid": 444,
+      "ppid": 1,
+      "rss_mib": 13.453125,
+      "elapsed": "09:02:25",
+      "command": "/usr/libexec/symptomsd"
+    },
+    {
+      "pid": 62707,
+      "ppid": 1,
+      "rss_mib": 13.375,
+      "elapsed": "04:04:01",
+      "command": "/usr/libexec/pkd"
+    },
+    {
+      "pid": 662,
+      "ppid": 1,
+      "rss_mib": 13.3125,
+      "elapsed": "09:02:21",
+      "command": "/usr/sbin/usernoted"
+    },
+    {
+      "pid": 1266,
+      "ppid": 1,
+      "rss_mib": 13.3125,
+      "elapsed": "09:01:50",
+      "command": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.GPU.xpc/Contents/MacOS/com.apple.WebKit.GPU"
+    },
+    {
+      "pid": 727,
+      "ppid": 1,
+      "rss_mib": 13.234375,
+      "elapsed": "09:02:20",
+      "command": "/System/Library/CoreServices/Dock.app/Contents/XPCServices/com.apple.dock.external.extra.arm64.xpc/Contents/MacOS/com.apple.dock.external.extra.arm64"
+    },
+    {
+      "pid": 76201,
+      "ppid": 1,
+      "rss_mib": 13.234375,
+      "elapsed": "03:41:17",
+      "command": "/usr/libexec/knowledge-agent"
+    },
+    {
+      "pid": 892,
+      "ppid": 1,
+      "rss_mib": 13.1875,
+      "elapsed": "09:02:14",
+      "command": "/System/Library/PrivateFrameworks/AssistantServices.framework/Versions/A/Support/assistantd"
+    },
+    {
+      "pid": 4344,
+      "ppid": 1,
+      "rss_mib": 13.1875,
+      "elapsed": "00:44",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 4320,
+      "ppid": 1,
+      "rss_mib": 13.171875,
+      "elapsed": "00:46",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 849,
+      "ppid": 1,
+      "rss_mib": 13.15625,
+      "elapsed": "09:02:16",
+      "command": "/System/Applications/Journal.app/Contents/PlugIns/JournalWidgets.appex/Contents/MacOS/JournalWidgets"
+    },
+    {
+      "pid": 850,
+      "ppid": 1,
+      "rss_mib": 13.125,
+      "elapsed": "09:02:16",
+      "command": "/System/Applications/Journal.app/Contents/PlugIns/JournalWidgetsSecure.appex/Contents/MacOS/JournalWidgetsSecure"
+    },
+    {
+      "pid": 1046,
+      "ppid": 1,
+      "rss_mib": 13.109375,
+      "elapsed": "09:02:07",
+      "command": "/System/Library/CoreServices/Batteries.app/Contents/PlugIns/BatteriesAvocadoWidgetExtension.appex/Contents/MacOS/BatteriesAvocadoWidgetExtension"
+    },
+    {
+      "pid": 54986,
+      "ppid": 1,
+      "rss_mib": 12.9375,
+      "elapsed": "04:18:21",
+      "command": "/System/Library/PrivateFrameworks/CoreDuetContext.framework/Resources/ContextStoreAgent"
+    },
+    {
+      "pid": 424,
+      "ppid": 1,
+      "rss_mib": 12.921875,
+      "elapsed": "09:02:25",
+      "command": "/usr/libexec/lsd"
+    },
+    {
+      "pid": 387,
+      "ppid": 1,
+      "rss_mib": 12.84375,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/dasd"
+    },
+    {
+      "pid": 831,
+      "ppid": 1,
+      "rss_mib": 12.78125,
+      "elapsed": "09:02:17",
+      "command": "/usr/libexec/searchpartyuseragent"
+    },
+    {
+      "pid": 627,
+      "ppid": 1,
+      "rss_mib": 12.765625,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd"
+    },
+    {
+      "pid": 94206,
+      "ppid": 1,
+      "rss_mib": 12.71875,
+      "elapsed": "02:16:37",
+      "command": "/System/Library/PrivateFrameworks/WorkflowKit.framework/XPCServices/ShortcutsViewService.xpc/Contents/MacOS/ShortcutsViewService"
+    },
+    {
+      "pid": 95166,
+      "ppid": 1,
+      "rss_mib": 12.703125,
+      "elapsed": "15:40",
+      "command": "/System/Library/PrivateFrameworks/Categories.framework/Versions/A/XPCServices/CategoriesService.xpc/Contents/MacOS/CategoriesService"
+    },
+    {
+      "pid": 645,
+      "ppid": 1,
+      "rss_mib": 12.484375,
+      "elapsed": "09:02:21",
+      "command": "/System/Applications/Dictionary.app/Contents/MacOS/Dictionary"
+    },
+    {
+      "pid": 918,
+      "ppid": 1,
+      "rss_mib": 12.484375,
+      "elapsed": "09:02:13",
+      "command": "/System/Library/CoreServices/Screen Time.app/Contents/PlugIns/ScreenTimeWidgetIntentsExtension.appex/Contents/MacOS/ScreenTimeWidgetIntentsExtension"
+    },
+    {
+      "pid": 4711,
+      "ppid": 1,
+      "rss_mib": 12.484375,
+      "elapsed": "00:18",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 4712,
+      "ppid": 1,
+      "rss_mib": 12.484375,
+      "elapsed": "00:18",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 94937,
+      "ppid": 1,
+      "rss_mib": 12.46875,
+      "elapsed": "16:58",
+      "command": "/System/Library/Frameworks/LocalAuthentication.framework/Support/coreautha.bundle/Contents/MacOS/coreautha"
+    },
+    {
+      "pid": 1043,
+      "ppid": 1,
+      "rss_mib": 12.328125,
+      "elapsed": "09:02:08",
+      "command": "/System/Applications/VoiceMemos.app/Contents/PlugIns/VoiceMemosSettingsWidgetExtension.appex/Contents/MacOS/VoiceMemosSettingsWidgetExtension"
+    },
+    {
+      "pid": 659,
+      "ppid": 1,
+      "rss_mib": 12.296875,
+      "elapsed": "09:02:21",
+      "command": "/System/Applications/System Settings.app/Contents/MacOS/System Settings"
+    },
+    {
+      "pid": 1005,
+      "ppid": 1,
+      "rss_mib": 12.265625,
+      "elapsed": "09:02:09",
+      "command": "/System/Applications/VoiceMemos.app/Contents/PlugIns/RecordWidgetExtension.appex/Contents/MacOS/RecordWidgetExtension"
+    },
+    {
+      "pid": 910,
+      "ppid": 1,
+      "rss_mib": 12.15625,
+      "elapsed": "09:02:13",
+      "command": "/System/Applications/Weather.app/Contents/PlugIns/WeatherIntents.appex/Contents/MacOS/WeatherIntents"
+    },
+    {
+      "pid": 692,
+      "ppid": 1,
+      "rss_mib": 12.09375,
+      "elapsed": "09:02:21",
+      "command": "/usr/libexec/gamepolicyd"
+    },
+    {
+      "pid": 4087,
+      "ppid": 1,
+      "rss_mib": 12.0,
+      "elapsed": "00:56",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 1060,
+      "ppid": 1,
+      "rss_mib": 11.984375,
+      "elapsed": "09:02:06",
+      "command": "/System/Library/ExtensionKit/Extensions/AppleIDSettings.appex/Contents/MacOS/AppleIDSettings"
+    },
+    {
+      "pid": 740,
+      "ppid": 1,
+      "rss_mib": 11.90625,
+      "elapsed": "09:02:20",
+      "command": "/usr/libexec/routined"
+    },
+    {
+      "pid": 1049,
+      "ppid": 1,
+      "rss_mib": 11.75,
+      "elapsed": "09:02:07",
+      "command": "/System/Applications/Shortcuts.app/Contents/PlugIns/ShortcutsWidgetExtension.appex/Contents/MacOS/ShortcutsWidgetExtension"
+    },
+    {
+      "pid": 478,
+      "ppid": 1,
+      "rss_mib": 11.734375,
+      "elapsed": "09:02:24",
+      "command": "/usr/libexec/syspolicyd"
+    },
+    {
+      "pid": 3118,
+      "ppid": 1,
+      "rss_mib": 11.734375,
+      "elapsed": "05:10",
+      "command": "/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod"
+    },
+    {
+      "pid": 777,
+      "ppid": 1,
+      "rss_mib": 11.671875,
+      "elapsed": "09:02:19",
+      "command": "/System/Library/PrivateFrameworks/TextInputUIMacHelper.framework/Versions/A/XPCServices/CursorUIViewService.xpc/Contents/MacOS/CursorUIViewService"
+    },
+    {
+      "pid": 626,
+      "ppid": 1,
+      "rss_mib": 11.65625,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/CoreServices/audioaccessoryd"
+    },
+    {
+      "pid": 672,
+      "ppid": 1,
+      "rss_mib": 11.53125,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/CoreServices/WallpaperAgent.app/Contents/MacOS/WallpaperAgent"
+    },
+    {
+      "pid": 612,
+      "ppid": 1,
+      "rss_mib": 11.5,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/CoreServices/WindowManager.app/Contents/MacOS/WindowManager"
+    },
+    {
+      "pid": 2362,
+      "ppid": 1,
+      "rss_mib": 11.34375,
+      "elapsed": "08:56:30",
+      "command": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService"
+    },
+    {
+      "pid": 94214,
+      "ppid": 1,
+      "rss_mib": 11.328125,
+      "elapsed": "02:16:34",
+      "command": "/usr/libexec/siriknowledged"
+    },
+    {
+      "pid": 412,
+      "ppid": 1,
+      "rss_mib": 11.296875,
+      "elapsed": "09:02:25",
+      "command": "/System/Library/PrivateFrameworks/CoreAnalytics.framework/Support/analyticsd"
+    },
+    {
+      "pid": 698,
+      "ppid": 1,
+      "rss_mib": 11.28125,
+      "elapsed": "09:02:21",
+      "command": "/usr/libexec/wifip2pd"
+    },
+    {
+      "pid": 726,
+      "ppid": 1,
+      "rss_mib": 11.28125,
+      "elapsed": "09:02:20",
+      "command": "/System/Library/CoreServices/Dock.app/Contents/XPCServices/com.apple.dock.extra.xpc/Contents/MacOS/com.apple.dock.extra"
+    },
+    {
+      "pid": 2617,
+      "ppid": 1,
+      "rss_mib": 11.28125,
+      "elapsed": "06:44",
+      "command": "/System/Library/Frameworks/VideoToolbox.framework/Versions/A/XPCServices/VTDecoderXPCService.xpc/Contents/MacOS/VTDecoderXPCService"
+    },
+    {
+      "pid": 99062,
+      "ppid": 1,
+      "rss_mib": 11.1875,
+      "elapsed": "10:33",
+      "command": "/System/Library/Frameworks/CoreTelephony.framework/Support/CommCenter"
+    },
+    {
+      "pid": 55150,
+      "ppid": 1,
+      "rss_mib": 11.140625,
+      "elapsed": "04:18:04",
+      "command": "/System/Library/CoreServices/Siri.app/Contents/MacOS/Siri"
+    },
+    {
+      "pid": 94174,
+      "ppid": 1,
+      "rss_mib": 11.09375,
+      "elapsed": "02:16:39",
+      "command": "/System/Library/PrivateFrameworks/iCloudDriveService.framework/XPCServices/ContainerMetadataExtractor.xpc/Contents/MacOS/ContainerMetadataExtractor"
+    },
+    {
+      "pid": 24940,
+      "ppid": 1,
+      "rss_mib": 10.96875,
+      "elapsed": "05:30:01",
+      "command": "/usr/libexec/linkd"
+    },
+    {
+      "pid": 3125,
+      "ppid": 1,
+      "rss_mib": 10.921875,
+      "elapsed": "05:09",
+      "command": "/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod"
+    },
+    {
+      "pid": 22037,
+      "ppid": 1,
+      "rss_mib": 10.890625,
+      "elapsed": "07:42:28",
+      "command": "/System/Library/CoreServices/PowerChime.app/Contents/MacOS/PowerChime"
+    },
+    {
+      "pid": 95104,
+      "ppid": 1,
+      "rss_mib": 10.890625,
+      "elapsed": "16:01",
+      "command": "/System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Support/BackgroundTaskManagementAgent.app/Contents/MacOS/BackgroundTaskManagementAgent"
+    },
+    {
+      "pid": 638,
+      "ppid": 1,
+      "rss_mib": 10.875,
+      "elapsed": "09:02:22",
+      "command": "/usr/libexec/trustd"
+    },
+    {
+      "pid": 880,
+      "ppid": 1,
+      "rss_mib": 10.84375,
+      "elapsed": "09:02:15",
+      "command": "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd"
+    },
+    {
+      "pid": 95097,
+      "ppid": 1,
+      "rss_mib": 10.8125,
+      "elapsed": "16:02",
+      "command": "/usr/libexec/GamePolicyAgent"
+    },
+    {
+      "pid": 708,
+      "ppid": 1,
+      "rss_mib": 10.71875,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/IMCore.framework/imagent.app/Contents/MacOS/imagent"
+    },
+    {
+      "pid": 792,
+      "ppid": 1,
+      "rss_mib": 10.671875,
+      "elapsed": "09:02:18",
+      "command": "/Applications/Google Drive.app/Contents/PlugIns/DFSFileProviderExtension.appex/Contents/MacOS/DFSFileProviderExtension"
+    },
+    {
+      "pid": 72489,
+      "ppid": 1,
+      "rss_mib": 10.671875,
+      "elapsed": "03:48:18",
+      "command": "/usr/libexec/proactived"
+    },
+    {
+      "pid": 809,
+      "ppid": 1,
+      "rss_mib": 10.65625,
+      "elapsed": "09:02:18",
+      "command": "/System/Library/PrivateFrameworks/PhotoAnalysis.framework/Versions/A/Support/photoanalysisd"
+    },
+    {
+      "pid": 4160,
+      "ppid": 4116,
+      "rss_mib": 10.65625,
+      "elapsed": "00:52",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 4115,
+      "ppid": 945,
+      "rss_mib": 10.640625,
+      "elapsed": "00:52",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 98715,
+      "ppid": 98681,
+      "rss_mib": 10.625,
+      "elapsed": "10:50",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 99173,
+      "ppid": 99141,
+      "rss_mib": 10.625,
+      "elapsed": "10:29",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 95446,
+      "ppid": 95355,
+      "rss_mib": 10.609375,
+      "elapsed": "14:00",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 95647,
+      "ppid": 95610,
+      "rss_mib": 10.609375,
+      "elapsed": "13:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 97019,
+      "ppid": 96973,
+      "rss_mib": 10.609375,
+      "elapsed": "12:33",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 97364,
+      "ppid": 97335,
+      "rss_mib": 10.609375,
+      "elapsed": "12:10",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 97871,
+      "ppid": 97840,
+      "rss_mib": 10.609375,
+      "elapsed": "11:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 98685,
+      "ppid": 945,
+      "rss_mib": 10.609375,
+      "elapsed": "10:50",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 99137,
+      "ppid": 945,
+      "rss_mib": 10.609375,
+      "elapsed": "10:29",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 95359,
+      "ppid": 945,
+      "rss_mib": 10.59375,
+      "elapsed": "14:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 95609,
+      "ppid": 945,
+      "rss_mib": 10.59375,
+      "elapsed": "13:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 96977,
+      "ppid": 945,
+      "rss_mib": 10.59375,
+      "elapsed": "12:34",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 97332,
+      "ppid": 945,
+      "rss_mib": 10.59375,
+      "elapsed": "12:10",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 97838,
+      "ppid": 945,
+      "rss_mib": 10.59375,
+      "elapsed": "11:41",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 680,
+      "ppid": 1,
+      "rss_mib": 10.546875,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/CoreServices/sharedfilelistd"
+    },
+    {
+      "pid": 98455,
+      "ppid": 98413,
+      "rss_mib": 10.515625,
+      "elapsed": "11:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 99477,
+      "ppid": 99434,
+      "rss_mib": 10.515625,
+      "elapsed": "10:17",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 694,
+      "ppid": 1,
+      "rss_mib": 10.5,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/FileProvider.framework/Support/fileproviderd"
+    },
+    {
+      "pid": 95164,
+      "ppid": 1,
+      "rss_mib": 10.5,
+      "elapsed": "15:40",
+      "command": "/System/Library/PrivateFrameworks/IntelligenceFlowContextRuntime.framework/Versions/A/intelligencecontextd"
+    },
+    {
+      "pid": 96143,
+      "ppid": 96106,
+      "rss_mib": 10.5,
+      "elapsed": "13:19",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 98411,
+      "ppid": 945,
+      "rss_mib": 10.5,
+      "elapsed": "11:01",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 99429,
+      "ppid": 945,
+      "rss_mib": 10.5,
+      "elapsed": "10:17",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 772,
+      "ppid": 1,
+      "rss_mib": 10.484375,
+      "elapsed": "09:02:19",
+      "command": "/System/Library/PrivateFrameworks/HomeKitDaemon.framework/Support/homed"
+    },
+    {
+      "pid": 55679,
+      "ppid": 1,
+      "rss_mib": 10.484375,
+      "elapsed": "04:17:01",
+      "command": "/System/Library/CoreServices/Siri.app/Contents/XPCServices/SiriNCService.xpc/Contents/MacOS/SiriNCService"
+    },
+    {
+      "pid": 96100,
+      "ppid": 945,
+      "rss_mib": 10.484375,
+      "elapsed": "13:19",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 658,
+      "ppid": 1,
+      "rss_mib": 10.4375,
+      "elapsed": "09:02:21",
+      "command": "/System/Applications/TextEdit.app/Contents/MacOS/TextEdit"
+    },
+    {
+      "pid": 427,
+      "ppid": 1,
+      "rss_mib": 10.328125,
+      "elapsed": "09:02:25",
+      "command": "/usr/libexec/nsurlsessiond"
+    },
+    {
+      "pid": 340,
+      "ppid": 1,
+      "rss_mib": 10.203125,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/PrivateFrameworks/MediaRemote.framework/Support/mediaremoted"
+    },
+    {
+      "pid": 1048,
+      "ppid": 1,
+      "rss_mib": 10.171875,
+      "elapsed": "09:02:07",
+      "command": "/usr/libexec/studentd"
+    },
+    {
+      "pid": 87616,
+      "ppid": 1,
+      "rss_mib": 10.15625,
+      "elapsed": "03:02:15",
+      "command": "/System/Library/CoreServices/Keychain Circle Notification.app/Contents/MacOS/Keychain Circle Notification"
+    },
+    {
+      "pid": 378,
+      "ppid": 1,
+      "rss_mib": 10.140625,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/CoreServices/launchservicesd"
+    },
+    {
+      "pid": 94964,
+      "ppid": 1,
+      "rss_mib": 10.140625,
+      "elapsed": "16:56",
+      "command": "/System/Library/PrivateFrameworks/AppleMediaServicesUI.framework/amsengagementd"
+    },
+    {
+      "pid": 97988,
+      "ppid": 1,
+      "rss_mib": 10.140625,
+      "elapsed": "11:32",
+      "command": "/usr/libexec/replayd"
+    },
+    {
+      "pid": 1214,
+      "ppid": 1,
+      "rss_mib": 10.046875,
+      "elapsed": "09:01:54",
+      "command": "/Applications/Google Drive.app/Contents/MacOS/Google Drive"
+    },
+    {
+      "pid": 669,
+      "ppid": 1,
+      "rss_mib": 9.984375,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/CoreServices/AccessibilityUIServer.app/Contents/MacOS/AccessibilityUIServer"
+    },
+    {
+      "pid": 1189,
+      "ppid": 1,
+      "rss_mib": 9.9375,
+      "elapsed": "09:01:54",
+      "command": "/System/Library/PrivateFrameworks/HearingCore.framework/heard"
+    },
+    {
+      "pid": 377,
+      "ppid": 1,
+      "rss_mib": 9.921875,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/PrivateFrameworks/ApplePushService.framework/apsd"
+    },
+    {
+      "pid": 653,
+      "ppid": 1,
+      "rss_mib": 9.921875,
+      "elapsed": "09:02:21",
+      "command": "/System/Applications/Utilities/Terminal.app/Contents/MacOS/Terminal"
+    },
+    {
+      "pid": 977,
+      "ppid": 1,
+      "rss_mib": 9.828125,
+      "elapsed": "09:02:11",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdbulkimport"
+    },
+    {
+      "pid": 76220,
+      "ppid": 1,
+      "rss_mib": 9.75,
+      "elapsed": "03:41:17",
+      "command": "/usr/libexec/findmylocateagent"
+    },
+    {
+      "pid": 1069,
+      "ppid": 1,
+      "rss_mib": 9.734375,
+      "elapsed": "09:02:05",
+      "command": "/System/Library/ExtensionKit/Extensions/FamilySettings.appex/Contents/MacOS/FamilySettings"
+    },
+    {
+      "pid": 94276,
+      "ppid": 1,
+      "rss_mib": 9.71875,
+      "elapsed": "02:09:55",
+      "command": "/System/Library/PrivateFrameworks/PhotoLibraryServices.framework/Versions/A/Support/photolibraryd"
+    },
+    {
+      "pid": 381,
+      "ppid": 1,
+      "rss_mib": 9.703125,
+      "elapsed": "09:02:26",
+      "command": "/usr/sbin/securityd"
+    },
+    {
+      "pid": 635,
+      "ppid": 1,
+      "rss_mib": 9.671875,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/PrivateFrameworks/TCC.framework/Support/tccd"
+    },
+    {
+      "pid": 437,
+      "ppid": 1,
+      "rss_mib": 9.65625,
+      "elapsed": "09:02:25",
+      "command": "/System/Library/Frameworks/Security.framework/Versions/A/XPCServices/authd.xpc/Contents/MacOS/authd"
+    },
+    {
+      "pid": 335,
+      "ppid": 1,
+      "rss_mib": 9.640625,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/logd"
+    },
+    {
+      "pid": 453,
+      "ppid": 1,
+      "rss_mib": 9.640625,
+      "elapsed": "09:02:24",
+      "command": "/usr/sbin/mDNSResponder"
+    },
+    {
+      "pid": 94949,
+      "ppid": 1,
+      "rss_mib": 9.625,
+      "elapsed": "16:57",
+      "command": "/System/Library/CoreServices/UniversalControl.app/Contents/MacOS/UniversalControl"
+    },
+    {
+      "pid": 96228,
+      "ppid": 1,
+      "rss_mib": 9.625,
+      "elapsed": "13:16",
+      "command": "/usr/libexec/bluetoothuserd"
+    },
+    {
+      "pid": 2314,
+      "ppid": 1,
+      "rss_mib": 9.59375,
+      "elapsed": "08:56:31",
+      "command": "/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper"
+    },
+    {
+      "pid": 617,
+      "ppid": 1,
+      "rss_mib": 9.5625,
+      "elapsed": "09:02:22",
+      "command": "/usr/libexec/ContinuityCaptureAgent"
+    },
+    {
+      "pid": 803,
+      "ppid": 1,
+      "rss_mib": 9.53125,
+      "elapsed": "09:02:18",
+      "command": "/System/Library/CoreServices/WiFiAgent.app/Contents/MacOS/WiFiAgent"
+    },
+    {
+      "pid": 891,
+      "ppid": 1,
+      "rss_mib": 9.53125,
+      "elapsed": "09:02:14",
+      "command": "/System/Library/PrivateFrameworks/SafariPlatformSupport.framework/Versions/A/XPCServices/com.apple.SafariPlatformSupport.Helper.xpc/Contents/MacOS/com.apple.SafariPlatformSupport.Helper"
+    },
+    {
+      "pid": 94205,
+      "ppid": 1,
+      "rss_mib": 9.515625,
+      "elapsed": "02:16:38",
+      "command": "/System/Library/Frameworks/Contacts.framework/Support/postersyncd"
+    },
+    {
+      "pid": 620,
+      "ppid": 1,
+      "rss_mib": 9.5,
+      "elapsed": "09:02:22",
+      "command": "/usr/libexec/lsd"
+    },
+    {
+      "pid": 94414,
+      "ppid": 1,
+      "rss_mib": 9.5,
+      "elapsed": "01:37:30",
+      "command": "/System/Library/PrivateFrameworks/IntelligencePlatformCompute.framework/Versions/A/XPCServices/IntelligencePlatformComputeService.xpc/Contents/MacOS/IntelligencePlatformComputeService"
+    },
+    {
+      "pid": 4520,
+      "ppid": 1,
+      "rss_mib": 9.421875,
+      "elapsed": "08:44:55",
+      "command": "/System/Library/CoreServices/UserNotificationCenter.app/Contents/MacOS/UserNotificationCenter"
+    },
+    {
+      "pid": 422,
+      "ppid": 1,
+      "rss_mib": 9.359375,
+      "elapsed": "09:02:25",
+      "command": "/usr/libexec/trustd"
+    },
+    {
+      "pid": 992,
+      "ppid": 1,
+      "rss_mib": 9.359375,
+      "elapsed": "09:02:10",
+      "command": "/System/Applications/System Settings.app/Contents/PlugIns/GeneralSettings.appex/Contents/MacOS/GeneralSettings"
+    },
+    {
+      "pid": 811,
+      "ppid": 1,
+      "rss_mib": 9.296875,
+      "elapsed": "09:02:17",
+      "command": "/usr/libexec/networkserviceproxy"
+    },
+    {
+      "pid": 436,
+      "ppid": 1,
+      "rss_mib": 9.234375,
+      "elapsed": "09:02:25",
+      "command": "/usr/libexec/mobileassetd"
+    },
+    {
+      "pid": 73540,
+      "ppid": 1,
+      "rss_mib": 9.1875,
+      "elapsed": "03:46:32",
+      "command": "/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod"
+    },
+    {
+      "pid": 2197,
+      "ppid": 1,
+      "rss_mib": 9.109375,
+      "elapsed": "07:55",
+      "command": "/System/Library/PrivateFrameworks/Categories.framework/Versions/A/XPCServices/CategoriesService.xpc/Contents/MacOS/CategoriesService"
+    },
+    {
+      "pid": 19387,
+      "ppid": 1,
+      "rss_mib": 9.09375,
+      "elapsed": "08:04:05",
+      "command": "/System/Library/PrivateFrameworks/PassKitCore.framework/passd"
+    },
+    {
+      "pid": 376,
+      "ppid": 1,
+      "rss_mib": 9.046875,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/opendirectoryd"
+    },
+    {
+      "pid": 487,
+      "ppid": 1,
+      "rss_mib": 9.046875,
+      "elapsed": "09:02:24",
+      "command": "Core Audio Driver (MSTeamsAudioDevice.driver)"
+    },
+    {
+      "pid": 636,
+      "ppid": 1,
+      "rss_mib": 9.046875,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/Frameworks/Accounts.framework/Versions/A/Support/accountsd"
+    },
+    {
+      "pid": 725,
+      "ppid": 1,
+      "rss_mib": 8.9375,
+      "elapsed": "09:02:20",
+      "command": "/System/Library/PrivateFrameworks/UserActivity.framework/Agents/useractivityd"
+    },
+    {
+      "pid": 1202,
+      "ppid": 1,
+      "rss_mib": 8.9375,
+      "elapsed": "09:01:54",
+      "command": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python"
+    },
+    {
+      "pid": 79994,
+      "ppid": 1,
+      "rss_mib": 8.921875,
+      "elapsed": "03:18:52",
+      "command": "/usr/libexec/spotlightknowledged.updater"
+    },
+    {
+      "pid": 343,
+      "ppid": 1,
+      "rss_mib": 8.84375,
+      "elapsed": "09:02:26",
+      "command": "/usr/sbin/systemstats"
+    },
+    {
+      "pid": 1210,
+      "ppid": 1,
+      "rss_mib": 8.78125,
+      "elapsed": "09:01:54",
+      "command": "/System/Library/CoreServices/TextInputMenuAgent.app/Contents/MacOS/TextInputMenuAgent"
+    },
+    {
+      "pid": 640,
+      "ppid": 1,
+      "rss_mib": 8.734375,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/PrivateFrameworks/ReplicatorCore.framework/Support/replicatord"
+    },
+    {
+      "pid": 712,
+      "ppid": 1,
+      "rss_mib": 8.71875,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/DoNotDisturbServer.framework/Support/donotdisturbd"
+    },
+    {
+      "pid": 537,
+      "ppid": 1,
+      "rss_mib": 8.6875,
+      "elapsed": "09:02:24",
+      "command": "/usr/libexec/modelmanagerd"
+    },
+    {
+      "pid": 78382,
+      "ppid": 1,
+      "rss_mib": 8.65625,
+      "elapsed": "03:37:50",
+      "command": "/System/Library/PrivateFrameworks/ScreenTimeCore.framework/Versions/A/ScreenTimeAgent"
+    },
+    {
+      "pid": 665,
+      "ppid": 1,
+      "rss_mib": 8.640625,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/CoreServices/SystemUIServer.app/Contents/MacOS/SystemUIServer"
+    },
+    {
+      "pid": 4819,
+      "ppid": 1,
+      "rss_mib": 8.640625,
+      "elapsed": "00:08",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 917,
+      "ppid": 1,
+      "rss_mib": 8.578125,
+      "elapsed": "09:02:13",
+      "command": "/System/Applications/Calendar.app/Contents/PlugIns/CalendarWidgetExtension.appex/Contents/MacOS/CalendarWidgetExtension"
+    },
+    {
+      "pid": 630,
+      "ppid": 1,
+      "rss_mib": 8.5625,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/PrivateFrameworks/UserNotificationsCore.framework/Support/usernotificationsd"
+    },
+    {
+      "pid": 25926,
+      "ppid": 1,
+      "rss_mib": 8.453125,
+      "elapsed": "05:27:30",
+      "command": "/System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/XPCServices/extensionkitservice.xpc/Contents/MacOS/extensionkitservice"
+    },
+    {
+      "pid": 13284,
+      "ppid": 1,
+      "rss_mib": 8.4375,
+      "elapsed": "08:15:57",
+      "command": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService"
+    },
+    {
+      "pid": 1078,
+      "ppid": 1,
+      "rss_mib": 8.40625,
+      "elapsed": "09:02:04",
+      "command": "/System/Library/Frameworks/AppKit.framework/Versions/C/XPCServices/ThemeWidgetControlViewService.xpc/Contents/MacOS/ThemeWidgetControlViewService"
+    },
+    {
+      "pid": 3121,
+      "ppid": 1,
+      "rss_mib": 8.40625,
+      "elapsed": "05:10",
+      "command": "/usr/libexec/trustd"
+    },
+    {
+      "pid": 3129,
+      "ppid": 1,
+      "rss_mib": 8.40625,
+      "elapsed": "05:09",
+      "command": "/usr/libexec/trustd"
+    },
+    {
+      "pid": 616,
+      "ppid": 1,
+      "rss_mib": 8.359375,
+      "elapsed": "09:02:22",
+      "command": "/usr/sbin/universalaccessd"
+    },
+    {
+      "pid": 94963,
+      "ppid": 1,
+      "rss_mib": 8.34375,
+      "elapsed": "16:56",
+      "command": "/System/Library/PrivateFrameworks/Synapse.framework/Support/contentlinkingd"
+    },
+    {
+      "pid": 4960,
+      "ppid": 945,
+      "rss_mib": 8.28125,
+      "elapsed": "00:00",
+      "command": "rtk"
+    },
+    {
+      "pid": 1404,
+      "ppid": 1,
+      "rss_mib": 8.25,
+      "elapsed": "09:01:25",
+      "command": "/System/Library/PrivateFrameworks/SiriInference.framework/Versions/A/siriinferenced"
+    },
+    {
+      "pid": 95106,
+      "ppid": 1,
+      "rss_mib": 8.21875,
+      "elapsed": "16:01",
+      "command": "/System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Resources/backgroundtaskmanagementd"
+    },
+    {
+      "pid": 312,
+      "ppid": 1,
+      "rss_mib": 8.203125,
+      "elapsed": "09:40",
+      "command": "/usr/libexec/PowerUIAgent"
+    },
+    {
+      "pid": 681,
+      "ppid": 1,
+      "rss_mib": 8.1875,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/CoreServices/CoreLocationAgent.app/Contents/MacOS/CoreLocationAgent"
+    },
+    {
+      "pid": 374,
+      "ppid": 1,
+      "rss_mib": 8.109375,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/PrivateFrameworks/CoreDuetContext.framework/Resources/contextstored"
+    },
+    {
+      "pid": 715,
+      "ppid": 1,
+      "rss_mib": 8.109375,
+      "elapsed": "09:02:20",
+      "command": "/usr/libexec/nearbyd"
+    },
+    {
+      "pid": 947,
+      "ppid": 1,
+      "rss_mib": 8.09375,
+      "elapsed": "09:02:12",
+      "command": "/System/Library/CoreServices/diagnostics_agent"
+    },
+    {
+      "pid": 337,
+      "ppid": 1,
+      "rss_mib": 8.078125,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/UserEventAgent"
+    },
+    {
+      "pid": 633,
+      "ppid": 1,
+      "rss_mib": 8.078125,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/CoreServices/talagentd"
+    },
+    {
+      "pid": 937,
+      "ppid": 1,
+      "rss_mib": 8.015625,
+      "elapsed": "09:02:12",
+      "command": "/System/Applications/Reminders.app/Contents/PlugIns/RemindersWidgetExtension.appex/Contents/MacOS/RemindersWidgetExtension"
+    },
+    {
+      "pid": 1,
+      "ppid": 0,
+      "rss_mib": 8.0,
+      "elapsed": "09:09:46",
+      "command": "/sbin/launchd"
+    },
+    {
+      "pid": 94941,
+      "ppid": 1,
+      "rss_mib": 8.0,
+      "elapsed": "16:57",
+      "command": "/System/Library/Frameworks/Translation.framework/translationd"
+    },
+    {
+      "pid": 95148,
+      "ppid": 1,
+      "rss_mib": 7.984375,
+      "elapsed": "15:44",
+      "command": "/usr/libexec/gamecontrollerd"
+    },
+    {
+      "pid": 4933,
+      "ppid": 1,
+      "rss_mib": 7.96875,
+      "elapsed": "00:02",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdworker_shared"
+    },
+    {
+      "pid": 405,
+      "ppid": 1,
+      "rss_mib": 7.9375,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/Frameworks/CoreMediaIO.framework/Versions/A/Resources/com.apple.cmio.registerassistantservice"
+    },
+    {
+      "pid": 709,
+      "ppid": 1,
+      "rss_mib": 7.9375,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/ExtensionKit/Extensions/WallpaperMacintoshExtension.appex/Contents/MacOS/WallpaperMacintoshExtension"
+    },
+    {
+      "pid": 619,
+      "ppid": 1,
+      "rss_mib": 7.921875,
+      "elapsed": "09:02:22",
+      "command": "/usr/libexec/pboard"
+    },
+    {
+      "pid": 637,
+      "ppid": 1,
+      "rss_mib": 7.921875,
+      "elapsed": "09:02:22",
+      "command": "/usr/libexec/nsurlsessiond"
+    },
+    {
+      "pid": 4797,
+      "ppid": 1,
+      "rss_mib": 7.90625,
+      "elapsed": "00:11",
+      "command": "/usr/libexec/biomesyncd"
+    },
+    {
+      "pid": 1285,
+      "ppid": 1,
+      "rss_mib": 7.875,
+      "elapsed": "09:01:47",
+      "command": "/System/Library/PrivateFrameworks/UniversalAccess.framework/Versions/A/Resources/universalAccessAuthWarn.app/Contents/MacOS/universalAccessAuthWarn"
+    },
+    {
+      "pid": 767,
+      "ppid": 1,
+      "rss_mib": 7.859375,
+      "elapsed": "09:02:19",
+      "command": "/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod"
+    },
+    {
+      "pid": 349,
+      "ppid": 1,
+      "rss_mib": 7.828125,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/CoreServices/powerd.bundle/powerd"
+    },
+    {
+      "pid": 1201,
+      "ppid": 1,
+      "rss_mib": 7.8125,
+      "elapsed": "09:01:54",
+      "command": "Contents/Frameworks/Squirrel.framework/Versions/A/Squirrel"
+    },
+    {
+      "pid": 2238,
+      "ppid": 1,
+      "rss_mib": 7.8125,
+      "elapsed": "07:47",
+      "command": "/System/Library/Frameworks/Intents.framework/XPCServices/intents_helper.xpc/Contents/MacOS/intents_helper"
+    },
+    {
+      "pid": 495,
+      "ppid": 1,
+      "rss_mib": 7.78125,
+      "elapsed": "09:02:24",
+      "command": "/usr/libexec/audiomxd"
+    },
+    {
+      "pid": 764,
+      "ppid": 1,
+      "rss_mib": 7.765625,
+      "elapsed": "09:02:20",
+      "command": "/System/Library/Frameworks/Contacts.framework/Support/contactsd"
+    },
+    {
+      "pid": 3614,
+      "ppid": 1,
+      "rss_mib": 7.734375,
+      "elapsed": "02:11",
+      "command": "/usr/libexec/neagent"
+    },
+    {
+      "pid": 74487,
+      "ppid": 1,
+      "rss_mib": 7.734375,
+      "elapsed": "03:44:21",
+      "command": "/System/Library/CoreServices/osanalyticshelper"
+    },
+    {
+      "pid": 1064,
+      "ppid": 1,
+      "rss_mib": 7.71875,
+      "elapsed": "09:02:05",
+      "command": "/System/Library/ExtensionKit/Extensions/FollowUpSettingsExtension.appex/Contents/MacOS/FollowUpSettingsExtension"
+    },
+    {
+      "pid": 2337,
+      "ppid": 945,
+      "rss_mib": 7.640625,
+      "elapsed": "08:56:30",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 2372,
+      "ppid": 2339,
+      "rss_mib": 7.640625,
+      "elapsed": "08:56:30",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+    },
+    {
+      "pid": 621,
+      "ppid": 1,
+      "rss_mib": 7.609375,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/BiomeAgent"
+    },
+    {
+      "pid": 799,
+      "ppid": 1,
+      "rss_mib": 7.609375,
+      "elapsed": "09:02:18",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/browser_crashpad_handler"
+    },
+    {
+      "pid": 606,
+      "ppid": 1,
+      "rss_mib": 7.59375,
+      "elapsed": "09:02:22",
+      "command": "/usr/libexec/UserEventAgent"
+    },
+    {
+      "pid": 1072,
+      "ppid": 1,
+      "rss_mib": 7.59375,
+      "elapsed": "09:02:05",
+      "command": "/System/Library/ExtensionKit/Extensions/ClassroomSettings.appex/Contents/MacOS/ClassroomSettings"
+    },
+    {
+      "pid": 677,
+      "ppid": 1,
+      "rss_mib": 7.578125,
+      "elapsed": "09:02:21",
+      "command": "/usr/sbin/filecoordinationd"
+    },
+    {
+      "pid": 95045,
+      "ppid": 1,
+      "rss_mib": 7.546875,
+      "elapsed": "16:21",
+      "command": "/System/Library/PrivateFrameworks/MobileAssetDaemon.framework/Versions/A/XPCServices/com.apple.MobileAsset.DownloadService.Builtin.xpc/Contents/MacOS/com.apple.MobileAsset.DownloadService.Builtin"
+    },
+    {
+      "pid": 596,
+      "ppid": 1,
+      "rss_mib": 7.53125,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/Frameworks/LocalAuthentication.framework/Support/coreauthd"
+    },
+    {
+      "pid": 791,
+      "ppid": 1,
+      "rss_mib": 7.421875,
+      "elapsed": "09:02:18",
+      "command": "/System/Library/Input Methods/PressAndHold.app/Contents/PlugIns/PAH_Extension.appex/Contents/MacOS/PAH_Extension"
+    },
+    {
+      "pid": 602,
+      "ppid": 1,
+      "rss_mib": 7.34375,
+      "elapsed": "09:02:22",
+      "command": "/usr/libexec/secd"
+    },
+    {
+      "pid": 1065,
+      "ppid": 1,
+      "rss_mib": 7.328125,
+      "elapsed": "09:02:05",
+      "command": "/System/Library/ExtensionKit/Extensions/HeadphoneSettingsExtension.appex/Contents/MacOS/HeadphoneSettingsExtension"
+    },
+    {
+      "pid": 1070,
+      "ppid": 1,
+      "rss_mib": 7.328125,
+      "elapsed": "09:02:05",
+      "command": "/System/Library/ExtensionKit/Extensions/VPN.appex/Contents/MacOS/VPN"
+    },
+    {
+      "pid": 89825,
+      "ppid": 1,
+      "rss_mib": 7.3125,
+      "elapsed": "02:57:29",
+      "command": "/System/Library/PrivateFrameworks/XprotectFramework.framework/Versions/A/XPCServices/XProtectBridgeService.xpc/Contents/MacOS/XProtectBridgeService"
+    },
+    {
+      "pid": 1206,
+      "ppid": 1,
+      "rss_mib": 7.265625,
+      "elapsed": "09:01:54",
+      "command": "/System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent"
+    },
+    {
+      "pid": 503,
+      "ppid": 1,
+      "rss_mib": 7.203125,
+      "elapsed": "09:02:24",
+      "command": "/usr/sbin/WirelessRadioManagerd"
+    },
+    {
+      "pid": 403,
+      "ppid": 1,
+      "rss_mib": 7.109375,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/corebrightnessd"
+    },
+    {
+      "pid": 87609,
+      "ppid": 1,
+      "rss_mib": 7.109375,
+      "elapsed": "03:02:16",
+      "command": "/usr/libexec/ospredictiond"
+    },
+    {
+      "pid": 84150,
+      "ppid": 1,
+      "rss_mib": 7.09375,
+      "elapsed": "03:09:04",
+      "command": "/usr/libexec/keybagd"
+    },
+    {
+      "pid": 311,
+      "ppid": 1,
+      "rss_mib": 7.078125,
+      "elapsed": "09:40",
+      "command": "/usr/libexec/powerdatad"
+    },
+    {
+      "pid": 2194,
+      "ppid": 1,
+      "rss_mib": 6.90625,
+      "elapsed": "07:55",
+      "command": "/usr/libexec/audioanalyticsd"
+    },
+    {
+      "pid": 696,
+      "ppid": 1,
+      "rss_mib": 6.890625,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/ViewBridge.framework/Versions/A/XPCServices/ViewBridgeAuxiliary.xpc/Contents/MacOS/ViewBridgeAuxiliary"
+    },
+    {
+      "pid": 94215,
+      "ppid": 1,
+      "rss_mib": 6.84375,
+      "elapsed": "02:16:34",
+      "command": "/System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/XPCServices/SetStoreUpdateService.xpc/Contents/MacOS/SetStoreUpdateService"
+    },
+    {
+      "pid": 661,
+      "ppid": 1,
+      "rss_mib": 6.734375,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/StatusKit.framework/StatusKitAgent"
+    },
+    {
+      "pid": 644,
+      "ppid": 1,
+      "rss_mib": 6.71875,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/SyncedDefaults.framework/Support/syncdefaultsd"
+    },
+    {
+      "pid": 3961,
+      "ppid": 1,
+      "rss_mib": 6.6875,
+      "elapsed": "00:58",
+      "command": "/System/Library/PrivateFrameworks/IntelligencePlatformCore.framework/Versions/A/intelligenceplatformd"
+    },
+    {
+      "pid": 74481,
+      "ppid": 1,
+      "rss_mib": 6.671875,
+      "elapsed": "03:44:22",
+      "command": "/System/Library/PrivateFrameworks/CoreADI.framework/adid"
+    },
+    {
+      "pid": 91177,
+      "ppid": 1,
+      "rss_mib": 6.625,
+      "elapsed": "02:54:58",
+      "command": "/usr/libexec/keyboardservicesd"
+    },
+    {
+      "pid": 836,
+      "ppid": 1,
+      "rss_mib": 6.5625,
+      "elapsed": "09:02:17",
+      "command": "/usr/libexec/avconferenced"
+    },
+    {
+      "pid": 94208,
+      "ppid": 1,
+      "rss_mib": 6.53125,
+      "elapsed": "02:16:37",
+      "command": "/System/Library/PrivateFrameworks/SessionCore.framework/Support/liveactivitiesd"
+    },
+    {
+      "pid": 347,
+      "ppid": 1,
+      "rss_mib": 6.484375,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/configd"
+    },
+    {
+      "pid": 686,
+      "ppid": 1,
+      "rss_mib": 6.453125,
+      "elapsed": "09:02:21",
+      "command": "/Applications/Google Chrome.app/Contents/Frameworks/Google Chrome Framework.framework/Versions/155.0.8059.40/Helpers/chrome_crashpad_handler"
+    },
+    {
+      "pid": 575,
+      "ppid": 1,
+      "rss_mib": 6.34375,
+      "elapsed": "09:02:23",
+      "command": "/usr/libexec/searchpartyd"
+    },
+    {
+      "pid": 802,
+      "ppid": 1,
+      "rss_mib": 6.328125,
+      "elapsed": "09:02:18",
+      "command": "/Applications/ChatGPT.app/Contents/Frameworks/Codex Framework.framework/Versions/155.0.8059.40/Helpers/browser_crashpad_handler"
+    },
+    {
+      "pid": 95105,
+      "ppid": 1,
+      "rss_mib": 6.296875,
+      "elapsed": "16:01",
+      "command": "/System/Library/PrivateFrameworks/SiriSuggestionsSupport.framework/Versions/A/XPCServices/SiriSuggestionsBookkeepingService.xpc/Contents/MacOS/SiriSuggestionsBookkeepingService"
+    },
+    {
+      "pid": 2338,
+      "ppid": 945,
+      "rss_mib": 6.28125,
+      "elapsed": "08:56:30",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 631,
+      "ppid": 1,
+      "rss_mib": 6.234375,
+      "elapsed": "09:02:22",
+      "command": "/usr/libexec/containermanagerd"
+    },
+    {
+      "pid": 3126,
+      "ppid": 1,
+      "rss_mib": 6.234375,
+      "elapsed": "05:09",
+      "command": "/usr/libexec/secinitd"
+    },
+    {
+      "pid": 79682,
+      "ppid": 1,
+      "rss_mib": 6.1875,
+      "elapsed": "03:19:26",
+      "command": "/System/Library/PrivateFrameworks/DeviceCheckInternal.framework/devicecheckd"
+    },
+    {
+      "pid": 539,
+      "ppid": 1,
+      "rss_mib": 6.078125,
+      "elapsed": "09:02:24",
+      "command": "Core Audio Driver (ParrotAudioPlugin.driver)"
+    },
+    {
+      "pid": 94935,
+      "ppid": 1,
+      "rss_mib": 6.078125,
+      "elapsed": "16:59",
+      "command": "/usr/libexec/biometrickitd"
+    },
+    {
+      "pid": 81624,
+      "ppid": 1,
+      "rss_mib": 6.015625,
+      "elapsed": "03:14:18",
+      "command": "/System/Library/PrivateFrameworks/AXAssetLoader.framework/Support/axassetsd"
+    },
+    {
+      "pid": 94277,
+      "ppid": 1,
+      "rss_mib": 5.96875,
+      "elapsed": "02:09:55",
+      "command": "/System/Library/CoreServices/ScopedBookmarkAgent"
+    },
+    {
+      "pid": 713,
+      "ppid": 1,
+      "rss_mib": 5.921875,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/ExtensionKit/Extensions/WallpaperAerialsExtension.appex/Contents/MacOS/WallpaperAerialsExtension"
+    },
+    {
+      "pid": 4898,
+      "ppid": 945,
+      "rss_mib": 5.921875,
+      "elapsed": "00:04",
+      "command": "rtk"
+    },
+    {
+      "pid": 4931,
+      "ppid": 945,
+      "rss_mib": 5.90625,
+      "elapsed": "00:03",
+      "command": "rtk"
+    },
+    {
+      "pid": 448,
+      "ppid": 1,
+      "rss_mib": 5.890625,
+      "elapsed": "09:02:24",
+      "command": "/System/Library/PrivateFrameworks/BiomeStreams.framework/Support/biomed"
+    },
+    {
+      "pid": 1058,
+      "ppid": 1,
+      "rss_mib": 5.890625,
+      "elapsed": "09:02:06",
+      "command": "/System/Applications/Notes.app/Contents/PlugIns/com.apple.Notes.WidgetExtension.appex/Contents/MacOS/com.apple.Notes.WidgetExtension"
+    },
+    {
+      "pid": 95102,
+      "ppid": 1,
+      "rss_mib": 5.859375,
+      "elapsed": "16:01",
+      "command": "/usr/libexec/dmd"
+    },
+    {
+      "pid": 95101,
+      "ppid": 1,
+      "rss_mib": 5.8125,
+      "elapsed": "16:01",
+      "command": "/usr/libexec/swcd"
+    },
+    {
+      "pid": 533,
+      "ppid": 1,
+      "rss_mib": 5.796875,
+      "elapsed": "09:02:24",
+      "command": "/usr/libexec/cameracaptured"
+    },
+    {
+      "pid": 73422,
+      "ppid": 1,
+      "rss_mib": 5.75,
+      "elapsed": "03:46:47",
+      "command": "/System/Library/Frameworks/CryptoTokenKit.framework/ctkd"
+    },
+    {
+      "pid": 968,
+      "ppid": 1,
+      "rss_mib": 5.734375,
+      "elapsed": "09:02:11",
+      "command": "/System/Library/PrivateFrameworks/InstallCoordination.framework/Support/installcoordinationd"
+    },
+    {
+      "pid": 1051,
+      "ppid": 1,
+      "rss_mib": 5.734375,
+      "elapsed": "09:02:07",
+      "command": "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/Contents/Extensions/SafariWidgetExtension.appex/Contents/MacOS/SafariWidgetExtension"
+    },
+    {
+      "pid": 74485,
+      "ppid": 1,
+      "rss_mib": 5.734375,
+      "elapsed": "03:44:22",
+      "command": "/System/Library/PrivateFrameworks/CloudTelemetry.framework/Versions/A/XPCServices/CloudTelemetryService.xpc/Contents/MacOS/CloudTelemetryService"
+    },
+    {
+      "pid": 759,
+      "ppid": 1,
+      "rss_mib": 5.71875,
+      "elapsed": "09:02:20",
+      "command": "/System/Library/PrivateFrameworks/CloudDocs.framework/PlugIns/com.apple.CloudDocs.iCloudDriveFileProvider.appex/Contents/MacOS/com.apple.CloudDocs.iCloudDriveFileProvider"
+    },
+    {
+      "pid": 1056,
+      "ppid": 1,
+      "rss_mib": 5.703125,
+      "elapsed": "09:02:07",
+      "command": "/System/Library/CoreServices/PeopleViewService.app/Contents/PlugIns/PeopleWidget_macOSExtension.appex/Contents/MacOS/PeopleWidget_macOSExtension"
+    },
+    {
+      "pid": 651,
+      "ppid": 1,
+      "rss_mib": 5.578125,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/Frameworks/LocalAuthentication.framework/Support/coreauthd"
+    },
+    {
+      "pid": 747,
+      "ppid": 1,
+      "rss_mib": 5.578125,
+      "elapsed": "09:02:20",
+      "command": "/System/Library/PrivateFrameworks/FamilyCircle.framework/Versions/A/Resources/familycircled"
+    },
+    {
+      "pid": 438,
+      "ppid": 1,
+      "rss_mib": 5.546875,
+      "elapsed": "09:02:25",
+      "command": "/usr/libexec/eligibilityd"
+    },
+    {
+      "pid": 1192,
+      "ppid": 1,
+      "rss_mib": 5.546875,
+      "elapsed": "09:01:54",
+      "command": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python"
+    },
+    {
+      "pid": 1267,
+      "ppid": 1,
+      "rss_mib": 5.546875,
+      "elapsed": "09:01:50",
+      "command": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.Networking.xpc/Contents/MacOS/com.apple.WebKit.Networking"
+    },
+    {
+      "pid": 95124,
+      "ppid": 1,
+      "rss_mib": 5.53125,
+      "elapsed": "15:51",
+      "command": "/System/Library/CoreServices/pbs"
+    },
+    {
+      "pid": 94124,
+      "ppid": 1,
+      "rss_mib": 5.5,
+      "elapsed": "02:16:46",
+      "command": "/System/Library/PrivateFrameworks/MobileSoftwareUpdate.framework/Support/softwareupdated"
+    },
+    {
+      "pid": 95156,
+      "ppid": 1,
+      "rss_mib": 5.4375,
+      "elapsed": "15:44",
+      "command": "/usr/libexec/gamecontrolleragentd"
+    },
+    {
+      "pid": 1055,
+      "ppid": 1,
+      "rss_mib": 5.421875,
+      "elapsed": "09:02:07",
+      "command": "/System/Applications/Photos.app/Contents/PlugIns/PhotosReliveWidget.appex/Contents/MacOS/PhotosReliveWidget"
+    },
+    {
+      "pid": 1047,
+      "ppid": 1,
+      "rss_mib": 5.375,
+      "elapsed": "09:02:07",
+      "command": "/System/Applications/Tips.app/Contents/PlugIns/TipsWidgetExtension.appex/Contents/MacOS/TipsWidgetExtension"
+    },
+    {
+      "pid": 49085,
+      "ppid": 1,
+      "rss_mib": 5.265625,
+      "elapsed": "04:30:43",
+      "command": "/System/Library/CoreServices/iconservicesd"
+    },
+    {
+      "pid": 861,
+      "ppid": 653,
+      "rss_mib": 5.25,
+      "elapsed": "09:02:16",
+      "command": "login"
+    },
+    {
+      "pid": 94114,
+      "ppid": 1,
+      "rss_mib": 5.203125,
+      "elapsed": "02:16:46",
+      "command": "/System/Library/PrivateFrameworks/CoreFollowUp.framework/Versions/A/Support/followupd"
+    },
+    {
+      "pid": 96057,
+      "ppid": 1,
+      "rss_mib": 5.203125,
+      "elapsed": "13:21",
+      "command": "/System/Library/PrivateFrameworks/CloudTelemetry.framework/Versions/A/XPCServices/CloudTelemetryService.xpc/Contents/MacOS/CloudTelemetryService"
+    },
+    {
+      "pid": 2334,
+      "ppid": 945,
+      "rss_mib": 5.15625,
+      "elapsed": "08:56:30",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 2339,
+      "ppid": 945,
+      "rss_mib": 5.15625,
+      "elapsed": "08:56:30",
+      "command": "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+    },
+    {
+      "pid": 2206,
+      "ppid": 1,
+      "rss_mib": 5.140625,
+      "elapsed": "07:53",
+      "command": "/System/Library/PrivateFrameworks/ContextKit.framework/Versions/A/XPCServices/ContextService.xpc/Contents/MacOS/ContextService"
+    },
+    {
+      "pid": 96054,
+      "ppid": 1,
+      "rss_mib": 5.140625,
+      "elapsed": "13:22",
+      "command": "/System/Library/PrivateFrameworks/TelephonyUtilities.framework/XPCServices/com.apple.FaceTime.FTConversationService.xpc/Contents/MacOS/com.apple.FaceTime.FTConversationService"
+    },
+    {
+      "pid": 95094,
+      "ppid": 1,
+      "rss_mib": 5.125,
+      "elapsed": "16:03",
+      "command": "/System/Library/PrivateFrameworks/Ecosystem.framework/Support/ecosystemd"
+    },
+    {
+      "pid": 339,
+      "ppid": 1,
+      "rss_mib": 5.109375,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd"
+    },
+    {
+      "pid": 4531,
+      "ppid": 1,
+      "rss_mib": 5.109375,
+      "elapsed": "08:44:48",
+      "command": "/System/Library/Frameworks/CoreSpotlight.framework/spotlightknowledged"
+    },
+    {
+      "pid": 94953,
+      "ppid": 1,
+      "rss_mib": 5.109375,
+      "elapsed": "16:57",
+      "command": "/System/Library/PrivateFrameworks/CoreCDP.framework/Versions/A/Resources/cdpd"
+    },
+    {
+      "pid": 95161,
+      "ppid": 1,
+      "rss_mib": 5.078125,
+      "elapsed": "15:42",
+      "command": "/usr/libexec/feedbackd"
+    },
+    {
+      "pid": 98753,
+      "ppid": 1,
+      "rss_mib": 5.046875,
+      "elapsed": "10:49",
+      "command": "/System/Library/PrivateFrameworks/CoreAnalytics.framework/Support/analyticsagent"
+    },
+    {
+      "pid": 95092,
+      "ppid": 1,
+      "rss_mib": 5.0,
+      "elapsed": "16:04",
+      "command": "/System/Library/PrivateFrameworks/EcosystemAnalytics.framework/Support/ecosystemanalyticsd"
+    },
+    {
+      "pid": 73604,
+      "ppid": 1,
+      "rss_mib": 4.984375,
+      "elapsed": "03:46:28",
+      "command": "/usr/libexec/countryd"
+    },
+    {
+      "pid": 719,
+      "ppid": 1,
+      "rss_mib": 4.90625,
+      "elapsed": "09:02:20",
+      "command": "/System/Library/PrivateFrameworks/CommunicationsFilter.framework/CMFSyncAgent"
+    },
+    {
+      "pid": 94951,
+      "ppid": 1,
+      "rss_mib": 4.90625,
+      "elapsed": "16:57",
+      "command": "/usr/libexec/SidecarRelay"
+    },
+    {
+      "pid": 1259,
+      "ppid": 1,
+      "rss_mib": 4.875,
+      "elapsed": "09:01:51",
+      "command": "/Applications/Google Drive.app/Contents/MacOS/crashpad_handler"
+    },
+    {
+      "pid": 981,
+      "ppid": 1,
+      "rss_mib": 4.84375,
+      "elapsed": "09:02:11",
+      "command": "/System/Library/Image Capture/Support/icdd"
+    },
+    {
+      "pid": 367,
+      "ppid": 1,
+      "rss_mib": 4.828125,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/diskarbitrationd"
+    },
+    {
+      "pid": 94493,
+      "ppid": 1,
+      "rss_mib": 4.828125,
+      "elapsed": "01:26:17",
+      "command": "/System/Library/PrivateFrameworks/ContextKit.framework/Versions/A/XPCServices/ContextService.xpc/Contents/MacOS/ContextService"
+    },
+    {
+      "pid": 1044,
+      "ppid": 1,
+      "rss_mib": 4.796875,
+      "elapsed": "09:02:08",
+      "command": "/System/Library/PrivateFrameworks/MobileTimer.framework/PlugIns/MobileTimerIntents.appex/Contents/MacOS/MobileTimerIntents"
+    },
+    {
+      "pid": 99001,
+      "ppid": 1,
+      "rss_mib": 4.796875,
+      "elapsed": "10:39",
+      "command": "/System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Resources/commerce"
+    },
+    {
+      "pid": 94143,
+      "ppid": 1,
+      "rss_mib": 4.765625,
+      "elapsed": "02:16:45",
+      "command": "/usr/libexec/storagekitd"
+    },
+    {
+      "pid": 76136,
+      "ppid": 1,
+      "rss_mib": 4.6875,
+      "elapsed": "03:41:21",
+      "command": "/usr/libexec/mobileactivationd"
+    },
+    {
+      "pid": 600,
+      "ppid": 1,
+      "rss_mib": 4.671875,
+      "elapsed": "09:02:22",
+      "command": "/usr/sbin/cfprefsd"
+    },
+    {
+      "pid": 428,
+      "ppid": 1,
+      "rss_mib": 4.65625,
+      "elapsed": "09:02:25",
+      "command": "/usr/libexec/nehelper"
+    },
+    {
+      "pid": 525,
+      "ppid": 1,
+      "rss_mib": 4.640625,
+      "elapsed": "09:02:24",
+      "command": "/System/Library/CoreServices/TimeMachine/backupd"
+    },
+    {
+      "pid": 1347,
+      "ppid": 343,
+      "rss_mib": 4.640625,
+      "elapsed": "09:01:38",
+      "command": "/usr/sbin/systemstats"
+    },
+    {
+      "pid": 778,
+      "ppid": 1,
+      "rss_mib": 4.578125,
+      "elapsed": "09:02:19",
+      "command": "/System/Library/Frameworks/InputMethodKit.framework/Resources/imklaunchagent"
+    },
+    {
+      "pid": 589,
+      "ppid": 1,
+      "rss_mib": 4.546875,
+      "elapsed": "09:02:23",
+      "command": "/Library/PrivilegedHelperTools/com.docker.vmnetd"
+    },
+    {
+      "pid": 857,
+      "ppid": 643,
+      "rss_mib": 4.5,
+      "elapsed": "09:02:16",
+      "command": "/Users/ryan/.codex/plugins/cache/openai-bundled/chrome/latest/extension-host/macos/arm64/ChatGPT for Chrome"
+    },
+    {
+      "pid": 858,
+      "ppid": 643,
+      "rss_mib": 4.5,
+      "elapsed": "09:02:16",
+      "command": "/Users/ryan/.codex/plugins/cache/openai-bundled/chrome/latest/extension-host/macos/arm64/ChatGPT for Chrome"
+    },
+    {
+      "pid": 404,
+      "ppid": 1,
+      "rss_mib": 4.484375,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/AirPlayXPCHelper"
+    },
+    {
+      "pid": 534,
+      "ppid": 1,
+      "rss_mib": 4.453125,
+      "elapsed": "09:02:24",
+      "command": "/System/Library/Frameworks/CoreMediaIO.framework/Versions/A/Resources/UVCAssistant.systemextension/Contents/MacOS/UVCAssistant"
+    },
+    {
+      "pid": 642,
+      "ppid": 1,
+      "rss_mib": 4.453125,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Support/fontworker"
+    },
+    {
+      "pid": 410,
+      "ppid": 1,
+      "rss_mib": 4.4375,
+      "elapsed": "09:02:25",
+      "command": "/usr/sbin/cfprefsd"
+    },
+    {
+      "pid": 859,
+      "ppid": 643,
+      "rss_mib": 4.203125,
+      "elapsed": "09:02:16",
+      "command": "/Applications/Claude.app/Contents/Helpers/chrome-native-host"
+    },
+    {
+      "pid": 95158,
+      "ppid": 1,
+      "rss_mib": 4.1875,
+      "elapsed": "15:43",
+      "command": "/usr/libexec/assessmentagent"
+    },
+    {
+      "pid": 373,
+      "ppid": 1,
+      "rss_mib": 4.109375,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/thermalmonitord"
+    },
+    {
+      "pid": 80705,
+      "ppid": 1,
+      "rss_mib": 4.078125,
+      "elapsed": "03:16:38",
+      "command": "/usr/libexec/amfid"
+    },
+    {
+      "pid": 379,
+      "ppid": 1,
+      "rss_mib": 4.0625,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/timed"
+    },
+    {
+      "pid": 547,
+      "ppid": 1,
+      "rss_mib": 4.015625,
+      "elapsed": "09:02:23",
+      "command": "/System/Library/CoreServices/appleeventsd"
+    },
+    {
+      "pid": 634,
+      "ppid": 1,
+      "rss_mib": 4.015625,
+      "elapsed": "09:02:22",
+      "command": "/System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Support/fontd"
+    },
+    {
+      "pid": 598,
+      "ppid": 1,
+      "rss_mib": 4.0,
+      "elapsed": "09:02:22",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 94117,
+      "ppid": 1,
+      "rss_mib": 4.0,
+      "elapsed": "02:16:46",
+      "command": "/System/Library/Frameworks/ManagedSettings.framework/Versions/A/ManagedSettingsAgent"
+    },
+    {
+      "pid": 90073,
+      "ppid": 1,
+      "rss_mib": 3.984375,
+      "elapsed": "02:57:00",
+      "command": "/System/Library/PrivateFrameworks/AssetCacheServices.framework/Versions/A/XPCServices/AssetCacheLocatorService.xpc/Contents/MacOS/AssetCacheLocatorService"
+    },
+    {
+      "pid": 94120,
+      "ppid": 1,
+      "rss_mib": 3.96875,
+      "elapsed": "02:16:46",
+      "command": "/System/Library/PrivateFrameworks/AssetCacheServices.framework/Versions/A/XPCServices/AssetCacheLocatorService.xpc/Contents/MacOS/AssetCacheLocatorService"
+    },
+    {
+      "pid": 395,
+      "ppid": 1,
+      "rss_mib": 3.953125,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/PrivateFrameworks/GenerationalStorage.framework/Versions/A/Support/revisiond"
+    },
+    {
+      "pid": 896,
+      "ppid": 1,
+      "rss_mib": 3.953125,
+      "elapsed": "09:02:14",
+      "command": "/usr/libexec/aned"
+    },
+    {
+      "pid": 366,
+      "ppid": 1,
+      "rss_mib": 3.890625,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/kernelmanagerd"
+    },
+    {
+      "pid": 3119,
+      "ppid": 1,
+      "rss_mib": 3.890625,
+      "elapsed": "05:10",
+      "command": "/usr/libexec/secinitd"
+    },
+    {
+      "pid": 531,
+      "ppid": 1,
+      "rss_mib": 3.875,
+      "elapsed": "09:02:24",
+      "command": "/usr/libexec/com.apple.cmio.videodriverkithostextension.systemextension/Contents/MacOS/com.apple.cmio.videodriverkithostextension"
+    },
+    {
+      "pid": 2138,
+      "ppid": 1,
+      "rss_mib": 3.875,
+      "elapsed": "07:57",
+      "command": "/usr/libexec/secinitd"
+    },
+    {
+      "pid": 1269,
+      "ppid": 1,
+      "rss_mib": 3.8125,
+      "elapsed": "09:01:50",
+      "command": "/System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent"
+    },
+    {
+      "pid": 19343,
+      "ppid": 1,
+      "rss_mib": 3.765625,
+      "elapsed": "08:04:13",
+      "command": "/System/Library/PrivateFrameworks/SystemStatusServer.framework/Support/systemstatusd"
+    },
+    {
+      "pid": 414,
+      "ppid": 1,
+      "rss_mib": 3.75,
+      "elapsed": "09:02:25",
+      "command": "/System/Library/CoreServices/coreservicesd"
+    },
+    {
+      "pid": 520,
+      "ppid": 1,
+      "rss_mib": 3.75,
+      "elapsed": "09:02:24",
+      "command": "/System/Library/Frameworks/Security.framework/Versions/A/XPCServices/com.apple.CodeSigningHelper.xpc/Contents/MacOS/com.apple.CodeSigningHelper"
+    },
+    {
+      "pid": 22255,
+      "ppid": 1,
+      "rss_mib": 3.65625,
+      "elapsed": "07:12:26",
+      "command": "/usr/sbin/netbiosd"
+    },
+    {
+      "pid": 95103,
+      "ppid": 1,
+      "rss_mib": 3.59375,
+      "elapsed": "16:01",
+      "command": "/System/Library/Frameworks/MediaExtension.framework/Versions/A/Helpers/MENotificationAgent"
+    },
+    {
+      "pid": 388,
+      "ppid": 1,
+      "rss_mib": 3.578125,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/corerepaird"
+    },
+    {
+      "pid": 3124,
+      "ppid": 1,
+      "rss_mib": 3.546875,
+      "elapsed": "05:09",
+      "command": "/usr/libexec/containermanagerd"
+    },
+    {
+      "pid": 3130,
+      "ppid": 1,
+      "rss_mib": 3.546875,
+      "elapsed": "05:09",
+      "command": "/usr/libexec/containermanagerd"
+    },
+    {
+      "pid": 1223,
+      "ppid": 1,
+      "rss_mib": 3.515625,
+      "elapsed": "09:01:53",
+      "command": "/System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundle/Contents/MacOS/ctkahp"
+    },
+    {
+      "pid": 695,
+      "ppid": 1,
+      "rss_mib": 3.484375,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/PrivateFrameworks/AMPDevices.framework/Versions/A/Support/AMPDeviceDiscoveryAgent"
+    },
+    {
+      "pid": 3254,
+      "ppid": 1,
+      "rss_mib": 3.421875,
+      "elapsed": "04:21",
+      "command": "/System/Library/CoreServices/TimeMachine/backupd-helper"
+    },
+    {
+      "pid": 94939,
+      "ppid": 1,
+      "rss_mib": 3.390625,
+      "elapsed": "16:58",
+      "command": "/usr/sbin/BTLEServerAgent"
+    },
+    {
+      "pid": 3122,
+      "ppid": 1,
+      "rss_mib": 3.375,
+      "elapsed": "05:10",
+      "command": "/usr/libexec/trustdFileHelper"
+    },
+    {
+      "pid": 562,
+      "ppid": 1,
+      "rss_mib": 3.3125,
+      "elapsed": "09:02:23",
+      "command": "/System/Library/CoreServices/Software Update.app/Contents/Resources/suhelperd"
+    },
+    {
+      "pid": 93787,
+      "ppid": 1,
+      "rss_mib": 3.296875,
+      "elapsed": "02:49:38",
+      "command": "/usr/libexec/sandboxd"
+    },
+    {
+      "pid": 1015,
+      "ppid": 1,
+      "rss_mib": 3.28125,
+      "elapsed": "09:02:08",
+      "command": "/System/Library/Frameworks/ImageCaptureCore.framework/Versions/A/XPCServices/mscamerad-xpc.xpc/Contents/MacOS/mscamerad-xpc"
+    },
+    {
+      "pid": 94153,
+      "ppid": 1,
+      "rss_mib": 3.28125,
+      "elapsed": "02:16:44",
+      "command": "/usr/libexec/containermanagerd_system"
+    },
+    {
+      "pid": 94209,
+      "ppid": 1,
+      "rss_mib": 3.28125,
+      "elapsed": "02:16:37",
+      "command": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/XPCServices/com.apple.hiservices-xpcservice.xpc/Contents/MacOS/com.apple.hiservices-xpcservice"
+    },
+    {
+      "pid": 982,
+      "ppid": 1,
+      "rss_mib": 3.1875,
+      "elapsed": "09:02:11",
+      "command": "/System/Library/Frameworks/ImageCaptureCore.framework/Versions/A/XPCServices/mscamerad-xpc.xpc/Contents/MacOS/mscamerad-xpc"
+    },
+    {
+      "pid": 1274,
+      "ppid": 1,
+      "rss_mib": 3.15625,
+      "elapsed": "09:01:49",
+      "command": "/System/Library/Frameworks/ImageCaptureCore.framework/Versions/A/XPCServices/mscamerad-xpc.xpc/Contents/MacOS/mscamerad-xpc"
+    },
+    {
+      "pid": 354,
+      "ppid": 1,
+      "rss_mib": 3.125,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/remoted"
+    },
+    {
+      "pid": 95090,
+      "ppid": 1,
+      "rss_mib": 3.109375,
+      "elapsed": "16:04",
+      "command": "/System/Library/Frameworks/AudioToolbox.framework/AudioComponentRegistrar"
+    },
+    {
+      "pid": 390,
+      "ppid": 1,
+      "rss_mib": 3.09375,
+      "elapsed": "09:02:26",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 983,
+      "ppid": 1,
+      "rss_mib": 3.09375,
+      "elapsed": "09:02:11",
+      "command": "/usr/libexec/ptpcamerad"
+    },
+    {
+      "pid": 401,
+      "ppid": 1,
+      "rss_mib": 3.078125,
+      "elapsed": "09:02:26",
+      "command": "/usr/sbin/notifyd"
+    },
+    {
+      "pid": 472,
+      "ppid": 1,
+      "rss_mib": 3.0625,
+      "elapsed": "09:02:24",
+      "command": "/usr/libexec/ApplicationFirewall/socketfilterfw"
+    },
+    {
+      "pid": 521,
+      "ppid": 1,
+      "rss_mib": 3.0625,
+      "elapsed": "09:02:24",
+      "command": "/usr/libexec/audioclocksyncd"
+    },
+    {
+      "pid": 375,
+      "ppid": 1,
+      "rss_mib": 3.046875,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/xprotectd"
+    },
+    {
+      "pid": 394,
+      "ppid": 1,
+      "rss_mib": 3.03125,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/CoreServices/logind"
+    },
+    {
+      "pid": 476,
+      "ppid": 1,
+      "rss_mib": 3.03125,
+      "elapsed": "09:02:24",
+      "command": "/usr/sbin/mDNSResponderHelper"
+    },
+    {
+      "pid": 74479,
+      "ppid": 1,
+      "rss_mib": 3.015625,
+      "elapsed": "03:44:23",
+      "command": "/usr/libexec/securityd_system"
+    },
+    {
+      "pid": 95053,
+      "ppid": 1,
+      "rss_mib": 2.953125,
+      "elapsed": "16:18",
+      "command": "/System/Library/PrivateFrameworks/StreamingZip.framework/Versions/A/XPCServices/com.apple.StreamingUnzipService.privileged.xpc/Contents/MacOS/com.apple.StreamingUnzipService.privileged"
+    },
+    {
+      "pid": 95078,
+      "ppid": 1,
+      "rss_mib": 2.90625,
+      "elapsed": "16:05",
+      "command": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/XPCServices/com.apple.hiservices-xpcservice.xpc/Contents/MacOS/com.apple.hiservices-xpcservice"
+    },
+    {
+      "pid": 796,
+      "ppid": 1,
+      "rss_mib": 2.875,
+      "elapsed": "09:02:18",
+      "command": "/System/Library/CoreServices/SubmitDiagInfo"
+    },
+    {
+      "pid": 426,
+      "ppid": 1,
+      "rss_mib": 2.78125,
+      "elapsed": "09:02:25",
+      "command": "/usr/libexec/apfsd"
+    },
+    {
+      "pid": 93785,
+      "ppid": 1,
+      "rss_mib": 2.765625,
+      "elapsed": "02:49:38",
+      "command": "/usr/libexec/usermanagerd"
+    },
+    {
+      "pid": 1213,
+      "ppid": 1,
+      "rss_mib": 2.734375,
+      "elapsed": "09:01:54",
+      "command": "/System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundle/Contents/MacOS/ctkahp"
+    },
+    {
+      "pid": 350,
+      "ppid": 1,
+      "rss_mib": 2.625,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/IOMFB_bics_daemon"
+    },
+    {
+      "pid": 95100,
+      "ppid": 1,
+      "rss_mib": 2.625,
+      "elapsed": "16:01",
+      "command": "/usr/libexec/MTLAssetUpgraderD"
+    },
+    {
+      "pid": 380,
+      "ppid": 1,
+      "rss_mib": 2.609375,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/Resources/usbmuxd"
+    },
+    {
+      "pid": 2136,
+      "ppid": 1,
+      "rss_mib": 2.46875,
+      "elapsed": "07:57",
+      "command": "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/XPCServices/SpeechSynthesisServerXPC.xpc/Contents/MacOS/SpeechSynthesisServerXPC"
+    },
+    {
+      "pid": 650,
+      "ppid": 1,
+      "rss_mib": 2.4375,
+      "elapsed": "09:02:21",
+      "command": "/System/Library/Frameworks/CryptoTokenKit.framework/ctkd"
+    },
+    {
+      "pid": 360,
+      "ppid": 1,
+      "rss_mib": 2.390625,
+      "elapsed": "09:02:26",
+      "command": "/usr/libexec/watchdogd"
+    },
+    {
+      "pid": 1443,
+      "ppid": 1,
+      "rss_mib": 2.390625,
+      "elapsed": "09:01:23",
+      "command": "/System/Library/CoreServices/CrashReporterSupportHelper"
+    },
+    {
+      "pid": 926,
+      "ppid": 1,
+      "rss_mib": 2.359375,
+      "elapsed": "09:02:13",
+      "command": "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Support/mdwrite"
+    },
+    {
+      "pid": 95088,
+      "ppid": 1,
+      "rss_mib": 2.359375,
+      "elapsed": "16:04",
+      "command": "/System/Library/Frameworks/MediaAccessibility.framework/Versions/A/XPCServices/com.apple.accessibility.mediaaccessibilityd.xpc/Contents/MacOS/com.apple.accessibility.mediaaccessibilityd"
+    },
+    {
+      "pid": 834,
+      "ppid": 1,
+      "rss_mib": 2.328125,
+      "elapsed": "09:02:17",
+      "command": "/System/Library/PrivateFrameworks/MediaRemote.framework/Support/mediaremoteagent"
+    },
+    {
+      "pid": 98183,
+      "ppid": 1,
+      "rss_mib": 2.296875,
+      "elapsed": "11:12",
+      "command": "/usr/libexec/online-auth-agent"
+    },
+    {
+      "pid": 358,
+      "ppid": 1,
+      "rss_mib": 2.1875,
+      "elapsed": "09:02:26",
+      "command": "/System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd_system"
+    },
+    {
+      "pid": 386,
+      "ppid": 1,
+      "rss_mib": 2.1875,
+      "elapsed": "09:02:26",
+      "command": "autofsd"
+    },
+    {
+      "pid": 452,
+      "ppid": 1,
+      "rss_mib": 2.171875,
+      "elapsed": "09:02:24",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 1013,
+      "ppid": 1,
+      "rss_mib": 2.15625,
+      "elapsed": "09:02:08",
+      "command": "/System/Library/PrivateFrameworks/CoreFP.framework/Versions/A/fairplayd"
+    },
+    {
+      "pid": 3462,
+      "ppid": 1,
+      "rss_mib": 2.140625,
+      "elapsed": "03:20",
+      "command": "/System/Library/PrivateFrameworks/Noticeboard.framework/Versions/A/Resources/nbstated"
+    },
+    {
+      "pid": 564,
+      "ppid": 1,
+      "rss_mib": 2.125,
+      "elapsed": "09:02:23",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 80150,
+      "ppid": 1,
+      "rss_mib": 2.125,
+      "elapsed": "03:18:35",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 95082,
+      "ppid": 1,
+      "rss_mib": 2.125,
+      "elapsed": "16:05",
+      "command": "/System/Library/Frameworks/MediaAccessibility.framework/Versions/A/XPCServices/com.apple.accessibility.mediaaccessibilityd.xpc/Contents/MacOS/com.apple.accessibility.mediaaccessibilityd"
+    },
+    {
+      "pid": 873,
+      "ppid": 1,
+      "rss_mib": 2.09375,
+      "elapsed": "09:02:15",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 679,
+      "ppid": 1,
+      "rss_mib": 2.078125,
+      "elapsed": "09:02:21",
+      "command": "automountd"
+    },
+    {
+      "pid": 3127,
+      "ppid": 1,
+      "rss_mib": 2.078125,
+      "elapsed": "05:09",
+      "command": "/usr/sbin/cfprefsd"
+    },
+    {
+      "pid": 447,
+      "ppid": 1,
+      "rss_mib": 2.0625,
+      "elapsed": "09:02:24",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 1080,
+      "ppid": 1,
+      "rss_mib": 2.0625,
+      "elapsed": "09:02:04",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 1535,
+      "ppid": 1,
+      "rss_mib": 2.0625,
+      "elapsed": "09:00:57",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 1644,
+      "ppid": 1,
+      "rss_mib": 2.0625,
+      "elapsed": "09:00:20",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 3120,
+      "ppid": 1,
+      "rss_mib": 2.0625,
+      "elapsed": "05:10",
+      "command": "/usr/sbin/cfprefsd"
+    },
+    {
+      "pid": 477,
+      "ppid": 1,
+      "rss_mib": 2.046875,
+      "elapsed": "09:02:24",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 554,
+      "ppid": 1,
+      "rss_mib": 2.046875,
+      "elapsed": "09:02:23",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 628,
+      "ppid": 1,
+      "rss_mib": 2.046875,
+      "elapsed": "09:02:22",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 954,
+      "ppid": 1,
+      "rss_mib": 2.046875,
+      "elapsed": "09:02:11",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 963,
+      "ppid": 1,
+      "rss_mib": 2.046875,
+      "elapsed": "09:02:11",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 986,
+      "ppid": 1,
+      "rss_mib": 2.046875,
+      "elapsed": "09:02:11",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 1303,
+      "ppid": 1,
+      "rss_mib": 2.046875,
+      "elapsed": "09:01:45",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 456,
+      "ppid": 1,
+      "rss_mib": 2.03125,
+      "elapsed": "09:02:24",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 566,
+      "ppid": 1,
+      "rss_mib": 2.03125,
+      "elapsed": "09:02:23",
+      "command": "/usr/sbin/distnoted"
+    },
+    {
+      "pid": 572,
+      "ppid": 1,
+      "rss_mib": 2.03125,
+      "elapsed": "09:02:23",
+      "command": "/System/Library/DriverExtensions/com.apple.AppleUserHIDDrivers.dext/com.apple.AppleUserHIDDrivers"
+    },
+    {
+      "pid": 97280,
+      "ppid": 1,
+      "rss_mib": 2.015625,
+      "elapsed": "12:13",
+      "command": "/System/Library/Frameworks/NetFS.framework/Versions/A/XPCServices/PlugInLibraryService.xpc/Contents/MacOS/PlugInLibraryService"
+    },
+    {
+      "pid": 95099,
+      "ppid": 1,
+      "rss_mib": 1.953125,
+      "elapsed": "16:01",
+      "command": "/System/Library/Frameworks/NetFS.framework/Versions/A/XPCServices/PlugInLibraryService.xpc/Contents/MacOS/PlugInLibraryService"
+    },
+    {
+      "pid": 94278,
+      "ppid": 1,
+      "rss_mib": 1.9375,
+      "elapsed": "02:09:55",
+      "command": "/System/Library/Frameworks/NetFS.framework/Versions/A/XPCServices/PlugInLibraryService.xpc/Contents/MacOS/PlugInLibraryService"
+    },
+    {
+      "pid": 955,
+      "ppid": 1,
+      "rss_mib": 1.90625,
+      "elapsed": "09:02:11",
+      "command": "/System/Library/DriverExtensions/IOUserBluetoothSerialDriver.dext/IOUserBluetoothSerialDriver"
+    },
+    {
+      "pid": 3255,
+      "ppid": 1,
+      "rss_mib": 1.90625,
+      "elapsed": "04:21",
+      "command": "/usr/libexec/seputil"
+    },
+    {
+      "pid": 571,
+      "ppid": 1,
+      "rss_mib": 1.890625,
+      "elapsed": "09:02:23",
+      "command": "/System/Library/DriverExtensions/com.apple.DriverKit-IOUserDockChannelSerial.dext/com.apple.DriverKit-IOUserDockChannelSerial"
+    },
+    {
+      "pid": 19483,
+      "ppid": 1,
+      "rss_mib": 1.828125,
+      "elapsed": "07:47:48",
+      "command": "/usr/sbin/cfprefsd"
+    },
+    {
+      "pid": 1247,
+      "ppid": 1,
+      "rss_mib": 1.703125,
+      "elapsed": "09:01:51",
+      "command": "/usr/libexec/sysmond"
+    },
+    {
+      "pid": 95116,
+      "ppid": 1,
+      "rss_mib": 1.6875,
+      "elapsed": "15:58",
+      "command": "/System/Library/PrivateFrameworks/Install.framework/Frameworks/DistributionKit.framework/Versions/A/XPCServices/DistributionHelper.xpc/Contents/MacOS/DistributionHelper"
+    },
+    {
+      "pid": 4899,
+      "ppid": 4898,
+      "rss_mib": 1.671875,
+      "elapsed": "00:04",
+      "command": "/bin/sh"
+    },
+    {
+      "pid": 4965,
+      "ppid": 4962,
+      "rss_mib": 1.65625,
+      "elapsed": "00:00",
+      "command": "ps"
+    },
+    {
+      "pid": 396,
+      "ppid": 1,
+      "rss_mib": 1.53125,
+      "elapsed": "09:02:26",
+      "command": "/usr/sbin/KernelEventAgent"
+    },
+    {
+      "pid": 909,
+      "ppid": 1,
+      "rss_mib": 1.484375,
+      "elapsed": "09:02:13",
+      "command": "/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/CVMServer"
+    },
+    {
+      "pid": 718,
+      "ppid": 1,
+      "rss_mib": 1.46875,
+      "elapsed": "09:02:20",
+      "command": "/usr/libexec/rosetta/oahd"
+    },
+    {
+      "pid": 371,
+      "ppid": 1,
+      "rss_mib": 0.875,
+      "elapsed": "09:02:26",
+      "command": "/usr/sbin/syslogd"
+    },
+    {
+      "pid": 863,
+      "ppid": 861,
+      "rss_mib": 0.640625,
+      "elapsed": "09:02:16",
+      "command": "-zsh"
+    },
+    {
+      "pid": 96053,
+      "ppid": 1,
+      "rss_mib": 0.46875,
+      "elapsed": "13:22",
+      "command": "/usr/libexec/dirhelper"
+    }
+  ],
+  "ps_error": "",
+  "vm_stat": {
+    "code": 0,
+    "stdout": "Mach Virtual Memory Statistics: (page size of 16384 bytes)\nPages free:                                     3260.\nPages active:                                 170613.\nPages inactive:                               163676.\nPages speculative:                              5609.\nPages throttled:                                   0.\nPages wired down:                             185602.\nPages purgeable:                                   0.\n\"Translation faults\":                      282697820.\nPages copy-on-write:                        12969379.\nPages zero filled:                         145243978.\nPages reactivated:                          20339604.\nPages purged:                                3399588.\nFile-backed pages:                            128865.\nAnonymous pages:                              211033.\nPages stored in compressor:                  1030838.\nPages occupied by compressor:                 480363.\nDecompressions:                             17551430.\nCompressions:                               21666139.\nPageins:                                    12918749.\nPageouts:                                     141612.\nSwapins:                                        3746.\nSwapouts:                                      54240.\n",
+    "stderr": ""
+  },
+  "swap": {
+    "code": 0,
+    "stdout": "vm.swapusage: total = 2048.00M  used = 791.50M  free = 1256.50M  (encrypted)\n",
+    "stderr": ""
+  },
+  "physical_memory": {
+    "code": 0,
+    "stdout": "hw.memsize: 17179869184\n",
+    "stderr": ""
+  },
+  "disk_free_bytes": 240655810560,
+  "admission": {
+    "status": "BLOCKED",
+    "samples": [
+      {
+        "free_plus_speculative_bytes": 233209856,
+        "pageouts": 141612,
+        "swap_used_mib": 791.5
+      },
+      {
+        "free_plus_speculative_bytes": 340705280,
+        "pageouts": 141612,
+        "swap_used_mib": 791.5
+      }
+    ],
+    "threshold_bytes": 536870912
+  },
+  "git_head": {
+    "code": 0,
+    "stdout": "32d8aa0b109f08a8ecd23c7bd97eaf29b5fe8989\n",
+    "stderr": ""
+  },
+  "git_status": {
+    "code": 0,
+    "stdout": " M README.md\n D fim/__init__.py\n D fim/analysis/__init__.py\n D fim/analysis/lyapunov.py\n D fim/analysis/metrics.py\n D fim/analysis/retention.py\n D fim/analysis/spectral.py\n D fim/core/__init__.py\n D fim/core/dynamics.py\n D fim/core/fabric.py\n D fim/core/fractional.py\n D fim/core/integrator.py\n D fim/core/stability.py\n D fim/core/state.py\n D fim/epistemic_tests_full/README.md\n D fim/epistemic_tests_full/tests/conftest.py\n D fim/epistemic_tests_full/tests/test_benchmark_generation.py\n D fim/epistemic_tests_full/tests/test_fractional_dynamics.py\n D fim/epistemic_tests_full/tests/test_levy_sampling.py\n D fim/epistemic_tests_full/tests/test_memory.py\n D fim/epistemic_tests_full/tests/test_rollout_stability.py\n D fim/epistemic_tests_full/tests/test_training_execution.py\n D fim/geometry/graph.py\n D fim/geometry/grid.py\n D fim/geometry/manifold.py\n D fim/geometry/topology.py\n D fim/memory/compression.py\n D fim/memory/consolidation.py\n D fim/memory/init.py\n D fim/memory/retrieval.py\n D fim/memory/salience.py\n D fim/memory/trace_bank.py\n D fim/models/decoder.py\n D fim/models/encoder.py\n D fim/models/fim_model.py\n D fim/models/init.py\n D fim/models/latent_operator.py\n D fim/operators/advection.py\n D fim/operators/damping.py\n D fim/operators/diffusion.py\n D fim/operators/init.py\n D fim/operators/propagation.py\n D fim/operators/reaction.py\n D fim/operators/spectral.py\n D fim/operators/write.py\n D fim/physics/base.py\n D fim/physics/diffusion_equation.py\n D fim/physics/fractional_pde.py\n D fim/physics/init.py\n D fim/physics/navier_stokes.py\n D fim/physics/wave_equation.py\n D fim/stochastic/brownian.py\n D fim/stochastic/init.py\n D fim/stochastic/levy.py\n D fim/stochastic/noise.py\n D fim/stochastic/sde.py\n D fim/training/losses.py\n D fim/training/optimizer.py\n D fim/training/rollout.py\n D fim/training/scheduler.py\n D fim/training/trainer.py\n D fim/utils/checkpoint.py\n D fim/utils/config.py\n D fim/utils/init.py\n D fim/utils/logging.py\n D fim/utils/seed.py\n D fim/utils/visualization.py\n?? .DS_Store\n?? .github/workflows/itfm-sota-ci.yml\n?? FIM/.gitattributes\n?? FIM/.github/\n?? FIM/.gitignore\n?? FIM/ARCHIVAL_RELEASE.md\n?? FIM/AUDIT_CHECKLIST_2026-09-13.md\n?? FIM/CANONICAL_LINEAGE.md\n?? FIM/CLAIM_EVIDENCE_MATRIX.csv\n?? FIM/COMPLETION_MANIFEST.md\n?? FIM/FINAL_STATUS_2026-09-30.md\n?? FIM/PROJECT_STATUS.md\n?? FIM/QFIM/\n?? FIM/README.md\n?? FIM/REPRODUCE.md\n?? FIM/RESEARCH_TRUTH.md\n?? FIM/SAME_LINEAGE.md\n?? FIM/TRUTH_MAP.md\n?? FIM/chaos.png\n?? FIM/chaos_divergence.png\n?? FIM/configs/\n?? FIM/docs/\n?? FIM/energy.png\n?? FIM/fim/\n?? FIM/fim_experiments/\n?? FIM/latent_heatmap.png\n?? FIM/latent_manifold.png\n?? FIM/latent_norm.png\n?? FIM/latent_surface.png\n?? FIM/main.py\n?? FIM/multi_dim.png\n?? FIM/notebooks/\n?? FIM/output/\n?? FIM/paper/\n?? FIM/paper_reference_results.json\n?? FIM/publication_package/\n?? FIM/pyproject.toml\n?? FIM/pytest.ini\n?? FIM/requirements.txt\n?? FIM/research/\n?? FIM/results/\n?? FIM/results_smoke/\n?? FIM/salience_heatmap.png\n?? FIM/salience_hist.png\n?? FIM/salience_spatial.png\n?? FIM/salience_time.png\n?? FIM/scripts/\n?? FIM/tests/\n?? FIM/time_evolution_3d.png\n?? FIM/trajectory.png\n?? FIM/uv.lock\n?? ITFM_V2_STATUS_2026-10-11.md\n?? PUBLICATION_READINESS_CHECKLIST_2026-10-11.md\n?? SUCCESSOR_IDEA_AUDIT_2026-10-11.md\n?? audits/\n?? successor/\n",
+    "stderr": ""
+  },
+  "locks": []
+}

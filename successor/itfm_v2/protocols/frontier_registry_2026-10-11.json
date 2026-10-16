@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-11",
+  "status": "EXTERNAL_REPORTED_NOT_LOCALLY_REPRODUCED",
+  "frontiers": {
+    "pobench_pde": {
+      "paper": "Learning Neural Operators from Partial Observations via Latent Autoregressive Modeling",
+      "venue": "AAAI-26",
+      "paper_url": "https://arxiv.org/abs/2601.15547",
+      "code_url": "https://github.com/Kingyum-Hou/LANO",
+      "code_commit": "b53a62100b4705f1382a7c344b2d84afa255b96f",
+      "default_branch": "master",
+      "license_status": "BLOCKED_NO_ROOT_LICENSE_FILE_OBSERVED",
+      "metric": "full-domain relative L2 error; lower is better",
+      "reported_best_model": "LANO",
+      "cell_order": [
+        "train_5_test_5",
+        "train_5_test_25",
+        "train_25_test_25",
+        "train_25_test_50",
+        "train_50_test_50",
+        "train_50_test_75"
+      ],
+      "reported_lano": {
+        "navier_stokes": {
+          "point_wise": [0.1268, 0.1275, 0.1274, 0.1310, 0.1437, 0.1571],
+          "patch_wise": [0.1244, 0.1310, 0.1435, 0.1608, 0.1835, 0.2405]
+        },
+        "diffusion_reaction": {
+          "point_wise": [0.0080, 0.0089, 0.0092, 0.0127, 0.0128, 0.0498],
+          "patch_wise": [0.0148, 0.0281, 0.0275, 0.0756, 0.0934, 0.3249]
+        },
+        "era5": {
+          "point_wise": [0.0122, 0.0123, 0.0121, 0.0124, 0.0120, 0.0125],
+          "patch_wise": [0.0118, 0.0120, 0.0120, 0.0124, 0.0121, 0.0133]
+        }
+      },
+      "reported_scope": "36 cells across three datasets, two mask patterns, and train/test missingness regimes",
+      "reproduction_status": "NOT_STARTED"
+    },
+    "hs_fno": {
+      "paper": "HS-FNO: History-Space Fourier Neural Operator for Non-Markovian Partial Differential Equations",
+      "paper_url": "https://arxiv.org/abs/2605.09523",
+      "code_url": "https://github.com/lennonshikhman/hs-fno",
+      "code_commit": "9ebf2a7aa483c7f74769365c187c7d9492ecd6ef",
+      "default_branch": "main",
+      "license_status": "BLOCKED_NO_ROOT_LICENSE_FILE_OBSERVED",
+      "metric": "aggregate autoregressive rollout error; lower is better",
+      "reported_best_model": "HS-FNO",
+      "reported_rollout_error": 0.094,
+      "reported_comparators": {
+        "current_state": 0.241,
+        "lag_stack": 0.188,
+        "history_to_history": 0.185
+      },
+      "benchmark_families": [
+        "delayed_reaction_diffusion",
+        "epidemic_delay",
+        "nonlocal_neural_field",
+        "delayed_wave",
+        "distributed_memory"
+      ],
+      "reproduction_status": "NOT_STARTED"
+    }
+  },
+  "supporting_sources": [
+    {
+      "name": "Neural-Solver-Library",
+      "url": "https://github.com/thuml/Neural-Solver-Library",
+      "commit": "db942b72c6b3972bad217300e3cbdb8004a1a80b",
+      "role": "modern reproduced solver implementations"
+    },
+    {
+      "name": "The Well",
+      "url": "https://github.com/PolymathicAI/the_well",
+      "commit": "ad50de0e8861380d7c4d62c0503c654710f026e7",
+      "role": "later broad-domain stress testing; not a primary SOTA gate"
+    },
+    {
+      "name": "Poseidon",
+      "url": "https://github.com/camlab-ethz/poseidon",
+      "commit": "b8fa28f59bd7f7673323f28d11a12c6f3a215c61",
+      "role": "foundation-model comparator where task and compute are compatible"
+    }
+  ]
+}

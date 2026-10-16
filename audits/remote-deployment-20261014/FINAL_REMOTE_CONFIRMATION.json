@@ -1,0 +1,17 @@
+{
+  "main": {
+    "exit": 0,
+    "output": "84160703cc733c6deb150cf7b6ee5bb3a84d699b\n",
+    "error": ""
+  },
+  "branch": {
+    "exit": 0,
+    "output": "b7a97d1fcaa5a61d7511781f670d7324b8616932\n",
+    "error": ""
+  },
+  "archive": {
+    "exit": 0,
+    "output": "{\"assets\":[{\"apiUrl\":\"https://api.github.com/repos/THE-BU1LD/Fabric-Induced-Memory/releases/assets/640595741\",\"contentType\":\"application/json\",\"createdAt\":\"2026-10-14T14:14:46Z\",\"digest\":\"sha256:2e52ca5e417e90eb0e1e720f17155777d682805aa7449b631b4dff9d8a42f965\",\"downloadCount\":0,\"id\":\"RA_kwDOSfwGf84mLrcd\",\"label\":\"\",\"name\":\"ASSET_MANIFEST.json\",\"size\":333,\"state\":\"uploaded\",\"updatedAt\":\"2026-10-14T14:14:46Z\",\"url\":\"https://github.com/THE-BU1LD/Fabric-Induced-Memory/releases/download/untagged-726a0f6e594dd486f49f/ASSET_MANIFEST.json\"},{\"apiUrl\":\"https://api.github.com/repos/THE-BU1LD/Fabric-Induced-Memory/releases/assets/640595595\",\"contentType\":\"application/octet-stream\",\"createdAt\":\"2026-10-14T14:14:43Z\",\"digest\":\"sha256:10ddc0a523d422d4dbbcfd11694a19dd404e4e4fe5f304060da0f4e1326361f8\",\"downloadCount\":0,\"id\":\"RA_kwDOSfwGf84mLraL\",\"label\":\"\",\"name\":\"outputs.tar.gz.part-000\",\"size\":45385561,\"state\":\"uploaded\",\"updatedAt\":\"2026-10-14T14:14:45Z\",\"url\":\"https://github.com/THE-BU1LD/Fabric-Induced-Memory/releases/download/untagged-726a0f6e594dd486f49f/outputs.tar.gz.part-000\"},{\"apiUrl\":\"https://api.github.com/repos/THE-BU1LD/Fabric-Induced-Memory/releases/assets/640605341\",\"contentType\":\"application/octet-stream\",\"createdAt\":\"2026-10-14T14:18:48Z\",\"digest\":\"sha256:48c87926f85f3a68cdae1591bd1a0c60fa317386cad553c18fd8c006305922ea\",\"downloadCount\":0,\"id\":\"RA_kwDOSfwGf84mLtyd\",\"label\":\"\",\"name\":\"REPORT.md\",\"size\":3894,\"state\":\"uploaded\",\"updatedAt\":\"2026-10-14T14:18:48Z\",\"url\":\"https://github.com/THE-BU1LD/Fabric-Induced-Memory/releases/download/untagged-726a0f6e594dd486f49f/REPORT.md\"},{\"apiUrl\":\"https://api.github.com/repos/THE-BU1LD/Fabric-Induced-Memory/releases/assets/640605337\",\"contentType\":\"application/json\",\"createdAt\":\"2026-10-14T14:18:48Z\",\"digest\":\"sha256:564c48fe5fea178f1139a73fe3fa7761bb5db9f6c6ff0db6f654e7f6ec009cab\",\"downloadCount\":0,\"id\":\"RA_kwDOSfwGf84mLtyZ\",\"label\":\"\",\"name\":\"SCALAR_DISCREPANCY_ANALYSIS.json\",\"size\":18688,\"state\":\"uploaded\",\"updatedAt\":\"2026-10-14T14:18:48Z\",\"url\":\"https://github.com/THE-BU1LD/Fabric-Induced-Memory/releases/download/untagged-726a0f6e594dd486f49f/SCALAR_DISCREPANCY_ANALYSIS.json\"},{\"apiUrl\":\"https://api.github.com/repos/THE-BU1LD/Fabric-Induced-Memory/releases/assets/640605342\",\"contentType\":\"application/json\",\"createdAt\":\"2026-10-14T14:18:48Z\",\"digest\":\"sha256:c23078497a3b645d10bb22017250b7722ed37937fd060a453c7aa8e9be2bd84f\",\"downloadCount\":0,\"id\":\"RA_kwDOSfwGf84mLtye\",\"label\":\"\",\"name\":\"SUMMARY.json\",\"size\":1150,\"state\":\"uploaded\",\"updatedAt\":\"2026-10-14T14:18:48Z\",\"url\":\"https://github.com/THE-BU1LD/Fabric-Induced-Memory/releases/download/untagged-726a0f6e594dd486f49f/SUMMARY.json\"}],\"isDraft\":true,\"targetCommitish\":\"b7a97d1fcaa5a61d7511781f670d7324b8616932\"}\n",
+    "error": ""
+  }
+}

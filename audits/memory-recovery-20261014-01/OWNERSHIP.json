@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-14T01:20:58.326902+00:00",
+  "process_query_exit": 0,
+  "matching": [],
+  "rss_mib_estimates": {
+    "Codex/ChatGPT": 5584.546875,
+    "Chrome": 2913.765625,
+    "Other": 4434.96875
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "study_id": "itfm-v3-noisy-drifting-recall-development-1",
+  "updated_at": "2026-10-14T09:52:38.694891+00:00",
+  "phase": "IMPLEMENTED_STATIC_CHECKED_RUNTIME_BLOCKED",
+  "disposition": "NOT_EVALUATED",
+  "terminal": false,
+  "protocol": "protocol.json",
+  "source_freeze": "freezes/development-2.json",
+  "predecessors": {
+    "FIM": "closed bounded negative; unchanged",
+    "ITFM_v2": "bounded synthetic result preserved; reproduction still resource blocked"
+  },
+  "authorization": "User requested reproduction if admitted and a separately versioned harder study with proper baselines and controls on 13 October 2026. No paid compute or protected evaluation inferred.",
+  "checkpoints": {
+    "1": "PASS",
+    "2": "PASS",
+    "3": "PASS",
+    "4": "BLOCKED",
+    "5": "BLOCKED",
+    "6": "BLOCKED",
+    "7": "NOT_APPLICABLE",
+    "8": "NOT_EVALUATED",
+    "9": "NOT_EVALUATED",
+    "10": "NOT_EVALUATED"
+  },
+  "checkpoint_scope": "1-3 refer to the bounded development question/specification/protocol and internal static review, not novelty, external review or scientific validity. Runtime implementation/end-to-end gates remain blocked.",
+  "evidence": {
+    "static_receipt": "../../audits/improvement-20261013/V3_STATIC_VERIFICATION.json",
+    "standard_library_tests": 11,
+    "runtime_tests_executed": 0,
+    "scientific_cells_executed": 0,
+    "runtime_admission": "runs/runtime-tests-20261013-02/RECEIPT.json",
+    "preservation": "../../audits/improvement-20261013/PRESERVATION_AFTER.json"
+  },
+  "budget": {
+    "max_seconds": 1800,
+    "threads": 1,
+    "max_campaigns": 1,
+    "paid_compute": 0,
+    "max_output_gib": 2,
+    "minimum_free_mib": 512,
+    "max_runtime_tests_seconds": 120
+  },
+  "campaign_consumed": false,
+  "claims": {
+    "supported": [
+      "Specification, source implementation, independent retrieval verifier and guarded orchestration exist.",
+      "Static lint/format/AST checks and 11 lightweight contract tests passed, including optimized Python.",
+      "440/440 predecessor files unchanged."
+    ],
+    "unsupported": [
+      "Numerical tests pass",
+      "Any v3 performance result",
+      "Natural-domain or public benchmark efficacy",
+      "Novel architecture",
+      "Independent external reproduction",
+      "Publication readiness"
+    ]
+  },
+  "next_action": "After stable resource admission, finish isolated v2 replay first, then v3 numerical tests against development-2, then the one frozen campaign and raw verification. Use new output paths and retain every failure; do not weaken guards.",
+  "history": [
+    {
+      "at": "2026-10-13T14:16:03.974576+00:00",
+      "event": "Implemented separate v3; v2 replay and both v3 runtime-test admissions blocked before numerical imports. Final v3 free-plus-speculative samples were 106.09/99.44 MiB. No model trained and no old result altered."
+    },
+    {
+      "at": "2026-10-13T14:39:19.447654+00:00",
+      "event": "Requested ordered resumption stopped at preflight: [142.375, 142.67188] MiB below unchanged 512 MiB floor. No v2 replay, v3 numerical tests, campaign or raw verification launched. Fresh v2 source/scalar checks 228/228; 440/440 protected files unchanged."
+    },
+    {
+      "at": "2026-10-13T15:44:03.071843+00:00",
+      "event": "Investigated memory consumers; direct and noninteractive-admin cache purge failed with preserved receipts. No unrelated work stopped. Resources below 512 MiB with rising pageouts; all numerical stages remain unopened. 440/440 protected files unchanged."
+    },
+    {
+      "at": "2026-10-14T01:14:29.797632+00:00",
+      "event": "Ordered resumption: v2 wrapper blocked before model import; v3 withheld behind v2. 228/228 v2 source/scalar checks, 11/11 v3 lightweight contract tests, 440/440 protected files unchanged. PDF admission blocked; no guard or scientific outcome changed.",
+      "report": "audits/resumption-20261014-01/REPORT.md"
+    },
+    {
+      "at": "2026-10-14T01:21:44.229838+00:00",
+      "event": "Memory inventory and app-preserving purge attempts recorded. Purge requires administrator authentication. V2 initial admission passed, pre-worker guard failed; no numerical step. V3 withheld; 440 protected files unchanged.",
+      "report": "audits/memory-recovery-20261014-01/REPORT.md"
+    },
+    {
+      "at": "2026-10-14T09:52:38.694891+00:00",
+      "event": "Requested v2 then v3 resumption blocked before numerical execution: 146.88/152.95 MiB below unchanged 512 MiB floor. V3 withheld. All 440 protected files unchanged; 228/228 source/scalar checks pass.",
+      "report": "audits/resumption-20261014-02/REPORT.md"
+    }
+  ],
+  "latest_resumption": {
+    "checked_at": "2026-10-14T09:52:38.694891+00:00",
+    "status": "BLOCKED_RESOURCE",
+    "memory_mib": [
+      146.875,
+      152.953125
+    ],
+    "threshold_mib": 512,
+    "numerical_stages_started": [],
+    "v3_status": "NOT_STARTED_V2_DEPENDENCY",
+    "protected_files_checked": 440,
+    "preservation_mismatches": [],
+    "v2_source_scalar_checks_passed": 228,
+    "v2_source_scalar_checks_total": 228,
+    "replay_receipt": "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/attempt-20261014-03/REPLAY_RECEIPT.json",
+    "report": "audits/resumption-20261014-02/REPORT.md"
+  },
+  "latest_memory_recovery": {
+    "at": "2026-10-14T01:21:44.229838+00:00",
+    "status": "BLOCKED_RESOURCE_ADMIN_CACHE_PURGE_UNAVAILABLE",
+    "report": "audits/memory-recovery-20261014-01/REPORT.md",
+    "replay_receipt": "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/attempt-20261014-memory-01/REPLAY_RECEIPT.json",
+    "processes_stopped": 0,
+    "files_deleted": 0,
+    "cache_purge_succeeded": false,
+    "numerical_stages_started": [],
+    "initial_admission_mib": [
+      531.671875,
+      531.734375
+    ],
+    "launch_admission_mib": [
+      516.28125,
+      463.390625
+    ],
+    "protected_files": 440,
+    "preservation_mismatches": [],
+    "v3_freeze_matches": true,
+    "campaign_consumed": false
+  }
+}

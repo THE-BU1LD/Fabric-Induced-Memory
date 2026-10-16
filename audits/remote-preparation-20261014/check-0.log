@@ -1,0 +1,20 @@
+{"status": "BLOCKED_OR_FAILED_RETAINED", "mode": "run", "manifest_sha256": "x", "github_sha": null, "run_id": null, "boundary": "Remote execution by same operator, not independent replication", "error": "BLOCKED_RESOURCE", "source_preserved": true}
+{"status": "PASS_COLLECTION_HASHES", "files": 2, "boundary": "Transfer integrity only; inspect numerical receipts separately"}
+{"status": "BLOCKED_OR_FAILED_RETAINED", "mode": "run", "manifest_sha256": "x", "github_sha": null, "run_id": null, "boundary": "Remote execution by same operator, not independent replication", "error": "v2 failed", "source_preserved": true}
+test_blocked_preflight_launches_nothing (test_remote.RemoteTests.test_blocked_preflight_launches_nothing) ... ok
+test_collection_roundtrip_and_corruption (test_remote.RemoteTests.test_collection_roundtrip_and_corruption) ... ok
+test_existing_receipt_not_overwritten (test_remote.RemoteTests.test_existing_receipt_not_overwritten) ... ok
+test_failure_receipt_is_not_accepted (test_remote.RemoteTests.test_failure_receipt_is_not_accepted) ... ok
+test_first_dispatch_only (test_remote.RemoteTests.test_first_dispatch_only) ... ok
+test_manifest_accepts_exact_bytes (test_remote.RemoteTests.test_manifest_accepts_exact_bytes) ... ok
+test_manifest_rejects_tampering (test_remote.RemoteTests.test_manifest_rejects_tampering) ... ok
+test_manifest_rejects_wrong_identity (test_remote.RemoteTests.test_manifest_rejects_wrong_identity) ... ok
+test_non_mac_platform_rejected_before_model_imports (test_remote.RemoteTests.test_non_mac_platform_rejected_before_model_imports) ... ok
+test_path_traversal_rejected (test_remote.RemoteTests.test_path_traversal_rejected) ... ok
+test_symlink_escape_rejected (test_remote.RemoteTests.test_symlink_escape_rejected) ... ok
+test_v2_failure_prevents_v3 (test_remote.RemoteTests.test_v2_failure_prevents_v3) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.026s
+
+OK

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "archive_sha256": "9454e9cef6fba5ccf6057545ade46cd566167ad47570753623d789b5ffadfc46",
+  "inventory_files_verified": 30,
+  "portable_dry_run_cells": 3,
+  "source_sha256": "97a31bff8d785c37b0f2af6bfc374900670ed66bd554e17bb1d6525253a719f2",
+  "no_numerical_import": true
+}

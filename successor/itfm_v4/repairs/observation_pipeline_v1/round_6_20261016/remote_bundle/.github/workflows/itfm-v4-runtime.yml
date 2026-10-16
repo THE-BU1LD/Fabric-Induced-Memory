@@ -1,0 +1,73 @@
+name: ITFM v4 tensor software verification
+on:
+  push:
+    branches: [codex/itfm-v4-runtime-20261016]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: itfm-v4-runtime-20261016
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: ${{ !github.event.repository.private && github.run_attempt == 1 }}
+    runs-on: macos-26
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONNOUSERSITE: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      VECLIB_MAXIMUM_THREADS: '1'
+      MANIFEST_SHA: d7ca447f6ec0204fbca892835b9186ad391064cb87d85ea56bd1b6abb9ab5597
+      RUNNER_SCRIPT: successor/itfm_v4/repairs/observation_pipeline_v1/runtime_verification.py
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Enforce exact checkout and one authorized workflow run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          python3 - <<'PY_ONCE'
+          import json, os, subprocess
+          repo = os.environ['GITHUB_REPOSITORY']
+          run = json.loads(subprocess.check_output(['gh','api',f'/repos/{repo}/actions/runs/{os.environ["GITHUB_RUN_ID"]}']))
+          runs = json.loads(subprocess.check_output(['gh','api',f'/repos/{repo}/actions/workflows/{run["workflow_id"]}/runs?per_page=100']))
+          assert runs['total_count'] == 1 and runs['workflow_runs'][0]['id'] == run['id'], 'Previous workflow attempt exists; review required'
+          PY_ONCE
+      - name: Admit host before runtime setup
+        run: python3 -B "$RUNNER_SCRIPT" preflight --manifest-sha256 "$MANIFEST_SHA" --receipt setup-admission.json
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.11.15'
+      - name: Admit and install exact direct dependencies
+        run: |
+          python -B "$RUNNER_SCRIPT" preflight --manifest-sha256 "$MANIFEST_SHA" --receipt install-admission.json
+          python -m venv .runtime-venv
+          .runtime-venv/bin/python -m pip install --no-cache-dir --only-binary=:all: -r requirements-runtime.txt
+          .runtime-venv/bin/python -m pip check > dependency-check.txt
+          .runtime-venv/bin/python -m pip freeze --all > resolved-environment.txt
+      - name: Verify ten exact tensor tests within the 30 second worker budget
+        run: .runtime-venv/bin/python -B "$RUNNER_SCRIPT" run --manifest-sha256 "$MANIFEST_SHA" --receipt runtime-receipt.json
+      - name: Preserve receipts in downloadable job logs
+        if: ${{ always() }}
+        run: |
+          python3 - <<'PY_RETAIN'
+          import base64, hashlib
+          from pathlib import Path
+          for pattern in ('*-admission.json','runtime-receipt.json*','dependency-check.txt','resolved-environment.txt'):
+              for p in sorted(Path('.').glob(pattern)):
+                  if not p.is_file():
+                      continue
+                  if p.stat().st_size > 8*1024*1024:
+                      raise ValueError('Oversize output retained on runner: '+str(p))
+                  raw=p.read_bytes()
+                  print('ITFM_FILE_BEGIN '+p.name+' '+hashlib.sha256(raw).hexdigest(),flush=True)
+                  encoded=base64.b64encode(raw).decode()
+                  for start in range(0,len(encoded),6000):
+                      print('ITFM_BASE64 '+encoded[start:start+6000],flush=True)
+                  print('ITFM_FILE_END '+p.name,flush=True)
+          PY_RETAIN

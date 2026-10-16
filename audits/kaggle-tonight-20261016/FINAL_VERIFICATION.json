@@ -1,0 +1,40 @@
+{
+  "status": "PASS_PREPARATION_ONLY_EXECUTION_BLOCKED",
+  "source_sha256": "97a31bff8d785c37b0f2af6bfc374900670ed66bd554e17bb1d6525253a719f2",
+  "new_stdlib_tests": {
+    "budget": 21,
+    "analysis": 8,
+    "workflow": 11,
+    "total": 40,
+    "passed": 40,
+    "failed": 0
+  },
+  "ruff_F_E9": "PASS",
+  "python_files_ast_checked": 8,
+  "notebook": {
+    "status": "PASS_STATIC_PORTABILITY_ONLY",
+    "notebook_sha256": "f07c4494f3f31bab161ad1f0cb04881105a1353cc2b65cda301a512037c217bb",
+    "total_cells": 35,
+    "python_cells_ast_validated": 16,
+    "bootstrap_executions": 2,
+    "idempotent_extraction": true,
+    "embedded_source_sha256": "97a31bff8d785c37b0f2af6bfc374900670ed66bd554e17bb1d6525253a719f2",
+    "numerical_imports": [],
+    "torch_experiments_run": 0,
+    "stdlib_profile_origin_outside_support": true,
+    "bootstrapped_source_files": 20,
+    "launch_policy": "Later supervised launch; explicit fresh quota and future completion deadline; no extension of an existing ledger"
+  },
+  "engineering_source_unchanged": true,
+  "source_archive_all_member_hashes": "PASS",
+  "torch_or_numpy_imported_in_verification": false,
+  "cpu_numerical_validation": "BLOCKED_RESOURCE",
+  "cuda_validation": "NOT_RUN",
+  "remote_notebook_source_uploaded": false,
+  "remote_persistence_retrieval": "NOT_VERIFIED",
+  "full_study_manifest": "NOT_FROZEN",
+  "end_state": "BLOCKED BEFORE EXECUTION",
+  "requested_followup": "PREPARE_FOR_LATER_GPU_LAUNCH",
+  "readiness_fraction_ceiling": 0.2,
+  "shutdown_export_reserve_fraction": 0.1
+}

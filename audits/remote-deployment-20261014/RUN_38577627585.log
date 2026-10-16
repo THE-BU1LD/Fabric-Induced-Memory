@@ -1,0 +1,221 @@
+frozen	Set up job	﻿2026-10-14T14:07:02.4798100Z Current runner version: '2.337.0'
+frozen	Set up job	2026-10-14T14:07:02.4816040Z ##[group]Runner Image Provisioner
+frozen	Set up job	2026-10-14T14:07:02.4816610Z Hosted Compute Agent
+frozen	Set up job	2026-10-14T14:07:02.4816970Z Version: 20260828.587
+frozen	Set up job	2026-10-14T14:07:02.4817390Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+frozen	Set up job	2026-10-14T14:07:02.4817870Z Build Date: 2026-08-28T16:44:25Z
+frozen	Set up job	2026-10-14T14:07:02.4818490Z Worker ID: {e9694979-19b6-451a-bc9c-4ce33ebf509b}
+frozen	Set up job	2026-10-14T14:07:02.4819050Z Azure Region: westus
+frozen	Set up job	2026-10-14T14:07:02.4820410Z ##[endgroup]
+frozen	Set up job	2026-10-14T14:07:02.4821660Z ##[group]Operating System
+frozen	Set up job	2026-10-14T14:07:02.4822060Z macOS
+frozen	Set up job	2026-10-14T14:07:02.4822410Z 15.7.9
+frozen	Set up job	2026-10-14T14:07:02.4822740Z 24G830
+frozen	Set up job	2026-10-14T14:07:02.4823100Z ##[endgroup]
+frozen	Set up job	2026-10-14T14:07:02.4823460Z ##[group]Runner Image
+frozen	Set up job	2026-10-14T14:07:02.4823860Z Image: macos-15-arm64
+frozen	Set up job	2026-10-14T14:07:02.4824240Z Version: 20260907.0337.1
+frozen	Set up job	2026-10-14T14:07:02.4825000Z Included Software: https://github.com/actions/runner-images/blob/macos-15-arm64/20260907.0337/images/macos/macos-15-arm64-Readme.md
+frozen	Set up job	2026-10-14T14:07:02.4826230Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-15-arm64%2F20260907.0337
+frozen	Set up job	2026-10-14T14:07:02.4826910Z ##[endgroup]
+frozen	Set up job	2026-10-14T14:07:02.4827720Z ##[group]GITHUB_TOKEN Permissions
+frozen	Set up job	2026-10-14T14:07:02.4829260Z Actions: read
+frozen	Set up job	2026-10-14T14:07:02.4829620Z Contents: write
+frozen	Set up job	2026-10-14T14:07:02.4829970Z Metadata: read
+frozen	Set up job	2026-10-14T14:07:02.4830330Z ##[endgroup]
+frozen	Set up job	2026-10-14T14:07:02.4839280Z Secret source: Actions
+frozen	Set up job	2026-10-14T14:07:02.4841550Z Cache mode: write
+frozen	Set up job	2026-10-14T14:07:02.4843180Z Prepare workflow directory
+frozen	Set up job	2026-10-14T14:07:02.5417270Z Prepare all required actions
+frozen	Set up job	2026-10-14T14:07:02.5454510Z Getting action download info
+frozen	Set up job	2026-10-14T14:07:02.8153550Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+frozen	Set up job	2026-10-14T14:07:03.4051250Z Complete job name: frozen
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-14T14:07:03.5070030Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5070770Z with:
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5071120Z   persist-credentials: false
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5071530Z   repository: THE-BU1LD/Fabric-Induced-Memory
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5074550Z   token: ***
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5074870Z   ssh-strict: true
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5075190Z   ssh-user: git
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5075510Z   clean: true
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5075850Z   sparse-checkout-cone-mode: true
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5076320Z   fetch-depth: 1
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5076650Z   fetch-tags: false
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5077030Z   show-progress: true
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5077420Z   lfs: false
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5077720Z   submodules: false
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5078060Z   set-safe-directory: true
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5078440Z   allow-unsafe-pr-checkout: false
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5078950Z env:
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5079300Z   PYTHONDONTWRITEBYTECODE: 1
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5079670Z   PYTHONNOUSERSITE: 1
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5080010Z   OMP_NUM_THREADS: 1
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5080390Z   MKL_NUM_THREADS: 1
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5080720Z   OPENBLAS_NUM_THREADS: 1
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5081120Z   VECLIB_MAXIMUM_THREADS: 1
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5081630Z   EXPECTED_SHA: 6322d58f12bcc35433710445486f218cb823e3b9
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5082260Z   MANIFEST_SHA: a6fa86f9db0b22500fe4817b664d82865c29b048bc0fa487ca57a4cbbd7c0e59
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:03.5082890Z ##[endgroup]
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.2297560Z Syncing repository: THE-BU1LD/Fabric-Induced-Memory
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.2301680Z ##[group]Getting Git version info
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.2304280Z Working directory is '/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory'
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.2331750Z [command]/opt/homebrew/bin/git version
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.3856470Z git version 2.55.0
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.3896600Z ##[endgroup]
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.3914910Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/4bcaa729-5a60-4e4b-b561-57e2a97afbb6/.gitconfig'
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.3933970Z Temporarily overriding HOME='/Users/runner/work/_temp/4bcaa729-5a60-4e4b-b561-57e2a97afbb6' before making global git config changes
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.3942790Z Adding repository directory to the temporary git global config as a safe directory
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.3949580Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4071520Z Deleting the contents of '/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory'
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4077920Z ##[group]Initializing the repository
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4080780Z [command]/opt/homebrew/bin/git init /Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4404290Z hint: Using 'master' as the name for the initial branch. This default branch name
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4407470Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4410600Z hint: to use in all of your new repositories, which will suppress this warning,
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4448870Z hint: call:
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4455030Z hint:
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4456590Z hint: 	git config --global init.defaultBranch <name>
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4458200Z hint:
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4459710Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4461930Z hint: 'development'. The just-created branch can be renamed via this command:
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4463710Z hint:
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4465020Z hint: 	git branch -m <name>
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4466360Z hint:
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4467810Z hint: Disable this message with "git config set advice.defaultBranchName false"
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4470560Z Initialized empty Git repository in /Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.git/
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4475500Z [command]/opt/homebrew/bin/git remote add origin https://github.com/THE-BU1LD/Fabric-Induced-Memory
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4589200Z ##[endgroup]
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4590050Z ##[group]Disabling automatic garbage collection
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4591890Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4678680Z ##[endgroup]
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4681080Z ##[group]Setting up auth
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4683310Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.4761330Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.6208480Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.6294900Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.7739240Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.7750150Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.9102060Z [command]/opt/homebrew/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.9357440Z ##[endgroup]
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.9360440Z ##[group]Fetching the repository
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:04.9367120Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +6322d58f12bcc35433710445486f218cb823e3b9:refs/remotes/origin/codex/itfm-remote-20261014
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.2868540Z From https://github.com/THE-BU1LD/Fabric-Induced-Memory
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.2891850Z  * [new ref]         6322d58f12bcc35433710445486f218cb823e3b9 -> origin/codex/itfm-remote-20261014
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.2939420Z ##[endgroup]
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.2942370Z ##[group]Determining the checkout info
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.2943300Z ##[endgroup]
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.2944020Z [command]/opt/homebrew/bin/git sparse-checkout disable
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.3056560Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.3212680Z ##[group]Checking out the ref
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.3215550Z [command]/opt/homebrew/bin/git checkout --progress --force -B codex/itfm-remote-20261014 refs/remotes/origin/codex/itfm-remote-20261014
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.4829080Z Switched to a new branch 'codex/itfm-remote-20261014'
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.4853450Z branch 'codex/itfm-remote-20261014' set up to track 'origin/codex/itfm-remote-20261014'.
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.4956560Z ##[endgroup]
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.5047480Z [command]/opt/homebrew/bin/git log -1 --format=%H
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.5270010Z 6322d58f12bcc35433710445486f218cb823e3b9
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.5362280Z ##[group]Removing auth
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.5373810Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.5456240Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.7230680Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.7401260Z http.https://github.com/.extraheader
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.7410560Z [command]/opt/homebrew/bin/git config --local --unset-all http.https://github.com/.extraheader
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.7566670Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.9882210Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:06.9929870Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+frozen	Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:07.1589200Z ##[endgroup]
+frozen	Bind exact deployment and forbid repeat attempts	﻿2026-10-14T14:07:07.1890940Z ##[group]Run test "$GITHUB_SHA" = "$EXPECTED_SHA"
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1891490Z ^[[36;1mtest "$GITHUB_SHA" = "$EXPECTED_SHA"^[[0m
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1892530Z ^[[36;1mtest "$(git rev-parse HEAD)" = "$EXPECTED_SHA"^[[0m
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1892980Z ^[[36;1mpython3 remote_execution/once.py^[[0m
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1971740Z shell: /bin/bash -e {0}
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1972170Z env:
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1972790Z   PYTHONDONTWRITEBYTECODE: 1
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1973110Z   PYTHONNOUSERSITE: 1
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1973480Z   OMP_NUM_THREADS: 1
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1973840Z   MKL_NUM_THREADS: 1
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1974150Z   OPENBLAS_NUM_THREADS: 1
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1974380Z   VECLIB_MAXIMUM_THREADS: 1
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1974840Z   EXPECTED_SHA: 6322d58f12bcc35433710445486f218cb823e3b9
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1975360Z   MANIFEST_SHA: a6fa86f9db0b22500fe4817b664d82865c29b048bc0fa487ca57a4cbbd7c0e59
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1978310Z   GH_TOKEN: ***
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:07.1978610Z ##[endgroup]
+frozen	Bind exact deployment and forbid repeat attempts	2026-10-14T14:07:09.9612300Z PASS_FIRST_DISPATCH_ONLY
+frozen	Establish draft output retention before execution	﻿2026-10-14T14:07:09.9823380Z ##[group]Run python3 remote_execution/retain_release.py create
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9824500Z ^[[36;1mpython3 remote_execution/retain_release.py create^[[0m
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9872660Z shell: /bin/bash -e {0}
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9872910Z env:
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9873170Z   PYTHONDONTWRITEBYTECODE: 1
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9873380Z   PYTHONNOUSERSITE: 1
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9873580Z   OMP_NUM_THREADS: 1
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9873810Z   MKL_NUM_THREADS: 1
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9874010Z   OPENBLAS_NUM_THREADS: 1
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9874290Z   VECLIB_MAXIMUM_THREADS: 1
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9874530Z   EXPECTED_SHA: 6322d58f12bcc35433710445486f218cb823e3b9
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9875000Z   MANIFEST_SHA: a6fa86f9db0b22500fe4817b664d82865c29b048bc0fa487ca57a4cbbd7c0e59
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9877540Z   GH_TOKEN: ***
+frozen	Establish draft output retention before execution	2026-10-14T14:07:09.9877770Z ##[endgroup]
+frozen	Establish draft output retention before execution	2026-10-14T14:07:11.1124700Z DRAFT_RETENTION_READY
+frozen	Bootstrap exact Python 3.11.15 after original admission	﻿2026-10-14T14:07:11.1238610Z ##[group]Run python3 -B remote_execution/bootstrap_python.py
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1239510Z ^[[36;1mpython3 -B remote_execution/bootstrap_python.py^[[0m
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1271730Z shell: /bin/bash -e {0}
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1271990Z env:
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1272270Z   PYTHONDONTWRITEBYTECODE: 1
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1272520Z   PYTHONNOUSERSITE: 1
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1272710Z   OMP_NUM_THREADS: 1
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1272920Z   MKL_NUM_THREADS: 1
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1273100Z   OPENBLAS_NUM_THREADS: 1
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1273300Z   VECLIB_MAXIMUM_THREADS: 1
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1273520Z   EXPECTED_SHA: 6322d58f12bcc35433710445486f218cb823e3b9
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1273920Z   MANIFEST_SHA: a6fa86f9db0b22500fe4817b664d82865c29b048bc0fa487ca57a4cbbd7c0e59
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.1274260Z ##[endgroup]
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.8493650Z Traceback (most recent call last):
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.8495370Z   File "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/remote_execution/bootstrap_python.py", line 63, in <module>
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.8496940Z     main()
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.8497430Z     ~~~~^^
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.8499130Z   File "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/remote_execution/bootstrap_python.py", line 28, in main
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.8500760Z     raise RuntimeError("resource blocked before runtime download")
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.8501710Z RuntimeError: resource blocked before runtime download
+frozen	Bootstrap exact Python 3.11.15 after original admission	2026-10-14T14:07:11.8589010Z ##[error]Process completed with exit code 1.
+frozen	Retain failures and hash all collected outputs	﻿2026-10-14T14:07:11.8646170Z ##[group]Run python3 -B remote_execution/collect.py collect --output remote-artifact
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8646690Z ^[[36;1mpython3 -B remote_execution/collect.py collect --output remote-artifact^[[0m
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8677430Z shell: /bin/bash -e {0}
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8677680Z env:
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8677850Z   PYTHONDONTWRITEBYTECODE: 1
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8678080Z   PYTHONNOUSERSITE: 1
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8678300Z   OMP_NUM_THREADS: 1
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8678460Z   MKL_NUM_THREADS: 1
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8678640Z   OPENBLAS_NUM_THREADS: 1
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8678960Z   VECLIB_MAXIMUM_THREADS: 1
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8679230Z   EXPECTED_SHA: 6322d58f12bcc35433710445486f218cb823e3b9
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8679650Z   MANIFEST_SHA: a6fa86f9db0b22500fe4817b664d82865c29b048bc0fa487ca57a4cbbd7c0e59
+frozen	Retain failures and hash all collected outputs	2026-10-14T14:07:11.8680000Z ##[endgroup]
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	﻿2026-10-14T14:07:11.9725670Z ##[group]Run python3 -B remote_execution/retain_release.py upload
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9726790Z ^[[36;1mpython3 -B remote_execution/retain_release.py upload^[[0m
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9774460Z shell: /bin/bash -e {0}
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9774700Z env:
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9774930Z   PYTHONDONTWRITEBYTECODE: 1
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9775180Z   PYTHONNOUSERSITE: 1
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9775340Z   OMP_NUM_THREADS: 1
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9775480Z   MKL_NUM_THREADS: 1
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9775640Z   OPENBLAS_NUM_THREADS: 1
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9775820Z   VECLIB_MAXIMUM_THREADS: 1
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9776040Z   EXPECTED_SHA: 6322d58f12bcc35433710445486f218cb823e3b9
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9776420Z   MANIFEST_SHA: a6fa86f9db0b22500fe4817b664d82865c29b048bc0fa487ca57a4cbbd7c0e59
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9779470Z   GH_TOKEN: ***
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:11.9779770Z ##[endgroup]
+frozen	Retain outputs as draft-release assets (no Actions artifact storage)	2026-10-14T14:07:16.7876760Z {"status": "DRAFT_ASSETS_UPLOADED", "tag": "itfm-execution-38577627585", "parts": 1}
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	﻿2026-10-14T14:07:16.8265330Z Post job cleanup.
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:16.9849320Z [command]/opt/homebrew/bin/git version
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:16.9980600Z git version 2.55.0
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:17.0044530Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/53f66772-dbc4-4f41-86da-bfaeb7082f67/.gitconfig'
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:17.0078690Z Temporarily overriding HOME='/Users/runner/work/_temp/53f66772-dbc4-4f41-86da-bfaeb7082f67' before making global git config changes
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:17.0080900Z Adding repository directory to the temporary git global config as a safe directory
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:17.0084240Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:17.0192280Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:17.0315690Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:17.1634020Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:17.1696100Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:17.2544930Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+frozen	Post Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262	2026-10-14T14:07:17.2601270Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+frozen	Complete job	﻿2026-10-14T14:07:17.3493580Z Cleaning up orphan processes
+frozen	Complete job	2026-10-14T14:07:17.3550270Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

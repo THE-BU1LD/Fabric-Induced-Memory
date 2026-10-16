@@ -1,0 +1,15 @@
+{
+  "status": "BLOCKED",
+  "samples": [
+    {
+      "free_bytes": 113344512,
+      "pageouts": 215508,
+      "swap_mib": 4375.31
+    },
+    {
+      "free_bytes": 151420928,
+      "pageouts": 215564,
+      "swap_mib": 4375.31
+    }
+  ]
+}

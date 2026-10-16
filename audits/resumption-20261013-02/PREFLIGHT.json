@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-13T14:38:42.535962+00:00",
+  "admission": {
+    "status": "BLOCKED",
+    "samples": [
+      {
+        "free_bytes": 149291008,
+        "pageouts": 136144,
+        "swap_mib": 1928.38
+      },
+      {
+        "free_bytes": 149602304,
+        "pageouts": 136144,
+        "swap_mib": 1928.38
+      }
+    ]
+  },
+  "locks": [],
+  "campaign_consumed": false,
+  "source_freeze_matches": true,
+  "processes": [
+    " 1007 02:07:13 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m core.daemon serve --config /Users/ryan/.config/neurocad/config.json",
+    " 1014 02:07:13 /Library/Frameworks/Python.framework/Versions/3.13/Resources/Python.app/Contents/MacOS/Python /Users/ryan/.percy-vnext/.venv/bin/uvicorn percy_vnext:app --app-dir /Users/ryan/.percy-vnext/src --host 127.0.0.1 --port 8787",
+    " 1017 02:07:13 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -m lyla serve",
+    "46707    00:00 rtk proxy python3 -",
+    "46710    00:00 /opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -"
+  ],
+  "intent": "Sequential v2 reproduction, v3 tests, campaign, raw verification; no guard changes."
+}

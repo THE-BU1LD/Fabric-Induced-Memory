@@ -1,0 +1,67 @@
+{
+  "study_id": "itfm-v3-noisy-drifting-recall-development-1",
+  "updated_at": "2026-10-13T14:16:03.974576+00:00",
+  "phase": "IMPLEMENTED_STATIC_CHECKED_RUNTIME_BLOCKED",
+  "disposition": "NOT_EVALUATED",
+  "terminal": false,
+  "protocol": "protocol.json",
+  "source_freeze": "freezes/development-2.json",
+  "predecessors": {
+    "FIM": "closed bounded negative; unchanged",
+    "ITFM_v2": "bounded synthetic result preserved; reproduction still resource blocked"
+  },
+  "authorization": "User requested reproduction if admitted and a separately versioned harder study with proper baselines and controls on 13 October 2026. No paid compute or protected evaluation inferred.",
+  "checkpoints": {
+    "1": "PASS",
+    "2": "PASS",
+    "3": "PASS",
+    "4": "BLOCKED",
+    "5": "BLOCKED",
+    "6": "BLOCKED",
+    "7": "NOT_APPLICABLE",
+    "8": "NOT_EVALUATED",
+    "9": "NOT_EVALUATED",
+    "10": "NOT_EVALUATED"
+  },
+  "checkpoint_scope": "1-3 refer to the bounded development question/specification/protocol and internal static review, not novelty, external review or scientific validity. Runtime implementation/end-to-end gates remain blocked.",
+  "evidence": {
+    "static_receipt": "../../audits/improvement-20261013/V3_STATIC_VERIFICATION.json",
+    "standard_library_tests": 11,
+    "runtime_tests_executed": 0,
+    "scientific_cells_executed": 0,
+    "runtime_admission": "runs/runtime-tests-20261013-02/RECEIPT.json",
+    "preservation": "../../audits/improvement-20261013/PRESERVATION_AFTER.json"
+  },
+  "budget": {
+    "max_seconds": 1800,
+    "threads": 1,
+    "max_campaigns": 1,
+    "paid_compute": 0,
+    "max_output_gib": 2,
+    "minimum_free_mib": 512,
+    "max_runtime_tests_seconds": 120
+  },
+  "campaign_consumed": false,
+  "claims": {
+    "supported": [
+      "Specification, source implementation, independent retrieval verifier and guarded orchestration exist.",
+      "Static lint/format/AST checks and 11 lightweight contract tests passed, including optimized Python.",
+      "440/440 predecessor files unchanged."
+    ],
+    "unsupported": [
+      "Numerical tests pass",
+      "Any v3 performance result",
+      "Natural-domain or public benchmark efficacy",
+      "Novel architecture",
+      "Independent external reproduction",
+      "Publication readiness"
+    ]
+  },
+  "next_action": "On stable admitted resources run numerical tests against freezes/development-2.json in a fresh directory; resolve engineering failures before one development campaign; retain any partial/negative outcome; then independently recompute raw outputs. Retry v2 isolated replay separately, without replacing prior receipts.",
+  "history": [
+    {
+      "at": "2026-10-13T14:16:03.974576+00:00",
+      "event": "Implemented separate v3; v2 replay and both v3 runtime-test admissions blocked before numerical imports. Final v3 free-plus-speculative samples were 106.09/99.44 MiB. No model trained and no old result altered."
+    }
+  ]
+}

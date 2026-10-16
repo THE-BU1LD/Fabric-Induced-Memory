@@ -1,0 +1,9 @@
+{
+  "status": "PASS_LOCAL_ARCHIVE_READBACK",
+  "path": "audits/kaggle-tonight-20261016/fim-tonight-evidence-20261016.zip",
+  "sha256": "c26f18a0047199a6064766ecdeac49d098b2a3bf599013ecdb62940eb3ad1ec5",
+  "bytes": 400640,
+  "verified_files": 36,
+  "remote_uploaded": false,
+  "remote_retrieval_verified": false
+}

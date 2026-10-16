@@ -1,0 +1,12 @@
+{
+  "commit": "266fe56ff9897e57b7e610fb7afc369fe767855b",
+  "prior_commit": "b2292c548f3c39d6eb828a237942e00c52fc0eaf",
+  "manifest_sha256": "67a5253aab94d5f99d83fe3218db54670401e5fd8a502236123280b64af2849b",
+  "changed_files": [
+    ".github/workflows/itfm-v4-runtime.yml",
+    "README.md",
+    "SOURCE_MANIFEST.json"
+  ],
+  "python_test_sources_unchanged": true,
+  "yaml_and_shell_syntax": "PASS"
+}

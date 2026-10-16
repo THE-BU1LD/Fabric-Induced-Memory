@@ -1,0 +1,528 @@
+{
+  "boundary": "Standard-library comparison of retained scalar rows; no tensor import or new numerical execution",
+  "raw_checks_passed": 48,
+  "raw_checks_total": 66,
+  "failed_raw_checks": [
+    "raw_rows:307:erase",
+    "raw_rows:307:last_value",
+    "raw_rows:307:no_memory",
+    "raw_rows:307:oracle_anchor",
+    "raw_rows:307:paired_swap",
+    "raw_rows:307:recent_only",
+    "raw_rows:307:sign_flip",
+    "raw_rows:307:tensor_memory",
+    "raw_rows:307:vector_broadcast",
+    "summary:307:erase",
+    "summary:307:last_value",
+    "summary:307:no_memory",
+    "summary:307:oracle_anchor",
+    "summary:307:paired_swap",
+    "summary:307:recent_only",
+    "summary:307:sign_flip",
+    "summary:307:tensor_memory",
+    "summary:307:vector_broadcast"
+  ],
+  "seeds": {
+    "101": {
+      "decision_unchanged": true,
+      "controls": {
+        "erase": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.4876847162744466,
+          "remote_query_nmse": 0.4876847162744466,
+          "owner_event_order_matches": true
+        },
+        "last_value": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.4876847162744466,
+          "remote_query_nmse": 0.4876847162744466,
+          "owner_event_order_matches": true
+        },
+        "no_memory": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.4876847162744466,
+          "remote_query_nmse": 0.4876847162744466,
+          "owner_event_order_matches": true
+        },
+        "oracle_anchor": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.0,
+          "remote_query_nmse": 0.0,
+          "owner_event_order_matches": true
+        },
+        "paired_swap": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 1.9507388689257072,
+          "remote_query_nmse": 1.9507388689257072,
+          "owner_event_order_matches": true
+        },
+        "recent_only": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.4876847162744466,
+          "remote_query_nmse": 0.4876847162744466,
+          "owner_event_order_matches": true
+        },
+        "sign_flip": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 1.9507388689257072,
+          "remote_query_nmse": 1.9507388689257072,
+          "owner_event_order_matches": true
+        },
+        "tensor_memory": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.0,
+          "remote_query_nmse": 0.0,
+          "owner_event_order_matches": true
+        },
+        "vector_broadcast": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.4876847162744466,
+          "remote_query_nmse": 0.4876847162744466,
+          "owner_event_order_matches": true
+        }
+      }
+    },
+    "211": {
+      "decision_unchanged": true,
+      "controls": {
+        "erase": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.4876847296721697,
+          "remote_query_nmse": 0.4876847296721697,
+          "owner_event_order_matches": true
+        },
+        "last_value": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.4876847296721697,
+          "remote_query_nmse": 0.4876847296721697,
+          "owner_event_order_matches": true
+        },
+        "no_memory": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.4876847296721697,
+          "remote_query_nmse": 0.4876847296721697,
+          "owner_event_order_matches": true
+        },
+        "oracle_anchor": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.0,
+          "remote_query_nmse": 0.0,
+          "owner_event_order_matches": true
+        },
+        "paired_swap": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 1.950738914860758,
+          "remote_query_nmse": 1.950738914860758,
+          "owner_event_order_matches": true
+        },
+        "recent_only": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.4876847296721697,
+          "remote_query_nmse": 0.4876847296721697,
+          "owner_event_order_matches": true
+        },
+        "sign_flip": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 1.950738914860758,
+          "remote_query_nmse": 1.950738914860758,
+          "owner_event_order_matches": true
+        },
+        "tensor_memory": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.0,
+          "remote_query_nmse": 0.0,
+          "owner_event_order_matches": true
+        },
+        "vector_broadcast": {
+          "max_squared_error_difference": 0.0,
+          "rows_exceeding_1e_minus_10": 0,
+          "summary_deltas": {
+            "nonquery_mse": 0.0,
+            "nonquery_nmse": 0.0,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.4876847306291499,
+          "remote_query_nmse": 0.4876847306291499,
+          "owner_event_order_matches": true
+        }
+      }
+    },
+    "307": {
+      "decision_unchanged": true,
+      "controls": {
+        "erase": {
+          "max_squared_error_difference": 4.57763671875e-05,
+          "rows_exceeding_1e_minus_10": 9,
+          "summary_deltas": {
+            "nonquery_mse": -4.905732070570323e-10,
+            "nonquery_nmse": -4.253245464158617e-10,
+            "nonquery_rows": 0.0,
+            "query_mse": -4.4151589051466544e-09,
+            "query_nmse": -3.827920869170498e-09,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.48768470861860486,
+          "remote_query_nmse": 0.487684704790684,
+          "owner_event_order_matches": true
+        },
+        "last_value": {
+          "max_squared_error_difference": 4.57763671875e-05,
+          "rows_exceeding_1e_minus_10": 14,
+          "summary_deltas": {
+            "nonquery_mse": -1.4717196350488848e-09,
+            "nonquery_nmse": -1.2759736323086912e-09,
+            "nonquery_rows": 0.0,
+            "query_mse": -4.4151589051466544e-09,
+            "query_nmse": -3.827920869170498e-09,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.48768470861860486,
+          "remote_query_nmse": 0.487684704790684,
+          "owner_event_order_matches": true
+        },
+        "no_memory": {
+          "max_squared_error_difference": 4.57763671875e-05,
+          "rows_exceeding_1e_minus_10": 9,
+          "summary_deltas": {
+            "nonquery_mse": -4.905732070570323e-10,
+            "nonquery_nmse": -4.253245464158617e-10,
+            "nonquery_rows": 0.0,
+            "query_mse": -4.4151589051466544e-09,
+            "query_nmse": -3.827920869170498e-09,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.48768470861860486,
+          "remote_query_nmse": 0.487684704790684,
+          "owner_event_order_matches": true
+        },
+        "oracle_anchor": {
+          "max_squared_error_difference": 4.57763671875e-05,
+          "rows_exceeding_1e_minus_10": 3,
+          "summary_deltas": {
+            "nonquery_mse": -4.905732070570323e-10,
+            "nonquery_nmse": -4.253245464158617e-10,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.0,
+          "remote_query_nmse": 0.0,
+          "owner_event_order_matches": true
+        },
+        "paired_swap": {
+          "max_squared_error_difference": 6.103515625e-05,
+          "rows_exceeding_1e_minus_10": 7,
+          "summary_deltas": {
+            "nonquery_mse": -4.905732070570323e-10,
+            "nonquery_nmse": -4.253245464158617e-10,
+            "nonquery_rows": 0.0,
+            "query_mse": -8.830317366204099e-09,
+            "query_nmse": -7.655841516296391e-09,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 1.95073883830234,
+          "remote_query_nmse": 1.9507388306464986,
+          "owner_event_order_matches": true
+        },
+        "recent_only": {
+          "max_squared_error_difference": 4.57763671875e-05,
+          "rows_exceeding_1e_minus_10": 9,
+          "summary_deltas": {
+            "nonquery_mse": -4.905732070570323e-10,
+            "nonquery_nmse": -4.253245464158617e-10,
+            "nonquery_rows": 0.0,
+            "query_mse": -4.4151589051466544e-09,
+            "query_nmse": -3.827920869170498e-09,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.48768470861860486,
+          "remote_query_nmse": 0.487684704790684,
+          "owner_event_order_matches": true
+        },
+        "sign_flip": {
+          "max_squared_error_difference": 0.00018310546875,
+          "rows_exceeding_1e_minus_10": 11,
+          "summary_deltas": {
+            "nonquery_mse": -4.905732070570323e-10,
+            "nonquery_nmse": -4.253245464158617e-10,
+            "nonquery_rows": 0.0,
+            "query_mse": -8.830317810293309e-09,
+            "query_nmse": -7.655841738340996e-09,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 1.950738811506894,
+          "remote_query_nmse": 1.9507388038510522,
+          "owner_event_order_matches": true
+        },
+        "tensor_memory": {
+          "max_squared_error_difference": 4.57763671875e-05,
+          "rows_exceeding_1e_minus_10": 3,
+          "summary_deltas": {
+            "nonquery_mse": -4.905732070570323e-10,
+            "nonquery_nmse": -4.253245464158617e-10,
+            "nonquery_rows": 0.0,
+            "query_mse": 0.0,
+            "query_nmse": 0.0,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.0,
+          "remote_query_nmse": 0.0,
+          "owner_event_order_matches": true
+        },
+        "vector_broadcast": {
+          "max_squared_error_difference": 4.57763671875e-05,
+          "rows_exceeding_1e_minus_10": 9,
+          "summary_deltas": {
+            "nonquery_mse": -4.905732070570323e-10,
+            "nonquery_nmse": -4.253245464158617e-10,
+            "nonquery_rows": 0.0,
+            "query_mse": -4.4151589051466544e-09,
+            "query_nmse": -3.827920924681649e-09,
+            "query_rows": 0.0,
+            "retrieval_anchor_precision": 0.0,
+            "retrieval_rate": 0.0,
+            "swap_donor_direction": 0.0
+          },
+          "historical_query_nmse": 0.48768470766162464,
+          "remote_query_nmse": 0.4876847038337037,
+          "owner_event_order_matches": true
+        }
+      }
+    }
+  }
+}

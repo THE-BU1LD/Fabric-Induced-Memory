@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "project_id": "fim-successor-itfm-v1",
+  "title": "Interventional Tensor Fabric Memory",
+  "created_at": "2026-10-11T00:00:00+05:30",
+  "updated_at": "2026-10-11T14:35:54+05:30",
+  "canonical_state": true,
+  "read_before_work": true,
+  "update_before_finish": true,
+  "predecessor": {
+    "name": "Fabric-Induced Memory bounded component study",
+    "location": "../../FIM",
+    "disposition": "NEGATIVE",
+    "immutable": true,
+    "summary": "The frozen 24-cell study did not establish general necessity of memory, retrieval, or salience gating. Directions split 3/6 and the smallest exact sign-test p-value was 0.5.",
+    "prohibited_actions": [
+      "overwrite predecessor artifacts",
+      "rerun the frozen predecessor to seek a favorable result",
+      "pool predecessor and successor outcomes",
+      "present successor development as independent reproduction"
+    ]
+  },
+  "research_question": "Under partial observation with oracle-defined aliasing, does an owner-safe transport-aligned tensor-valued external memory provide forecast-relevant information beyond matched finite-history, recurrent, state-space, and analytical transport predictors, and is that information localized by memory-only interventions?",
+  "scientific_objective": "Identify whether external tensor memory contains uniquely useful spatiotemporal information rather than merely adding capacity, context, compute, or an optimization path.",
+  "hypothesis": "On aliased states whose current observations are insufficient for predicting the future, an owner-safe, past-only tensor memory storing spatial residual fields in an age-aware constant-velocity co-moving coordinate system will improve the predeclared alias-conditioned forecast endpoint over matched learned, sham, transport-off, and analytical transport controls; erasing the relevant values will remove the benefit, and swapping them between oracle alias pairs will shift forecasts toward the donor future without materially harming non-aliased controls.",
+  "falsifiers": [
+    "A matched finite-history or recurrent-state control is within the practical-equivalence margin or better on the primary endpoint.",
+    "Erasing eligible memory does not cause the predeclared degradation on aliased cases.",
+    "Value swaps do not move forecasts toward the donor future in the predeclared direction.",
+    "Random or nuisance-matched values perform equivalently to true eligible values.",
+    "Any advantage disappears after matching parameters, training updates, accessible information, and tuning budget.",
+    "The effect occurs only in the synthetic development system and fails the future public-domain replication."
+  ],
+  "intended_contribution": "An intervention-based mechanism-identification protocol and reference implementation for spatially structured external memory under partial observability, not a claim that tensors, transport, or external memory are novel by themselves.",
+  "scope": {
+    "in": [
+      "query-aligned tensor keys and residual values",
+      "immutable owner and event-time metadata",
+      "past-only retrieval",
+      "memory-only interventions",
+      "bounded normalized-cross-correlation transport and age-aware co-moving coordinates",
+      "synthetic oracle-alias development system",
+      "matched finite-history and recurrent-state controls",
+      "artifact-complete development execution",
+      "rank-generic fabric operators for one two and three dimensional fields"
+    ],
+    "out": [
+      "state-of-the-art claims",
+      "language-model memory",
+      "unbounded memory scaling",
+      "approximate-nearest-neighbor claims",
+      "clinical or safety-critical use",
+      "confirmatory claims before a protected public-data protocol is frozen"
+    ]
+  },
+  "phase": "CODING_RUNTIME_TESTED_DATA_MATERIALIZED_SMOKE_RESOURCE_BLOCKED",
+  "current_blocker": {
+    "kind": "HOST_RESOURCE_ADMISSION",
+    "checked_on": "2026-10-11",
+    "free_plus_speculative_bytes": 277643264,
+    "required_bytes": 536870912,
+    "pageouts_cumulative": 605390,
+    "effect": "The 37-test suite and synthetic materialization completed during a stable admitted window. The smoke subprocess later paused before cell 1/9 at 473333760 bytes, and the final host check is blocked with rising pageouts; all fitting remains prohibited until admission passes stably."
+  },
+  "checkpoints": {
+    "1_idea_ready": "PASS_BOUNDED_DEVELOPMENT",
+    "2_model_specification_ready": "PASS",
+    "3_methodology_ready": "PASS_DEVELOPMENT_ONLY",
+    "4_model_implemented": "PASS_37_TESTS",
+    "5_experiment_system_implemented": "IMPLEMENTED_TESTS_PASS_SMOKE_PENDING",
+    "6_run_ready": "BLOCKED_RESOURCE_ADMISSION",
+    "7_confirmatory_protocol_frozen": "NOT_REACHED",
+    "8_evidence_locked": "NOT_REACHED",
+    "9_verified": "NOT_REACHED",
+    "10_research_complete": "NOT_REACHED"
+  },
+  "budgets": {
+    "development_training_runs": 27,
+    "development_scope": "27 predeclared cells: nine models across three paired seeds after Checkpoint 6. Eight models are learned and one bounded-cross-correlation transport baseline is analytical; sensitivity reuses primary checkpoints without retraining.",
+    "compute": "CPU or Apple MPS only; no cloud spend; no full run while free plus speculative memory is below 512 MiB or pageouts are increasing.",
+    "protected_evaluation": "Not created. No protected test outcomes may be inspected until a versioned confirmatory protocol is frozen."
+  },
+  "repositories": [
+    {
+      "path": "../..",
+      "role": "legacy outer checkout",
+      "state": "dirty relocation; not release identity"
+    },
+    {
+      "path": "../../FIM",
+      "role": "immutable predecessor evidence and implementation reference",
+      "state": "untracked archival tree in current outer checkout"
+    },
+    {
+      "path": ".",
+      "role": "successor v1 contract, specification, and implementation",
+      "state": "development"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "aliased-advection-v1",
+      "type": "synthetic development",
+      "license": "project-generated",
+      "status": "implemented, validated, and materialized as a 252996-byte hash-bound archive; model smoke execution pending",
+      "independent_unit": "paired_family_id",
+      "split_rule": "paired family identifiers are split before trajectory and window construction"
+    },
+    {
+      "id": "public-partial-observation-domain",
+      "type": "future confirmatory",
+      "status": "unselected and protected"
+    },
+    {
+      "id": "pdebench-official-registry",
+      "type": "public benchmark metadata only",
+      "status": "official URL/checksum registry and license staged; no numerical arrays downloaded; not a frozen confirmatory selection",
+      "provenance": "PDEBench official repository and DaRUS DOI 10.18419/darus-2986"
+    }
+  ],
+  "primary_endpoint": "Alias-conditioned one-step normalized MSE, aggregated first within trajectory and then across independent paired families.",
+  "mechanism_endpoints": [
+    "erasure degradation on aliased cases",
+    "value-swap donor-direction score",
+    "random-value specificity gap",
+    "retrieval precision against oracle regime labels"
+  ],
+  "practical_effect_rule": "Development candidate requires at least 5% relative improvement over the strongest matched learned control on alias-conditioned NMSE and the correct directional response for erasure and value-swap endpoints. This is a development gate, not a confirmatory claim.",
+  "claims": {
+    "supported": [
+      "The predecessor is a completed bounded negative study.",
+      "The successor question is falsifiable and separated from the predecessor.",
+      "The successor contribution is intervention-based identification, not generic external memory."
+    ],
+    "unsupported": [
+      "Tensor memory is more powerful than vector memory.",
+      "The successor improves forecasting.",
+      "The successor is novel enough for publication.",
+      "The successor generalizes to natural systems.",
+      "The successor is ready for confirmatory execution."
+    ]
+  },
+  "decisions": [
+    "Preserve the predecessor exactly and create a separate successor directory.",
+    "Use tensor-valued keys and observation-residual values rather than compressed vector values.",
+    "Require explicit trajectory IDs and event times for every memory operation.",
+    "Make interventions first-class inference operations.",
+    "Use a global vector-broadcast memory as the spatial mechanism-off control.",
+    "Use deterministic sham retrieval as the parameter- and compute-matched information control.",
+    "Predeclare context-noise, missingness, speed-shift, top-k, and transport-radius evaluations within a 27-cell development matrix.",
+    "Treat multidimensional support as an unvalidated engineering extension; keep the scientific development protocol two-dimensional.",
+    "Run numerical work at one thread and niceness 10 with admission rechecks before every model/seed cell.",
+    "Use exact search at development scale; approximate search is out of scope.",
+    "Do not select the public confirmatory dataset during development."
+    ,
+    "Use bounded normalized spatial cross-correlation, not Fourier phase correlation, and name the operator exactly.",
+    "Require transport-off, sham-transport, analytical periodic-transport, finite-history, recurrent, and stable diagonal-SSM controls."
+  ],
+  "known_failures": [
+    "The predecessor memory and retrieval components showed no stable general benefit.",
+    "The predecessor vector memory broadcast one update across all spatial locations.",
+    "Earlier spatial-recall FIM lost to zero and history controls under the tested budget.",
+    "The current outer checkout has unresolved tracked-deletion and untracked-relocation lineage.",
+    "The first admitted successor test run used Python 3.14 and failed before collection because pytest was absent; its failure receipt is retained.",
+    "The first Python 3.11 test run found a 3D test fixture missing its channel axis: 36 tests passed and one fixture failed. The fixture was corrected without changing the model, and the next run passed 37/37.",
+    "The smoke experiment imported Torch and paused before its first cell when post-import free-plus-speculative memory was 473333760 bytes; zero runs and zero model failures were retained."
+  ],
+  "artifacts": [
+    "PROJECT_CONTRACT.md",
+    "LITERATURE_BOUNDARY.md",
+    "paper/SPECIFICATION.md",
+    "protocols/development_v1.json",
+    "METHODOLOGY.md",
+    "CLAIM_EVIDENCE_MATRIX.csv",
+    "CHECKPOINTS.md",
+    "DECISION_LOG.md",
+    "src/fim_s1",
+    "tests",
+    "scripts/run_pipeline.py",
+    "scripts/analyze.py",
+    "src/fim_s1/model_nd.py",
+    "tests/test_model_nd.py",
+    "results/verification_receipt.json",
+    "datasets/external/pdebench/pdebench_data_urls.csv",
+    "datasets/external/pdebench/LICENSE.txt",
+    "datasets/README.md",
+    "src/fim_s1/datasets.py",
+    "src/fim_s1/transport.py",
+    "READINESS_REPORT.md",
+    "results/static_audit.json"
+    ,
+    "datasets/materialized/aliased-advection-v1/manifest.json",
+    "datasets/materialized/aliased-advection-v1/trajectories.npz",
+    "results/smoke-development-v1/manifest.json"
+  ],
+  "history": [
+    {
+      "date": "2026-09-30",
+      "event": "Predecessor closed as a bounded negative component study."
+    },
+    {
+      "date": "2026-10-11",
+      "event": "Successor idea audit rejected generic memory architecture novelty and retained intervention-identified tensor memory as the only candidate direction."
+    },
+    {
+      "date": "2026-10-11",
+      "event": "Successor v1 canonical state, specification, methodology, and implementation workspace initialized."
+    },
+    {
+      "date": "2026-10-11",
+      "event": "Model and experiment code passed compilation and lint; numerical tests and smoke execution were blocked by the 512 MiB host resource-admission guard."
+    },
+    {
+      "date": "2026-10-11",
+      "event": "Closed the executable development methodology with six primary models, three sensitivity cells, robustness/OOD evaluation, artifact hashing, statistical analysis, and a fail-closed verification runner; static checks passed."
+    },
+    {
+      "date": "2026-10-11",
+      "event": "Generalized the fabric and predictor to 1D/2D/3D engineering support and made the runner single-threaded, low-priority, and resource-admitted per experiment cell; the 2D scientific protocol remains unchanged."
+    },
+    {
+      "date": "2026-10-11",
+      "event": "Invoked the low-pressure pipeline at one thread and niceness 10; it stopped before tests with a retained blocked_resource receipt at 109395968 available bytes and 589820 cumulative pageouts."
+    },
+    {
+      "date": "2026-10-11",
+      "event": "Upgraded v1 before numerical outcomes: added rank-generic bounded-cross-correlation transport with age-aware co-moving coordinates, a zero-parameter analytical transport falsifier, sham-transport and stable diagonal-SSM controls, event-pure batching, vectorized fabric writes, hash-complete resume checks, deterministic dataset materialization, and an explicit PDEBench registry-backed loader. The declared matrix expanded prospectively to 27 cells; numerical execution remained resource-blocked."
+    },
+    {
+      "date": "2026-10-11",
+      "event": "Formatting, lint, bytecode compilation, JSON validation, and the 15-check static contract audit passed after the transport and dataset upgrade. The final admission check remained blocked at 89243648 free-plus-speculative bytes with 600540 cumulative pageouts, so no numerical test, dataset materialization, smoke run, or training was started."
+    },
+    {
+      "date": "2026-10-11",
+      "event": "A later stable admitted window enabled runtime verification. Python 3.14 lacked pytest and failed before collection. Python 3.11 then exposed one invalid 3D test fixture; after adding the missing channel axis, all 37 tests passed. The deterministic 96-trajectory synthetic corpus materialized with archive SHA-256 c76c1d747cb6ab2cf6a142150b7e1753b01cdd2ae10173673260f3d99b0be54b. The smoke manifest validated exact aliases and distinct futures but paused before cell 1/9 at the resource boundary, retaining zero model runs and zero model failures."
+    }
+  ]
+}
+

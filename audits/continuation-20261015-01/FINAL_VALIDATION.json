@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "stdout": "VALID: 33 projects, 0 warning(s), live_git=not_checked\n",
+  "stderr": "",
+  "other_projects_unchanged": 32,
+  "budgets_changed": false,
+  "implementation_changed": false
+}

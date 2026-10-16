@@ -1,0 +1,11 @@
+{
+  "status": "PUBLISHED_REMOTE_VERIFICATION_PENDING",
+  "target": "THE-BU1LD/Fabric-Induced-Memory",
+  "branch": "codex/itfm-v4-runtime-20261016",
+  "commit": "b2292c548f3c39d6eb828a237942e00c52fc0eaf",
+  "manifest_sha256": "87f9956c654e6991a815335258e1d281d816bc854c06a9f56f705e63d942ea82",
+  "files": 25,
+  "approval_required": false,
+  "authorized_jobs": 1,
+  "paid_cost": 0
+}

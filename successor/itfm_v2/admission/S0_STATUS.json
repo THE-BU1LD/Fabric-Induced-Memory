@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "campaign_id": "itfm-v2-sota-confirmation-v1",
+  "stage_id": "S0_source_data_license_and_compute_admission",
+  "checked_at": "2026-10-11T17:29:55+05:30",
+  "status": "BLOCKED",
+  "checks": {
+    "lano_commit_locked": {
+      "status": "REMOTE_PIN_VERIFIED_NOT_LOCALLY_REPRODUCED",
+      "identity": "b53a62100b4705f1382a7c344b2d84afa255b96f",
+      "url": "https://github.com/Kingyum-Hou/LANO/commit/b53a62100b4705f1382a7c344b2d84afa255b96f"
+    },
+    "hs_fno_commit_locked": {
+      "status": "REMOTE_PIN_VERIFIED_NOT_LOCALLY_REPRODUCED",
+      "identity": "9ebf2a7aa483c7f74769365c187c7d9492ecd6ef",
+      "url": "https://github.com/lennonshikhman/hs-fno/commit/9ebf2a7aa483c7f74769365c187c7d9492ecd6ef"
+    },
+    "upstream_source_licenses": {
+      "status": "BLOCKED",
+      "reason": "Fresh GitHub root-tree checks at both exact pinned commits found no root license entry; no authoritative source-use or redistribution receipt is admitted."
+    },
+    "dataset_licenses": {
+      "status": "BLOCKED",
+      "reason": "No dataset-specific source, use, attribution, or redistribution receipt is present."
+    },
+    "dataset_bytes_and_hashes": {
+      "status": "BLOCKED",
+      "reason": "POBench-PDE and HS-FNO dataset bytes, shard hashes, normalization identities, and trajectory splits are absent."
+    },
+    "official_preprocessing_equivalence": {
+      "status": "BLOCKED",
+      "reason": "The local manifest-bound loader has not been compared byte-for-byte with official preprocessing outputs."
+    },
+    "accelerator_identity": {
+      "status": "BLOCKED",
+      "reason": "No accelerator has been authorized for frontier reproduction or public execution."
+    },
+    "wall_clock_energy_and_cost_budget": {
+      "status": "BLOCKED",
+      "reason": "No maximum wall-clock, energy-meter, or monetary budget is authorized."
+    },
+    "host_resource_admission": {
+      "status": "BLOCKED",
+      "required_free_plus_speculative_bytes": 536870912,
+      "samples_bytes": [216891392, 301170688],
+      "pageouts_increase": 414,
+      "swap_used_mib_final": 5610.62
+    }
+  },
+  "permitted_actions": [
+    "read-only source and literature audit",
+    "bounded static lint and schema checks",
+    "authoring that does not claim missing empirical evidence"
+  ],
+  "prohibited_until_pass": [
+    "dependency resolution or installation",
+    "Torch or frontier-model import",
+    "dataset download or generation",
+    "runtime test suite",
+    "container build",
+    "frontier reproduction",
+    "oracle-gap evaluation",
+    "training or protected evaluation",
+    "paper compilation or PDF rendering",
+    "release staging"
+  ]
+}

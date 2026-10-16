@@ -1,0 +1,11 @@
+{
+  "command": [
+    "sudo",
+    "-n",
+    "/usr/sbin/purge"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "sudo: a password is required\n",
+  "at": "2026-10-13T15:42:17.386050+00:00"
+}

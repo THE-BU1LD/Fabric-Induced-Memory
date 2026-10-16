@@ -1,0 +1,19 @@
+{
+  "at": "2026-10-11T20:16:22.646269+05:30",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/tools",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_command_budget_terminates_child (test_release.ReleaseTests.test_command_budget_terminates_child) ... ok\ntest_existing_receipt_never_overwritten (test_release.ReleaseTests.test_existing_receipt_never_overwritten) ... ok\ntest_frozen_result_write_rejected (test_release.ReleaseTests.test_frozen_result_write_rejected) ... ok\ntest_generic_attestation_cannot_clear_any_gate (test_release.ReleaseTests.test_generic_attestation_cannot_clear_any_gate) ... ok\ntest_path_escape_rejected (test_release.ReleaseTests.test_path_escape_rejected) ... ok\ntest_pdf_build_refuses_existing_output (test_release.ReleaseTests.test_pdf_build_refuses_existing_output) ... ok\ntest_pdf_resource_stop_creates_no_source_or_pdf (test_release.ReleaseTests.test_pdf_resource_stop_creates_no_source_or_pdf) ... ok\ntest_replay_refuses_existing_output_before_verification (test_release.ReleaseTests.test_replay_refuses_existing_output_before_verification) ... ok\ntest_replay_resource_stop_imports_no_model (test_release.ReleaseTests.test_replay_resource_stop_imports_no_model) ... ok\ntest_stage_refuses_unmet_gates_without_creating_output (test_release.ReleaseTests.test_stage_refuses_unmet_gates_without_creating_output) ... ok\ntest_stale_manuscript_receipt_rejected (test_release.ReleaseTests.test_stale_manuscript_receipt_rejected) ... ok\ntest_status_label_alone_cannot_clear_release_gate (test_release.ReleaseTests.test_status_label_alone_cannot_clear_release_gate) ... ok\ntest_symlink_escape_rejected (test_release.ReleaseTests.test_symlink_escape_rejected) ... ok\ntest_visual_review_must_cover_every_page (test_release.ReleaseTests.test_visual_review_must_cover_every_page) ... ok\n\n----------------------------------------------------------------------\nRan 14 tests in 0.133s\n\nOK\n",
+  "boundary": "14 standard-library preservation/release-tool tests, not the frozen scientific runtime suite."
+}

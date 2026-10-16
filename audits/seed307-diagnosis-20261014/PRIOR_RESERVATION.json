@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-14T14:02:37.098732+00:00",
+  "branch": "codex/itfm-remote-20261014",
+  "manifest_sha256": "5989a179f7420d87438631874c0fe22cc1fc472121383bb5e5fa09a22518960f",
+  "status": "BLOCKED_V2_RAW_DISCREPANCY_NO_AUTOMATIC_RETRY",
+  "paid_compute": false,
+  "run_id": 38578599860,
+  "commit": "b7a97d1fcaa5a61d7511781f670d7324b8616932",
+  "retained_prior_attempts": [
+    38577058691,
+    38577627585,
+    38577967203
+  ],
+  "all_attempts_retained": [
+    38577058691,
+    38577627585,
+    38577967203,
+    38578599860
+  ]
+}

@@ -1,0 +1,135 @@
+name: QFIM paired memory diagnostics extra seeds
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/memory-intervention-extra.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  TARGET_SHA: 0d4d34b0dacbc13fbf10c3e4316ea44fc4f40d6b
+  PYTHONUNBUFFERED: '1'
+
+jobs:
+  memory-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [51, 71]
+        benchmark: [lorenz, fractional, delayed_recall]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install minimal
+        run: |
+          python -m pip install --upgrade pip
+          pip install torch numpy scipy pyyaml
+      - name: Train frozen FIM at matching lightweight budget
+        run: |
+          root="artifacts/memory_lite/${{ matrix.benchmark }}/seed_${{ matrix.seed }}"
+          mkdir -p "$root"
+          set -o pipefail
+          python main.py \
+            --benchmark '${{ matrix.benchmark }}' \
+            --model fim_plus \
+            --seed '${{ matrix.seed }}' \
+            --device cpu \
+            --epochs 5 \
+            --batch_size 16 \
+            --dataset_size 256 \
+            --hidden 64 \
+            --trace_dim 32 \
+            --rollout_steps 16 \
+            --results_root "$root/train" \
+            --exp_name memory_lite_train \
+            --no_eval \
+            2>&1 | tee "$root/train.log"
+      - name: Same-checkpoint paired intervention and activation diagnostics
+        run: |
+          root="artifacts/memory_lite/${{ matrix.benchmark }}/seed_${{ matrix.seed }}"
+          python - "$root" '${{ matrix.seed }}' '${{ matrix.benchmark }}' <<'PY'
+          import json, random, sys
+          from pathlib import Path
+          import torch
+          from fim_experiments.main import build_system, select_benchmark
+
+          root=Path(sys.argv[1]); seed=int(sys.argv[2]); benchmark_name=sys.argv[3]
+          exp=root/'train'/'memory_lite_train'/f'{benchmark_name}_fim_plus'
+          ck=torch.load(exp/'checkpoints'/'final_state.pt',map_location='cpu',weights_only=False)
+          cfg=ck['config']; cfg['runtime']['device']='cpu'
+          bench=select_benchmark(cfg['benchmark'])
+          model=build_system(cfg,bench,torch.device('cpu'))
+          model.load_state_dict(ck['model_state_dict'],strict=True); model.eval()
+          eval_seed=seed+200000; random.seed(eval_seed); torch.manual_seed(eval_seed)
+          B=24; steps=16
+          x0=bench.sample_initial_state(B,device='cpu'); gt=bench.rollout(x0,steps=steps)
+
+          def prep(x):
+              if x.ndim==2: return x.unsqueeze(1).unsqueeze(1)
+              if x.ndim==3: return x.unsqueeze(1)
+              return x
+          def target_like(pred,t):
+              return t if t.shape==pred.shape else t.reshape_as(pred)
+
+          @torch.no_grad()
+          def run(name):
+              model.reset_state(); cur=prep(x0); sse=torch.zeros(B); count=torch.zeros(B)
+              sal_all=[]; bank_sizes=[]; retrieval=[]; step_mse=[]
+              for t in range(steps):
+                  if name=='clean': store,retrieve=True,True
+                  elif name=='no_retrieval': store,retrieve=True,False
+                  elif name=='no_memory': store,retrieve=False,False
+                  elif name=='clear_halfway':
+                      if t==steps//2: model.clear_memory()
+                      store,retrieve=True,True
+                  out=model.step(cur,store_traces=store,retrieve=retrieve)
+                  pred=out.prediction; tar=target_like(pred,gt[:,t+1])
+                  e=(pred.float()-tar.float()).reshape(B,-1).square()
+                  sse+=e.sum(1); count+=e.shape[1]; step_mse.append(float(e.mean()))
+                  sal=out.salience.detach().float().reshape(B,-1).mean(1)
+                  sal_all.extend(float(v) for v in sal.tolist())
+                  bank_sizes.append(int(len(model.bank))); retrieval.append(out.retrieved is not None)
+                  cur=prep(pred.detach())
+              per=sse/count.clamp_min(1)
+              return {
+                'mean_mse':float(per.mean()),'median_mse':float(per.median()),
+                'per_example_mse':[float(v) for v in per.tolist()],
+                'retrieval_steps':int(sum(retrieval)),'retrieval_fraction':float(sum(retrieval)/steps),
+                'max_bank_size':int(max(bank_sizes) if bank_sizes else 0),'final_bank_size':int(bank_sizes[-1] if bank_sizes else 0),
+                'salience_min':min(sal_all),'salience_max':max(sal_all),'salience_mean':sum(sal_all)/len(sal_all),
+                'salience_threshold':float(model.salience_threshold),'fraction_salience_above_threshold':float(sum(v>model.salience_threshold for v in sal_all)/len(sal_all)),
+                'step_mse':step_mse,
+              }
+          names=['clean','no_retrieval','no_memory','clear_halfway']; r={n:run(n) for n in names}
+          clean=torch.tensor(r['clean']['per_example_mse']); paired={}
+          for n in names[1:]:
+              d=torch.tensor(r[n]['per_example_mse'])-clean
+              sd=float(d.std(unbiased=True)) if d.numel()>1 else 0.0
+              paired[n]={'mean_delta_other_minus_clean':float(d.mean()),'median_delta':float(d.median()),'clean_wins':int((d>0).sum()),'ties':int((d==0).sum()),'clean_losses':int((d<0).sum()),'n':int(d.numel()),'paired_dz':float(d.mean()/sd) if sd>0 else None}
+          payload={'scientific_target_sha':'0d4d34b0dacbc13fbf10c3e4316ea44fc4f40d6b','status':'EXPLORATORY_POST_AUDIT_DIAGNOSTIC','benchmark':benchmark_name,'seed':seed,'eval_seed':eval_seed,'training_budget':{'epochs':5,'dataset_size':256,'batch_size':16,'hidden':64,'trace_dim':32},'conditions':r,'paired_effects':paired}
+          (root/'memory_diagnostic.json').write_text(json.dumps(payload,indent=2))
+          print(json.dumps(payload,indent=2))
+          PY
+      - name: Manifest
+        if: always()
+        run: |
+          root="artifacts/memory_lite/${{ matrix.benchmark }}/seed_${{ matrix.seed }}"
+          { echo "scientific_target_sha=$TARGET_SHA"; echo "workflow_sha=$GITHUB_SHA"; echo "utc=$(date -u +'%Y-%m-%dT%H:%M:%SZ')"; } > "$root/PROVENANCE.txt"
+          find "$root" -type f -print0 | sort -z | xargs -0 sha256sum > "$root/MANIFEST.sha256" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qfim-memory-lite-${{ matrix.benchmark }}-${{ matrix.seed }}
+          path: artifacts/memory_lite/${{ matrix.benchmark }}/seed_${{ matrix.seed }}
+          if-no-files-found: warn

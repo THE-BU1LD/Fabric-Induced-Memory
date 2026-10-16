@@ -1,0 +1,6 @@
+{
+  "platform": "darwin",
+  "python": "3.11.15 (main, Jul 23 2026, 14:34:23) [Clang 22.1.3 ]",
+  "threads": 1,
+  "torch": "2.12.1"
+}

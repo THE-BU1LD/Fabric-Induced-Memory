@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-16T02:56:02.161623+00:00",
+  "status": "BLOCKED_ADMISSION",
+  "tests_run": 0,
+  "manifest_sha256": "d7ca447f6ec0204fbca892835b9186ad391064cb87d85ea56bd1b6abb9ab5597",
+  "model_modules_imported": [],
+  "scope": "Tensor software verification only; zero scientific trials.",
+  "samples": [
+    {
+      "free_mib": 181.671875,
+      "pageouts": 820939,
+      "swap_mib": 10442.06
+    },
+    {
+      "free_mib": 170.9375,
+      "pageouts": 820993,
+      "swap_mib": 10489.06
+    }
+  ],
+  "reason": "ValueError('Memory/pageout/swap admission failed')",
+  "elapsed_seconds": 2.339420542004518,
+  "peak_rss_raw": 26591232
+}

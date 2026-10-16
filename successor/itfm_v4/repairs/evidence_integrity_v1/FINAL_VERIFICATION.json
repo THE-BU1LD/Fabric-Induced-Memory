@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-15T14:53:20.985605+00:00",
+  "status": "PASS_ENGINEERING_VERIFICATION_NOT_SCIENTIFIC_SUCCESS",
+  "tests": 43,
+  "tests_passed": 43,
+  "test_receipt": "TEST_ROUND_3.json",
+  "ruff_check": "PASS",
+  "ruff_format": "PASS",
+  "formatting_ast_equivalent": true,
+  "protected_predecessor_files": 440,
+  "protected_predecessor_unchanged": 440,
+  "v3_frozen_sources": 12,
+  "v3_unchanged": 12,
+  "original_public_sources": {
+    "verification.py": true,
+    "statistics.py": true,
+    "adapter.py": true
+  },
+  "prior_audit_files": {
+    "CONCEPT_AUDIT.json": true,
+    "FLAW_CHECKLIST.json": true,
+    "FLAW_CHECKLIST.md": true,
+    "MATH_AND_FALSIFIERS.md": true,
+    "README.md": true,
+    "RESEARCH_STATE.json": true,
+    "audit/FINAL_VERIFICATION.json": true,
+    "audit/PORTFOLIO_RECONCILIATION.json": true,
+    "audit/PORTFOLIO_STATE_BEFORE.json": true,
+    "audit/PORTFOLIO_STATE_BEFORE_APPLY.json": true,
+    "audit/PORTFOLIO_STATE_CANDIDATE.json": true,
+    "audit/RESOURCE_ADMISSION.json": true,
+    "audit/SOURCE_DEFECTS.json": true,
+    "audit/SOURCE_DEFECTS_REFINED.json": true,
+    "audit/UPSTREAM_LICENSE_SCAN.json": true,
+    "audit_source.py": true
+  },
+  "prior_audit_state_preservation": "Canonical state intentionally advanced; original bytes retained in STATE_BEFORE.json and match prior seal. All other 15 sealed audit files unchanged.",
+  "model_runs": 0,
+  "protected_evaluation_opened": false,
+  "independent_review": false,
+  "repair_integration": "NOT_INTEGRATED_IN_FROZEN_RUNNERS",
+  "local_links": [
+    {
+      "file": "README.md",
+      "target": "TEST_ROUND_3.json",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "CONTRACT.md",
+      "exists": true
+    },
+    {
+      "file": "README.md",
+      "target": "REPAIR_DISPOSITION.json",
+      "exists": true
+    }
+  ],
+  "portfolio_validation": {
+    "status": "VALID",
+    "projects": 33,
+    "warnings": 0,
+    "live_git_checked": false,
+    "initial_schema_failure_retained": "INITIAL_CLOSEOUT_CHECKS.json",
+    "resolution": "Engineering budget moved into allowed development field; limits unchanged."
+  }
+}

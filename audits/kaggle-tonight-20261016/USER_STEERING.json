@@ -1,0 +1,6 @@
+{
+  "request": "Prepare the notebook for a later GPU launch",
+  "action": "Local preparation only; no execution now. Require explicit future completion deadline when first live ledger is created. Preserve original blocked-attempt ledger and archive.",
+  "initial_archive": "fim-tonight-evidence-20261016.zip",
+  "initial_archive_sha256": "c26f18a0047199a6064766ecdeac49d098b2a3bf599013ecdb62940eb3ad1ec5"
+}

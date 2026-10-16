@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+datasets/materialized/
+datasets/downloads/
+*.partial
+results/*
+!results/.gitkeep
+

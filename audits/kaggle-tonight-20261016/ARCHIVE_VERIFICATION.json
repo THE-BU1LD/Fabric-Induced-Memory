@@ -1,0 +1,10 @@
+{
+  "status": "PASS_LOCAL_ARCHIVE_READBACK",
+  "path": "audits/kaggle-tonight-20261016/fim-later-launch-evidence-20261016.zip",
+  "sha256": "3bf2f28fd3ac68587ff0d5f76531e2d304d6553eb5d4317eaf0fe241c68f58ce",
+  "bytes": 409269,
+  "verified_files": 41,
+  "remote_uploaded": false,
+  "remote_retrieval_verified": false,
+  "initial_archive_preserved": true
+}

@@ -1,0 +1,27 @@
+{
+  "torch": {
+    "version": "2.12.1",
+    "wheels": [
+      {
+        "filename": "torch-2.12.1-cp311-cp311-macosx_14_0_arm64.whl",
+        "sha256": "ef81f503912effea2ce3d9b12a2e3a6ed488943e91271c90c7a829f60baf6aa2",
+        "requires_python": ">=3.10"
+      }
+    ]
+  },
+  "numpy": {
+    "version": "2.4.6",
+    "wheels": [
+      {
+        "filename": "numpy-2.4.6-cp311-cp311-macosx_11_0_arm64.whl",
+        "sha256": "110f8b71aacb688ec69062bb7f6938a0f8acb01b7c1c4beb453c65b6d234584d",
+        "requires_python": ">=3.11"
+      },
+      {
+        "filename": "numpy-2.4.6-cp311-cp311-macosx_14_0_arm64.whl",
+        "sha256": "4cfe66903cc32a9921a6733d96b19bb6abf310397581bbad89c228f5abaf0ee8",
+        "requires_python": ">=3.11"
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+name: Evidence documentation gate
+
+on:
+  pull_request:
+    paths:
+      - "docs/experiments.md"
+      - ".github/workflows/evidence-docs.yml"
+  push:
+    branches:
+      - "research/evidence-gate-experiment-docs"
+    paths:
+      - "docs/experiments.md"
+      - ".github/workflows/evidence-docs.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-boundary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify evidence-gated experiment language
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          text = Path("docs/experiments.md").read_text(encoding="utf-8")
+          lower = text.lower()
+
+          forbidden = [
+              "full model consistently outperforms",
+              "full fim consistently outperforms",
+              "all ablations confirm",
+          ]
+          hits = [phrase for phrase in forbidden if phrase in lower]
+          if hits:
+              raise SystemExit(f"unsupported blanket component claim remains: {hits}")
+
+          required_signals = [
+              "not established",
+              "provenance",
+              "rerun",
+          ]
+          missing = [signal for signal in required_signals if signal not in lower]
+          if missing:
+              raise SystemExit(f"evidence-boundary language missing: {missing}")
+
+          verdict_signals = ["inconclusive", "mixed"]
+          if not any(signal in lower for signal in verdict_signals):
+              raise SystemExit(
+                  "evidence-boundary verdict missing: expected an explicit inconclusive or mixed state"
+              )
+
+          if "seed" not in lower or "commit" not in lower:
+              raise SystemExit("minimum reproducibility/provenance language is incomplete")
+
+          print("PASS: experiment documentation preserves the evidence-gated component-claim boundary")
+          PY

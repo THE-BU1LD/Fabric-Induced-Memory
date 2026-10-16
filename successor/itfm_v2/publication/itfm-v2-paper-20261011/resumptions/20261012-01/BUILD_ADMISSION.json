@@ -1,0 +1,27 @@
+{
+  "admission": {
+    "samples": [
+      {
+        "free_plus_speculative_bytes": 153796608,
+        "pageouts": 975844,
+        "swap_used_mib": 9994.69
+      },
+      {
+        "free_plus_speculative_bytes": 159711232,
+        "pageouts": 975846,
+        "swap_used_mib": 9994.69
+      }
+    ],
+    "status": "BLOCKED",
+    "threshold_bytes": 536870912
+  },
+  "boundary": "Build admission check only; source copying, compilation and rendering not started.",
+  "checked_at": "2026-10-12T06:48:15.675212+05:30",
+  "compiler_launched": false,
+  "manuscript": {
+    "generated_results.tex": "8857d7a23222945ec8e7c88420369dd13989c38d8c6047127a6fe4ff163ef1b3",
+    "main.tex": "731e75c88886659cdd6d19dffc32c7c8c1f47afc3096a2ea8d1350723a30e9e4",
+    "references.bib": "02691c9947bdc747b7b6c6133bbfae51cdd7cbf594d9b26990b798db52108782"
+  },
+  "status": "BLOCKED_RESOURCE"
+}

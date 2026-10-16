@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "project": "ITFM v2 / prospective ITFM-R",
+  "recorded_at": "2026-10-11T17:12:57+05:30",
+  "request": "complete the research lifecycle and deliver an arXiv-ready paper after results",
+  "verdict": "BOUNDED_SYNTHETIC_RESULT_MANUSCRIPT_AUTHORED_PUBLIC_CONFIRMATION_AND_RELEASE_BLOCKED",
+  "research_question": "Can a same-owner, past-only episodic tensor memory causally reuse a spatial innovation outside an exactly aliased visible context?",
+  "precise_statement": "Finite visible context is insufficient under exact paired aliasing. A same-owner episodic residual tensor should recover the hidden innovation, and value-only interventions should remove, reverse, spatially destroy, or swap its forecast effect in predefined ways.",
+  "checkpoints": {
+    "initialize_canonical_state": "PASS_EXISTING_STATE_READ_AND_PRESERVED",
+    "abstract_problem_and_prior_art": "PASS_BOUNDED_NOVELTY_BOUNDARY",
+    "concrete_adversarial_audit": "PASS_SYNTHETIC_QUESTION_PUBLIC_SCOPE_REMAINS_CHALLENGED",
+    "checkpoint_1_idea_ready": "PASS_FOR_SYNTHETIC_MECHANISM_ONLY",
+    "paper_prespecification": "PASS_EXISTING_CONTRACT_AND_METHOD",
+    "checkpoint_2_model_specification": "PASS_FOR_SYNTHETIC_REFERENCE_IMPLEMENTATION",
+    "experiments_and_methodology": "PASS_FROZEN_SYNTHETIC; PUBLIC_PROTOCOL_DESIGNED_NOT_ADMITTED",
+    "checkpoint_3_methodology_ready": "PASS_SYNTHETIC; PUBLIC_PENDING_S0",
+    "coding_phase_1_model": "PASS_SYNTHETIC; PUBLIC_STACK_STATIC_RUNTIME_UNVERIFIED",
+    "coding_phase_2_experiment_system": "PASS_SYNTHETIC; PUBLIC_EXTERNAL_INTEGRATIONS_BLOCKED",
+    "coding_phase_3_efficiency": "PASS_BOUNDED_SYNTHETIC; PUBLIC_NOT_PROFILED",
+    "checkpoint_4_model_implemented": "PASS_SYNTHETIC",
+    "checkpoint_5_experiment_system_implemented": "PASS_SYNTHETIC; PARTIAL_PUBLIC",
+    "dry_run": "PASS_SYNTHETIC",
+    "checkpoint_6_run_ready": "PASS_SYNTHETIC; PUBLIC_FAIL_RESOURCE_DATA_LICENSE_COMPUTE",
+    "development_runs": "PASS_BOUNDED_DEVELOPMENT_3_OF_3",
+    "scientific_freeze": "PASS_SYNTHETIC; PUBLIC_PROTOCOL_FROZEN_PRE_EXECUTION",
+    "checkpoint_7_confirmatory_protocol": "PASS_DESIGN_ONLY_FOR_PUBLIC_CAMPAIGN",
+    "confirmatory_runs": "NOT_EXECUTED",
+    "evidence_audit": "PASS_SYNTHETIC_96_OF_96; PUBLIC_NO_EVIDENCE",
+    "checkpoint_8_evidence_locked": "PASS_SYNTHETIC_ONLY",
+    "finish_paper": "SOURCE_AUTHORED_FROM_VERIFIED_SYNTHETIC_EVIDENCE",
+    "independent_verification": "LOCAL_SCRIPT_LEVEL_ONLY; EXTERNAL_NOT_COMPLETED",
+    "checkpoint_9_verified": "NOT_REACHED",
+    "release": "NOT_REACHED",
+    "checkpoint_10_research_complete": "NOT_REACHED"
+  },
+  "retained_results": {
+    "classification": "SUPPORTED_BOUNDED_SYNTHETIC_MECHANISM",
+    "seeds_completed": 3,
+    "seeds_expected": 3,
+    "independent_script_checks_passed": 96,
+    "independent_script_checks_total": 96,
+    "public_data_advantage": "NOT_EVALUATED",
+    "state_of_the_art": "NOT_EVALUATED"
+  },
+  "paper": {
+    "main_source": "paper/main.tex",
+    "bibliography": "paper/references.bib",
+    "results_table": "paper/generated_results.tex",
+    "claim_evidence_map": "paper/CLAIM_EVIDENCE_MAP.md",
+    "release_verifier": "scripts/build_paper_release.py",
+    "source_verification": "PASS_19_OF_19_STANDARD_LIBRARY_NO_TORCH",
+    "source_verification_receipt": "paper/SOURCE_VERIFICATION_2026-10-11.json",
+    "compiled_pdf": "NOT_CREATED_RESOURCE_GATE_CLOSED",
+    "visual_quality_assurance": "NOT_RUN",
+    "arxiv_status": "NOT_READY"
+  },
+  "resource_samples": [
+    {
+      "checked_at": "2026-10-11T17:10:32+05:30",
+      "page_size_bytes": 16384,
+      "free_pages": 4338,
+      "speculative_pages": 12887,
+      "free_plus_speculative_bytes": 282214400,
+      "threshold_bytes": 536870912,
+      "pageouts_cumulative": 662980,
+      "swap_used_mib": 5699.44,
+      "status": "BLOCKED"
+    },
+    {
+      "checked_at": "2026-10-11T17:12:57+05:30",
+      "page_size_bytes": 16384,
+      "free_pages": 5432,
+      "speculative_pages": 6402,
+      "free_plus_speculative_bytes": 193888256,
+      "threshold_bytes": 536870912,
+      "pageouts_cumulative": 664029,
+      "pageouts_increase_from_prior_sample": 1049,
+      "swap_used_mib": 5752.12,
+      "status": "BLOCKED"
+    }
+  ],
+  "hard_blockers": [
+    "resource headroom is below the immutable 512 MiB floor and pageouts are rising",
+    "POBench-PDE and HS-FNO datasets are absent and not hash-registered",
+    "frontier source and redistribution license admission is unresolved",
+    "paper-faithful LANO and HS-FNO reproduction receipts are absent",
+    "external baselines are unavailable until exact reproduction receipts exist",
+    "no accelerator, wall-clock, energy, or cost budget is authorized",
+    "no public validation oracle-memory gap has been demonstrated",
+    "protected multiseed evaluation and external independent reproduction have not run",
+    "the manuscript PDF has not been compiled or visually inspected"
+  ],
+  "prohibited_claims": [
+    "ITFM-R improves public PDE forecasting",
+    "ITFM-R outperforms LANO or HS-FNO",
+    "ITFM-R is state of the art",
+    "the public stack passed runtime tests",
+    "the paper is arXiv-ready",
+    "the study has been independently reproduced"
+  ]
+}

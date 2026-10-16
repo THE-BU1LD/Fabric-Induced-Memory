@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-u",
+    "successor/itfm_v2/scripts/kaggle.py",
+    "test",
+    "--device",
+    "cpu",
+    "--receipt",
+    "audits/kaggle-readiness-20261016/CPU_TENSOR_TESTS.json"
+  ],
+  "exit_code": 1,
+  "elapsed_seconds": 0.6061632079945412
+}

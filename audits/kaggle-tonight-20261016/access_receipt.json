@@ -1,0 +1,23 @@
+{
+  "status": "BLOCKED_BEFORE_EXECUTION",
+  "notebook_url": "https://www.kaggle.com/code/ryangomez010/fim-private-readiness-2026-10-16/edit",
+  "private_observed": true,
+  "phone_verification_required": true,
+  "accelerator_options_observed": [
+    "None",
+    "T4 x2 (disabled)",
+    "TPU v5e-8 (disabled)"
+  ],
+  "quota_q0": null,
+  "final_quota": null,
+  "active_events_observed": 0,
+  "active_events_observed_at": "2026-10-16T06:52:28Z",
+  "code_uploaded": false,
+  "cpu_cloud_execution_started": false,
+  "gpu_allocation_started": false,
+  "gpu_session_seconds": 0,
+  "physical_gpu_hours": 0,
+  "platform_reported_quota_debit": null,
+  "persistence_retrieval_verified": false,
+  "editor_status": "Editor Loading; Start session, Run, Import Notebook disabled after one reload"
+}

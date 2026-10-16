@@ -1,0 +1,94 @@
+{
+  "checked_on": "2026-10-11",
+  "scope": "All six citations in revised narrow manuscript; targeted comparison, not a systematic novelty proof. Bibliography uses arXiv metadata rather than unverified journal details.",
+  "references": {
+    "graves2014ntm": {
+      "url": "https://arxiv.org/abs/1410.5401v2",
+      "title": "Neural Turing Machines",
+      "authors": [
+        "Alex Graves",
+        "Greg Wayne",
+        "Ivo Danihelka"
+      ],
+      "year": 2014,
+      "checked": "primary metadata and full HTML associative-recall discussion",
+      "permitted_claim": "External differentiable memory and associative recall predate ITFM."
+    },
+    "hsieh2024ruler": {
+      "url": "https://arxiv.org/abs/2404.06654v3",
+      "title": "RULER: What's the Real Context Size of Your Long-Context Language Models?",
+      "authors": [
+        "Cheng-Ping Hsieh",
+        "Simeng Sun",
+        "Samuel Kriman",
+        "Shantanu Acharya",
+        "Dima Rekesh",
+        "Fei Jia",
+        "Yang Zhang",
+        "Boris Ginsburg"
+      ],
+      "year": 2024,
+      "checked": "primary metadata and full HTML task taxonomy",
+      "permitted_claim": "Synthetic retrieval tests, multihop tracing, and aggregation are established; not empirical ITFM comparators."
+    },
+    "geiger2021causal": {
+      "url": "https://arxiv.org/abs/2106.02997v2",
+      "title": "Causal Abstractions of Neural Networks",
+      "authors": [
+        "Atticus Geiger",
+        "Hanson Lu",
+        "Thomas Icard",
+        "Christopher Potts"
+      ],
+      "year": 2021,
+      "checked": "primary metadata and full HTML intervention definition",
+      "permitted_claim": "Interchange interventions for internal causal roles predate ITFM."
+    },
+    "lin2021mori": {
+      "url": "https://arxiv.org/abs/2101.05873v3",
+      "title": "Data-driven learning for the Mori-Zwanzig formalism: a generalization of the Koopman learning framework",
+      "authors": [
+        "Yen Ting Lin",
+        "Yifeng Tian",
+        "Marian Anghel",
+        "Daniel Livescu"
+      ],
+      "year": 2021,
+      "checked": "primary metadata and abstract",
+      "permitted_claim": "Memory operators for reduced dynamics; no transcribed numerical results."
+    },
+    "ruiz2024memory": {
+      "url": "https://arxiv.org/abs/2409.02313v2",
+      "title": "On the Benefits of Memory for Modeling Time-Dependent PDEs",
+      "authors": [
+        "Ricardo Buitrago Ruiz",
+        "Tanya Marwah",
+        "Albert Gu",
+        "Andrej Risteski"
+      ],
+      "year": 2024,
+      "checked": "primary metadata and abstract",
+      "permitted_claim": "MemNO combines state-space models and FNO to model temporal memory; no ITFM comparison."
+    },
+    "han2025raft": {
+      "url": "https://arxiv.org/abs/2505.04163v1",
+      "title": "Retrieval Augmented Time Series Forecasting",
+      "authors": [
+        "Sungwon Han",
+        "Seungeon Lee",
+        "Meeyoung Cha",
+        "Sercan O Arik",
+        "Jinsung Yoon"
+      ],
+      "year": 2025,
+      "checked": "primary metadata and abstract",
+      "permitted_claim": "Retrieval of historical continuations for forecasting; no ITFM comparison."
+    }
+  },
+  "failed_fetches": [
+    {
+      "url": "https://www.nature.com/articles/nature20101",
+      "reason": "publisher redirected to inaccessible authorization page; not used as a citation"
+    }
+  ]
+}

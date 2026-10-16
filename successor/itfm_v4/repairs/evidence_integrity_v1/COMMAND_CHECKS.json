@@ -1,0 +1,45 @@
+{
+  "scope": "Final bounded engineering checks; no scientific execution",
+  "checks": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "d9eeb1",
+        "wall_time_seconds": 0.670166125,
+        "exit_code": 0,
+        "original_token_count": 38,
+        "output": "{\"status\": \"PASS_SOFTWARE_TESTS_ONLY\", \"tests_run\": 43, \"failures\": 0, \"errors\": 0, \"elapsed_seconds\": 0.659142124990467, \"model_modules_imported\": []}\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "950b31",
+        "wall_time_seconds": 0.000010125,
+        "exit_code": 0,
+        "original_token_count": 5,
+        "output": "All checks passed!\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "852b52",
+        "wall_time_seconds": 0.000009375,
+        "exit_code": 0,
+        "original_token_count": 7,
+        "output": "3 files already formatted\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "683226",
+        "wall_time_seconds": 0.000010625,
+        "exit_code": 0,
+        "original_token_count": 26,
+        "output": "{\"formatting_ast_equivalence\": {\"evidence.py\": true, \"test_evidence.py\": true, \"run_tests.py\": true}}\n"
+      }
+    }
+  ]
+}

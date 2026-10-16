@@ -1,0 +1,54 @@
+{
+  "at": "2026-10-16T02:44:13.974723+00:00",
+  "preservation": {
+    "protected_predecessors": {
+      "count": 440,
+      "mismatches": []
+    },
+    "frozen_v3": {
+      "count": 12,
+      "mismatches": []
+    },
+    "previous_repair_package": {
+      "count": 44,
+      "mismatches": []
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "ruff",
+        "check",
+        "journal.py",
+        "durable.py",
+        "verify_export.py",
+        "test_recovery.py",
+        "run_recovery_tests.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ruff",
+        "format",
+        "--check",
+        "journal.py",
+        "durable.py",
+        "verify_export.py",
+        "test_recovery.py",
+        "run_recovery_tests.py"
+      ],
+      "exit_code": 0,
+      "stdout": "5 files already formatted\n",
+      "stderr": ""
+    }
+  ],
+  "parsed_python_files": 5,
+  "test_status": "PASS_SOFTWARE_TESTS_ONLY",
+  "tests": 69,
+  "tested_source_mismatches": [],
+  "model_imports": [],
+  "scientific_trials": 0
+}

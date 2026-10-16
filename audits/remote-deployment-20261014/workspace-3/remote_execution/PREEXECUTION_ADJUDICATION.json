@@ -1,0 +1,10 @@
+{
+  "runs": [
+    {
+      "id": 38577058691,
+      "head_sha": "99e9b1445c8b7a7169fadd064978d90d52cb6c3a",
+      "reason": "setup-python lacks exact 3.11.15 macOS ARM64; all numerical stages skipped; downloaded retained assets verified; v3 campaign not consumed",
+      "retained_draft": "itfm-execution-38577058691"
+    }
+  ]
+}

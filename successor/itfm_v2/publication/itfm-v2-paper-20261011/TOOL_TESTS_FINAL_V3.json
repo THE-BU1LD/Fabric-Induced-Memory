@@ -1,0 +1,54 @@
+{
+  "boundary": "15 standard-library preservation/release tests plus Ruff, not scientific runtime execution.",
+  "checked_at": "2026-10-11T20:27:58.933321+05:30",
+  "status": "PASS",
+  "steps": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/tools",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "stderr": "test_all_output_wrappers_protect_prior_manuscript (test_release.ReleaseTests.test_all_output_wrappers_protect_prior_manuscript) ... ok\ntest_command_budget_terminates_child (test_release.ReleaseTests.test_command_budget_terminates_child) ... ok\ntest_existing_receipt_never_overwritten (test_release.ReleaseTests.test_existing_receipt_never_overwritten) ... ok\ntest_frozen_result_write_rejected (test_release.ReleaseTests.test_frozen_result_write_rejected) ... ok\ntest_generic_attestation_cannot_clear_any_gate (test_release.ReleaseTests.test_generic_attestation_cannot_clear_any_gate) ... ok\ntest_path_escape_rejected (test_release.ReleaseTests.test_path_escape_rejected) ... ok\ntest_pdf_build_refuses_existing_output (test_release.ReleaseTests.test_pdf_build_refuses_existing_output) ... ok\ntest_pdf_resource_stop_creates_no_source_or_pdf (test_release.ReleaseTests.test_pdf_resource_stop_creates_no_source_or_pdf) ... ok\ntest_replay_refuses_existing_output_before_verification (test_release.ReleaseTests.test_replay_refuses_existing_output_before_verification) ... ok\ntest_replay_resource_stop_imports_no_model (test_release.ReleaseTests.test_replay_resource_stop_imports_no_model) ... ok\ntest_stage_refuses_unmet_gates_without_creating_output (test_release.ReleaseTests.test_stage_refuses_unmet_gates_without_creating_output) ... ok\ntest_stale_manuscript_receipt_rejected (test_release.ReleaseTests.test_stale_manuscript_receipt_rejected) ... ok\ntest_status_label_alone_cannot_clear_release_gate (test_release.ReleaseTests.test_status_label_alone_cannot_clear_release_gate) ... ok\ntest_symlink_escape_rejected (test_release.ReleaseTests.test_symlink_escape_rejected) ... ok\ntest_visual_review_must_cover_every_page (test_release.ReleaseTests.test_visual_review_must_cover_every_page) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.138s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "ruff",
+        "check",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/tools",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/scripts/build_paper_release.py",
+        "--output-format",
+        "concise"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "All checks passed!\n"
+    },
+    {
+      "command": [
+        "ruff",
+        "format",
+        "--check",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/publication/itfm-v2-paper-20261011/tools"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "4 files already formatted\n"
+    }
+  ],
+  "tools_sha256": {
+    "build_pdf.py": "991c0eef11eb63ea95a5f4c20704c8e391e7cd2ae9d2690c65413ebb9620ab34",
+    "release.py": "ddb15b2cd70edccd1384abe4bd7b92d5b8d413ba04c42222bb64ff5ba3042145",
+    "reproduce.py": "7c01a56201dba31c2956c155d7270282d948f44fde790a4e6e7de8a654735a51",
+    "test_release.py": "58b73dd1f04e02159443399b7d121e5a95f61839dea1c7032fe8eba86ece4211"
+  }
+}

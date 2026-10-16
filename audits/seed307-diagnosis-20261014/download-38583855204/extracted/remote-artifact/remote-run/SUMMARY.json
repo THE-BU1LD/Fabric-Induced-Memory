@@ -1,0 +1,10 @@
+{
+  "status": "BLOCKED_OR_FAILED_RETAINED",
+  "mode": "run",
+  "manifest_sha256": "4ac81e7c97e13a071c2fd7b565a799dc4827769c9f6890236bcf0f1d01cbb436",
+  "github_sha": "e1555619c8992f4faf46fe442d3751623fd57852",
+  "run_id": "38583855204",
+  "boundary": "Remote execution by same operator, not independent replication",
+  "error": "v3_run failed; receipt/log retained",
+  "source_preserved": true
+}

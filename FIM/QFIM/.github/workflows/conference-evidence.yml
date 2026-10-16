@@ -1,0 +1,232 @@
+name: QFIM conference evidence
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/conference-evidence.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  SCIENTIFIC_SHA: 0d4d34b0dacbc13fbf10c3e4316ea44fc4f40d6b
+  TARGET_SHA: c08058f923ae59d64aa1f5ef10b24d5cee370aba
+  PYTHONUNBUFFERED: '1'
+
+jobs:
+  code-health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest
+      - name: Freeze provenance
+        run: |
+          mkdir -p artifacts/submission_freeze/logs
+          {
+            echo '# QFIM PROVENANCE'
+            echo
+            echo "UTC timestamp: $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+            echo "Repository: $GITHUB_REPOSITORY"
+            echo "Workflow commit: $GITHUB_SHA"
+            echo "Original scientific freeze: $SCIENTIFIC_SHA"
+            echo "Evaluation-fix target: $TARGET_SHA"
+            echo "Checked-out HEAD: $(git rev-parse HEAD)"
+            echo "Event ref: $GITHUB_REF"
+            echo
+            echo 'Git status:'
+            git status --short
+            echo
+            python --version
+            uname -a
+          } > artifacts/submission_freeze/PROVENANCE.md
+          python - <<'PY' >> artifacts/submission_freeze/PROVENANCE.md
+          import json, platform, sys, torch
+          payload = {
+              'repository': 'THE-BU1LD/QFIM',
+              'scientific_freeze_sha': '0d4d34b0dacbc13fbf10c3e4316ea44fc4f40d6b',
+              'evaluation_fix_sha': 'c08058f923ae59d64aa1f5ef10b24d5cee370aba',
+              'python': sys.version,
+              'platform': platform.platform(),
+              'torch': torch.__version__,
+              'cuda_available': torch.cuda.is_available(),
+              'evaluation_change': 'results/run_results.py + results/evaluate.py + regression test; model/training/benchmarks unchanged',
+          }
+          print(f"Python: {sys.version}")
+          print(f"Platform: {platform.platform()}")
+          print(f"Torch: {torch.__version__}")
+          print(f"CUDA available: {torch.cuda.is_available()}")
+          with open('artifacts/submission_freeze/provenance.json','w',encoding='utf-8') as f:
+              json.dump(payload, f, indent=2)
+          PY
+          sha256sum requirements.txt pyproject.toml pytest.ini configs/* scripts/run_full_suite.py scripts/run_paper_lorenz.sh results/run_results.py results/evaluate.py > artifacts/submission_freeze/input_hashes.sha256
+      - name: Compile
+        run: |
+          set -o pipefail
+          python -m compileall -q fim fim_experiments results scripts tests 2>&1 | tee artifacts/submission_freeze/logs/compile.log
+      - name: Import package
+        run: |
+          set -o pipefail
+          python -c "import fim; import fim_experiments; import results.run_results; import results.evaluate" 2>&1 | tee artifacts/submission_freeze/logs/import.log
+      - name: Tests
+        run: |
+          set -o pipefail
+          pytest -q 2>&1 | tee artifacts/submission_freeze/logs/pytest.log
+      - name: Entrypoint audit
+        if: always()
+        run: |
+          {
+            echo '# Entrypoint audit'
+            echo
+            for f in scripts/run_train.sh scripts/run_eval.sh scripts/run_ablation.sh scripts/run_paper_lorenz.sh scripts/run_full_suite.py; do
+              if [ -e "$f" ]; then echo "PRESENT $f"; else echo "MISSING $f"; fi
+            done
+            if [ -e run_train.py ]; then echo 'PRESENT run_train.py'; else echo 'MISSING run_train.py (scripts/run_ablation.sh references it; stale entrypoint)'; fi
+            echo
+            echo 'Known evaluation correction:'
+            echo 'Original frozen evaluator disabled store_traces and retrieve during normal rollout.'
+            echo 'Current evaluation-fix target enables the full path and reports paired no-retrieval/no-memory controls.'
+          } > artifacts/submission_freeze/ENTRYPOINT_AUDIT.md
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qfim-code-health-v2
+          path: artifacts/submission_freeze
+          if-no-files-found: error
+
+  canonical-lorenz:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run canonical Lorenz training with corrected evaluation
+        run: |
+          mkdir -p artifacts/canonical_lorenz_v2
+          set -o pipefail
+          bash scripts/run_paper_lorenz.sh 2>&1 | tee artifacts/canonical_lorenz_v2/run.log
+      - name: Preserve outputs
+        if: always()
+        run: |
+          cp -a results artifacts/canonical_lorenz_v2/results 2>/dev/null || true
+          git status --short > artifacts/canonical_lorenz_v2/git_status_after_run.txt
+          find artifacts/canonical_lorenz_v2 -type f -print0 | sort -z | xargs -0 sha256sum > artifacts/canonical_lorenz_v2/MANIFEST.sha256 || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qfim-canonical-lorenz-v2
+          path: artifacts/canonical_lorenz_v2
+          if-no-files-found: warn
+
+  targeted-replication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        seed: [11, 23, 37, 51, 71]
+        benchmark: [lorenz, fractional, delayed_recall]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Replicated comparison with paired memory controls
+        run: |
+          root="artifacts/replication_v2/${{ matrix.benchmark }}/seed_${{ matrix.seed }}"
+          mkdir -p "$root"
+          set -o pipefail
+          python scripts/run_full_suite.py \
+            --benchmarks '${{ matrix.benchmark }}' \
+            --models 'fim_plus,deeponet,ssm' \
+            --device cpu \
+            --results_root "$root/results" \
+            --exp_name targeted_replication_v2 \
+            --seed '${{ matrix.seed }}' \
+            --epochs 5 \
+            --batch_size 16 \
+            --dataset_size 256 \
+            --eval_steps 20 \
+            --rollout_steps 16 \
+            2>&1 | tee "$root/run.log"
+          find "$root" -type f -print0 | sort -z | xargs -0 sha256sum > "$root/MANIFEST.sha256" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qfim-v2-${{ matrix.benchmark }}-${{ matrix.seed }}
+          path: artifacts/replication_v2/${{ matrix.benchmark }}/seed_${{ matrix.seed }}
+          if-no-files-found: warn
+
+  secondary-physics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix:
+        benchmark: [burgers, reaction_diffusion, kuramoto, levy]
+        model: [fim_plus, deeponet, ssm]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run secondary implemented condition
+        run: |
+          root="artifacts/secondary/${{ matrix.benchmark }}/${{ matrix.model }}"
+          mkdir -p "$root"
+          set -o pipefail
+          python scripts/run_full_suite.py \
+            --benchmarks '${{ matrix.benchmark }}' \
+            --models '${{ matrix.model }}' \
+            --device cpu \
+            --results_root "$root/results" \
+            --exp_name secondary_physics \
+            --seed 42 \
+            --epochs 3 \
+            --batch_size 8 \
+            --dataset_size 96 \
+            --eval_steps 16 \
+            --rollout_steps 8 \
+            2>&1 | tee "$root/run.log"
+          find "$root" -type f -print0 | sort -z | xargs -0 sha256sum > "$root/MANIFEST.sha256" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qfim-secondary-${{ matrix.benchmark }}-${{ matrix.model }}
+          path: artifacts/secondary/${{ matrix.benchmark }}/${{ matrix.model }}
+          if-no-files-found: warn

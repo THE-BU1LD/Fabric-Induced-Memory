@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-11T17:26:00+05:30",
+  "status": "PASS_SOURCE_EVIDENCE_BOUND",
+  "checks_passed": 19,
+  "checks_total": 19,
+  "checks": [
+    "six retained artifact hashes match",
+    "development manifest is complete with three of three seeds and zero failures",
+    "executed source identity matches the retained manifest",
+    "frozen protocol identity matches the retained manifest",
+    "local independent script verification remains 96 of 96",
+    "public benefit, SOTA, and publication claims remain closed",
+    "all three seeds retain exact mechanism and eight-of-eight decision-gate passes",
+    "all three manuscript table rows match rounded retained JSON values",
+    "all nine manuscript citation keys resolve in the bibliography",
+    "no forbidden draft marker exists in the staged paper files"
+  ],
+  "execution_boundary": "Python standard library only; no Torch import, model execution, protected data access, LaTeX compilation, PDF rendering, or release staging.",
+  "release_boundary": "This pass verifies source-to-evidence binding only. It is not compilation, rendered visual QA, public confirmation, independent reproduction, release certification, or arXiv submission."
+}

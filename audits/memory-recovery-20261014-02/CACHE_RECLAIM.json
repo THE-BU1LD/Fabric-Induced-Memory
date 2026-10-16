@@ -1,0 +1,20 @@
+[
+  {
+    "command": [
+      "/usr/sbin/purge"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "Unable to purge disk buffers: Operation not permitted\n"
+  },
+  {
+    "command": [
+      "/usr/bin/sudo",
+      "-n",
+      "/usr/sbin/purge"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "sudo: a password is required\n"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "age_beyond_context_required": true,
+    "context_alias_required": true,
+    "controls_exact": true,
+    "development_only": true,
+    "future_divergence_required": true,
+    "no_placeholder_markers": true,
+    "protected_confirmation_absent": true,
+    "protocol_identity": true,
+    "required_files_present": true,
+    "three_seeds": true
+  },
+  "schema_version": 1,
+  "scope": "static contract audit only; not runtime or scientific evidence",
+  "status": "pass"
+}

@@ -1,0 +1,9 @@
+{
+  "commit": "99e9b1445c8b7a7169fadd064978d90d52cb6c3a",
+  "manifest_sha256": "e05a83d0ff65b06b05bb3934a91a9c0f39301403923c859f40b55f9357f55ab0",
+  "branch": "codex/itfm-remote-20261014",
+  "files": 111,
+  "checkout": "/private/tmp/fim-remote-deploy-20261014",
+  "base": "84160703cc733c6deb150cf7b6ee5bb3a84d699b",
+  "storage": "draft release assets; no Actions artifacts/cache/LFS"
+}

@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "study_id": "itfm-v4-observation-safe-residual-memory-20261015",
+  "canonical": true,
+  "updated_at": "2026-10-15T14:53:20.985605+00:00",
+  "phase": "CONTRIBUTION_NOT_READY_RESOURCE_BLOCKED",
+  "disposition": "NOT_EVALUATED",
+  "terminal": false,
+  "authorization": {
+    "request_sha256": "afd9d4f11cc233fae8811f742017ddfe39d9fc8f392a1044256d39d2e57a7fa1",
+    "scope": "Start-to-finish successor research under the user supplied ten-checkpoint pipeline; fixed budget and honest terminal outcomes; preserve predecessors.",
+    "paid_compute_authorized": false,
+    "external_submission_authorized": false
+  },
+  "question": "Can a causally valid, observation-aware residual memory add useful forecasting information beyond matched retrieval and long-history controls under incomplete and delayed observations?",
+  "objective": "Establish a defensible contribution before implementation, then execute the requested research lifecycle when gates permit.",
+  "hypothesis": "PROVISIONAL: visibility-aware residual storage and uncertainty-aware correction can preserve useful memory gains under partial delayed feedback; novelty and practical significance require adversarial prior-art review.",
+  "intended_contribution": "UNRESOLVED: distinguish an algorithmic contribution from an established retrieval method or correctness/measurement study.",
+  "scope": "Prospective successor only; all earlier FIM and ITFM versions unchanged.",
+  "development_budget": {
+    "concepts": 5,
+    "concepts_reviewed": 5,
+    "model_trials_authorized_before_checkpoint_1": 0,
+    "numerical_trials_consumed": 0,
+    "rule": "Freeze finite implementation and experiment budgets after a defensible concept passes; no open-ended positive search."
+  },
+  "compute_budget": {
+    "paid_cost": 0,
+    "local_model_runs_before_admission": 0,
+    "memory_floor_mib": 512,
+    "rule": "Two stable resource samples plus disk, ownership, full-shape feasibility and declared stopping budget required."
+  },
+  "protected_evaluation_boundary": {
+    "opened": false,
+    "rule": "No protected data/outcome access before complete source, data, baseline, metric, budget and stopping freeze."
+  },
+  "repositories": [
+    "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory"
+  ],
+  "datasets": {
+    "admitted": [],
+    "candidate_tracks": [
+      "partial-observation PDE forecasting",
+      "non-Markovian PDE forecasting"
+    ],
+    "status": "Not admitted"
+  },
+  "artifacts": [
+    "CONCEPT_AUDIT.json",
+    "FLAW_CHECKLIST.json",
+    "FLAW_CHECKLIST.md",
+    "MATH_AND_FALSIFIERS.md",
+    "README.md",
+    "audit/FINAL_VERIFICATION.json",
+    "audit/PORTFOLIO_RECONCILIATION.json",
+    "audit/PORTFOLIO_STATE_BEFORE.json",
+    "audit/PORTFOLIO_STATE_BEFORE_APPLY.json",
+    "audit/PORTFOLIO_STATE_CANDIDATE.json",
+    "audit/RESOURCE_ADMISSION.json",
+    "audit/SOURCE_DEFECTS.json",
+    "audit/SOURCE_DEFECTS_REFINED.json",
+    "audit/UPSTREAM_LICENSE_SCAN.json",
+    "audit_source.py",
+    "ARTIFACT_MANIFEST.json",
+    "repairs/evidence_integrity_v1/README.md",
+    "repairs/evidence_integrity_v1/CONTRACT.md",
+    "repairs/evidence_integrity_v1/REPAIR_DISPOSITION.json",
+    "repairs/evidence_integrity_v1/FINAL_VERIFICATION.json"
+  ],
+  "claims": {
+    "supported": [
+      "Seven existing-public-stack source/scalar defects demonstrated by adversarial audit fixtures; none reported repaired.",
+      "Four audit controls and 27 exact rational identity checks passed.",
+      "440 protected predecessor files, 12 frozen v3 source files and 12 status sources match retained hashes.",
+      "Five candidate mechanisms reviewed against 15 primary-source records; reading depth is explicitly bounded.",
+      "2026-10-15 evidence_integrity_v1 standalone verifier corrects V01-V06 counterexamples; 43 adversarial software tests and lint/format pass. Not integrated into historical model runners; no scientific or independent claim."
+    ],
+    "unsupported": [
+      "novel model",
+      "positive v4 performance",
+      "SOTA",
+      "independent reproduction",
+      "publication ready",
+      "all flaws discovered",
+      "all 35 checklist items fixed",
+      "full research lifecycle complete",
+      "evidence-integrity repair integrated into full model experiments",
+      "tensor observation-mask defect fixed"
+    ]
+  },
+  "decisions": [
+    "Do not restart consumed v3.",
+    "Do not implement a new model until the contribution gate is satisfied.",
+    "The five-concept review is complete; no candidate passes the contribution gate. Do not bypass the user instruction against model implementation before Checkpoint 1.",
+    "Preserve source defects as findings in the existing public stack; do not attribute them to the separate synthetic pipeline without evidence.",
+    "Further numerical execution requires an admitted prospectively budgeted study; v3 allowance remains consumed.",
+    "Treat the new evidence validator as an engineering repair with explicit prospective schema. Do not rewrite frozen results or interpret its integrity pass as scientific success."
+  ],
+  "failures": [
+    "Contribution distinctness and identification assumptions remain unresolved.",
+    "Two memory samples 134.75/139.515625 MiB are below the 512 MiB floor.",
+    "Source/data terms and public baseline admission remain incomplete.",
+    "Renewed preflight: 81.484375/109.46875 MiB, pageouts increased by 2. No model execution admitted."
+  ],
+  "history": [
+    {
+      "at": "2026-10-15T13:57:48.345082+00:00",
+      "event": "Initialized prospective v4 before implementation; linked complete predecessor portfolio state and current source identity."
+    },
+    {
+      "at": "2026-10-15T14:21:02.747648+00:00",
+      "event": "Completed bounded five-concept review and 35-item flaw checklist. Seven source/scalar defects, four audit controls and 27 rational checks recorded. Contribution gate remains blocked; zero new model runs; predecessor hashes preserved."
+    },
+    {
+      "at": "2026-10-15T14:39:26.750196+00:00",
+      "event": "Identical user request renewed. Began a separately scoped correction of demonstrated evidence-tool defects under the invalid-evidence repair branch. Scientific contribution gate and consumed campaign remain unchanged. Contract recorded before repair implementation."
+    },
+    {
+      "at": "2026-10-15T14:53:20.985605+00:00",
+      "event": "Completed bounded evidence_integrity_v1 repair: six counterexamples addressed, 43 tests pass, original and refined source snapshots retained. All 440 protected predecessor files and 12 frozen v3 sources unchanged. No scientific checkpoints advance; no model run. Full integration and V07 remain open."
+    }
+  ],
+  "checkpoints": {
+    "1": "BLOCKED",
+    "2": "NOT_EVALUATED",
+    "3": "NOT_EVALUATED",
+    "4": "NOT_EVALUATED",
+    "5": "NOT_EVALUATED",
+    "6": "NOT_EVALUATED",
+    "7": "NOT_EVALUATED",
+    "8": "NOT_EVALUATED",
+    "9": "NOT_EVALUATED",
+    "10": "NOT_EVALUATED"
+  },
+  "source_head": "32d8aa0b109f08a8ecd23c7bd97eaf29b5fe8989",
+  "next_action": "Scientific contribution gate remains unresolved. Evidence repairs are now tested as a separate module; integrate only against a prospectively specified real export and expected sample inventory. Tensor observation visibility, admitted data/baselines and numerical resources remain required before model experiments.",
+  "checkpoint_scope": "This prospective v4 concept only. Earlier version outcomes and checkpoints remain in their own states and the complete before snapshot.",
+  "engineering_repair": {
+    "version": "evidence_integrity_v1",
+    "phase": "VERIFIED_REFERENCE_INTEGRATION_PENDING",
+    "contract": "repairs/evidence_integrity_v1/CONTRACT.md",
+    "scope": "V01-V06 evidence-tool defects; V07 tensor writer and research model not implemented",
+    "max_repair_rounds": 3,
+    "max_test_seconds_per_invocation": 30,
+    "scientific_trials": 0,
+    "numerical_admission": false,
+    "repair_rounds_consumed": 3,
+    "tests_passed": 43,
+    "receipt": "repairs/evidence_integrity_v1/FINAL_VERIFICATION.json",
+    "report": "repairs/evidence_integrity_v1/README.md"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-14T14:53:19.379207+00:00",
+  "run_id": 38583855204,
+  "commit": "e1555619c8992f4faf46fe442d3751623fd57852",
+  "run_url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38583855204",
+  "status": "V2_PASS_V3_PARTIAL_RESOURCE_FAILURE_CAMPAIGN_CONSUMED",
+  "v2_raw_checks_passed": 66,
+  "v2_raw_checks_total": 66,
+  "v2_replay_status": "PASS_LOCAL_REPLAY",
+  "v3_runtime_tests_passed": 12,
+  "v3_completed_cells": 0,
+  "v3_expected_cells": 30,
+  "v3_partial_cell": "clean-401",
+  "v3_campaign_consumed": true,
+  "v3_raw_verification_started": false,
+  "v3_failure_free_mib": [
+    440.875,
+    421.453125
+  ],
+  "v3_guard_floor_mib": 512,
+  "protected_files": 440,
+  "preservation_mismatches": [],
+  "v3_frozen_source_mismatches": [],
+  "v2_raw_hash_mismatches": [],
+  "collection_files_verified": 167,
+  "paid_resources_used": false,
+  "diagnosis": "OS-family environment mismatch: macOS15 raw seed307 failure; macOS26 raw66/66 PASS; exact low-level math-library cause not isolated",
+  "next_action": "No repeat under consumed one-campaign budget. A separately authorized prospective study version is required for another v3 campaign."
+}

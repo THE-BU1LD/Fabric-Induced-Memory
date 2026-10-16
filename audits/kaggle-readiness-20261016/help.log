@@ -1,0 +1,9 @@
+usage: fim-sota engineering [-h]
+                            {preflight,run,evaluate,campaign,_worker,analyze,export,test} ...
+
+positional arguments:
+  {preflight,run,evaluate,campaign,_worker,analyze,export,test}
+    _worker             ==SUPPRESS==
+
+options:
+  -h, --help            show this help message and exit

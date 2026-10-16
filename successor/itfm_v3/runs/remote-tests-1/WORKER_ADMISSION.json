@@ -1,0 +1,15 @@
+{
+  "samples": [
+    {
+      "free_bytes": 1572929536,
+      "pageouts": 1706,
+      "swap_mib": 0.0
+    },
+    {
+      "free_bytes": 1523138560,
+      "pageouts": 1706,
+      "swap_mib": 0.0
+    }
+  ],
+  "status": "PASS"
+}

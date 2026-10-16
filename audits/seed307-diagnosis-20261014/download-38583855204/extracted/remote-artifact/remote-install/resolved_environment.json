@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/.remote-venv/bin/python",
+    "-m",
+    "pip",
+    "freeze",
+    "--all"
+  ],
+  "exit_code": 0,
+  "timeout_seconds": 60
+}

@@ -1,3 +1,57 @@
+# Kaggle engineering preparation — 16 October 2026
+
+The maintained `fim-sota` CLI now has a bounded engineering path for training,
+checkpoint recovery, causal tensor-memory evaluation, finite campaigns and
+artifact export. Start with [the handoff](successor/itfm_v2/kaggle/HANDOFF.md)
+and [the readiness report](successor/itfm_v2/kaggle/GPU_READINESS.md).
+Status is **BLOCKED** pending actual tensor correctness/recovery checks: local
+resource admission refused model imports. This new synthetic diagnostic path
+does not reopen the consumed v3 campaign or establish public-benchmark efficacy.
+Earlier code is preserved under `audits/kaggle-readiness-20261016/before`;
+all historical evidence and the v4 scientific contribution gate remain separate.
+
+# Current iteration: ITFM v4 — 16 October 2026
+
+The [v4 software bundle](https://github.com/THE-BU1LD/Fabric-Induced-Memory/tree/codex/itfm-v4-runtime-20261016) is published at commit `266fe56ff9897e57b7e610fb7afc369fe767855b`.
+The [standard public macOS verification run](https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38847339155) passed **87 scalar tests and 10 tensor integration tests**, with zero failures, errors or skips. The code quality revision adds strict receipt validation, exact scalar test inventory and owned-worker cleanup on interruption.
+
+The [publication report](successor/itfm_v4/repairs/observation_pipeline_v1/publication_20261016/REPORT.md) retains exact source identity, runtime environment, eight raw receipts, the initial setup failure and its correction. The tested bundle validates observation timing, owner isolation, durable scoring/replay and export integrity. Earlier sealed bundles remain unchanged.
+
+The [canonical v4 research state](successor/itfm_v4/RESEARCH_STATE.json) remains scientifically blocked at the contribution gate. Eight concept reviews have not established a defensible new contribution; no v4 scientific trial, protected evaluation or forecasting-performance claim is supported. The [35-item checklist](successor/itfm_v4/repairs/observation_pipeline_v1/extension_20261015/ALL_ITEMS.json) remains the full research work map.
+
+Retained v2 remote replay passed 66/66 strict checks. V3 passed 12 runtime tests but completed zero of 30 campaign cells before resource failure; its one-campaign allowance is consumed. See the [execution report](audits/seed307-diagnosis-20261014/REPORT.md).
+The dated introductions below remain history.
+
+# Historical ITFM v3 development successor — 13 October 2026
+
+The separate [ITFM v3 study](successor/itfm_v3/README.md) now implements noisy
+cues, drifting residuals, distractors and capacity stress, with simple lookup,
+finite-history, GRU and attention baselines plus value interventions. Its source
+and development protocol are frozen; numerical tests and experiments remain
+resource-blocked. **No v3 performance result is claimed.**
+
+The [execution report](audits/improvement-20261013/REPORT.md) records the actual
+blocked v2 reproduction, passing static checks, and preservation of all 440
+protected predecessor files. The original negative study and v2 synthetic
+results remain unchanged. The existing manuscript status follows below.
+
+# Current ITFM v2 paper workspace
+
+The active synthetic manuscript for this local task is
+`successor/itfm_v2/paper/main.tex`. Its recovered source, safe verification tools,
+and readiness receipts are in
+`successor/itfm_v2/publication/itfm-v2-paper-20261011`.
+The current worktree includes untracked research and a preserved historical
+relocation; the old HEAD and remote below do not identify these manuscript bytes.
+No public release of this revision is claimed. The original FIM negative study
+in `FIM/` and the prospective public ITFM-R campaign remain separate.
+
+See [the revision report](successor/itfm_v2/publication/itfm-v2-paper-20261011/REVISION_REPORT.md)
+and [publication checklist](PUBLICATION_READINESS_CHECKLIST_2026-10-11.md) for
+the current work status. The manuscript is corrected but remains release-blocked.
+
+## Historical repository notice
+
 # Fabric-Induced Memory (FIM)
 
 > **Legacy snapshot:** this repository is retained for provenance.  

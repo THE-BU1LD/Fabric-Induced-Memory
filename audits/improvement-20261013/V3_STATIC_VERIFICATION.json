@@ -1,0 +1,56 @@
+{
+  "at": "2026-10-13T14:14:15.017926+00:00",
+  "checks": {
+    "contracts": {
+      "exit_code": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "-v",
+        "test_standard"
+      ]
+    },
+    "optimized_contracts": {
+      "exit_code": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-O",
+        "-m",
+        "unittest",
+        "-v",
+        "test_standard"
+      ]
+    },
+    "ruff": {
+      "exit_code": 0,
+      "command": [
+        "ruff",
+        "check",
+        "--select",
+        "E4,E7,E9,F,I",
+        "."
+      ]
+    },
+    "format": {
+      "exit_code": 0,
+      "command": [
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ]
+    },
+    "protocol": {
+      "exit_code": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "run.py",
+        "check"
+      ]
+    }
+  },
+  "python_files_parsed": 8,
+  "status": "PASS_STATIC_AND_CONTRACT_TESTS",
+  "boundary": "No Torch import or numerical experiment; 11 standard-library contract tests also executed under optimized Python."
+}

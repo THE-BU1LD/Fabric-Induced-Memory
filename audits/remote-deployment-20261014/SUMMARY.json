@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-14T14:18:10.453608+00:00",
+  "status": "V2_EXECUTED_RAW_HISTORICAL_COMPARISON_FAILED_V3_WITHHELD",
+  "branch": "codex/itfm-remote-20261014",
+  "commit": "b7a97d1fcaa5a61d7511781f670d7324b8616932",
+  "run_id": 38578599860,
+  "run_url": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/38578599860",
+  "manifest_sha256": "5989a179f7420d87438631874c0fe22cc1fc472121383bb5e5fa09a22518960f",
+  "v2_runtime_tests_passed": 10,
+  "v2_development_seeds_completed": 3,
+  "v2_internal_checks_passed": 96,
+  "v2_raw_checks_passed": 48,
+  "v2_raw_checks_total": 66,
+  "failed_seed": 307,
+  "historical_decisions_unchanged": true,
+  "v3_tests_started": false,
+  "v3_campaign_consumed": false,
+  "protected_files": 440,
+  "preservation_mismatches": [],
+  "raw_files": 28,
+  "raw_hash_mismatches": [],
+  "all_attempts_retained": [
+    38577058691,
+    38577627585,
+    38577967203,
+    38578599860
+  ],
+  "paid_resources_used": false,
+  "main_modified": false,
+  "next_action": "Investigate retained seed-307 numerical discrepancy without changing the frozen tolerances. Do not rerun or launch v3 as if raw reproduction passed."
+}

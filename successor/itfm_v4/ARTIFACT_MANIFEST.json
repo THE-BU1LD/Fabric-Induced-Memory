@@ -1,0 +1,86 @@
+{
+  "created_at": "2026-10-15T14:23:36.997429+00:00",
+  "scope": "Local audit package integrity only; not a release, code commit, model or scientific result. Manifest excludes itself.",
+  "files": [
+    {
+      "path": "CONCEPT_AUDIT.json",
+      "bytes": 13087,
+      "sha256": "cf3ff476dcda5363a08edc7e6afe0ba4262370bf6562dcf6f16d390c34be3903"
+    },
+    {
+      "path": "FLAW_CHECKLIST.json",
+      "bytes": 20158,
+      "sha256": "71dd1096caf06ca7c2fce66f69b976b4f1fd72bf63cd19ee1f7c29f43735caef"
+    },
+    {
+      "path": "FLAW_CHECKLIST.md",
+      "bytes": 17463,
+      "sha256": "1482c4691fd6200a567ac48eea8a03bfa8befbd0357593d9e906ab05db4006a3"
+    },
+    {
+      "path": "MATH_AND_FALSIFIERS.md",
+      "bytes": 7516,
+      "sha256": "6020dd6d380f8df652c13ade2bf1d2683e773e39cd89f5018eac792764f26f86"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11003,
+      "sha256": "d1a12f95adffca8b51bed1065e2f6d2b4dbbe5439a55c8b208532661159b1b09"
+    },
+    {
+      "path": "RESEARCH_STATE.json",
+      "bytes": 5942,
+      "sha256": "bb9836b91f956ae4014457f2d70fe7c8d5c723e2a3cc1ce51eb506dbb9905799"
+    },
+    {
+      "path": "audit/FINAL_VERIFICATION.json",
+      "bytes": 1802,
+      "sha256": "abc86d354cbe294b46225a03756815c06eabc7a502ea85a60f3b86d8d70fca66"
+    },
+    {
+      "path": "audit/PORTFOLIO_RECONCILIATION.json",
+      "bytes": 389,
+      "sha256": "22b65487468653975547fa2d0a534765c31f34a7edf6ae60a2d83c85b3c522c3"
+    },
+    {
+      "path": "audit/PORTFOLIO_STATE_BEFORE.json",
+      "bytes": 236613,
+      "sha256": "23c39190f3e45e519a17b7cae8920411c76d9b045460271022c06db9c6c66891"
+    },
+    {
+      "path": "audit/PORTFOLIO_STATE_BEFORE_APPLY.json",
+      "bytes": 240857,
+      "sha256": "bff88d84d2746191e22e720e12f0097e16f8ebcd0c9ac80ae15abc419bbc4a5d"
+    },
+    {
+      "path": "audit/PORTFOLIO_STATE_CANDIDATE.json",
+      "bytes": 244879,
+      "sha256": "19d89593ceadbbd40f18a544d1da54ba5c7a9696947ffe856ec7f60f90b9cf4d"
+    },
+    {
+      "path": "audit/RESOURCE_ADMISSION.json",
+      "bytes": 573,
+      "sha256": "07127a1c70bd8da2362708598f39247ea8a02651931d4300da1621d064eb2366"
+    },
+    {
+      "path": "audit/SOURCE_DEFECTS.json",
+      "bytes": 2621,
+      "sha256": "6e7065edcf12ffb27bcb05bdb2f6d28e4264fa7032dd1d384807b9510db3175d"
+    },
+    {
+      "path": "audit/SOURCE_DEFECTS_REFINED.json",
+      "bytes": 2997,
+      "sha256": "a47e6b2abcca8001b05228efee98366f034aede390dc28203b89b2346e18a41e"
+    },
+    {
+      "path": "audit/UPSTREAM_LICENSE_SCAN.json",
+      "bytes": 922,
+      "sha256": "cd257db78c243860f93157bf11c14f48029a06e9f3f65c1813df02fc1ced8470"
+    },
+    {
+      "path": "audit_source.py",
+      "bytes": 10442,
+      "sha256": "19b5f3395b1a398b054bdf2e679de952d15fe5d9d5d8716b976afa25738915ce"
+    }
+  ]
+}

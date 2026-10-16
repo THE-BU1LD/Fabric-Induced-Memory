@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "samples": [
+    {
+      "free_plus_speculative_bytes": 3225550848,
+      "pageouts": 1113,
+      "swap_used_mib": 0.0
+    },
+    {
+      "free_plus_speculative_bytes": 3210608640,
+      "pageouts": 1113,
+      "swap_used_mib": 0.0
+    }
+  ],
+  "threshold_bytes": 536870912
+}

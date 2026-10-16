@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "scope": "standard-library, AST, lint and CLI only; no numerical imports",
+  "syntax_checked": [
+    "successor/itfm_v2/src/fim_sota/engineering.py",
+    "successor/itfm_v2/src/fim_sota/engineering_runtime.py",
+    "successor/itfm_v2/src/fim_sota/training.py",
+    "successor/itfm_v2/src/fim_sota/config.py",
+    "successor/itfm_v2/src/fim_sota/cli.py",
+    "successor/itfm_v2/src/fim_sota/adapter.py",
+    "successor/itfm_v2/src/fim_sota/backbones.py",
+    "successor/itfm_v2/src/fim_sota/memory.py",
+    "successor/itfm_v2/src/fim_sota/provenance.py",
+    "successor/itfm_v2/tests/test_engineering_control.py",
+    "successor/itfm_v2/tests/test_engineering_runtime.py",
+    "successor/itfm_v2/tests/test_training_recovery.py",
+    "successor/itfm_v2/scripts/kaggle.py"
+  ],
+  "checks": [
+    {
+      "name": "control-tests",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "successor/itfm_v2/tests",
+        "-p",
+        "test_engineering_control.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.4081901249883231
+    },
+    {
+      "name": "lint",
+      "command": [
+        "/opt/homebrew/bin/ruff",
+        "check",
+        "--select",
+        "F,E9,I",
+        "successor/itfm_v2/src/fim_sota/engineering.py",
+        "successor/itfm_v2/src/fim_sota/engineering_runtime.py",
+        "successor/itfm_v2/src/fim_sota/training.py",
+        "successor/itfm_v2/src/fim_sota/config.py",
+        "successor/itfm_v2/src/fim_sota/cli.py",
+        "successor/itfm_v2/src/fim_sota/adapter.py",
+        "successor/itfm_v2/src/fim_sota/backbones.py",
+        "successor/itfm_v2/src/fim_sota/memory.py",
+        "successor/itfm_v2/src/fim_sota/provenance.py",
+        "successor/itfm_v2/tests/test_engineering_control.py",
+        "successor/itfm_v2/tests/test_engineering_runtime.py",
+        "successor/itfm_v2/tests/test_training_recovery.py",
+        "successor/itfm_v2/scripts/kaggle.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.07993379200343043
+    },
+    {
+      "name": "dry-run",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "successor/itfm_v2/scripts/kaggle.py",
+        "campaign",
+        "--manifest",
+        "successor/itfm_v2/kaggle/development.json",
+        "--output",
+        "/tmp/fim-dry-run-not-created",
+        "--dry-run"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.14727145800134167
+    },
+    {
+      "name": "help",
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "successor/itfm_v2/scripts/kaggle.py",
+        "--help"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.14072379199205898
+    }
+  ],
+  "files": {
+    "successor/itfm_v2/src/fim_sota/engineering.py": "5fbd14b6c2a75a213520edc829ae36de1acb3aaf5cf516240d436f19a3188e95",
+    "successor/itfm_v2/src/fim_sota/engineering_runtime.py": "14a155b2dd54c6310f042a39f9aa9a7eeb7f2691eeba53803d4778c3f27fe419",
+    "successor/itfm_v2/src/fim_sota/training.py": "d9869bce4a04aa931edb607fc49dd160324c7e4ef398e5ec2ce947256f218395",
+    "successor/itfm_v2/src/fim_sota/config.py": "eebbcc8b4f099175c01eaa24200fe0cada1a62b2ba7f7d53d8433bfde5f80f81",
+    "successor/itfm_v2/src/fim_sota/cli.py": "924f18cffd20919b3ea2563cb357ec42db01ecff058946797f6664d86b5f5b58",
+    "successor/itfm_v2/src/fim_sota/adapter.py": "c78303ef2b2b2cb993d0819590dec346c445b6a8b728c3ca4c5fb46bb47ce179",
+    "successor/itfm_v2/src/fim_sota/backbones.py": "5e3217ff1943012ec9a3f24e1b143ca92aea9ad1b4eeda3f29a4d73d3e7bade0",
+    "successor/itfm_v2/src/fim_sota/memory.py": "7034e5c7f7ebfa5dbf58a1274dfa96a956b456348634c60b55fe9e406aa720ed",
+    "successor/itfm_v2/src/fim_sota/provenance.py": "3992a4bf4a92d189ace1bbdc18d2f64c78b762c6fa40e1106b217ed970c28d40",
+    "successor/itfm_v2/tests/test_engineering_control.py": "0742d304277c85ffe10cb764d627e0726e860c9846b246c7c2fb076b405ee0de",
+    "successor/itfm_v2/tests/test_engineering_runtime.py": "8b8321bf217a7ff42a02e1f3a0ba3db679de49977a7cb553fb17ba5f7e9487b6",
+    "successor/itfm_v2/tests/test_training_recovery.py": "999e0ccc1d26157802303a5c50d1b458dd037f275caf6c19b82240e7d1acc163",
+    "successor/itfm_v2/scripts/kaggle.py": "65f08e0df370e23bb5f22c22d233fcc38a4cac121887e9f0cbbbe242a70a9bfc"
+  }
+}

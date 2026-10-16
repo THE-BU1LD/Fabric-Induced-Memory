@@ -1,0 +1,541 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,booktabs,microtype}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=blue!55!black,
+  urlcolor=blue!55!black,
+  pdftitle={Intervention-Identified Episodic Tensor Memory},
+  pdfauthor={Ryan}
+}
+
+\newcommand{\method}{ITFM}
+\newcommand{\publicmethod}{ITFM-R}
+\newcommand{\qnmse}{\mathrm{qNMSE}}
+\newcommand{\nmse}{\mathrm{NMSE}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\evidencewarning}{%
+  \begin{center}
+  \fbox{\begin{minipage}{0.92\linewidth}
+  \textbf{Evidence boundary.} The reported experiment is a frozen synthetic
+  mechanism study. It does not establish performance on natural systems,
+  public-benchmark superiority, state of the art, or independent reproduction.
+  The public \publicmethod{} campaign is prospective and has not been executed.
+  \end{minipage}}
+  \end{center}}
+
+\title{Intervention-Identified Episodic Tensor Memory:\\
+A Controlled Study of Causal Residual Reuse Under Full-Context Aliasing}
+\author{Ryan}
+\date{October 11, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+When observations are not a sufficient state, a forecaster may need information
+from events older than its visible context. Yet an accuracy gain from a
+memory-augmented architecture does not show that externally stored information
+caused the gain: additional parameters, longer context, optimization, or
+leakage can provide alternative explanations. We introduce a controlled
+mechanism study for \emph{intervention-identified episodic tensor memory}
+(\method{}). Paired trajectories have exactly equal visible contexts but
+opposite future spatial innovations. A same-owner, strictly past memory stores
+completed observation-space residual tensors and retrieves them by the current
+spatial context. The tested protocol freezes data generation, family-level
+splits, three seeds, nine prediction conditions, and eight joint decision gates
+before evaluation. Across all three seeds, the frozen base obtains query NMSE
+near $0.487685$, while ordinary tensor retrieval obtains $0$; erasure restores
+the base error, sign reversal raises query NMSE to approximately $1.950739$,
+spatial-mean broadcast and recent-only controls do not reproduce the gain, and
+paired value swaps move every evaluated forecast toward its donor future.
+Non-query NMSE is unchanged. An independent artifact verifier passes all 96
+predeclared checks. These exact results validate the mechanism in the declared
+synthetic construction, not a broad forecasting claim. We specify a separate,
+unexecuted public-data protocol in which the residual-memory adapter must first
+survive reproduced partial-observation and non-Markovian neural-operator
+frontiers. The study provides a reproducible way to distinguish memory
+activity from causally localized information use.
+\end{abstract}
+
+\evidencewarning
+
+\section{Introduction}
+
+Forecasting a partially observed dynamical system is not generally Markovian in
+the observed variable. If a latent state $z_t$ evolves as
+$z_{t+1}=F(z_t)$ and the learner sees $x_t=H(z_t)$, two latent states can
+produce the same observation but different futures. A finite visible context
+$C_t=(x_{t-L+1},\ldots,x_t)$ may therefore be insufficient: there can exist
+$z_t\neq z'_t$ such that $C_t=C'_t$ while $x_{t+1}\neq x'_{t+1}$.
+Memory is a natural response, and modern work has combined neural operators
+with state-space memory, observer corrections, lifted history states, and
+retrieval \cite{ruiz2024memory,singh2024semilinear,koren2025spatiotemporal,
+shikhman2026hsfno,han2025raft}. These results establish that history can be
+useful, but they do not make every apparent memory benefit identifiable.
+
+An external memory module changes capacity, computation, optimization, and the
+information path simultaneously. A model can write and read entries without
+using their values in the claimed way. A favorable aggregate metric can also
+hide owner leakage, future access, or a benefit confined to non-ambiguous
+events. The scientific question in this study is narrower:
+
+\begin{quote}
+When the complete visible context is compatible with opposite future spatial
+innovations, can an owner-safe external tensor memory reuse a causally prior
+innovation outside the visible window, with its contribution localized by
+value interventions?
+\end{quote}
+
+We answer this question only for a prospectively specified synthetic system.
+The contributions are:
+
+\begin{enumerate}[leftmargin=*]
+  \item an exact full-context alias construction with trajectory-family splits
+  and a useful memory item that is causally prior and older than the context;
+  \item a transparent observation-space residual memory with immutable owner
+  identity, temporal eligibility, and spatially resolved values;
+  \item intervention tests that erase, reverse, pool, age-restrict, replace,
+  or swap the retrieved value without retraining the model;
+  \item a frozen joint decision rule and an artifact-level verifier that retains
+  every declared seed and prediction file; and
+  \item a sharp boundary between this bounded mechanism result and a separate,
+  unexecuted public \publicmethod{} confirmation campaign.
+\end{enumerate}
+
+\section{Related work and novelty boundary}
+
+\paragraph{Neural operators.}
+Fourier Neural Operators (FNOs) learn mappings between function spaces using
+Fourier-domain kernel parameterizations \cite{li2020fno}. Neural-operator
+research now covers cost--accuracy tradeoffs, long rollouts, irregular domains,
+and multiple temporal architectures. Our controlled study does not claim a new
+general neural operator and uses no public PDE benchmark in its reported
+results.
+
+\paragraph{Memory and partial observability.}
+The Mori--Zwanzig formalism explains how eliminating unresolved variables can
+induce a memory term in reduced dynamics; data-driven methods can estimate
+Markov and memory operators from reduced observables \cite{lin2021mori}.
+MemNO combines state-space sequence modeling and FNO components and reports
+large gains when PDE observations are low-resolution or noisy
+\cite{ruiz2024memory}. NODA couples prediction with observer-style correction
+from sparse measurements \cite{singh2024semilinear}. Spatiotemporal state-space
+neural operators and Neural Operator Processes address long-range or partial
+observation settings through different state and conditioning mechanisms
+\cite{koren2025spatiotemporal,lara2026nop}. These works occupy the broad claim
+that memory helps incomplete-state forecasting.
+
+\paragraph{Closest public frontiers.}
+LANO and POBench-PDE target operator learning from partial observations using
+mask-to-predict supervision and latent autoregressive propagation
+\cite{hou2026lano}. HS-FNO lifts delay PDEs to a history state and enforces an
+exact shift--append update \cite{shikhman2026hsfno}. Retrieval-augmented time
+series forecasting retrieves similar historical continuations
+\cite{han2025raft}. Consequently, external memory, residual correction,
+history models, and retrieval are not novelty claims of this paper.
+
+\paragraph{Our boundary.}
+The distinct object is an \emph{evaluation design}: the content of an external,
+spatial residual memory is made inspectable and is intervened upon at inference
+time. ``Intervention-identified'' is used operationally. It means that a fixed
+predictor changes in the predeclared direction when only the eligible memory
+value is changed; it is not a claim of causal identification for an uncontrolled
+population or natural physical process.
+
+\section{Problem formulation}
+
+\subsection{Information sets and aliases}
+
+Let an event record be
+\begin{equation}
+  e=(C,Y,o,f,t,r,a,k),
+\end{equation}
+where $C\in\R^{LC\times H\times W}$ is the visible context, $Y\in
+\R^{C\times H\times W}$ is the target, $o$ is an immutable owner identifier,
+$f$ is a family identifier, $t$ is event time, $r\in\{-1,+1\}$ is a hidden
+regime, $a$ is an anchor index, and $k$ is the event kind. The learner receives
+$(C,o,t)$; the regime and anchor labels are used only to generate and audit the
+data. A paired alias consists of $e^-$ and $e^+$ satisfying
+\begin{equation}
+ C^- = C^+, \qquad Y^- \neq Y^+ .
+\end{equation}
+Families, not windows, are partitioned into train, validation, and test sets.
+No owner or family crosses a split.
+
+At forecast time, the admissible information set is
+\begin{equation}
+ \mathcal{I}_{o,t}=\{C_{o,t}\}\cup
+ \{(K_i,V_i,\tau_i):o_i=o,\ \tau_i\le t-d_{\min}\}.
+\end{equation}
+The target $Y_{o,t}$ and all future events are excluded. A residual becomes
+write-eligible only after its target has become observable.
+
+\subsection{Forecast and intervention estimands}
+
+Let $B(C)$ be a frozen base forecast and $M(C,o,t)$ a retrieved residual
+tensor. The ordinary prediction is
+\begin{equation}
+ \widehat{Y}^{\mathrm{mem}}=B(C)+\alpha M(C,o,t),
+ \qquad \alpha\in[0,1].
+\end{equation}
+The coefficient $\alpha$ is selected once on validation data and then frozen.
+For an intervention $g$ acting only on the retrieved value,
+\begin{equation}
+ \widehat{Y}^{g}=B(C)+\alpha g(M(C,o,t)).
+\end{equation}
+The principal contrasts compare query-only normalized squared error under the
+ordinary value with the same frozen system under erasure, sign reversal,
+spatial pooling, recency restriction, and paired-regime value swaps.
+
+\section{Controlled alias system}
+
+\subsection{Generation}
+
+The frozen generator creates 48 independent families. Each family contains two
+owners with hidden regimes $r\in\{-1,+1\}$, three smooth spatial anchors
+$A_{f,a}\in\R^{1\times16\times16}$, and three smooth, zero-mean unit-RMS fields
+$U_{f,a}$. The innovation is $R_{f,a}=0.75U_{f,a}$. A context repeats an anchor
+across $L=3$ visible frames:
+\begin{equation}
+ C_{f,a,r,t}=(A_{f,a},A_{f,a},A_{f,a}), \qquad
+ Y_{f,a,r,t}=A_{f,a}+rR_{f,a}.
+\end{equation}
+Thus the complete context is exactly equal between regimes, but targets differ
+by $2R_{f,a}$.
+
+Each owner first encounters one calibration event for each anchor. The realized
+target is revealed after prediction, so the residual may then be written. Two
+query rounds follow; before each round, 12 nuisance events are inserted. The
+calibration-to-query age is therefore greater than the visible context length.
+There are 33 events per owner, 96 owners, and 3,168 total records. Family-level
+splits contain 30 train, 9 validation, and 9 test families. The test set contains
+108 query records and 486 non-query records per evaluated condition.
+
+\subsection{Identifiability gates}
+
+Before fitted calibration or test evaluation, every seed must satisfy:
+
+\begin{enumerate}[leftmargin=*]
+  \item zero maximum paired difference over the complete visible context;
+  \item positive minimum paired future difference;
+  \item disjoint and exhaustive family splits;
+  \item minimum calibration age strictly greater than $L$;
+  \item positive base query error and at least 20\% oracle-memory improvement;
+  \item equality of the analytic zero-shift predictor and the frozen base.
+\end{enumerate}
+
+Failure of any gate invalidates the seed rather than removing it.
+
+\section{Intervention-identified tensor memory}
+
+\subsection{Base and residual write}
+
+The frozen base is the final visible frame,
+\begin{equation}
+ B(C_t)=C_t[-1].
+\end{equation}
+After $Y_t$ becomes observable, the system writes
+\begin{equation}
+ K_t=C_t[-1], \qquad V_t=Y_t-B(C_t),
+\end{equation}
+together with owner $o_t$, event time $t$, and the audit-only anchor label.
+Keys and values are detached copies. The tested memory capacity is 128 entries
+per owner, with FIFO eviction; no owner reaches the bound in this study.
+
+\subsection{Past-only retrieval}
+
+For a query $Q=C_t[-1]$, eligible entries are
+\begin{equation}
+ \mathcal{E}_{o,t}=\{i:o_i=o,\ \tau_i\le t-d_{\min}\},
+\end{equation}
+where $d_{\min}=L+1$. Cosine similarity is
+\begin{equation}
+ s_i=\frac{\langle\mathrm{vec}(Q),\mathrm{vec}(K_i)\rangle}
+ {\|\mathrm{vec}(Q)\|_2\|\mathrm{vec}(K_i)\|_2}.
+\end{equation}
+The primary study uses exact top-1 retrieval. In the general top-$k$ form,
+\begin{equation}
+ w_i=\frac{\exp(s_i/T)}{\sum_{j\in\mathcal{N}_k}\exp(s_j/T)},\qquad
+ M(Q,o,t)=\sum_{i\in\mathcal{N}_k}w_iV_i .
+\end{equation}
+The implementation rejects non-finite entries, enforces spatial compatibility,
+and returns a zero tensor when no eligible item meets the similarity threshold.
+
+\subsection{Validation calibration}
+
+On validation predictions, $\alpha$ minimizes squared error of the fixed base
+plus retrieved residual:
+\begin{equation}
+ \alpha^*=\Pi_{[0,1]}
+ \frac{\sum_j\langle Y_j-B_j,M_j\rangle}
+ {\sum_j\|M_j\|_2^2},
+\end{equation}
+where $\Pi_{[0,1]}$ clips to the safe interval. The frozen value was $1.0$ in
+all three declared seeds.
+
+\subsection{Inference interventions and controls}
+
+The same data, base, eligibility rules, and calibrated coefficient are used for
+all conditions:
+
+\begin{description}[leftmargin=2.1cm,style=nextline]
+  \item[no memory] $M=0$;
+  \item[tensor memory] ordinary exact retrieval;
+  \item[erase] $g(M)=0$ after a valid retrieval;
+  \item[sign flip] $g(M)=-M$;
+  \item[vector broadcast] replace $M$ by its spatial mean, broadcast over the grid;
+  \item[recent only] admit only entries no older than the visible window;
+  \item[last value] use the most recent eligible residual without key matching;
+  \item[paired swap] exchange retrieved values between the two regimes in an
+  oracle-matched pair, only for causal evaluation;
+  \item[oracle anchor] select the exact prior calibration entry with the
+  audit-only anchor label, used solely as a diagnostic ceiling.
+\end{description}
+
+\subsection{Complexity}
+
+With $N_o$ entries for owner $o$, key dimension $D_K=CHW$, and value dimension
+$D_V=CHW$, exact retrieval costs $O(N_oD_K+ kD_V)$ time and
+$O(N_o(D_K+D_V))$ storage. The synthetic study uses exact search because it is
+the scientific reference path. Approximate search belongs to the separate
+engineering campaign and cannot replace exact search without a neighbor-recall
+equivalence receipt.
+
+\section{Experimental protocol}
+
+\subsection{Frozen design}
+
+Seeds 101, 211, and 307 are independent experimental repetitions. Randomness
+affects family order, anchors, residual fields, and nuisance fields. Thresholds,
+splits, control definitions, and the seed list were frozen in a machine-readable
+protocol before numerical execution. Every seed and every prediction artifact
+is retained.
+
+For a set $S$ of query rows, normalized mean squared error is
+\begin{equation}
+ \qnmse=\frac{|S|^{-1}\sum_{j\in S}\|Y_j-\widehat{Y}_j\|_2^2/(CHW)}
+ {\operatorname{Var}_{\mathrm{train}}(Y)}.
+\end{equation}
+The same definition on non-query rows measures collateral degradation.
+Retrieval precision is the fraction of valid query retrievals whose audit label
+matches the query anchor. Swap donor direction is the fraction of paired-swap
+predictions closer to the donor future than to the recipient future.
+
+\subsection{Joint decision rule}
+
+Bounded development passes a seed only if all eight conditions hold:
+
+\begin{enumerate}[leftmargin=*]
+  \item tensor memory improves query NMSE by at least 5\% against every
+  non-oracle information control;
+  \item it recovers at least 50\% of the oracle gap;
+  \item erasure removes at least 80\% of the memory gain;
+  \item paired-swap donor direction exceeds 0.9;
+  \item sign reversal and spatial-mean broadcast do not reproduce the gain;
+  \item non-query NMSE increases by no more than 0.01 in normalized units;
+  \item matching-anchor retrieval precision is at least 0.99; and
+  \item every integrity and artifact check passes.
+\end{enumerate}
+
+This is an intersection rule, not a multiple opportunities search. No failed
+condition can be averaged away by another seed or endpoint.
+
+\section{Results}
+
+\input{generated_results.tex}
+
+\subsection{Predictive and intervention outcomes}
+
+Table~\ref{tab:results} reports every declared seed. Ordinary tensor retrieval
+exactly recovers the synthetic innovation at query events, reducing query NMSE
+from approximately $0.487685$ to $0$. Erasing the retrieved value returns the
+error to the no-memory level. Sign reversal doubles the residual error in
+amplitude and produces query NMSE near $1.950739$, four times the base value.
+Spatial-mean broadcast is ineffective because innovations are zero mean.
+Recent-only retrieval is ineffective because useful calibration entries lie
+outside the visible window. The last-value control is ineffective because
+nuisance events separate calibration from query.
+
+The primary method and frozen base have identical non-query NMSE for all three
+seeds (approximately $0.0541872$). Retrieval precision and paired-swap donor
+direction are both $1.0$ in every seed. The method recovers the complete oracle
+gap, and erasure removes the complete measured gain. All eight decision gates
+pass for every seed.
+
+\subsection{Integrity and independent verification}
+
+The run manifest records three completed of three expected runs, zero failures,
+Python 3.11.15, Torch 2.12.1, the protocol digest, the executable-source bundle
+digest, and resource-admission receipts for each run. Prediction-level JSON
+files exist for all nine conditions and all three seeds. A separate verifier
+recomputes decision predicates, metrics, data-identifiability predicates, and
+file hashes; it passes 96 of 96 checks. These checks are independent at the
+script level, not an independent external reproduction.
+
+\subsection{What the perfect score means}
+
+The zero query error is not evidence of a universally powerful learned model.
+It is expected when an exact repeated anchor retrieves an exactly repeated,
+owner-specific residual in a deterministic construction. The evidentiary value
+comes from the conjunction of information constraints and interventions: the
+visible context is identical across opposite futures; the useful value is old
+and same-owner; nuisance and pooled values fail; erasure removes the gain; and a
+paired value swap changes the forecast toward the donor. The experiment is
+best understood as a mechanism-level falsification harness or scientific unit
+test.
+
+\section{Prospective public \publicmethod{} confirmation}
+
+No result in this section has been executed. The public candidate wraps a
+strong backbone prediction $\widehat{Y}^{B}$ with a validation-calibrated,
+past-only residual tensor:
+\begin{equation}
+ \widehat{Y}^{\publicmethod}=\widehat{Y}^{B}
+ +g_\phi(q_t,m_t,\ell_t,\eta_t)\odot
+ \sum_{i\in\mathcal{N}_k}w_i\widetilde{V}_i,
+\end{equation}
+where $q_t$ is a detached backbone context key, $m_t$ an observation mask,
+$\ell_t$ lead time, $\eta_t$ physical parameters, and $g_\phi$ a bounded gate.
+Residual values are available only after their targets become observable.
+
+The frozen public protocol has six sequential gates: source/data/license and
+compute admission; exact frontier reproduction; validation-only oracle-gap
+triage; development and ablation; protected multiseed evaluation; and
+independent reproduction. The primary POBench-PDE/LANO track declares 36 cells
+over three datasets, two mask patterns, and train/test missingness shifts. The
+secondary HS-FNO track declares five delay-PDE families. A broad SOTA statement
+is allowed only if both complete track-specific material gates pass and an
+independent reproduction succeeds. At the time of this manuscript, public data,
+frontier reproduction, and protected evaluation are not admitted. Accordingly,
+the public claims are \textbf{not evaluated}.
+
+\section{Threats to validity and limitations}
+
+\paragraph{Construct validity.}
+Exact anchor repetition and deterministic innovations make retrieval easier
+than natural partial observation. The study asks whether the implementation can
+causally reuse the right spatial value, not whether approximate keys learned
+from noisy systems can do so.
+
+\paragraph{External validity.}
+One synthetic generator, one spatial resolution, and one memory scale cannot
+support claims about PDEs, climate, physical systems, or general time series.
+The protocol does not estimate performance under sensor noise, drift, missing
+values, changing grids, owner misidentification, or approximate search.
+
+\paragraph{Statistical scope.}
+Three seeds establish repeatability of this deterministic construction but are
+not a powered estimate of a natural-domain effect. The primary values are
+nearly identical because the generator normalizes innovations by construction.
+Confidence intervals would misleadingly suggest broad precision and are
+therefore not used to generalize beyond the tested system.
+
+\paragraph{Intervention scope.}
+Value interventions localize the operative path inside a fixed program. They do
+not prove that no correlated implementation feature contributes, nor do they
+identify a physical causal effect in observational data.
+
+\paragraph{Baseline scope.}
+The frozen base and controls are deliberately simple so that the information
+deficit is analytically visible. No trained recurrent model, transformer,
+state-space model, neural operator, LANO, or HS-FNO has been run in the reported
+study. Those comparisons are mandatory before any superiority claim.
+
+\paragraph{Release scope.}
+The manuscript source is evidence-bound, but a final arXiv release additionally
+requires a successful clean compilation, rendered-page inspection, authorship
+and license confirmation, public protocol disposition, and independent
+reproduction. Those release gates are not reported as complete here.
+
+\section{Ethics, privacy, and environmental considerations}
+
+The synthetic data contain no human subjects, personal data, or deployed
+decision system. Immutable owner identifiers are generator-local and have no
+real-world identity meaning. The public protocol requires explicit dataset
+license receipts and prohibits redistributing source data without permission.
+Compute, wall time, accelerator memory, energy where measurable, failures, and
+early stops must be retained. The resource guard prevents new heavy jobs when
+host memory pressure or pageout instability makes them unsafe.
+
+\section{Reproducibility statement}
+
+The repository contains the frozen protocol, source code, tests, run manifest,
+three seed-level result files, 27 prediction artifacts, independent verification
+output, and SHA-256 identities. The executed source bundle digest is
+\texttt{5d01a2917fe78719e40fecbc702131e76a3b7f842986d79d47e5660c7221631a};
+the protocol digest is
+\texttt{8cb1ea0493da40ece0663f1777dccf5bf01f367050b771434a9574b0ef52330b}.
+The result manifest and verification artifacts are mapped to manuscript claims
+in the accompanying claim--evidence map. Reproduction must use the guarded
+runner and must retain failed or blocked receipts. Reproducing these files in a
+new environment would strengthen engineering reproducibility but would still
+not constitute public-domain confirmation.
+
+\section{Conclusion}
+
+The controlled experiment answers its narrow question: under exact
+full-context aliasing, a same-owner past residual tensor can supply information
+that the visible window does not contain, and interventions can localize the
+forecast dependence to that tensor. The result survives erasure, sign,
+spatial, recency, last-value, and pair-swap tests in all three frozen seeds with
+complete artifact verification. The broader question remains open. Whether a
+learned residual memory adds material value beyond reproduced frontier models
+on public partially observed or non-Markovian systems is not evaluated and must
+not be inferred from this synthetic pass.
+
+\appendix
+
+\section{Exact online procedure}
+
+For each owner stream, process records in increasing event time. First compute
+the frozen base prediction. If an eligible memory item exists, retrieve it using
+only same-owner entries at least $d_{\min}$ steps old; apply the condition's
+fixed value transformation; and add the validation-frozen multiple of the
+result. Record prediction, eligibility count, similarity, source time, and
+source anchor. Only after evaluation may the current realized residual be
+written. This order is invariant across all conditions and prevents a target
+from retrieving itself.
+
+\section{Failure handling}
+
+An empty split, absent query, non-positive training variance, non-finite entry,
+cross-family split overlap, non-identical alias context, non-divergent paired
+future, too-young calibration, missing prediction artifact, hash mismatch, or
+failed decision predicate is terminal for that run. It is written to the
+manifest and is not silently retried with changed settings. Resource rejection
+is classified as blocked rather than as a scientific failure.
+
+\section{Claim taxonomy}
+
+\begin{center}
+\begin{tabular}{p{0.27\linewidth}p{0.20\linewidth}p{0.43\linewidth}}
+\toprule
+Claim class & Status & Maximum defensible wording \\
+\midrule
+Synthetic mechanism & Supported, bounded & The reference mechanism causally
+reused an old spatial residual in the declared alias construction. \\
+Public engineering stack & Static only & Source exists and passed bounded
+static checks; runtime behavior is unverified. \\
+Public-data benefit & Not evaluated & No efficacy statement. \\
+State of the art & Not evaluated & No SOTA statement. \\
+Independent reproduction & Not completed & Local script-level verification is
+not an external reproduction. \\
+Release readiness & Blocked & Source package exists; compiled and inspected
+release is not certified. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-14T10:02:30.145406+00:00",
+  "status": "BLOCKED_RESOURCE",
+  "cache_purge": "User reported completion; not independently observed",
+  "memory_mib": [
+    73.75,
+    95.796875
+  ],
+  "threshold_mib": 512,
+  "replay_receipt": "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/attempt-20261014-postpurge-01/REPLAY_RECEIPT.json",
+  "numerical_stages_started": [],
+  "v3_status": "WITHHELD_V2_NOT_COMPLETED",
+  "protected_files_checked": 440,
+  "preservation_mismatches": [],
+  "source_scalar_checks_passed": 228,
+  "source_scalar_checks_total": 228
+}

@@ -1,0 +1,459 @@
+{
+  "status": "COLLECTED_NOT_SCIENTIFICALLY_CERTIFIED",
+  "files": {
+    "REMOTE_EXECUTION_STARTED.json": {
+      "sha256": "fddd3ba098b7a575dc39feb8c584e120a0ff041d4c37b20aa081b75815aba67d",
+      "bytes": 168
+    },
+    "REMOTE_MANIFEST.json": {
+      "sha256": "5989a179f7420d87438631874c0fe22cc1fc472121383bb5e5fa09a22518960f",
+      "bytes": 17021
+    },
+    "remote-bootstrap/ADMISSION.json": {
+      "sha256": "2c06e92b9d76f490cd78bd1599dd55ee55edd5c51fedecdbf9751006814a4812",
+      "bytes": 300
+    },
+    "remote-bootstrap/RUNTIME.json": {
+      "sha256": "403d9de0d9c37a7880fa9e1445c11b9642baf795f26b52a65ee66f661beae004",
+      "bytes": 381
+    },
+    "remote-bootstrap/python.tar.gz": {
+      "sha256": "7dc10e31eede05a6ab1ec9e0b961f521078b0959f838ed1d7452597d529ff802",
+      "bytes": 27243366
+    },
+    "remote-install/ADMISSION.json": {
+      "sha256": "0083d815f0d0f8a9a6494bb4379826214d70c08e115ac8d6a192f54a07230351",
+      "bytes": 300
+    },
+    "remote-install/SOURCE_CHECKS.json": {
+      "sha256": "e674ab54cedca78a9317c4095679e79843a86ae9b00121cda9ef8cbee3df2953",
+      "bytes": 12079
+    },
+    "remote-install/SUMMARY.json": {
+      "sha256": "7242b34448f4acaa896fcbc955408610616229fc9ba979ebf622b07729452830",
+      "bytes": 357
+    },
+    "remote-install/dependency_check.json": {
+      "sha256": "b73fef25d22252f97c2133896cee42f404d496206b5d36c7d4fe1e19a00f5a54",
+      "bytes": 193
+    },
+    "remote-install/dependency_check.log": {
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+      "bytes": 30
+    },
+    "remote-install/install.json": {
+      "sha256": "accb50c2e52f85a18a524ed6688539cf071e20e774e25aa3f7287f725822a30b",
+      "bytes": 415
+    },
+    "remote-install/install.log": {
+      "sha256": "0be97f586a8b4e0bda49d28ae6989e6bfa24932bf20c603b32605b58889d9958",
+      "bytes": 7835
+    },
+    "remote-install/resolved_environment.json": {
+      "sha256": "2b8b183305527386b47d93d6f104b799ee224beae72c1d675b80a883dd5bea7f",
+      "bytes": 207
+    },
+    "remote-install/resolved_environment.log": {
+      "sha256": "556d1a2eee3f31a1d1439731a8aa78fec09d1fc4cfd79dd651b98fb411df4eb1",
+      "bytes": 269
+    },
+    "remote-preflight/ADMISSION.json": {
+      "sha256": "607ab8aef12291e1d3b7ac7c7859546824457f0c906ddfe8a65b5160feb6ff57",
+      "bytes": 300
+    },
+    "remote-preflight/SOURCE_CHECKS.json": {
+      "sha256": "e674ab54cedca78a9317c4095679e79843a86ae9b00121cda9ef8cbee3df2953",
+      "bytes": 12079
+    },
+    "remote-preflight/SUMMARY.json": {
+      "sha256": "d34548b34fe609348bb64d3f8e674746edb60b9e5d29c1ca08e1c1542909dddb",
+      "bytes": 345
+    },
+    "remote-run/ADMISSION.json": {
+      "sha256": "2b88763f9c2ed3c347744ae83a6e5d9664ac5859c9ef119b0749f463cb38e858",
+      "bytes": 300
+    },
+    "remote-run/SOURCE_CHECKS.json": {
+      "sha256": "e674ab54cedca78a9317c4095679e79843a86ae9b00121cda9ef8cbee3df2953",
+      "bytes": 12079
+    },
+    "remote-run/SUMMARY.json": {
+      "sha256": "bc30720149b4f6a290648707c7bf1be4756311eff5bc6464fdc0ed6b3bb88520",
+      "bytes": 392
+    },
+    "remote-run/v2.json": {
+      "sha256": "38feea5e81d625a19c848ac6da4be276ae3aae21a62ca3ff12e4a59b1ae7fad6",
+      "bytes": 536
+    },
+    "remote-run/v2.log": {
+      "sha256": "13615522bbdb5d5f6321379a9dd5a5b45cfa3dbb526a65c210341c5dbdffcee2",
+      "bytes": 21
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/DOCUMENTATION_SUPPLEMENT.json": {
+      "sha256": "fc650d31d5f35090a51281b287b9b60144b271de86f77059f33ab0c59cae70d3",
+      "bytes": 265
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/RAW_OUTPUT_RECEIPT.json": {
+      "sha256": "1f0c05fccc90c2882abc40d704054256382d3661046cf4c6dc51fd0c1b9e1661",
+      "bytes": 6012
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/REPLAY_RECEIPT.json": {
+      "sha256": "4e61850d6fdba39021e8ed0164463a6e78424b5635732cb3c7e8d97151c69748",
+      "bytes": 3137
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/instrumented_evaluation.py": {
+      "sha256": "6387a1d99e693046a256b3ad947e87ac1419bce3c35a3881aa96684a8c40d52f",
+      "bytes": 7733
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-erase.pt": {
+      "sha256": "73b3b34c93eb46d52c788e2ee2bd89c760a66235ad65d4e25a198c2b0a4650bc",
+      "bytes": 3897693
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-last_value.pt": {
+      "sha256": "40d1c187ac925476b90dda1757c473c2d16cb44e9bf4b56ef0935d6fc1636454",
+      "bytes": 3913021
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-no_memory.pt": {
+      "sha256": "c68384e9c43fb69724dda3b54677ad2605ce8776d7f19f78f1a45523d415ad01",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-oracle_anchor.pt": {
+      "sha256": "1b9e7f643b1988c09b7ea248d7ca76e2783da63a0bbc1be4c49133435ef97314",
+      "bytes": 3921949
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-paired_swap.pt": {
+      "sha256": "15b572508c6619720a2467be079a07c4c2091836ede550fd2d282b0eed0e0931",
+      "bytes": 3915613
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-recent_only.pt": {
+      "sha256": "8d5d1d8ad62e0d715a47ddf116c21b86d574178c6a94460a7be74e328dbe3874",
+      "bytes": 3915485
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-sign_flip.pt": {
+      "sha256": "a9ce28d708f25cb6b575a785b5ef1509f003032211cf263f447eee074eb8e662",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-tensor_memory.pt": {
+      "sha256": "0c0cdde866010277f6d4b009d16f3c53b736b56e592aaf55d823aa954478b93f",
+      "bytes": 3921629
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-101-vector_broadcast.pt": {
+      "sha256": "0dc1e3f022ebd257571d1f466853b28b9c3841d2f3fcaeb36bec98d989bb49af",
+      "bytes": 3930557
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-erase.pt": {
+      "sha256": "4105701c373df3a819b3324e65e064156ad9d09452a5ccedc0e6d877f1e88e45",
+      "bytes": 3897693
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-last_value.pt": {
+      "sha256": "cc5d943c93bc42a59b86ba4480b2aab22f47d2b42084373845db15571446de00",
+      "bytes": 3913021
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-no_memory.pt": {
+      "sha256": "4d623f49cc3f275810f630138ef608c2e10362b4ab0261a68884b6cd5c22d27b",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-oracle_anchor.pt": {
+      "sha256": "77e633ed00ec7804941ce7b5c25de5437aa0f3c65dd646bccc6f39b13d54fe28",
+      "bytes": 3921949
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-paired_swap.pt": {
+      "sha256": "cc023d5830e4c1d70c3d07b685a03efdf099f67acc92b4aeac9853cff1d8b2e8",
+      "bytes": 3915613
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-recent_only.pt": {
+      "sha256": "17927a70c149863253d458c9fa9cd43bc2ee0cafd0fbbc780ce3196e351cf8d1",
+      "bytes": 3915485
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-sign_flip.pt": {
+      "sha256": "537b88258710a74ed8a16a15d78fc88f738baa9c5b5eaa8af868c1fb459e5c7d",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-tensor_memory.pt": {
+      "sha256": "82db63b4acedd8805dee31c38a20a701c9b010966513b964e99323c4c10e78a9",
+      "bytes": 3921629
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-211-vector_broadcast.pt": {
+      "sha256": "845844be6f43329e0d5cd3d04399b2a134baf552d4bae5b01faf5657465afa96",
+      "bytes": 3930557
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-erase.pt": {
+      "sha256": "aaae0b8d40d905331dee9d73699824d78225f0a0bf64aa859d3fd71ba2779616",
+      "bytes": 3897693
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-last_value.pt": {
+      "sha256": "dc3a40b784a7f1f9dfb58f8685fcd9d155cb144e3ed46af8240c1beea3f96383",
+      "bytes": 3913021
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-no_memory.pt": {
+      "sha256": "7ab477e08a0a7815ceecada7ef2ac039a3529be2ef1551e2631ca6688377dca9",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-oracle_anchor.pt": {
+      "sha256": "4d56eb3032e325395d44183e32a1a606d5c758cdab74b940e3b9370234f51f48",
+      "bytes": 3921949
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-paired_swap.pt": {
+      "sha256": "7bbc588429b53062032cf74662b425b8166ec79506cb06cb588ad908655b6861",
+      "bytes": 3915613
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-recent_only.pt": {
+      "sha256": "cf6e8a6fb59657dea15bdab2f919a8e17691f93c2e859443d2835b1f84362047",
+      "bytes": 3915485
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-sign_flip.pt": {
+      "sha256": "a3c41276b5519a2da393a38ce0ac9a038938a227887304be65ef6793e6526db4",
+      "bytes": 3909661
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-tensor_memory.pt": {
+      "sha256": "0a15bcad745fe9d498fe6281070b61084b4c3b3a065c7e129b4e3d1dde2dd09d",
+      "bytes": 3921629
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/raw/seed-307-vector_broadcast.pt": {
+      "sha256": "beae94e5689a4ccf939c474faa7e147b127233b9894fe0c7d5086edc477e147f",
+      "bytes": 3930557
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/.gitignore": {
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd",
+      "bytes": 37
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/CACHEDIR.TAG": {
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "bytes": 191
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/README.md": {
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad",
+      "bytes": 302
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/.pytest_cache/v/cache/nodeids": {
+      "sha256": "9cd10f2263d636bac22a4dbb32f98dcc7db2b05a3ef19d9ad7a3b5d2bef09e51",
+      "bytes": 749
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/METHODOLOGY.md": {
+      "sha256": "1846f4f4a8ff7dade0e6140594e718aacee2c3ebedbe6799b0c9670a93995f59",
+      "bytes": 3937
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/PROJECT_CONTRACT.md": {
+      "sha256": "c276ac187cece3cc512a588ee299fbc1a775cdd271e2b3552029275db90b57d6",
+      "bytes": 3002
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/README.md": {
+      "sha256": "878fb9574d65b75fba57e95073c73a315d2a8a839aa8a7ba0cc3a36284f1dbf0",
+      "bytes": 6135
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/protocols/development_v2.json": {
+      "sha256": "8cb1ea0493da40ece0663f1777dccf5bf01f367050b771434a9574b0ef52330b",
+      "bytes": 1591
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/pyproject.toml": {
+      "sha256": "e1f53e42797ac6aeb1f07b00ca898785264ed87e36405e0f512e68cc48e65cca",
+      "bytes": 494
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/manifest.json": {
+      "sha256": "af8cd660fed6edfaf3d846b7d1481a89f0987343dbb04b79796f26395f4eebab",
+      "bytes": 5184
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-erase.json": {
+      "sha256": "a032cf3ed52dd1582aa721007a11f9c8cea283a1c50974b1f01e68c8eb2ab70a",
+      "bytes": 251804
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-last_value.json": {
+      "sha256": "c7e99d3e8e80a3ab445e1a5c48e8c6e73afdf8b38278cbae471759098a249b0c",
+      "bytes": 242870
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-no_memory.json": {
+      "sha256": "a032cf3ed52dd1582aa721007a11f9c8cea283a1c50974b1f01e68c8eb2ab70a",
+      "bytes": 251804
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-oracle_anchor.json": {
+      "sha256": "de9e7f9129993348b6b135e9e2839d629b111906e58cee4c21a19d938e990b1f",
+      "bytes": 242018
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-paired_swap.json": {
+      "sha256": "da435ce0df4fbd93d459dd3f7d8a561095579c6d89cdf3d29f55ad3ea8487089",
+      "bytes": 251932
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-recent_only.json": {
+      "sha256": "aa4675b5aaf4fdaeb2ea5b0b1189338e6e1a01cbea94bf1558d28dcc5a0b2f96",
+      "bytes": 244854
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-sign_flip.json": {
+      "sha256": "acc1242e79847ff98c22e00b3bf389663986642dad66b0d73d008463bc24c357",
+      "bytes": 251836
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-tensor_memory.json": {
+      "sha256": "3d91ed3c6fb96a7f89b0409d892304345b00b20fcbb5f1cf497b1ecac25bb01a",
+      "bytes": 251380
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/predictions-vector_broadcast.json": {
+      "sha256": "a032cf3ed52dd1582aa721007a11f9c8cea283a1c50974b1f01e68c8eb2ab70a",
+      "bytes": 251804
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-101/result.json": {
+      "sha256": "569e00eddcfe6419aaf6f13ae6c0a54a8c2f04ad7c2611cbc5d7dfe70d649779",
+      "bytes": 7020
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-erase.json": {
+      "sha256": "d3ab4a42da9ff3eef6af0f8d5a9eee878914fae697f51a650f810d75288a5d80",
+      "bytes": 252400
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-last_value.json": {
+      "sha256": "4fb5d847f16d853863f00a43eab4c9a45e27cce29c5d2ba5e459f79c46dcaf6b",
+      "bytes": 243547
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-no_memory.json": {
+      "sha256": "d3ab4a42da9ff3eef6af0f8d5a9eee878914fae697f51a650f810d75288a5d80",
+      "bytes": 252400
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-oracle_anchor.json": {
+      "sha256": "5c4754c33cb839ab9a0567bd1e762cabd53caefbf45c9a80e241de29206b7a32",
+      "bytes": 242214
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-paired_swap.json": {
+      "sha256": "9dc52355f130b45f01461322fe3172135dd8cc9ebb4abdbdd5eb3a51a79accc2",
+      "bytes": 252412
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-recent_only.json": {
+      "sha256": "20b05944d248c9a6cb6b31005464e89bc6328ede9f6ee421ce89a438e020494b",
+      "bytes": 245310
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-sign_flip.json": {
+      "sha256": "5a9a862c4e0276c7a67d8e9aa2e4f002c3da039b321edb0b01acaca188b37d93",
+      "bytes": 252364
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-tensor_memory.json": {
+      "sha256": "fb2463c0d2a2085e8cb77b80f5fc66def77840b3272f53bb334a24b30ec42b45",
+      "bytes": 251716
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/predictions-vector_broadcast.json": {
+      "sha256": "01a7febf41e4ced7d665bee9c456707f5b36caacb3021609be576e1573d21550",
+      "bytes": 252400
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-211/result.json": {
+      "sha256": "948bb206d63721a260e1742f3ce7e39d2771d07b5a3b9840535d3ceffc4f7867",
+      "bytes": 7027
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-erase.json": {
+      "sha256": "274b5582cef92c9d2ac3338a471eac2b3ca8ee27fda918fe47e8cc04fd2619e2",
+      "bytes": 252477
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-last_value.json": {
+      "sha256": "00978fec25516706e3b88c0b8604b9c4dfd4fc4fc660f6ce8b8a52e5406d626b",
+      "bytes": 243990
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-no_memory.json": {
+      "sha256": "274b5582cef92c9d2ac3338a471eac2b3ca8ee27fda918fe47e8cc04fd2619e2",
+      "bytes": 252477
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-oracle_anchor.json": {
+      "sha256": "f1bec87ee4eb4552078b350db9e3d283b5030ad96b6727de8d46f41609b5eb6f",
+      "bytes": 242397
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-paired_swap.json": {
+      "sha256": "e6e9521ed8a500668e364e8656756a0d2cbaa97b15caba751697a5ba16bed9df",
+      "bytes": 252255
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-recent_only.json": {
+      "sha256": "f7351d2cf26d6a483bc9a50dbd82ff80a2df0907463a82e4a5573f8d82803e49",
+      "bytes": 245727
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-sign_flip.json": {
+      "sha256": "a64d790e3ea3b6cce7f2fdfd963ad960a88dce926e56530c2817cfeddb08a5d6",
+      "bytes": 252351
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-tensor_memory.json": {
+      "sha256": "05be1007d699708849fda8c7969616e32e40f85fe881b85c3a3c571e62564db3",
+      "bytes": 251559
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/predictions-vector_broadcast.json": {
+      "sha256": "7a584e5c9b6e66eaf1bdad04d0949ac03ca96c959c5a51a24ed0f7e1ec80e02b",
+      "bytes": 252477
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/development-v2/seed-307/result.json": {
+      "sha256": "850739ea0f6ee0e11c909f0bc70ec5afe3085400c821586435ee672f9cc01d1b",
+      "bytes": 7016
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/receipts/verification-1791987257155579000-pid-2682.json": {
+      "sha256": "2f026aaceedf168afd486feab56c3ad5fdc6b5a2b25a6e586240d34d158c0d62",
+      "bytes": 4106
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/result_verification.json": {
+      "sha256": "fe7ab41ec8d9634e82c08b292cf4c1d0f4d2f7a7d91d9dbe2463fce23969c6ce",
+      "bytes": 4167
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/static_audit.json": {
+      "sha256": "b6f1c2ea968af9bec38aaf0aa7efd82738b55720ff3c7ed93628453b29e60693",
+      "bytes": 487
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/results/verification_receipt.json": {
+      "sha256": "2f026aaceedf168afd486feab56c3ad5fdc6b5a2b25a6e586240d34d158c0d62",
+      "bytes": 4106
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/audit_contract.py": {
+      "sha256": "534003e7e9e034ad395d64cdd0013325a8b7a2e67cf3827b6e02848cdbfc1351",
+      "bytes": 544
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/check_resource_admission.py": {
+      "sha256": "7eb62af11217f7e79a5b62d4d5420ed5ae6dbedaa5165c57a97e95b8782d7360",
+      "bytes": 1741
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/run_pipeline.py": {
+      "sha256": "ca752f68b8c1c45ec184626d55400ebf50a14638be206a94adb6b1aa86d6562c",
+      "bytes": 3695
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/scripts/verify_results.py": {
+      "sha256": "966b3ed851ca3283fca3acf020b4a61f10b3fc04379167b701d26cf6e9436eac",
+      "bytes": 7410
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/__init__.py": {
+      "sha256": "70363df39caad22c18813416cec1a2921ec2ad6a80788504998578fe9e48d2fb",
+      "bytes": 235
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/analysis.py": {
+      "sha256": "1e09666445f51b57bcd42cd9e5163b38d692c8a7d4cc65821760d94ef5ae24c8",
+      "bytes": 2536
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/audit.py": {
+      "sha256": "f703c74297b13866beffe4ed4f0d3cd0eb099289a0453d9edf74d9475d56a988",
+      "bytes": 2392
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/data.py": {
+      "sha256": "78575f1377162a4c0c65af7501f5b5817d0b6844667aae329f79d4e94582fbd5",
+      "bytes": 10220
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/evaluation.py": {
+      "sha256": "ceaa27acf190a45deeab87aa7c32d642f70b54ad568bcb9b8e137004706c10d2",
+      "bytes": 8548
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/experiment.py": {
+      "sha256": "7bd2fbd82e7b014355ce42ff6526be98bb23a992fdb643b1b30240f10b20dfce",
+      "bytes": 10479
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/memory.py": {
+      "sha256": "63de75c6058923c8b88bf75838b19ca328d0197db4fa0eeede9a8bf575447820",
+      "bytes": 6264
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/src/fim_v2/resources.py": {
+      "sha256": "7013ea93b729fa57d2d9ba14ed8277d0515dc88600c334848193cc7984991653",
+      "bytes": 1869
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_data.py": {
+      "sha256": "6b9bccb5d9143534d3fcd919344b953dd39b3e5a720b72c52e58c8385618b314",
+      "bytes": 1558
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_decision.py": {
+      "sha256": "c5745c884c50c0c1d2eb26395af41e2491d2223c7af8ff95ccdc053685d676f3",
+      "bytes": 1615
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_evaluation.py": {
+      "sha256": "ca72a3c9f64af9fe8338eb3094d8a02f55bb0f8de9e86319cad34a145916e869",
+      "bytes": 1314
+    },
+    "successor/itfm_v2/publication/itfm-v2-paper-20261011/replays/remote-1/workspace/tests/test_memory.py": {
+      "sha256": "f9750aee7d02885abae29dd1aca57c069f3c2c9fd947fcc55dbecd2bc0027874",
+      "bytes": 2609
+    }
+  },
+  "bytes": 139881282,
+  "source_manifest_sha256": "5989a179f7420d87438631874c0fe22cc1fc472121383bb5e5fa09a22518960f"
+}

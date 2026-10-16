@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-16T03:39:04.641256+00:00",
+  "authorization": "Yes publish the v4 bundle and run the tests on the free public macOS runner right now. Also improve the code quality beforehand",
+  "repair_rounds_previous": 6,
+  "repair_rounds_limit": 8,
+  "remote_jobs_limit": 1,
+  "paid_cost": 0,
+  "worker_seconds": 30,
+  "job_minutes": 15,
+  "scope": "Versioned supervisor and test acceptance quality fixes; preserve all historical files; publish minimal bundle; one standard public macOS job; retain failures and results. No scientific campaign or new architecture."
+}

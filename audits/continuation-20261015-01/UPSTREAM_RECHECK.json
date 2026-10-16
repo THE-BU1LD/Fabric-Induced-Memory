@@ -1,0 +1,30 @@
+{
+  "scope": "Exact pinned recursive tree filename scan plus README inspection; not a legal determination or admission pass",
+  "status": "NOT_ADMITTED",
+  "sources": [
+    {
+      "repository": "Kingyum-Hou/LANO",
+      "url": "https://api.github.com/repos/Kingyum-Hou/LANO/git/trees/b53a62100b4705f1382a7c344b2d84afa255b96f?recursive=1",
+      "sha": "b53a62100b4705f1382a7c344b2d84afa255b96f",
+      "truncated": false,
+      "paths_scanned": 111,
+      "terms_files": [],
+      "readme_bytes": 0,
+      "readme_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "readme_url": "https://github.com/Kingyum-Hou/LANO/blob/b53a62100b4705f1382a7c344b2d84afa255b96f/README.md",
+      "readme_observation": "Empty README at frozen pin"
+    },
+    {
+      "repository": "lennonshikhman/hs-fno",
+      "url": "https://api.github.com/repos/lennonshikhman/hs-fno/git/trees/9ebf2a7aa483c7f74769365c187c7d9492ecd6ef?recursive=1",
+      "sha": "9ebf2a7aa483c7f74769365c187c7d9492ecd6ef",
+      "truncated": false,
+      "paths_scanned": 99,
+      "terms_files": [],
+      "readme_bytes": 8577,
+      "readme_blob_sha": "2bcf62572e8d7d6eb02d9d8ab413c6b5dfb2cb82",
+      "readme_url": "https://github.com/lennonshikhman/hs-fno/blob/9ebf2a7aa483c7f74769365c187c7d9492ecd6ef/README.md",
+      "readme_observation": "Documents reference workflow; no explicit source or dataset license grant identified in README"
+    }
+  ]
+}

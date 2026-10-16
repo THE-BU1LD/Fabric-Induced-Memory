@@ -1,0 +1,14 @@
+{
+  "notebook": "PREPARED_STATICALLY_CHECKED",
+  "frozen_scientific_manifest": "ABSENT_GATES_BLOCKED",
+  "actual_run_ledger": "PRESENT_ZERO_LAUNCHED",
+  "account_budget_ledger": "PRESENT_Q0_UNKNOWN",
+  "source_manifest": "PRESENT_VERIFIED",
+  "data_manifest": "SPECIFICATION_ONLY_NOT_GENERATED",
+  "cloud_environment_manifest": "ABSENT_RUNTIME_NOT_STARTED",
+  "checkpoints": [],
+  "raw_metrics": [],
+  "tables": "STATUS_INVENTORY_ONLY",
+  "result_figures": [],
+  "remote_persistence_retrieval": "NOT_VERIFIED"
+}

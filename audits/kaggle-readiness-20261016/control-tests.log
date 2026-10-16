@@ -1,0 +1,28 @@
+test_allocation_caps_cover_model_and_raw_export (test_engineering_control.ControlTests.test_allocation_caps_cover_model_and_raw_export) ... ok
+test_atomic_json_refuses_existing_target (test_engineering_control.ControlTests.test_atomic_json_refuses_existing_target) ... ok
+test_blocked_attempt_cannot_silently_run_again (test_engineering_control.ControlTests.test_blocked_attempt_cannot_silently_run_again) ... ok
+test_budget_simulated_clock (test_engineering_control.ControlTests.test_budget_simulated_clock) ... ok
+test_campaign_reserves_budget_before_launch_failure (test_engineering_control.ControlTests.test_campaign_reserves_budget_before_launch_failure) ... ok
+test_data_hash_independent_of_model_but_binds_generation (test_engineering_control.ControlTests.test_data_hash_independent_of_model_but_binds_generation) ... ok
+test_dry_run_does_not_launch (test_engineering_control.ControlTests.test_dry_run_does_not_launch) ... ok
+test_embedded_source_inventory_is_verified (test_engineering_control.ControlTests.test_embedded_source_inventory_is_verified) ... ok
+test_existing_run_refused_without_launch (test_engineering_control.ControlTests.test_existing_run_refused_without_launch) ... ok
+test_export_is_allowlisted_atomic_and_refuses_overwrite (test_engineering_control.ControlTests.test_export_is_allowlisted_atomic_and_refuses_overwrite) ... ok
+test_import_does_not_load_tensors (test_engineering_control.ControlTests.test_import_does_not_load_tensors) ... ok
+test_live_lock_is_preserved (test_engineering_control.ControlTests.test_live_lock_is_preserved) ... ok
+test_manifest_rejects_traversal_duplicates_unbounded (test_engineering_control.ControlTests.test_manifest_rejects_traversal_duplicates_unbounded) ... ok
+test_manifest_resolves_every_cell (test_engineering_control.ControlTests.test_manifest_resolves_every_cell) ... ok
+test_missing_artifact_is_not_success (test_engineering_control.ControlTests.test_missing_artifact_is_not_success) ... ok
+test_orphan_request_also_prevents_retry (test_engineering_control.ControlTests.test_orphan_request_also_prevents_retry) ... ok
+test_reject_bad_configs (test_engineering_control.ControlTests.test_reject_bad_configs) ... ok
+test_resource_change_and_unknown_fail_closed (test_engineering_control.ControlTests.test_resource_change_and_unknown_fail_closed) ... ok
+test_reuse_checks_identity_and_every_artifact (test_engineering_control.ControlTests.test_reuse_checks_identity_and_every_artifact) ... ok
+test_stable_resource_floor (test_engineering_control.ControlTests.test_stable_resource_floor) ... ok
+test_supervisor_terminates_only_owned_group (test_engineering_control.ControlTests.test_supervisor_terminates_only_owned_group) ... ok
+test_unsafe_partial_reuse_refused (test_engineering_control.ControlTests.test_unsafe_partial_reuse_refused) ... ok
+test_zero_not_replaced_with_default (test_engineering_control.ControlTests.test_zero_not_replaced_with_default) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.217s
+
+OK

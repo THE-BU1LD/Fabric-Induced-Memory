@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v3/run.py", line 266, in <module>
+    main()
+  File "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v3/run.py", line 251, in main
+    worker(args, protocol)
+  File "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v3/run.py", line 200, in worker
+    run(protocol, Path(args.output))
+  File "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v3/experiment.py", line 361, in run
+    result = cell(
+             ^^^^^
+  File "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v3/experiment.py", line 183, in cell
+    budget.check(force=True)
+  File "/Users/runner/work/Fabric-Induced-Memory/Fabric-Induced-Memory/successor/itfm_v3/experiment.py", line 27, in check
+    raise RuntimeError("resource admission lost: " + json.dumps(report))
+RuntimeError: resource admission lost: {"status": "BLOCKED", "samples": [{"free_bytes": 462290944, "pageouts": 1712, "swap_mib": 0.0}, {"free_bytes": 441925632, "pageouts": 1712, "swap_mib": 0.0}]}

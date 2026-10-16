@@ -1,0 +1,30 @@
+{
+  "state": "BLOCKED BEFORE EXECUTION",
+  "cells": {
+    "periodic-seed-1601": {
+      "state": "PENDING",
+      "reason": "Upstream access/readiness gates blocked; never launched",
+      "path": "cells/periodic-seed-1601"
+    },
+    "periodic-seed-1709": {
+      "state": "PENDING",
+      "reason": "Upstream access/readiness gates blocked; never launched",
+      "path": "cells/periodic-seed-1709"
+    },
+    "periodic-seed-1801": {
+      "state": "PENDING",
+      "reason": "Upstream access/readiness gates blocked; never launched",
+      "path": "cells/periodic-seed-1801"
+    },
+    "periodic-seed-1907": {
+      "state": "PENDING",
+      "reason": "Upstream access/readiness gates blocked; never launched",
+      "path": "cells/periodic-seed-1907"
+    },
+    "periodic-seed-2003": {
+      "state": "PENDING",
+      "reason": "Upstream access/readiness gates blocked; never launched",
+      "path": "cells/periodic-seed-2003"
+    }
+  }
+}

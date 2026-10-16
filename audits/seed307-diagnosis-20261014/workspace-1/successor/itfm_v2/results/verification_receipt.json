@@ -1,0 +1,89 @@
+{
+  "finished_at_unix": 1791716198.8429499,
+  "niceness": 10,
+  "python": "/opt/homebrew/opt/python@3.11/bin/python3.11",
+  "schema_version": 1,
+  "started_at_unix": 1791716187.058468,
+  "status": "complete",
+  "steps": [
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/scripts/check_resource_admission.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791716187.376328,
+      "name": "resource_admission_before_tests",
+      "started_at_unix": 1791716187.0585139,
+      "stderr": "",
+      "stdout": "{\"free_plus_speculative_bytes\": 1842282496, \"pageouts_cumulative\": 643994, \"pageouts_during_stability_check\": 0, \"stability_interval_seconds\": 0.25, \"status\": \"PASS\", \"threshold_bytes\": 536870912}\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "-m",
+        "pytest"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791716190.629378,
+      "name": "tests",
+      "started_at_unix": 1791716187.376342,
+      "stderr": "",
+      "stdout": "..........                                                               [100%]\n10 passed in 2.36s\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/scripts/audit_contract.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791716190.6807349,
+      "name": "static_contract_audit",
+      "started_at_unix": 1791716190.629387,
+      "stderr": "",
+      "stdout": "{\"status\": \"pass\"}\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/scripts/check_resource_admission.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791716191.005708,
+      "name": "resource_admission_before_experiment",
+      "started_at_unix": 1791716190.680761,
+      "stderr": "",
+      "stdout": "{\"free_plus_speculative_bytes\": 1664614400, \"pageouts_cumulative\": 643994, \"pageouts_during_stability_check\": 0, \"stability_interval_seconds\": 0.25, \"status\": \"PASS\", \"threshold_bytes\": 536870912}\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "-m",
+        "fim_v2.experiment",
+        "--protocol",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/protocols/development_v2.json",
+        "--output",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/results/development-v2"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791716198.7188952,
+      "name": "development_experiment",
+      "started_at_unix": 1791716191.005724,
+      "stderr": "",
+      "stdout": "{\"status\": \"PASS_BOUNDED_DEVELOPMENT\"}\n"
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.11/bin/python3.11",
+        "/Volumes/PRO-BLADE/GitHubRepos/Personal-Research/Fabric-Induced-Memory/successor/itfm_v2/scripts/verify_results.py"
+      ],
+      "exit_code": 0,
+      "finished_at_unix": 1791716198.8429382,
+      "name": "result_verification",
+      "started_at_unix": 1791716198.71891,
+      "stderr": "",
+      "stdout": "{\"status\": \"pass\", \"checks\": 96}\n"
+    }
+  ],
+  "threads": 1
+}

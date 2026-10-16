@@ -1,0 +1,67 @@
+{
+  "at": "2026-10-15T14:21:02.747648+00:00",
+  "status": "PASS_BOUNDED_AUDIT_INTEGRITY_NOT_RESEARCH_SUCCESS",
+  "historical_files_checked": 440,
+  "historical_files_unchanged": 440,
+  "v3_frozen_source_checked": 12,
+  "v3_frozen_source_unchanged": 12,
+  "status_sources_checked": 12,
+  "status_sources_unchanged": 12,
+  "source_audit_receipt": "audit/SOURCE_DEFECTS_REFINED.json",
+  "source_defects_demonstrated": 7,
+  "audit_control_checks_passed": 4,
+  "exact_rational_identity_checks_passed": 27,
+  "local_markdown_links": [
+    {
+      "from": "MATH_AND_FALSIFIERS.md",
+      "to": "audit/SOURCE_DEFECTS_REFINED.json",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "to": "RESEARCH_STATE.json",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "to": "../../audits/status-20261015-01/AUDIT.json",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "to": "../../audits/seed307-diagnosis-20261014/REPORT.md",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "to": "CONCEPT_AUDIT.json",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "to": "audit_source.py",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "to": "FLAW_CHECKLIST.md",
+      "exists": true
+    },
+    {
+      "from": "README.md",
+      "to": "MATH_AND_FALSIFIERS.md",
+      "exists": true
+    }
+  ],
+  "new_model_runs": 0,
+  "protected_outcomes_opened": false,
+  "boundary": "Hash preservation, syntax, local links and adversarial scalar fixtures only; no new scientific result, model repair or independent reproduction.",
+  "portfolio_validation": {
+    "status": "VALID",
+    "projects": 33,
+    "warnings": 0,
+    "live_git_checked": false
+  },
+  "package_consistency_checks_passed": 7,
+  "other_projects_unchanged": 32
+}

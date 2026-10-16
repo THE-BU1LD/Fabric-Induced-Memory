@@ -1,0 +1,82 @@
+{
+  "at": "2026-10-15T14:16:25.939545+00:00",
+  "audit_revision": 2,
+  "status": "CONFIRMED_SOURCE_DEFECTS_NOT_MODEL_EFFICACY",
+  "fixture_boundary": "All generated rows are adversarial software fixtures; not scientific data or experiments.",
+  "source_sha256": {
+    "verification.py": "8c9c274ff2c02e8f38de9cdfcd4835271283761b7f17150b4cac1a11ea862b10",
+    "statistics.py": "8212460bbc0b4967ecaf2726f33cb3030e644743db5a44f7fa1124a156149036",
+    "adapter.py": "0d88d64eb64bf42a46b7c6bc6f0b089f1ab123e74ea301040307b87b0d0fc126"
+  },
+  "audit_script_sha256": "19b5f3395b1a398b054bdf2e679de952d15fe5d9d5d8716b976afa25738915ce",
+  "control_checks": {
+    "benign_summary_fixture_accepted": true,
+    "short_matrix_rejected": true,
+    "false_independence_rejected": true,
+    "ordinary_metric_mismatch_rejected": true
+  },
+  "findings": [
+    {
+      "id": "V01",
+      "finding": "Duplicated matrix rows can obtain broad_sota_allowed.",
+      "observed": true,
+      "defect_confirmed": true,
+      "details": "36 copies of one cell and 5 copies of one family; independence supplied as a bare boolean."
+    },
+    {
+      "id": "V02",
+      "finding": "Secondary 100 percent regression is ignored by the decision.",
+      "observed": true,
+      "defect_confirmed": true,
+      "details": "Five unique protocol families: one loses 100 percent, four win 50 percent; macro gain 20 percent and mean error .06. The forbidden family regression still passes."
+    },
+    {
+      "id": "V03",
+      "finding": "NaN and same-sign infinite metric pairs can pass comparison.",
+      "observed": [
+        true,
+        true,
+        true
+      ],
+      "defect_confirmed": true
+    },
+    {
+      "id": "V04",
+      "finding": "Pooled relative L2 differs from mean per-sample relative L2.",
+      "observed": {
+        "source_verifier": 0.09950371902099892,
+        "declared_sample_average": 0.5
+      },
+      "defect_confirmed": true
+    },
+    {
+      "id": "V05",
+      "finding": "Bootstrap point estimate weights trajectories instead of equal cells.",
+      "observed": {
+        "source_estimate": 0.1,
+        "equal_cell_estimate": 0.5
+      },
+      "defect_confirmed": true
+    },
+    {
+      "id": "V06",
+      "finding": "Pairing silently drops an unmatched failed row.",
+      "observed": {
+        "paired_before": 10,
+        "paired_after": 9
+      },
+      "defect_confirmed": true,
+      "details": "A complete-matrix gate must run before this statistic; this finding alone does not prove a final scientific false pass."
+    },
+    {
+      "id": "V07",
+      "finding": "Writer never reads target_observation_mask.",
+      "observed": false,
+      "defect_confirmed": true,
+      "details": "Static AST evidence; no tensor leakage experiment is claimed."
+    }
+  ],
+  "rational_identity_checks_passed": 27,
+  "rational_identity_checks_total": 27,
+  "proof_scope": "Finite exact-arithmetic sanity checks accompany a general algebraic derivation; no empirical success or novelty claim."
+}

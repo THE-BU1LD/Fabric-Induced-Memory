@@ -1,0 +1,77 @@
+{
+  "cells": [
+    {
+      "artifact_valid": false,
+      "cell_id": "periodic-seed-1601",
+      "ledger_state": "PENDING",
+      "mandatory": true,
+      "reason": "Upstream access/readiness gates blocked; never launched",
+      "seed": 1601
+    },
+    {
+      "artifact_valid": false,
+      "cell_id": "periodic-seed-1709",
+      "ledger_state": "PENDING",
+      "mandatory": true,
+      "reason": "Upstream access/readiness gates blocked; never launched",
+      "seed": 1709
+    },
+    {
+      "artifact_valid": false,
+      "cell_id": "periodic-seed-1801",
+      "ledger_state": "PENDING",
+      "mandatory": true,
+      "reason": "Upstream access/readiness gates blocked; never launched",
+      "seed": 1801
+    },
+    {
+      "artifact_valid": false,
+      "cell_id": "periodic-seed-1907",
+      "ledger_state": "PENDING",
+      "mandatory": true,
+      "reason": "Upstream access/readiness gates blocked; never launched",
+      "seed": 1907
+    },
+    {
+      "artifact_valid": false,
+      "cell_id": "periodic-seed-2003",
+      "ledger_state": "PENDING",
+      "mandatory": true,
+      "reason": "Upstream access/readiness gates blocked; never launched",
+      "seed": 2003
+    }
+  ],
+  "complete_confirmatory_study": false,
+  "durable_storage_verified": false,
+  "effect_direction": "memory_test_mse_minus_comparator_test_mse; negative favors memory",
+  "end_state": "BLOCKED BEFORE EXECUTION",
+  "evidence_class": "SYNTHETIC_ENGINEERING_FIXTURE",
+  "expected_cells": 5,
+  "gpu_session_seconds": null,
+  "limitations": [
+    "This is a synthetic engineering/development fixture, not a public benchmark or confirmatory study.",
+    "Independent repetitions are seeds. Timesteps, trajectories within a seed, batches, and spatial points are not statistical replicates.",
+    "Each seed trains one MLP; memory variants reuse its frozen checkpoint. Training time and parameter counts are shared, not separate matched compute trials.",
+    "Memory scale is selected on validation only; test results are descriptive and must not be used to revise this protocol.",
+    "Few seeds provide coarse sign-flip inference and unstable bootstrap intervals. Inconclusive differences do not establish equivalence.",
+    "Exact sign-flip p-values require independent, sign-exchangeable paired effects under the null; that assumption is not established by this fixture.",
+    "Autonomous base rollout is a separate finite-horizon diagnostic with memory disabled; it does not establish long-term stability or memory efficacy.",
+    "No novelty, general architecture ranking, venue readiness, acceptance, or independent scientific replication is established."
+  ],
+  "mandatory_missing": [
+    "periodic-seed-1601",
+    "periodic-seed-1709",
+    "periodic-seed-1801",
+    "periodic-seed-1907",
+    "periodic-seed-2003"
+  ],
+  "manifest_sha256": "49e0ba65882c2a6e93442d49eb3d7cb70110e6a3686653f42ebbaefc69622789",
+  "observed_final_quota_hours": null,
+  "paired_aggregates": [],
+  "preprint_supported": "engineering methods and bounded descriptive results only; no scientific efficacy claim",
+  "schema_version": 1,
+  "session_stop_verified": false,
+  "source_sha256": "97a31bff8d785c37b0f2af6bfc374900670ed66bd554e17bb1d6525253a719f2",
+  "statistical_unit": "independent_seed",
+  "valid_completed_cells": 0
+}

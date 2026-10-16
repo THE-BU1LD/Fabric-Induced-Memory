@@ -1,0 +1,55 @@
+{
+  "admission": {
+    "samples": [
+      {
+        "free_plus_speculative_bytes": 557498368,
+        "pageouts": 142835,
+        "swap_used_mib": 1581.25
+      },
+      {
+        "free_plus_speculative_bytes": 557563904,
+        "pageouts": 142835,
+        "swap_used_mib": 1581.25
+      }
+    ],
+    "status": "PASS",
+    "threshold_bytes": 536870912
+  },
+  "boundary": "Same host and operator. This is not external independent reproduction or an isolated dependency installation.",
+  "budget": {
+    "max_total_execution_seconds": 300,
+    "paid_compute": 0,
+    "seconds_per_step": 300,
+    "seeds": [
+      101,
+      211,
+      307
+    ],
+    "threads": 1
+  },
+  "checked_at": "2026-10-14T01:21:11.837750+00:00",
+  "failed_step": "frozen_tests_and_experiment",
+  "latest_admission": {
+    "samples": [
+      {
+        "free_plus_speculative_bytes": 541360128,
+        "pageouts": 142835,
+        "swap_used_mib": 1581.25
+      },
+      {
+        "free_plus_speculative_bytes": 485900288,
+        "pageouts": 142835,
+        "swap_used_mib": 1581.25
+      }
+    ],
+    "status": "BLOCKED",
+    "threshold_bytes": 536870912
+  },
+  "manuscript": {
+    "generated_results.tex": "8857d7a23222945ec8e7c88420369dd13989c38d8c6047127a6fe4ff163ef1b3",
+    "main.tex": "731e75c88886659cdd6d19dffc32c7c8c1f47afc3096a2ea8d1350723a30e9e4",
+    "references.bib": "02691c9947bdc747b7b6c6133bbfae51cdd7cbf594d9b26990b798db52108782"
+  },
+  "status": "BLOCKED_RESOURCE",
+  "steps": []
+}

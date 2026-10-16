@@ -1,0 +1,36 @@
+{
+  "status": "PASS_PREPARATION_ONLY_EXECUTION_BLOCKED",
+  "source_sha256": "97a31bff8d785c37b0f2af6bfc374900670ed66bd554e17bb1d6525253a719f2",
+  "new_stdlib_tests": {
+    "budget": 21,
+    "analysis": 8,
+    "workflow": 10,
+    "total": 39,
+    "passed": 39,
+    "failed": 0
+  },
+  "ruff_F_E9": "PASS",
+  "python_files_ast_checked": 8,
+  "notebook": {
+    "status": "PASS_STATIC_PORTABILITY_ONLY",
+    "notebook_sha256": "1309ea8c69ddf0e89c6191d62ccda61475cf1c8b7fe9a920dd31e20d2c60fa85",
+    "total_cells": 35,
+    "python_cells_ast_validated": 16,
+    "bootstrap_executions": 2,
+    "idempotent_extraction": true,
+    "embedded_source_sha256": "97a31bff8d785c37b0f2af6bfc374900670ed66bd554e17bb1d6525253a719f2",
+    "numerical_imports": [],
+    "torch_experiments_run": 0,
+    "stdlib_profile_origin_outside_support": true,
+    "bootstrapped_source_files": 20
+  },
+  "engineering_source_unchanged": true,
+  "source_archive_all_member_hashes": "PASS",
+  "torch_or_numpy_imported_in_verification": false,
+  "cpu_numerical_validation": "BLOCKED_RESOURCE",
+  "cuda_validation": "NOT_RUN",
+  "remote_notebook_source_uploaded": false,
+  "remote_persistence_retrieval": "NOT_VERIFIED",
+  "full_study_manifest": "NOT_FROZEN",
+  "end_state": "BLOCKED BEFORE EXECUTION"
+}

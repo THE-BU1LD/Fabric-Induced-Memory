@@ -1,0 +1,12 @@
+{
+  "source_sha": "1499b37d03c83bea1c54d0f0f5bfca743aebfc29",
+  "run_id": "38577967203",
+  "parts": [
+    {
+      "file": "outputs.tar.gz.part-000",
+      "sha256": "c5704b8d90b4c99648242b233330302d926a7b17502dc4137d75cab930e72186",
+      "bytes": 27211343
+    }
+  ],
+  "format": "concatenate parts in listed order, then gzip/tar"
+}

@@ -1,0 +1,8 @@
+{
+  "at": "2026-10-14T01:13:55.770146+00:00",
+  "tests_run": 11,
+  "failures": 0,
+  "errors": 0,
+  "passed": true,
+  "scope": "standard-library contracts only; no numerical execution"
+}
