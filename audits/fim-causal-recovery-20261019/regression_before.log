@@ -1,0 +1,617 @@
+....FFFF...............s.........F.sssFFFFFFFFFF..FFFF                   [100%]
+=================================== FAILURES ===================================
+____ test_optimizer_must_bind_each_trainable_model_parameter_once[foreign] _____
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-17/test_optimizer_must_bind_each_0')
+defect = 'foreign'
+
+    @pytest.mark.parametrize("defect", ["foreign", "missing", "duplicate"])
+    def test_optimizer_must_bind_each_trainable_model_parameter_once(tmp_path, defect):
+        model = nn.Linear(1, 1)
+        parameters = list(model.parameters())
+        if defect == "foreign":
+            parameters = list(nn.Linear(1, 1).parameters())
+        elif defect == "missing":
+            parameters = parameters[:1]
+        optimizer = torch.optim.SGD(parameters, lr=0.01)
+        if defect == "duplicate":
+            optimizer.param_groups[0]["params"].append(parameters[0])
+>       with pytest.raises(ValueError, match="optimizer.*parameter"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+successor/itfm_v2/tests/test_training_recovery.py:253: Failed
+____ test_optimizer_must_bind_each_trainable_model_parameter_once[missing] _____
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-17/test_optimizer_must_bind_each_1')
+defect = 'missing'
+
+    @pytest.mark.parametrize("defect", ["foreign", "missing", "duplicate"])
+    def test_optimizer_must_bind_each_trainable_model_parameter_once(tmp_path, defect):
+        model = nn.Linear(1, 1)
+        parameters = list(model.parameters())
+        if defect == "foreign":
+            parameters = list(nn.Linear(1, 1).parameters())
+        elif defect == "missing":
+            parameters = parameters[:1]
+        optimizer = torch.optim.SGD(parameters, lr=0.01)
+        if defect == "duplicate":
+            optimizer.param_groups[0]["params"].append(parameters[0])
+>       with pytest.raises(ValueError, match="optimizer.*parameter"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+successor/itfm_v2/tests/test_training_recovery.py:253: Failed
+___ test_optimizer_must_bind_each_trainable_model_parameter_once[duplicate] ____
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-17/test_optimizer_must_bind_each_2')
+defect = 'duplicate'
+
+    @pytest.mark.parametrize("defect", ["foreign", "missing", "duplicate"])
+    def test_optimizer_must_bind_each_trainable_model_parameter_once(tmp_path, defect):
+        model = nn.Linear(1, 1)
+        parameters = list(model.parameters())
+        if defect == "foreign":
+            parameters = list(nn.Linear(1, 1).parameters())
+        elif defect == "missing":
+            parameters = parameters[:1]
+        optimizer = torch.optim.SGD(parameters, lr=0.01)
+        if defect == "duplicate":
+            optimizer.param_groups[0]["params"].append(parameters[0])
+>       with pytest.raises(ValueError, match="optimizer.*parameter"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+successor/itfm_v2/tests/test_training_recovery.py:253: Failed
+________ test_resume_rejects_reordered_same_shape_optimizer_parameters _________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-17/test_resume_rejects_reordered_0')
+
+    def test_resume_rejects_reordered_same_shape_optimizer_parameters(tmp_path):
+        def model():
+            return nn.Sequential(nn.Linear(1, 1, bias=False), nn.Linear(1, 1, bias=False))
+    
+        train, validation = batches((2, 1, 2), "train"), batches((1,), "validation")
+        initial = trainer(tmp_path, "ordered", model=model())
+        original_log = initial._log
+    
+        def stop(event, **fields):
+            original_log(event, **fields)
+            if event == "train_step":
+                initial._interrupted = True
+    
+        initial._log = stop
+        result = initial.fit(train_batches=train, validation_batches=validation, step=loss)
+        assert result.status == "PREEMPTED"
+        changed = model()
+        resumed = UnifiedTrainer(
+            model=changed,
+            optimizer=torch.optim.SGD(list(reversed(list(changed.parameters()))), lr=0.01, momentum=0.9),
+            config=initial.config, run_id="reordered", output_root=tmp_path,
+            source_sha256="a" * 64, config_sha256="b" * 64, data_sha256="c" * 64,
+            resource_admission=lambda: {"status": "PASS"}, device="cpu",
+        )
+        before = {key: value.clone() for key, value in changed.state_dict().items()}
+>       with pytest.raises(ValueError, match="optimizer.*parameter|runtime"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+successor/itfm_v2/tests/test_training_recovery.py:289: Failed
+----------------------------- Captured stdout call -----------------------------
+{"elapsed_seconds": 0.0034053600029437803, "epoch": 0, "event": "checkpoint_saved", "path": "/tmp/pytest-of-root/pytest-17/test_resume_rejects_reordered_0/ordered/checkpoints/latest.pt", "run_id": "ordered", "seed": 101, "step": 0, "time_unix_ns": 1792411960785614203}
+{"cuda_peak_bytes": null, "effective_batch_size": 3, "elapsed_seconds": 0.005204956003581174, "epoch": 0, "event": "train_step", "examples_per_second": 2646.66962033103, "examples_seen": 3, "global_step": 1, "gradient_norm": 0.182196244597435, "learning_rate": [0.01], "phase": "train", "run_id": "ordered", "seed": 101, "time_unix_ns": 1792411960787417274, "training_loss": 0.24916619062423706}
+{"elapsed_seconds": 0.009077220005565323, "epoch": 0, "event": "checkpoint_saved", "path": "/tmp/pytest-of-root/pytest-17/test_resume_rejects_reordered_0/ordered/checkpoints/latest.pt", "run_id": "ordered", "seed": 101, "step": 1, "time_unix_ns": 1792411960791189828}
+{"best_validation_loss": null, "early_stopped": false, "elapsed_seconds": 0.009504114001174457, "epoch": 0, "epochs_without_improvement": 0, "event": "training_finished", "examples_seen": 3, "next_batch_index": 2, "run_id": "ordered", "seed": 101, "status": "PREEMPTED", "steps_completed": 1, "time_unix_ns": 1792411960791538544}
+{"elapsed_seconds": 0.00900911699864082, "epoch": 0, "event": "checkpoint_saved", "path": "/tmp/pytest-of-root/pytest-17/test_resume_rejects_reordered_0/reordered/checkpoints/latest.pt", "run_id": "reordered", "seed": 101, "step": 1, "time_unix_ns": 1792411960800094749}
+{"cuda_peak_bytes": null, "effective_batch_size": 2, "elapsed_seconds": 0.010404613996797707, "epoch": 0, "event": "train_step", "examples_per_second": 2430.8366261244696, "examples_seen": 5, "global_step": 2, "gradient_norm": 0.727748453617096, "learning_rate": [0.01], "phase": "train", "run_id": "reordered", "seed": 101, "time_unix_ns": 1792411960801481462, "training_loss": 0.8985413312911987}
+{"elapsed_seconds": 0.012932448997162282, "epoch": 0, "event": "checkpoint_saved", "path": "/tmp/pytest-of-root/pytest-17/test_resume_rejects_reordered_0/reordered/checkpoints/latest.pt", "run_id": "reordered", "seed": 101, "step": 2, "time_unix_ns": 1792411960803901655}
+{"best_validation_loss": 0.08221185207366943, "early_stopped": false, "elapsed_seconds": 0.01677780300087761, "epoch": 1, "epochs_without_improvement": 0, "event": "epoch_complete", "examples_seen": 5, "improved": true, "next_batch_index": 0, "phase": "validation", "run_id": "reordered", "seed": 101, "steps_completed": 2, "time_unix_ns": 1792411960807768442, "validation_loss": 0.08221185207366943}
+{"elapsed_seconds": 0.02090193799813278, "epoch": 1, "event": "checkpoint_saved", "path": "/tmp/pytest-of-root/pytest-17/test_resume_rejects_reordered_0/reordered/checkpoints/latest.pt", "run_id": "reordered", "seed": 101, "step": 2, "time_unix_ns": 1792411960811955432}
+{"cuda_peak_bytes": null, "effective_batch_size": 3, "elapsed_seconds": 0.022769276998587884, "epoch": 1, "event": "train_step", "examples_per_second": 2319.5182841392607, "examples_seen": 8, "global_step": 3, "gradient_norm": 0.18258602917194366, "learning_rate": [0.01], "phase": "train", "run_id": "reordered", "seed": 101, "time_unix_ns": 1792411960813885285, "training_loss": 0.24740140636761984}
+{"cuda_peak_bytes": null, "effective_batch_size": 2, "elapsed_seconds": 0.02392530199722387, "epoch": 1, "event": "train_step", "examples_per_second": 3090.2014264342597, "examples_seen": 10, "global_step": 4, "gradient_norm": 0.730235755443573, "learning_rate": [0.01], "phase": "train", "run_id": "reordered", "seed": 101, "time_unix_ns": 1792411960814930993, "training_loss": 0.8863203525543213}
+{"elapsed_seconds": 0.027986191998934373, "epoch": 1, "event": "checkpoint_saved", "path": "/tmp/pytest-of-root/pytest-17/test_resume_rejects_reordered_0/reordered/checkpoints/latest.pt", "run_id": "reordered", "seed": 101, "step": 4, "time_unix_ns": 1792411960819066535}
+{"best_validation_loss": 0.08102355152368546, "early_stopped": false, "elapsed_seconds": 0.0320024340035161, "epoch": 2, "epochs_without_improvement": 0, "event": "epoch_complete", "examples_seen": 10, "improved": true, "next_batch_index": 0, "phase": "validation", "run_id": "reordered", "seed": 101, "steps_completed": 4, "time_unix_ns": 1792411960823144371, "validation_loss": 0.08102355152368546}
+{"elapsed_seconds": 0.03602303200023016, "epoch": 2, "event": "checkpoint_saved", "path": "/tmp/pytest-of-root/pytest-17/test_resume_rejects_reordered_0/reordered/checkpoints/latest.pt", "run_id": "reordered", "seed": 101, "step": 4, "time_unix_ns": 1792411960827083957}
+{"cuda_peak_bytes": null, "effective_batch_size": 3, "elapsed_seconds": 0.037726142996689305, "epoch": 2, "event": "train_step", "examples_per_second": 2540.106164432171, "examples_seen": 13, "global_step": 5, "gradient_norm": 0.183380588889122, "learning_rate": [0.01], "phase": "train", "run_id": "reordered", "seed": 101, "time_unix_ns": 1792411960828756391, "training_loss": 0.2429651916027069}
+{"cuda_peak_bytes": null, "effective_batch_size": 2, "elapsed_seconds": 0.03882524200162152, "epoch": 2, "event": "train_step", "examples_per_second": 2893.418057935601, "examples_seen": 15, "global_step": 6, "gradient_norm": 0.7328519821166992, "learning_rate": [0.01], "phase": "train", "run_id": "reordered", "seed": 101, "time_unix_ns": 1792411960829958516, "training_loss": 0.8636589646339417}
+{"elapsed_seconds": 0.042702705002739094, "epoch": 2, "event": "checkpoint_saved", "path": "/tmp/pytest-of-root/pytest-17/test_resume_rejects_reordered_0/reordered/checkpoints/latest.pt", "run_id": "reordered", "seed": 101, "step": 6, "time_unix_ns": 1792411960833663699}
+{"best_validation_loss": 0.0791935920715332, "early_stopped": false, "elapsed_seconds": 0.045899910997832194, "epoch": 3, "epochs_without_improvement": 0, "event": "epoch_complete", "examples_seen": 15, "improved": true, "next_batch_index": 0, "phase": "validation", "run_id": "reordered", "seed": 101, "steps_completed": 6, "time_unix_ns": 1792411960836978863, "validation_loss": 0.0791935920715332}
+{"elapsed_seconds": 0.049947138999414165, "epoch": 3, "event": "checkpoint_saved", "path": "/tmp/pytest-of-root/pytest-17/test_resume_rejects_reordered_0/reordered/checkpoints/latest.pt", "run_id": "reordered", "seed": 101, "step": 6, "time_unix_ns": 1792411960840908894}
+{"best_validation_loss": 0.0791935920715332, "early_stopped": false, "elapsed_seconds": 0.05024309599684784, "epoch": 3, "epochs_without_improvement": 0, "event": "training_finished", "examples_seen": 15, "next_batch_index": 0, "run_id": "reordered", "seed": 101, "status": "PASS_ENGINEERING", "steps_completed": 6, "time_unix_ns": 1792411960841354677}
+_________ test_frozen_replay_is_safe_exact_and_rejects_identity_drift __________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0')
+
+    def test_frozen_replay_is_safe_exact_and_rejects_identity_drift(tmp_path):
+        cfg = config()
+        checkpoint = tmp_path / "model.pt"
+        ids = _minimal_checkpoint(checkpoint, cfg)
+        first = evaluate_checkpoint(cfg, checkpoint, tmp_path / "first", *ids)
+        replay = evaluate_checkpoint(cfg, checkpoint, tmp_path / "replay", *ids)
+        assert first["ablations"] == replay["ablations"]
+        assert first["raw_data_sha256"] == replay["raw_data_sha256"]
+        raw = torch.load(tmp_path / "first/predictions.pt", weights_only=True)
+        reraw = torch.load(tmp_path / "replay/predictions.pt", weights_only=True)
+        archived_data = torch.load(tmp_path / "first/raw_data.pt", weights_only=True)
+        assert raw_data_sha256(archived_data["trajectories"]) == first["raw_data_sha256"]
+        assert archived_data["config"] == cfg
+        assert_records_equal(raw["records"], reraw["records"])
+        assert_records_equal(
+            raw["autonomous_base_diagnostic"], reraw["autonomous_base_diagnostic"]
+        )
+        for variant in VARIANTS:
+            summary = first["ablations"][variant]
+            assert summary["validation"]["alpha"] == summary["test"]["alpha"]
+            assert math.isfinite(summary["test"]["selected"]["mse"])
+            for split in ("validation", "test"):
+                rows = [
+                    row
+                    for row in raw["records"]
+                    if row["variant"] == variant and row["split"] == split
+                ]
+                count = sum(row["target"].numel() for row in rows)
+                for metric, key in (
+                    ("selected", "prediction"),
+                    ("base", "base_prediction"),
+                    ("persistence", "persistence_prediction"),
+                ):
+                    total = sum(
+                        float((row[key].double() - row["target"].double()).square().sum())
+                        for row in rows
+                    )
+                    assert summary[split][metric]["element_count"] == count
+>                   assert summary[split][metric]["squared_error_sum"] == total
+E                   assert 8.183133852827103 == 8.183133852827105
+
+successor/itfm_v2/tests/test_engineering_runtime.py:379: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 8.381700172321871e-05, "event": "evaluation_start", "model": "ResidualMLPControl", "phase": "generate_fixture", "seed": 101, "time_unix_ns": 1792411961173291480}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.006745621998561546, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "validation", "seed": 101, "time_unix_ns": 1792411961179952984, "variant": "base"}
+{"alpha": 0.0, "base": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.012285472999792546, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0005220833450186973, "squared_error_sum": 0.02506000056089747}, "phase": "validation", "retrieval_hits": 0, "seed": 101, "selected": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "split": "validation", "time_unix_ns": 1792411961185492685, "variant": "base"}
+{"alpha": 0.0, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.012669171999732498, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "test", "seed": 101, "time_unix_ns": 1792411961185876775, "variant": "base"}
+{"alpha": 0.0, "base": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.016435707002528943, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0010284371322530374, "squared_error_sum": 0.04936498234814579}, "phase": "test", "retrieval_hits": 0, "seed": 101, "selected": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "split": "test", "time_unix_ns": 1792411961189643130, "variant": "base"}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.01698368399956962, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "validation", "seed": 101, "time_unix_ns": 1792411961190191307, "variant": "memory"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.026058943003590684, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0005220833450186973, "squared_error_sum": 0.02506000056089747}, "phase": "validation", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.04401702051066996, "squared_error_sum": 2.112816984512158}, "split": "validation", "time_unix_ns": 1792411961199266445, "variant": "memory"}
+{"alpha": 1.0, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.026716676002251916, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "test", "seed": 101, "time_unix_ns": 1792411961199924188, "variant": "memory"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.035365761003049556, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0010284371322530374, "squared_error_sum": 0.04936498234814579}, "phase": "test", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.039522528964598534, "squared_error_sum": 1.8970813903007295}, "split": "test", "time_unix_ns": 1792411961208573273, "variant": "memory"}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.03600714899948798, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "validation", "seed": 101, "time_unix_ns": 1792411961209214761, "variant": "erased"}
+{"alpha": 0.0, "base": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.045760059998428915, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0005220833450186973, "squared_error_sum": 0.02506000056089747}, "phase": "validation", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "split": "validation", "time_unix_ns": 1792411961218967512, "variant": "erased"}
+{"alpha": 0.0, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.046517613001924474, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "test", "seed": 101, "time_unix_ns": 1792411961219725196, "variant": "erased"}
+{"alpha": 0.0, "base": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.05555721800192259, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0010284371322530374, "squared_error_sum": 0.04936498234814579}, "phase": "test", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "split": "test", "time_unix_ns": 1792411961228764670, "variant": "erased"}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.05634293400362367, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "validation", "seed": 101, "time_unix_ns": 1792411961229550196, "variant": "spatial_mean"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.06571844399877591, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0005220833450186973, "squared_error_sum": 0.02506000056089747}, "phase": "validation", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.15906334636766292, "squared_error_sum": 7.63504062564782}, "split": "validation", "time_unix_ns": 1792411961238925696, "variant": "spatial_mean"}
+{"alpha": 1.0, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.06648223700176459, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "test", "seed": 101, "time_unix_ns": 1792411961239689870, "variant": "spatial_mean"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.0754100929989363, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0010284371322530374, "squared_error_sum": 0.04936498234814579}, "phase": "test", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.1299726864028353, "squared_error_sum": 6.238688947336094}, "split": "test", "time_unix_ns": 1792411961248617485, "variant": "spatial_mean"}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.07619006000459194, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "validation", "seed": 101, "time_unix_ns": 1792411961249397562, "variant": "last_residual"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.08472956000332488, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0005220833450186973, "squared_error_sum": 0.02506000056089747}, "phase": "validation", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.04385231623723404, "squared_error_sum": 2.104911179387234}, "split": "validation", "time_unix_ns": 1792411961257937022, "variant": "last_residual"}
+{"alpha": 1.0, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.08534594000229845, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "test", "seed": 101, "time_unix_ns": 1792411961258553432, "variant": "last_residual"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.09316238800238352, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0010284371322530374, "squared_error_sum": 0.04936498234814579}, "phase": "test", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.03907481423786733, "squared_error_sum": 1.8755910834176317}, "split": "test", "time_unix_ns": 1792411961266369710, "variant": "last_residual"}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.09385654600191629, "event": "autonomous_base_start", "model": "ResidualMLPControl", "phase": "test_rollout", "seed": 101, "time_unix_ns": 1792411961267063898}
+{"all_predictions_finite": true, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.09562406400073087, "event": "autonomous_base_complete", "forecast_count": 8, "horizon_steps": 4, "initial_observed_steps": 2, "maximum_absolute_prediction": 0.5020521283149719, "memory": "disabled_no_unobserved_residual_writes", "mode": "autonomous_base_diagnostic", "model": "ResidualMLPControl", "overall": {"element_count": 48, "mse": 0.1333675082829341, "squared_error_sum": 6.401640397580836}, "owner_count": 2, "per_horizon": {"1": {"element_count": 12, "mse": 0.15372420856332608, "squared_error_sum": 1.844690502759913}, "2": {"element_count": 12, "mse": 0.12966519621145012, "squared_error_sum": 1.5559823545374014}, "3": {"element_count": 12, "mse": 0.12964694249475864, "squared_error_sum": 1.5557633099371035}, "4": {"element_count": 12, "mse": 0.1204336858622015, "squared_error_sum": 1.445204230346418}}, "phase": "test_rollout", "seed": 101, "selection": "diagnostic_only_not_used_for_selection", "split": "test", "time_unix_ns": 1792411961268831386}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.11415671700524399, "event": "evaluation_complete", "forecast_records": 80, "model": "ResidualMLPControl", "phase": "export", "predictions_sha256": "f7879e233a063a72ba5a4f759ba6d76cfdbc7fe270e9f5319e1c816ea0ded778", "seed": 101, "status": "PASS_ENGINEERING", "time_unix_ns": 1792411961287363559}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 8.092299685813487e-05, "event": "evaluation_start", "model": "ResidualMLPControl", "phase": "generate_fixture", "seed": 101, "time_unix_ns": 1792411961294166897}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.004712583002401516, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "validation", "seed": 101, "time_unix_ns": 1792411961298798508, "variant": "base"}
+{"alpha": 0.0, "base": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.010040825996838976, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0005220833450186973, "squared_error_sum": 0.02506000056089747}, "phase": "validation", "retrieval_hits": 0, "seed": 101, "selected": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "split": "validation", "time_unix_ns": 1792411961304126700, "variant": "base"}
+{"alpha": 0.0, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.01060629900166532, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "test", "seed": 101, "time_unix_ns": 1792411961304692234, "variant": "base"}
+{"alpha": 0.0, "base": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.014055875995836686, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0010284371322530374, "squared_error_sum": 0.04936498234814579}, "phase": "test", "retrieval_hits": 0, "seed": 101, "selected": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "split": "test", "time_unix_ns": 1792411961308141760, "variant": "base"}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.014541989999997895, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "validation", "seed": 101, "time_unix_ns": 1792411961308627974, "variant": "memory"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.023245816999406088, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0005220833450186973, "squared_error_sum": 0.02506000056089747}, "phase": "validation", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.04401702051066996, "squared_error_sum": 2.112816984512158}, "split": "validation", "time_unix_ns": 1792411961317331862, "variant": "memory"}
+{"alpha": 1.0, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.024103181996906642, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "test", "seed": 101, "time_unix_ns": 1792411961318189246, "variant": "memory"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.033216807001736015, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0010284371322530374, "squared_error_sum": 0.04936498234814579}, "phase": "test", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.039522528964598534, "squared_error_sum": 1.8970813903007295}, "split": "test", "time_unix_ns": 1792411961327302562, "variant": "memory"}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.03409794199978933, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "validation", "seed": 101, "time_unix_ns": 1792411961328183997, "variant": "erased"}
+{"alpha": 0.0, "base": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.04571844200108899, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0005220833450186973, "squared_error_sum": 0.02506000056089747}, "phase": "validation", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "split": "validation", "time_unix_ns": 1792411961339804197, "variant": "erased"}
+{"alpha": 0.0, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.046389875999011565, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "test", "seed": 101, "time_unix_ns": 1792411961340475880, "variant": "erased"}
+{"alpha": 0.0, "base": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.0594656409957679, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0010284371322530374, "squared_error_sum": 0.04936498234814579}, "phase": "test", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "split": "test", "time_unix_ns": 1792411961353551566, "variant": "erased"}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.060219298997253645, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "validation", "seed": 101, "time_unix_ns": 1792411961354305324, "variant": "spatial_mean"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.07464651599730132, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0005220833450186973, "squared_error_sum": 0.02506000056089747}, "phase": "validation", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.15906334636766292, "squared_error_sum": 7.63504062564782}, "split": "validation", "time_unix_ns": 1792411961368732240, "variant": "spatial_mean"}
+{"alpha": 1.0, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.07549405499594286, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "test", "seed": 101, "time_unix_ns": 1792411961369579699, "variant": "spatial_mean"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.08808741300163092, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0010284371322530374, "squared_error_sum": 0.04936498234814579}, "phase": "test", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.1299726864028353, "squared_error_sum": 6.238688947336094}, "split": "test", "time_unix_ns": 1792411961382173158, "variant": "spatial_mean"}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.08865850499569206, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "validation", "seed": 101, "time_unix_ns": 1792411961382744550, "variant": "last_residual"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.1704819552672313, "squared_error_sum": 8.183133852827103}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.10099043900117977, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0005220833450186973, "squared_error_sum": 0.02506000056089747}, "phase": "validation", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.04385231623723404, "squared_error_sum": 2.104911179387234}, "split": "validation", "time_unix_ns": 1792411961395076053, "variant": "last_residual"}
+{"alpha": 1.0, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.10202113499690313, "event": "evaluation_split_start", "model": "ResidualMLPControl", "phase": "test", "seed": 101, "time_unix_ns": 1792411961396107040, "variant": "last_residual"}
+{"alpha": 1.0, "base": {"element_count": 48, "mse": 0.14086158636924836, "squared_error_sum": 6.761356145723922}, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.11348285499843769, "event": "evaluation_split_complete", "forecast_count": 8, "model": "ResidualMLPControl", "persistence": {"element_count": 48, "mse": 0.0010284371322530374, "squared_error_sum": 0.04936498234814579}, "phase": "test", "retrieval_hits": 6, "seed": 101, "selected": {"element_count": 48, "mse": 0.03907481423786733, "squared_error_sum": 1.8755910834176317}, "split": "test", "time_unix_ns": 1792411961407568619, "variant": "last_residual"}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.11457592399528949, "event": "autonomous_base_start", "model": "ResidualMLPControl", "phase": "test_rollout", "seed": 101, "time_unix_ns": 1792411961408661929}
+{"all_predictions_finite": true, "benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.11699952199705876, "event": "autonomous_base_complete", "forecast_count": 8, "horizon_steps": 4, "initial_observed_steps": 2, "maximum_absolute_prediction": 0.5020521283149719, "memory": "disabled_no_unobserved_residual_writes", "mode": "autonomous_base_diagnostic", "model": "ResidualMLPControl", "overall": {"element_count": 48, "mse": 0.1333675082829341, "squared_error_sum": 6.401640397580836}, "owner_count": 2, "per_horizon": {"1": {"element_count": 12, "mse": 0.15372420856332608, "squared_error_sum": 1.844690502759913}, "2": {"element_count": 12, "mse": 0.12966519621145012, "squared_error_sum": 1.5559823545374014}, "3": {"element_count": 12, "mse": 0.12964694249475864, "squared_error_sum": 1.5557633099371035}, "4": {"element_count": 12, "mse": 0.1204336858622015, "squared_error_sum": 1.445204230346418}}, "phase": "test_rollout", "seed": 101, "selection": "diagnostic_only_not_used_for_selection", "split": "test", "time_unix_ns": 1792411961411085377}
+{"benchmark": "bounded_periodic_field_v1", "checkpoint": "/tmp/pytest-of-root/pytest-17/test_frozen_replay_is_safe_exa0/model.pt", "checkpoint_sha256": "bab44789d77ae973e39d95affa724dea1eb093a94475b2a5c427dced14a41fa0", "elapsed_seconds": 0.13712017799844034, "event": "evaluation_complete", "forecast_records": 80, "model": "ResidualMLPControl", "phase": "export", "predictions_sha256": "f7879e233a063a72ba5a4f759ba6d76cfdbc7fe270e9f5319e1c816ea0ded778", "seed": 101, "status": "PASS_ENGINEERING", "time_unix_ns": 1792411961431205712}
+____ test_masked_softmax_preserves_single_eligible_negative_match[1-False] _____
+
+approximate = False, chunk_size = 1
+
+    @pytest.mark.parametrize("approximate", [False, True])
+    @pytest.mark.parametrize("chunk_size", [1, 8])
+    def test_masked_softmax_preserves_single_eligible_negative_match(
+        approximate, chunk_size
+    ):
+        bank = memory(chunk_size=chunk_size)
+        bank.write_batch(
+            keys=torch.tensor([[1.0, 0.0], [1.0, 0.0]]),
+            residuals=torch.tensor([[7.0], [99.0]]),
+            trajectory_ids=("a", "a"),
+            event_times=torch.tensor([0, 10]),
+            available_times=torch.tensor([1, 11]),
+        )
+        result = bank.retrieve_batch(
+            query_keys=torch.tensor([[-1.0, 0.0], [-1.0, 0.0]]),
+            trajectory_ids=("a", "unknown"),
+            query_times=torch.tensor([2, 2]),
+            approximate=approximate,
+        )
+        assert result.valid.tolist() == [True, False]
+>       assert result.residual[:, 0].tolist() == [7.0, 0.0]
+E       assert [2.6484542051936263e-35, 0.0] == [7.0, 0.0]
+E         
+E         At index 0 diff: 2.6484542051936263e-35 != 7.0
+E         Use -v to get more diff
+
+successor/itfm_v2/tests/test_memory_causality.py:54: AssertionError
+_____ test_masked_softmax_preserves_single_eligible_negative_match[1-True] _____
+
+approximate = True, chunk_size = 1
+
+    @pytest.mark.parametrize("approximate", [False, True])
+    @pytest.mark.parametrize("chunk_size", [1, 8])
+    def test_masked_softmax_preserves_single_eligible_negative_match(
+        approximate, chunk_size
+    ):
+        bank = memory(chunk_size=chunk_size)
+        bank.write_batch(
+            keys=torch.tensor([[1.0, 0.0], [1.0, 0.0]]),
+            residuals=torch.tensor([[7.0], [99.0]]),
+            trajectory_ids=("a", "a"),
+            event_times=torch.tensor([0, 10]),
+            available_times=torch.tensor([1, 11]),
+        )
+        result = bank.retrieve_batch(
+            query_keys=torch.tensor([[-1.0, 0.0], [-1.0, 0.0]]),
+            trajectory_ids=("a", "unknown"),
+            query_times=torch.tensor([2, 2]),
+            approximate=approximate,
+        )
+        assert result.valid.tolist() == [True, False]
+>       assert result.residual[:, 0].tolist() == [7.0, 0.0]
+E       assert [2.6484542051936263e-35, 0.0] == [7.0, 0.0]
+E         
+E         At index 0 diff: 2.6484542051936263e-35 != 7.0
+E         Use -v to get more diff
+
+successor/itfm_v2/tests/test_memory_causality.py:54: AssertionError
+____ test_masked_softmax_preserves_single_eligible_negative_match[8-False] _____
+
+approximate = False, chunk_size = 8
+
+    @pytest.mark.parametrize("approximate", [False, True])
+    @pytest.mark.parametrize("chunk_size", [1, 8])
+    def test_masked_softmax_preserves_single_eligible_negative_match(
+        approximate, chunk_size
+    ):
+        bank = memory(chunk_size=chunk_size)
+        bank.write_batch(
+            keys=torch.tensor([[1.0, 0.0], [1.0, 0.0]]),
+            residuals=torch.tensor([[7.0], [99.0]]),
+            trajectory_ids=("a", "a"),
+            event_times=torch.tensor([0, 10]),
+            available_times=torch.tensor([1, 11]),
+        )
+        result = bank.retrieve_batch(
+            query_keys=torch.tensor([[-1.0, 0.0], [-1.0, 0.0]]),
+            trajectory_ids=("a", "unknown"),
+            query_times=torch.tensor([2, 2]),
+            approximate=approximate,
+        )
+        assert result.valid.tolist() == [True, False]
+>       assert result.residual[:, 0].tolist() == [7.0, 0.0]
+E       assert [2.6484542051936263e-35, 0.0] == [7.0, 0.0]
+E         
+E         At index 0 diff: 2.6484542051936263e-35 != 7.0
+E         Use -v to get more diff
+
+successor/itfm_v2/tests/test_memory_causality.py:54: AssertionError
+_____ test_masked_softmax_preserves_single_eligible_negative_match[8-True] _____
+
+approximate = True, chunk_size = 8
+
+    @pytest.mark.parametrize("approximate", [False, True])
+    @pytest.mark.parametrize("chunk_size", [1, 8])
+    def test_masked_softmax_preserves_single_eligible_negative_match(
+        approximate, chunk_size
+    ):
+        bank = memory(chunk_size=chunk_size)
+        bank.write_batch(
+            keys=torch.tensor([[1.0, 0.0], [1.0, 0.0]]),
+            residuals=torch.tensor([[7.0], [99.0]]),
+            trajectory_ids=("a", "a"),
+            event_times=torch.tensor([0, 10]),
+            available_times=torch.tensor([1, 11]),
+        )
+        result = bank.retrieve_batch(
+            query_keys=torch.tensor([[-1.0, 0.0], [-1.0, 0.0]]),
+            trajectory_ids=("a", "unknown"),
+            query_times=torch.tensor([2, 2]),
+            approximate=approximate,
+        )
+        assert result.valid.tolist() == [True, False]
+>       assert result.residual[:, 0].tolist() == [7.0, 0.0]
+E       assert [2.6484542051936263e-35, 0.0] == [7.0, 0.0]
+E         
+E         At index 0 diff: 2.6484542051936263e-35 != 7.0
+E         Use -v to get more diff
+
+successor/itfm_v2/tests/test_memory_causality.py:54: AssertionError
+_________ test_value_shuffle_uses_only_mature_same_owner_donors[False] _________
+
+approximate = False
+
+    @pytest.mark.parametrize("approximate", [False, True])
+    def test_value_shuffle_uses_only_mature_same_owner_donors(approximate):
+        def populated(poison):
+            bank = memory(topk=1)
+            bank.write_batch(
+                keys=torch.tensor([[1.0, 0.0]] * 4),
+                residuals=torch.tensor([[3.0], [9.0], [70.0 + poison], [99.0 - poison]]),
+                trajectory_ids=("a", "a", "b", "a"),
+                event_times=torch.tensor([0, 1, 0, 10]),
+                available_times=torch.tensor([1, 2, 1, 11]),
+            )
+            return bank
+    
+        arguments = dict(
+            query_keys=torch.tensor([[1.0, 0.0]] * 3),
+            trajectory_ids=("a", "a", "unknown"),
+            query_times=torch.tensor([2, 1, 2]),
+            selection="random_value",
+            control_seed=0,
+            approximate=approximate,
+        )
+        bank = populated(0)
+        before = bank.checksum()
+        result = bank.retrieve_batch(**arguments)
+        # The first query swaps the two mature A values. The second has one donor.
+>       assert result.residual[:, 0].tolist() == [9.0, 3.0, 0.0]
+E       assert [99.0, 99.0, 0.0] == [9.0, 3.0, 0.0]
+E         
+E         At index 0 diff: 99.0 != 9.0
+E         Use -v to get more diff
+
+successor/itfm_v2/tests/test_memory_causality.py:84: AssertionError
+_________ test_value_shuffle_uses_only_mature_same_owner_donors[True] __________
+
+approximate = True
+
+    @pytest.mark.parametrize("approximate", [False, True])
+    def test_value_shuffle_uses_only_mature_same_owner_donors(approximate):
+        def populated(poison):
+            bank = memory(topk=1)
+            bank.write_batch(
+                keys=torch.tensor([[1.0, 0.0]] * 4),
+                residuals=torch.tensor([[3.0], [9.0], [70.0 + poison], [99.0 - poison]]),
+                trajectory_ids=("a", "a", "b", "a"),
+                event_times=torch.tensor([0, 1, 0, 10]),
+                available_times=torch.tensor([1, 2, 1, 11]),
+            )
+            return bank
+    
+        arguments = dict(
+            query_keys=torch.tensor([[1.0, 0.0]] * 3),
+            trajectory_ids=("a", "a", "unknown"),
+            query_times=torch.tensor([2, 1, 2]),
+            selection="random_value",
+            control_seed=0,
+            approximate=approximate,
+        )
+        bank = populated(0)
+        before = bank.checksum()
+        result = bank.retrieve_batch(**arguments)
+        # The first query swaps the two mature A values. The second has one donor.
+>       assert result.residual[:, 0].tolist() == [9.0, 3.0, 0.0]
+E       assert [99.0, 99.0, 0.0] == [9.0, 3.0, 0.0]
+E         
+E         At index 0 diff: 99.0 != 9.0
+E         Use -v to get more diff
+
+successor/itfm_v2/tests/test_memory_causality.py:84: AssertionError
+_ test_value_shuffle_preserves_eligible_multiset_and_reports_actual_donors[0] __
+
+control_seed = 0
+
+    @pytest.mark.parametrize("control_seed", [0, 1, 11])
+    def test_value_shuffle_preserves_eligible_multiset_and_reports_actual_donors(control_seed):
+        bank = memory(topk=3, temperature=0.2)
+        bank.write_batch(
+            keys=torch.tensor([[1.0, 0.0]] * 4),
+            residuals=torch.tensor([[2.0], [5.0], [11.0], [1000.0]]),
+            trajectory_ids=("a", "a", "a", "other"),
+            event_times=torch.tensor([0, 1, 2, 0]),
+            available_times=torch.tensor([1, 2, 3, 1]),
+        )
+        result = bank.retrieve_batch(
+            query_keys=torch.tensor([[1.0, 0.0]]),
+            trajectory_ids=("a",),
+            query_times=torch.tensor([4]),
+            selection="random_value",
+            control_seed=control_seed,
+        )
+>       assert result.residual.item() == pytest.approx(6.0)
+E       assert 335.6666564941406 == 6.0 ± 6.0e-06
+E         
+E         comparison failed
+E         Obtained: 335.6666564941406
+E         Expected: 6.0 ± 6.0e-06
+
+successor/itfm_v2/tests/test_memory_causality.py:112: AssertionError
+_ test_value_shuffle_preserves_eligible_multiset_and_reports_actual_donors[1] __
+
+control_seed = 1
+
+    @pytest.mark.parametrize("control_seed", [0, 1, 11])
+    def test_value_shuffle_preserves_eligible_multiset_and_reports_actual_donors(control_seed):
+        bank = memory(topk=3, temperature=0.2)
+        bank.write_batch(
+            keys=torch.tensor([[1.0, 0.0]] * 4),
+            residuals=torch.tensor([[2.0], [5.0], [11.0], [1000.0]]),
+            trajectory_ids=("a", "a", "a", "other"),
+            event_times=torch.tensor([0, 1, 2, 0]),
+            available_times=torch.tensor([1, 2, 3, 1]),
+        )
+        result = bank.retrieve_batch(
+            query_keys=torch.tensor([[1.0, 0.0]]),
+            trajectory_ids=("a",),
+            query_times=torch.tensor([4]),
+            selection="random_value",
+            control_seed=control_seed,
+        )
+>       assert result.residual.item() == pytest.approx(6.0)
+E       assert 337.6666564941406 == 6.0 ± 6.0e-06
+E         
+E         comparison failed
+E         Obtained: 337.6666564941406
+E         Expected: 6.0 ± 6.0e-06
+
+successor/itfm_v2/tests/test_memory_causality.py:112: AssertionError
+_ test_value_shuffle_preserves_eligible_multiset_and_reports_actual_donors[11] _
+
+control_seed = 11
+
+    @pytest.mark.parametrize("control_seed", [0, 1, 11])
+    def test_value_shuffle_preserves_eligible_multiset_and_reports_actual_donors(control_seed):
+        bank = memory(topk=3, temperature=0.2)
+        bank.write_batch(
+            keys=torch.tensor([[1.0, 0.0]] * 4),
+            residuals=torch.tensor([[2.0], [5.0], [11.0], [1000.0]]),
+            trajectory_ids=("a", "a", "a", "other"),
+            event_times=torch.tensor([0, 1, 2, 0]),
+            available_times=torch.tensor([1, 2, 3, 1]),
+        )
+        result = bank.retrieve_batch(
+            query_keys=torch.tensor([[1.0, 0.0]]),
+            trajectory_ids=("a",),
+            query_times=torch.tensor([4]),
+            selection="random_value",
+            control_seed=control_seed,
+        )
+>       assert result.residual.item() == pytest.approx(6.0)
+E       assert 338.66668701171875 == 6.0 ± 6.0e-06
+E         
+E         comparison failed
+E         Obtained: 338.66668701171875
+E         Expected: 6.0 ± 6.0e-06
+
+successor/itfm_v2/tests/test_memory_causality.py:112: AssertionError
+______ test_approximate_reranking_honors_stored_masks_without_query_mask _______
+
+    def test_approximate_reranking_honors_stored_masks_without_query_mask():
+        bank = memory(topk=1)
+        bank.write_batch(
+            keys=torch.tensor([[1.0, -100.0], [1.0, 0.0]]),
+            key_masks=torch.tensor([[True, False], [True, True]]),
+            residuals=torch.tensor([[7.0], [99.0]]),
+            trajectory_ids=("a", "a"),
+            event_times=torch.tensor([0, 0]),
+            available_times=torch.tensor([1, 1]),
+        )
+        args = dict(
+            query_keys=torch.tensor([[1.0, 1.0]]),
+            trajectory_ids=("a",),
+            query_times=torch.tensor([2]),
+        )
+        exact = bank.retrieve_batch(**args)
+        approximate = bank.retrieve_batch(**args, approximate=True)
+        assert exact.residual.item() == 7.0
+        # Every entry is a candidate: no candidate approximation can explain a change.
+>       assert torch.equal(approximate.residual, exact.residual)
+E       assert False
+E        +  where False = <built-in method equal of type object at 0x7f760c181e40>(tensor([[99.]]), tensor([[7.]]))
+E        +    where <built-in method equal of type object at 0x7f760c181e40> = torch.equal
+E        +    and   tensor([[99.]]) = BatchRetrieval(residual=tensor([[99.]]), valid=tensor([True]), similarity=tensor([0.7071]), source_event_time=tensor([...source_serial=tensor([1]), eligible_count=tensor([2]), latency_seconds=0.0006281280002440326, peak_accelerator_bytes=0).residual
+E        +    and   tensor([[7.]]) = BatchRetrieval(residual=tensor([[7.]]), valid=tensor([True]), similarity=tensor([1.]), source_event_time=tensor([0]), ...source_serial=tensor([0]), eligible_count=tensor([2]), latency_seconds=0.0008380349972867407, peak_accelerator_bytes=0).residual
+
+successor/itfm_v2/tests/test_memory_causality.py:137: AssertionError
+__ test_public_writer_requires_explicit_arrival_and_waits_for_delayed_target ___
+
+    def test_public_writer_requires_explicit_arrival_and_waits_for_delayed_target():
+        adapter, batch, output = adapter_fixture()
+        before = adapter.bank.checksum()
+>       with pytest.raises(ValueError, match="explicit.*availab"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+successor/itfm_v2/tests/test_memory_causality.py:190: Failed
+____ test_memory_rejects_ambiguous_noninteger_arrival_before_mutation[1.5] _____
+
+arrival = 1.5
+
+    @pytest.mark.parametrize("arrival", [1.5, float("nan"), float("inf")])
+    def test_memory_rejects_ambiguous_noninteger_arrival_before_mutation(arrival):
+        bank = memory()
+        before = bank.checksum()
+>       with pytest.raises(ValueError, match="integer"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+successor/itfm_v2/tests/test_memory_causality.py:204: Failed
+____ test_memory_rejects_ambiguous_noninteger_arrival_before_mutation[nan] _____
+
+arrival = nan
+
+    @pytest.mark.parametrize("arrival", [1.5, float("nan"), float("inf")])
+    def test_memory_rejects_ambiguous_noninteger_arrival_before_mutation(arrival):
+        bank = memory()
+        before = bank.checksum()
+>       with pytest.raises(ValueError, match="integer"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'integer'
+E         Actual message: 'a residual cannot be available before its event'
+
+successor/itfm_v2/tests/test_memory_causality.py:204: AssertionError
+____ test_memory_rejects_ambiguous_noninteger_arrival_before_mutation[inf] _____
+
+arrival = inf
+
+    @pytest.mark.parametrize("arrival", [1.5, float("nan"), float("inf")])
+    def test_memory_rejects_ambiguous_noninteger_arrival_before_mutation(arrival):
+        bank = memory()
+        before = bank.checksum()
+>       with pytest.raises(ValueError, match="integer"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'integer'
+E         Actual message: 'a residual cannot be available before its event'
+
+successor/itfm_v2/tests/test_memory_causality.py:204: AssertionError
+=========================== short test summary info ============================
+FAILED successor/itfm_v2/tests/test_training_recovery.py::test_optimizer_must_bind_each_trainable_model_parameter_once[foreign]
+FAILED successor/itfm_v2/tests/test_training_recovery.py::test_optimizer_must_bind_each_trainable_model_parameter_once[missing]
+FAILED successor/itfm_v2/tests/test_training_recovery.py::test_optimizer_must_bind_each_trainable_model_parameter_once[duplicate]
+FAILED successor/itfm_v2/tests/test_training_recovery.py::test_resume_rejects_reordered_same_shape_optimizer_parameters
+FAILED successor/itfm_v2/tests/test_engineering_runtime.py::test_frozen_replay_is_safe_exact_and_rejects_identity_drift
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_masked_softmax_preserves_single_eligible_negative_match[1-False]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_masked_softmax_preserves_single_eligible_negative_match[1-True]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_masked_softmax_preserves_single_eligible_negative_match[8-False]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_masked_softmax_preserves_single_eligible_negative_match[8-True]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_value_shuffle_uses_only_mature_same_owner_donors[False]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_value_shuffle_uses_only_mature_same_owner_donors[True]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_value_shuffle_preserves_eligible_multiset_and_reports_actual_donors[0]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_value_shuffle_preserves_eligible_multiset_and_reports_actual_donors[1]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_value_shuffle_preserves_eligible_multiset_and_reports_actual_donors[11]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_approximate_reranking_honors_stored_masks_without_query_mask
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_public_writer_requires_explicit_arrival_and_waits_for_delayed_target
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_memory_rejects_ambiguous_noninteger_arrival_before_mutation[1.5]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_memory_rejects_ambiguous_noninteger_arrival_before_mutation[nan]
+FAILED successor/itfm_v2/tests/test_memory_causality.py::test_memory_rejects_ambiguous_noninteger_arrival_before_mutation[inf]
+19 failed, 31 passed, 4 skipped in 4.44s
+Traceback (most recent call last):
+  File "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/successor/itfm_v2/scripts/kaggle.py", line 12, in <module>
+    main()
+  File "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/cli.py", line 162, in main
+    arguments.handler(arguments)
+  File "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/engineering.py", line 918, in handle
+    raise RuntimeError(
+RuntimeError: tensor tests failed or required device test did not execute
+Traceback (most recent call last):
+  File "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/successor/itfm_v2/scripts/kaggle.py", line 12, in <module>
+    main()
+  File "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/cli.py", line 162, in main
+    arguments.handler(arguments)
+  File "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/engineering.py", line 785, in handle
+    raise RuntimeError(f"{command} failed or blocked (exit {code})")
+RuntimeError: test failed or blocked (exit 1)

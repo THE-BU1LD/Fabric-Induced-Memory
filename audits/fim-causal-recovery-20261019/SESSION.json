@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-10-19T12:05:55.586516+00:00",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "base_commit": "e1ec0de48b915002418fde7625bdf96659023815",
+  "local_branch": "codex/fim-causal-recovery-20261019",
+  "writer": "/root (sole branch writer; read-only review agents)",
+  "initial_status": "",
+  "purpose": "Current-source CPU tensor causality and recovery engineering; no scientific outcome comparison",
+  "compute": {
+    "lanes": 1,
+    "device": "cpu",
+    "precision": "fp32",
+    "threads": 1,
+    "total_child_wall_seconds_ceiling": 1800,
+    "suite_wall_seconds_per_invocation": 300,
+    "smoke_wall_seconds": 120,
+    "smoke_seed": 101,
+    "paid_cost": 0
+  },
+  "external_runtime": {
+    "kaggle_connector": "not exposed",
+    "local_browser": "connection request timed out",
+    "cloud_browser": "Kaggle /code shows Login and Sign Up; no authenticated account",
+    "accelerator": "unverified",
+    "quota": "unverified",
+    "jobs": "unverified",
+    "launched": false
+  },
+  "exclusions": [
+    "original 40-cell confirmatory matrix remains held",
+    "retired shared-minibatch study",
+    "consumed v3 campaign",
+    "v4 scientific contribution gate",
+    "Worldcastr",
+    "paid compute",
+    "Actions dispatch",
+    "main merge",
+    "release or submission"
+  ]
+}

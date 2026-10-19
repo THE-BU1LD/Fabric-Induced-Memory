@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "declared_utc": "2026-10-19T12:25:02.737395+00:00",
+  "status_at_declaration": "NOT_RUN",
+  "purpose": "Single bounded software fixture; verify end-to-end completion and retained artifacts, not predictive efficacy",
+  "hypothesis": "The repaired maintained v2 runtime can train, validate, evaluate causal controls and retain verifiable artifacts within its existing finite smoke budget",
+  "source_sha256": "601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291",
+  "data": "bounded_periodic_field_v1; source/config/raw tensor hashes retained by runtime",
+  "independent_unit": "one complete generated fixture, seed 101; owners nested within split; no inference from time or spatial points as independent replicates",
+  "splits": {
+    "train_owners": 4,
+    "validation_owners": 2,
+    "test_owners": 2,
+    "disjoint_owner_and_rng_streams": true
+  },
+  "config": {
+    "schema_version": 1,
+    "purpose": "smoke",
+    "benchmark": "bounded_periodic_field_v1",
+    "seed": 101,
+    "device": "cpu",
+    "precision": "fp32",
+    "epochs": 2,
+    "batch_size": 4,
+    "train_trajectories": 4,
+    "validation_trajectories": 2,
+    "test_trajectories": 2,
+    "context_steps": 3,
+    "sequence_steps": 12,
+    "channels": 1,
+    "spatial_points": 8,
+    "hidden": 16,
+    "learning_rate": 0.001,
+    "gradient_accumulation": 2,
+    "wall_seconds": 120,
+    "example_budget": 10000,
+    "checkpoint_seconds": 30,
+    "memory_capacity": 16,
+    "memory_topk": 4,
+    "memory_temperature": 0.2,
+    "variant": "memory",
+    "threads": 1
+  },
+  "controls": [
+    "base",
+    "memory",
+    "erased",
+    "spatial_mean",
+    "last_residual"
+  ],
+  "additional_scores": [
+    "persistence",
+    "autonomous base rollout only"
+  ],
+  "selection": "Same training run/checkpoint for all five controls; checkpoint by validation loss; alpha grid [0,0.25,0.5,1] chosen per control by validation MSE with smaller alpha on ties; test does not select anything",
+  "primary_acceptance": "exit 0, completed within budget, finite retained data/predictions/metrics, source/config/data/artifact hash validation",
+  "metrics": "pooled element MSE and relative L2 diagnostics; report all controls and persistence without superiority/significance claims",
+  "uncertainty": "not estimated; one seed is a software diagnostic",
+  "cost": "one CPU lane, FP32, one thread, two epochs, 120-second run ceiling plus 30-second shutdown reserve; zero paid compute",
+  "stopping": "Stop on resource refusal, nonfinite values, source/config/data drift, training/artifact failure or budget expiry; retain failure, no outcome-based retry or seed expansion"
+}
