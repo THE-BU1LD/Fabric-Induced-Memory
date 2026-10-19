@@ -278,11 +278,11 @@ class ITFMRAdapter(nn.Module):
 
         batch.validate()
         output.validate_against(batch)
-        available = (
-            batch.event_times + 1
-            if batch.target_available_times is None
-            else batch.target_available_times
-        )
+        if batch.target_available_times is None:
+            raise ValueError(
+                "residual writes require explicit target availability times"
+            )
+        available = batch.target_available_times
         admitted = available <= int(observation_time)
         if batch.target_observation_mask is None:
             raise ValueError("writes require an explicit target observation mask")
@@ -294,7 +294,9 @@ class ITFMRAdapter(nn.Module):
             return 0
         keys = self.key_encoder(output, batch)
         indices = torch.nonzero(admitted).flatten()
-        residual = self.normalizer.normalize(batch.target[indices] - output.prediction[indices])
+        residual = self.normalizer.normalize(
+            batch.target[indices] - output.prediction[indices]
+        )
         utility_values = None if utilities is None else utilities[indices]
         self.bank.write_batch(
             keys=keys[indices],
