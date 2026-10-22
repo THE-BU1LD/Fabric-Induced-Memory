@@ -93,7 +93,7 @@ def assert_nested_equal(left, right) -> None:
             assert_nested_equal(left[key], right[key])
     elif isinstance(left, (list, tuple)):
         assert len(left) == len(right)
-        for a, b in zip(left, right):
+        for a, b in zip(left, right, strict=True):
             assert_nested_equal(a, b)
     else:
         assert left == right
@@ -202,7 +202,9 @@ def test_unequal_microbatches_and_partial_window_are_sample_weighted(tmp_path):
     result = worker.fit(
         train_batches=train, validation_batches=batches((1,), "validation"), step=loss
     )
-    for actual, expected in zip(worker.model.parameters(), reference.parameters()):
+    for actual, expected in zip(
+        worker.model.parameters(), reference.parameters(), strict=True
+    ):
         assert torch.allclose(actual, expected, atol=1e-7, rtol=1e-6)
     assert result.steps_completed == 2 and result.examples_seen == 6
     events = [
@@ -237,6 +239,75 @@ def test_constructor_has_no_filesystem_side_effect_and_run_ids_cannot_overwrite(
         trainer(tmp_path, "unique").fit(
             train_batches=train, validation_batches=validation, step=loss
         )
+
+
+@pytest.mark.parametrize("defect", ["foreign", "missing", "duplicate"])
+def test_optimizer_must_bind_each_trainable_model_parameter_once(tmp_path, defect):
+    model = nn.Linear(1, 1)
+    parameters = list(model.parameters())
+    if defect == "foreign":
+        parameters = list(nn.Linear(1, 1).parameters())
+    elif defect == "missing":
+        parameters = parameters[:1]
+    optimizer = torch.optim.SGD(parameters, lr=0.01)
+    if defect == "duplicate":
+        optimizer.param_groups[0]["params"].append(parameters[0])
+    with pytest.raises(ValueError, match=r"optimizer.*parameter"):
+        UnifiedTrainer(
+            model=model,
+            optimizer=optimizer,
+            config=TrainingConfig(gate="full"),
+            run_id="invalid-" + defect,
+            output_root=tmp_path,
+            source_sha256="a" * 64,
+            config_sha256="b" * 64,
+            data_sha256="c" * 64,
+            device="cpu",
+            resource_admission=lambda: {"status": "PASS"},
+        )
+    assert not (tmp_path / ("invalid-" + defect)).exists()
+
+
+def test_resume_rejects_reordered_same_shape_optimizer_parameters(tmp_path):
+    def model():
+        return nn.Sequential(nn.Linear(1, 1, bias=False), nn.Linear(1, 1, bias=False))
+
+    train, validation = batches((2, 1, 2), "train"), batches((1,), "validation")
+    initial = trainer(tmp_path, "ordered", model=model())
+    original_log = initial._log
+
+    def stop(event, **fields):
+        original_log(event, **fields)
+        if event == "train_step":
+            initial._interrupted = True
+
+    initial._log = stop
+    result = initial.fit(train_batches=train, validation_batches=validation, step=loss)
+    assert result.status == "PREEMPTED"
+    changed = model()
+    resumed = UnifiedTrainer(
+        model=changed,
+        optimizer=torch.optim.SGD(
+            list(reversed(list(changed.parameters()))), lr=0.01, momentum=0.9
+        ),
+        config=initial.config,
+        run_id="reordered",
+        output_root=tmp_path,
+        source_sha256="a" * 64,
+        config_sha256="b" * 64,
+        data_sha256="c" * 64,
+        resource_admission=lambda: {"status": "PASS"},
+        device="cpu",
+    )
+    before = {key: value.clone() for key, value in changed.state_dict().items()}
+    with pytest.raises(ValueError, match=r"optimizer.*parameter|runtime"):
+        resumed.fit(
+            train_batches=train,
+            validation_batches=validation,
+            step=loss,
+            resume_from=result.checkpoint,
+        )
+    assert_nested_equal(before, changed.state_dict())
 
 
 def test_data_or_source_mismatch_rejects_resume(tmp_path):
@@ -369,7 +440,7 @@ def test_atomic_checkpoint_failure_preserves_previous_bytes(tmp_path, monkeypatc
 def test_unsupported_modes_state_and_cpu_precision_fail_explicitly(tmp_path):
     with pytest.raises(ConfigurationError, match="distributed"):
         TrainingConfig(distributed=True).validate()
-    with pytest.raises(ValueError, match="CPU.*fp32"):
+    with pytest.raises(ValueError, match=r"CPU.*fp32"):
         trainer(tmp_path, "fp16", config=TrainingConfig(precision="fp16"))
 
     class Undeclared(nn.Module):

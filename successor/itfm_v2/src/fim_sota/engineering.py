@@ -85,9 +85,12 @@ def resolve(raw):
     if config["variant"] not in VARIANTS:
         raise ValueError("unknown model variant")
     for key, default in DEFAULTS.items():
-        if type(default) is int and key not in {"seed", "schema_version"}:
-            if type(config[key]) is not int or config[key] < 1:
-                raise ValueError(f"{key} must be a positive integer")
+        if (
+            type(default) is int
+            and key not in {"seed", "schema_version"}
+            and (type(config[key]) is not int or config[key] < 1)
+        ):
+            raise ValueError(f"{key} must be a positive integer")
     if type(config["seed"]) is not int or not 0 <= config["seed"] < 2**31:
         raise ValueError("seed must be an integer in [0,2**31)")
     for key in ("learning_rate", "memory_temperature", "checkpoint_seconds"):
@@ -342,7 +345,7 @@ def load_manifest(path):
 
 
 def artifact_records(root):
-    # Only declared artifacts are eligible; arbitrary files and credentials are excluded.
+    # Only declared artifacts are eligible; arbitrary files are excluded.
     names = [
         "config.json",
         "source.json",
@@ -587,7 +590,8 @@ def campaign(manifest, root, reuse=False):
                     continue
                 if name in state["cells"]:
                     raise RuntimeError(
-                        f"attempted incomplete cell {name}; use explicit checkpoint resume into a new run"
+                        f"attempted incomplete cell {name}; "
+                        "use explicit checkpoint resume into a new run"
                     )
                 if not budget.admits(config["wall_seconds"] + 30):
                     state["status"] = "BUDGET_EXHAUSTED"
@@ -669,6 +673,7 @@ def export_bundle(output, manifest_path, run_root=None):
         "scripts/kaggle.py",
         "tests/test_engineering_control.py",
         "tests/test_engineering_runtime.py",
+        "tests/test_memory_causality.py",
         "tests/test_training_recovery.py",
         "kaggle/HANDOFF.md",
         "kaggle/requirements-runtime.txt",
@@ -833,7 +838,11 @@ def handle(args):
     elif command == "export":
         export_bundle(args.output, args.manifest, args.run_root)
     elif command == "test":
-        patterns = ("test_training_recovery.py", "test_engineering_runtime.py")
+        patterns = (
+            "test_training_recovery.py",
+            "test_engineering_runtime.py",
+            "test_memory_causality.py",
+        )
         expected = set()
         for name in patterns:
             tree = ast.parse((PACKAGE_ROOT / "tests" / name).read_text())

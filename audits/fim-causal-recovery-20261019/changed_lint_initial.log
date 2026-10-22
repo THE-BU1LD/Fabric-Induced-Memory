@@ -1,0 +1,19 @@
+successor/itfm_v2/src/fim_sota/engineering.py:88:9: SIM102 Use a single `if` statement instead of nested `if` statements
+successor/itfm_v2/src/fim_sota/engineering.py:345:89: E501 Line too long (89 > 88)
+successor/itfm_v2/src/fim_sota/engineering.py:590:89: E501 Line too long (106 > 88)
+successor/itfm_v2/src/fim_sota/training.py:282:89: E501 Line too long (100 > 88)
+successor/itfm_v2/src/fim_sota/training.py:487:89: E501 Line too long (100 > 88)
+successor/itfm_v2/src/fim_sota/training.py:639:89: E501 Line too long (107 > 88)
+successor/itfm_v2/src/fim_sota/training.py:756:89: E501 Line too long (99 > 88)
+successor/itfm_v2/src/fim_sota/training.py:814:89: E501 Line too long (89 > 88)
+successor/itfm_v2/tests/test_engineering_runtime.py:307:34: B905 `zip()` without an explicit `strict=` parameter
+successor/itfm_v2/tests/test_engineering_runtime.py:307:34: RUF007 Prefer `itertools.pairwise()` over `zip()` when iterating over successive pairs
+successor/itfm_v2/tests/test_memory_causality.py:159:38: B905 `zip()` without an explicit `strict=` parameter
+successor/itfm_v2/tests/test_memory_causality.py:207:42: RUF043 Pattern passed to `match=` contains metacharacters but is neither escaped nor raw
+successor/itfm_v2/tests/test_training_recovery.py:96:21: B905 `zip()` without an explicit `strict=` parameter
+successor/itfm_v2/tests/test_training_recovery.py:205:29: B905 `zip()` without an explicit `strict=` parameter
+successor/itfm_v2/tests/test_training_recovery.py:253:42: RUF043 Pattern passed to `match=` contains metacharacters but is neither escaped nor raw
+successor/itfm_v2/tests/test_training_recovery.py:301:42: RUF043 Pattern passed to `match=` contains metacharacters but is neither escaped nor raw
+successor/itfm_v2/tests/test_training_recovery.py:441:42: RUF043 Pattern passed to `match=` contains metacharacters but is neither escaped nor raw
+Found 17 errors.
+5 unsafe fixes available with `--fix --unsafe-fixes`.

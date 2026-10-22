@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/successor/itfm_v2/scripts/kaggle.py", line 12, in <module>
+    main()
+  File "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/cli.py", line 162, in main
+    arguments.handler(arguments)
+  File "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/engineering.py", line 818, in handle
+    campaign(manifest, args.output, args.reuse)
+  File "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/successor/itfm_v2/src/fim_sota/engineering.py", line 598, in campaign
+    raise RuntimeError(
+RuntimeError: remaining campaign budget cannot admit the next cell

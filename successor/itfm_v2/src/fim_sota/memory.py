@@ -39,6 +39,13 @@ class BatchRetrieval:
     eligible_count: torch.Tensor
     latency_seconds: float
     peak_accelerator_bytes: int
+    # source_* identifies the value paired with the strongest selected key.
+    # Keep key identity separate when a causal value permutation is requested.
+    key_source_serial: torch.Tensor | None = None
+    value_source_serials: torch.Tensor | None = None
+    value_source_event_times: torch.Tensor | None = None
+    value_source_available_times: torch.Tensor | None = None
+    value_weights: torch.Tensor | None = None
 
     def telemetry(self) -> dict[str, object]:
         """Return target-free retrieval telemetry suitable for a run receipt."""
@@ -68,7 +75,28 @@ class BatchRetrieval:
 
 
 def _as_long(values: torch.Tensor, device: torch.device) -> torch.Tensor:
-    return values.detach().to(device=device, dtype=torch.long).reshape(-1)
+    """Reject ambiguous time values instead of truncating observation arrivals."""
+    values = values.detach()
+    if values.ndim != 1 or values.dtype == torch.bool or values.is_complex():
+        raise ValueError("memory times must be integer-valued tensors with shape [B]")
+    if values.is_floating_point():
+        admitted = (
+            torch.isfinite(values)
+            & (values == values.trunc())
+            & (values >= -(2**63))
+            & (values < 2**63)
+        )
+        if not bool(admitted.all().item()):
+            raise ValueError("memory times must be finite int64-range integer values")
+    elif values.dtype not in {
+        torch.uint8,
+        torch.int8,
+        torch.int16,
+        torch.int32,
+        torch.int64,
+    }:
+        raise ValueError("memory times require a supported integer dtype")
+    return values.to(device=device, dtype=torch.long)
 
 
 def masked_cosine_scores(
@@ -481,6 +509,40 @@ class TensorMemoryBank:
             return values.mean(dim=(-2, -1), keepdim=True).expand_as(values)
         raise ValueError(f"unsupported value intervention: {intervention}")
 
+    def _causal_value_indices(
+        self,
+        eligible: torch.Tensor,
+        selected_indices: torch.Tensor,
+        selected_valid: torch.Tensor,
+        control_seed: int,
+    ) -> torch.Tensor:
+        """Cyclic mispairing within each query's mature, same-owner donor pool.
+
+        Order by immutable serial, then rotate by a seed-dependent nonzero
+        offset. A singleton pool is unchanged and cannot test association.
+        Neither future rows nor other owners change the permutation. This is
+        a deterministic intervention, not a claim of a uniform random shuffle.
+        """
+        serial_order = torch.argsort(self.serials, stable=True)
+        pool_order = torch.argsort(
+            (~eligible[:, serial_order]).to(torch.int8), dim=1, stable=True
+        )
+        pools = serial_order[pool_order]
+        ranks = torch.empty_like(pools)
+        ranks.scatter_(
+            1, pools, torch.arange(len(self), device=self.device).expand_as(pools)
+        )
+        selected_ranks = torch.gather(ranks, 1, selected_indices)
+        counts = eligible.sum(dim=1).clamp_min(1)
+        shifts = torch.where(
+            counts > 1,
+            1 + int(control_seed) % (counts - 1).clamp_min(1),
+            torch.zeros_like(counts),
+        )
+        donor_ranks = (selected_ranks - shifts[:, None]) % counts[:, None]
+        donors = torch.gather(pools, 1, donor_ranks)
+        return torch.where(selected_valid, donors, selected_indices)
+
     def retrieve_batch(
         self,
         *,
@@ -577,7 +639,7 @@ class TensorMemoryBank:
                 query_values = query.float()
                 candidate_masks = self.key_masks[candidate_indices]
                 combined = (
-                    torch.ones_like(candidate_keys, dtype=torch.bool)
+                    candidate_masks
                     if masks is None
                     else masks[:, None, :] & candidate_masks
                 )
@@ -629,19 +691,23 @@ class TensorMemoryBank:
                 best_similarity,
             )
         valid = selected_valid[:, 0] & (best_similarity >= self.minimum_similarity)
-        safe_scores = torch.where(
-            selected_valid, top_scores, torch.zeros_like(top_scores)
+        # Invalid slots must never receive softmax mass. Center before dividing
+        # by temperature, and handle an empty eligible row without NaNs.
+        has_values = selected_valid.any(dim=1, keepdim=True)
+        masked_scores = top_scores.masked_fill(~selected_valid, -torch.inf)
+        maximum = torch.where(
+            has_values, masked_scores.max(dim=1, keepdim=True).values, 0.0
         )
-        weights = torch.softmax(safe_scores / self.temperature, dim=1)
-        weights = weights * selected_valid
-        weights = weights / weights.sum(dim=1, keepdim=True).clamp_min(1e-8)
-        selected_values = self.residuals[top_indices]
-        if selection == "random_value" and len(self) > 1:
-            permutation = torch.roll(
-                torch.arange(len(self), device=self.device),
-                shifts=1 + int(control_seed) % (len(self) - 1),
+        safe_scores = torch.where(
+            has_values, (masked_scores - maximum) / self.temperature, 0.0
+        )
+        weights = torch.softmax(safe_scores, dim=1).masked_fill(~selected_valid, 0.0)
+        value_indices = top_indices
+        if selection == "random_value":
+            value_indices = self._causal_value_indices(
+                eligible, top_indices, selected_valid, control_seed
             )
-            selected_values = self.residuals[permutation[top_indices]]
+        selected_values = self.residuals[value_indices]
         weight_shape = (batch, weights.shape[1]) + (1,) * len(self.residual_shape)
         residual = (selected_values * weights.reshape(weight_shape)).sum(dim=1)
         residual = self._apply_value_intervention(residual, value_intervention)
@@ -650,8 +716,10 @@ class TensorMemoryBank:
             residual,
             torch.zeros_like(residual),
         )
-        best_indices = top_indices[:, 0]
+        best_indices = value_indices[:, 0]
         minus_one = torch.full((batch,), -1, device=self.device, dtype=torch.long)
+        donor_valid = selected_valid & valid[:, None]
+        donor_absent = torch.full_like(value_indices, -1)
         peak = (
             int(torch.cuda.max_memory_allocated(self.device))
             if torch.cuda.is_available() and self.device.type == "cuda"
@@ -673,6 +741,19 @@ class TensorMemoryBank:
             eligible_count=eligible_count,
             latency_seconds=time.perf_counter() - started,
             peak_accelerator_bytes=peak,
+            key_source_serial=torch.where(
+                valid, self.serials[top_indices[:, 0]], minus_one
+            ),
+            value_source_serials=torch.where(
+                donor_valid, self.serials[value_indices], donor_absent
+            ),
+            value_source_event_times=torch.where(
+                donor_valid, self.event_times[value_indices], donor_absent
+            ),
+            value_source_available_times=torch.where(
+                donor_valid, self.available_times[value_indices], donor_absent
+            ),
+            value_weights=weights * valid[:, None],
         )
 
     def _empty_retrieval(
@@ -692,6 +773,17 @@ class TensorMemoryBank:
             eligible_count=long_zeros,
             latency_seconds=time.perf_counter() - started,
             peak_accelerator_bytes=0,
+            key_source_serial=long_zeros - 1,
+            value_source_serials=torch.empty(
+                (batch, 0), device=self.device, dtype=torch.long
+            ),
+            value_source_event_times=torch.empty(
+                (batch, 0), device=self.device, dtype=torch.long
+            ),
+            value_source_available_times=torch.empty(
+                (batch, 0), device=self.device, dtype=torch.long
+            ),
+            value_weights=torch.empty((batch, 0), device=self.device),
         )
 
     def exact_reference(

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "purpose": "smoke",
+  "wall_seconds": 150,
+  "cells": [
+    {
+      "id": "cpu-smoke",
+      "config": {
+        "schema_version": 1,
+        "purpose": "smoke",
+        "benchmark": "bounded_periodic_field_v1",
+        "seed": 101,
+        "device": "cpu",
+        "precision": "fp32",
+        "epochs": 2,
+        "batch_size": 4,
+        "train_trajectories": 4,
+        "validation_trajectories": 2,
+        "test_trajectories": 2,
+        "context_steps": 3,
+        "sequence_steps": 12,
+        "channels": 1,
+        "spatial_points": 8,
+        "hidden": 16,
+        "learning_rate": 0.001,
+        "gradient_accumulation": 2,
+        "wall_seconds": 120,
+        "example_budget": 10000,
+        "checkpoint_seconds": 30,
+        "memory_capacity": 16,
+        "memory_topk": 4,
+        "memory_temperature": 0.2,
+        "variant": "memory",
+        "threads": 1
+      }
+    }
+  ]
+}

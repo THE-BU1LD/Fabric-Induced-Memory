@@ -1,0 +1,14 @@
+{
+  "observed_utc": "2026-10-19T12:25:02.737871+00:00",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "python": "Python 3.12.14",
+  "logical_cpus": 9,
+  "cpu_max": "800000 100000",
+  "cgroup_memory_max_bytes": 8589934592,
+  "cgroup_memory_current_bytes": 7821430784,
+  "memory_events": "low 0\nhigh 0\nmax 32853\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "disk_free_bytes": 20386263040,
+  "compute_lane_count": 1,
+  "device": "cpu",
+  "cuda_build": null
+}

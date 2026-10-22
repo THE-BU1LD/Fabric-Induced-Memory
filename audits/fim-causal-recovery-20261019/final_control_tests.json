@@ -1,0 +1,29 @@
+{
+  "started_utc": "2026-10-19T12:25:02.370523+00:00",
+  "command": [
+    "/workspace/scratch/467cf3a5db8d/fim-venv/bin/python",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "successor/itfm_v2/tests",
+    "-p",
+    "test_engineering_control.py",
+    "-v"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.36571579500014195,
+  "log": "final_control_tests.log",
+  "source_sha256": "601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291",
+  "file_sha256": {
+    "successor/itfm_v2/src/fim_sota/memory.py": "166cb5a2b0d9b83394d2372d1c20b1ca12a43f7ca7b71508406a54aad6ed5e3c",
+    "successor/itfm_v2/src/fim_sota/adapter.py": "3572593ef2800ef54981448a1a5e4c2b3c3011887eb46a5b04c2f1afdb438afd",
+    "successor/itfm_v2/src/fim_sota/training.py": "9fa8d0c774d9661f26023137d145b5cc0e535e476bf0714de2880b633c7dbe5d",
+    "successor/itfm_v2/src/fim_sota/engineering.py": "e0082baa0f3cc5e523b6f0acdb2f3a3b14bb3125c0491a0188522d759daf3bd2",
+    "successor/itfm_v2/tests/test_memory_causality.py": "89e4736ef4e44b7c9534c45af2ebb0d926f1f382354289a6d3058693e3ffe151",
+    "successor/itfm_v2/tests/test_training_recovery.py": "fd415dee31696fd30345a1367c030a7d1aeacb421540ffa9955bea7baa2471f3",
+    "successor/itfm_v2/tests/test_engineering_runtime.py": "bcb4a442a126fc7fa9d6e665a8fbf521c8c0421d816f6917dc8a159f3b2adacd"
+  },
+  "tests": 23,
+  "status": "PASS"
+}

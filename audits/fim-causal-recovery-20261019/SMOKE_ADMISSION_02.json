@@ -1,0 +1,12 @@
+{
+  "declared_utc": "2026-10-19T12:26:13.128000+00:00",
+  "reason": "Initial 150-second campaign equaled cell120+shutdown30 exactly; 0.002s of manifest setup left insufficient admission margin. No cell was reserved or launched. Allocate 30 seconds explicit campaign setup margin within the original 1800-second session ceiling.",
+  "original": "runs/campaign.json preserved as BUDGET_EXHAUSTED, zero cells, zero reserved seconds",
+  "source_config_seed_metric_controls_selection": "unchanged from SMOKE_PROTOCOL.json",
+  "new_manifest": "smoke_manifest_02.json",
+  "new_output": "runs_02",
+  "cell_limit_seconds": 120,
+  "shutdown_reserve_seconds": 30,
+  "campaign_setup_margin_seconds": 30,
+  "outcome_based_retry": false
+}

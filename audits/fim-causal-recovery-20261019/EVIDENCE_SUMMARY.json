@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-19T13:34:00.962528+00:00",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "base_commit": "e1ec0de48b915002418fde7625bdf96659023815",
+  "implementation_commit": "7b9c2af4251248eb155e07ab88ea00cbca46184d",
+  "delivery_branch": "codex/fim-causal-recovery-20261019",
+  "source_sha256": "601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291",
+  "config_sha256": "31e258077b100607228e9bd57558bde2578c4116e677680426c5e33044eb1875",
+  "generation_sha256": "0fc9e89360c48373a8dff54961ea850a490ab57210bc7caaa3359b7f82e914a9",
+  "raw_data_sha256": "422017bea1a68a814c78e5afcaeba463efd212ed00871b8d6b6969c1a986d85c",
+  "checkpoint_sha256": "c392f2a16ffe473df29223d5bc087578fbac99f226186f1fe04f06f706c7b17b",
+  "tests": {
+    "baseline_cpu_tests": {
+      "status": "FAIL",
+      "passed": 29,
+      "failed": 1,
+      "skipped": 4,
+      "receipt": "baseline_cpu_tests.json"
+    },
+    "regression_before": {
+      "status": "FAIL",
+      "passed": 31,
+      "failed": 19,
+      "skipped": 4,
+      "receipt": "regression_before.json"
+    },
+    "repaired_cpu_tests_01": {
+      "status": "BLOCKED",
+      "passed": 0,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "repaired_cpu_tests_01.json"
+    },
+    "repaired_cpu_tests_02": {
+      "status": "PASS",
+      "passed": 50,
+      "failed": 0,
+      "skipped": 4,
+      "receipt": "repaired_cpu_tests_02.json"
+    },
+    "final_cpu_tests": {
+      "status": "PASS",
+      "passed": 52,
+      "failed": 0,
+      "skipped": 4,
+      "receipt": "final_cpu_tests.json"
+    },
+    "stdlib_controls": {
+      "passed": 23,
+      "failed": 0,
+      "skipped": 0,
+      "receipt": "final_control_tests.json"
+    }
+  },
+  "smoke": {
+    "status": "PASS_ENGINEERING",
+    "seed": 101,
+    "epochs": 2,
+    "optimizer_steps": 10,
+    "examples_seen": 72,
+    "wall_seconds": 7.335284000000684,
+    "model_parameters": 536,
+    "test_owners": 2,
+    "forecasts": 18,
+    "field_elements": 144,
+    "metrics": {
+      "base": {
+        "alpha": 0.0,
+        "validation_mse": 0.12435465429283205,
+        "test_mse": 0.07254400095649272,
+        "test_retrieval_hits": 0
+      },
+      "memory": {
+        "alpha": 1.0,
+        "validation_mse": 0.0176957085069783,
+        "test_mse": 0.00835317594033442,
+        "test_retrieval_hits": 16
+      },
+      "erased": {
+        "alpha": 0.0,
+        "validation_mse": 0.12435465429283205,
+        "test_mse": 0.07254400095649272,
+        "test_retrieval_hits": 16
+      },
+      "spatial_mean": {
+        "alpha": 1.0,
+        "validation_mse": 0.12430143938969292,
+        "test_mse": 0.07252514875905165,
+        "test_retrieval_hits": 16
+      },
+      "last_residual": {
+        "alpha": 1.0,
+        "validation_mse": 0.015143435820906612,
+        "test_mse": 0.008063798665607996,
+        "test_retrieval_hits": 16
+      },
+      "persistence": {
+        "validation_mse": 0.0011653442871690219,
+        "test_mse": 0.00033732270039785607
+      }
+    }
+  },
+  "evidence_class": "SYNTHETIC_ENGINEERING_FIXTURE",
+  "scientific_claim": "NOT_EVALUATED",
+  "portable_bundle": {
+    "path": "audits/fim-causal-recovery-20261019/FIM_Causal_Recovery_20261019.zip",
+    "sha256": "5c2095b29124bfba27f0c0904f526424e47d9170b2086b6446db93f593362fe3",
+    "files": 66,
+    "bytes": 297714,
+    "fresh_extracted_directory": "52 CPU cases and 23 controls passed; 4 CUDA skipped; same host and environment",
+    "independent_reproduction": false
+  }
+}

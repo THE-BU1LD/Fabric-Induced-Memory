@@ -1,0 +1,6 @@
+{
+  "action": "POSIX_FADV_DONTNEED on only this task clean dependency cache files; no file deletion or admission change",
+  "files": 16287,
+  "bytes_advised": 809385022,
+  "cgroup_current_after": "7538683904"
+}
