@@ -117,6 +117,7 @@ def parser() -> argparse.ArgumentParser:
     root = argparse.ArgumentParser(prog="fim-sota")
     subcommands = root.add_subparsers(dest="command", required=True)
     from .engineering import register
+
     register(subcommands)
     resolved = subcommands.add_parser("print-config")
     resolved.add_argument("--config", required=True)

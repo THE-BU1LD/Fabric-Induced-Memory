@@ -16,10 +16,12 @@ import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 EXP = ROOT / "fim_experiments"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 if str(EXP) not in sys.path:
     sys.path.insert(0, str(EXP))
 
-import main as experiment_main
+from fim_experiments import main as experiment_main
 import train as train_module
 from ablation_systems import AblatedFIMSystem, variant_switches
 

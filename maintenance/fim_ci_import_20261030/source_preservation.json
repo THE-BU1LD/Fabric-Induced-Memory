@@ -1,0 +1,47 @@
+{
+  "base_head": "466a4f3d45b935bb6236399c9f7beccd69d99a2d",
+  "checked_utc": "2026-10-30T14:52:46.290216+00:00",
+  "cli_ast_unchanged": true,
+  "runner_function_and_class_definitions_unchanged": true,
+  "inherited_lint_and_workflow_files": {
+    "successor/itfm_v2/src/fim_sota/engineering_runtime.py": {
+      "base_sha256": "14a155b2dd54c6310f042a39f9aa9a7eeb7f2691eeba53803d4778c3f27fe419",
+      "current_sha256": "14a155b2dd54c6310f042a39f9aa9a7eeb7f2691eeba53803d4778c3f27fe419",
+      "identical": true
+    },
+    "successor/itfm_v2/src/fim_v2/audit.py": {
+      "base_sha256": "f703c74297b13866beffe4ed4f0d3cd0eb099289a0453d9edf74d9475d56a988",
+      "current_sha256": "f703c74297b13866beffe4ed4f0d3cd0eb099289a0453d9edf74d9475d56a988",
+      "identical": true
+    },
+    "successor/itfm_v2/src/fim_v2/public_adapter.py": {
+      "base_sha256": "fdb8a1582a4adaed70258c321928c41b23882a68d7629fb69298cb9e0a4ff8e3",
+      "current_sha256": "fdb8a1582a4adaed70258c321928c41b23882a68d7629fb69298cb9e0a4ff8e3",
+      "identical": true
+    },
+    "successor/itfm_v2/tests/test_engineering_control.py": {
+      "base_sha256": "0742d304277c85ffe10cb764d627e0726e860c9846b246c7c2fb076b405ee0de",
+      "current_sha256": "0742d304277c85ffe10cb764d627e0726e860c9846b246c7c2fb076b405ee0de",
+      "identical": true
+    },
+    "successor/itfm_v2/scripts/check_sota_readiness.py": {
+      "base_sha256": "04a10e3b643e5790f5b9b6f8cc1bd87e3c48e88cf820013f73f64d63ebcdd790",
+      "current_sha256": "04a10e3b643e5790f5b9b6f8cc1bd87e3c48e88cf820013f73f64d63ebcdd790",
+      "identical": true
+    },
+    ".github/workflows/itfm-sota-ci.yml": {
+      "base_sha256": "623aa2577109ca53adfacab4588571f352ba31fe8dfdd00e0d31cbc3f8457d37",
+      "current_sha256": "623aa2577109ca53adfacab4588571f352ba31fe8dfdd00e0d31cbc3f8457d37",
+      "identical": true
+    },
+    ".github/workflows/current-component-ablations.yml": {
+      "base_sha256": "6cd88c0c573729470fe53ff805d5c8a65d8979ce54d82ec55ceea10e0bb14dc3",
+      "current_sha256": "6cd88c0c573729470fe53ff805d5c8a65d8979ce54d82ec55ceea10e0bb14dc3",
+      "identical": true
+    }
+  },
+  "scientific_runs_started": 0,
+  "hosted_runs_started": 0,
+  "remote_mutations": 0,
+  "historical_state_fields_and_history_entries_unchanged": true
+}
