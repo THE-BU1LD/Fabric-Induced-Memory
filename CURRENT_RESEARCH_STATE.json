@@ -82,16 +82,29 @@
       "reviewed_head": "ed279a48ba2424eebdbb202facfe305f84d11ddc",
       "scientific_disposition_changed": false,
       "stdlib_controls": "23 passed"
+    },
+    {
+      "date": "2026-10-30",
+      "event": "Repair trajectory-runner import collision and successor CLI formatting",
+      "reviewed_head": "466a4f3d45b935bb6236399c9f7beccd69d99a2d",
+      "record": "maintenance/fim_ci_import_20261030/REPORT.md",
+      "local_targeted_tests": "14 passed; two collision regressions failed before repair",
+      "repository_collection": "197 collected without errors",
+      "successor_format": "52 files pass Ruff 0.17.0 format check",
+      "successor_lint": "9 inherited errors remain in five unchanged files; retained in validation.json",
+      "hosted_checks": "Original head has three failing workflows; candidate hosted checks not run",
+      "scientific_disposition_changed": false,
+      "scientific_runs_started": 0
     }
   ],
   "implementation_commit": "7b9c2af4251248eb155e07ab88ea00cbca46184d",
   "intended_contribution": "Unresolved. Fixed cosine residual regression and causal guards alone do not establish novelty.",
   "latest_engineering_integration": {
-    "date": "2026-10-22",
-    "historical_claim_fields": "The earlier runtime/claim fields retain their October 19 source-bound meanings; this entry records the subsequent integration review.",
-    "record": "successor/itfm_v2/maintenance/source_integration_20261022/review.json",
+    "date": "2026-10-30",
+    "historical_claim_fields": "Earlier runtime, package and scientific claim fields retain their source-bound meanings. This entry records a narrow CI import/format repair only.",
+    "record": "maintenance/fim_ci_import_20261030/REPORT.md",
     "scientific_execution_authorized": false,
-    "status": "EXACT_HEAD_CI_PENDING"
+    "status": "LOCAL_IMPORT_AND_FORMAT_REPAIR_VALIDATED; INHERITED_LINT_AND_HOSTED_CHECKS_REMAIN"
   },
   "next_scientific_decision": "Admit and implement the fixed-budget strong-baseline/equal-history protocol before any added outcome-bearing comparison; a positive result is not a stopping requirement.",
   "next_single_action": "Use the verified portable bundle on an authenticated Kaggle session: inspect actual accelerator/quota/jobs, then run CUDA preflight plus the tiny CUDA test suite. Do not launch the larger development manifest.",
@@ -176,7 +189,7 @@
   },
   "schema_version": 1,
   "source_sha256": "601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291",
-  "updated_utc": "2026-10-19T13:34:00.963624+00:00",
+  "updated_utc": "2026-10-30T14:52:46.290216+00:00",
   "version_lines": [
     {
       "reference": "RESEARCH_TRUTH.md",
