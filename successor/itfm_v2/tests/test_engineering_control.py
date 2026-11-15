@@ -24,7 +24,10 @@ class ControlTests(unittest.TestCase):
         import subprocess
         import sys
 
-        code = "import sys; from fim_sota import engineering; assert 'torch' not in sys.modules; assert 'numpy' not in sys.modules"
+        code = (
+            "import sys; from fim_sota import engineering; "
+            "assert 'torch' not in sys.modules; assert 'numpy' not in sys.modules"
+        )
         subprocess.run([sys.executable, "-c", code], check=True)
 
     def test_zero_not_replaced_with_default(self):

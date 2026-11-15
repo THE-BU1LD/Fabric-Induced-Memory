@@ -617,6 +617,12 @@ def evaluate_checkpoint(
             flush=True,
         )
 
+    def progress_for(phase: str, variant: str) -> Callable[[dict[str, Any]], None]:
+        def report(fields: dict[str, Any]) -> None:
+            event("evaluation_progress", phase=phase, variant=variant, **fields)
+
+        return report
+
     event("evaluation_start", phase="generate_fixture")
     fixture = generate_fixture(config)
     if (
@@ -642,9 +648,14 @@ def evaluate_checkpoint(
         "checkpoint_sha256": checkpoint_digest,
         "checkpoint_step": int(checkpoint_payload["step"]),
         "selected_variant": str(config["variant"]),
-        "selection_rule": "caller-supplied frozen checkpoint; each fixed control scale selected on validation only",
+        "selection_rule": (
+            "caller-supplied frozen checkpoint; "
+            "each fixed control scale selected on validation only"
+        ),
         "alpha_grid": list(ALPHA_GRID),
-        "retrieval": "fixed normalized observed-context cosine; no learned query or gate",
+        "retrieval": (
+            "fixed normalized observed-context cosine; no learned query or gate"
+        ),
         "normalization": "none; key L2 normalization is per observed context only",
         "ablations": {},
     }
@@ -673,9 +684,7 @@ def evaluate_checkpoint(
             make_batches(fixture, config, "validation", batch_size=1),
             config,
             variant=variant,
-            progress=lambda fields: event(
-                "evaluation_progress", phase="validation", variant=variant, **fields
-            ),
+            progress=progress_for("validation", variant),
         )
         alpha, alpha_scores = _select_validation_alpha(validation_raw)
         _apply_validation_alpha(validation, validation_raw, alpha)
@@ -687,9 +696,7 @@ def evaluate_checkpoint(
             config,
             variant=variant,
             alpha=alpha,
-            progress=lambda fields: event(
-                "evaluation_progress", phase="test", variant=variant, **fields
-            ),
+            progress=progress_for("test", variant),
         )
         event("evaluation_split_complete", phase="test", **test)
         metrics["ablations"][variant] = {

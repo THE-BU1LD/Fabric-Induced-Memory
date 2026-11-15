@@ -1,0 +1,64 @@
+{
+  "changed_paths": [
+    "scripts/run_trajectory_isolated_ablations.py",
+    "successor/itfm_v2/scripts/check_sota_readiness.py",
+    "successor/itfm_v2/src/fim_sota/engineering_runtime.py",
+    "successor/itfm_v2/src/fim_v2/audit.py",
+    "successor/itfm_v2/src/fim_v2/public_adapter.py",
+    "successor/itfm_v2/tests/test_engineering_control.py",
+    "successor/itfm_v2/tests/test_engineering_runtime.py",
+    "fim_experiments/ablation_systems.py",
+    "fim_experiments/main.py",
+    "fim_experiments/systems.py",
+    "tests/test_trajectory_runner_dependency_imports.py"
+  ],
+  "file_count": 11,
+  "checks": {
+    "successor/itfm_v2/scripts/check_sota_readiness.py": {
+      "check": "entire AST unchanged",
+      "pass": true
+    },
+    "successor/itfm_v2/src/fim_v2/audit.py": {
+      "check": "entire AST unchanged",
+      "pass": true
+    },
+    "successor/itfm_v2/tests/test_engineering_control.py": {
+      "check": "entire AST unchanged",
+      "pass": true
+    },
+    "fim_experiments/main.py": {
+      "check": "all non-import AST unchanged, including every function, class and frozen setting",
+      "pass": true
+    },
+    "fim_experiments/systems.py": {
+      "check": "all non-import AST unchanged, including every function, class and frozen setting",
+      "pass": true
+    },
+    "fim_experiments/ablation_systems.py": {
+      "check": "all non-import AST unchanged, including every function, class and frozen setting",
+      "pass": true
+    },
+    "scripts/run_trajectory_isolated_ablations.py": {
+      "check": "all non-import AST unchanged, including every function, class and frozen setting",
+      "pass": true
+    },
+    "successor/itfm_v2/src/fim_v2/public_adapter.py": {
+      "check": "AST unchanged except two explicit strict=False keywords preserving existing zip semantics",
+      "pass": true
+    },
+    "successor/itfm_v2/src/fim_sota/engineering_runtime.py": {
+      "check": "AST unchanged except callback factory binding phase/variant; no evaluation arithmetic, data generation or protocol changes",
+      "pass": true
+    },
+    "successor/itfm_v2/tests/test_engineering_runtime.py": {
+      "check": "all existing test AST unchanged; one regression appended",
+      "pass": true
+    }
+  },
+  "all_pass": true,
+  "workflow_changes": [],
+  "protocol_data_outcome_changes": [],
+  "new_regression_post_test_format_ast_preserved": true,
+  "baseline_commit": "8538e0c67d849ef1d247299df8694cef2f4eff5b",
+  "baseline_tree": "34972920d62c0bb5457411b6b571ddd362a61604"
+}

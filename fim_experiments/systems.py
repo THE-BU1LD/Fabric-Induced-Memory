@@ -9,7 +9,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from models import Decoder, Encoder, LatentDynamics, Salience, TraceCompressor
+from fim_experiments.models import Decoder, Encoder, LatentDynamics, Salience, TraceCompressor
 
 
 def _field_shape(x: torch.Tensor) -> Tuple[int, int, int, int]:

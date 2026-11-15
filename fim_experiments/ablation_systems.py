@@ -4,7 +4,7 @@ from typing import Optional
 
 import torch
 
-from systems import FIMOutput, FIMSystem, _to_field
+from fim_experiments.systems import FIMOutput, FIMSystem, _to_field
 
 
 class AblatedFIMSystem(FIMSystem):

@@ -223,11 +223,14 @@ def fit_clipped_alpha(
     residuals = tuple(retrieved_residuals)
     if not errors or len(errors) != len(residuals):
         raise ValueError("paired non-empty validation tensors are required")
-    if any(left.shape != right.shape for left, right in zip(errors, residuals)):
+    if any(
+        left.shape != right.shape
+        for left, right in zip(errors, residuals, strict=False)
+    ):
         raise ValueError("validation tensor shapes must match")
     numerator = sum(
         float(torch.sum(error.detach() * residual.detach()).item())
-        for error, residual in zip(errors, residuals)
+        for error, residual in zip(errors, residuals, strict=False)
     )
     denominator = sum(
         float(torch.sum(residual.detach() ** 2).item()) for residual in residuals

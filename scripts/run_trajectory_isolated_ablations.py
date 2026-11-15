@@ -22,8 +22,8 @@ if str(EXP) not in sys.path:
     sys.path.insert(0, str(EXP))
 
 from fim_experiments import main as experiment_main
-import train as train_module
-from ablation_systems import AblatedFIMSystem, variant_switches
+from fim_experiments import train as train_module
+from fim_experiments.ablation_systems import AblatedFIMSystem, variant_switches
 
 PROTOCOL = ROOT / "research" / "protocols" / "FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md"
 FROZEN_BENCHMARKS = ["delayed_recall", "lorenz96"]
