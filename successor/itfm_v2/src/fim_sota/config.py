@@ -5,10 +5,13 @@ import json
 import math
 from collections.abc import Mapping
 from pathlib import Path
-from typing import Any, Literal, TypeVar
+from typing import TYPE_CHECKING, Any, Literal, TypeVar
+
+if TYPE_CHECKING:
+    from _typeshed import DataclassInstance
 
 CURRENT_CONFIG_VERSION = 1
-T = TypeVar("T")
+T = TypeVar("T", bound="DataclassInstance")
 
 
 class ConfigurationError(ValueError):
@@ -250,14 +253,14 @@ def _strict_dataclass(cls: type[T], payload: Mapping[str, Any]) -> T:
         field.name
         for field in dataclasses.fields(cls)
         if field.default is dataclasses.MISSING
-        and field.default_factory is dataclasses.MISSING  # type: ignore[comparison-overlap]
+        and field.default_factory is dataclasses.MISSING
         and field.name not in payload
     )
     if unknown or missing:
         raise ConfigurationError(
             f"{cls.__name__}: unknown={unknown or 'none'} missing={missing or 'none'}"
         )
-    return cls(**payload)  # type: ignore[arg-type]
+    return cls(**payload)
 
 
 def resolve_config(payload: Mapping[str, Any]) -> RunConfig:

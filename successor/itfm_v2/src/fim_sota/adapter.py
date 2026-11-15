@@ -3,6 +3,7 @@ from __future__ import annotations
 import dataclasses
 import math
 from collections.abc import Mapping
+from typing import cast
 
 import torch
 import torch.nn.functional as F
@@ -83,10 +84,13 @@ class ContextKeyEncoder(nn.Module):
             if physical.shape[1] != self.physical_dimension:
                 raise ValueError("physical parameter dimension mismatch")
             parts.append(physical)
-        return self.project(torch.cat(parts, dim=1))
+        return cast(torch.Tensor, self.project(torch.cat(parts, dim=1)))
 
 
 class ResidualNormalizer(nn.Module):
+    channel_scale: torch.Tensor
+    global_scale: torch.Tensor
+
     def __init__(
         self,
         channels: int,
@@ -134,6 +138,8 @@ class ResidualNormalizer(nn.Module):
 
 class ChannelCalibrator(nn.Module):
     """Validation-fit nonnegative clipped per-channel calibration."""
+
+    alpha: torch.Tensor
 
     def __init__(self, channels: int, maximum: float = 1.0) -> None:
         super().__init__()

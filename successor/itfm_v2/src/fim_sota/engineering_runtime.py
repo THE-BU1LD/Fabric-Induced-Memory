@@ -14,7 +14,7 @@ import math
 import time
 from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal, cast
 
 import torch
 from torch import nn
@@ -211,7 +211,7 @@ def build_model(config: Mapping[str, Any]) -> ResidualMLPControl:
 
 def forecast_step(model: nn.Module, batch: ForecastBatch) -> torch.Tensor:
     """Sample-mean scalar loss, allowing exact example-weighted accumulation."""
-    prediction = model(batch.context)
+    prediction: torch.Tensor = model(batch.context)
     if prediction.shape != batch.target.shape:
         raise ValueError("engineering prediction/target shape mismatch")
     return (
@@ -359,7 +359,8 @@ def evaluate_stream(
                 residuals=target - base,
                 trajectory_ids=batch.trajectory_ids,
                 event_times=batch.event_times,
-                available_times=batch.target_available_times,
+                # Validated above; move_batch preserves this tensor on the device.
+                available_times=cast(torch.Tensor, batch.target_available_times),
             )
         records.append(
             {
@@ -790,7 +791,7 @@ def run_experiment(
         epochs=int(config["epochs"]),
         learning_rate=float(config["learning_rate"]),
         gradient_accumulation=int(config["gradient_accumulation"]),
-        precision=str(config["precision"]),
+        precision=cast(Literal["fp32", "bf16", "fp16"], str(config["precision"])),
         early_stopping_patience=int(config["epochs"]) + 1,
         checkpoint_every_steps=100,
         checkpoint_every_seconds=float(config["checkpoint_seconds"]),

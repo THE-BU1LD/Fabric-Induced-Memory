@@ -4,7 +4,7 @@ import dataclasses
 import json
 from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
-from typing import Any
+from typing import Any, Protocol
 
 import torch
 
@@ -101,8 +101,13 @@ def triage_decision(
     }
 
 
+class RetrievalValidity(Protocol):
+    @property
+    def valid(self) -> object: ...
+
+
 def assert_future_leakage_sentinel_rejected(
-    retrieve: Callable[[int], object], *, query_time: int, future_time: int
+    retrieve: Callable[[int], RetrievalValidity], *, query_time: int, future_time: int
 ) -> None:
     if future_time <= query_time:
         raise ValueError("sentinel must be in the future")
@@ -203,5 +208,5 @@ def worst_group(
     means = {key: sum(values) / len(values) for key, values in grouped.items()}
     if not means:
         raise ValueError("no groups available")
-    identity = max(means, key=means.get)
+    identity = max(means, key=lambda label: means[label])
     return {"group": identity, "value": means[identity], "all_groups": means}

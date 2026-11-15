@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import dataclasses
-from collections.abc import Mapping, Sequence
-from typing import Any, Protocol, runtime_checkable
+from collections.abc import Callable, Mapping, Sequence
+from typing import Any, Protocol, cast, runtime_checkable
 
 import torch
 
@@ -39,9 +39,10 @@ class ForecastBatch:
             raise ValueError("target_available_times must have shape [B]")
         if self.target_observation_mask is not None:
             try:
-                torch.broadcast_shapes(
-                    self.target_observation_mask.shape, self.target.shape
-                )
+                cast(
+                    Callable[[torch.Size, torch.Size], torch.Size],
+                    torch.broadcast_shapes,
+                )(self.target_observation_mask.shape, self.target.shape)
             except RuntimeError as error:
                 raise ValueError(
                     "target_observation_mask is not target-compatible"

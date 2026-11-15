@@ -74,6 +74,17 @@ class ControlTests(unittest.TestCase):
         )
         self.assertEqual(e.admission(lambda: {}, lambda _: None)["status"], "BLOCK")
 
+    def test_macos_resource_sampler_rejects_missing_page_size(self):
+        with (
+            patch.object(e.sys, "platform", "darwin"),
+            patch.object(
+                e.subprocess, "check_output", return_value="Pages free: 100.\n"
+            ),
+        ):
+            result = e.admission(pause=lambda _: None)
+        self.assertEqual(result["status"], "BLOCK")
+        self.assertIn("page size", result["reason"])
+
     def test_budget_simulated_clock(self):
         now = [10.0]
         b = e.Budget(50, lambda: now[0])
