@@ -14,7 +14,7 @@ import math
 import time
 from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal, cast
 
 import torch
 from torch import nn
@@ -211,7 +211,7 @@ def build_model(config: Mapping[str, Any]) -> ResidualMLPControl:
 
 def forecast_step(model: nn.Module, batch: ForecastBatch) -> torch.Tensor:
     """Sample-mean scalar loss, allowing exact example-weighted accumulation."""
-    prediction = model(batch.context)
+    prediction: torch.Tensor = model(batch.context)
     if prediction.shape != batch.target.shape:
         raise ValueError("engineering prediction/target shape mismatch")
     return (
@@ -359,7 +359,8 @@ def evaluate_stream(
                 residuals=target - base,
                 trajectory_ids=batch.trajectory_ids,
                 event_times=batch.event_times,
-                available_times=batch.target_available_times,
+                # Validated above; move_batch preserves this tensor on the device.
+                available_times=cast(torch.Tensor, batch.target_available_times),
             )
         records.append(
             {
@@ -617,6 +618,12 @@ def evaluate_checkpoint(
             flush=True,
         )
 
+    def progress_for(phase: str, variant: str) -> Callable[[Mapping[str, Any]], None]:
+        def report(fields: Mapping[str, Any]) -> None:
+            event("evaluation_progress", phase=phase, variant=variant, **fields)
+
+        return report
+
     event("evaluation_start", phase="generate_fixture")
     fixture = generate_fixture(config)
     if (
@@ -642,9 +649,14 @@ def evaluate_checkpoint(
         "checkpoint_sha256": checkpoint_digest,
         "checkpoint_step": int(checkpoint_payload["step"]),
         "selected_variant": str(config["variant"]),
-        "selection_rule": "caller-supplied frozen checkpoint; each fixed control scale selected on validation only",
+        "selection_rule": (
+            "caller-supplied frozen checkpoint; "
+            "each fixed control scale selected on validation only"
+        ),
         "alpha_grid": list(ALPHA_GRID),
-        "retrieval": "fixed normalized observed-context cosine; no learned query or gate",
+        "retrieval": (
+            "fixed normalized observed-context cosine; no learned query or gate"
+        ),
         "normalization": "none; key L2 normalization is per observed context only",
         "ablations": {},
     }
@@ -673,9 +685,7 @@ def evaluate_checkpoint(
             make_batches(fixture, config, "validation", batch_size=1),
             config,
             variant=variant,
-            progress=lambda fields: event(
-                "evaluation_progress", phase="validation", variant=variant, **fields
-            ),
+            progress=progress_for("validation", variant),
         )
         alpha, alpha_scores = _select_validation_alpha(validation_raw)
         _apply_validation_alpha(validation, validation_raw, alpha)
@@ -687,9 +697,7 @@ def evaluate_checkpoint(
             config,
             variant=variant,
             alpha=alpha,
-            progress=lambda fields: event(
-                "evaluation_progress", phase="test", variant=variant, **fields
-            ),
+            progress=progress_for("test", variant),
         )
         event("evaluation_split_complete", phase="test", **test)
         metrics["ablations"][variant] = {
@@ -783,7 +791,7 @@ def run_experiment(
         epochs=int(config["epochs"]),
         learning_rate=float(config["learning_rate"]),
         gradient_accumulation=int(config["gradient_accumulation"]),
-        precision=str(config["precision"]),
+        precision=cast(Literal["fp32", "bf16", "fp16"], str(config["precision"])),
         early_stopping_patience=int(config["epochs"]) + 1,
         checkpoint_every_steps=100,
         checkpoint_every_seconds=float(config["checkpoint_seconds"]),

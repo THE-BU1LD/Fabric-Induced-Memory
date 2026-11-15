@@ -28,7 +28,10 @@ def main() -> None:
         "checks": checks,
         "resource": resource_payload,
         "missing": [name for name, passed in checks.items() if not passed],
-        "note": "READY authorizes frontier reproduction only; it does not authorize protected-test execution.",
+        "note": (
+            "READY authorizes frontier reproduction only; "
+            "it does not authorize protected-test execution."
+        ),
     }
     print(json.dumps(payload, indent=2, sort_keys=True))
     raise SystemExit(0 if payload["status"] == "READY" else 1)

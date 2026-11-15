@@ -176,10 +176,10 @@ def deterministic_mask(
     ]
     target = round(observed.numel() * missing_percent / 100.0)
     removed = 0
-    order = torch.randperm(len(patches), generator=generator).tolist()
+    patch_order = torch.randperm(len(patches), generator=generator).tolist()
     prefix_shape = shape[:-2]
     prefix_count = math_product(prefix_shape)
-    for index in order:
+    for index in patch_order:
         if removed >= target:
             break
         row, column = patches[index]

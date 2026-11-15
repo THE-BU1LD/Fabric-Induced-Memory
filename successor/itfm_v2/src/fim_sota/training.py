@@ -14,11 +14,12 @@ import time
 from collections import OrderedDict
 from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import numpy as np
 import torch
 from torch import nn
+from torch.amp.grad_scaler import GradScaler
 
 from .config import TrainingConfig
 from .contracts import ForecastBatch
@@ -58,7 +59,9 @@ def seed_everything(seed: int, deterministic: bool = True) -> Mapping[str, Any]:
 
 
 def random_state() -> Mapping[str, Any]:
-    numpy_state = np.random.get_state()
+    numpy_state = np.random.get_state(legacy=True)
+    if not isinstance(numpy_state, tuple):
+        raise TypeError("checkpoint RNG requires the legacy NumPy state tuple")
     return {
         "python": random.getstate(),
         "numpy": {
@@ -307,7 +310,7 @@ class UnifiedTrainer:
         }
         self._validate_runtime()
         _check_model_state_contract(model)
-        self.scaler = torch.amp.GradScaler("cuda", enabled=config.precision == "fp16")
+        self.scaler = GradScaler("cuda", enabled=config.precision == "fp16")
 
     def _validate_runtime(self) -> None:
         if self.device.type not in {"cpu", "cuda"}:
@@ -679,17 +682,20 @@ class UnifiedTrainer:
                         > self.config.example_budget
                     ):
                         status = "BUDGET_EXHAUSTED"
-                    admission = None
+                    window_admission: Mapping[str, Any] | None = None
                     if status is None and (
                         self._progress["epoch"] != last_admission_epoch
                         or self._elapsed() - last_admission_elapsed >= 30.0
                     ):
-                        admission = self.resource_admission()
+                        window_admission = self.resource_admission()
                         last_admission_epoch = self._progress["epoch"]
                         last_admission_elapsed = self._elapsed()
-                    if admission is not None and admission.get("status") != "PASS":
+                    if (
+                        window_admission is not None
+                        and window_admission.get("status") != "PASS"
+                    ):
                         receipt = self.output_root / "resource_stop.json"
-                        atomic_write_json(receipt, admission, overwrite=False)
+                        atomic_write_json(receipt, window_admission, overwrite=False)
                         return self._result(
                             "BLOCKED_RESOURCE", self._save_latest(), receipt
                         )
@@ -704,7 +710,10 @@ class UnifiedTrainer:
                         with self._autocast():
                             loss = step(self.model, move_batch(batch, self.device))
                         _check_loss(loss, "training")
-                        self.scaler.scale(loss * (n / incoming)).backward()
+                        cast(
+                            Callable[[], None],
+                            self.scaler.scale(loss * (n / incoming)).backward,
+                        )()
                         weighted_loss += float(loss.detach().item()) * n
                     self.scaler.unscale_(self.optimizer)
                     if not any(
@@ -838,8 +847,8 @@ class UnifiedTrainer:
         finally:
             self._elapsed_before = self._elapsed()
             self._started = None
-            for sig, handler in previous_handlers.items():
-                signal.signal(sig, handler)
+            for restored_signal, handler in previous_handlers.items():
+                signal.signal(restored_signal, handler)
 
     def _autocast(self) -> Any:
         return torch.autocast(

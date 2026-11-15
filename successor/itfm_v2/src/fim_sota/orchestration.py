@@ -71,7 +71,7 @@ def verify_frozen_development_receipt(path: str | Path) -> Mapping[str, Any]:
     receipt_path = Path(path)
     if not receipt_path.is_file():
         raise StageAdmissionError("frozen development receipt is missing")
-    payload = json.loads(receipt_path.read_text(encoding="utf-8"))
+    payload: dict[str, Any] = json.loads(receipt_path.read_text(encoding="utf-8"))
     required = {
         "status": "FROZEN_DEVELOPMENT_PASS",
         "protected_test_unlocked": True,

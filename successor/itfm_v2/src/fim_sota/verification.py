@@ -4,13 +4,19 @@ import hashlib
 import json
 from collections.abc import Mapping, Sequence
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
 
 from .provenance import atomic_write_json, sha256_file
 
 
 class VerificationError(RuntimeError):
     pass
+
+
+class ArchivalRecord(TypedDict):
+    path: str
+    sha256: str
+    bytes: int
 
 
 def verify_bound_artifacts(manifest: Mapping[str, Any]) -> list[Mapping[str, Any]]:
@@ -172,7 +178,7 @@ def archival_manifest(root: str | Path, output: str | Path) -> Mapping[str, Any]
     base = Path(root).resolve()
     destination = Path(output).resolve()
     files = [path for path in base.rglob("*") if path.is_file() and path != destination]
-    records = [
+    records: list[ArchivalRecord] = [
         {
             "path": str(path.relative_to(base)),
             "sha256": sha256_file(path),

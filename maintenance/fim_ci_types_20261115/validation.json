@@ -1,0 +1,76 @@
+{
+  "checked_utc": "2026-11-15T16:23:25.587997+00:00",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "pull_request": 51,
+  "branch": "codex/fim-import-ci-repair-20261030",
+  "baseline_head": "092bb378446add05f8fd5ddb685dc1496d83f5e3",
+  "scope": "Source typing and supported-library boundary repair; no scientific experiment",
+  "baseline": {
+    "verified_all_source_blobs_against_remote": true,
+    "mypy_errors": 133,
+    "files_with_errors": 12,
+    "files_checked": 17,
+    "pinned_baseline_rerun": true
+  },
+  "local_environment": {
+    "python": "3.12.14",
+    "torch": "2.11.0+cpu",
+    "mypy": "2.4.0",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "ruff": "0.17.0",
+    "pytest": "9.1.1",
+    "system_site_packages_visible": true,
+    "full_lock_clean_install": false
+  },
+  "validation": {
+    "strict_mypy": {
+      "errors": 0,
+      "source_files": 17
+    },
+    "ruff_check": "pass",
+    "ruff_format_files": 52,
+    "successor_pytest": {
+      "passed": 118,
+      "skipped": 4,
+      "failed": 0,
+      "exit_code": 0,
+      "skips": "Opt-in CUDA cases on the CPU runtime",
+      "count_evidence": "pytest progress marks; command exit code 0"
+    },
+    "frozen_protocol_audit": {
+      "passed": 11,
+      "total": 11
+    }
+  },
+  "commands": {
+    "mypy": "python -m mypy src/fim_sota",
+    "lint": "python -m ruff check src tests scripts",
+    "format": "python -m ruff format --check src tests scripts",
+    "unit": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 PYTHONPATH=src python -m pytest -q",
+    "protocol": "PYTHONPATH=src python scripts/audit_sota_protocol.py"
+  },
+  "log_sha256": {
+    "type_final.txt": "59cc4d21606d1f60735af82101c6094ef4d27a1054cb5061988711c9db04c37e",
+    "lint_final.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "format_final.txt": "aec51819fa2b338a1a7896d7f3fa3a16c30fdb3b01d724c485d984ae83b87a06",
+    "successor_tests.txt": "decf2bd741fa74e70b77d804c0763563b647894fb56227f9e1ec5343a8bd3bae",
+    "protocol_audit.txt": "8a68bc231b286dbdfb948b9ef512bce2000cf4b34fe5a5ef10a0b1b3610c7831"
+  },
+  "protected": [
+    ".github/workflows",
+    "protocols",
+    "locks",
+    "configs",
+    "CURRENT_RESEARCH_STATE.json",
+    "historical evidence",
+    "scientific results"
+  ],
+  "not_run": [
+    "CUDA tests",
+    "held 40-cell scientific matrix",
+    "private/public benchmark campaign",
+    "local complete lock license scan"
+  ],
+  "hosted_status": "pending candidate push; no claim of hosted success"
+}

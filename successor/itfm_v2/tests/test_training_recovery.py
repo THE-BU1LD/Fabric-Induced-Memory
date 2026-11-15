@@ -15,7 +15,13 @@ from torch import nn
 
 from fim_sota.config import ConfigurationError, TrainingConfig
 from fim_sota.contracts import ForecastBatch
-from fim_sota.training import UnifiedTrainer, _atomic_torch_save
+from fim_sota.training import UnifiedTrainer, _atomic_torch_save, random_state
+
+
+def test_rng_checkpoint_rejects_non_legacy_numpy_state(monkeypatch):
+    monkeypatch.setattr(np.random, "get_state", lambda **_: {"bit_generator": "PCG64"})
+    with pytest.raises(TypeError, match="legacy NumPy state tuple"):
+        random_state()
 
 
 def batches(sizes: tuple[int, ...], split: str) -> list[ForecastBatch]:

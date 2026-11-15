@@ -1,0 +1,103 @@
+{
+  "checked_utc": "2026-11-15T15:24:38.798822+00:00",
+  "baseline_commit": "8538e0c67d849ef1d247299df8694cef2f4eff5b",
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.15.0+cpu",
+    "pytest": "9.1.1",
+    "ruff": "0.15.20",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "device": "cpu",
+    "thread_limit": 1,
+    "package_source": "pre-existing local wheel cache plus inherited primary-runtime packages; isolated virtual environment"
+  },
+  "environment_limit": "This is not the pinned successor CPU environment: its lock requests Torch 2.11.0+cpu, Ruff 0.17.0, NumPy 2.4.4 and SciPy 1.17.1. Hosted validation remains a separate gate.",
+  "before": [
+    {
+      "command": "ruff check src tests scripts --output-format=json",
+      "cwd": "successor/itfm_v2",
+      "result": "9 errors in the same 5 files/codes/lines as hosted job 124131850922"
+    },
+    {
+      "command": "python -m pytest -q tests/test_trajectory_runner_dependency_imports.py",
+      "cwd": ".",
+      "result": "6 failed on unchanged production sources"
+    },
+    {
+      "command": "PYTHONPATH=src python -m pytest -q tests/test_engineering_runtime.py::test_deferred_progress_keeps_each_variant_and_phase",
+      "cwd": "successor/itfm_v2",
+      "result": "1 failed: callbacks replayed after the loop all reported last_residual rather than their original variant"
+    }
+  ],
+  "after": [
+    {
+      "command": "ruff check src tests scripts",
+      "cwd": "successor/itfm_v2",
+      "result": "pass; zero findings"
+    },
+    {
+      "command": "ruff format --check src tests scripts",
+      "cwd": "successor/itfm_v2",
+      "result": "pass; 52 files"
+    },
+    {
+      "command": "python -m pytest -q tests/test_trajectory_runner_dependency_imports.py tests/test_trajectory_runner_import_order.py tests/test_trajectory_isolated_protocol.py tests/test_current_component_ablations.py tests/test_retrieval_temperature_gradient.py tests/test_checkpoint_evaluation_weights.py",
+      "cwd": ".",
+      "result": "62 passed in 65.00s"
+    },
+    {
+      "command": "PYTHONPATH=src python -m pytest -q -ra tests/test_engineering_control.py tests/test_engineering_runtime.py tests/test_public_adapter.py",
+      "cwd": "successor/itfm_v2",
+      "result": "39 passed, 3 skipped; skips are explicit CUDA-only opt-in cases"
+    },
+    {
+      "command": "python -m pytest --collect-only -q",
+      "cwd": ".",
+      "result": "203 tests collected without errors in 1.47s"
+    },
+    {
+      "command": "ruff check --isolated --select E,F,I --line-length 88 tests/test_trajectory_runner_dependency_imports.py",
+      "cwd": ".",
+      "result": "pass"
+    }
+  ],
+  "test_environment": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1",
+  "not_run": [
+    "complete repository numerical suite",
+    "complete successor suite",
+    "local pinned mypy/license/static-protocol checks",
+    "GPU tests",
+    "scientific confirmatory or ablation campaign"
+  ],
+  "protected": [
+    "all .github/workflows",
+    "all protocol/config/lock/admission assets",
+    "all frozen source, historical evidence and research outcomes",
+    "CURRENT_RESEARCH_STATE.json and scientific limitations"
+  ],
+  "local_receipt_sha256": {
+    "final_repository_collection.log": "42f1792a5def32ef6231be09d70d4bd1540765dfc6aaa28bcfb1bfc75bd4ae5f",
+    "final_import_and_existing_regressions.log": "4f5ddb905a417b18950378e681e71930c213699d4a6da97ea7978d49bf61d6a0",
+    "new_regression_lint.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "baseline_import_regressions.log": "f8350a6abad79a1a999831fc8bc718ad9b79d7f1741e4467daf3dd1dda60973e",
+    "baseline_progress_regression.log": "94cac4c4071d14123218f3eceb7b562484622dd07706f3115dc73f424ebd3df5",
+    "final_ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "hosted_lint_job_124131850922.log": "9a2e2815c70fda29623f6e06bf6b7837ff409927d17132f668375363e7d7f1de",
+    "final_format.log": "aec51819fa2b338a1a7896d7f3fa3a16c30fdb3b01d724c485d984ae83b87a06",
+    "final_successor_targeted.log": "9c139a65b83c67b5409a041a31a9c1079f08a0051b4ccd40de66c1bdca89ccee"
+  },
+  "hosted_followup": {
+    "change": "Widen only two new callback type annotations from dict[str,Any] to Mapping[str,Any], matching the existing evaluate_stream progress interface",
+    "runtime_AST_unchanged": true,
+    "first_hosted_source_run": 43729946477,
+    "first_hosted_job": 132859971651,
+    "first_hosted_errors": 135,
+    "errors_in_new_callback": 2,
+    "other_existing_source_findings": 133,
+    "before_sha256": "7ff1a5681edfd3f99422b239d904094f83943623c3ec951ea151e29dd2f74f6a",
+    "after_sha256": "c3cdfdc41a2ccd2091c759039270e5c607b57faad90ffd2e1ac85777cb36d986",
+    "targeted_regression_result": ".                                                                        [100%]",
+    "source_error_inventory": "All133 remaining error lines map byte-for-byte to the original head."
+  }
+}

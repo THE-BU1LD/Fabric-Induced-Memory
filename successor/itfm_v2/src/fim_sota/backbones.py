@@ -3,7 +3,7 @@ from __future__ import annotations
 import dataclasses
 from collections.abc import Callable, Mapping
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import torch
 from torch import nn
@@ -165,6 +165,8 @@ class PersistenceBackbone(nn.Module):
 
 
 class ClimatologyBackbone(nn.Module):
+    mean: torch.Tensor
+
     def __init__(self, mean: torch.Tensor) -> None:
         super().__init__()
         self.register_buffer("mean", mean.detach().clone())
@@ -199,6 +201,8 @@ class ClimatologyBackbone(nn.Module):
 class ResidualMLPControl(nn.Module):
     """Learned non-episodic residual control for parameter matching."""
 
+    checkpoint_stateless: bool
+
     def __init__(
         self, input_dimension: int, output_shape: tuple[int, ...], hidden: int
     ) -> None:
@@ -213,8 +217,11 @@ class ResidualMLPControl(nn.Module):
         )
 
     def forward(self, latent: torch.Tensor) -> torch.Tensor:
-        return self.network(latent.reshape(latent.shape[0], -1)).reshape(
-            latent.shape[0], *self.output_shape
+        return cast(
+            torch.Tensor,
+            self.network(latent.reshape(latent.shape[0], -1)).reshape(
+                latent.shape[0], *self.output_shape
+            ),
         )
 
 

@@ -516,3 +516,34 @@ def test_requested_cuda_precision_gradients_and_online_stream_match_fp32(precisi
         assert torch.allclose(
             actual["prediction"], expected["prediction"], rtol=0.15, atol=0.02
         )
+
+
+def test_deferred_progress_keeps_each_variant_and_phase(tmp_path, monkeypatch):
+    from fim_sota import engineering_runtime as runtime
+
+    cfg = config()
+    checkpoint = tmp_path / "model.pt"
+    ids = _minimal_checkpoint(checkpoint, cfg)
+    callbacks = []
+    original_stream = runtime.evaluate_stream
+
+    def defer_progress(*args, progress=None, **kwargs):
+        callbacks.append((kwargs["variant"], progress))
+        return original_stream(*args, progress=None, **kwargs)
+
+    monkeypatch.setattr(runtime, "evaluate_stream", defer_progress)
+    destination = tmp_path / "evaluation"
+    runtime.evaluate_checkpoint(cfg, checkpoint, destination, *ids)
+    assert len(callbacks) == 2 * len(VARIANTS)
+    for index, (_, progress) in enumerate(callbacks):
+        progress({"deferred_marker": index})
+    events = [
+        json.loads(line)
+        for line in (destination / "events.jsonl").read_text().splitlines()
+    ]
+    observed = [row for row in events if "deferred_marker" in row]
+    assert len(observed) == len(callbacks)
+    for index, ((variant, _), row) in enumerate(zip(callbacks, observed, strict=True)):
+        assert row["deferred_marker"] == index
+        assert row["variant"] == variant
+        assert row["phase"] == ("validation" if index % 2 == 0 else "test")

@@ -23,7 +23,13 @@ import tempfile
 import time
 import uuid
 import zipfile
+from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
+from types import FrameType
+from typing import TYPE_CHECKING, Any, TypedDict
+
+if TYPE_CHECKING:
+    import pytest
 
 from .provenance import atomic_write_json, canonical_json_bytes, sha256_file
 
@@ -60,11 +66,21 @@ DEFAULTS = dict(
 VARIANTS = {"base", "memory", "erased", "spatial_mean", "last_residual"}
 
 
-def digest(value):
+class SourceIdentity(TypedDict):
+    sha256: str
+    files: dict[str, str]
+
+
+class EngineeringCell(TypedDict):
+    id: str
+    config: dict[str, Any]
+
+
+def digest(value: object) -> str:
     return hashlib.sha256(canonical_json_bytes(value)).hexdigest()
 
 
-def resolve(raw):
+def resolve(raw: object) -> dict[str, Any]:
     if not isinstance(raw, dict) or set(raw) - set(DEFAULTS):
         raise ValueError("unknown engineering configuration fields")
     config = {**DEFAULTS, **raw}
@@ -147,11 +163,11 @@ def resolve(raw):
     return config
 
 
-def load_config_file(path):
+def load_config_file(path: str | Path) -> dict[str, Any]:
     return resolve(json.loads(Path(path).read_text()))
 
 
-def source_identity():
+def source_identity() -> SourceIdentity:
     paths = sorted((PACKAGE_ROOT / "src/fim_sota").glob("*.py"))
     paths += [PACKAGE_ROOT / "scripts/kaggle.py"]
     paths += [PACKAGE_ROOT / "src/fim_v2" / n for n in ("__init__.py", "resources.py")]
@@ -159,7 +175,7 @@ def source_identity():
     return {"sha256": digest(records), "files": records}
 
 
-def data_identity(config):
+def data_identity(config: Mapping[str, Any]) -> str:
     keys = (
         "benchmark",
         "seed",
@@ -183,10 +199,13 @@ def data_identity(config):
     )
 
 
-def sample_resources():
+def sample_resources() -> dict[str, int]:
     if sys.platform == "darwin":
         raw = subprocess.check_output(["vm_stat"], text=True)
-        page = int(re.search(r"page size of (\d+) bytes", raw).group(1))
+        page_match = re.search(r"page size of (\d+) bytes", raw)
+        if page_match is None:
+            raise RuntimeError("vm_stat output lacks a page size")
+        page = int(page_match.group(1))
         values = {
             k.strip(): int(v)
             for k, v in re.findall(r"^([^:\n]+):\s+(\d+)\.", raw, re.M)
@@ -225,7 +244,10 @@ def sample_resources():
     raise RuntimeError("no admitted resource sampler for this platform")
 
 
-def admission(sample=sample_resources, pause=time.sleep):
+def admission(
+    sample: Callable[[], Mapping[str, int]] = sample_resources,
+    pause: Callable[[float], object] = time.sleep,
+) -> dict[str, Any]:
     try:
         first = sample()
         pause(0.25)
@@ -245,15 +267,15 @@ def admission(sample=sample_resources, pause=time.sleep):
         return {"status": "BLOCK", "reason": str(error), "floor_bytes": 512 * 1024**2}
 
 
-def preflight(config, runtime=False):
-    packages = {}
+def preflight(config: Mapping[str, Any], runtime: bool = False) -> dict[str, Any]:
+    packages: dict[str, str | None] = {}
     for name in ("torch", "numpy"):
         try:
             packages[name] = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:
             packages[name] = None
     resources = admission()
-    receipt = dict(
+    receipt: dict[str, Any] = dict(
         status="PASS_STATIC",
         python=platform.python_version(),
         packages=packages,
@@ -297,18 +319,20 @@ def preflight(config, runtime=False):
 
 
 class Budget:
-    def __init__(self, seconds, clock=time.monotonic):
+    def __init__(
+        self, seconds: float, clock: Callable[[], float] = time.monotonic
+    ) -> None:
         self.clock, self.started, self.seconds = clock, clock(), seconds
 
-    def remaining(self):
+    def remaining(self) -> float:
         return max(0, self.seconds - (self.clock() - self.started))
 
-    def admits(self, seconds):
+    def admits(self, seconds: float) -> bool:
         return self.remaining() >= seconds
 
 
-def load_manifest(path):
-    raw = json.loads(Path(path).read_text())
+def load_manifest(path: str | Path) -> dict[str, Any]:
+    raw: dict[str, Any] = json.loads(Path(path).read_text())
     if (
         set(raw) != {"schema_version", "purpose", "wall_seconds", "cells"}
         or raw["schema_version"] != 1
@@ -322,7 +346,8 @@ def load_manifest(path):
         raise ValueError("campaign budget must be 1..21600 s and non-confirmatory")
     if not isinstance(raw["cells"], list) or not 1 <= len(raw["cells"]) <= 24:
         raise ValueError("campaign must contain 1..24 finite cells")
-    ids, cells = set(), []
+    ids: set[str] = set()
+    cells: list[EngineeringCell] = []
     for cell in raw["cells"]:
         if (
             set(cell) != {"id", "config"}
@@ -344,7 +369,7 @@ def load_manifest(path):
     return raw
 
 
-def artifact_records(root):
+def artifact_records(root: Path) -> dict[str, str]:
     # Only declared artifacts are eligible; arbitrary files are excluded.
     names = [
         "config.json",
@@ -376,9 +401,11 @@ def artifact_records(root):
     return {n: sha256_file(root / n) for n in names if (root / n).is_file()}
 
 
-def validate_completed(root, config, source):
+def validate_completed(
+    root: str | Path, config: Mapping[str, Any], source: str
+) -> tuple[dict[str, Any], dict[str, Any]]:
     root = Path(root)
-    receipt = json.loads((root / "completion.json").read_text())
+    receipt: dict[str, Any] = json.loads((root / "completion.json").read_text())
     if (
         receipt.get("status") != "PASS_ENGINEERING"
         or receipt.get("source_sha256") != source
@@ -396,15 +423,17 @@ def validate_completed(root, config, source):
             raise ValueError("source snapshot bytes mismatch")
     if digest(json.loads((root / "config.json").read_text())) != digest(config):
         raise ValueError("embedded configuration mismatch")
-    metrics = json.loads((root / "evaluation/metrics.json").read_text())
+    metrics: dict[str, Any] = json.loads((root / "evaluation/metrics.json").read_text())
     return receipt, metrics
 
 
-def supervise(command, seconds, env=None):
+def supervise(
+    command: Sequence[str], seconds: float, env: Mapping[str, str] | None = None
+) -> int:
     """One foreground child, bounded wall time and explicit graceful-stop reserve."""
     child = subprocess.Popen(command, env=env, start_new_session=True)
 
-    def interrupted(_signal, _frame):
+    def interrupted(_signal: int, _frame: FrameType | None) -> None:
         raise KeyboardInterrupt
 
     previous = signal.signal(signal.SIGTERM, interrupted)
@@ -423,7 +452,9 @@ def supervise(command, seconds, env=None):
         signal.signal(signal.SIGTERM, previous)
 
 
-def execute_run(config, root, resume=None):
+def execute_run(
+    config: Mapping[str, Any], root: str | Path, resume: str | Path | None = None
+) -> None:
     root = Path(root).resolve()
     if (
         root.exists()
@@ -485,7 +516,7 @@ def execute_run(config, root, resume=None):
     validate_completed(root, config, source["sha256"])
 
 
-def worker(request):
+def worker(request: str | Path) -> None:
     payload = json.loads(Path(request).read_text())
     config, root = resolve(payload["config"]), Path(payload["root"])
     if source_identity()["sha256"] != payload["source_sha256"]:
@@ -544,7 +575,9 @@ def worker(request):
     )
 
 
-def campaign(manifest, root, reuse=False):
+def campaign(
+    manifest: Mapping[str, Any], root: str | Path, reuse: bool = False
+) -> None:
     root = Path(root).resolve()
     if root.exists() and not reuse:
         raise FileExistsError(
@@ -617,7 +650,7 @@ def campaign(manifest, root, reuse=False):
         lock.unlink()
 
 
-def analyze(root, output):
+def analyze(root: str | Path, output: str | Path) -> None:
     root = Path(root)
     if (root / "completion.json").is_file():
         config = load_config_file(root / "config.json")
@@ -660,7 +693,11 @@ def analyze(root, output):
     )
 
 
-def export_bundle(output, manifest_path, run_root=None):
+def export_bundle(
+    output: str | Path,
+    manifest_path: str | Path,
+    run_root: str | Path | None = None,
+) -> None:
     output = Path(output)
     manifest = load_manifest(manifest_path)
     files = {
@@ -736,7 +773,7 @@ def export_bundle(output, manifest_path, run_root=None):
         temporary.unlink(missing_ok=True)
 
 
-def handle(args):
+def handle(args: argparse.Namespace) -> None:
     command = args.engineering_command
     if command in {"test", "evaluate"} and not args.worker_child:
         arguments = [
@@ -770,14 +807,14 @@ def handle(args):
             },
         )
         if code:
-            receipt = (
+            failure_receipt = (
                 Path(args.output + ".execution.json")
                 if command == "evaluate"
                 else Path(args.receipt)
             )
-            if not receipt.exists():
+            if not failure_receipt.exists():
                 atomic_write_json(
-                    receipt,
+                    failure_receipt,
                     {
                         "status": "BLOCKED_OR_FAILED",
                         "exit_code": code,
@@ -871,10 +908,13 @@ def handle(args):
         import pytest
 
         class ReceiptPlugin:
-            def __init__(self):
-                self.inventory, self.passed, self.skipped, self.failed = [], [], [], []
+            def __init__(self) -> None:
+                self.inventory: list[str] = []
+                self.passed: list[str] = []
+                self.skipped: list[str] = []
+                self.failed: list[str] = []
 
-            def pytest_collection_finish(self, session):
+            def pytest_collection_finish(self, session: pytest.Session) -> None:
                 self.inventory = [item.nodeid for item in session.items]
                 actual = {name.split("::")[-1].split("[")[0] for name in self.inventory}
                 if actual != expected:
@@ -882,7 +922,7 @@ def handle(args):
                         "loaded test inventory differs from source inventory"
                     )
 
-            def pytest_runtest_logreport(self, report):
+            def pytest_runtest_logreport(self, report: pytest.TestReport) -> None:
                 if report.failed:
                     self.failed.append(report.nodeid)
                 if report.skipped:
@@ -924,7 +964,7 @@ def handle(args):
             )
 
 
-def register(subcommands):
+def register(subcommands: argparse._SubParsersAction[argparse.ArgumentParser]) -> None:
     parser = subcommands.add_parser(
         "engineering", help="finite engineering-only Kaggle preparation"
     )
