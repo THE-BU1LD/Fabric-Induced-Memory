@@ -617,8 +617,8 @@ def evaluate_checkpoint(
             flush=True,
         )
 
-    def progress_for(phase: str, variant: str) -> Callable[[dict[str, Any]], None]:
-        def report(fields: dict[str, Any]) -> None:
+    def progress_for(phase: str, variant: str) -> Callable[[Mapping[str, Any]], None]:
+        def report(fields: Mapping[str, Any]) -> None:
             event("evaluation_progress", phase=phase, variant=variant, **fields)
 
         return report

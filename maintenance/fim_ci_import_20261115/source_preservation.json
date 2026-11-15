@@ -60,5 +60,6 @@
   "protocol_data_outcome_changes": [],
   "new_regression_post_test_format_ast_preserved": true,
   "baseline_commit": "8538e0c67d849ef1d247299df8694cef2f4eff5b",
-  "baseline_tree": "34972920d62c0bb5457411b6b571ddd362a61604"
+  "baseline_tree": "34972920d62c0bb5457411b6b571ddd362a61604",
+  "callback_annotation_followup_runtime_AST_unchanged": true
 }

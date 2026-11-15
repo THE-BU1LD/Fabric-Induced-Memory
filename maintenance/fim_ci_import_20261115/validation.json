@@ -86,5 +86,18 @@
     "hosted_lint_job_124131850922.log": "9a2e2815c70fda29623f6e06bf6b7837ff409927d17132f668375363e7d7f1de",
     "final_format.log": "aec51819fa2b338a1a7896d7f3fa3a16c30fdb3b01d724c485d984ae83b87a06",
     "final_successor_targeted.log": "9c139a65b83c67b5409a041a31a9c1079f08a0051b4ccd40de66c1bdca89ccee"
+  },
+  "hosted_followup": {
+    "change": "Widen only two new callback type annotations from dict[str,Any] to Mapping[str,Any], matching the existing evaluate_stream progress interface",
+    "runtime_AST_unchanged": true,
+    "first_hosted_source_run": 43729946477,
+    "first_hosted_job": 132859971651,
+    "first_hosted_errors": 135,
+    "errors_in_new_callback": 2,
+    "other_existing_source_findings": 133,
+    "before_sha256": "7ff1a5681edfd3f99422b239d904094f83943623c3ec951ea151e29dd2f74f6a",
+    "after_sha256": "c3cdfdc41a2ccd2091c759039270e5c607b57faad90ffd2e1ac85777cb36d986",
+    "targeted_regression_result": ".                                                                        [100%]",
+    "source_error_inventory": "All133 remaining error lines map byte-for-byte to the original head."
   }
 }

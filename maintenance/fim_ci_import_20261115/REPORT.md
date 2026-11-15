@@ -49,3 +49,14 @@ Existing negative outcomes and scientific limitations remain unchanged.
 
 The full numerical suites, local type/license/static-protocol checks, GPU cases
 and scientific campaigns were not run in this bounded local validation.
+
+## First hosted readback and annotation follow-up
+
+The pinned ITFM-R check on `50beedcd4dd3fdcde26237c1ce0da20f73b4c89e`
+passes format and lint, then reports 135 type findings in 12 files. Two concern
+the new callback's overly narrow `dict` annotation; the follow-up changes only
+those annotations to `Mapping`, matching the existing callback interface.
+Its runtime AST is unchanged and the deferred-callback regression passes again.
+All 133 remaining reported source lines map byte-for-byte to the original head.
+The type gate stays enabled; its final hosted readback is a separate validation
+step, and no full-CI success is claimed here.
