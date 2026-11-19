@@ -1,0 +1,20 @@
+{
+  "phase": "DEVELOPMENT",
+  "command": [
+    "-m",
+    "pytest",
+    "-q",
+    "tests/test_episode_bank_v1.py",
+    "tests/test_benchmark_runtime_contracts.py",
+    "tests/test_delayed_recall_successor_v2.py"
+  ],
+  "exit_code": 0,
+  "total_command_seconds": 9.855664917005925,
+  "source_sha256": {
+    "fim_experiments/episode_bank_v1.py": "2ef2ebd92cf805009b8f868386ac60c53009806b1addc51cdff5110fad28e4f6",
+    "tests/test_episode_bank_v1.py": "007b4bc643f3b6d067e2b4f4b1561f7ad54f98d062c94e2563afc8804002e137"
+  },
+  "threads": 1,
+  "new_model_training_runs": 0,
+  "scientific_outcome_runs": 0
+}
