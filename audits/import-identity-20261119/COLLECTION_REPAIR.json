@@ -1,0 +1,25 @@
+{
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "pr": 53,
+  "expected_head": "5b57139729789ca27578fc9f8f3067b17d49655d",
+  "files": [
+    {
+      "path": "pytest.ini",
+      "base_blob": "bd1e7620680be15704f7a1f7406a848844cfe295",
+      "new_blob": "939ad298cc107ead8ee563a3f942431a528756a2"
+    }
+  ],
+  "rationale": "Current-main README explicitly names tests/ and fim/epistemic_tests_full/tests/ as maintained check roots. Root pytest otherwise recursively collects immutable historical relocated source and separately governed successor trees. Preserve all maintained root/epistemic suites and all separate successor workflows.",
+  "evidence_urls": [
+    "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/e1ec0de48b915002418fde7625bdf96659023815/README.md",
+    "https://github.com/THE-BU1LD/Fabric-Induced-Memory/pull/50/files",
+    "https://github.com/THE-BU1LD/Fabric-Induced-Memory/blob/eb2ee3e7778cd408d49cb98baa33932c6419c03d/pytest.ini"
+  ],
+  "initial_failure": "135 collection errors from historical archives and separately governed successor trees; no new import assertion ran. Root CI44508731801 job135507052196 and component44508731771 failed collection; preserve those receipts.",
+  "reviewed_at_utc": "2026-11-19 10:53:29 UTC",
+  "review": "README maintained-suite roots and separately scoped ITFM-R workflow reviewed. Historical attempted snapshots remain unchanged; no meaningful maintained assertion is excluded.",
+  "previous_review": "audits/import-identity-20261119/REVIEW.json",
+  "verification": "Both unchanged root and component workflows will execute all maintained roots including the two new regression files. Exact new-head CI pending.",
+  "scientific_execution_authorized": false,
+  "license_gate": "UNCHANGED_BLOCKED_LICENSE_REVIEW"
+}
