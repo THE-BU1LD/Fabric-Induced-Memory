@@ -1,0 +1,73 @@
+{
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "base_commit": "eb2ee3e7778cd408d49cb98baa33932c6419c03d",
+  "verified_existing_blobs": 33,
+  "checked_files": [
+    "successor/itfm_v2/src/fim_sota/__init__.py",
+    "successor/itfm_v2/src/fim_sota/adapter.py",
+    "successor/itfm_v2/src/fim_sota/backbones.py",
+    "successor/itfm_v2/src/fim_sota/cli.py",
+    "successor/itfm_v2/src/fim_sota/config.py",
+    "successor/itfm_v2/src/fim_sota/contracts.py",
+    "successor/itfm_v2/src/fim_sota/datasets.py",
+    "successor/itfm_v2/src/fim_sota/engineering.py",
+    "successor/itfm_v2/src/fim_sota/engineering_runtime.py",
+    "successor/itfm_v2/src/fim_sota/evaluation.py",
+    "successor/itfm_v2/src/fim_sota/memory.py",
+    "successor/itfm_v2/src/fim_sota/metrics.py",
+    "successor/itfm_v2/src/fim_sota/orchestration.py",
+    "successor/itfm_v2/src/fim_sota/provenance.py",
+    "successor/itfm_v2/src/fim_sota/statistics.py",
+    "successor/itfm_v2/src/fim_sota/training.py",
+    "successor/itfm_v2/src/fim_sota/verification.py",
+    "successor/itfm_v2/tests/test_data.py",
+    "successor/itfm_v2/tests/test_decision.py",
+    "successor/itfm_v2/tests/test_engineering_control.py",
+    "successor/itfm_v2/tests/test_engineering_runtime.py",
+    "successor/itfm_v2/tests/test_evaluation.py",
+    "successor/itfm_v2/tests/test_memory.py",
+    "successor/itfm_v2/tests/test_memory_causality.py",
+    "successor/itfm_v2/tests/test_public_adapter.py",
+    "successor/itfm_v2/tests/test_sota_adapter_backbones.py",
+    "successor/itfm_v2/tests/test_sota_config.py",
+    "successor/itfm_v2/tests/test_sota_datasets.py",
+    "successor/itfm_v2/tests/test_sota_memory.py",
+    "successor/itfm_v2/tests/test_sota_metrics_statistics.py",
+    "successor/itfm_v2/tests/test_sota_orchestration_verification.py",
+    "successor/itfm_v2/tests/test_sota_protocol.py",
+    "successor/itfm_v2/tests/test_training_recovery.py"
+  ],
+  "test_counts": {
+    "tests": 75,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "new_source_sha256": "fea8f28fcb15b3f5d5f66df08e77bf5c10f0289ac1757649a113859ab77e1dbf",
+  "new_test_sha256": "cfbb80c3dd61d25b40128395f3ba7ca6cae6c3db45de33aed35d0a993e211ffd",
+  "scientific_execution_started": false,
+  "history": [
+    {
+      "stage": "initial_new_module_check",
+      "passed": 21,
+      "failed": 2,
+      "defect": "memory_bytes is a property, not a method",
+      "source_snapshot": "baseline_initial.py.txt",
+      "evidence": "first tool test result; no scientific outcomes executed"
+    },
+    {
+      "stage": "intermediate_tests",
+      "note": "initial_tests.log overlaps source edits; retain as nonbinding development log, not a source-bound receipt"
+    },
+    {
+      "stage": "focused_current_source_tests",
+      "passed": 74,
+      "skipped": 1,
+      "failed": 0,
+      "junit": "final_tests.xml",
+      "log": "final_tests.log",
+      "ruff": "pass",
+      "mypy": "pass"
+    }
+  ]
+}

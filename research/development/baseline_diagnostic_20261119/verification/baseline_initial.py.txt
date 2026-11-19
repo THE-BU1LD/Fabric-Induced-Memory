@@ -1,0 +1,600 @@
+"""Bounded baseline-first development diagnostic for maintained FIM v2.
+
+This command does not run any protected or historical campaign.  It reuses the
+maintained fixture, MLP trainer and tensor-memory implementation, and tests their
+residual correction against explicitly matched conventional estimators.  All
+selection uses validation owners.  Three repetitions are descriptive, not a
+confirmatory sample-size justification.
+"""
+
+from __future__ import annotations
+
+import argparse
+import dataclasses
+import hashlib
+import json
+import math
+import platform
+import resource
+import time
+from collections.abc import Callable, Mapping, Sequence
+from datetime import UTC, datetime
+from pathlib import Path
+from typing import Any
+
+import numpy as np
+import torch
+from torch import nn
+from torch.nn import functional as F
+
+from .config import TrainingConfig
+from .contracts import ForecastBatch
+from .engineering import admission, data_identity, digest, resolve
+from .engineering_runtime import (
+    _load_frozen_model,
+    build_model,
+    forecast_step,
+    generate_fixture,
+    make_batches,
+    raw_data_sha256,
+)
+from .memory import TensorMemoryBank
+from .provenance import atomic_write_json, sha256_file
+from .training import UnifiedTrainer, seed_everything
+
+VERSION = "fim-baseline-development-v1-20261119"
+PENALTIES = (0.0001, 0.01, 1.0)
+ALPHAS = (0.0, 0.25, 0.5, 1.0)
+METHODS = (
+    "none", "last_residual", "fifo_mean", "uniform_topk",
+    "exact_kernel", "local_ridge", "memory",
+)
+CONVENTIONAL = ("none", "last_residual", "fifo_mean", "uniform_topk", "local_ridge")
+BACKBONES = ("persistence", "linear", "mlp")
+
+
+def utc_now() -> str:
+    return datetime.now(UTC).isoformat()
+
+
+def serializable(value: Any) -> Any:
+    if isinstance(value, torch.Tensor):
+        return value.detach().cpu().tolist()
+    if isinstance(value, dict):
+        return {str(k): serializable(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [serializable(v) for v in value]
+    return value
+
+
+def source_record() -> dict[str, Any]:
+    root = Path(__file__).resolve().parent
+    files = {p.name: sha256_file(p) for p in sorted(root.glob("*.py"))}
+    return {"sha256": digest(files), "files": files}
+
+
+class Persistence(nn.Module):
+    def forward(self, context: torch.Tensor) -> torch.Tensor:
+        return context[:, -1]
+
+
+class RidgePredictor(nn.Module):
+    """Centered ridge with an unpenalized intercept and sum-of-squares loss."""
+
+    x_mean: torch.Tensor
+    y_mean: torch.Tensor
+    weights: torch.Tensor
+
+    def __init__(
+        self, x: torch.Tensor, y: torch.Tensor, penalty: float,
+        output_shape: tuple[int, ...],
+    ) -> None:
+        super().__init__()
+        if not math.isfinite(penalty) or penalty <= 0:
+            raise ValueError("ridge penalty must be finite and positive")
+        x, y = x.double(), y.double()
+        if x.ndim != 2 or y.ndim != 2 or len(x) != len(y) or len(x) == 0:
+            raise ValueError("ridge requires nonempty paired two-dimensional arrays")
+        if not bool(torch.isfinite(x).all() and torch.isfinite(y).all()):
+            raise ValueError("ridge data must be finite")
+        if math.prod(output_shape) != y.shape[1]:
+            raise ValueError("ridge output shape mismatch")
+        xm, ym = x.mean(0), y.mean(0)
+        xc, yc = x - xm, y - ym
+        gram = xc.T @ xc + penalty * torch.eye(x.shape[1], dtype=torch.float64)
+        condition = float(torch.linalg.cond(gram).item())
+        if not math.isfinite(condition):
+            raise FloatingPointError("nonfinite ridge condition number")
+        weights = torch.linalg.solve(gram, xc.T @ yc)
+        if not bool(torch.isfinite(weights).all()):
+            raise FloatingPointError("ridge solve returned nonfinite coefficients")
+        self.register_buffer("x_mean", xm)
+        self.register_buffer("y_mean", ym)
+        self.register_buffer("weights", weights)
+        self.output_shape = output_shape
+        self.condition_number = condition
+        self.penalty = penalty
+
+    def forward(self, context: torch.Tensor) -> torch.Tensor:
+        x = context.double().flatten(1)
+        prediction = (x - self.x_mean) @ self.weights + self.y_mean
+        return prediction.reshape(len(x), *self.output_shape).float()
+
+
+@dataclasses.dataclass(frozen=True)
+class Entry:
+    owner: str
+    event: int
+    available: int
+    serial: int
+    context: torch.Tensor
+    key: torch.Tensor
+    residual: torch.Tensor
+
+
+class ReferenceHistory:
+    """Independent bounded FIFO history; callers write only after prediction."""
+
+    def __init__(self, capacity: int, minimum_age: int = 1) -> None:
+        if type(capacity) is not int or capacity < 1:
+            raise ValueError("capacity must be a positive integer")
+        if type(minimum_age) is not int or minimum_age < 1:
+            raise ValueError("minimum_age must be a positive integer")
+        self.capacity, self.minimum_age = capacity, minimum_age
+        self.entries: list[Entry] = []
+        self.next_serial = 0
+
+    def write(
+        self, owner: str, event: int, available: int, context: torch.Tensor,
+        key: torch.Tensor, residual: torch.Tensor,
+    ) -> None:
+        if type(event) is not int or type(available) is not int or available < event:
+            raise ValueError("explicit integral arrival must be at or after origin")
+        if any(not bool(torch.isfinite(v).all()) for v in (context, key, residual)):
+            raise ValueError("history values must be finite")
+        row = Entry(owner, event, available, self.next_serial,
+                    context.detach().clone(), key.detach().clone(),
+                    residual.detach().clone())
+        self.next_serial += 1
+        self.entries.append(row)
+        owned = [v.serial for v in self.entries if v.owner == owner]
+        discard = set(owned[:-self.capacity])
+        self.entries = [v for v in self.entries if v.serial not in discard]
+
+    def eligible(self, owner: str, event: int) -> list[Entry]:
+        return [v for v in self.entries if v.owner == owner
+                and event - v.event >= self.minimum_age and v.available <= event]
+
+
+def cosine(a: torch.Tensor, b: torch.Tensor) -> float:
+    """Scalar float64 reference, independent of TensorMemoryBank selection."""
+    av, bv = a.flatten().tolist(), b.flatten().tolist()
+    numerator = math.fsum(float(x) * float(y) for x, y in zip(av, bv, strict=True))
+    norm = math.sqrt(math.fsum(float(x) ** 2 for x in av))
+    norm *= math.sqrt(math.fsum(float(y) ** 2 for y in bv))
+    return numerator / max(norm, 1e-8)
+
+
+def reference_correction(
+    history: ReferenceHistory, *, owner: str, event: int,
+    context: torch.Tensor, key: torch.Tensor, shape: tuple[int, ...],
+    method: str, topk: int, temperature: float, penalty: float = 0.01,
+) -> tuple[torch.Tensor, dict[str, Any]]:
+    if method not in METHODS or method == "memory":
+        raise ValueError("unsupported reference method")
+    eligible = history.eligible(owner, event)
+    telemetry: dict[str, Any] = {
+        "eligible_count": len(eligible), "donor_serials": [],
+        "donor_events": [], "donor_available": [], "donor_weights": [],
+        "condition_number": None,
+    }
+    if method == "none" or not eligible:
+        return torch.zeros(shape, dtype=torch.float32), telemetry
+    if method == "local_ridge":
+        estimator = RidgePredictor(
+            torch.stack([v.context.flatten() for v in eligible]),
+            torch.stack([v.residual.flatten() for v in eligible]), penalty, shape,
+        )
+        telemetry["condition_number"] = estimator.condition_number
+        chosen = eligible
+        # Ridge coefficients are not nonnegative attention weights.  Preserve
+        # coefficients and centers, not a misleading fabricated weight vector.
+        telemetry["ridge_weights"] = estimator.weights.tolist()
+        telemetry["ridge_x_mean"] = estimator.x_mean.tolist()
+        telemetry["ridge_y_mean"] = estimator.y_mean.tolist()
+        correction = estimator(context.unsqueeze(0))[0]
+    else:
+        if method == "last_residual":
+            chosen = [max(eligible, key=lambda row: (row.event, row.serial))]
+        elif method == "fifo_mean":
+            chosen = eligible
+        else:
+            chosen = sorted(eligible, key=lambda row: (-cosine(key, row.key), row.serial))[:topk]
+        if method == "exact_kernel":
+            scores = [cosine(key, row.key) for row in chosen]
+            unscaled = [math.exp((s - max(scores)) / temperature) for s in scores]
+            weights = [w / math.fsum(unscaled) for w in unscaled]
+        else:
+            weights = [1.0 / len(chosen)] * len(chosen)
+        correction = sum(
+            (w * row.residual.double() for w, row in zip(weights, chosen, strict=True)),
+            start=torch.zeros(shape, dtype=torch.float64),
+        ).float()
+        telemetry["donor_weights"] = weights
+    telemetry["donor_serials"] = [row.serial for row in chosen]
+    telemetry["donor_events"] = [row.event for row in chosen]
+    telemetry["donor_available"] = [row.available for row in chosen]
+    return correction, telemetry
+
+
+def owner_mse(records: Sequence[Mapping[str, Any]], alpha: float) -> dict[str, Any]:
+    if not records:
+        raise ValueError("cannot score empty records")
+    owner_errors: dict[str, list[float]] = {}
+    for row in records:
+        base = np.asarray(row["base"], dtype=np.float64)
+        correction = np.asarray(row["correction"], dtype=np.float64)
+        target = np.asarray(row["target"], dtype=np.float64)
+        prediction = base + alpha * correction
+        if not np.isfinite(prediction).all() or not np.isfinite(target).all():
+            raise FloatingPointError("nonfinite prediction or target")
+        error = float(np.mean(np.square(prediction - target)))
+        owner_errors.setdefault(str(row["owner"]), []).append(error)
+    per_owner = {k: math.fsum(v) / len(v) for k, v in owner_errors.items()}
+    return {"mse": math.fsum(per_owner.values()) / len(per_owner),
+            "per_owner_mse": per_owner, "owners": len(per_owner),
+            "forecasts": len(records)}
+
+
+def select_alpha(records: Sequence[Mapping[str, Any]]) -> tuple[float, list[dict[str, float]]]:
+    if not records or any(v["split"] != "validation" for v in records):
+        raise ValueError("selection accepts validation records only")
+    scores = [{"alpha": alpha, "mse": owner_mse(records, alpha)["mse"]}
+              for alpha in ALPHAS]
+    best = min(scores, key=lambda row: (row["mse"], row["alpha"]))
+    return best["alpha"], scores
+
+
+@torch.no_grad()
+def stream(
+    model: nn.Module, batches: Sequence[ForecastBatch], config: Mapping[str, Any],
+    method: str, penalty: float, check_budget: Callable[[], None],
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    if method not in METHODS:
+        raise ValueError("unknown method")
+    model.eval()
+    shape = (int(config["channels"]), int(config["spatial_points"]))
+    bank = TensorMemoryBank(
+        key_dimension=int(config["context_steps"]) * math.prod(shape),
+        residual_shape=shape, capacity_per_trajectory=int(config["memory_capacity"]),
+        minimum_age=1, topk=int(config["memory_topk"]),
+        temperature=float(config["memory_temperature"]), device="cpu",
+        seed=int(config["seed"]),
+    ) if method == "memory" else None
+    history = ReferenceHistory(int(config["memory_capacity"]))
+    previous: dict[str, int] = {}
+    records: list[dict[str, Any]] = []
+    started = time.monotonic()
+    retrieval_seconds = 0.0
+    maximum_bytes = 0
+    split: str | None = None
+    for batch in batches:
+        check_budget()
+        batch.validate()
+        if len(batch.trajectory_ids) != 1 or not bool(batch.observation_mask.all()):
+            raise ValueError("diagnostic requires singleton fully observed contexts")
+        if batch.target_observation_mask is None or not bool(batch.target_observation_mask.all()):
+            raise ValueError("diagnostic requires fully observed arriving targets")
+        if split is not None and split != batch.split:
+            raise ValueError("a history cannot span splits")
+        split = batch.split
+        owner, event = batch.trajectory_ids[0], int(batch.event_times.item())
+        if event <= previous.get(owner, -1):
+            raise ValueError("events must increase within owner")
+        if batch.target_available_times is None or int(batch.target_available_times.item()) != event + 1:
+            raise ValueError("fixture requires explicit next-observation arrivals")
+        previous[owner] = event
+        context = batch.context[0].float()
+        base = model(batch.context)[0].float()
+        if tuple(base.shape) != shape or not bool(torch.isfinite(base).all()):
+            raise ValueError("invalid backbone prediction")
+        key = F.normalize(context.flatten().unsqueeze(0), dim=1, eps=1e-8)[0]
+        before_retrieval = time.monotonic()
+        if bank is not None:
+            result = bank.retrieve_batch(query_keys=key.unsqueeze(0),
+                trajectory_ids=(owner,), query_times=batch.event_times)
+            correction = result.residual[0]
+            if any(v is None for v in (result.value_source_serials,
+                    result.value_source_event_times, result.value_source_available_times,
+                    result.value_weights)):
+                raise RuntimeError("maintained memory did not return donor provenance")
+            telemetry = {
+                "eligible_count": int(result.eligible_count.item()),
+                "donor_serials": result.value_source_serials[0].tolist(),
+                "donor_events": result.value_source_event_times[0].tolist(),
+                "donor_available": result.value_source_available_times[0].tolist(),
+                "donor_weights": result.value_weights[0].tolist(),
+                "condition_number": None,
+            }
+            if telemetry["eligible_count"] != len(history.eligible(owner, event)):
+                raise RuntimeError("reference and maintained eligibility disagree")
+            for serial, origin, available, weight in zip(
+                telemetry["donor_serials"], telemetry["donor_events"],
+                telemetry["donor_available"], telemetry["donor_weights"], strict=True,
+            ):
+                if weight and (serial not in {v.serial for v in history.eligible(owner, event)}
+                               or origin >= event or available > event):
+                    raise RuntimeError("retrieval donor violates declared causal pool")
+            maximum_bytes = max(maximum_bytes, bank.memory_bytes())
+        else:
+            correction, telemetry = reference_correction(history, owner=owner,
+                event=event, context=context, key=key, shape=shape, method=method,
+                topk=int(config["memory_topk"]),
+                temperature=float(config["memory_temperature"]), penalty=penalty)
+        retrieval_seconds += time.monotonic() - before_retrieval
+        if not bool(torch.isfinite(correction).all()):
+            raise FloatingPointError("nonfinite correction")
+        # Current target is first accessed only after the prediction ingredients
+        # have been committed.  Its residual cannot affect this forecast.
+        target = batch.target[0].float()
+        record = {"owner": owner, "event": event, "split": split,
+                  "base": base.tolist(), "correction": correction.tolist(),
+                  "target": target.tolist(), "telemetry": telemetry}
+        records.append(record)
+        history.write(owner, event, event + 1, context, key, target - base)
+        if bank is not None:
+            bank.write_batch(keys=key.unsqueeze(0), residuals=(target-base).unsqueeze(0),
+                trajectory_ids=(owner,), event_times=batch.event_times,
+                available_times=batch.target_available_times)
+        maximum_bytes = max(maximum_bytes, sum(
+            (v.context.numel() + v.key.numel() + v.residual.numel()) * 4
+            for v in history.entries))
+    return records, {"wall_seconds": time.monotonic() - started,
+        "retrieval_seconds": retrieval_seconds, "writes": len(records),
+        "max_retained_tensor_bytes": maximum_bytes,
+        "memory_measurement": "tensor payload only; process peak measured separately"}
+
+
+def fit_linear(
+    batches: Sequence[ForecastBatch], penalty: float, shape: tuple[int, ...],
+) -> RidgePredictor:
+    if not batches or any(batch.split != "train" for batch in batches):
+        raise ValueError("linear predictor fit accepts train owners only")
+    return RidgePredictor(torch.cat([v.context.flatten(1) for v in batches]),
+                          torch.cat([v.target.flatten(1) for v in batches]), penalty, shape)
+
+
+def train_mlp(
+    config: Mapping[str, Any], fixture: Mapping[str, Mapping[str, torch.Tensor]],
+    destination: Path, identity: str,
+) -> tuple[nn.Module, dict[str, Any]]:
+    seed_everything(int(config["seed"]))
+    model = build_model(config)
+    optimizer = torch.optim.Adam(model.parameters(), lr=float(config["learning_rate"]))
+    training = TrainingConfig(mode="joint", gate="full", seed=int(config["seed"]),
+        epochs=int(config["epochs"]), learning_rate=float(config["learning_rate"]),
+        gradient_accumulation=int(config["gradient_accumulation"]), precision="fp32",
+        early_stopping_patience=int(config["epochs"]) + 1, checkpoint_every_steps=100,
+        checkpoint_every_seconds=30.0, wall_clock_budget_seconds=120,
+        example_budget=int(config["example_budget"]))
+    trainer = UnifiedTrainer(model=model, optimizer=optimizer, config=training,
+        run_id="mlp", output_root=destination, source_sha256=identity,
+        config_sha256=digest(dict(config)), data_sha256=data_identity(config),
+        resource_admission=admission, device="cpu")
+    outcome = trainer.fit(train_batches=make_batches(fixture, config, "train"),
+        validation_batches=make_batches(fixture, config, "validation"), step=forecast_step)
+    if outcome.status != "PASS_ENGINEERING":
+        raise RuntimeError(f"MLP training incomplete: {outcome.status}")
+    checkpoint = destination / "mlp/checkpoints/best.pt"
+    frozen, _ = _load_frozen_model(config, checkpoint, identity, digest(dict(config)), data_identity(config))
+    receipt = dataclasses.asdict(outcome)
+    receipt["best_checkpoint"] = str(checkpoint.relative_to(destination))
+    receipt["best_checkpoint_sha256"] = sha256_file(checkpoint)
+    return frozen, receipt
+
+
+def cell_name(backbone: str, method: str, penalty: float) -> str:
+    return f"{backbone}--{method}" + (f"--{penalty:g}" if method == "local_ridge" else "")
+
+
+def run_seed(seed: int, output: Path, source: dict[str, Any], overall_deadline: float) -> dict[str, Any]:
+    started = time.monotonic()
+    deadline = min(overall_deadline, started + 300.0)
+    def check_budget() -> None:
+        if time.monotonic() >= deadline:
+            raise TimeoutError("declared development budget exhausted")
+    config = resolve({"seed": seed, "device": "cpu", "threads": 1})
+    output.mkdir(exist_ok=False)
+    atomic_write_json(output / "config.json", config, overwrite=False)
+    check_budget()
+    admitted = admission()
+    atomic_write_json(output / "resource_admission.json", admitted, overwrite=False)
+    if admitted["status"] != "PASS":
+        raise RuntimeError("local resources refused diagnostic")
+    fixture = generate_fixture(config)
+    atomic_write_json(output / "raw_fixture.json", serializable(fixture), overwrite=False)
+    models: dict[str, nn.Module] = {"persistence": Persistence()}
+    fit_receipts: dict[str, Any] = {}
+    shape = (int(config["channels"]), int(config["spatial_points"]))
+    train = make_batches(fixture, config, "train")
+    validation = make_batches(fixture, config, "validation", batch_size=1)
+    ridge_candidates: list[tuple[float, float, RidgePredictor]] = []
+    for penalty in PENALTIES:
+        check_budget()
+        before = time.monotonic()
+        ridge = fit_linear(train, penalty, shape)
+        records, _ = stream(ridge, validation, config, "none", penalty, check_budget)
+        mse = owner_mse(records, 0.0)["mse"]
+        ridge_candidates.append((mse, penalty, ridge))
+        fit_receipts[f"linear-{penalty:g}"] = {
+            "validation_mse": mse, "fit_and_validation_seconds": time.monotonic()-before,
+            "condition_number": ridge.condition_number, "penalty": penalty,
+            "weights": ridge.weights.tolist(), "x_mean": ridge.x_mean.tolist(),
+            "y_mean": ridge.y_mean.tolist()}
+    _, selected_penalty, models["linear"] = min(ridge_candidates, key=lambda v: (v[0], v[1]))
+    models["mlp"], fit_receipts["mlp"] = train_mlp(config, fixture, output, source["sha256"])
+    cells: list[tuple[str, str, float]] = [
+        (backbone, method, penalty) for backbone in BACKBONES for method in METHODS
+        for penalty in (PENALTIES if method == "local_ridge" else (0.01,))]
+    validation_cells: dict[str, Any] = {}
+    for backbone, method, penalty in cells:
+        name = cell_name(backbone, method, penalty)
+        rows, cost = stream(models[backbone], validation, config, method, penalty, check_budget)
+        alpha, scores = select_alpha(rows)
+        payload = {"cell": name, "backbone": backbone, "method": method,
+                   "penalty": penalty, "selected_alpha": alpha, "alpha_scores": scores,
+                   "metric": owner_mse(rows, alpha), "cost": cost, "records": rows}
+        atomic_write_json(output / "validation" / f"{name}.json", payload, overwrite=False)
+        validation_cells[name] = {k: v for k, v in payload.items() if k != "records"}
+    backbone = min(BACKBONES, key=lambda b: (
+        validation_cells[cell_name(b, "none", 0.01)]["metric"]["mse"], BACKBONES.index(b)))
+    comparators = [name for name, row in validation_cells.items()
+                   if row["backbone"] == backbone and row["method"] in CONVENTIONAL]
+    def comparison_key(name: str) -> tuple[float, int, float]:
+        row = validation_cells[name]
+        return (row["metric"]["mse"], CONVENTIONAL.index(row["method"]), row["penalty"])
+    comparator = min(comparators, key=comparison_key)
+    global_comparator = min(
+        (name for name, row in validation_cells.items() if row["method"] in CONVENTIONAL),
+        key=lambda name: (validation_cells[name]["metric"]["mse"],
+                          BACKBONES.index(validation_cells[name]["backbone"]),
+                          *comparison_key(name)[1:]))
+    selection = {"selected_at_utc": utc_now(), "selected_backbone": backbone,
+        "linear_penalty": selected_penalty, "comparator": comparator,
+        "global_comparator": global_comparator,
+        "memory_cell": cell_name(backbone, "memory", 0.01),
+        "source_sha256": source["sha256"], "raw_data_sha256": raw_data_sha256(fixture),
+        "validation_cells": validation_cells, "fit_receipts": fit_receipts,
+        "selection_boundary": "Written before constructing or scoring any test batch"}
+    atomic_write_json(output / "selection.json", selection, overwrite=False)
+    selection_hash = sha256_file(output / "selection.json")
+    test = make_batches(fixture, config, "test", batch_size=1)
+    test_cells: dict[str, Any] = {}
+    raw_cells: dict[str, list[dict[str, Any]]] = {}
+    for backbone_name, method, penalty in cells:
+        name = cell_name(backbone_name, method, penalty)
+        rows, cost = stream(models[backbone_name], test, config, method, penalty, check_budget)
+        alpha = validation_cells[name]["selected_alpha"]
+        for row in rows:
+            row["prediction"] = (np.asarray(row["base"], dtype=np.float64)
+                                 + alpha*np.asarray(row["correction"], dtype=np.float64)).tolist()
+        metric = owner_mse(rows, alpha)
+        payload = {"cell": name, "selected_alpha": alpha, "selection_sha256": selection_hash,
+                   "metric": metric, "cost": cost, "records": rows}
+        atomic_write_json(output / "test" / f"{name}.json", payload, overwrite=False)
+        test_cells[name] = {k: v for k, v in payload.items() if k != "records"}
+        raw_cells[name] = rows
+    equivalence: dict[str, float] = {}
+    for backbone_name in BACKBONES:
+        a = raw_cells[cell_name(backbone_name, "memory", 0.01)]
+        b = raw_cells[cell_name(backbone_name, "exact_kernel", 0.01)]
+        error = max(float(np.max(np.abs(np.asarray(x["correction"])-np.asarray(y["correction"]))))
+                    for x, y in zip(a, b, strict=True))
+        if error > 5e-6:
+            raise RuntimeError(f"independent kernel check failed for {backbone_name}: {error}")
+        equivalence[backbone_name] = error
+    memory_mse = test_cells[selection["memory_cell"]]["metric"]["mse"]
+    comparator_mse = test_cells[comparator]["metric"]["mse"]
+    summary = {"seed": seed, "status": "EXECUTED_DEVELOPMENT",
+        "evidence_class": "SMALL_SYNTHETIC_DEVELOPMENT_DIAGNOSTIC",
+        "selected_backbone": selection["selected_backbone"], "comparator": comparator,
+        "memory_mse": memory_mse, "comparator_mse": comparator_mse,
+        "paired_difference": memory_mse-comparator_mse,
+        "global_comparator": global_comparator,
+        "global_comparator_mse": test_cells[global_comparator]["metric"]["mse"],
+        "exact_kernel_max_abs_error": equivalence,
+        "test_cells": test_cells, "wall_seconds": time.monotonic()-started,
+        "selection_sha256": selection_hash,
+        "raw_data_sha256": raw_data_sha256(fixture)}
+    atomic_write_json(output / "summary.json", summary, overwrite=False)
+    return summary
+
+
+def verify_output(output: Path) -> dict[str, Any]:
+    manifest = json.loads((output / "artifact_manifest.json").read_text())
+    for relative, expected in manifest["files"].items():
+        if sha256_file(output / relative) != expected:
+            raise ValueError(f"artifact checksum mismatch: {relative}")
+    summary = json.loads((output / "summary.json").read_text())
+    checked = 0
+    for seed in summary["seeds"]:
+        root = output / f"seed-{seed}"
+        selection = json.loads((root / "selection.json").read_text())
+        for path in sorted((root / "test").glob("*.json")):
+            cell = json.loads(path.read_text())
+            if cell["selection_sha256"] != sha256_file(root / "selection.json"):
+                raise ValueError("test result selection binding mismatch")
+            alpha = selection["validation_cells"][cell["cell"]]["selected_alpha"]
+            if cell["selected_alpha"] != alpha:
+                raise ValueError("test alpha was not validation selected")
+            actual = owner_mse(cell["records"], alpha)
+            if actual != cell["metric"]:
+                raise ValueError("metric does not reproduce exactly from raw records")
+            checked += 1
+    return {"status": "VERIFIED_RETAINED_ARTIFACTS", "test_cells": checked,
+            "files_hashed": len(manifest["files"]), "independent_retraining": False}
+
+
+def run(output: Path, seeds: tuple[int, ...]) -> dict[str, Any]:
+    if seeds != (101, 202, 303):
+        raise ValueError("this bounded protocol fixes the three development seeds")
+    output.mkdir(parents=True, exist_ok=False)
+    torch.set_num_threads(1)
+    source = source_record()
+    started = time.monotonic()
+    cpu_started = time.process_time()
+    protocol = {
+        "version": VERSION, "started_at_utc": utc_now(), "seeds": seeds,
+        "source": source, "independent_unit": "one generated repetition",
+        "evidence_class": "DEVELOPMENT_ONLY", "protected_experiments_touched": False,
+        "backbones": BACKBONES, "correctors": METHODS, "penalties": PENALTIES,
+        "alpha_grid": ALPHAS, "owner_weighting": "equal owners then equal repetitions",
+        "linear_objective": "sum squared error plus lambda times weight Frobenius norm squared; unpenalized intercept",
+        "selection": "linear penalty then uncorrected backbone then conventional corrector, validation only",
+        "comparator_ties": "table order then smaller ridge penalty; smaller alpha on scale ties",
+        "kernel_equivalence_absolute_tolerance": 5e-6,
+        "budgets": {"seconds_per_seed": 300, "total_seconds": 1200, "threads": 1},
+        "mlp_budget": "existing two-epoch fixture, ten updates; not optimized benchmark",
+        "environment": {"python": platform.python_version(), "torch": str(torch.__version__),
+                        "numpy": np.__version__, "platform": platform.platform(), "device": "cpu"},
+        "limitations": ["three small synthetic development repetitions", "seed 101 previously exposed",
+            "no public benchmark or confirmatory significance", "no efficiency superiority claim",
+            "no old-context unique-information claim", "protected 40-cell and consumed v3/v4 remain untouched",
+            "mechanism deletion/mispairing interventions not part of this baseline-only diagnostic"],
+    }
+    atomic_write_json(output / "protocol.json", protocol, overwrite=False)
+    try:
+        results = [run_seed(seed, output / f"seed-{seed}", source, started+1200) for seed in seeds]
+        differences = [row["paired_difference"] for row in results]
+        summary = {"version": VERSION, "status": "EXECUTED_DEVELOPMENT", "seeds": seeds,
+            "finished_at_utc": utc_now(), "results": results,
+            "mean_paired_difference": math.fsum(differences)/len(differences),
+            "range_paired_difference": [min(differences), max(differences)],
+            "disposition": "NEGATIVE" if all(v >= 0 for v in differences) else "MIXED_OR_UNRESOLVED",
+            "interpretation": "Positive difference means retrieval is worse. This is a descriptive development diagnostic, not confirmation.",
+            "wall_seconds": time.monotonic()-started, "process_cpu_seconds": time.process_time()-cpu_started,
+            "peak_process_rss_bytes": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * (1 if platform.system()=="Darwin" else 1024),
+            "source_sha256": source["sha256"], "protocol_sha256": sha256_file(output/"protocol.json")}
+        atomic_write_json(output / "summary.json", summary, overwrite=False)
+        files = {str(p.relative_to(output)): sha256_file(p) for p in sorted(output.rglob("*")) if p.is_file()}
+        atomic_write_json(output / "artifact_manifest.json", {"files": files, "source": source}, overwrite=False)
+        receipt = verify_output(output)
+        atomic_write_json(output / "verification.json", receipt, overwrite=False)
+        return summary
+    except BaseException as error:
+        atomic_write_json(output / "failure.json", {"type": type(error).__name__,
+            "message": str(error), "at_utc": utc_now(), "wall_seconds": time.monotonic()-started}, overwrite=False)
+        raise
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--verify", action="store_true")
+    args = parser.parse_args()
+    result = verify_output(args.output) if args.verify else run(args.output, (101, 202, 303))
+    print(json.dumps({k: v for k, v in result.items() if k != "results"}, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

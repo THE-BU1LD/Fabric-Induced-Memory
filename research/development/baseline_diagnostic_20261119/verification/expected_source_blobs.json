@@ -1,0 +1,171 @@
+{
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "ref": "eb2ee3e7778cd408d49cb98baa33932c6419c03d",
+  "files": [
+    {
+      "path": "successor/itfm_v2/src/fim_sota/__init__.py",
+      "git_blob_sha1": "05fcd2716b75a681b885e0ef49ce441fa4652f23",
+      "size": 423
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/adapter.py",
+      "git_blob_sha1": "6ad8f5415da099834c8f08d6f2f44551ff488a57",
+      "size": 12069
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/backbones.py",
+      "git_blob_sha1": "e1007882765ff30cc2857695660e6538fd0eaa73",
+      "size": 10444
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/cli.py",
+      "git_blob_sha1": "32fcf4017c6bf8de03dd2c7b261976cbde5c54f5",
+      "size": 5634
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/config.py",
+      "git_blob_sha1": "417a3efaf69cb77654722aae7715752cc90fdfe6",
+      "size": 10916
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/contracts.py",
+      "git_blob_sha1": "d054724f75732bab208a56ec404aac80aec0d97a",
+      "size": 4719
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/datasets.py",
+      "git_blob_sha1": "64fb0a16bef9c7a7859e40c586617039bb0e4e44",
+      "size": 21735
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/engineering.py",
+      "git_blob_sha1": "f9e56e340defd4f1aac60198772c275b61946b33",
+      "size": 37873
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/engineering_runtime.py",
+      "git_blob_sha1": "6056726ced7be27f12aeded86f567e150e209a15",
+      "size": 34625
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/evaluation.py",
+      "git_blob_sha1": "d2fa1633f61149aefbbe6b822cf2371fb4be3ec6",
+      "size": 6795
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/memory.py",
+      "git_blob_sha1": "90d6ec06497d87dc386e7cfc8bb846d9a8c179ae",
+      "size": 38782
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/metrics.py",
+      "git_blob_sha1": "a17b3fa46bc448b874ff80fda0e70b1371bef619",
+      "size": 9292
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/orchestration.py",
+      "git_blob_sha1": "c5ab914dd355c67397b449a0b9495e2df08d6acb",
+      "size": 10481
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/provenance.py",
+      "git_blob_sha1": "86ea45fdce5d477aba97288c47a89f4c83fd7eb3",
+      "size": 4267
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/statistics.py",
+      "git_blob_sha1": "3244f68cc7152a5ab0adb8ad1297986ec483b3d0",
+      "size": 6625
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/training.py",
+      "git_blob_sha1": "82f8b1c153eb6f6c38e06b1daa79e33524bcbb73",
+      "size": 40284
+    },
+    {
+      "path": "successor/itfm_v2/src/fim_sota/verification.py",
+      "git_blob_sha1": "aeed65924f84f8170b4651ee6c97a1b750d38cc8",
+      "size": 8624
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_data.py",
+      "git_blob_sha1": "1ef03d732e0fa0aa8ebfd391a909279bb6664c6c",
+      "size": 1558
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_decision.py",
+      "git_blob_sha1": "87aa9431e3ebeddb4bc68745d7266f01cb631825",
+      "size": 1615
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_engineering_control.py",
+      "git_blob_sha1": "2a502ed89f649fcef231ad0202cccce49ffe57cd",
+      "size": 13016
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_engineering_runtime.py",
+      "git_blob_sha1": "e680c2029b39801a5d544de12920320de2ddaebd",
+      "size": 21941
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_evaluation.py",
+      "git_blob_sha1": "5394da3d7b1feb1d778eb4c088876a804239a516",
+      "size": 1314
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_memory.py",
+      "git_blob_sha1": "277df0d16dc4cc7ef529e20ae04f5235290c1a47",
+      "size": 2609
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_memory_causality.py",
+      "git_blob_sha1": "3fb2a232097ef46f2d957b38cd95d151a73a78d1",
+      "size": 9769
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_public_adapter.py",
+      "git_blob_sha1": "751d9fec8ab0a6461cb89d01c57f9ae062646bcb",
+      "size": 3093
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_sota_adapter_backbones.py",
+      "git_blob_sha1": "0ec4062691cd9d6aee1d8c35f7d1ee574f1899b9",
+      "size": 2170
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_sota_config.py",
+      "git_blob_sha1": "8d14d490b10f2b865ba1fee3337138a760baff67",
+      "size": 1196
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_sota_datasets.py",
+      "git_blob_sha1": "a8c8e11ce55392ecb8551a096505c376d7e8c9fe",
+      "size": 2038
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_sota_memory.py",
+      "git_blob_sha1": "af9a1bfc65ff619e82479976d596b4e5768f7fa3",
+      "size": 4399
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_sota_metrics_statistics.py",
+      "git_blob_sha1": "8ddf829292ce946b687d19b9481caa42bc6dbbde",
+      "size": 1649
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_sota_orchestration_verification.py",
+      "git_blob_sha1": "e5ad55341b899478bcaadc9e110af83ba87fa299",
+      "size": 1872
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_sota_protocol.py",
+      "git_blob_sha1": "c285dbdb5c838a8fca3dce64a24b71bcc93f80d5",
+      "size": 1357
+    },
+    {
+      "path": "successor/itfm_v2/tests/test_training_recovery.py",
+      "git_blob_sha1": "16f39ffd983563f1357cd3387be119543646f9de",
+      "size": 19879
+    }
+  ]
+}

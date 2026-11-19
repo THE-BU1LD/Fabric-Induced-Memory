@@ -1,0 +1,207 @@
+from __future__ import annotations
+
+import dataclasses
+import math
+
+import pytest
+import torch
+from torch import nn
+
+from fim_sota.baseline_diagnostic import (
+    ReferenceHistory,
+    RidgePredictor,
+    fit_linear,
+    owner_mse,
+    reference_correction,
+    select_alpha,
+    stream,
+)
+from fim_sota.engineering import resolve
+from fim_sota.engineering_runtime import generate_fixture, make_batches
+
+
+def add(history, owner, event, available, key, value):
+    vector = torch.tensor(key, dtype=torch.float32)
+    history.write(
+        owner,
+        event,
+        available,
+        vector,
+        vector,
+        torch.tensor([[value]], dtype=torch.float32),
+    )
+
+
+def correction(history, method, *, owner="a", event=5, key=(1.0, 0.0)):
+    return reference_correction(
+        history,
+        owner=owner,
+        event=event,
+        context=torch.tensor(key),
+        key=torch.tensor(key),
+        shape=(1, 1),
+        method=method,
+        topk=2,
+        temperature=1.0,
+    )
+
+
+def test_hand_computed_kernel_uniform_mean_and_last():
+    history = ReferenceHistory(16)
+    add(history, "a", 0, 1, [1, 0], 2)
+    add(history, "a", 1, 2, [0, 1], 10)
+    kernel, info = correction(history, "exact_kernel")
+    expected = (2 * math.e + 10) / (math.e + 1)
+    assert kernel.item() == pytest.approx(expected, abs=5e-7)
+    assert info["donor_serials"] == [0, 1]
+    assert sum(info["donor_weights"]) == pytest.approx(1.0)
+    assert correction(history, "uniform_topk")[0].item() == 6
+    assert correction(history, "fifo_mean")[0].item() == 6
+    assert correction(history, "last_residual")[0].item() == 10
+
+
+@pytest.mark.parametrize(
+    "method",
+    [
+        "none",
+        "last_residual",
+        "fifo_mean",
+        "uniform_topk",
+        "exact_kernel",
+        "local_ridge",
+    ],
+)
+def test_future_and_foreign_values_are_never_donors(method):
+    history = ReferenceHistory(16)
+    add(history, "a", 0, 1, [1, 0], 2)
+    expected, _ = correction(history, method)
+    add(history, "b", 1, 2, [1, 0], 1e8)
+    add(history, "a", 2, 9, [1, 0], -1e8)
+    actual, telemetry = correction(history, method)
+    torch.testing.assert_close(actual, expected, rtol=0, atol=0)
+    assert telemetry["eligible_count"] == 1
+    assert set(telemetry["donor_serials"]) <= {0}
+
+
+def test_fifo_capacity_is_per_owner_and_serials_are_immutable():
+    history = ReferenceHistory(2)
+    add(history, "a", 0, 1, [1, 0], 0)
+    add(history, "b", 0, 1, [1, 0], 100)
+    add(history, "a", 1, 2, [1, 0], 2)
+    add(history, "a", 2, 3, [1, 0], 4)
+    assert [v.serial for v in history.eligible("a", 5)] == [2, 3]
+    assert [v.serial for v in history.eligible("b", 5)] == [1]
+    assert correction(history, "fifo_mean")[0].item() == 3
+
+
+@pytest.mark.parametrize(
+    "method",
+    ["last_residual", "fifo_mean", "uniform_topk", "exact_kernel", "local_ridge"],
+)
+def test_cold_start_zero_and_singleton_identical(method):
+    history = ReferenceHistory(16)
+    value, metadata = correction(history, method)
+    assert value.item() == 0
+    assert metadata["eligible_count"] == 0
+    add(history, "a", 0, 1, [1, 0], 2)
+    assert correction(history, method)[0].item() == pytest.approx(2)
+
+
+def test_ridge_intercept_is_not_shrunk():
+    model = RidgePredictor(
+        torch.tensor([[1.0, 2.0], [3.0, 4.0]]),
+        torch.tensor([[7.0], [7.0]]),
+        1.0,
+        (1, 1),
+    )
+    prediction = model(torch.tensor([[40.0, -80.0]]))
+    assert prediction.item() == pytest.approx(7)
+    assert model.weights.count_nonzero().item() == 0
+
+
+def test_ridge_matches_direct_scalar_closed_form():
+    x = torch.tensor([[0.0], [1.0], [2.0]])
+    y = torch.tensor([[1.0], [3.0], [5.0]])
+    model = RidgePredictor(x, y, 0.5, (1, 1))
+    assert model.weights.item() == pytest.approx(4 / 2.5)
+    assert model(torch.tensor([[3.0]])).item() == pytest.approx(6.2)
+
+
+@pytest.mark.parametrize("penalty", [0, -1, float("nan"), float("inf")])
+def test_ridge_rejects_invalid_penalties(penalty):
+    with pytest.raises(ValueError):
+        RidgePredictor(torch.ones(2, 1), torch.ones(2, 1), penalty, (1,))
+
+
+def test_selection_rejects_test_and_breaks_ties_at_zero():
+    row = {
+        "owner": "a",
+        "split": "validation",
+        "base": [[2]],
+        "target": [[2]],
+        "correction": [[0]],
+    }
+    assert select_alpha([row])[0] == 0.0
+    with pytest.raises(ValueError, match="validation"):
+        select_alpha([{**row, "split": "test"}])
+
+
+def test_owners_are_equally_weighted_not_pooled_by_timestep():
+    def row(owner, error):
+        return {"owner": owner, "base": [[error]], "correction": [[0]], "target": [[0]]}
+
+    records = [row("a", 2), row("b", 0), row("b", 0), row("b", 0)]
+    assert owner_mse(records, 0)["mse"] == 2
+
+
+class Zero(nn.Module):
+    def forward(self, context):
+        return torch.zeros_like(context[:, -1])
+
+
+def test_maintained_memory_agrees_with_independent_kernel_and_no_current_target():
+    config = resolve(
+        {
+            "seed": 704,
+            "train_trajectories": 1,
+            "validation_trajectories": 1,
+            "test_trajectories": 1,
+        }
+    )
+    fixture = generate_fixture(config)
+    batches = make_batches(fixture, config, "validation", batch_size=1)
+    full, _ = stream(Zero(), batches, config, "memory", 0.01, lambda: None)
+    reference, _ = stream(Zero(), batches, config, "exact_kernel", 0.01, lambda: None)
+    for left, right in zip(full, reference, strict=True):
+        torch.testing.assert_close(
+            torch.tensor(left["correction"]),
+            torch.tensor(right["correction"]),
+            rtol=1e-5,
+            atol=5e-7,
+        )
+    poisoned = [
+        dataclasses.replace(batches[0], target=batches[0].target + 100),
+        *batches[1:],
+    ]
+    changed, _ = stream(Zero(), poisoned, config, "memory", 0.01, lambda: None)
+    assert changed[0]["base"] == full[0]["base"]
+    assert changed[0]["correction"] == full[0]["correction"]
+    assert changed[1]["correction"] != full[1]["correction"]
+    with pytest.raises(ValueError, match="train"):
+        fit_linear(batches, 0.01, (1, 8))
+
+
+def test_stream_rejects_nonchronological_or_cross_split_history():
+    config = resolve({"validation_trajectories": 1})
+    batches = make_batches(generate_fixture(config), config, "validation", batch_size=1)
+    with pytest.raises(ValueError, match="increase"):
+        stream(Zero(), [batches[0], batches[0]], config, "memory", 0.01, lambda: None)
+    with pytest.raises(ValueError, match="span splits"):
+        stream(
+            Zero(),
+            [batches[0], dataclasses.replace(batches[1], split="test")],
+            config,
+            "memory",
+            0.01,
+            lambda: None,
+        )

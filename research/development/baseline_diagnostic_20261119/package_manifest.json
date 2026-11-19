@@ -1,0 +1,117 @@
+{
+  "files": {
+    ".gitignore": {
+      "bytes": 6,
+      "sha256": "eda9891ef63c5997b7cc86de39afc40bed2f8dd4f07d5b7a78aef9ab669119e3"
+    },
+    "README.md": {
+      "bytes": 11849,
+      "sha256": "2e3bc4ffea73d77ce8714016cde4aaa1d2050056691955a09ad15eda14f2ae34"
+    },
+    "analysis/all_test_cells.csv": {
+      "bytes": 4668,
+      "sha256": "8435a8cb6d9d85958eed729846c82f476793533443ead5728fbaa768afd1ad7a"
+    },
+    "analysis/paired_outcomes.png": {
+      "bytes": 143840,
+      "sha256": "dea975ff9654bacd13bc1c59358ad690ab800e9265f06222140e02ac2098eed6"
+    },
+    "analysis/paired_outcomes.svg": {
+      "bytes": 77582,
+      "sha256": "573fdaf05a7298fc83192ea84b07c1cd7992d7418a1f7ff6a5293dbddc6f8abb"
+    },
+    "analysis/paired_results.csv": {
+      "bytes": 570,
+      "sha256": "3e704071b16852bf67ebe049a583c812e2079d2c6fd95397a4071d1492d69524"
+    },
+    "artifact_manifest.json": {
+      "bytes": 22592,
+      "sha256": "a100756585ea6abc0a13096ea2e885ff1aec1025d4ee7478fca54e04f05d596d"
+    },
+    "checkpoint_replay.json": {
+      "bytes": 584,
+      "sha256": "d060ac87d6ce0c4223d912401cb9a1855d1142db5633c79db4a30d4cddb18e10"
+    },
+    "execution.log": {
+      "bytes": 18816,
+      "sha256": "93ea3f4139be559eaa4fed1bfdefd494524ab6ae45a0fee31816665fcd6f526b"
+    },
+    "protocol.json": {
+      "bytes": 3208,
+      "sha256": "1446775ae53a721f67f796339998736264fddbbfc6ca244dcaec28448f814323"
+    },
+    "raw_evidence.zip": {
+      "bytes": 2803142,
+      "sha256": "1238b4cf24ef690a3f3e925b1afedc39f748923345dd3efc42017c982be74abb"
+    },
+    "requirements-checks.txt": {
+      "bytes": 39,
+      "sha256": "d64addf66e1ca86eb8bcbc037501ff4896da9bc1e6d2a5ad2b0dce63eea61fa1"
+    },
+    "requirements-runtime.txt": {
+      "bytes": 31,
+      "sha256": "192c6e2a58983869a8accb09df2de6b4de5d4190d97023a4a9a4de023b87f340"
+    },
+    "summary.json": {
+      "bytes": 47688,
+      "sha256": "82763fae7d856e60629c089868b91c4bac19878f2b2ad80fb8651eeee4505b2b"
+    },
+    "verification.json": {
+      "bytes": 107,
+      "sha256": "06adfb78752849a2e949422c435e051c35a0c3d9609d237cde6fc46ad105a462"
+    },
+    "verification/CURRENT_RESEARCH_STATE_before.json": {
+      "bytes": 10976,
+      "sha256": "3148dba558c524a1b78ed4ce8a14e03bd4ed4aece4f522158cd9a8f23c1f8932"
+    },
+    "verification/baseline_initial.py.txt": {
+      "bytes": 31205,
+      "sha256": "ddf6b634ff04db618c0fd459ff8fe0ee9a83d4801e3b4a10dc5dcbc00ba81d9e"
+    },
+    "verification/control_tests.log": {
+      "bytes": 80,
+      "sha256": "5952b218382e51f578768c0a348723d5418c12143cc6d5f49d527f1d1b978a79"
+    },
+    "verification/development_closeout_receipt.json": {
+      "bytes": 3981,
+      "sha256": "58535aa6f8f1278917be5a2f557cf8c42afc38f0234f6be4a6066189e3a06fef"
+    },
+    "verification/engineering_review_receipt.json": {
+      "bytes": 2937,
+      "sha256": "a4d4d4e00c9ce2ed6242f30133ad7a79e6fe825533695407a1d6c0e2aadd94bd"
+    },
+    "verification/expected_source_blobs.json": {
+      "bytes": 5479,
+      "sha256": "e540f8d799fd6c52389278a52a3172af3112dbf5db6e2daf1cc01abdf48d204f"
+    },
+    "verification/final_tests.log": {
+      "bytes": 190,
+      "sha256": "1d4a3af8e6405f786e04eddbedcbba51d2204d59400fb82b805261c27e67db33"
+    },
+    "verification/final_tests.xml": {
+      "bytes": 10411,
+      "sha256": "5239627cd879068acb3fbf3f66f1565da2882c3c4fd02aad3d1e41fc7f450f22"
+    },
+    "verification/independent_raw_audit.json": {
+      "bytes": 2098,
+      "sha256": "7fa72f6193fe59552d8b2e5d94f8d13bea8063b658606584dd28346bf3fc1b0d"
+    },
+    "verification/independent_raw_audit.py": {
+      "bytes": 5676,
+      "sha256": "2bf1f2afc020a2abd8071e338011988a9eae02182205d7a37725ae892e30ff1c"
+    },
+    "verification/initial_tests.log": {
+      "bytes": 80,
+      "sha256": "475bcfb56b286d857c4310602373e306e2cb722ad6df6053d0e1aff939c18220"
+    },
+    "verification/pre_outcome_source_review.json": {
+      "bytes": 1772,
+      "sha256": "a505242458f7dc52c2d80141b3617ab412b7b58be8a6a359c027e181cf9e833c"
+    },
+    "verification/tests_initial.py.txt": {
+      "bytes": 6241,
+      "sha256": "11abf35cb323d8616da89237aba709824637498647ca117a49fac8038e9fcf65"
+    }
+  },
+  "scope": "study artifacts excluding raw extracted run (losslessly retained in raw_evidence.zip)"
+}

@@ -3,6 +3,8 @@
     "evidence": "audits/fim-causal-recovery-20261019/EVIDENCE_SUMMARY.json",
     "flaws": "audits/fim-causal-recovery-20261019/FLAW_AUDIT.md",
     "handoff": "successor/itfm_v2/kaggle/HANDOFF.md",
+    "latest_development_raw": "research/development/baseline_diagnostic_20261119/raw_evidence.zip",
+    "latest_development_report": "research/development/baseline_diagnostic_20261119/README.md",
     "prospective_protocol": "audits/fim-causal-recovery-20261019/BASELINE_PROTOCOL_NOT_RUN.md",
     "report": "audits/fim-causal-recovery-20261019/REPORT.md",
     "smoke": "audits/fim-causal-recovery-20261019/runs_02/cpu-smoke",
@@ -11,8 +13,8 @@
   "base_commit": "e1ec0de48b915002418fde7625bdf96659023815",
   "blockers": {
     "engineering": [
-      "Additional baseline/control variants not implemented",
-      "Full per-query cost/per-donor provenance telemetry missing",
+      "Additional conventional variants implemented for the bounded development diagnostic; public benchmark integration and general-case validation remain",
+      "Per-query cost and donor telemetry present in the new diagnostic; generic evaluator coverage remains incomplete",
       "Generic unadmitted evaluator can overstate causal claims",
       "Generic reservoir and learned-key paths not verified",
       "No mid-evaluation continuation"
@@ -24,23 +26,24 @@
     "runtime": [
       "CPU-only environment",
       "Kaggle unauthenticated; accelerator/quota/jobs not verified",
-      "GitHub Actions billing usage unavailable through connector; no CI execution requested"
+      "No accelerator use in latest diagnostic. Standard public GitHub Actions engineering CI only; inherited license gate unresolved."
     ],
     "scientific": [
       "No defensible new contribution yet",
-      "Strong baseline and equal-history comparisons missing",
+      "Strong conventional controls tested only on three small synthetic development repetitions; public benchmark and confirmatory equal-history evidence remain missing",
       "No admitted protected protocol, sample-size/uncertainty or practical-effect threshold",
       "Public data identity, terms and baseline reproduction unresolved"
     ]
   },
-  "branch_writer": "/root, sole writer; read-only assistant reviews",
+  "branch_writer": "FIM development worker; separate coordination-agent pre-outcome source review and saved-artifact audit",
   "canonical_repository": "https://github.com/THE-BU1LD/Fabric-Induced-Memory",
   "claims": {
-    "IMPLEMENTED": "Causal donor, masked-weight, explicit-arrival, optimizer-binding repairs",
+    "IMPLEMENTED": "Historical causal repairs plus new opt-in training-fitted linear, matched FIFO/top-k/kernel/local-ridge baseline diagnostic with validation-only selection and per-query donor telemetry",
     "INDEPENDENTLY_REPRODUCED": false,
-    "LOCALLY_TESTED": "52 CPU tensor/runtime tests,23 stdlib controls,one completed smoke and retained-artifact recomputation",
-    "REMOTELY_EXECUTED": "No Kaggle or GitHub Actions execution for this revision",
+    "LOCALLY_TESTED": "Historical receipts retained; new diagnostic focused suite 74 passed, 1 CUDA skip; one frozen three-seed diagnostic; 51,326 separate-agent saved-artifact assertions; 81-cell exact saved-checkpoint replay",
+    "REMOTELY_EXECUTED": "New scientific diagnostic was local CPU only. Exact-head hosted engineering CI is tracked separately; no remote scientific campaign launched.",
     "SCIENTIFICALLY_SUPPORTED": false,
+    "bounded_development_interpretation": "Mixed: retrieval won on 2/3 development seeds but mean MSE was 6.5775% worse than validation-selected matched conventional controls; no broad efficacy or novelty established.",
     "bounded_smoke_interpretation": "Full memory loses to last residual and persistence overall; cold-start error dominates but warm retrieval also loses. No broad efficacy or novelty conclusion."
   },
   "compute": {
@@ -56,7 +59,7 @@
     "threads": 1
   },
   "current_hypothesis": "Prospective: context association improves residual prediction beyond persistence, recency and matched finite history. Not supported by the current one-seed fixture.",
-  "current_phase": "CURRENT_V2_CPU_ENGINEERING_VALIDATED; SCIENTIFIC_CONTRIBUTION_NOT_ADMITTED",
+  "current_phase": "MAINTAINED_V2_BASELINE_DEVELOPMENT_DIAGNOSTIC_COMPLETE; MIXED_EVIDENCE; SCIENTIFIC_CONTRIBUTION_NOT_ADMITTED",
   "data": {
     "current_fixture": "bounded_periodic_field_v1",
     "generation_sha256": "0fc9e89360c48373a8dff54961ea850a490ab57210bc7caaa3359b7f82e914a9",
@@ -70,7 +73,8 @@
     ],
     "status": "Inspected synthetic development/engineering data, never a future protected holdout"
   },
-  "delivery_branch": "codex/fim-causal-recovery-20261019",
+  "delivery_branch": "olympus/fim-baseline-diagnostic-20261119",
+  "historical_field_scope": "Existing base_commit, implementation_commit, source_sha256, data, results, portable_bundle and compute fields remain historical October records. Their prior full state is preserved verbatim. Latest development evidence is source-bound under latest_development_diagnostic and the append-only history entry below.",
   "history": [
     {
       "date": "2026-10-22",
@@ -86,19 +90,57 @@
     {
       "date": "2026-10-30",
       "event": "Repair trajectory-runner import collision and successor CLI formatting",
-      "reviewed_head": "466a4f3d45b935bb6236399c9f7beccd69d99a2d",
-      "record": "maintenance/fim_ci_import_20261030/REPORT.md",
-      "local_targeted_tests": "14 passed; two collision regressions failed before repair",
-      "repository_collection": "197 collected without errors",
-      "successor_format": "52 files pass Ruff 0.17.0 format check",
-      "successor_lint": "9 inherited errors remain in five unchanged files; retained in validation.json",
       "hosted_checks": "Original head has three failing workflows; candidate hosted checks not run",
+      "local_targeted_tests": "14 passed; two collision regressions failed before repair",
+      "record": "maintenance/fim_ci_import_20261030/REPORT.md",
+      "repository_collection": "197 collected without errors",
+      "reviewed_head": "466a4f3d45b935bb6236399c9f7beccd69d99a2d",
       "scientific_disposition_changed": false,
-      "scientific_runs_started": 0
+      "scientific_runs_started": 0,
+      "successor_format": "52 files pass Ruff 0.17.0 format check",
+      "successor_lint": "9 inherited errors remain in five unchanged files; retained in validation.json"
+    },
+    {
+      "base_commit": "eb2ee3e7778cd408d49cb98baa33932c6419c03d",
+      "date": "2026-11-19",
+      "event": "Completed one fixed three-seed conventional-baseline diagnostic with full raw evidence",
+      "independent_external_reproduction": false,
+      "independent_repetitions": 3,
+      "matched_control_mean_test_mse": 0.0003289696730270288,
+      "mean_paired_difference_memory_minus_control": 2.1638022601703443e-05,
+      "memory_mean_test_mse": 0.00035060769562873226,
+      "prior_state_snapshot": "research/development/baseline_diagnostic_20261119/verification/CURRENT_RESEARCH_STATE_before.json",
+      "protected_protocols_touched": false,
+      "protocol_sha256": "1446775ae53a721f67f796339998736264fddbbfc6ca244dcaec28448f814323",
+      "record": "research/development/baseline_diagnostic_20261119/verification/development_closeout_receipt.json",
+      "report": "research/development/baseline_diagnostic_20261119/README.md",
+      "scientific_support_established": false,
+      "seed_101_previously_exposed": true,
+      "source_manifest_sha256": "c3043378d764622bd08aefe91a4e07e99cccd149081fdbda3749df3ab4704e3b",
+      "status": "EXECUTED_DEVELOPMENT; MIXED_EVIDENCE"
     }
   ],
   "implementation_commit": "7b9c2af4251248eb155e07ab88ea00cbca46184d",
   "intended_contribution": "Unresolved. Fixed cosine residual regression and causal guards alone do not establish novelty.",
+  "latest_development_diagnostic": {
+    "base_commit": "eb2ee3e7778cd408d49cb98baa33932c6419c03d",
+    "date": "2026-11-19",
+    "event": "Completed one fixed three-seed conventional-baseline diagnostic with full raw evidence",
+    "independent_external_reproduction": false,
+    "independent_repetitions": 3,
+    "matched_control_mean_test_mse": 0.0003289696730270288,
+    "mean_paired_difference_memory_minus_control": 2.1638022601703443e-05,
+    "memory_mean_test_mse": 0.00035060769562873226,
+    "prior_state_snapshot": "research/development/baseline_diagnostic_20261119/verification/CURRENT_RESEARCH_STATE_before.json",
+    "protected_protocols_touched": false,
+    "protocol_sha256": "1446775ae53a721f67f796339998736264fddbbfc6ca244dcaec28448f814323",
+    "record": "research/development/baseline_diagnostic_20261119/verification/development_closeout_receipt.json",
+    "report": "research/development/baseline_diagnostic_20261119/README.md",
+    "scientific_support_established": false,
+    "seed_101_previously_exposed": true,
+    "source_manifest_sha256": "c3043378d764622bd08aefe91a4e07e99cccd149081fdbda3749df3ab4704e3b",
+    "status": "EXECUTED_DEVELOPMENT; MIXED_EVIDENCE"
+  },
   "latest_engineering_integration": {
     "date": "2026-10-30",
     "historical_claim_fields": "Earlier runtime, package and scientific claim fields retain their source-bound meanings. This entry records a narrow CI import/format repair only.",
@@ -106,19 +148,19 @@
     "scientific_execution_authorized": false,
     "status": "LOCAL_IMPORT_AND_FORMAT_REPAIR_VALIDATED; INHERITED_LINT_AND_HOSTED_CHECKS_REMAIN"
   },
-  "next_scientific_decision": "Admit and implement the fixed-budget strong-baseline/equal-history protocol before any added outcome-bearing comparison; a positive result is not a stopping requirement.",
-  "next_single_action": "Use the verified portable bundle on an authenticated Kaggle session: inspect actual accelerator/quota/jobs, then run CUDA preflight plus the tiny CUDA test suite. Do not launch the larger development manifest.",
+  "next_scientific_decision": "Review the mixed/worse-average baseline evidence and decide whether a precise residual-information hypothesis warrants a fresh public-data protocol with tuned conventional controls, practical-effect margin and justified uncertainty; no automatic escalation.",
+  "next_single_action": "Review the retained three-seed diagnostic, all conventional controls and existing license decision. Do not rerun consumed or protected experiments; a new public-data scientific study requires a separately admitted protocol.",
   "pipeline_checkpoints": {
     "10_RESEARCH_COMPLETE": false,
     "1_IDEA_READY": "NOT_READY for a new scientific contribution; a baseline-first falsifier is specified",
     "2_MODEL_SPECIFICATION_READY": "Current maintained estimator specified; no novel successor specification admitted",
     "3_METHODOLOGY_READY": "Prospective baseline-first protocol; additional implementations and confirmation design unresolved",
     "4_MODEL_IMPLEMENTED": "Existing maintained mechanism and targeted repairs implemented",
-    "5_EXPERIMENT_SYSTEM_IMPLEMENTED": "Five-control bounded fixture implemented; expanded methodology NOT_IMPLEMENTED",
-    "6_RUN_READY": "CPU software dry run passed; CUDA and expanded scientific run not ready",
+    "5_EXPERIMENT_SYSTEM_IMPLEMENTED": "Opt-in 3-backbone/7-corrector bounded synthetic diagnostic implemented with retained raw data, donor telemetry, validation selection and replay; public benchmark methodology remains incomplete",
+    "6_RUN_READY": "This bounded CPU development diagnostic completed; no expanded/confirmatory study admitted",
     "7_CONFIRMATORY_PROTOCOL_FROZEN": false,
-    "8_EVIDENCE_LOCKED": "Version-bound CPU engineering evidence retained; no scientific claim locked",
-    "9_VERIFIED": "Internal read-only reviews and local verification only; external reproduction absent"
+    "8_EVIDENCE_LOCKED": "Historical evidence and fixed three-seed development artifacts retained with hashes; no broad scientific claim locked",
+    "9_VERIFIED": "Separate-agent source/metric/donor audit and exact same-host checkpoint replay; no independent external reproduction"
   },
   "portable_bundle": {
     "bytes": 297714,
@@ -189,7 +231,7 @@
   },
   "schema_version": 1,
   "source_sha256": "601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291",
-  "updated_utc": "2026-10-30T14:52:46.290216+00:00",
+  "updated_utc": "2026-11-19T10:45:31.451465+00:00",
   "version_lines": [
     {
       "reference": "RESEARCH_TRUTH.md",
@@ -218,6 +260,11 @@
       "runtime_commit": "266fe56ff9897e57b7e610fb7afc369fe767855b",
       "state": "Historical 87 scalar plus 10 tensor checks at separate runtime commit; scientific contribution blocked, 8/8 concept reviews and engineering repair rounds consumed",
       "version": "ITFM v4"
+    },
+    {
+      "reference": "research/development/baseline_diagnostic_20261119/README.md",
+      "state": "One three-seed development execution; 81 validation and 81 test cells; mixed/worse-average result; no protected protocol or novelty promotion",
+      "version": "maintained v2 baseline development diagnostic 2026-11-19"
     }
   ]
 }

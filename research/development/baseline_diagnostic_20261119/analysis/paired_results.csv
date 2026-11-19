@@ -1,0 +1,4 @@
+seed,selected_backbone,comparator,memory_mse,comparator_mse,paired_difference,global_comparator,global_comparator_mse
+101,linear,linear--last_residual,0.0002463242021861044,0.00032778223569808674,-8.145803351198232e-05,linear--last_residual,0.00032778223569808674
+202,persistence,persistence--fifo_mean,0.0005490124643838459,0.00039557620240270773,0.00015343626198113819,linear--local_ridge--1,0.00039025352229364585
+303,linear,linear--local_ridge--1,0.00025648642031624643,0.00026355058098029196,-7.064160664045529e-06,linear--local_ridge--1,0.00026355058098029196

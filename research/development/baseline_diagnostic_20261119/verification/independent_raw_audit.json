@@ -1,0 +1,54 @@
+{
+  "status": "PASS_INDEPENDENT_SAVED_ARTIFACT_AUDIT",
+  "reviewer": "root coordinator independent of diagnostic author",
+  "verified_at_utc": "2026-11-19T10:34:54.785065+00:00",
+  "assertions": 51326,
+  "counts": {
+    "validation_cells": 81,
+    "test_cells": 81,
+    "forecast_rows": 2916,
+    "admitted_donors": 8280
+  },
+  "files_hashed": 191,
+  "protocol_sha256": "1446775ae53a721f67f796339998736264fddbbfc6ca244dcaec28448f814323",
+  "source_sha256": "c3043378d764622bd08aefe91a4e07e99cccd149081fdbda3749df3ab4704e3b",
+  "results": [
+    {
+      "seed": 101,
+      "backbone": "linear",
+      "comparator": "linear--last_residual",
+      "memory_mse": 0.0002463242021861044,
+      "comparator_mse": 0.00032778223569808674,
+      "difference": -8.145803351198232e-05,
+      "global_comparator": "linear--last_residual",
+      "global_comparator_mse": 0.00032778223569808674
+    },
+    {
+      "seed": 202,
+      "backbone": "persistence",
+      "comparator": "persistence--fifo_mean",
+      "memory_mse": 0.0005490124643838459,
+      "comparator_mse": 0.00039557620240270773,
+      "difference": 0.00015343626198113819,
+      "global_comparator": "linear--local_ridge--1",
+      "global_comparator_mse": 0.00039025352229364585
+    },
+    {
+      "seed": 303,
+      "backbone": "linear",
+      "comparator": "linear--local_ridge--1",
+      "memory_mse": 0.00025648642031624643,
+      "comparator_mse": 0.00026355058098029196,
+      "difference": -7.064160664045529e-06,
+      "global_comparator": "linear--local_ridge--1",
+      "global_comparator_mse": 0.00026355058098029196
+    }
+  ],
+  "mean_paired_difference": 2.1638022601703443e-05,
+  "independent_retraining": false,
+  "scope": "Independent stdlib scalar MSE reduction, validation argmin reconstruction, prediction arithmetic, raw target identity, all admitted donor chronology, and file hashes. No outcome-driven changes or reruns.",
+  "limitations": [
+    "Three synthetic development repetitions, seed101 previously exposed.",
+    "The checks do not establish external validity, novel mechanism, or confirmatory significance."
+  ]
+}

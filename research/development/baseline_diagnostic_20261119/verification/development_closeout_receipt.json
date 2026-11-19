@@ -1,0 +1,81 @@
+{
+  "arithmetic_metadata_note": {
+    "change": "After independent pre-outcome review and before execution, added an arithmetic description to protocol metadata: FP32 maintained backbone/corrections, FP64 ridge fitting, alpha combination and scoring. No numerical algorithm or test logic changed.",
+    "executed_module_sha256": "53753defd1df7df0e514f8aea1944856dcb3b4c21f44b5b413f45d17a2e393d7",
+    "reviewed_module_sha256": "fea8f28fcb15b3f5d5f66df08e77bf5c10f0289ac1757649a113859ab77e1dbf"
+  },
+  "artifacts": {
+    "raw_evidence_zip_bytes": 2803142,
+    "raw_evidence_zip_sha256": "1238b4cf24ef690a3f3e925b1afedc39f748923345dd3efc42017c982be74abb",
+    "raw_run_file_count": 193
+  },
+  "base_commit": "eb2ee3e7778cd408d49cb98baa33932c6419c03d",
+  "development_branch": "olympus/fim-baseline-diagnostic-20261119",
+  "engineering_tests": {
+    "cuda_skipped": 1,
+    "failures": 0,
+    "new_tests": 23,
+    "passed": 74,
+    "ruff": "pass",
+    "scope": "new diagnostic plus causality, maintained memory and training-recovery tests",
+    "strict_mypy_new_module": "pass"
+  },
+  "frozen_source_manifest_sha256": "c3043378d764622bd08aefe91a4e07e99cccd149081fdbda3749df3ab4704e3b",
+  "prior_state_sha256": "3148dba558c524a1b78ed4ce8a14e03bd4ed4aece4f522158cd9a8f23c1f8932",
+  "protected_experiments_touched": false,
+  "protocol_sha256": "1446775ae53a721f67f796339998736264fddbbfc6ca244dcaec28448f814323",
+  "recorded_at_utc": "2026-11-19T10:45:31.451465+00:00",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "retained_initial_failure": "21 new tests passed and 2 failed before correcting property access to memory_bytes. No scientific outcomes existed then. initial_tests.log overlaps edits and is nonbinding; final_tests.xml is the source-bound receipt.",
+  "run_resources": {
+    "peak_process_rss_bytes": 367800320,
+    "process_cpu_seconds": 14.525291073999998,
+    "wall_seconds": 24.15267623600039
+  },
+  "runtime": {
+    "device": "cpu",
+    "numpy": "2.5.5",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.14.10",
+    "torch": "2.15.0+cpu"
+  },
+  "runtime_overlay": "Existing project/CI torch 2.11.0 and numpy 2.4.4 pins are unchanged. The new development protocol prospectively used available torch 2.15.0+cpu and numpy 2.5.5 with Python 3.14.10.",
+  "scientific_disposition": "MIXED_DEVELOPMENT_EVIDENCE; NO_EFFICACY_OR_NOVELTY_PROMOTION",
+  "single_execution": {
+    "independent_repetitions": 3,
+    "post_outcome_tuning": false,
+    "retries": 0,
+    "seeds": [
+      101,
+      202,
+      303
+    ],
+    "test_cells": 81,
+    "validation_cells": 81
+  },
+  "verification": {
+    "admitted_donors": 8280,
+    "file_hashes": 191,
+    "independent_external_retraining": false,
+    "independent_raw_audit_assertions": 51326,
+    "pre_outcome_review": "separate agent, same environment",
+    "raw_forecast_rows_validation_and_test": 2916,
+    "saved_checkpoint_replay_cells": 81,
+    "saved_checkpoint_replay_field_values": 34992,
+    "saved_checkpoint_replay_forecasts": 1458
+  },
+  "version": "fim-development-closeout-v1",
+  "workflow_review": {
+    "base_ci": "push main or 2424/** only; no trigger on this branch",
+    "budget": "Standard public-repository runner; no paid runner, GPU, matrix, external deployment, or scientific campaign dispatched.",
+    "explicit_timeout_minutes": null,
+    "hosted_job_ceiling_minutes": 360,
+    "known_prior_failure": "Existing dependency license gate unresolved; no license choice or allowlist changes.",
+    "matrix": null,
+    "protected_workflow": "current-component-ablations has workflow_dispatch and path-filtered PR only; no push trigger; trajectory-isolated-v1 additionally requires manual dispatch",
+    "repository_visibility": "public",
+    "runner": "ubuntu-24.04 standard GitHub-hosted CPU",
+    "scope": "format, lint, strict types, tests under successor/itfm_v2/tests, static protocol audit, license scan",
+    "triggered_by_scoped_push": ".github/workflows/itfm-sota-ci.yml"
+  }
+}
