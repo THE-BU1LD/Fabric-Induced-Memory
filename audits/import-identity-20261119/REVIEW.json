@@ -1,0 +1,67 @@
+{
+  "timestamp_utc": "2026-11-19T10:44:15.422526+00:00",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "source_pr": 51,
+  "source_head": "eb2ee3e7778cd408d49cb98baa33932c6419c03d",
+  "base_sha": "e1ec0de48b915002418fde7625bdf96659023815",
+  "status": "READY_FOR_ISOLATED_ENGINEERING_PR_WITH_NORMAL_HOSTED_CI",
+  "problem": "Current runner imports bare main, train and ablation_systems; cached unrelated modules can replace experiment dependencies. Original #50 CI failed collection with AttributeError module main has no attribute run.",
+  "failed_run": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/39777488332",
+  "failed_job": 119820040003,
+  "failed_at_utc": "2026-10-22T12:20:56Z",
+  "bounded_change": "Four existing files match current main byte for byte except package-qualified imports plus root-path setup. Two isolated subprocess regression files check eight cached-name identities and direct CLI --help from outside checkout.",
+  "fresh_local_checks": {
+    "all_six_source_blob_hashes_verified": true,
+    "full_four_file_current_main_diff_reviewed": true,
+    "six_python_modules_parse": true,
+    "current_main_workflows_reviewed": true,
+    "runtime_tests": "Not executed locally because Torch and pytest are absent; no dependencies installed for this extraction."
+  },
+  "existing_hosted_evidence": {
+    "root_ci": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/43735279433",
+    "component_ci": "https://github.com/THE-BU1LD/Fabric-Induced-Memory/actions/runs/43735280139",
+    "caveat": "Existing #51 source composition passed; isolated current-main composition requires normal new PR checks."
+  },
+  "workflow_boundary": "Current main component job trajectory-isolated-v1 explicitly requires workflow_dispatch. The root CI only compiles/tests. Successor CI is path filtered to successor/itfm_v2 and its workflow, neither changed. No workflow/dispatch change proposed.",
+  "preserved_holds": [
+    "Original #50/#51 retained scientific results remain on their own branches.",
+    "The successor license gate remains BLOCKED_LICENSE_REVIEW; no license or allowlist change.",
+    "No training or evaluation campaign run, publication, result adoption or deployment."
+  ],
+  "files": [
+    {
+      "path": "fim_experiments/ablation_systems.py",
+      "base_blob": "27d162fc2e61f3e63cab9fe1e2b2460824bbe514",
+      "new_blob": "811f446223fb8309cfdbb1799a497d10beb34932"
+    },
+    {
+      "path": "fim_experiments/main.py",
+      "base_blob": "c0fdbf55247b33988c5a0031ba9761c55521e70b",
+      "new_blob": "dc6a12dbb3a17dba7fc3259d68d3ee4e0f1ec8e1"
+    },
+    {
+      "path": "fim_experiments/systems.py",
+      "base_blob": "d3a93f92c0f51bed1e695e2ed0095357932b8b5b",
+      "new_blob": "4b8db7023eeb8f6d97906a9cb82b2481f26e9899"
+    },
+    {
+      "path": "scripts/run_trajectory_isolated_ablations.py",
+      "base_blob": "d1a5c0a7585b8e0b3fae56b52a404ee9be0ee58b",
+      "new_blob": "d142bcb4b8616feb00bd681508932f55f5b057a7"
+    },
+    {
+      "path": "tests/test_trajectory_runner_dependency_imports.py",
+      "base_blob": null,
+      "new_blob": "e6d205c80ee67d8b6262028bcbe6a8fa11233a2a"
+    },
+    {
+      "path": "tests/test_trajectory_runner_import_order.py",
+      "base_blob": null,
+      "new_blob": "0a5f8a77fa648c45f6f85e3a231e7558a5cfbf0e"
+    }
+  ],
+  "integration_receipt": "Current main has no root AGENTS.md or research/RESEARCH_STATE.json; separate successor states remain unchanged. Only the six reviewed source/test paths and this immutable audit record are added.",
+  "scientific_execution_authorized": false,
+  "protected_evaluation_opened": false,
+  "exact_published_head_ci": "PENDING"
+}

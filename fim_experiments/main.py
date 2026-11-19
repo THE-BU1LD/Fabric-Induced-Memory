@@ -27,7 +27,7 @@ if ROOT not in sys.path:
 if PROJECT_ROOT not in sys.path:
     sys.path.append(PROJECT_ROOT)
 
-from benchmark import (
+from fim_experiments.benchmark import (
     BurgersBenchmark,
     BurgersConfig,
     DelayedRecallBenchmark,
@@ -43,8 +43,8 @@ from benchmark import (
     ReactionDiffusionBenchmark,
     ReactionDiffusionConfig,
 )
-from results.run_results import run
-from systems import (
+from fim_experiments.results.run_results import run
+from fim_experiments.systems import (
     DeepONetFieldSystem,
     FIMSystem,
     FieldMLPSystem,
@@ -52,7 +52,7 @@ from systems import (
     SpectralFieldSystem,
     TransformerFieldSystem,
 )
-from train import train
+from fim_experiments.train import train
 
 
 def get_device(device_str: str) -> torch.device:
