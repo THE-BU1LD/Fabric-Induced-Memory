@@ -9,6 +9,7 @@ import itertools
 import json
 import math
 import random
+import re
 from pathlib import Path
 from statistics import mean, median
 from typing import Iterable
@@ -22,6 +23,25 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_BENCHMARKS = ["delayed_recall", "lorenz96"]
 EXPECTED_SEEDS = [101, 211, 307, 401, 503]
 EXPECTED_VARIANTS = ["full", "no_memory", "no_retrieval", "no_salience_gating"]
+EXPECTED_SWITCHES = {
+    "full": (True, True, True),
+    "no_memory": (False, False, False),
+    "no_retrieval": (True, False, True),
+    "no_salience_gating": (True, True, False),
+}
+SWITCH_FIELDS = ("memory_enabled", "retrieval_enabled", "salience_gating_enabled")
+EXPECTED_ISOLATION = {
+    "batch_size": 1,
+    "memory_reset_between_independent_episodes": True,
+    "validation_memory_enabled_within_episode": True,
+    "test_memory_enabled_within_episode": True,
+    "checkpoint_selection": "fixed_final_epoch_no_best_selection",
+    "ema": False,
+}
+EXPECTED_PROTOCOL_PATH = "research/protocols/FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1.md"
+# Bind admission to the preserved frozen protocol, not merely matching hashes
+# supplied by the manifest itself. Any successor needs a separate protocol.
+EXPECTED_PROTOCOL_SHA256 = "637e0e6b3ea895bcbc14fc80ced6b12f420d6355de2e6440cb7bbfb482b880c9"
 EXPECTED_BUDGET = {
     "epochs": 4,
     "dataset_size": 32,
@@ -66,61 +86,87 @@ def fmt(x: float) -> str:
     return f"{x:.6g}"
 
 
+def _require_fixed_fields(values: dict, expected: dict, label: str) -> None:
+    if not isinstance(values, dict):
+        raise ValueError(f"{label} must be an object")
+    for field, frozen in expected.items():
+        actual = values.get(field)
+        # JSON booleans compare equal to 0/1 in Python. Scientific switches and
+        # integer budgets must retain their declared types without coercion.
+        if type(actual) is not type(frozen) or actual != frozen:
+            raise ValueError(f"{label}.{field} differs from frozen protocol: {actual!r}")
+
+
+def _unique_manifest_object(pairs: list[tuple[str, object]]) -> dict:
+    """Reject ambiguous declarations before the JSON decoder discards a key."""
+    values = {}
+    for key, value in pairs:
+        if key in values:
+            raise ValueError(f"Duplicate manifest field: {key!r}")
+        values[key] = value
+    return values
+
+
 def validate_manifest(data: dict) -> list[dict]:
+    if not isinstance(data, dict):
+        raise ValueError("Manifest must be an object")
     if data.get("protocol_name") != "FIM_TRAJECTORY_ISOLATED_CONFIRMATORY_V1":
         raise ValueError("Unexpected protocol_name")
+    expected_cells = set(itertools.product(EXPECTED_BENCHMARKS, EXPECTED_SEEDS, EXPECTED_VARIANTS))
+    _require_fixed_fields(data, {
+        "schema_version": 2,
+        "protocol_path": EXPECTED_PROTOCOL_PATH,
+        "protocol_sha256": EXPECTED_PROTOCOL_SHA256,
+        "expected_cells": len(expected_cells),
+    }, "Manifest")
     if data.get("benchmarks") != EXPECTED_BENCHMARKS:
         raise ValueError(f"Benchmark set differs from frozen protocol: {data.get('benchmarks')}")
-    if data.get("seeds") != EXPECTED_SEEDS:
+    if data.get("seeds") != EXPECTED_SEEDS or any(type(seed) is not int for seed in data["seeds"]):
         raise ValueError(f"Seed set differs from frozen protocol: {data.get('seeds')}")
     if data.get("variants") != EXPECTED_VARIANTS:
         raise ValueError(f"Variant set differs from frozen protocol: {data.get('variants')}")
     if data.get("budget") != EXPECTED_BUDGET:
         raise ValueError(f"Execution budget differs from frozen protocol: {data.get('budget')}")
-    if data.get("trajectory_isolation", {}).get("batch_size") != 1:
-        raise ValueError("Manifest is not trajectory-isolated")
+    _require_fixed_fields(data["budget"], EXPECTED_BUDGET, "Budget")
+    _require_fixed_fields(data.get("trajectory_isolation"), EXPECTED_ISOLATION, "Trajectory isolation")
     if data.get("git_dirty") is not False:
         raise ValueError(f"Paper-facing analysis requires a clean executed tree; git_dirty={data.get('git_dirty')}")
+    commit = data.get("git_commit")
+    if not isinstance(commit, str) or re.fullmatch(r"[0-9a-f]{40}", commit) is None:
+        raise ValueError("Manifest git_commit must be a concrete 40-character commit SHA")
 
     rows = data.get("runs", [])
-    expected = len(EXPECTED_BENCHMARKS) * len(EXPECTED_SEEDS) * len(EXPECTED_VARIANTS)
-    if len(rows) != expected:
-        raise ValueError(f"Expected {expected} rows, got {len(rows)}")
+    if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
+        raise ValueError("Manifest runs must be a list of objects")
+    if len(rows) != len(expected_cells):
+        raise ValueError(f"Expected {len(expected_cells)} rows, got {len(rows)}")
     if any(row.get("status") != "success" for row in rows):
         failures = [row for row in rows if row.get("status") != "success"]
         raise ValueError(f"Manifest contains {len(failures)} failed cells; analysis gate remains closed")
 
-    cells = [(r["benchmark"], int(r["seed"]), r["variant"]) for r in rows]
-    if len(set(cells)) != expected:
-        raise ValueError("Duplicate or missing benchmark/seed/variant cells")
-
-    commits = {r.get("git_commit") for r in rows}
-    protocols = {r.get("protocol_sha256") for r in rows}
-    if len(commits) != 1 or None in commits:
-        raise ValueError(f"Expected one exact git commit, saw {commits}")
-    if commits != {data.get("git_commit")}:
-        raise ValueError("Run commit does not match manifest commit")
-    if len(protocols) != 1 or None in protocols:
-        raise ValueError("Expected one exact protocol hash across all cells")
-    if protocols != {data.get("protocol_sha256")}:
-        raise ValueError("Run protocol hash does not match manifest protocol hash")
-
-    for row in rows:
-        if int(row.get("batch_size", 0)) != 1:
-            raise ValueError("A run was not executed with batch_size=1")
-        if int(row.get("epochs", -1)) != EXPECTED_BUDGET["epochs"]:
-            raise ValueError("A run used the wrong epoch budget")
-        if int(row.get("dataset_size", -1)) != EXPECTED_BUDGET["dataset_size"]:
-            raise ValueError("A run used the wrong dataset-size budget")
-        if int(row.get("train_rollout_steps", -1)) != EXPECTED_BUDGET["train_rollout_steps"]:
-            raise ValueError("A run used the wrong train rollout horizon")
-        if int(row.get("eval_rollout_steps", -1)) != EXPECTED_BUDGET["eval_rollout_steps"]:
-            raise ValueError("A run used the wrong evaluation horizon")
-        if not row.get("validation_memory_enabled") or not row.get("evaluation_memory_enabled"):
-            raise ValueError("Validation/test memory semantics are not aligned")
+    cells = []
+    for index, row in enumerate(rows):
+        benchmark, seed, variant = row.get("benchmark"), row.get("seed"), row.get("variant")
+        if not isinstance(benchmark, str) or type(seed) is not int or not isinstance(variant, str):
+            raise ValueError(f"Run {index} requires string benchmark/variant and integer seed")
+        cell = (benchmark, seed, variant)
+        if cell not in expected_cells:
+            raise ValueError(f"Unexpected benchmark/seed/variant cell: {cell!r}")
+        cells.append(cell)
+        _require_fixed_fields(row, {
+            **EXPECTED_BUDGET,
+            **dict(zip(SWITCH_FIELDS, EXPECTED_SWITCHES[variant])),
+            "git_commit": commit,
+            "protocol_sha256": EXPECTED_PROTOCOL_SHA256,
+            "validation_memory_enabled": True,
+            "evaluation_memory_enabled": True,
+        }, f"Run {cell!r}")
         for metric in ("rollout_mse", "final_step_mse", "rollout_mae", "final_step_mae"):
-            if metric not in row or not math.isfinite(float(row[metric])):
-                raise ValueError(f"Missing/non-finite {metric} in {(row['benchmark'], row['seed'], row['variant'])}")
+            value = row.get(metric)
+            if type(value) not in (int, float) or value < 0 or not math.isfinite(value):
+                raise ValueError(f"Missing/non-finite/non-negative numeric {metric} required in {cell!r}")
+    if set(cells) != expected_cells or len(set(cells)) != len(cells):
+        raise ValueError("Duplicate or missing benchmark/seed/variant cells")
     return rows
 
 
@@ -197,7 +243,7 @@ def main() -> None:
 
     manifest_bytes = args.manifest.read_bytes()
     manifest_sha256 = hashlib.sha256(manifest_bytes).hexdigest()
-    data = json.loads(manifest_bytes.decode("utf-8"))
+    data = json.loads(manifest_bytes.decode("utf-8"), object_pairs_hook=_unique_manifest_object)
     rows = validate_manifest(data)
     comparisons = build_comparisons(rows)
 

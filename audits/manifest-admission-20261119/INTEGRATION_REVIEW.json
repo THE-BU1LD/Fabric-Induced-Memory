@@ -1,0 +1,64 @@
+{
+  "after": {
+    "errors": 0,
+    "failed": 0,
+    "passed": 83,
+    "seconds": 74.02
+  },
+  "before": {
+    "errors": 0,
+    "failed": 34,
+    "passed": 3,
+    "seconds": 4.7
+  },
+  "canonical_base_commit": "21272b7b0312f664f6a7c1239cec7dcf32a2ea86",
+  "canonical_base_tree": "38db890b97421bccad516026aec47469ca642c8c",
+  "full_base_tree_verified": true,
+  "limitations": [
+    "Declaration validation does not prove execution or authenticate raw artifacts.",
+    "The corrected 40-cell scientific study remains held.",
+    "Same-host source integration checks are not independent scientific replication."
+  ],
+  "log_sha256": {
+    "current_main_after.log": "f290bab215a2600bdf066a2a8dcac34d047dabbf336d492e9f3aa59961f3e4f0",
+    "current_main_after.xml": "5b3a35ba1a36c72f45ed91b6ca82432977ffce1fc7f12f05740bae90eb83323b",
+    "current_main_before.log": "b61370bf68c365512c2cbabc01b9ecc5f235187e88a4512c54fde28c8d3d3816",
+    "current_main_before.xml": "b8468ddd59116c93f17a1b47ccaabebfa93aa19e248c857374117bcfd180ba49"
+  },
+  "preserved": {
+    "manuscript_or_external_submission": false,
+    "models_and_training": "unchanged",
+    "protected_evaluation": false,
+    "protocol_sha256": "637e0e6b3ea895bcbc14fc80ced6b12f420d6355de2e6440cb7bbfb482b880c9",
+    "scientific_execution": false,
+    "scientific_results": "unchanged",
+    "statistical_comparison_functions": "unchanged",
+    "successor_license_gate": "unchanged; BLOCKED_LICENSE_REVIEW",
+    "workflow_dispatch_guard": "unchanged manual-only"
+  },
+  "recorded_utc": "2026-11-19T12:09:03.532552+00:00",
+  "repository": "THE-BU1LD/Fabric-Induced-Memory",
+  "retained_candidate_commit": "daa7127d6417bbd2fde9de46a9f4e776477d55f5",
+  "retained_candidate_patch_sha256": "92b1ed1a7508e8942db221b22bfd894114b272cec4d58e44a8aba5c014e200b7",
+  "review": [
+    "The full reconstructed checkout matched the exact canonical tree before edits.",
+    "Analyzer and two regression modules match the previously reviewed local candidate bytes.",
+    "Protocol SHA-256, strict switch mapping and manifest admission verified against preserved protocol and current runner.",
+    "Nine merged import-identity subprocess regressions pass in this composition.",
+    "Ordinary source CI must pass on the final remote head."
+  ],
+  "runtime": {
+    "cuda": false,
+    "pytest": "8.4.2",
+    "pytest_subtests": "0.14.2",
+    "python": "3.12.14",
+    "torch": "2.8.0+cpu"
+  },
+  "scope": "Source-only manifest admission integration; artificial declarations and bounded software fixtures, no scientific experiment",
+  "source_sha256": {
+    "RESEARCH_TRUTH.md": "6f9749d3b1c03f32738cbd830205b87616547939bad4fc7ee14aaa2b2cb66e53",
+    "scripts/analyze_trajectory_isolated_ablations.py": "16e4b42c846029058ac0ef6bf35a4056f91103f8a9a872bb102e980e9918c709",
+    "tests/test_trajectory_manifest_admission.py": "4d250b0997bb8838c83780e116af4a54ef9a98cfdb647cb50b5bbc4e7e00befc",
+    "tests/test_trajectory_manifest_duplicate_keys.py": "d0b5198ecb6fea54c0b357a2ae6221b49ef0d1161f922a6274578ce4c3168c9a"
+  }
+}
