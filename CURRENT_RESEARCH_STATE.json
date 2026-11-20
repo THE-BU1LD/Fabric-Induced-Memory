@@ -1,0 +1,210 @@
+{
+  "artifacts": {
+    "evidence": "audits/fim-causal-recovery-20261019/EVIDENCE_SUMMARY.json",
+    "flaws": "audits/fim-causal-recovery-20261019/FLAW_AUDIT.md",
+    "handoff": "successor/itfm_v2/kaggle/HANDOFF.md",
+    "prospective_protocol": "audits/fim-causal-recovery-20261019/BASELINE_PROTOCOL_NOT_RUN.md",
+    "report": "audits/fim-causal-recovery-20261019/REPORT.md",
+    "smoke": "audits/fim-causal-recovery-20261019/runs_02/cpu-smoke",
+    "specification": "audits/fim-causal-recovery-20261019/TECHNICAL_SPECIFICATION.md"
+  },
+  "base_commit": "e1ec0de48b915002418fde7625bdf96659023815",
+  "blockers": {
+    "engineering": [
+      "Additional baseline/control variants not implemented",
+      "Full per-query cost/per-donor provenance telemetry missing",
+      "Generic unadmitted evaluator can overstate causal claims",
+      "Generic reservoir and learned-key paths not verified",
+      "No mid-evaluation continuation"
+    ],
+    "external_review": [
+      "No independent external reproduction",
+      "No final paper/release/submission readiness"
+    ],
+    "runtime": [
+      "CPU-only environment",
+      "Kaggle unauthenticated; accelerator/quota/jobs not verified",
+      "GitHub Actions billing usage unavailable through connector; no CI execution requested"
+    ],
+    "scientific": [
+      "No defensible new contribution yet",
+      "Strong baseline and equal-history comparisons missing",
+      "No admitted protected protocol, sample-size/uncertainty or practical-effect threshold",
+      "Public data identity, terms and baseline reproduction unresolved"
+    ]
+  },
+  "branch_writer": "/root, sole writer; read-only assistant reviews",
+  "canonical_repository": "https://github.com/THE-BU1LD/Fabric-Induced-Memory",
+  "claims": {
+    "IMPLEMENTED": "Causal donor, masked-weight, explicit-arrival, optimizer-binding repairs",
+    "INDEPENDENTLY_REPRODUCED": false,
+    "LOCALLY_TESTED": "52 CPU tensor/runtime tests,23 stdlib controls,one completed smoke and retained-artifact recomputation",
+    "REMOTELY_EXECUTED": "No Kaggle or GitHub Actions execution for this revision",
+    "SCIENTIFICALLY_SUPPORTED": false,
+    "bounded_smoke_interpretation": "Full memory loses to last residual and persistence overall; cold-start error dominates but warm retrieval also loses. No broad efficacy or novelty conclusion."
+  },
+  "compute": {
+    "device": "cpu",
+    "extra_development_matrix": "NOT_RUN; prospective only",
+    "kaggle_runs_started": 0,
+    "lanes": 1,
+    "paid_spend": 0,
+    "precision": "fp32",
+    "scientific_runs_started": 0,
+    "session_child_wall_seconds_ceiling": 1800,
+    "smoke_cell_ceiling_seconds": 120,
+    "threads": 1
+  },
+  "current_hypothesis": "Prospective: context association improves residual prediction beyond persistence, recency and matched finite history. Not supported by the current one-seed fixture.",
+  "current_phase": "CURRENT_V2_CPU_ENGINEERING_VALIDATED; SCIENTIFIC_CONTRIBUTION_NOT_ADMITTED",
+  "data": {
+    "current_fixture": "bounded_periodic_field_v1",
+    "generation_sha256": "0fc9e89360c48373a8dff54961ea850a490ab57210bc7caaa3359b7f82e914a9",
+    "independent_repetitions": 1,
+    "raw_data_sha256": "422017bea1a68a814c78e5afcaeba463efd212ed00871b8d6b6969c1a986d85c",
+    "seed": 101,
+    "split_owners": [
+      4,
+      2,
+      2
+    ],
+    "status": "Inspected synthetic development/engineering data, never a future protected holdout"
+  },
+  "delivery_branch": "codex/fim-causal-recovery-20261019",
+  "history": [
+    {
+      "date": "2026-10-22",
+      "event": "Source integration and maintained CI scope review",
+      "hosted_checks": "Pending exact new head",
+      "local_tensor_tests": "Blocked before imports; zero tests executed",
+      "prior_state_snapshot": "successor/itfm_v2/maintenance/source_integration_20261022/CURRENT_RESEARCH_STATE_before.json",
+      "record": "successor/itfm_v2/maintenance/source_integration_20261022/review.json",
+      "reviewed_head": "ed279a48ba2424eebdbb202facfe305f84d11ddc",
+      "scientific_disposition_changed": false,
+      "stdlib_controls": "23 passed"
+    }
+  ],
+  "implementation_commit": "7b9c2af4251248eb155e07ab88ea00cbca46184d",
+  "intended_contribution": "Unresolved. Fixed cosine residual regression and causal guards alone do not establish novelty.",
+  "latest_engineering_integration": {
+    "date": "2026-10-22",
+    "historical_claim_fields": "The earlier runtime/claim fields retain their October 19 source-bound meanings; this entry records the subsequent integration review.",
+    "record": "successor/itfm_v2/maintenance/source_integration_20261022/review.json",
+    "scientific_execution_authorized": false,
+    "status": "EXACT_HEAD_CI_PENDING"
+  },
+  "next_scientific_decision": "Admit and implement the fixed-budget strong-baseline/equal-history protocol before any added outcome-bearing comparison; a positive result is not a stopping requirement.",
+  "next_single_action": "Use the verified portable bundle on an authenticated Kaggle session: inspect actual accelerator/quota/jobs, then run CUDA preflight plus the tiny CUDA test suite. Do not launch the larger development manifest.",
+  "pipeline_checkpoints": {
+    "10_RESEARCH_COMPLETE": false,
+    "1_IDEA_READY": "NOT_READY for a new scientific contribution; a baseline-first falsifier is specified",
+    "2_MODEL_SPECIFICATION_READY": "Current maintained estimator specified; no novel successor specification admitted",
+    "3_METHODOLOGY_READY": "Prospective baseline-first protocol; additional implementations and confirmation design unresolved",
+    "4_MODEL_IMPLEMENTED": "Existing maintained mechanism and targeted repairs implemented",
+    "5_EXPERIMENT_SYSTEM_IMPLEMENTED": "Five-control bounded fixture implemented; expanded methodology NOT_IMPLEMENTED",
+    "6_RUN_READY": "CPU software dry run passed; CUDA and expanded scientific run not ready",
+    "7_CONFIRMATORY_PROTOCOL_FROZEN": false,
+    "8_EVIDENCE_LOCKED": "Version-bound CPU engineering evidence retained; no scientific claim locked",
+    "9_VERIFIED": "Internal read-only reviews and local verification only; external reproduction absent"
+  },
+  "portable_bundle": {
+    "bytes": 297714,
+    "files": 66,
+    "fresh_extracted_directory": "52 CPU cases and 23 controls passed; 4 CUDA skipped; same host and environment",
+    "independent_reproduction": false,
+    "path": "audits/fim-causal-recovery-20261019/FIM_Causal_Recovery_20261019.zip",
+    "sha256": "5c2095b29124bfba27f0c0904f526424e47d9170b2086b6446db93f593362fe3"
+  },
+  "project": "Fabric-Induced Memory",
+  "protected_boundaries": [
+    "original corrected 40-cell confirmatory study",
+    "all frozen historical v2 evidence",
+    "consumed v3 campaign and frozen source",
+    "v4 scientific contribution gate and consumed allowances",
+    "all unrelated repositories, including excluded Worldcastr",
+    "ENGRAM remains a separate study"
+  ],
+  "read_first": "Read this state before research work, then RESEARCH_TRUTH.md and the exact version-specific state, protocol and handoff. Update this state at session close; preserve all historical outcomes.",
+  "research_question": "Does causal same-owner residual retrieval supply useful predictive information beyond strong forecasters and equal-history correction at justified total cost?",
+  "results": {
+    "epochs": 2,
+    "examples_seen": 72,
+    "field_elements": 144,
+    "forecasts": 18,
+    "metrics": {
+      "base": {
+        "alpha": 0.0,
+        "test_mse": 0.07254400095649272,
+        "test_retrieval_hits": 0,
+        "validation_mse": 0.12435465429283205
+      },
+      "erased": {
+        "alpha": 0.0,
+        "test_mse": 0.07254400095649272,
+        "test_retrieval_hits": 16,
+        "validation_mse": 0.12435465429283205
+      },
+      "last_residual": {
+        "alpha": 1.0,
+        "test_mse": 0.008063798665607996,
+        "test_retrieval_hits": 16,
+        "validation_mse": 0.015143435820906612
+      },
+      "memory": {
+        "alpha": 1.0,
+        "test_mse": 0.00835317594033442,
+        "test_retrieval_hits": 16,
+        "validation_mse": 0.0176957085069783
+      },
+      "persistence": {
+        "test_mse": 0.00033732270039785607,
+        "validation_mse": 0.0011653442871690219
+      },
+      "spatial_mean": {
+        "alpha": 1.0,
+        "test_mse": 0.07252514875905165,
+        "test_retrieval_hits": 16,
+        "validation_mse": 0.12430143938969292
+      }
+    },
+    "model_parameters": 536,
+    "optimizer_steps": 10,
+    "seed": 101,
+    "status": "PASS_ENGINEERING",
+    "test_owners": 2,
+    "wall_seconds": 7.335284000000684
+  },
+  "schema_version": 1,
+  "source_sha256": "601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291",
+  "updated_utc": "2026-10-19T13:34:00.963624+00:00",
+  "version_lines": [
+    {
+      "reference": "RESEARCH_TRUTH.md",
+      "state": "Historical evidence retained; old shared-minibatch 24-cell matrix retired; corrected 40-cell confirmatory matrix held",
+      "version": "original FIM"
+    },
+    {
+      "reference": "successor/itfm_v2/RESEARCH_STATE.json",
+      "state": "Retained synthetic study and 66/66 remote replay checks; separate from maintained engineering source",
+      "version": "historical ITFM v2"
+    },
+    {
+      "reference": "audits/fim-causal-recovery-20261019/REPORT.md",
+      "state": "52 CPU numerical/runtime passes, four CUDA skips, 23 control passes, one bounded software smoke completed",
+      "version": "maintained v2 fim-sota engineering"
+    },
+    {
+      "reference": "successor/itfm_v3/RESEARCH_STATE.json",
+      "state": "0/30 completed cells, campaign allowance consumed; do not reopen",
+      "version": "ITFM v3"
+    },
+    {
+      "reference": "successor/itfm_v4/RESEARCH_STATE.json",
+      "relationship": "No common ancestor with canonical main; not the full-project base",
+      "runtime_branch": "codex/itfm-v4-runtime-20261016",
+      "runtime_commit": "266fe56ff9897e57b7e610fb7afc369fe767855b",
+      "state": "Historical 87 scalar plus 10 tensor checks at separate runtime commit; scientific contribution blocked, 8/8 concept reviews and engineering repair rounds consumed",
+      "version": "ITFM v4"
+    }
+  ]
+}

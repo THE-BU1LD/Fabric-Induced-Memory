@@ -279,7 +279,8 @@ class UnifiedTrainer:
         self.scheduler = scheduler
         if isinstance(scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
             raise ValueError(
-                "metric-driven schedulers are unsupported; scheduler.step runs per optimizer update"
+                "metric-driven schedulers are unsupported; "
+                "scheduler.step runs per optimizer update"
             )
         self.run_id = run_id
         self.output_root = Path(output_root) / run_id
@@ -334,6 +335,41 @@ class UnifiedTrainer:
             raise ValueError(
                 "move model to the explicit device before creating optimizer"
             )
+        self._optimizer_parameter_groups()
+
+    def _optimizer_parameter_groups(self) -> list[list[str]]:
+        """Bind optimizer positions to model names before training or recovery.
+
+        Optimizer state is restored by group position, not by tensor shape or
+        model name. Equal-shaped parameters therefore need an explicit ordered
+        binding. Frozen model parameters may be included, but every trainable
+        parameter must occur exactly once and no foreign parameter is allowed.
+        """
+        named = dict(self.model.named_parameters())
+        names_by_id = {id(parameter): name for name, parameter in named.items()}
+        seen: set[int] = set()
+        groups: list[list[str]] = []
+        for group in self.optimizer.param_groups:
+            names: list[str] = []
+            for parameter in group["params"]:
+                identity = id(parameter)
+                if identity not in names_by_id:
+                    raise ValueError("optimizer contains a foreign model parameter")
+                if identity in seen:
+                    raise ValueError("optimizer contains a duplicate model parameter")
+                seen.add(identity)
+                names.append(names_by_id[identity])
+            groups.append(names)
+        missing = [
+            name
+            for name, parameter in named.items()
+            if parameter.requires_grad and id(parameter) not in seen
+        ]
+        if missing:
+            raise ValueError(
+                f"optimizer is missing trainable model parameters: {missing}"
+            )
+        return groups
 
     def _elapsed(self) -> float:
         return self._elapsed_before + (
@@ -348,6 +384,13 @@ class UnifiedTrainer:
             "optimizer": type(self.optimizer).__module__
             + "."
             + type(self.optimizer).__qualname__,
+            "optimizer_binding_version": 1,
+            "optimizer_parameter_groups": self._optimizer_parameter_groups(),
+            "trainable_parameter_names": [
+                name
+                for name, parameter in self.model.named_parameters()
+                if parameter.requires_grad
+            ],
             "scheduler": (
                 None
                 if self.scheduler is None
@@ -442,7 +485,8 @@ class UnifiedTrainer:
             raise ValueError("checkpoint training configuration mismatch")
         if payload.get("runtime") != self._runtime_identity():
             raise ValueError(
-                "exact resume requires the same device, precision, optimizer, scheduler and runtime"
+                "exact resume requires the same device, precision, "
+                "optimizer parameter binding, scheduler and runtime"
             )
         if (
             payload.get("resume_boundary")
@@ -594,7 +638,10 @@ class UnifiedTrainer:
                     "batch_sha256": self._batch_sha256,
                     "resume_from": None if resume_from is None else str(resume_from),
                     "energy": "UNAVAILABLE_NO_ADMITTED_METER",
-                    "accumulation": "sample-weighted; state-dependent large-batch equivalence not claimed",
+                    "accumulation": (
+                        "sample-weighted; state-dependent large-batch "
+                        "equivalence not claimed"
+                    ),
                 },
                 overwrite=False,
             )
@@ -711,7 +758,7 @@ class UnifiedTrainer:
                     ):
                         latest = self._save_latest()
                 # Validation is replayable from the cursor at len(train_batches).
-                # Its model state and RNG are restored so validation cannot mutate training memory.
+                # Restore model state and RNG; validation cannot mutate training memory.
                 if self._interrupted:
                     return self._result("PREEMPTED", self._save_latest())
                 if self._elapsed() >= self.config.wall_clock_budget_seconds:
@@ -769,7 +816,7 @@ class UnifiedTrainer:
             return self._result("PASS_ENGINEERING", latest)
         except BaseException as error:
             # Never serialize partially accumulated gradients or changed mutable state.
-            # Recover from the last completed, persisted boundary; work after it replays.
+            # Recover from the last durable boundary; work after it replays.
             failure = {
                 "schema_version": 2,
                 "status": "FAILED",

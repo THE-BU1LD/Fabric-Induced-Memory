@@ -1,3 +1,147 @@
+# Current execution and portable handoff — 19 October 2026
+
+**Current maintained v2 source is CPU tested: 52 numerical/runtime passes,
+four CUDA skips, 23 standard-library passes and one completed bounded smoke.**
+GPU, new scientific contribution, public efficacy and independent reproduction
+remain unverified. The October 16 handoff below remains a historical record.
+
+Implementation/test commit: `7b9c2af4251248eb155e07ab88ea00cbca46184d`.
+Runtime source SHA-256:
+`601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291`.
+Development branch: `codex/fim-causal-recovery-20261019`.
+Sole branch writer for this session: `/root`; reviewers were read-only.
+
+The complete report, failures, exact specification, flaw ledger, prospective
+baseline-first protocol and raw results are under
+`audits/fim-causal-recovery-20261019/`. Begin future research with root
+`CURRENT_RESEARCH_STATE.json`. No v3/v4 consumed allowance is reopened.
+
+## Tested portable package
+
+`FIM_Causal_Recovery_20261019.zip` contains the maintained source, entry script,
+four test files, configs, this handoff, a one-cell CPU manifest and the verified
+completed CPU artifacts under `artifacts/cpu-smoke/`. `BUNDLE_MANIFEST.json`
+binds every included file, the source identity and `campaign.json`. The
+repository retains the ZIP's checksum and extraction/identity verification.
+The included source/tests exactly match the implementation commit above;
+updated explanatory handoffs are subsequent documentation. No token is included.
+
+On a local machine, extract into a new directory. On Kaggle, first inspect the
+actual signed-in account, accelerator selection, remaining quota, current jobs,
+RAM/disk and internet access. None was verified in this chat's unauthenticated
+Kaggle page. Upload the ZIP as an input or copy the package into a fresh working
+directory. The package root is the directory containing `BUNDLE_MANIFEST.json`.
+Do not run from its retained `artifacts/` directory.
+
+Before execution, verify the extracted package from its root using this real
+standard-library check. It neither imports Torch nor starts a run:
+
+```python
+from pathlib import Path
+import hashlib, json
+
+root = Path.cwd()
+manifest = json.loads((root / "BUNDLE_MANIFEST.json").read_text())
+expected = "601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291"
+canonical = lambda obj: (json.dumps(obj, sort_keys=True, separators=(",", ":")) + "\n").encode()
+assert manifest["source"]["sha256"] == expected
+assert hashlib.sha256(canonical(manifest["source"]["files"])).hexdigest() == expected
+for name, checksum in manifest["files"].items():
+    path = (root / name).resolve()
+    assert path.is_relative_to(root.resolve()) and not (root / name).is_symlink()
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == checksum, name
+for name, checksum in manifest["source"]["files"].items():
+    assert manifest["files"][name] == checksum, name
+campaign = json.loads((root / "campaign.json").read_text())
+assert hashlib.sha256(canonical(campaign)).hexdigest() == manifest["campaign_sha256"]
+print("PASS: exact source and complete bundle inventory")
+```
+
+## Environment and minimal launch
+
+The locally tested versions were Python 3.12.14, Torch 2.11.0+cpu,
+NumPy 2.4.4 and pytest 9.1.1. `requirements-runtime.txt` gives compatibility
+constraints, not a CUDA lock. Inspect the Kaggle environment before installing
+anything. Preserve its working CUDA Torch build; a CPU wheel would make the
+CUDA gate impossible. Unsupported/missing packages or hardware are blockers,
+not permission to silently switch devices.
+
+Use one lane and FP32. Set `OMP_NUM_THREADS=1` and `MKL_NUM_THREADS=1` before
+starting Python. In a notebook, run these as separate shell cells from the
+package root, stopping on any nonzero exit; in a terminal run them sequentially:
+
+```sh
+python -u scripts/kaggle.py preflight --runtime --config kaggle/smoke-cpu.json --receipt cpu-preflight.json
+python -u scripts/kaggle.py test --device cpu --receipt cpu-tests.json
+python -u scripts/kaggle.py preflight --runtime --config kaggle/smoke-cuda.json --receipt cuda-preflight.json
+python -u scripts/kaggle.py test --device cuda --receipt cuda-tests.json
+```
+
+Preflight double-samples resources before numerical imports. The test process
+has a 300-second supervisor limit. Explicit CUDA requests must not fall back to
+CPU. A CPU suite has 56 cases: this session passed 52 and skipped four hardware
+checks. CUDA counts depend on actual hardware, including BF16 support; report
+real pass/fail/skip counts. Keep every blocked or failed receipt and log.
+
+The **next single action** is CUDA preflight plus this tiny suite on an actually
+admitted authenticated host. Do not launch the older development manifest first.
+The CPU test here can be repeated to verify the new environment, not to search
+for a favorable scientific score.
+
+## One smoke only, after the gates pass
+
+The existing CUDA smoke is seed 101, two epochs, four/two/two owners, FP32,
+capacity sixteen, top-four and a 120-second cell limit. A run supervisor adds
+30 seconds for owned-worker shutdown. No large sweep is implicit.
+
+```sh
+python -u scripts/kaggle.py run --config kaggle/smoke-cuda.json --output runs/cuda-smoke
+python -u scripts/kaggle.py analyze --root runs/cuda-smoke --output cuda-summary.json
+```
+
+Use a new output directory for every attempt. Do not edit an incomplete attempt
+or its receipt. To export that single completed GPU run, create an exact manifest
+from its own retained config, with explicit setup margin:
+
+```python
+from pathlib import Path
+import json
+config = json.loads(Path("runs/cuda-smoke/config.json").read_text())
+manifest = {"schema_version": 1, "purpose": "smoke",
+            "wall_seconds": config["wall_seconds"] + 60,
+            "cells": [{"id": "cuda-smoke", "config": config}]}
+with Path("cuda-smoke-manifest.json").open("x") as handle:
+    json.dump(manifest, handle, indent=2)
+```
+
+```sh
+python -u scripts/kaggle.py export --manifest cuda-smoke-manifest.json --run-root runs --output fim-cuda-verified.zip
+```
+
+To reproduce the completed CPU fixture instead, run `campaign --manifest
+campaign.json --output runs/cpu-session`, then analyze that root. Its manifest
+includes a 180-second total envelope, accounting for the 120-second cell,
+30-second shutdown reserve and setup margin. Its cell is named `cpu-smoke`.
+
+## Retrieve the evidence
+
+Download `fim-cuda-verified.zip` from the Kaggle working-directory output pane,
+together with `cpu-preflight.json`, `cpu-tests.json`, `cuda-preflight.json`,
+`cuda-tests.json`, `cuda-summary.json` and the notebook/console log. Record the
+actual notebook/job identity and accelerator in the handoff. The verified ZIP
+contains config, environment, source snapshot, raw data/predictions, best/latest
+checkpoints and completion hashes. Inspect `completion.json`; a started job is
+not a completed result. Do not substitute the retained CPU `artifacts/` for a
+new GPU result. If a run fails, download its original receipts/logs and partial
+checkpoints rather than presenting a completed export.
+
+The current CPU smoke has full-memory test MSE .00835317594, last residual
+.00806379867 and persistence .00033732270. It does not support retrieval
+superiority. The separate baseline-first protocol is NOT RUN, additional controls
+are not implemented by this runner, and no scientific paper/release is ready.
+
+---
+
 # FIM Kaggle engineering handoff
 
 16 October 2026. **BLOCKED** until the new tensor correctness and recovery suite

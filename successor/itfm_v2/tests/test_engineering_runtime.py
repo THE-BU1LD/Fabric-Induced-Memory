@@ -4,6 +4,7 @@ import dataclasses
 import json
 import math
 import os
+from itertools import pairwise
 
 import pytest
 import torch
@@ -304,7 +305,7 @@ def test_autonomous_rollout_never_consumes_hidden_future_targets():
         assert bool(torch.isfinite(first["prediction"]).all())
     for owner in fixture["test"]:
         rows = [row for row in original if row["owner"] == owner]
-        for previous, current in zip(rows, rows[1:]):
+        for previous, current in pairwise(rows):
             assert torch.equal(current["context"][-1], previous["prediction"])
 
 
@@ -376,8 +377,22 @@ def test_frozen_replay_is_safe_exact_and_rejects_identity_drift(tmp_path):
                     for row in rows
                 )
                 assert summary[split][metric]["element_count"] == count
-                assert summary[split][metric]["squared_error_sum"] == total
-                assert summary[split][metric]["mse"] == total / count
+                # Independent float64 reductions can differ with tensor rank
+                # and reduction order. Bound only this arithmetic roundoff;
+                # prediction, replay and optimizer equality remain bitwise.
+                tolerance = 4 * count * torch.finfo(torch.float64).eps
+                assert math.isclose(
+                    summary[split][metric]["squared_error_sum"],
+                    total,
+                    rel_tol=tolerance,
+                    abs_tol=0.0,
+                )
+                assert math.isclose(
+                    summary[split][metric]["mse"],
+                    total / count,
+                    rel_tol=tolerance,
+                    abs_tol=0.0,
+                )
     with pytest.raises(FileExistsError):
         evaluate_checkpoint(cfg, checkpoint, tmp_path / "first", *ids)
     _minimal_checkpoint(checkpoint, cfg, data_sha256="0" * 64)

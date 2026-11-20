@@ -1,3 +1,36 @@
+# Current readiness — 19 October 2026
+
+**CPU engineering: LOCALLY_TESTED. GPU: NOT_EXECUTED. Scientific contribution:
+NOT_ESTABLISHED.** Read the dated historical report below in that context.
+
+Implementation commit `7b9c2af4251248eb155e07ab88ea00cbca46184d`, runtime source
+SHA-256 `601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291`:
+52 numerical/runtime tests passed, four CUDA tests skipped; 23 standard-library
+controls passed. A seed-101, two-epoch CPU fixture completed ten updates and
+72 example presentations in 7.335284 seconds end to end. Best/latest checkpoints,
+raw data, predictions, logs and a source snapshot are retained in
+`audits/fim-causal-recovery-20261019/runs_02/cpu-smoke/` in the repository.
+
+This host was Linux x86-64, Python 3.12.14, Torch 2.11.0+cpu, NumPy 2.4.4,
+pytest 9.1.1, one thread and an 8 GiB cgroup. Actual double-sampled admission
+passed before tensor execution. Earlier resource refusals and pre-fix failures
+are preserved. The memory admission floor was not weakened.
+
+No Kaggle account was authenticated in the available browser: Login/Sign Up
+were visible. Accelerator, remaining quota and current jobs were not verified;
+no Kaggle job ran. CUDA/FP16/BF16 correctness and CPU/GPU cost comparisons remain
+unexecuted. The smallest next action is the explicit CUDA preflight and tiny
+CUDA suite in HANDOFF.md, after actual host/account/job inspection.
+
+The five-control smoke is not a benchmark claim: test MSE was .00835317594 for
+full memory, .00806379867 for last residual and .00033732270 for persistence.
+Full memory therefore did not win. Post hoc retained-prediction analysis found
+93.0876% of full-memory squared error at cold start, but warm retrieval also
+lost to the simpler controls. No consumed study or contribution gate changed.
+
+The full report and current research state in the repository are authoritative
+for this session; the October 16 report below is retained unchanged.
+
 # GPU readiness — 16 October 2026
 
 **Status: BLOCKED.** New numerical correctness, exact recovery and GPU precision

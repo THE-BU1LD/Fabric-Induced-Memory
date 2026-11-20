@@ -1,0 +1,18 @@
+{
+  "started_utc": "2026-10-19T12:25:26.763148+00:00",
+  "command": [
+    "/workspace/scratch/467cf3a5db8d/fim-venv/bin/python",
+    "-u",
+    "successor/itfm_v2/scripts/kaggle.py",
+    "campaign",
+    "--manifest",
+    "audits/fim-causal-recovery-20261019/smoke_manifest.json",
+    "--output",
+    "audits/fim-causal-recovery-20261019/runs"
+  ],
+  "exit_status": 1,
+  "wall_seconds": 0.11470582299807575,
+  "log": "smoke_launch.log",
+  "manifest": "smoke_manifest.json",
+  "prospective_protocol": "SMOKE_PROTOCOL.json"
+}

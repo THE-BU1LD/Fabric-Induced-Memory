@@ -1,0 +1,58 @@
+{
+  "same_host_and_environment": true,
+  "independent_reproduction": false,
+  "checks": [
+    {
+      "check": "bundle_control_tests",
+      "started_utc": "2026-10-19T13:40:19.203891+00:00",
+      "command": [
+        "/workspace/scratch/467cf3a5db8d/fim-venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_engineering_control.py",
+        "-v"
+      ],
+      "cwd": "/tmp/fim-causal-bundle-20261019",
+      "exit_code": 0,
+      "wall_seconds": 0.264842618998955
+    },
+    {
+      "check": "bundle_analyze",
+      "started_utc": "2026-10-19T13:40:19.468857+00:00",
+      "command": [
+        "/workspace/scratch/467cf3a5db8d/fim-venv/bin/python",
+        "-u",
+        "scripts/kaggle.py",
+        "analyze",
+        "--root",
+        "artifacts/cpu-smoke",
+        "--output",
+        "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/audits/fim-causal-recovery-20261019/bundle_smoke_analysis.json"
+      ],
+      "cwd": "/tmp/fim-causal-bundle-20261019",
+      "exit_code": 0,
+      "wall_seconds": 0.16462626599968644
+    },
+    {
+      "check": "bundle_cpu_tests",
+      "started_utc": "2026-10-19T13:40:19.633584+00:00",
+      "command": [
+        "/workspace/scratch/467cf3a5db8d/fim-venv/bin/python",
+        "-u",
+        "scripts/kaggle.py",
+        "test",
+        "--device",
+        "cpu",
+        "--receipt",
+        "/workspace/scratch/467cf3a5db8d/Fabric-Induced-Memory/audits/fim-causal-recovery-20261019/bundle_cpu_tests.json"
+      ],
+      "cwd": "/tmp/fim-causal-bundle-20261019",
+      "exit_code": 0,
+      "wall_seconds": 7.185802268999396
+    }
+  ]
+}

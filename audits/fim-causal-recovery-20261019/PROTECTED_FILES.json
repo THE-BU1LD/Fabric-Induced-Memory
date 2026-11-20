@@ -1,0 +1,40 @@
+{
+  "verified_utc": "2026-10-19T13:43:07.876905+00:00",
+  "status": "PASS_LOCAL_DIFF_AND_HISTORY_PRESERVATION",
+  "base_commit": "e1ec0de48b915002418fde7625bdf96659023815",
+  "base_tree_sha": "aee606b511f0706ae1a1f9bf2adca059bcc2b3ab",
+  "base_tracked_blobs": 2905,
+  "modified_existing_paths": [
+    "README.md",
+    "successor/itfm_v2/kaggle/GPU_READINESS.md",
+    "successor/itfm_v2/kaggle/HANDOFF.md",
+    "successor/itfm_v2/src/fim_sota/adapter.py",
+    "successor/itfm_v2/src/fim_sota/engineering.py",
+    "successor/itfm_v2/src/fim_sota/memory.py",
+    "successor/itfm_v2/src/fim_sota/training.py",
+    "successor/itfm_v2/tests/test_engineering_runtime.py",
+    "successor/itfm_v2/tests/test_training_recovery.py"
+  ],
+  "all_other_existing_blobs_unchanged": 2896,
+  "deleted_existing_files": 0,
+  "historical_document_suffixes": {
+    "README.md": {
+      "old_sha256": "422f9f67433b9e472692a1d6fd44000d70c4d1cd18f864af2d8bfeb8d483e476",
+      "old_bytes": 8020,
+      "historical_content_preserved_as_exact_suffix": true
+    },
+    "successor/itfm_v2/kaggle/GPU_READINESS.md": {
+      "old_sha256": "d909b85363df899f21a7dafecd60610deba33b2bd803041c649fd3dc4c535fee",
+      "old_bytes": 4070,
+      "historical_content_preserved_as_exact_suffix": true
+    },
+    "successor/itfm_v2/kaggle/HANDOFF.md": {
+      "old_sha256": "339a4c4b6f9e10d1143fad1030669ed730b7b27b2679369af5763e96b1534e0c",
+      "old_bytes": 9625,
+      "historical_content_preserved_as_exact_suffix": true
+    }
+  },
+  "publication_method": "Git tree patch with the original tree as ancestor; final remote tree checked against all expected Git blob identities before handoff",
+  "frozen_original_v2_v3_v4_study_files": "unchanged",
+  "workflow_files": "unchanged"
+}

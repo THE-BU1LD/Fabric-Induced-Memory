@@ -1,3 +1,25 @@
+# Current research state — 19 October 2026
+
+Read [CURRENT_RESEARCH_STATE.json](CURRENT_RESEARCH_STATE.json) before further
+research work. It records version boundaries, budgets, protected studies,
+claims, failures and the next action; update it at session close without
+rewriting historical evidence.
+
+The maintained v2 engineering repair passed **52 CPU tensor/runtime tests and
+23 standard-library controls**, with **four CUDA skips**. One bounded synthetic
+smoke completed. Full retrieval lost to last residual and persistence; this is
+not a positive scientific-performance or novelty result. The
+[execution report](audits/fim-causal-recovery-20261019/REPORT.md),
+[flaw audit](audits/fim-causal-recovery-20261019/FLAW_AUDIT.md),
+[exact specification](audits/fim-causal-recovery-20261019/TECHNICAL_SPECIFICATION.md)
+and [prospective baseline-first protocol](audits/fim-causal-recovery-20261019/BASELINE_PROTOCOL_NOT_RUN.md)
+separate what is implemented from what remains untested. The
+[current launch handoff](successor/itfm_v2/kaggle/HANDOFF.md) binds the portable
+package to its implementation and evidence. Original, historical v2, consumed
+v3 and scientifically blocked v4 evidence remain separate.
+
+The dated introductions below are preserved as history.
+
 # Kaggle engineering preparation — 16 October 2026
 
 The maintained `fim-sota` CLI now has a bounded engineering path for training,

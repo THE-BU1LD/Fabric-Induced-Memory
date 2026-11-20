@@ -1,0 +1,64 @@
+{
+  "base_main": "e1ec0de48b915002418fde7625bdf96659023815",
+  "ci_scope": {
+    "excluded_from_implicit_root_collection": [
+      "Duplicated FIM/QFIM trees",
+      "Frozen audit/source/replay copies",
+      "Separately versioned successor campaigns"
+    ],
+    "maintained_v2": "successor/itfm_v2/tests (unchanged full suite)",
+    "root": [
+      "tests",
+      "fim/epistemic_tests_full/tests"
+    ],
+    "scientific_40_cell_job": "Byte-identical, still manual-dispatch only"
+  },
+  "cpu_installer": {
+    "existing_v2_lock_unchanged": true,
+    "source": "https://download.pytorch.org/whl/cpu/torch/",
+    "verified_wheels": [
+      "torch-2.11.0+cpu-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "torch-2.11.0+cpu-cp312-cp312-manylinux_2_28_x86_64.whl"
+    ],
+    "version": "2.11.0+cpu"
+  },
+  "date": "2026-10-22",
+  "local_stdlib_control_tests": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=successor/itfm_v2/src python -m unittest discover -s successor/itfm_v2/tests -p test_engineering_control.py -v",
+    "failed": 0,
+    "numpy_imported": false,
+    "passed": 23,
+    "torch_imported": false
+  },
+  "local_tensor_tests": {
+    "available_bytes": [
+      181477376,
+      166395904
+    ],
+    "executed": 0,
+    "receipt": "successor/itfm_v2/maintenance/source_integration_20261022/local_tensor_admission.json",
+    "status": "BLOCKED_BEFORE_IMPORT",
+    "unchanged_floor_bytes": 536870912
+  },
+  "provider_jobs_started": 0,
+  "remaining_gates": [
+    "Fresh exact-head hosted engineering checks",
+    "Any reported artifact retention failure remains a blocking check",
+    "Original scientific and external-review gates remain unresolved"
+  ],
+  "retained_smoke_outcome": "Full memory remains worse than last-residual and persistence; no new efficacy claim.",
+  "reviewed_head": "ed279a48ba2424eebdbb202facfe305f84d11ddc",
+  "reviewed_repairs": [
+    "Mature same-owner donor pool and actual value provenance for cyclic controls",
+    "Stable masked softmax with zero-weight invalid slots",
+    "Stored masks retained in approximate reranking",
+    "Explicit target arrival and integral memory times",
+    "Ordered optimizer parameter identity before checkpoint mutation"
+  ],
+  "runtime_source_sha256": "601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291",
+  "runtime_source_unchanged_from_retained_execution": true,
+  "scientific_freezes_budgets_evidence_unchanged": true,
+  "scientific_runs_started": 0,
+  "source_parse_files": 44,
+  "status": "SOURCE_REVIEW_COMPLETE_EXACT_HEAD_CI_PENDING"
+}

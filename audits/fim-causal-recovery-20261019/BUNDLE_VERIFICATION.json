@@ -1,0 +1,16 @@
+{
+  "status": "PASS_INVENTORY_AND_EXTRACTION",
+  "verified_utc": "2026-10-19T13:40:01.542824+00:00",
+  "zip_file": "FIM_Causal_Recovery_20261019.zip",
+  "zip_sha256": "5c2095b29124bfba27f0c0904f526424e47d9170b2086b6446db93f593362fe3",
+  "zip_bytes": 297714,
+  "files": 66,
+  "source_sha256": "601db1e7acc5be34d20e1913225b3e9ec6d108a36dfdda8b73f2307e6d461291",
+  "implementation_commit": "7b9c2af4251248eb155e07ab88ea00cbca46184d",
+  "numerical_test_sources_match_final_receipt": true,
+  "all_inventory_hashes_verified": true,
+  "path_and_symlink_validation": true,
+  "extracted_to": "/tmp/fim-causal-bundle-20261019",
+  "runtime_tests": "separate bundle_cpu_tests.json receipt",
+  "independent_reproduction": false
+}
